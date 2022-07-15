@@ -1,78 +1,251 @@
 package com.repackage;
 
-import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TimerTask;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ny2 extends TimerTask {
+public final class ny2 {
     public static /* synthetic */ Interceptable $ic;
+    public static a a;
+    public static boolean b;
+    public static final ny2 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public final WheelView3d d;
 
-    public ny2(WheelView3d wheelView3d, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView3d, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = wheelView3d;
-        this.c = i;
-        this.a = Integer.MAX_VALUE;
-        this.b = 0;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(String str, String str2, String str3);
+
+        void b(String str, String str2, String str3);
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == Integer.MAX_VALUE) {
-                this.a = this.c;
-            }
-            int i = this.a;
-            int i2 = (int) (i * 0.1f);
-            this.b = i2;
-            if (i2 == 0) {
-                if (i < 0) {
-                    this.b = -1;
-                } else {
-                    this.b = 1;
+    /* loaded from: classes6.dex */
+    public static final class b<MsgType> implements af3<k53<JSONObject>> {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-141107700, "Lcom/repackage/ny2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-            }
-            if (Math.abs(this.a) <= 1) {
-                this.d.b();
-                this.d.getHandler().sendEmptyMessage(3000);
-                return;
-            }
-            WheelView3d wheelView3d = this.d;
-            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() + this.b);
-            if (!this.d.i()) {
-                float itemHeight = this.d.getItemHeight();
-                float itemsCount = ((this.d.getItemsCount() - 1) - this.d.getInitPosition()) * itemHeight;
-                if (this.d.getTotalScrollY() <= (-this.d.getInitPosition()) * itemHeight || this.d.getTotalScrollY() >= itemsCount) {
-                    WheelView3d wheelView3d2 = this.d;
-                    wheelView3d2.setTotalScrollY(wheelView3d2.getTotalScrollY() - this.b);
-                    this.d.b();
-                    this.d.getHandler().sendEmptyMessage(3000);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-141107700, "Lcom/repackage/ny2$b;");
                     return;
                 }
             }
-            this.d.getHandler().sendEmptyMessage(1000);
-            this.a -= this.b;
+            a = new b();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public final void a(k53<JSONObject> it) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
+                Intrinsics.checkNotNullExpressionValue(it, "it");
+                if (it.c()) {
+                    JSONObject jSONObject = it.a;
+                    JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
+                    a b = ny2.c.b();
+                    if (optJSONObject != null) {
+                        String openId = optJSONObject.optString("openid");
+                        if (b == null || !ProcessUtils.isMainProcess()) {
+                            ny2.c.d(null, openId);
+                            return;
+                        }
+                        Intrinsics.checkNotNullExpressionValue(openId, "openId");
+                        g03 K = g03.K();
+                        Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
+                        String appId = K.getAppId();
+                        tl1 n = oj2.n();
+                        Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
+                        b.a(openId, appId, n.a());
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c<MsgType> implements af3<k53<JSONObject>> {
+        public static /* synthetic */ Interceptable $ic;
+        public static final c a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-141107669, "Lcom/repackage/ny2$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-141107669, "Lcom/repackage/ny2$c;");
+                    return;
+                }
+            }
+            a = new c();
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public final void a(k53<JSONObject> it) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
+                Intrinsics.checkNotNullExpressionValue(it, "it");
+                if (it.c()) {
+                    JSONObject jSONObject = it.a;
+                    JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
+                    a b = ny2.c.b();
+                    if (optJSONObject != null) {
+                        String swanId = optJSONObject.optString("swanid");
+                        if (b == null || !ProcessUtils.isMainProcess()) {
+                            ny2.c.d(swanId, null);
+                            return;
+                        }
+                        Intrinsics.checkNotNullExpressionValue(swanId, "swanId");
+                        g03 K = g03.K();
+                        Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
+                        String appId = K.getAppId();
+                        tl1 n = oj2.n();
+                        Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
+                        b.b(swanId, appId, n.a());
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755453238, "Lcom/repackage/ny2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755453238, "Lcom/repackage/ny2;");
+                return;
+            }
+        }
+        c = new ny2();
+    }
+
+    public ny2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (a) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b : invokeV.booleanValue;
+    }
+
+    public final void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            g03 K = g03.K();
+            Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
+            cx2 y = K.y();
+            if (y != null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("swanId", str);
+                bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str2);
+                g03 K2 = g03.K();
+                Intrinsics.checkNotNullExpressionValue(K2, "Swan.get()");
+                bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, K2.getAppId());
+                tl1 n = oj2.n();
+                Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
+                bundle.putString("hostName", n.a());
+                y.W(bundle, my2.class);
+            }
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            g03 K = g03.K();
+            Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
+            kh1 x = K.x();
+            Intrinsics.checkNotNullExpressionValue(x, "Swan.get().adaptationProducer");
+            o53 f = x.a().b().f(g03.K());
+            f.o(b.a);
+            f.call();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            g03 K = g03.K();
+            Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
+            kh1 x = K.x();
+            Intrinsics.checkNotNullExpressionValue(x, "Swan.get().adaptationProducer");
+            p53 e = x.a().b().e(g03.K());
+            e.o(c.a);
+            e.call();
         }
     }
 }

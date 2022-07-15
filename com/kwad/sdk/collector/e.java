@@ -1,33 +1,20 @@
 package com.kwad.sdk.collector;
 
-import android.content.Context;
-import androidx.annotation.Nullable;
+import android.os.Build;
+import com.kwad.sdk.utils.l;
+import com.kwad.sdk.utils.o;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public abstract class e<T> {
-    public boolean a;
-    public boolean b = false;
-
-    public e(boolean z) {
-        this.a = z;
-    }
-
-    @Nullable
-    public final T a(Context context) {
-        if (this.a && !this.b) {
+public final class e {
+    public static String a(String str) {
+        if (Build.VERSION.SDK_INT >= 19) {
             try {
-                return b(context);
-            } catch (Throwable th) {
-                com.kwad.sdk.core.d.a.b(th);
-                return null;
+                return new String(com.kwad.sdk.core.a.c.a().a(l.a(o.g(new File(str)))));
+            } catch (IOException e) {
+                com.kwad.sdk.core.d.b.a(e);
             }
         }
         return null;
     }
-
-    public void a(boolean z) {
-        this.a = z;
-    }
-
-    @Nullable
-    public abstract T b(Context context);
 }

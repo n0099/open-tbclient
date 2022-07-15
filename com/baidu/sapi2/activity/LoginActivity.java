@@ -426,7 +426,7 @@ public class LoginActivity extends BaseActivity {
             super.onCreate(bundle);
             try {
                 if (this.mNeedSetContentView) {
-                    setContentView(R.layout.obfuscated_res_0x7f0d04c8);
+                    setContentView(R.layout.obfuscated_res_0x7f0d04e1);
                 }
                 init();
                 setupViews();
@@ -470,7 +470,7 @@ public class LoginActivity extends BaseActivity {
                 return;
             }
             sapiWebView.mExcludeTypes = LoginTypes.SHARE;
-            setTitleText(R.string.obfuscated_res_0x7f0f1094);
+            setTitleText(R.string.obfuscated_res_0x7f0f108b);
             this.sapiWebView.loadLogin(1, this.C);
         }
     }
@@ -496,7 +496,7 @@ public class LoginActivity extends BaseActivity {
             this.z = getIntent().getStringExtra(EXTRA_LOGIN_TYPE);
             this.A = getIntent().getStringExtra(EXTRA_PARAM_ENCRYPTED_UID);
             this.B = getIntent().getStringExtra("extraJson");
-            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091bcc);
+            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091c6b);
             this.sapiWebView = sapiWebView;
             sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.LoginActivity.4
                 public static /* synthetic */ Interceptable $ic;
@@ -793,7 +793,7 @@ public class LoginActivity extends BaseActivity {
             setNewLoginTitleAndSetStyleChangeCallBack();
             if (!WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.z) && !WebLoginDTO.EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT.equals(this.z)) {
                 if (WebLoginDTO.EXTRA_LOGIN_WITH_SMS.equals(this.z)) {
-                    setTitleText(R.string.obfuscated_res_0x7f0f1094);
+                    setTitleText(R.string.obfuscated_res_0x7f0f108b);
                     this.sapiWebView.loadLogin(1, this.C);
                     return;
                 } else if (WebLoginDTO.EXTRA_LOGIN_WITH_NAME_PHONE_EMAIL.equals(this.z)) {
@@ -809,7 +809,7 @@ public class LoginActivity extends BaseActivity {
                     if (!TextUtils.isEmpty(this.x)) {
                         this.C.add(new PassNameValuePair(SapiWebView.PARAMS_LOGIN_WITH_USER_NAME, this.x));
                     }
-                    setTitleText(R.string.obfuscated_res_0x7f0f1083);
+                    setTitleText(R.string.obfuscated_res_0x7f0f107a);
                     this.sapiWebView.loadLogin(this.C);
                     return;
                 }

@@ -1,19 +1,15 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.forumMember.member.ForumMemberReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.member.ForumMemberReadCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fa6 implements CustomMessageTask.CustomRunnable<Object> {
+public class fa6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
     public fa6() {
         Interceptable interceptable = $ic;
@@ -25,27 +21,9 @@ public class fa6 implements CustomMessageTask.CustomRunnable<Object> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage instanceof ForumMemberReadCacheRequestMessage) {
-                byte[] a = new da6().a(((ForumMemberReadCacheRequestMessage) customMessage).getForumName());
-                ForumMemberReadCacheResponseMessage forumMemberReadCacheResponseMessage = new ForumMemberReadCacheResponseMessage();
-                try {
-                    forumMemberReadCacheResponseMessage.decodeInBackGround(2003009, a);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return forumMemberReadCacheResponseMessage;
-            }
-            return null;
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
+        this.a = -1;
     }
 }

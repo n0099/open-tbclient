@@ -1,72 +1,98 @@
 package com.kwad.sdk.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.api.loader.Loader;
-import java.io.InputStream;
+import android.location.Location;
+import android.location.LocationManager;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import com.baidu.sofire.utility.PermissionChecker;
+import com.kwad.sdk.service.ServiceProvider;
 /* loaded from: classes5.dex */
-public class p {
-    public static String a = "";
-    public static String b = "";
-    public static String c = "";
+public final class p {
+    public static boolean a;
+    public static Location b;
 
-    public static String a(int i) {
-        String str;
-        String str2;
-        Context context = KsAdSDKImpl.get().getContext();
-        if (context == null) {
-            com.kwad.sdk.core.d.a.e("EncryptUtils", "EncryptUtils getKey context is null");
-            return "";
-        }
-        if (i == 0) {
-            str = a;
-            str2 = GrowthConstant.UBC_KEY_AES_KEY;
-        } else if (i == 1) {
-            str = b;
-            str2 = "rsa_public_key";
-        } else if (i != 2) {
-            str = "";
-            str2 = str;
-        } else {
-            str = c;
-            str2 = "rsa_private_key";
-        }
-        if (TextUtils.isEmpty(str)) {
-            if (TextUtils.isEmpty(str2)) {
-                com.kwad.sdk.core.d.a.e("EncryptUtils", "EncryptUtils getKey get id is error ");
+    @Nullable
+    public static Location a(Context context) {
+        if (!an.a() || an.b() == null) {
+            if (a || b != null || context == null) {
+                return b;
             }
-            try {
-                InputStream open = Loader.get().getExternalResource().getAssets().open("ksad_common_encrypt_image.png");
-                if (open == null) {
-                    open = context.getAssets().open("ksad_common_encrypt_image.png");
+            if (!an.a() && !((com.kwad.sdk.service.kwai.f) ServiceProvider.a(com.kwad.sdk.service.kwai.f.class)).a(64L)) {
+                try {
+                    LocationManager locationManager = (LocationManager) context.getSystemService("location");
+                    if (locationManager.isProviderEnabled("gps")) {
+                        b = a(context, locationManager);
+                    }
+                    if (b == null && locationManager.isProviderEnabled("network")) {
+                        b = b(context, locationManager);
+                    }
+                    if (b == null && locationManager.isProviderEnabled("passive")) {
+                        b = c(context, locationManager);
+                    }
+                    return b;
+                } catch (Exception e) {
+                    a = true;
+                    com.kwad.sdk.core.d.b.b(e);
                 }
-                String a2 = a(str2, open);
-                if (TextUtils.isEmpty(a2)) {
-                    com.kwad.sdk.core.d.a.e("EncryptUtils", "EncryptUtils getKey get encryptedKey is invalid ");
-                }
-                if (i == 0) {
-                    a = a2;
-                } else if (i == 1) {
-                    b = a2;
-                } else if (i == 2) {
-                    c = a2;
-                }
-                return a2;
             }
+            return null;
         }
-        return str;
+        return an.b();
     }
 
-    public static String a(String str, InputStream inputStream) {
-        String b2;
-        synchronized (p.class) {
-            com.kwad.sdk.pngencrypt.o oVar = new com.kwad.sdk.pngencrypt.o(inputStream, true);
-            oVar.c();
-            b2 = oVar.b().b(str);
-            oVar.d();
+    @SuppressLint({"MissingPermission"})
+    public static Location a(Context context, LocationManager locationManager) {
+        try {
+            if (ContextCompat.checkSelfPermission(context, PermissionChecker.ACCESS_FINE_LOCATION) == 0) {
+                Location lastKnownLocation = locationManager.getLastKnownLocation("gps");
+                if (lastKnownLocation == null) {
+                    a = true;
+                }
+                return lastKnownLocation;
+            }
+            return null;
+        } catch (Exception e) {
+            a = true;
+            com.kwad.sdk.core.d.b.b(e);
+            return null;
         }
-        return b2;
+    }
+
+    @SuppressLint({"MissingPermission"})
+    public static Location b(Context context, LocationManager locationManager) {
+        try {
+            if (ContextCompat.checkSelfPermission(context, PermissionChecker.ACCESS_FINE_LOCATION) == 0 || ContextCompat.checkSelfPermission(context, PermissionChecker.ACCESS_COARSE_LOCATION) == 0) {
+                Location lastKnownLocation = locationManager.getLastKnownLocation("network");
+                if (lastKnownLocation == null) {
+                    a = true;
+                }
+                return lastKnownLocation;
+            }
+            return null;
+        } catch (Exception e) {
+            a = true;
+            com.kwad.sdk.core.d.b.b(e);
+            return null;
+        }
+    }
+
+    @SuppressLint({"MissingPermission"})
+    public static Location c(Context context, LocationManager locationManager) {
+        try {
+            if (ContextCompat.checkSelfPermission(context, PermissionChecker.ACCESS_COARSE_LOCATION) == 0) {
+                Location lastKnownLocation = locationManager.getLastKnownLocation("passive");
+                if (lastKnownLocation == null) {
+                    a = true;
+                }
+                return lastKnownLocation;
+            }
+            return null;
+        } catch (Exception e) {
+            a = true;
+            com.kwad.sdk.core.d.b.b(e);
+            return null;
+        }
     }
 }

@@ -1,108 +1,232 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.os.Build;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
+import com.baidu.tbadk.core.flow.CoverFlowView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class xf8 {
+public class xf8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThemeElement a;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashSet<String> a;
+    public ArrayList<vf8> b;
+    public CoverFlowView<vf8> c;
+    public cs4<vf8> d;
+    public TbPageContext<?> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755173401, "Lcom/repackage/xf8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements cs4<vf8> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xf8 a;
+
+        public a(xf8 xf8Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xf8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755173401, "Lcom/repackage/xf8;");
+            this.a = xf8Var;
+        }
+
+        @Override // com.repackage.cs4
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
+                vf8 vf8Var = (vf8) ListUtils.getItem(this.a.b, i);
+                String c = vf8Var != null ? vf8Var.c() : null;
+                if (UrlManager.getInstance().dealOneLink(this.a.e, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(c)) {
+                    TiebaStatic.eventStat(this.a.e.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "CLICK", "task", "tbanner", "obj_id", String.valueOf(c), "obj_name", String.valueOf(c), "obj_cpid", 0, TiebaStatic.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", HttpConstants.OS_VERSION, Build.VERSION.RELEASE, "log_ver", "1.1");
+                }
+                Activity pageActivity = this.a.e.getPageActivity();
+                TiebaStatic.eventStat(pageActivity, "square_banner_picture", "click", 1, "loc", (i - 1) + "");
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.cs4
+        /* renamed from: c */
+        public void a(int i, vf8 vf8Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, vf8Var) == null) || vf8Var == null) {
+                return;
+            }
+            String c = vf8Var.c();
+            if (i == 2 && !TextUtils.isEmpty(c) && this.a.a.add(c)) {
+                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "VIEW_TRUE", "task", "tbanner", "obj_id", String.valueOf(c), "obj_name", String.valueOf(c), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends as4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+
+        public b(xf8 xf8Var, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xf8Var, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+        }
+
+        @Override // com.repackage.as4, com.repackage.yr4
+        public bs4 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                bs4 a = super.a();
+                if (a != null) {
+                    a.d(85);
+                    a.e(R.dimen.obfuscated_res_0x7f0701d5);
+                    a.f(R.dimen.obfuscated_res_0x7f070201);
+                }
+                return a;
+            }
+            return (bs4) invokeV.objValue;
+        }
+
+        @Override // com.repackage.as4, com.repackage.yr4
+        public ds4 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                ds4 ds4Var = new ds4();
+                ds4Var.a(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a4));
+                return ds4Var;
+            }
+            return (ds4) invokeV.objValue;
+        }
+    }
+
+    public xf8(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ThemeElement.Builder builder = new ThemeElement.Builder();
-        builder.common_color = "#FF614EC2";
-        builder.dark_color = "#FF614EC2";
-        builder.light_color = "#FF614EC2";
-        builder.pattern_image = "http://imgsrc.baidu.com/forum/pic/item/00a8540828381f3028c4e2d1a6014c086f06f075.jpg";
-        builder.font_color = "#FFFFFFFF";
-        a = builder.build(false);
+        this.a = new HashSet<>();
+        this.b = new ArrayList<>();
+        this.c = null;
+        this.d = new a(this);
+        this.e = tbPageContext;
+        this.c = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.c.setCoverFlowFactory(new b(this, tbPageContext));
+        this.c.setCallback(this.d);
     }
 
-    public static int a(int i, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? (i & 16777215) | (((int) ((i >>> 24) * f)) << 24) : invokeCommon.intValue;
-    }
-
-    @NonNull
-    public static ThemeElement b() {
+    public CoverFlowView<vf8> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (ThemeElement) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (CoverFlowView) invokeV.objValue;
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
+    public void e(int i) {
+        CoverFlowView<vf8> coverFlowView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            float[] fArr = new float[3];
-            Color.colorToHSV(i, fArr);
-            if ((fArr[0] < 0.0f || fArr[0] >= 60.0f) && ((fArr[0] < 120.0f || fArr[0] >= 180.0f) && fArr[0] < 240.0f && fArr[0] >= 300.0f)) {
-                fArr[0] = fArr[0] + 15.0f;
-            } else {
-                fArr[0] = fArr[0] - 15.0f;
-            }
-            return Color.HSVToColor(fArr);
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (coverFlowView = this.c) == null) {
+            return;
         }
-        return invokeI.intValue;
+        coverFlowView.s();
     }
 
-    public static int d(Context context, String str) {
-        InterceptResult invokeLL;
+    public void f(ArrayList<nq4> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            if (context == null || context.getResources() == null) {
-                return 0;
-            }
-            return context.getResources().getIdentifier(str, "color", context.getPackageName());
-        }
-        return invokeLL.intValue;
-    }
-
-    public static boolean e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
-    }
-
-    public static int f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str != null) {
-                if (str.length() != 0) {
-                    try {
-                        if (!str.startsWith("#")) {
-                            str = "#" + str;
-                        }
-                    } catch (Exception unused) {
-                        return Integer.MAX_VALUE;
-                    }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            ArrayList<vf8> arrayList2 = new ArrayList<>();
+            Iterator<nq4> it = arrayList.iterator();
+            while (it.hasNext()) {
+                nq4 next = it.next();
+                if (next != null) {
+                    arrayList2.add(new vf8(next));
                 }
-                return Color.parseColor(str);
             }
-            return Integer.MAX_VALUE;
+            this.b = arrayList2;
+            this.c.setData(arrayList2);
+            notifyDataSetChanged();
         }
-        return invokeL.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList<vf8> arrayList = this.b;
+            return (arrayList != null ? arrayList.size() + 0 : 0) > 0 ? 1 : 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? Integer.valueOf(i) : invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) ? this.c : (View) invokeILL.objValue;
     }
 }

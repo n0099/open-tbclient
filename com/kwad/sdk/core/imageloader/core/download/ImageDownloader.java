@@ -40,14 +40,14 @@ public interface ImageDownloader {
             return UNKNOWN;
         }
 
-        public String crop(String str) {
+        public final String crop(String str) {
             if (belongsTo(str)) {
                 return str.substring(this.uriPrefix.length());
             }
             throw new IllegalArgumentException(String.format("URI [%1$s] doesn't have expected scheme [%2$s]", str, this.scheme));
         }
 
-        public String wrap(String str) {
+        public final String wrap(String str) {
             return this.uriPrefix + str;
         }
     }

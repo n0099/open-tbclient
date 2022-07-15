@@ -17,6 +17,7 @@ import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingProgressListener;
 import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import com.kwad.sdk.core.imageloader.utils.L;
+import com.kwad.sdk.crash.utils.b;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -184,7 +185,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         try {
             return this.configuration.diskCache.save(this.uri, stream, this);
         } finally {
-            IoUtils.closeSilently(stream);
+            b.a(stream);
         }
     }
 
@@ -401,12 +402,12 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         return isTaskNotActual();
     }
 
-    public String getLoadingUri() {
+    public final String getLoadingUri() {
         return this.uri;
     }
 
     @Override // com.kwad.sdk.core.imageloader.utils.IoUtils.CopyListener
-    public boolean onBytesCopied(int i, int i2) {
+    public final boolean onBytesCopied(int i, int i2) {
         return this.syncLoading || fireProgressEvent(i, i2);
     }
 
@@ -415,7 +416,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void run() {
+    public final void run() {
         Bitmap process;
         if (waitIfPaused() || delayIfNeed()) {
             return;

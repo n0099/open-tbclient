@@ -1,78 +1,113 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.Path;
+import android.graphics.Rect;
 import android.graphics.RectF;
-import com.baidu.android.imsdk.internal.Constants;
+import android.hardware.Camera;
+import android.view.MotionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class at1 extends ys1 {
+public class at1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RectF a;
-    public float b;
-    public float c;
-    public boolean d;
 
-    public at1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a implements Camera.AutoFocusCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = str;
+        }
+
+        @Override // android.hardware.Camera.AutoFocusCallback
+        public void onAutoFocus(boolean z, Camera camera) {
+            Camera.Parameters parameters;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, camera) == null) || camera == null || (parameters = camera.getParameters()) == null) {
+                return;
+            }
+            parameters.setFocusMode(this.a);
+            camera.setParameters(parameters);
         }
     }
 
-    @Override // com.repackage.ys1
-    public void a(zs1 zs1Var, Canvas canvas) {
+    public static Rect a(float f, float f2, float f3, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, zs1Var, canvas) == null) || this.a == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int i3 = (int) (((f / i) * 2000.0f) - 1000.0f);
+            int i4 = (int) (((f2 / i2) * 2000.0f) - 1000.0f);
+            int intValue = Float.valueOf(f3 * 300.0f).intValue() / 2;
+            RectF rectF = new RectF(b(i3 - intValue, -1000, 1000), b(i4 - intValue, -1000, 1000), b(i3 + intValue, -1000, 1000), b(i4 + intValue, -1000, 1000));
+            return new Rect(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
         }
-        if (!this.d && Math.abs(this.c) >= 360.0f) {
-            Path path = zs1Var.f;
-            RectF rectF = this.a;
-            float f = rectF.bottom;
-            float f2 = rectF.top;
-            path.addCircle((rectF.right + rectF.left) / 2.0f, (f + f2) / 2.0f, (f - f2) / 2.0f, Path.Direction.CW);
-            zs1Var.f.arcTo(this.a, 0.0f, this.b);
-            return;
-        }
-        float f3 = this.c % 360.0f;
-        if (f3 < 0.0f && !this.d) {
-            f3 += 360.0f;
-        } else if (f3 > 0.0f && this.d) {
-            f3 -= 360.0f;
-        }
-        zs1Var.f.arcTo(this.a, this.b, f3);
+        return (Rect) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.ys1
-    public void b(JSONArray jSONArray) {
+    public static int b(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            if (jSONArray.length() > 4) {
-                int g = jd3.g((float) jSONArray.optDouble(0));
-                int g2 = jd3.g((float) jSONArray.optDouble(1));
-                int g3 = jd3.g((float) jSONArray.optDouble(2));
-                float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
-                float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
-                this.a = new RectF(g - g3, g2 - g3, g + g3, g2 + g3);
-                this.b = degrees;
-                this.c = degrees2 - degrees;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
+    }
+
+    public static String c(Camera.Parameters parameters) {
+        InterceptResult invokeL;
+        List<String> supportedFocusModes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, parameters)) == null) {
+            if (parameters != null && (supportedFocusModes = parameters.getSupportedFocusModes()) != null) {
+                if (supportedFocusModes.contains("macro")) {
+                    return "macro";
+                }
+                if (supportedFocusModes.contains("continuous-picture")) {
+                    return "continuous-picture";
+                }
             }
-            if (jSONArray.length() > 5) {
-                this.d = jSONArray.optBoolean(5);
-            }
+            return "auto";
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(MotionEvent motionEvent, Camera camera, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLII(65539, null, motionEvent, camera, i, i2) == null) || motionEvent == null || camera == null) {
+            return;
+        }
+        Rect a2 = a(motionEvent.getX(), motionEvent.getY(), 1.0f, i, i2);
+        camera.cancelAutoFocus();
+        Camera.Parameters parameters = camera.getParameters();
+        if (parameters == null) {
+            return;
+        }
+        if (parameters.getMaxNumFocusAreas() > 0) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new Camera.Area(a2, 800));
+            parameters.setFocusAreas(arrayList);
+        }
+        String focusMode = parameters.getFocusMode();
+        parameters.setFocusMode(c(parameters));
+        camera.setParameters(parameters);
+        camera.autoFocus(new a(focusMode));
     }
 }

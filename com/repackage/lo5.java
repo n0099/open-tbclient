@@ -1,51 +1,22 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class lo5 {
     public static /* synthetic */ Interceptable $ic;
+    public static lo5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<a> b;
-    public String c;
-
-    /* loaded from: classes6.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public a(lo5 lo5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lo5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            jSONObject.optString("user_id");
-            this.a = jSONObject.optString("portrait");
-        }
-    }
+    public List<StatisticItem> a;
 
     public lo5() {
         Interceptable interceptable = $ic;
@@ -57,36 +28,50 @@ public class lo5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
     }
 
-    public void a(JSONObject jSONObject) {
+    public static lo5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
-        if (optJSONObject != null) {
-            this.a = optJSONObject.optInt("has_follow_live") == 1;
-            JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.b = new ArrayList<>(optJSONArray.length());
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject2 != null) {
-                        a aVar = new a(this);
-                        aVar.a(optJSONObject2);
-                        this.b.add(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (lo5.class) {
+                    if (b == null) {
+                        b = new lo5();
                     }
                 }
             }
+            return b;
         }
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
-        if (optJSONObject3 != null) {
-            this.c = optJSONObject3.optString("url");
+        return (lo5) invokeV.objValue;
+    }
+
+    public void a(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null) {
+            return;
         }
+        if (this.a == null) {
+            this.a = new ArrayList();
+        }
+        List<StatisticItem> list = this.a;
+        if (list != null) {
+            list.add(statisticItem);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ListUtils.getCount(this.a) == 0) {
+            return;
+        }
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null) {
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
     }
 }

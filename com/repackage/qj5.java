@@ -1,18 +1,18 @@
 package com.repackage;
 
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class qj5 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public abstract class qj5 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public an4 b;
-    public String c;
 
     public qj5() {
         Interceptable interceptable = $ic;
@@ -28,19 +28,12 @@ public class qj5 {
         }
     }
 
-    public static qj5 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint ds) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            qj5 qj5Var = new qj5();
-            qj5Var.a = jSONObject.optInt("download_state");
-            qj5Var.b = an4.b(jSONObject.optJSONObject("app_info"));
-            qj5Var.c = jSONObject.optString("download_hint");
-            return qj5Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ds) == null) {
+            Intrinsics.checkNotNullParameter(ds, "ds");
+            ds.setColor(TbadkApplication.getInst().getResources().getColor(R.color.CAM_X0303));
         }
-        return (qj5) invokeL.objValue;
     }
 }

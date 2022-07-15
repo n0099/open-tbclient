@@ -1,308 +1,230 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.Callback;
 import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.internal.Util;
-import com.baidu.searchbox.network.support.dns.Dns;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.searchbox.network.support.cookie.CookieJarImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.Proxy;
-import java.net.ProxySelector;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import javax.net.SocketFactory;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes6.dex */
-public class i50 implements Cloneable, Call.Factory {
+public final class i50 implements Call {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final d50 b;
-    @Nullable
-    public final Proxy c;
-    public final List<e50> d;
-    public final List<e50> e;
-    public final ProxySelector f;
-    public final SSLSocketFactory g;
-    public final HostnameVerifier h;
-    public final Dns i;
-    public final int j;
-    public final int k;
-    public final int l;
-    public m50 m;
-    public boolean n;
-    public boolean o;
-    public String p;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755667603, "Lcom/repackage/i50;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755667603, "Lcom/repackage/i50;");
-                return;
-            }
-        }
-        new ArrayList(2);
-    }
-
-    public i50(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.n = false;
-        this.o = false;
-        this.p = null;
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = Util.immutableList(aVar.d);
-        this.e = Util.immutableList(aVar.e);
-        this.f = aVar.f;
-        this.g = aVar.g;
-        this.h = aVar.h;
-        this.i = aVar.k;
-        this.j = aVar.l;
-        this.k = aVar.m;
-        this.l = aVar.n;
-        if (!this.d.contains(null)) {
-            if (!this.e.contains(null)) {
-                this.m = aVar.o;
-                this.n = aVar.i;
-                this.o = aVar.j;
-                this.p = aVar.p;
-                return;
-            }
-            throw new IllegalStateException("Null network interceptor: " + this.e);
-        }
-        throw new IllegalStateException("Null interceptor: " + this.d);
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call.Factory
-    public Call newCall(Request request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) ? h50.c(request, this, false) : (Call) invokeL.objValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public d50 p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (d50) invokeV.objValue;
-    }
-
-    public HostnameVerifier q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (HostnameVerifier) invokeV.objValue;
-    }
-
-    public m50 r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : (m50) invokeV.objValue;
-    }
-
-    public List<e50> s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (List) invokeV.objValue;
-    }
-
-    public List<e50> t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (List) invokeV.objValue;
-    }
-
-    public a u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new a(this) : (a) invokeV.objValue;
-    }
-
-    public ProxySelector v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : (ProxySelector) invokeV.objValue;
-    }
-
-    public int w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    public SSLSocketFactory x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g : (SSLSocketFactory) invokeV.objValue;
-    }
-
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.p : (String) invokeV.objValue;
-    }
+    public final j50 a;
+    public final Request b;
+    public final boolean c;
+    public boolean d;
+    public d50 e;
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public final class a extends g50 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Context a;
-        public d50 b;
-        @Nullable
-        public Proxy c;
-        public final List<e50> d;
-        public final List<e50> e;
-        public ProxySelector f;
-        @Nullable
-        public SSLSocketFactory g;
-        public HostnameVerifier h;
-        public boolean i;
-        public boolean j;
-        public Dns k;
-        public int l;
-        public int m;
-        public int n;
-        public m50 o;
-        public String p;
+        public final Callback b;
+        public final /* synthetic */ i50 c;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(i50 i50Var, Callback callback) {
+            super("BaiduNetwork %s", i50Var.d());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i50Var, callback};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (Object[]) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = new ArrayList();
-            this.e = new ArrayList();
-            this.b = new d50();
-            ProxySelector proxySelector = ProxySelector.getDefault();
-            this.f = proxySelector;
-            if (proxySelector == null) {
-                this.f = new g50();
-            }
-            SocketFactory.getDefault();
-            this.h = null;
-            this.k = Dns.SYSTEM;
-            this.l = 10000;
-            this.m = 10000;
-            this.n = 10000;
-            this.o = new k50();
+            this.c = i50Var;
+            this.b = callback;
         }
 
-        public a a(e50 e50Var) {
-            InterceptResult invokeL;
+        @Override // com.repackage.g50
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e50Var)) == null) {
-                if (e50Var != null) {
-                    this.d.add(e50Var);
-                    return this;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    try {
+                        this.b.onResponse(this.c, this.c.b());
+                    } catch (IOException e) {
+                        this.b.onFailure(this.c, e);
+                    }
+                } finally {
+                    this.c.a.p().d(this);
                 }
-                throw new IllegalArgumentException("interceptor == null");
             }
-            return (a) invokeL.objValue;
         }
 
         public i50 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new i50(this) : (i50) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (i50) invokeV.objValue;
         }
 
-        public a c(d50 d50Var) {
-            InterceptResult invokeL;
+        public String c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d50Var)) == null) {
-                if (d50Var != null) {
-                    this.b = d50Var;
-                    return this;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.b.url().host() : (String) invokeV.objValue;
+        }
+    }
+
+    public i50(Request request, j50 j50Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {request, j50Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = request;
+        this.c = z;
+        this.a = j50Var;
+        n50 n50Var = j50Var.m;
+        this.e = new d50(j50Var);
+    }
+
+    public static i50 c(Request request, j50 j50Var, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, request, j50Var, z)) == null) ? new i50(request, j50Var, z) : (i50) invokeLLZ.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    /* renamed from: a */
+    public i50 clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c(this.b, this.a, this.c) : (i50) invokeV.objValue;
+    }
+
+    public Response b() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.a.s());
+            arrayList.add(new q50(new CookieJarImpl(this.b.getCookieManager()), this.a));
+            arrayList.add(this.e);
+            arrayList.addAll(this.a.t());
+            arrayList.add(new r50());
+            return new s50(arrayList, null, 0, this.b, this).a(this.b);
+        }
+        return (Response) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.b();
+        }
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.url().redact() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public void enqueue(Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
+            synchronized (this) {
+                if (!this.d) {
+                    this.d = true;
+                } else {
+                    throw new IllegalStateException("Already Executed");
                 }
-                throw new IllegalArgumentException("dispatcher == null");
             }
-            return (a) invokeL.objValue;
+            this.a.p().a(new a(this, callback));
         }
+    }
 
-        public a d(m50 m50Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, m50Var)) == null) {
-                this.o = m50Var;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a(i50 i50Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i50Var};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public Response execute() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                if (!this.d) {
+                    this.d = true;
+                } else {
+                    throw new IllegalStateException("Already Executed");
                 }
             }
-            this.d = new ArrayList();
-            this.e = new ArrayList();
-            this.b = i50Var.b;
-            this.c = i50Var.c;
-            this.d.addAll(i50Var.d);
-            this.e.addAll(i50Var.e);
-            this.f = i50Var.f;
-            this.k = i50Var.i;
-            this.l = i50Var.j;
-            this.m = i50Var.k;
-            this.n = i50Var.l;
-            this.o = i50Var.m;
-            this.i = i50Var.n;
-            this.j = i50Var.o;
-            this.p = i50Var.p;
-            this.h = i50Var.h;
-            this.g = i50Var.g;
+            try {
+                try {
+                    this.a.p().b(this);
+                    Response b = b();
+                    if (b != null) {
+                        return b;
+                    }
+                    throw new IOException("Canceled");
+                } catch (IOException e) {
+                    throw e;
+                } catch (Exception e2) {
+                    if (TextUtils.isEmpty(e2.getMessage())) {
+                        throw new IOException("unknown exception", e2);
+                    }
+                    throw new IOException(e2);
+                }
+            } finally {
+                this.a.p().e(this);
+            }
         }
+        return (Response) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e.d() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public synchronized boolean isExecuted() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            synchronized (this) {
+                z = this.d;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public Request request() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : (Request) invokeV.objValue;
     }
 }

@@ -1,54 +1,81 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class rg4 implements qg4 {
+public class rg4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile rg4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final qg4<String> a;
+    public String b;
 
-    public rg4() {
+    @SuppressLint({"BDThrowableCheck"})
+    public rg4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        qg4<String> qg4Var = new qg4<>();
+        this.a = qg4Var;
+        if (context == null) {
+            return;
+        }
+        qg4Var.a(new ug4(context));
+        this.a.a(new wg4(context));
+        this.a.a(new vg4(context));
+        this.a.a(new yg4(context));
+        this.a.a(new sg4(context));
+        this.a.a(new xg4(context));
     }
 
-    @Override // com.repackage.qg4
-    public void onBufferingUpdate(int i) {
+    public static rg4 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (c == null) {
+                synchronized (rg4.class) {
+                    if (c == null) {
+                        c = new rg4(context);
+                    }
+                }
+            }
+            return c;
         }
+        return (rg4) invokeL.objValue;
     }
 
-    @Override // com.repackage.qg4
-    public void onResume() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                synchronized (this) {
+                    if (TextUtils.isEmpty(this.b)) {
+                        String b = this.a.b();
+                        this.b = b;
+                        this.a.d(b);
+                    }
+                }
+            }
+            return this.b;
         }
-    }
-
-    @Override // com.repackage.qg4
-    public void onSeekEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.qg4
-    public void onVideoSizeChanged(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-        }
+        return (String) invokeV.objValue;
     }
 }

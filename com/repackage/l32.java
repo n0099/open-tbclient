@@ -1,149 +1,65 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.oi2;
-import com.repackage.ri2;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class l32 {
+public abstract class l32 extends a84 implements ba2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755580090, "Lcom/repackage/l32;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755580090, "Lcom/repackage/l32;");
+    public l32() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = cg1.a;
+        int K = K();
+        this.a = K;
+        this.b = K;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public int J() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? e(str, "swan_sub_package_zip") : (String) invokeL.objValue;
-    }
-
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? a(oi2.e.i(str, str2).getPath()) : (String) invokeLL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? e(str, "swan_sub_package_zip") : (String) invokeL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            File a2 = aj2.g().a(str, str2);
-            if (a2 != null) {
-                return c(a2.getPath());
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.b;
+            return i == 0 ? this.a : i;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.intValue;
     }
 
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
+    public int K() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                File file = new File(str, str2);
-                if (file.exists()) {
-                    return file.getPath();
-                }
-                if (file.mkdirs()) {
-                    return file.getPath();
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.intValue;
     }
 
-    public static boolean f(List<q84> list) {
-        InterceptResult invokeL;
+    public l32 L(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int i2 = this.b;
+            if ((i2 == 0 || this.a == i2) && i != 0 && i != this.b) {
+                this.b = i;
             }
-            return list.get(0).r;
+            return this;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(q84 q84Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, q84Var)) == null) {
-            if (q84Var == null || TextUtils.isEmpty(q84Var.o)) {
-                return false;
-            }
-            return h(new File(q84Var.a), new File(oi2.e.i(q84Var.o, String.valueOf(q84Var.i)).getPath(), q84Var.p));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h(File file, File file2) {
-        InterceptResult invokeLL;
-        boolean U;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, file, file2)) == null) {
-            if (file != null && file2 != null) {
-                if (!file.exists()) {
-                    if (a) {
-                        Log.e("SubPkgDownloadUtil", "解压分包时，ZIP包不存在 zipFile=" + file);
-                    }
-                    return false;
-                } else if (!file2.exists() && !file2.mkdirs()) {
-                    if (a) {
-                        Log.e("SubPkgDownloadUtil", "创建分包解压文件夹失败 unzipFolder=" + file2);
-                    }
-                    return false;
-                } else {
-                    ri2.c j = ri2.j(file);
-                    int i = j.b;
-                    if (i != -1) {
-                        U = ri2.d(j.a, file2, i).a;
-                    } else {
-                        U = uf4.U(file.getAbsolutePath(), file2.getAbsolutePath());
-                    }
-                    if (U) {
-                        if (a) {
-                            Log.i("SubPkgDownloadUtil", "分包解压成功");
-                            return true;
-                        }
-                        return true;
-                    } else if (a) {
-                        Log.e("SubPkgDownloadUtil", "分包解压文件失败, file:" + file.getAbsolutePath() + " folder:" + file2.getAbsolutePath());
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (l32) invokeI.objValue;
     }
 }

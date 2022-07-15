@@ -1,22 +1,11 @@
 package com.repackage;
-
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
 /* loaded from: classes6.dex */
-public class ns0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ns0 extends os0 {
+    void a(boolean z);
 
-    @NonNull
-    @Inject(force = false)
-    public static cs0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? ss0.a() : (cs0) invokeV.objValue;
-    }
+    <T extends iu0> void d(T t);
+
+    void onDestroy();
+
+    void onLayerRelease();
 }

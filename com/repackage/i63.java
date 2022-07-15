@@ -1,15 +1,12 @@
 package com.repackage;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j63;
 /* loaded from: classes6.dex */
-public class i63 extends sv2 {
+public final class i63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,15 +24,9 @@ public class i63 extends sv2 {
         }
     }
 
-    @Override // com.repackage.sv2
-    public void b(@NonNull Bundle bundle) {
+    public static ia2 a(i63 i63Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            j63.a aVar = j63.a().a;
-            if (!ProcessUtils.isMainProcess() || aVar == null) {
-                return;
-            }
-            aVar.a(bundle.getString("statTag"), bundle.getString("statisticData"));
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, i63Var)) == null) ? new ia2("CollectTraceError", null) : (ia2) invokeL.objValue;
     }
 }

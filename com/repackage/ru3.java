@@ -1,6 +1,5 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,8 +8,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ru3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String errMsg;
+    public int a;
+    public int b;
+    public long c;
 
     public ru3() {
         Interceptable interceptable = $ic;

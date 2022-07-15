@@ -1,17 +1,14 @@
 package com.repackage;
 
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.RecomPostTopic;
 /* loaded from: classes6.dex */
-public class lp4 {
+public class lp4 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
 
     public lp4() {
         Interceptable interceptable = $ic;
@@ -25,15 +22,5 @@ public class lp4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public void a(RecomPostTopic recomPostTopic) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, recomPostTopic) == null) || recomPostTopic == null) {
-            return;
-        }
-        this.a = recomPostTopic.recom_title;
-        this.b = recomPostTopic.recom_topic;
-        this.c = recomPostTopic.uniq_topicid.longValue();
     }
 }

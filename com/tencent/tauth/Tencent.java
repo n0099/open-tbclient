@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.v8.debug.V8DebugServer;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.auth.c;
 import com.tencent.connect.avatar.QQAvatar;
@@ -42,7 +41,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Tencent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_LOGIN = 10001;
@@ -383,7 +382,7 @@ public class Tencent {
             SLog.i("openSDK_LOG.Tencent", "isSupportSSOLogin()");
             boolean z = true;
             if (!l.c(activity) || i.a((Context) activity, Constants.PACKAGE_QQ_PAD) == null) {
-                if (i.c(activity, BuildConfig.VERSION_NAME) < 0 && i.d(activity, "1.1") < 0 && i.e(activity, V8DebugServer.J2V8_VERSION) < 0) {
+                if (i.c(activity, BuildConfig.VERSION_NAME) < 0 && i.d(activity, "1.1") < 0 && i.e(activity, "4.0.0") < 0) {
                     z = false;
                 }
                 SLog.i("openSDK_LOG.Tencent", "isSupportSSOLogin() support=" + z);

@@ -1,24 +1,29 @@
 package com.repackage;
 
-import android.text.Editable;
-import android.text.SpannableStringBuilder;
+import android.graphics.Rect;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class su4 extends Editable.Factory {
+public class su4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tu4 a;
+    public LinearLayout a;
+    public int b;
+    public int c;
 
-    public su4(tu4 tu4Var) {
+    public su4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tu4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,18 +33,99 @@ public class su4 extends Editable.Factory {
                 return;
             }
         }
-        this.a = tu4Var;
+        this.b = 0;
+        this.c = 0;
     }
 
-    @Override // android.text.Editable.Factory
-    public Editable newEditable(CharSequence charSequence) {
-        InterceptResult invokeL;
+    public final void a(int i, int i2, Rect rect, ru4 ru4Var) {
+        LinearLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
-            spannableStringBuilder.setSpan(this.a, 0, charSequence.length(), 18);
-            return spannableStringBuilder;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, ru4Var}) == null) {
+            if (ru4Var.getView().getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                layoutParams = (LinearLayout.LayoutParams) ru4Var.getView().getLayoutParams();
+            } else {
+                layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            }
+            int f = (i / 2) - pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X017);
+            boolean z = rect.centerX() >= f;
+            boolean z2 = pi.k(TbadkCoreApplication.getInst().getContext()) - rect.centerX() >= f;
+            if (z && z2) {
+                layoutParams.gravity = 1;
+            } else if (z) {
+                layoutParams.gravity = 5;
+                this.b = (-(i - i2)) / 2;
+            } else {
+                layoutParams.gravity = 3;
+                this.b = (i - i2) / 2;
+            }
+            this.a.addView(ru4Var.getView(), layoutParams);
         }
-        return (Editable) invokeL.objValue;
+    }
+
+    public final void b(int i, int i2, Rect rect, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, view2}) == null) {
+            if (i > rect.centerY() - (i2 / 2)) {
+                this.a.addView(view2);
+                this.c = ((rect.height() + i2) / 2) + i;
+                return;
+            }
+            this.a.addView(view2, 0);
+            this.c = (rect.height() + i2) / 2;
+        }
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 32;
+        }
+        return invokeV.intValue;
+    }
+
+    public View e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (View) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public void h(BreatheTipView breatheTipView, ru4 ru4Var, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, breatheTipView, ru4Var, view2) == null) {
+            LinearLayout linearLayout = new LinearLayout(breatheTipView.getContext());
+            this.a = linearLayout;
+            linearLayout.setOrientation(1);
+            Rect rect = new Rect();
+            if (view2 != null) {
+                view2.getGlobalVisibleRect(rect);
+            }
+            int i = breatheTipView.getLayoutParams() != null ? breatheTipView.getLayoutParams().height : 0;
+            int i2 = breatheTipView.getLayoutParams() != null ? breatheTipView.getLayoutParams().width : 0;
+            int i3 = ru4Var.getView().getLayoutParams() != null ? ru4Var.getView().getLayoutParams().width : 0;
+            a(i2, i3, rect, ru4Var);
+            b(i, i3, rect, breatheTipView);
+        }
     }
 }

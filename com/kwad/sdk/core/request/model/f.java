@@ -1,56 +1,25 @@
 package com.kwad.sdk.core.request.model;
 
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.kwad.sdk.api.KsScene;
-import com.kwad.sdk.internal.api.SceneImpl;
-import com.kwad.sdk.utils.t;
-import java.util.Map;
-import org.json.JSONObject;
+import com.ksad.json.annotation.KsJson;
+@KsJson
 /* loaded from: classes5.dex */
-public class f implements com.kwad.sdk.core.b {
-    public SceneImpl a;
-    public long b = 0;
-    public long c = 0;
-    public String d;
+public class f extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
-    public f(KsScene ksScene) {
-        this.a = (SceneImpl) ksScene;
+    public f() {
     }
 
-    @Nullable
-    public com.kwad.sdk.internal.api.a a() {
-        SceneImpl sceneImpl = this.a;
-        if (sceneImpl == null) {
-            return null;
-        }
-        return sceneImpl.mKsAdLabel;
+    public f(int i, int i2, int i3, long j) {
+        this.a = i;
+        this.b = i2;
+        this.c = 1;
+        this.d = j;
     }
 
-    @Nullable
-    public String a(String str) {
-        SceneImpl sceneImpl;
-        Map<String, String> rewardCallbackExtraData;
-        if (str == null || (sceneImpl = this.a) == null || (rewardCallbackExtraData = sceneImpl.getRewardCallbackExtraData()) == null || !rewardCallbackExtraData.containsKey(str)) {
-            return null;
-        }
-        return rewardCallbackExtraData.get(str);
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public JSONObject toJson() {
-        JSONObject json = this.a.toJson();
-        t.a(json, "pageScene", this.b);
-        t.a(json, "subPageScene", this.c);
-        t.a(json, "sdkExtraData", this.d);
-        String a = a(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
-        if (a != null) {
-            t.a(json, PrefetchEvent.EVENT_DATA_EXTRA_DATA, a);
-        }
-        return json;
+    public final void a(long j) {
+        this.d = j;
     }
 }

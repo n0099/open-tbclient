@@ -1,14 +1,14 @@
 package com.repackage;
 
-import android.text.Editable;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.StringRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
-import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,10 +16,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vu4 extends ru4<vu4> {
+public class vu4 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtSelectData i;
+    public boolean u;
+    public int v;
+    public int w;
 
     public vu4() {
         Interceptable interceptable = $ic;
@@ -31,118 +33,103 @@ public class vu4 extends ru4<vu4> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static vu4 w(@NonNull vu4 vu4Var, @NonNull Editable editable) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, vu4Var, editable)) == null) {
-            vu4 vu4Var2 = new vu4();
-            vu4Var2.b(vu4Var);
-            vu4Var2.n(editable);
-            return vu4Var2;
-        }
-        return (vu4) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.ru4
-    public void a(Editable editable, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
-            super.a(editable, i, i2, i3);
-        }
-    }
-
-    @Override // com.repackage.ru4
-    public void p(Editable editable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editable) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#(at, ");
-            sb.append(this.i.getPortrait());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.i.getNameShow());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.i.getUid());
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            sb.append(" ");
-            i(sb);
-        }
-    }
-
-    @Override // com.repackage.ru4
-    public void q(Editable editable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, editable, i) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#(at, ");
-            sb.append(this.i.getPortrait());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.i.getNameShow());
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            sb.append(" ");
-            i(sb);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            o(true);
-            s();
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ru4
-    /* renamed from: t */
-    public void b(vu4 vu4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, vu4Var) == null) {
-            super.b(vu4Var);
-            this.i = vu4Var.i;
-        }
-    }
-
-    public AtSelectData u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i : (AtSelectData) invokeV.objValue;
-    }
-
-    public String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "@" + this.i.getNameShow() + " ";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public vu4(AtSelectData atSelectData) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {atSelectData};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.i = atSelectData;
+        this.v = R.dimen.tbds1;
+        this.w = R.string.A_X07;
+        this.b = R.color.CAM_X0302;
+        this.u = false;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? t(f) : (Drawable) invokeF.objValue;
+    }
+
+    public void p(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.b = i;
+            this.u = false;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public void q(@ColorInt int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+            this.u = false;
+            this.q = false;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public void r(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
+            this.c = R.color.CAM_X0902;
+            this.u = true;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = R.color.CAM_X0101;
+            this.u = false;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public final Drawable t(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            if (this.u) {
+                gradientDrawable.setStroke(pi.f(TbadkCoreApplication.getInst().getContext(), this.v), SkinManager.getColor(this.r, this.c));
+            } else {
+                gradientDrawable.setStroke(pi.f(TbadkCoreApplication.getInst().getContext(), this.v), sg8.a(this.q ? SkinManager.getColor(this.r, this.b) : this.b, sr4.a(this.w)));
+            }
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void u(@StringRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.w = i;
+        }
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.v = i;
+        }
     }
 }

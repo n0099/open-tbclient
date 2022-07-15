@@ -1,8 +1,8 @@
 package com.repackage;
 
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,116 +11,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.repackage.xk2;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public final class yk2 {
+public class yk2 extends hw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static Map<String, af3<Bundle>> h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public le3<yk2> b;
-    public final List<b> c;
-    public String d;
+    public int f;
+    public String g;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements af3<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ String a;
+        public final /* synthetic */ yk2 b;
 
-    /* loaded from: classes7.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<String> a;
-        public final List<String> b;
-        public String c;
-        public final List<StackTraceElement> d;
-        public final /* synthetic */ yk2 e;
-
-        public /* synthetic */ b(yk2 yk2Var, a aVar) {
-            this(yk2Var);
-        }
-
-        public synchronized b a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                synchronized (this) {
-                    List<String> list = this.a;
-                    if (TextUtils.isEmpty(str)) {
-                        str = "";
-                    }
-                    list.add(str);
-                }
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public synchronized b c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                synchronized (this) {
-                    d(this.d.size());
-                }
-                return this;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public synchronized b d(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                synchronized (this) {
-                    if (i < 1) {
-                        i = 1;
-                    }
-                    if (i > this.d.size()) {
-                        i = this.d.size();
-                    }
-                    for (int i2 = 0; i2 < i; i2++) {
-                        yk2 yk2Var = this.e;
-                        yk2Var.e("[Trace]==> " + this.d.get(i2).toString());
-                    }
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public synchronized b e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                synchronized (this) {
-                    d(1);
-                }
-                return this;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public b(yk2 yk2Var) {
-            StackTraceElement[] stackTrace;
+        public a(yk2 yk2Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yk2Var};
+                Object[] objArr = {yk2Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -130,66 +43,71 @@ public final class yk2 {
                     return;
                 }
             }
-            this.e = yk2Var;
-            this.a = new ArrayList();
-            this.b = new ArrayList();
-            this.d = new ArrayList();
-            int i3 = 0;
-            for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
-                i3++;
-                if (i3 > 2 && !stackTraceElement.getClassName().startsWith(yk2Var.d)) {
-                    this.d.add(stackTraceElement);
+            this.b = yk2Var;
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                this.b.g = bundle.getString("key_launch_app_id");
+                this.b.f = bundle.getInt("key_launch_status");
+                if (TextUtils.equals(this.a, this.b.g)) {
+                    yk2 yk2Var = this.b;
+                    yk2Var.d.putInt("ok", yk2Var.f);
+                    this.b.c();
                 }
+                yk2.h.remove(this.a);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements le3<yk2> {
+    public static class b implements af3<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ xk2.e b;
 
-        public c(yk2 yk2Var) {
+        public b(String str, xk2.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yk2Var};
+                Object[] objArr = {str, eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        }
-
-        public final void b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && yk2.e) {
-                Log.i(str, str2);
-            }
+            this.a = str;
+            this.b = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.le3
-        /* renamed from: c */
-        public void a(yk2 yk2Var) {
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yk2Var) == null) && yk2.e) {
-                for (b bVar : yk2Var.c) {
-                    for (String str : bVar.a) {
-                        String h = yk2Var.h();
-                        String str2 = TextUtils.isEmpty(bVar.c) ? h : bVar.c;
-                        b(str2, h + " >>> " + str);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                String string = bundle.getString("key_launch_app_id");
+                int i = bundle.getInt("key_launch_status");
+                if (TextUtils.equals(this.a, string)) {
+                    if (i == 0) {
+                        this.b.b();
+                    } else {
+                        this.b.a();
                     }
                 }
+                yk2.h.remove(this.a);
             }
-        }
-
-        public /* synthetic */ c(yk2 yk2Var, a aVar) {
-            this(yk2Var);
         }
     }
 
@@ -206,7 +124,8 @@ public final class yk2 {
                 return;
             }
         }
-        e = cg1.a;
+        boolean z = rg1.a;
+        h = new me4();
     }
 
     public yk2() {
@@ -222,119 +141,48 @@ public final class yk2 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = yk2.class.getPackage().getName();
+        this.f = -1;
+        this.g = "";
     }
 
-    public synchronized b d() {
-        InterceptResult invokeV;
-        b bVar;
+    public static void j(String str, xk2.e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                bVar = new b(this, null);
-                this.c.add(bVar);
-            }
-            return bVar;
+        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, eVar) == null) || TextUtils.isEmpty(str) || eVar == null) {
+            return;
         }
-        return (b) invokeV.objValue;
+        h.put(str, new b(str, eVar));
     }
 
-    public synchronized b e(String str) {
-        InterceptResult invokeL;
-        b d;
+    public static void k(String str) {
+        af3<Bundle> af3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                d = d();
-                d.a(str);
-            }
-            return d;
+        if (!(interceptable == null || interceptable.invokeL(65544, null, str) == null) || (af3Var = h.get(str)) == null) {
+            return;
         }
-        return (b) invokeL.objValue;
+        Bundle bundle = new Bundle();
+        bundle.putString("key_launch_app_id", str);
+        bundle.putInt("key_launch_status", 1);
+        af3Var.a(bundle);
     }
 
-    public synchronized b f(String str, String str2) {
-        InterceptResult invokeLL;
-        b e2;
+    public static void l(String str) {
+        af3<Bundle> af3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            synchronized (this) {
-                e2 = e(str2);
-                e2.b(str);
-            }
-            return e2;
+        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || (af3Var = h.get(str)) == null) {
+            return;
         }
-        return (b) invokeLL.objValue;
+        Bundle bundle = new Bundle();
+        bundle.putString("key_launch_app_id", str);
+        bundle.putInt("key_launch_status", 0);
+        af3Var.a(bundle);
     }
 
-    public yk2 g(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.hw2
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.a = str;
-            return this;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String string = bundle.getString("desAppId");
+            h.put(string, new a(this, string));
         }
-        return (yk2) invokeL.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public synchronized List<b> i() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList(this.c);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized yk2 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                k(this.b);
-            }
-            return this;
-        }
-        return (yk2) invokeV.objValue;
-    }
-
-    public synchronized yk2 k(le3<yk2> le3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, le3Var)) == null) {
-            synchronized (this) {
-                if (le3Var == null) {
-                    try {
-                        le3Var = new c(this, null);
-                    } catch (Throwable th) {
-                        throw th;
-                    }
-                }
-                le3Var.a(this);
-            }
-            return this;
-        }
-        return (yk2) invokeL.objValue;
-    }
-
-    public yk2 l(le3<yk2> le3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, le3Var)) == null) {
-            this.b = le3Var;
-            return this;
-        }
-        return (yk2) invokeL.objValue;
     }
 }

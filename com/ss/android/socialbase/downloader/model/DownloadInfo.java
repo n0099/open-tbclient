@@ -211,8 +211,110 @@ public class DownloadInfo implements Parcelable {
         public a() {
         }
 
+        public a(String str) {
+            this.c = str;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:17:0x000f A[SYNTHETIC] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public static String DownloadInfo$a1654612903239dc(String str) {
+            while (true) {
+                char c = 'J';
+                char c2 = '7';
+                while (true) {
+                    switch (c) {
+                        case 'H':
+                            break;
+                        case 'I':
+                            switch (c2) {
+                                case '^':
+                                    break;
+                                case '_':
+                                case '`':
+                                    break;
+                                default:
+                                    switch (c2) {
+                                    }
+                            }
+                            c = 'I';
+                            c2 = '`';
+                            break;
+                        case 'J':
+                            switch (c2) {
+                            }
+                            c = 'I';
+                            c2 = '`';
+                            break;
+                        default:
+                            c = 'H';
+                    }
+                }
+            }
+            char[] charArray = str.toCharArray();
+            for (int i = 0; i < charArray.length; i++) {
+                charArray[i] = (char) (charArray[i] ^ i);
+            }
+            return new String(charArray);
+        }
+
+        public a a(int i) {
+            this.i = i;
+            return this;
+        }
+
+        public a a(long j) {
+            this.C = j;
+            return this;
+        }
+
+        public a a(EnqueueType enqueueType) {
+            this.H = enqueueType;
+            return this;
+        }
+
         public a a(String str) {
             this.a = str;
+            return this;
+        }
+
+        public a a(List<c> list) {
+            this.h = list;
+            return this;
+        }
+
+        public a a(JSONObject jSONObject) {
+            this.P = jSONObject;
+            return this;
+        }
+
+        public a a(boolean z) {
+            this.f = z;
+            return this;
+        }
+
+        public a a(int[] iArr) {
+            this.k = iArr;
+            return this;
+        }
+
+        public a a(String[] strArr) {
+            this.j = strArr;
+            return this;
+        }
+
+        public DownloadInfo a() {
+            return new DownloadInfo(this);
+        }
+
+        public a b(int i) {
+            this.l = i;
+            return this;
+        }
+
+        public a b(long j) {
+            this.M = j;
             return this;
         }
 
@@ -221,8 +323,43 @@ public class DownloadInfo implements Parcelable {
             return this;
         }
 
+        public a b(List<String> list) {
+            this.r = list;
+            return this;
+        }
+
+        public a b(boolean z) {
+            this.n = z;
+            return this;
+        }
+
+        public a b(int[] iArr) {
+            this.S = iArr;
+            return this;
+        }
+
+        public a c(int i) {
+            this.m = i;
+            return this;
+        }
+
+        public a c(long j) {
+            this.W = j;
+            return this;
+        }
+
         public a c(String str) {
             this.c = str;
+            return this;
+        }
+
+        public a c(boolean z) {
+            this.o = z;
+            return this;
+        }
+
+        public a d(int i) {
+            this.p = i;
             return this;
         }
 
@@ -231,8 +368,28 @@ public class DownloadInfo implements Parcelable {
             return this;
         }
 
+        public a d(boolean z) {
+            this.v = z;
+            return this;
+        }
+
+        public a e(int i) {
+            this.q = i;
+            return this;
+        }
+
         public a e(String str) {
             this.e = str;
+            return this;
+        }
+
+        public a e(boolean z) {
+            this.s = z;
+            return this;
+        }
+
+        public a f(int i) {
+            this.T = i;
             return this;
         }
 
@@ -241,8 +398,23 @@ public class DownloadInfo implements Parcelable {
             return this;
         }
 
+        public a f(boolean z) {
+            this.w = z;
+            return this;
+        }
+
         public a g(String str) {
             this.u = str;
+            return this;
+        }
+
+        public a g(boolean z) {
+            this.x = z;
+            return this;
+        }
+
+        public a h(String str) {
+            this.A = str;
             return this;
         }
 
@@ -251,8 +423,18 @@ public class DownloadInfo implements Parcelable {
             return this;
         }
 
+        public a i(String str) {
+            this.B = str;
+            return this;
+        }
+
         public a i(boolean z) {
             this.z = z;
+            return this;
+        }
+
+        public a j(String str) {
+            this.E = str;
             return this;
         }
 
@@ -261,8 +443,18 @@ public class DownloadInfo implements Parcelable {
             return this;
         }
 
+        public a k(String str) {
+            this.R = str;
+            return this;
+        }
+
         public a k(boolean z) {
             this.F = z;
+            return this;
+        }
+
+        public a l(String str) {
+            this.L = str;
             return this;
         }
 
@@ -320,176 +512,392 @@ public class DownloadInfo implements Parcelable {
             this.t = z;
             return this;
         }
+    }
 
-        public a a(boolean z) {
-            this.f = z;
-            return this;
-        }
+    public DownloadInfo() {
+        this.needDefaultHttpServiceBackUp = true;
+        this.retryDelayStatus = g.DELAY_RETRY_NONE;
+        this.needReuseFirstConnection = false;
+        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.ASYNC_HANDLE_NONE;
+        this.supportPartial = true;
+        this.needSDKMonitor = true;
+        this.expiredRedownload = false;
+        this.deleteCacheIfCheckFailed = false;
+        this.successByCache = false;
+        this.chunkCount = 1;
+        this.isFirstDownload = true;
+        this.isFirstSuccess = true;
+        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.BYTE_INVALID_RETRY_STATUS_NONE;
+        this.enqueueType = EnqueueType.ENQUEUE_NONE;
+        this.lastNotifyProgressTime = new AtomicLong(0L);
+        this.isAutoInstallWithoutNotification = null;
+    }
 
-        public a b(int i) {
-            this.l = i;
-            return this;
+    public DownloadInfo(Cursor cursor) {
+        boolean z = true;
+        this.needDefaultHttpServiceBackUp = true;
+        this.retryDelayStatus = g.DELAY_RETRY_NONE;
+        this.needReuseFirstConnection = false;
+        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.ASYNC_HANDLE_NONE;
+        this.supportPartial = true;
+        this.needSDKMonitor = true;
+        this.expiredRedownload = false;
+        this.deleteCacheIfCheckFailed = false;
+        this.successByCache = false;
+        this.chunkCount = 1;
+        this.isFirstDownload = true;
+        this.isFirstSuccess = true;
+        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.BYTE_INVALID_RETRY_STATUS_NONE;
+        this.enqueueType = EnqueueType.ENQUEUE_NONE;
+        this.lastNotifyProgressTime = new AtomicLong(0L);
+        this.isAutoInstallWithoutNotification = null;
+        if (cursor == null) {
+            return;
         }
+        try {
+            int columnIndex = cursor.getColumnIndex("_id");
+            if (columnIndex != -1) {
+                this.id = cursor.getInt(columnIndex);
+            }
+            int columnIndex2 = cursor.getColumnIndex("name");
+            if (columnIndex2 != -1) {
+                this.name = cursor.getString(columnIndex2);
+            }
+            int columnIndex3 = cursor.getColumnIndex("title");
+            if (columnIndex3 != -1) {
+                this.title = cursor.getString(columnIndex3);
+            }
+            int columnIndex4 = cursor.getColumnIndex("url");
+            if (columnIndex4 != -1) {
+                this.url = cursor.getString(columnIndex4);
+            }
+            int columnIndex5 = cursor.getColumnIndex("savePath");
+            if (columnIndex5 != -1) {
+                this.savePath = cursor.getString(columnIndex5);
+            }
+            int columnIndex6 = cursor.getColumnIndex("tempPath");
+            if (columnIndex6 != -1) {
+                this.tempPath = cursor.getString(columnIndex6);
+            }
+            int columnIndex7 = cursor.getColumnIndex("chunkCount");
+            if (columnIndex7 != -1) {
+                this.chunkCount = cursor.getInt(columnIndex7);
+            }
+            int columnIndex8 = cursor.getColumnIndex("status");
+            if (columnIndex8 != -1) {
+                this.status = new AtomicInteger(cursor.getInt(columnIndex8));
+            } else {
+                this.status = new AtomicInteger(0);
+            }
+            int columnIndex9 = cursor.getColumnIndex("curBytes");
+            if (columnIndex9 != -1) {
+                this.curBytes = new AtomicLong(cursor.getLong(columnIndex9));
+            } else {
+                this.curBytes = new AtomicLong(0L);
+            }
+            int columnIndex10 = cursor.getColumnIndex("totalBytes");
+            if (columnIndex10 != -1) {
+                this.totalBytes = cursor.getLong(columnIndex10);
+            }
+            int columnIndex11 = cursor.getColumnIndex("eTag");
+            if (columnIndex11 != -1) {
+                this.eTag = cursor.getString(columnIndex11);
+            }
+            int columnIndex12 = cursor.getColumnIndex("onlyWifi");
+            if (columnIndex12 != -1) {
+                this.onlyWifi = cursor.getInt(columnIndex12) != 0;
+            }
+            int columnIndex13 = cursor.getColumnIndex(TTDownloadField.TT_FORCE);
+            if (columnIndex13 != -1) {
+                this.force = cursor.getInt(columnIndex13) != 0;
+            }
+            int columnIndex14 = cursor.getColumnIndex("retryCount");
+            if (columnIndex14 != -1) {
+                this.retryCount = cursor.getInt(columnIndex14);
+            }
+            int columnIndex15 = cursor.getColumnIndex("extra");
+            if (columnIndex15 != -1) {
+                this.extra = cursor.getString(columnIndex15);
+            }
+            int columnIndex16 = cursor.getColumnIndex("mimeType");
+            if (columnIndex16 != -1) {
+                this.mimeType = cursor.getString(columnIndex16);
+            }
+            int columnIndex17 = cursor.getColumnIndex("notificationEnable");
+            if (columnIndex17 != -1) {
+                this.showNotification = cursor.getInt(columnIndex17) != 0;
+            }
+            int columnIndex18 = cursor.getColumnIndex("notificationVisibility");
+            if (columnIndex18 != -1) {
+                this.notificationVisibility = cursor.getInt(columnIndex18);
+            }
+            int columnIndex19 = cursor.getColumnIndex("isFirstDownload");
+            if (columnIndex19 != -1) {
+                this.isFirstDownload = cursor.getInt(columnIndex19) == 1;
+            }
+            int columnIndex20 = cursor.getColumnIndex("isFirstSuccess");
+            if (columnIndex20 != -1) {
+                this.isFirstSuccess = cursor.getInt(columnIndex20) == 1;
+            }
+            int columnIndex21 = cursor.getColumnIndex("needHttpsToHttpRetry");
+            if (columnIndex21 != -1) {
+                this.needHttpsToHttpRetry = cursor.getInt(columnIndex21) == 1;
+            }
+            int columnIndex22 = cursor.getColumnIndex("downloadTime");
+            if (columnIndex22 != -1) {
+                this.downloadTime = cursor.getLong(columnIndex22);
+            }
+            int columnIndex23 = cursor.getColumnIndex("packageName");
+            if (columnIndex23 != -1) {
+                this.packageName = cursor.getString(columnIndex23);
+            }
+            int columnIndex24 = cursor.getColumnIndex(PackageTable.MD5);
+            if (columnIndex24 != -1) {
+                this.md5 = cursor.getString(columnIndex24);
+            }
+            int columnIndex25 = cursor.getColumnIndex("retryDelay");
+            if (columnIndex25 != -1) {
+                this.needRetryDelay = cursor.getInt(columnIndex25) == 1;
+            }
+            int columnIndex26 = cursor.getColumnIndex("curRetryTime");
+            if (columnIndex26 != -1) {
+                this.curRetryTime = cursor.getInt(columnIndex26);
+            }
+            int columnIndex27 = cursor.getColumnIndex("retryDelayStatus");
+            if (columnIndex27 != -1) {
+                int i = cursor.getInt(columnIndex27);
+                this.retryDelayStatus = i == g.DELAY_RETRY_WAITING.ordinal() ? g.DELAY_RETRY_WAITING : i == g.DELAY_RETRY_DOWNLOADING.ordinal() ? g.DELAY_RETRY_DOWNLOADING : i == g.DELAY_RETRY_DOWNLOADED.ordinal() ? g.DELAY_RETRY_DOWNLOADED : g.DELAY_RETRY_NONE;
+            }
+            int columnIndex28 = cursor.getColumnIndex("defaultHttpServiceBackUp");
+            if (columnIndex28 != -1) {
+                this.needDefaultHttpServiceBackUp = cursor.getInt(columnIndex28) == 1;
+            }
+            int columnIndex29 = cursor.getColumnIndex("chunkRunnableReuse");
+            if (columnIndex29 != -1) {
+                this.needReuseChunkRunnable = cursor.getInt(columnIndex29) == 1;
+            }
+            int columnIndex30 = cursor.getColumnIndex("retryDelayTimeArray");
+            if (columnIndex30 != -1) {
+                this.retryDelayTimeArray = cursor.getString(columnIndex30);
+            }
+            int columnIndex31 = cursor.getColumnIndex("chunkDowngradeRetry");
+            if (columnIndex31 != -1) {
+                this.needChunkDowngradeRetry = cursor.getInt(columnIndex31) == 1;
+            }
+            int columnIndex32 = cursor.getColumnIndex("backUpUrlsStr");
+            if (columnIndex32 != -1) {
+                setBackUpUrlsStr(cursor.getString(columnIndex32));
+            }
+            int columnIndex33 = cursor.getColumnIndex("backUpUrlRetryCount");
+            if (columnIndex33 != -1) {
+                this.backUpUrlRetryCount = cursor.getInt(columnIndex33);
+            }
+            int columnIndex34 = cursor.getColumnIndex("realDownloadTime");
+            if (columnIndex34 != -1) {
+                this.realDownloadTime = cursor.getLong(columnIndex34);
+            }
+            int columnIndex35 = cursor.getColumnIndex("retryScheduleMinutes");
+            if (columnIndex35 != -1) {
+                this.retryScheduleMinutes = cursor.getInt(columnIndex35);
+            }
+            int columnIndex36 = cursor.getColumnIndex("independentProcess");
+            if (columnIndex36 != -1) {
+                if (cursor.getInt(columnIndex36) != 1) {
+                    z = false;
+                }
+                this.needIndependentProcess = z;
+            }
+            int columnIndex37 = cursor.getColumnIndex("auxiliaryJsonobjectString");
+            if (columnIndex37 != -1) {
+                this.dbJsonDataString = cursor.getString(columnIndex37);
+            }
+            int columnIndex38 = cursor.getColumnIndex("iconUrl");
+            if (columnIndex38 != -1) {
+                this.iconUrl = cursor.getString(columnIndex38);
+            }
+            int columnIndex39 = cursor.getColumnIndex("appVersionCode");
+            if (columnIndex39 != -1) {
+                this.appVersionCode = cursor.getInt(columnIndex39);
+            }
+            int columnIndex40 = cursor.getColumnIndex("taskId");
+            if (columnIndex40 != -1) {
+                this.taskId = cursor.getString(columnIndex40);
+            }
+            parseMonitorSetting();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-        public a c(int i) {
-            this.m = i;
-            return this;
-        }
+    public DownloadInfo(Parcel parcel) {
+        this.needDefaultHttpServiceBackUp = true;
+        this.retryDelayStatus = g.DELAY_RETRY_NONE;
+        this.needReuseFirstConnection = false;
+        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.ASYNC_HANDLE_NONE;
+        this.supportPartial = true;
+        this.needSDKMonitor = true;
+        this.expiredRedownload = false;
+        this.deleteCacheIfCheckFailed = false;
+        this.successByCache = false;
+        this.chunkCount = 1;
+        this.isFirstDownload = true;
+        this.isFirstSuccess = true;
+        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.BYTE_INVALID_RETRY_STATUS_NONE;
+        this.enqueueType = EnqueueType.ENQUEUE_NONE;
+        this.lastNotifyProgressTime = new AtomicLong(0L);
+        this.isAutoInstallWithoutNotification = null;
+        readFromParcel(parcel);
+    }
 
-        public a d(int i) {
-            this.p = i;
-            return this;
+    public DownloadInfo(a aVar) {
+        this.needDefaultHttpServiceBackUp = true;
+        this.retryDelayStatus = g.DELAY_RETRY_NONE;
+        this.needReuseFirstConnection = false;
+        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.ASYNC_HANDLE_NONE;
+        this.supportPartial = true;
+        this.needSDKMonitor = true;
+        this.expiredRedownload = false;
+        this.deleteCacheIfCheckFailed = false;
+        this.successByCache = false;
+        this.chunkCount = 1;
+        this.isFirstDownload = true;
+        this.isFirstSuccess = true;
+        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.BYTE_INVALID_RETRY_STATUS_NONE;
+        this.enqueueType = EnqueueType.ENQUEUE_NONE;
+        this.lastNotifyProgressTime = new AtomicLong(0L);
+        this.isAutoInstallWithoutNotification = null;
+        if (aVar == null) {
+            return;
         }
+        this.name = aVar.a;
+        this.title = aVar.b;
+        this.url = aVar.c;
+        String str = aVar.d;
+        if (TextUtils.isEmpty(str)) {
+            try {
+                str = f.e();
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
+        this.savePath = str;
+        String str2 = aVar.e;
+        this.tempPath = str2;
+        if (TextUtils.isEmpty(str2) && !f.h(str)) {
+            this.tempPath = f.f();
+        }
+        if (!aVar.X) {
+            com.ss.android.socialbase.downloader.c.a.e(TAG, "The distinct directory option is not set, which may cause 1005 problems and file downloads being covered");
+        } else if (com.ss.android.socialbase.downloader.downloader.c.x().b(getId()) == null) {
+            this.savePath = f.e(this.savePath, this.url);
+            this.tempPath = f.e(this.tempPath, this.url);
+        }
+        this.status = new AtomicInteger(0);
+        this.curBytes = new AtomicLong(0L);
+        this.extra = aVar.g;
+        this.onlyWifi = aVar.f;
+        this.extraHeaders = aVar.h;
+        this.maxBytes = aVar.i;
+        this.retryCount = aVar.l;
+        this.backUpUrlRetryCount = aVar.m;
+        this.force = aVar.n;
+        this.outIp = aVar.j;
+        this.outSize = aVar.k;
+        this.needPostProgress = aVar.o;
+        this.maxProgressCount = aVar.p;
+        this.minProgressTimeMsInterval = aVar.q;
+        this.backUpUrls = aVar.r;
+        this.showNotification = aVar.s;
+        this.mimeType = aVar.u;
+        this.needHttpsToHttpRetry = aVar.v;
+        this.needRetryDelay = aVar.D;
+        this.retryDelayTimeArray = aVar.E;
+        this.autoResumed = aVar.w;
+        this.showNotificationForAutoResumed = aVar.x;
+        this.needDefaultHttpServiceBackUp = aVar.y;
+        this.needReuseChunkRunnable = aVar.z;
+        this.packageName = aVar.A;
+        this.md5 = aVar.B;
+        this.needReuseFirstConnection = aVar.F;
+        this.needIndependentProcess = aVar.G;
+        this.enqueueType = aVar.H;
+        this.headConnectionAvailable = aVar.I;
+        this.ignoreDataVerify = aVar.J;
+        this.addListenerToSameTask = aVar.O;
+        this.needChunkDowngradeRetry = aVar.K;
+        this.iconUrl = aVar.L;
+        this.throttleNetSpeed = aVar.M;
+        this.openLimitSpeed = aVar.N;
+        JSONObject jSONObject = aVar.P;
+        if (jSONObject != null) {
+            safePutToDBJsonData("download_setting", jSONObject.toString());
+        }
+        safePutToDBJsonData("dbjson_key_expect_file_length", Long.valueOf(aVar.C));
+        safePutToDBJsonData("executor_group", Integer.valueOf(aVar.T));
+        safePutToDBJsonData("auto_install", Integer.valueOf(aVar.t ? 1 : 0));
+        this.needSDKMonitor = aVar.Q;
+        this.monitorScene = aVar.R;
+        this.extraMonitorStatus = aVar.S;
+        this.expiredRedownload = aVar.U;
+        this.deleteCacheIfCheckFailed = aVar.V;
+        this.ttnetProtectTimeout = aVar.W;
+        this.distinctDirectory = aVar.X;
+        if (this.expiredRedownload && this.retryCount <= 0) {
+            this.retryCount = 1;
+        }
+        putMonitorSetting();
+    }
 
-        public a e(int i) {
-            this.q = i;
-            return this;
+    /* JADX WARN: Removed duplicated region for block: B:17:0x000f A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String DownloadInfo1654612903229dc(String str) {
+        while (true) {
+            char c = 'J';
+            char c2 = '7';
+            while (true) {
+                switch (c) {
+                    case 'H':
+                        break;
+                    case 'I':
+                        switch (c2) {
+                            case '^':
+                                break;
+                            case '_':
+                            case '`':
+                                break;
+                            default:
+                                switch (c2) {
+                                }
+                        }
+                        c = 'I';
+                        c2 = '`';
+                        break;
+                    case 'J':
+                        switch (c2) {
+                        }
+                        c = 'I';
+                        c2 = '`';
+                        break;
+                    default:
+                        c = 'H';
+                }
+            }
         }
-
-        public a f(boolean z) {
-            this.w = z;
-            return this;
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            charArray[i] = (char) (charArray[i] ^ i);
         }
-
-        public a g(boolean z) {
-            this.x = z;
-            return this;
-        }
-
-        public a h(String str) {
-            this.A = str;
-            return this;
-        }
-
-        public a i(String str) {
-            this.B = str;
-            return this;
-        }
-
-        public a j(String str) {
-            this.E = str;
-            return this;
-        }
-
-        public a k(String str) {
-            this.R = str;
-            return this;
-        }
-
-        public a l(String str) {
-            this.L = str;
-            return this;
-        }
-
-        public a a(List<c> list) {
-            this.h = list;
-            return this;
-        }
-
-        public a b(boolean z) {
-            this.n = z;
-            return this;
-        }
-
-        public a c(boolean z) {
-            this.o = z;
-            return this;
-        }
-
-        public a d(boolean z) {
-            this.v = z;
-            return this;
-        }
-
-        public a e(boolean z) {
-            this.s = z;
-            return this;
-        }
-
-        public a f(int i) {
-            this.T = i;
-            return this;
-        }
-
-        public a a(int i) {
-            this.i = i;
-            return this;
-        }
-
-        public a b(List<String> list) {
-            this.r = list;
-            return this;
-        }
-
-        public a c(long j) {
-            this.W = j;
-            return this;
-        }
-
-        public a a(String[] strArr) {
-            this.j = strArr;
-            return this;
-        }
-
-        public a b(int[] iArr) {
-            this.S = iArr;
-            return this;
-        }
-
-        public a(String str) {
-            this.c = str;
-        }
-
-        public a a(int[] iArr) {
-            this.k = iArr;
-            return this;
-        }
-
-        public a b(long j) {
-            this.M = j;
-            return this;
-        }
-
-        public a a(long j) {
-            this.C = j;
-            return this;
-        }
-
-        public a a(EnqueueType enqueueType) {
-            this.H = enqueueType;
-            return this;
-        }
-
-        public a a(JSONObject jSONObject) {
-            this.P = jSONObject;
-            return this;
-        }
-
-        public DownloadInfo a() {
-            return new DownloadInfo(this);
-        }
+        return new String(charArray);
     }
 
     private void convertEnqueueType(int i) {
-        if (i == EnqueueType.ENQUEUE_HEAD.ordinal()) {
-            this.enqueueType = EnqueueType.ENQUEUE_HEAD;
-        } else if (i == EnqueueType.ENQUEUE_TAIL.ordinal()) {
-            this.enqueueType = EnqueueType.ENQUEUE_TAIL;
-        } else {
-            this.enqueueType = EnqueueType.ENQUEUE_NONE;
-        }
+        this.enqueueType = i == EnqueueType.ENQUEUE_HEAD.ordinal() ? EnqueueType.ENQUEUE_HEAD : i == EnqueueType.ENQUEUE_TAIL.ordinal() ? EnqueueType.ENQUEUE_TAIL : EnqueueType.ENQUEUE_NONE;
     }
 
     private void convertRetryDelayStatus(int i) {
-        if (i == g.DELAY_RETRY_WAITING.ordinal()) {
-            this.retryDelayStatus = g.DELAY_RETRY_WAITING;
-        } else if (i == g.DELAY_RETRY_DOWNLOADING.ordinal()) {
-            this.retryDelayStatus = g.DELAY_RETRY_DOWNLOADING;
-        } else if (i == g.DELAY_RETRY_DOWNLOADED.ordinal()) {
-            this.retryDelayStatus = g.DELAY_RETRY_DOWNLOADED;
-        } else {
-            this.retryDelayStatus = g.DELAY_RETRY_NONE;
-        }
+        this.retryDelayStatus = i == g.DELAY_RETRY_WAITING.ordinal() ? g.DELAY_RETRY_WAITING : i == g.DELAY_RETRY_DOWNLOADING.ordinal() ? g.DELAY_RETRY_DOWNLOADING : i == g.DELAY_RETRY_DOWNLOADED.ordinal() ? g.DELAY_RETRY_DOWNLOADED : g.DELAY_RETRY_NONE;
     }
 
     private JSONObject convertStrToJson(String str) {
@@ -508,11 +916,11 @@ public class DownloadInfo implements Parcelable {
         if (this.dbJsonData == null) {
             synchronized (this) {
                 if (this.dbJsonData == null) {
-                    if (!TextUtils.isEmpty(this.dbJsonDataString)) {
+                    if (TextUtils.isEmpty(this.dbJsonDataString)) {
+                        this.dbJsonData = new JSONObject();
+                    } else {
                         this.dbJsonData = new JSONObject(this.dbJsonDataString);
                         this.dbJsonDataString = null;
-                    } else {
-                        this.dbJsonData = new JSONObject();
                     }
                 }
             }
@@ -961,14 +1369,14 @@ public class DownloadInfo implements Parcelable {
         setTotalBytes(downloadInfo.getTotalBytes());
         setCurBytes(downloadInfo.getCurBytes(), true);
         this.realDownloadTime = downloadInfo.realDownloadTime;
-        if (!downloadInfo.canSkipStatusHandler() && !canSkipStatusHandler()) {
+        if (downloadInfo.canSkipStatusHandler() || canSkipStatusHandler()) {
+            this.curRetryTime = downloadInfo.getCurRetryTime();
+        } else {
             this.curRetryTime = 0;
             this.isForbiddenRetryed = false;
             this.backUpUrlUsed = false;
             this.curBackUpUrlIndex = 0;
             this.httpsToHttpRetryUsed = false;
-        } else {
-            this.curRetryTime = downloadInfo.getCurRetryTime();
         }
         seteTag(downloadInfo.geteTag());
         if (z) {
@@ -1096,14 +1504,14 @@ public class DownloadInfo implements Parcelable {
         int i;
         List<String> list2;
         String str = this.url;
-        if (getStatus() == 8 && (list2 = this.forbiddenBackupUrls) != null && !list2.isEmpty() && !this.backUpUrlUsed) {
-            return this.forbiddenBackupUrls.get(0);
+        if (getStatus() != 8 || (list2 = this.forbiddenBackupUrls) == null || list2.isEmpty() || this.backUpUrlUsed) {
+            if (!this.backUpUrlUsed || (list = this.backUpUrls) == null || list.size() <= 0 || (i = this.curBackUpUrlIndex) < 0 || i >= this.backUpUrls.size()) {
+                return (!TextUtils.isEmpty(this.url) && this.url.startsWith("https") && this.needHttpsToHttpRetry && this.httpsToHttpRetryUsed) ? this.url.replaceFirst("https", "http") : str;
+            }
+            String str2 = this.backUpUrls.get(this.curBackUpUrlIndex);
+            return !TextUtils.isEmpty(str2) ? str2 : str;
         }
-        if (!this.backUpUrlUsed || (list = this.backUpUrls) == null || list.size() <= 0 || (i = this.curBackUpUrlIndex) < 0 || i >= this.backUpUrls.size()) {
-            return (!TextUtils.isEmpty(this.url) && this.url.startsWith("https") && this.needHttpsToHttpRetry && this.httpsToHttpRetryUsed) ? this.url.replaceFirst("https", "http") : str;
-        }
-        String str2 = this.backUpUrls.get(this.curBackUpUrlIndex);
-        return !TextUtils.isEmpty(str2) ? str2 : str;
+        return this.forbiddenBackupUrls.get(0);
     }
 
     public int getCurBackUpUrlIndex() {
@@ -1469,10 +1877,7 @@ public class DownloadInfo implements Parcelable {
     }
 
     public String getTitle() {
-        if (TextUtils.isEmpty(this.title)) {
-            return this.name;
-        }
-        return this.title;
+        return TextUtils.isEmpty(this.title) ? this.name : this.title;
     }
 
     public long getTotalBytes() {
@@ -1520,17 +1925,9 @@ public class DownloadInfo implements Parcelable {
     }
 
     public boolean hasNextBackupUrl() {
+        int i;
         List<String> list = this.backUpUrls;
-        if (list != null && list.size() > 0) {
-            if (!this.backUpUrlUsed) {
-                return true;
-            }
-            int i = this.curBackUpUrlIndex;
-            if (i >= 0 && i < this.backUpUrls.size() - 1) {
-                return true;
-            }
-        }
-        return false;
+        return list != null && list.size() > 0 && (!this.backUpUrlUsed || ((i = this.curBackUpUrlIndex) >= 0 && i < this.backUpUrls.size() + (-1)));
     }
 
     public boolean hasPauseReservedOnWifi() {
@@ -1569,11 +1966,9 @@ public class DownloadInfo implements Parcelable {
                 try {
                     this.isAutoInstallWithoutNotification = Boolean.valueOf(new JSONObject(this.extra).optBoolean("auto_install_without_notification", false));
                 } catch (JSONException unused) {
-                    this.isAutoInstallWithoutNotification = Boolean.FALSE;
                 }
-            } else {
-                this.isAutoInstallWithoutNotification = Boolean.FALSE;
             }
+            this.isAutoInstallWithoutNotification = Boolean.FALSE;
         }
         return this.isAutoInstallWithoutNotification.booleanValue();
     }
@@ -1674,33 +2069,42 @@ public class DownloadInfo implements Parcelable {
     }
 
     public boolean isFileDataValid() {
+        StringBuilder sb;
         if (isEntityInvalid()) {
             return false;
         }
         File file = new File(getTempPath(), getTempName());
         boolean exists = file.exists();
         boolean isDirectory = file.isDirectory();
-        if (exists && !isDirectory) {
-            long length = file.length();
-            long curBytes = getCurBytes();
-            if (com.ss.android.socialbase.downloader.g.a.c().a("fix_file_data_valid")) {
-                if (curBytes > 0) {
-                    long j = this.totalBytes;
-                    if (j > 0 && this.chunkCount > 0 && length >= curBytes && length <= j) {
-                        return true;
-                    }
+        if (!exists || isDirectory) {
+            return false;
+        }
+        long length = file.length();
+        long curBytes = getCurBytes();
+        if (com.ss.android.socialbase.downloader.g.a.c().a("fix_file_data_valid")) {
+            if (curBytes > 0) {
+                long j = this.totalBytes;
+                if (j > 0 && this.chunkCount > 0 && length >= curBytes && length <= j) {
+                    return true;
                 }
-                com.ss.android.socialbase.downloader.c.a.d(TAG, "isFileDataValid: cur = " + curBytes + ",totalBytes =" + this.totalBytes + ",fileLength=" + length);
-                return false;
             }
+            sb = new StringBuilder();
+        } else {
             if (length > 0 && curBytes > 0) {
                 long j2 = this.totalBytes;
                 if (j2 > 0 && this.chunkCount > 0 && length >= curBytes && length <= j2 && curBytes < j2) {
                     return true;
                 }
             }
-            com.ss.android.socialbase.downloader.c.a.d(TAG, "isFileDataValid: cur = " + curBytes + ",totalBytes =" + this.totalBytes + ",fileLength=" + length);
+            sb = new StringBuilder();
         }
+        sb.append("isFileDataValid: cur = ");
+        sb.append(curBytes);
+        sb.append(",totalBytes =");
+        sb.append(this.totalBytes);
+        sb.append(",fileLength=");
+        sb.append(length);
+        com.ss.android.socialbase.downloader.c.a.d(TAG, sb.toString());
         return false;
     }
 
@@ -2021,6 +2425,13 @@ public class DownloadInfo implements Parcelable {
         } else {
             this.curBytes = new AtomicLong(j);
         }
+    }
+
+    public void setCurBytes(long j, boolean z) {
+        if (!z && j <= getCurBytes()) {
+            return;
+        }
+        setCurBytes(j);
     }
 
     public void setDeleteCacheIfCheckFailed() {
@@ -2509,357 +2920,5 @@ public class DownloadInfo implements Parcelable {
         parcel.writeByte(this.expiredRedownload ? (byte) 1 : (byte) 0);
         parcel.writeByte(this.deleteCacheIfCheckFailed ? (byte) 1 : (byte) 0);
         parcel.writeByte(this.successByCache ? (byte) 1 : (byte) 0);
-    }
-
-    public DownloadInfo() {
-        this.needDefaultHttpServiceBackUp = true;
-        this.retryDelayStatus = g.DELAY_RETRY_NONE;
-        this.needReuseFirstConnection = false;
-        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.ASYNC_HANDLE_NONE;
-        this.supportPartial = true;
-        this.needSDKMonitor = true;
-        this.expiredRedownload = false;
-        this.deleteCacheIfCheckFailed = false;
-        this.successByCache = false;
-        this.chunkCount = 1;
-        this.isFirstDownload = true;
-        this.isFirstSuccess = true;
-        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.BYTE_INVALID_RETRY_STATUS_NONE;
-        this.enqueueType = EnqueueType.ENQUEUE_NONE;
-        this.lastNotifyProgressTime = new AtomicLong(0L);
-        this.isAutoInstallWithoutNotification = null;
-    }
-
-    public void setCurBytes(long j, boolean z) {
-        if (z) {
-            setCurBytes(j);
-        } else if (j > getCurBytes()) {
-            setCurBytes(j);
-        }
-    }
-
-    public DownloadInfo(a aVar) {
-        this.needDefaultHttpServiceBackUp = true;
-        this.retryDelayStatus = g.DELAY_RETRY_NONE;
-        this.needReuseFirstConnection = false;
-        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.ASYNC_HANDLE_NONE;
-        this.supportPartial = true;
-        this.needSDKMonitor = true;
-        this.expiredRedownload = false;
-        this.deleteCacheIfCheckFailed = false;
-        this.successByCache = false;
-        this.chunkCount = 1;
-        this.isFirstDownload = true;
-        this.isFirstSuccess = true;
-        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.BYTE_INVALID_RETRY_STATUS_NONE;
-        this.enqueueType = EnqueueType.ENQUEUE_NONE;
-        this.lastNotifyProgressTime = new AtomicLong(0L);
-        this.isAutoInstallWithoutNotification = null;
-        if (aVar == null) {
-            return;
-        }
-        this.name = aVar.a;
-        this.title = aVar.b;
-        this.url = aVar.c;
-        String str = aVar.d;
-        if (TextUtils.isEmpty(str)) {
-            try {
-                str = f.e();
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-        this.savePath = str;
-        String str2 = aVar.e;
-        this.tempPath = str2;
-        if (TextUtils.isEmpty(str2) && !f.h(str)) {
-            this.tempPath = f.f();
-        }
-        if (aVar.X) {
-            if (com.ss.android.socialbase.downloader.downloader.c.x().b(getId()) == null) {
-                this.savePath = f.e(this.savePath, this.url);
-                this.tempPath = f.e(this.tempPath, this.url);
-            }
-        } else {
-            com.ss.android.socialbase.downloader.c.a.e(TAG, "The distinct directory option is not set, which may cause 1005 problems and file downloads being covered");
-        }
-        this.status = new AtomicInteger(0);
-        this.curBytes = new AtomicLong(0L);
-        this.extra = aVar.g;
-        this.onlyWifi = aVar.f;
-        this.extraHeaders = aVar.h;
-        this.maxBytes = aVar.i;
-        this.retryCount = aVar.l;
-        this.backUpUrlRetryCount = aVar.m;
-        this.force = aVar.n;
-        this.outIp = aVar.j;
-        this.outSize = aVar.k;
-        this.needPostProgress = aVar.o;
-        this.maxProgressCount = aVar.p;
-        this.minProgressTimeMsInterval = aVar.q;
-        this.backUpUrls = aVar.r;
-        this.showNotification = aVar.s;
-        this.mimeType = aVar.u;
-        this.needHttpsToHttpRetry = aVar.v;
-        this.needRetryDelay = aVar.D;
-        this.retryDelayTimeArray = aVar.E;
-        this.autoResumed = aVar.w;
-        this.showNotificationForAutoResumed = aVar.x;
-        this.needDefaultHttpServiceBackUp = aVar.y;
-        this.needReuseChunkRunnable = aVar.z;
-        this.packageName = aVar.A;
-        this.md5 = aVar.B;
-        this.needReuseFirstConnection = aVar.F;
-        this.needIndependentProcess = aVar.G;
-        this.enqueueType = aVar.H;
-        this.headConnectionAvailable = aVar.I;
-        this.ignoreDataVerify = aVar.J;
-        this.addListenerToSameTask = aVar.O;
-        this.needChunkDowngradeRetry = aVar.K;
-        this.iconUrl = aVar.L;
-        this.throttleNetSpeed = aVar.M;
-        this.openLimitSpeed = aVar.N;
-        JSONObject jSONObject = aVar.P;
-        if (jSONObject != null) {
-            safePutToDBJsonData("download_setting", jSONObject.toString());
-        }
-        safePutToDBJsonData("dbjson_key_expect_file_length", Long.valueOf(aVar.C));
-        safePutToDBJsonData("executor_group", Integer.valueOf(aVar.T));
-        safePutToDBJsonData("auto_install", Integer.valueOf(aVar.t ? 1 : 0));
-        this.needSDKMonitor = aVar.Q;
-        this.monitorScene = aVar.R;
-        this.extraMonitorStatus = aVar.S;
-        this.expiredRedownload = aVar.U;
-        this.deleteCacheIfCheckFailed = aVar.V;
-        this.ttnetProtectTimeout = aVar.W;
-        this.distinctDirectory = aVar.X;
-        if (this.expiredRedownload && this.retryCount <= 0) {
-            this.retryCount = 1;
-        }
-        putMonitorSetting();
-    }
-
-    public DownloadInfo(Parcel parcel) {
-        this.needDefaultHttpServiceBackUp = true;
-        this.retryDelayStatus = g.DELAY_RETRY_NONE;
-        this.needReuseFirstConnection = false;
-        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.ASYNC_HANDLE_NONE;
-        this.supportPartial = true;
-        this.needSDKMonitor = true;
-        this.expiredRedownload = false;
-        this.deleteCacheIfCheckFailed = false;
-        this.successByCache = false;
-        this.chunkCount = 1;
-        this.isFirstDownload = true;
-        this.isFirstSuccess = true;
-        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.BYTE_INVALID_RETRY_STATUS_NONE;
-        this.enqueueType = EnqueueType.ENQUEUE_NONE;
-        this.lastNotifyProgressTime = new AtomicLong(0L);
-        this.isAutoInstallWithoutNotification = null;
-        readFromParcel(parcel);
-    }
-
-    public DownloadInfo(Cursor cursor) {
-        boolean z = true;
-        this.needDefaultHttpServiceBackUp = true;
-        this.retryDelayStatus = g.DELAY_RETRY_NONE;
-        this.needReuseFirstConnection = false;
-        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.ASYNC_HANDLE_NONE;
-        this.supportPartial = true;
-        this.needSDKMonitor = true;
-        this.expiredRedownload = false;
-        this.deleteCacheIfCheckFailed = false;
-        this.successByCache = false;
-        this.chunkCount = 1;
-        this.isFirstDownload = true;
-        this.isFirstSuccess = true;
-        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.BYTE_INVALID_RETRY_STATUS_NONE;
-        this.enqueueType = EnqueueType.ENQUEUE_NONE;
-        this.lastNotifyProgressTime = new AtomicLong(0L);
-        this.isAutoInstallWithoutNotification = null;
-        if (cursor == null) {
-            return;
-        }
-        try {
-            int columnIndex = cursor.getColumnIndex("_id");
-            if (columnIndex != -1) {
-                this.id = cursor.getInt(columnIndex);
-            }
-            int columnIndex2 = cursor.getColumnIndex("name");
-            if (columnIndex2 != -1) {
-                this.name = cursor.getString(columnIndex2);
-            }
-            int columnIndex3 = cursor.getColumnIndex("title");
-            if (columnIndex3 != -1) {
-                this.title = cursor.getString(columnIndex3);
-            }
-            int columnIndex4 = cursor.getColumnIndex("url");
-            if (columnIndex4 != -1) {
-                this.url = cursor.getString(columnIndex4);
-            }
-            int columnIndex5 = cursor.getColumnIndex("savePath");
-            if (columnIndex5 != -1) {
-                this.savePath = cursor.getString(columnIndex5);
-            }
-            int columnIndex6 = cursor.getColumnIndex("tempPath");
-            if (columnIndex6 != -1) {
-                this.tempPath = cursor.getString(columnIndex6);
-            }
-            int columnIndex7 = cursor.getColumnIndex("chunkCount");
-            if (columnIndex7 != -1) {
-                this.chunkCount = cursor.getInt(columnIndex7);
-            }
-            int columnIndex8 = cursor.getColumnIndex("status");
-            if (columnIndex8 != -1) {
-                this.status = new AtomicInteger(cursor.getInt(columnIndex8));
-            } else {
-                this.status = new AtomicInteger(0);
-            }
-            int columnIndex9 = cursor.getColumnIndex("curBytes");
-            if (columnIndex9 != -1) {
-                this.curBytes = new AtomicLong(cursor.getLong(columnIndex9));
-            } else {
-                this.curBytes = new AtomicLong(0L);
-            }
-            int columnIndex10 = cursor.getColumnIndex("totalBytes");
-            if (columnIndex10 != -1) {
-                this.totalBytes = cursor.getLong(columnIndex10);
-            }
-            int columnIndex11 = cursor.getColumnIndex("eTag");
-            if (columnIndex11 != -1) {
-                this.eTag = cursor.getString(columnIndex11);
-            }
-            int columnIndex12 = cursor.getColumnIndex("onlyWifi");
-            if (columnIndex12 != -1) {
-                this.onlyWifi = cursor.getInt(columnIndex12) != 0;
-            }
-            int columnIndex13 = cursor.getColumnIndex(TTDownloadField.TT_FORCE);
-            if (columnIndex13 != -1) {
-                this.force = cursor.getInt(columnIndex13) != 0;
-            }
-            int columnIndex14 = cursor.getColumnIndex("retryCount");
-            if (columnIndex14 != -1) {
-                this.retryCount = cursor.getInt(columnIndex14);
-            }
-            int columnIndex15 = cursor.getColumnIndex("extra");
-            if (columnIndex15 != -1) {
-                this.extra = cursor.getString(columnIndex15);
-            }
-            int columnIndex16 = cursor.getColumnIndex("mimeType");
-            if (columnIndex16 != -1) {
-                this.mimeType = cursor.getString(columnIndex16);
-            }
-            int columnIndex17 = cursor.getColumnIndex("notificationEnable");
-            if (columnIndex17 != -1) {
-                this.showNotification = cursor.getInt(columnIndex17) != 0;
-            }
-            int columnIndex18 = cursor.getColumnIndex("notificationVisibility");
-            if (columnIndex18 != -1) {
-                this.notificationVisibility = cursor.getInt(columnIndex18);
-            }
-            int columnIndex19 = cursor.getColumnIndex("isFirstDownload");
-            if (columnIndex19 != -1) {
-                this.isFirstDownload = cursor.getInt(columnIndex19) == 1;
-            }
-            int columnIndex20 = cursor.getColumnIndex("isFirstSuccess");
-            if (columnIndex20 != -1) {
-                this.isFirstSuccess = cursor.getInt(columnIndex20) == 1;
-            }
-            int columnIndex21 = cursor.getColumnIndex("needHttpsToHttpRetry");
-            if (columnIndex21 != -1) {
-                this.needHttpsToHttpRetry = cursor.getInt(columnIndex21) == 1;
-            }
-            int columnIndex22 = cursor.getColumnIndex("downloadTime");
-            if (columnIndex22 != -1) {
-                this.downloadTime = cursor.getLong(columnIndex22);
-            }
-            int columnIndex23 = cursor.getColumnIndex("packageName");
-            if (columnIndex23 != -1) {
-                this.packageName = cursor.getString(columnIndex23);
-            }
-            int columnIndex24 = cursor.getColumnIndex(PackageTable.MD5);
-            if (columnIndex24 != -1) {
-                this.md5 = cursor.getString(columnIndex24);
-            }
-            int columnIndex25 = cursor.getColumnIndex("retryDelay");
-            if (columnIndex25 != -1) {
-                this.needRetryDelay = cursor.getInt(columnIndex25) == 1;
-            }
-            int columnIndex26 = cursor.getColumnIndex("curRetryTime");
-            if (columnIndex26 != -1) {
-                this.curRetryTime = cursor.getInt(columnIndex26);
-            }
-            int columnIndex27 = cursor.getColumnIndex("retryDelayStatus");
-            if (columnIndex27 != -1) {
-                int i = cursor.getInt(columnIndex27);
-                if (i == g.DELAY_RETRY_WAITING.ordinal()) {
-                    this.retryDelayStatus = g.DELAY_RETRY_WAITING;
-                } else if (i == g.DELAY_RETRY_DOWNLOADING.ordinal()) {
-                    this.retryDelayStatus = g.DELAY_RETRY_DOWNLOADING;
-                } else if (i == g.DELAY_RETRY_DOWNLOADED.ordinal()) {
-                    this.retryDelayStatus = g.DELAY_RETRY_DOWNLOADED;
-                } else {
-                    this.retryDelayStatus = g.DELAY_RETRY_NONE;
-                }
-            }
-            int columnIndex28 = cursor.getColumnIndex("defaultHttpServiceBackUp");
-            if (columnIndex28 != -1) {
-                this.needDefaultHttpServiceBackUp = cursor.getInt(columnIndex28) == 1;
-            }
-            int columnIndex29 = cursor.getColumnIndex("chunkRunnableReuse");
-            if (columnIndex29 != -1) {
-                this.needReuseChunkRunnable = cursor.getInt(columnIndex29) == 1;
-            }
-            int columnIndex30 = cursor.getColumnIndex("retryDelayTimeArray");
-            if (columnIndex30 != -1) {
-                this.retryDelayTimeArray = cursor.getString(columnIndex30);
-            }
-            int columnIndex31 = cursor.getColumnIndex("chunkDowngradeRetry");
-            if (columnIndex31 != -1) {
-                this.needChunkDowngradeRetry = cursor.getInt(columnIndex31) == 1;
-            }
-            int columnIndex32 = cursor.getColumnIndex("backUpUrlsStr");
-            if (columnIndex32 != -1) {
-                setBackUpUrlsStr(cursor.getString(columnIndex32));
-            }
-            int columnIndex33 = cursor.getColumnIndex("backUpUrlRetryCount");
-            if (columnIndex33 != -1) {
-                this.backUpUrlRetryCount = cursor.getInt(columnIndex33);
-            }
-            int columnIndex34 = cursor.getColumnIndex("realDownloadTime");
-            if (columnIndex34 != -1) {
-                this.realDownloadTime = cursor.getLong(columnIndex34);
-            }
-            int columnIndex35 = cursor.getColumnIndex("retryScheduleMinutes");
-            if (columnIndex35 != -1) {
-                this.retryScheduleMinutes = cursor.getInt(columnIndex35);
-            }
-            int columnIndex36 = cursor.getColumnIndex("independentProcess");
-            if (columnIndex36 != -1) {
-                if (cursor.getInt(columnIndex36) != 1) {
-                    z = false;
-                }
-                this.needIndependentProcess = z;
-            }
-            int columnIndex37 = cursor.getColumnIndex("auxiliaryJsonobjectString");
-            if (columnIndex37 != -1) {
-                this.dbJsonDataString = cursor.getString(columnIndex37);
-            }
-            int columnIndex38 = cursor.getColumnIndex("iconUrl");
-            if (columnIndex38 != -1) {
-                this.iconUrl = cursor.getString(columnIndex38);
-            }
-            int columnIndex39 = cursor.getColumnIndex("appVersionCode");
-            if (columnIndex39 != -1) {
-                this.appVersionCode = cursor.getInt(columnIndex39);
-            }
-            int columnIndex40 = cursor.getColumnIndex("taskId");
-            if (columnIndex40 != -1) {
-                this.taskId = cursor.getString(columnIndex40);
-            }
-            parseMonitorSetting();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

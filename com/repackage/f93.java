@@ -1,157 +1,176 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.TextUtils;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e93;
-import com.repackage.zp1;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class f93 extends p13 {
+public class f93 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    /* loaded from: classes6.dex */
-    public class a implements e93.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ kq1 c;
-        public final /* synthetic */ f93 d;
-
-        public a(f93 f93Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, kq1 kq1Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755753039, "Lcom/repackage/f93;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f93Var, unitedSchemeEntity, callbackHandler, kq1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.d = f93Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = kq1Var;
-        }
-
-        @Override // com.repackage.e93.a
-        public void a(double[] dArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
-                if (dArr != null && dArr.length == 3) {
-                    sw1.i("accelerometer", "handle accelerometer change, x : " + dArr[0] + " y: " + dArr[1] + " z: " + dArr[2]);
-                    this.d.k(this.a, this.b, this.c, dArr);
-                    return;
-                }
-                sw1.c("accelerometer", "illegal accelerometers");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755753039, "Lcom/repackage/f93;");
+                return;
             }
         }
+        b = rg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f93(p03 p03Var) {
-        super(p03Var, "/swanAPI/startAccelerometer");
+    public f93(@NonNull Context context, String str) {
+        super(context.getApplicationContext(), d(str), (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (sz2Var == null) {
-                sw1.c("accelerometer", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (p13.b) {
-                    Log.d("SwanAppAction", "startAccelerometer --- illegal swanApp");
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "CREATE TABLE cookies (_id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,value TEXT,domain TEXT,path TEXT,expires INTEGER,secure INTEGER,ext TEXT);" : (String) invokeV.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String o = dj2.o(str);
+            File file = new File(o);
+            if (!file.exists() && !file.mkdirs()) {
+                hx1.k("SwanCookieDBHelper", "mkdirs fail: " + o);
+            }
+            return o + File.separator + "smCookie.db";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    @SuppressLint({"BDThrowableCheck"})
+    public synchronized SQLiteDatabase getReadableDatabase() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
+        Exception e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                try {
+                    sQLiteDatabase = super.getReadableDatabase();
+                } catch (Exception e2) {
+                    sQLiteDatabase = null;
+                    e = e2;
                 }
-                return false;
-            } else if (context == null) {
-                sw1.c("accelerometer", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (p13.b) {
-                    Log.d("SwanAppAction", "startAccelerometer --- illegal context");
-                }
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    if (p13.b) {
-                        Log.d("SwanAppAction", "startAccelerometer --- params is empty");
+                try {
+                    String databaseName = getDatabaseName();
+                    if (!new File(databaseName).exists()) {
+                        hx1.k("SwanCookieDBHelper", "getReadableDatabase file is not exit: " + databaseName);
+                        return null;
                     }
-                    sw1.c("accelerometer", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    if (p13.b) {
-                        Log.d("SwanAppAction", "startAccelerometer --- cb is empty");
+                } catch (Exception e3) {
+                    e = e3;
+                    hx1.k("SwanCookieDBHelper", "getRead fail mAppId =" + this.a + ParamableElem.DIVIDE_PARAM + Log.getStackTraceString(e));
+                    if (b) {
+                        throw new RuntimeException(e);
                     }
-                    sw1.c("accelerometer", "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
+                    return sQLiteDatabase;
                 }
-                sw1.i("accelerometer", " init ");
-                kq1 kq1Var = new kq1("accelerometerChange", optParamsAsJo, optString);
-                e93 a2 = e93.a();
-                a2.b(context, zp1.b.a(optParamsAsJo.optString("interval")));
-                a2.e(new a(this, unitedSchemeEntity, callbackHandler, kq1Var));
-                a2.f();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                kq1Var.a(unitedSchemeEntity, callbackHandler);
-                return true;
+                return sQLiteDatabase;
             }
         }
-        return invokeLLLL.booleanValue;
+        return (SQLiteDatabase) invokeV.objValue;
     }
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, kq1 kq1Var, double[] dArr) {
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    @SuppressLint({"BDThrowableCheck"})
+    public synchronized SQLiteDatabase getWritableDatabase() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
+        Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, kq1Var, dArr) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("x", dArr[0]);
-                jSONObject.put("y", dArr[1]);
-                jSONObject.put("z", dArr[2]);
-                kq1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
-            } catch (JSONException e) {
-                sw1.c("accelerometer", "handle compass,json error，" + e.toString());
-                kq1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                try {
+                    sQLiteDatabase = super.getWritableDatabase();
+                } catch (Exception e2) {
+                    sQLiteDatabase = null;
+                    e = e2;
+                }
+                try {
+                    String databaseName = getDatabaseName();
+                    if (!new File(databaseName).exists()) {
+                        hx1.k("SwanCookieDBHelper", "getWritableDatabase file is not exit: " + databaseName);
+                        return null;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    hx1.k("SwanCookieDBHelper", "getWrite fail mAppId =" + this.a + ParamableElem.DIVIDE_PARAM + Log.getStackTraceString(e));
+                    if (b) {
+                        throw new RuntimeException(e);
+                    }
+                    return sQLiteDatabase;
+                }
+                return sQLiteDatabase;
             }
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            if (b) {
+                Log.d("SwanCookieDBHelper", "onCreate");
+            }
+            try {
+                sQLiteDatabase.execSQL(c());
+            } catch (Exception e) {
+                hx1.k("SwanCookieDBHelper", "createTableSql fail:" + Log.getStackTraceString(e));
+            }
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) && b) {
+            Log.d("SwanCookieDBHelper", "oldVersion = " + i + ";newVersion=" + i2);
         }
     }
 }

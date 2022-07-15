@@ -231,7 +231,7 @@ public class WebChromeClient {
             if (!TextUtils.isEmpty(str) && str.startsWith(MSG_PROMPT_HEADER)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str.substring(9));
-                    String optString = jSONObject.optString("func");
+                    String optString = jSONObject.optString(KEY_FUNCTION_NAME);
                     String optString2 = jSONObject.optString(KEY_ARG_CALLBACK);
                     if (MSG_METHOD_GETVERSION.equals(optString) && !TextUtils.isEmpty(optString2) && this.mWebView != null) {
                         WebView webView = this.mWebView;
@@ -484,7 +484,7 @@ public class WebChromeClient {
                 JSONObject jSONObject = new JSONObject(substring);
                 String string = jSONObject.getString("obj");
                 Object[] objArr = null;
-                String optString = jSONObject.optString("func", null);
+                String optString = jSONObject.optString(KEY_FUNCTION_NAME, null);
                 JSONArray optJSONArray = jSONObject.optJSONArray("args");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();

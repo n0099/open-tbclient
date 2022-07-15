@@ -1,119 +1,93 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.message.ResponseCheckUserMaskMessage;
-import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
-import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
-import com.baidu.tbadk.newFriends.ResponseApplyMessage;
-import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
-import com.baidu.tieba.im.message.ResponseCommitInviteMessage;
-import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
-import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.baidu.tieba.im.push.PushResponseMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.TopicList.DataRes;
+import tbclient.TopicList.NewTopicList;
+import tbclient.TopicList.TabList;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes6.dex */
 public class h37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<l37> b;
+    public k37 c;
+    public List<a37> d;
+    public List<z27> e;
+    public List<TopicList> f;
+    public List<NewTopicList> g;
 
-    /* loaded from: classes6.dex */
-    public static class a extends xa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public h37() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-        @Override // com.repackage.ua
-        public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-            SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-            c(socketResponsedMessage2);
-            return socketResponsedMessage2;
-        }
-
-        public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-                if (socketResponsedMessage instanceof PushNotifyMessageDecoder) {
-                    PushNotifyMessageDecoder pushNotifyMessageDecoder = (PushNotifyMessageDecoder) socketResponsedMessage;
-                    if (pushNotifyMessageDecoder.getMsgList() != null) {
-                        Iterator<PushNotifyMessage> it = pushNotifyMessageDecoder.getMsgList().iterator();
-                        while (it.hasNext()) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(it.next());
-                        }
-                    }
-                }
-                return socketResponsedMessage;
-            }
-            return (SocketResponsedMessage) invokeL.objValue;
-        }
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            b();
-            c();
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            i37.b(104102, ResponseUpdateMaskInfoMessage.class, false);
-            i37.b(202003, ResponsePullMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-            i37.b(202009, PushResponseMessage.class, false);
-            i37.b(202006, PushNotifyMessageDecoder.class, false);
-            i37.b(104103, ResponseGetMaskInfoMessage.class, false);
-            i37.b(304100, ResponseAddFriendMessage.class, false);
-            i37.b(304102, ResponseDeleteFriendMessage.class, false);
-            i37.b(304103, ResponseApplyMessage.class, false);
-            i37.b(205002, ResponseCommitInviteMessage.class, false);
-            i37.b(104104, ResponseCheckUserMaskMessage.class, false);
-            MessageManager.getInstance().registerStickyMode(2001120);
-        }
-    }
-
-    public static boolean c() {
+    public List<TopicList> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            MessageManager.getInstance().addResponsedMessageRule(new a(202006));
-            MessageManager.getInstance().addResponsedMessageRule(new j67());
-            MessageManager.getInstance().addResponsedMessageRule(new o67());
-            MessageManager.getInstance().addMessageRule(new i67());
-            return true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (List) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        List<TopicList> list;
+        List<TopicList> list2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        List<TabList> list3 = dataRes.tab_list;
+        if (list3 != null && !ListUtils.isEmpty(list3)) {
+            this.b = new ArrayList();
+            for (TabList tabList : dataRes.tab_list) {
+                l37 l37Var = new l37();
+                l37Var.a(tabList);
+                this.b.add(l37Var);
+            }
+        }
+        if (dataRes.media_topic != null) {
+            k37 k37Var = new k37();
+            this.c = k37Var;
+            k37Var.a(dataRes.media_topic);
+        }
+        TopicListModule topicListModule = dataRes.topic_manual;
+        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
+            this.e = new ArrayList();
+            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
+                z27 z27Var = new z27();
+                z27Var.b(dataRes.topic_manual);
+                z27Var.a(dataRes.topic_manual.topic_list.get(i));
+                this.e.add(z27Var);
+            }
+        }
+        TopicListModule topicListModule2 = dataRes.topic_bang;
+        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
+            this.d = new ArrayList();
+            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
+                a37 a37Var = new a37();
+                a37Var.b(dataRes.topic_bang);
+                a37Var.a(dataRes.topic_bang.topic_list.get(i2));
+                this.d.add(a37Var);
+            }
+        }
+        this.f = dataRes.frs_tab_topic;
+        this.g = dataRes.topic_list;
     }
 }

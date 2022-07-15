@@ -1,66 +1,108 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabEmptyView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gq5 extends an<pq5, ConcernTabEmptyView.ViewHolder> {
+public class gq5 extends jx5<qp5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
+    public fq5 i;
+    public fq5 j;
+    public LinearLayout k;
+    public ViewGroup l;
+    public View m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gq5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), pq5.b);
+    public gq5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.i = new fq5(tbPageContext);
+        this.j = new fq5(tbPageContext);
+        ViewGroup viewGroup2 = (ViewGroup) h();
+        this.l = viewGroup2;
+        this.k = (LinearLayout) viewGroup2.findViewById(R.id.obfuscated_res_0x7f090e01);
+        this.m = this.l.findViewById(R.id.obfuscated_res_0x7f090df7);
+        View view2 = new View(getContext());
+        this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, g().getResources().getDimensionPixelSize(R.dimen.tbds44), g().getResources().getDimensionPixelSize(R.dimen.tbds12));
+        this.k.addView(this.i.h());
+        this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
+        this.k.addView(this.j.h());
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public ConcernTabEmptyView.ViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.repackage.jx5
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ConcernTabEmptyView.ViewHolder(new ConcernTabEmptyView(this.i, viewGroup).h()) : (ConcernTabEmptyView.ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07fe : invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, pq5 pq5Var, ConcernTabEmptyView.ViewHolder viewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.jx5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pq5Var, viewHolder})) == null) {
-            if (viewHolder == null) {
-                return null;
-            }
-            return viewHolder.b();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
+            this.i.k(tbPageContext, i);
+            this.j.k(tbPageContext, i);
+            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0204);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.jx5
+    /* renamed from: r */
+    public void i(qp5 qp5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, qp5Var) == null) || qp5Var == null) {
+            return;
+        }
+        this.i.i(qp5Var.a);
+        this.j.i(qp5Var.b);
+        if (qp5Var.c) {
+            this.m.setVisibility(0);
+        } else {
+            this.m.setVisibility(8);
+        }
+    }
+
+    public void s(lq5 lq5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, lq5Var) == null) {
+            this.i.l(lq5Var);
+            this.j.l(lq5Var);
+        }
     }
 }

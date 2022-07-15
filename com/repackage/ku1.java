@@ -1,8 +1,6 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class ku1 extends ys1 {
+public class ku1 extends nt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Path a;
+    public vt1 a;
 
     public ku1() {
         Interceptable interceptable = $ic;
@@ -29,37 +27,27 @@ public class ku1 extends ys1 {
         }
     }
 
-    @Override // com.repackage.ys1
-    public void a(zs1 zs1Var, Canvas canvas) {
+    @Override // com.repackage.nt1
+    public void a(ot1 ot1Var, Canvas canvas) {
+        vt1 vt1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, zs1Var, canvas) == null) || this.a == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) && (vt1Var = this.a) != null && vt1Var.d()) {
+            if (this.a.c()) {
+                ot1Var.b.setShader(this.a.b());
+                return;
+            }
+            ot1Var.e.setColor(this.a.a());
+            ot1Var.b.setColor(this.a.a());
+            ot1Var.b.setShader(null);
         }
-        int alpha = zs1Var.c.getAlpha();
-        zs1Var.c(zs1Var.c);
-        canvas.drawPath(this.a, zs1Var.c);
-        zs1Var.c.setAlpha(alpha);
     }
 
-    @Override // com.repackage.ys1
+    @Override // com.repackage.nt1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = jd3.g((float) jSONArray.optDouble(0));
-                    int g2 = jd3.g((float) jSONArray.optDouble(1));
-                    int g3 = jd3.g((float) jSONArray.optDouble(2));
-                    int g4 = jd3.g((float) jSONArray.optDouble(3));
-                    Path path = new Path();
-                    this.a = path;
-                    path.addRect(new RectF(g, g2, g + g3, g2 + g4), Path.Direction.CW);
-                }
-            } catch (Exception e) {
-                if (cg1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
+            return;
         }
+        this.a = new vt1(jSONArray);
     }
 }

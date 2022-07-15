@@ -13,6 +13,7 @@ import com.baidubce.http.Headers;
 import com.kwad.sdk.core.imageloader.core.assist.ContentLengthInputStream;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.IoUtils;
+import com.kwad.sdk.crash.utils.b;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -166,7 +167,7 @@ public class BaseImageDownloader implements ImageDownloader {
             if (shouldBeProcessed(createConnection)) {
                 return new ContentLengthInputStream(new BufferedInputStream(inputStream, 32768), createConnection.getContentLength());
             }
-            IoUtils.closeSilently(inputStream);
+            b.a(inputStream);
             throw new IOException("Image request failed with response code " + createConnection.getResponseCode());
         } catch (IOException e) {
             IoUtils.readAndCloseStream(createConnection.getErrorStream());

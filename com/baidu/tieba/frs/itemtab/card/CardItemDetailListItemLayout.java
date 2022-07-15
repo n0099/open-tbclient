@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bl6;
-import com.repackage.fr4;
 import com.repackage.h9;
 import com.repackage.oi;
+import com.repackage.ur4;
+import com.repackage.yl6;
 /* loaded from: classes3.dex */
 public class CardItemDetailListItemLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -176,12 +176,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (e == null) {
-                e = getContext().getString(R.string.obfuscated_res_0x7f0f09f5);
+                e = getContext().getString(R.string.obfuscated_res_0x7f0f09e2);
             }
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03e1, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0914b5);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0922b7);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0907b0);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03e4, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09155e);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f09235f);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0907b7);
             this.b.setOnClickListener(new a(this));
         }
     }
@@ -189,13 +189,13 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            fr4.d(this.a).v(R.color.CAM_X0108);
+            ur4.d(this.a).v(R.color.CAM_X0108);
             if (oi.isEmpty(this.d)) {
-                fr4 d = fr4.d(this.b);
+                ur4 d = ur4.d(this.b);
                 d.w(R.dimen.M_T_X002);
                 d.v(R.color.CAM_X0105);
             } else {
-                fr4 d2 = fr4.d(this.b);
+                ur4 d2 = ur4.d(this.b);
                 d2.w(R.dimen.M_T_X002);
                 d2.v(R.color.CAM_X0304);
             }
@@ -203,12 +203,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         }
     }
 
-    public void setData(bl6 bl6Var) {
+    public void setData(yl6 yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bl6Var) == null) {
-            this.a.setText(bl6Var.a);
-            this.b.setText(bl6Var.b);
-            this.d = bl6Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yl6Var) == null) {
+            this.a.setText(yl6Var.a);
+            this.b.setText(yl6Var.b);
+            this.d = yl6Var.c;
         }
     }
 

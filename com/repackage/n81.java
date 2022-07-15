@@ -1,146 +1,66 @@
 package com.repackage;
 
-import android.net.wifi.WifiManager;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.util.Enumeration;
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
 /* loaded from: classes6.dex */
-public class n81 {
+public final class n81 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static InetAddress a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65536, null)) != null) {
-            return (InetAddress) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755515734, "Lcom/repackage/n81;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755515734, "Lcom/repackage/n81;");
+                return;
+            }
         }
-        InetAddress inetAddress = null;
+        a = Charset.forName("US-ASCII");
+        Charset.forName("UTF-8");
+    }
+
+    public static void a(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
+            return;
+        }
         try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            if (networkInterfaces == null) {
-                return null;
-            }
-            InetAddress inetAddress2 = null;
-            do {
-                try {
-                    if (!networkInterfaces.hasMoreElements()) {
-                        return inetAddress2;
-                    }
-                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                    while (true) {
-                        if (inetAddresses.hasMoreElements()) {
-                            InetAddress nextElement = inetAddresses.nextElement();
-                            try {
-                                if (!nextElement.isLoopbackAddress() && !nextElement.getHostAddress().contains(":")) {
-                                    inetAddress2 = nextElement;
-                                    continue;
-                                    break;
-                                }
-                                inetAddress2 = null;
-                            } catch (Exception unused) {
-                                return nextElement;
-                            }
-                        }
-                    }
-                } catch (Exception unused2) {
-                    inetAddress = inetAddress2;
-                    return inetAddress;
-                }
-            } while (inetAddress2 == null);
-            return inetAddress2;
-        } catch (Exception unused3) {
+            closeable.close();
+        } catch (RuntimeException e) {
+            throw e;
+        } catch (Exception unused) {
         }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static void b(File file) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ((WifiManager) y81.a().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress() : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        String d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                d = b();
-            } else {
-                d = d();
-            }
-            if (!f(d)) {
-                d = e();
-            }
-            return !TextUtils.isEmpty(d) ? d.toUpperCase() : d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        byte[] hardwareAddress;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                NetworkInterface byName = NetworkInterface.getByName("wlan0");
-                if (byName != null && (hardwareAddress = byName.getHardwareAddress()) != null) {
-                    StringBuilder sb = new StringBuilder();
-                    int length = hardwareAddress.length;
-                    for (int i = 0; i < length; i++) {
-                        sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
+        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        b(file2);
                     }
-                    if (sb.length() > 0) {
-                        sb.deleteCharAt(sb.length() - 1);
+                    if (!file2.delete()) {
+                        throw new IOException("failed to delete file: " + file2);
                     }
-                    return sb.toString();
                 }
-            } catch (Exception unused) {
+                return;
             }
-            return "";
+            throw new IOException("not a readable directory: " + file);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        byte[] hardwareAddress;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            try {
-                InetAddress a = a();
-                if (a == null || (hardwareAddress = NetworkInterface.getByInetAddress(a).getHardwareAddress()) == null) {
-                    return "";
-                }
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < hardwareAddress.length; i++) {
-                    if (i != 0) {
-                        sb.append(':');
-                    }
-                    String hexString = Integer.toHexString(hardwareAddress[i] & 255);
-                    if (hexString.length() == 1) {
-                        hexString = 0 + hexString;
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true : invokeL.booleanValue;
     }
 }

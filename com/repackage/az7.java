@@ -1,48 +1,46 @@
 package com.repackage;
 
-import android.animation.ValueAnimator;
+import android.content.Context;
 import android.view.View;
-import android.view.animation.Interpolator;
-import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ItemClickJumpUtil;
+import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cy;
 /* loaded from: classes5.dex */
-public class az7 {
+public class az7 extends an<qq4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public HeadImageView b;
-    public ValueAnimator c;
-    public boolean d;
-    public int e;
-    public boolean f;
-    public Runnable g;
-    public Runnable h;
+    public BdUniqueId i;
+    public TbPageContext<?> j;
+    public BdTypeRecyclerView k;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements xn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ az7 a;
+        public final /* synthetic */ jx a;
 
-        public a(az7 az7Var) {
+        public a(az7 az7Var, jx jxVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {az7Var};
+                Object[] objArr = {az7Var, jxVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,263 +50,94 @@ public class az7 {
                     return;
                 }
             }
-            this.a = az7Var;
+            this.a = jxVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.xn
+        public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            qq4 qq4Var;
+            ThreadData threadData;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.o(1);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof qq4) && (threadData = (qq4Var = (qq4) nnVar).s) != null && qq4Var.n && threadData.getItem() != null) {
+                int a = ev4.a(qq4Var.s.getItem().button_link_type.intValue(), qq4Var.s.getItem().apk_detail != null ? qq4Var.s.getItem().apk_detail.pkg_source.intValue() : 0);
+                ItemData itemData = new ItemData();
+                itemData.parseProto(qq4Var.s.getItem());
+                ItemCardHelper.q(this.a.v(), qq4Var.s.getItem().item_id.longValue(), this.a.u(itemData), qq4Var.s.getTid(), a, "", 2);
+                ItemClickJumpUtil.itemClickJump(qq4Var.s.getItem().forum_name, String.valueOf(qq4Var.s.getItem().item_id), 3, 3);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ az7 a;
-
-        public b(az7 az7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {az7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = az7Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.c != null) {
-                    this.a.c.cancel();
-                }
-                this.a.f = false;
-                this.a.e = 3;
-                this.a.a.setVisibility(0);
-                if (this.a.b != null) {
-                    this.a.b.setVisibility(4);
-                }
-                WebPManager.setPureDrawable(this.a.a, R.drawable.obfuscated_res_0x7f08093b, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Interpolator {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(az7 az7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {az7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.animation.TimeInterpolator
-        public float getInterpolation(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? (float) ((Math.sin((f * 18.84955592153876d) - 1.5707963267948966d) * 0.075d) + 1.075d) : invokeF.floatValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ az7 a;
-
-        public d(az7 az7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {az7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = az7Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                int i = (ky4.c() > 0L ? 1 : (ky4.c() == 0L ? 0 : -1));
-                az7 az7Var = this.a;
-                View view2 = i > 0 ? az7Var.b : az7Var.a;
-                if (view2 != null) {
-                    view2.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    view2.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                }
-            }
-        }
-    }
-
-    public az7(ImageView imageView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public az7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {imageView};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = false;
-        this.e = 3;
-        this.f = false;
-        this.g = new a(this);
-        this.h = new b(this);
-        this.a = imageView;
-        ValueAnimator valueAnimator = new ValueAnimator();
-        this.c = valueAnimator;
-        valueAnimator.setDuration(4000L);
-        this.c.setFloatValues(0.0f, 1.0f);
-        this.c.setInterpolator(new c(this));
-        this.c.addUpdateListener(new d(this));
+        this.j = tbPageContext;
+        this.i = bdUniqueId2;
     }
 
-    public void f() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: Z */
+    public ThreadCardViewHolder<ThreadData> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().c()) {
-            qg.a().removeCallbacks(this.g);
-            long a2 = TbSingleton.getInstance().getSharePanelConfData().a() * 1000;
-            if (a2 <= 0) {
-                a2 = 3000;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            cy.b bVar = new cy.b(this.j.getPageActivity(), false);
+            bVar.l().i(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds36));
+            jx jxVar = new jx(this.j.getPageActivity());
+            jxVar.x(true);
+            jxVar.t();
+            bVar.h(jxVar);
+            cy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.k);
+            k.r(2);
+            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.k(this.i);
+            V(new a(this, jxVar));
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, threadCardViewHolder})) == null) {
+            if (qq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = qq4Var.s) == null) {
+                return null;
             }
-            qg.a().postDelayed(this.g, a2);
+            threadData.statFloor = B(i) + 1;
+            threadCardViewHolder.c().q(i);
+            threadCardViewHolder.g(qq4Var.s);
+            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.b();
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public int g() {
-        InterceptResult invokeV;
+    public void b0(BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.d && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().c()) {
-            int b2 = ky4.b();
-            if (ky4.c() > 0) {
-                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08093b, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-            } else if (b2 > 0) {
-                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, b2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            }
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            qg.a().removeCallbacks(this.g);
-            qg.a().removeCallbacks(this.h);
-            ValueAnimator valueAnimator = this.c;
-            if (valueAnimator != null) {
-                valueAnimator.removeAllListeners();
-                this.c.removeAllUpdateListeners();
-                this.c.cancel();
-            }
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void n(HeadImageView headImageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, headImageView) == null) {
-            this.b = headImageView;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.d = true;
-            this.e = i;
-            int b2 = ky4.b();
-            if (b2 > 0) {
-                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, b2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                long c2 = ky4.c();
-                if (c2 > 0) {
-                    this.a.setVisibility(4);
-                    HeadImageView headImageView = this.b;
-                    if (headImageView != null) {
-                        headImageView.setVisibility(0);
-                        ImMessageCenterPojo i2 = a67.o().i(String.valueOf(c2), 2);
-                        if (i2 != null) {
-                            this.b.J(i2.getGroup_head(), 12, false);
-                        }
-                    }
-                }
-                ValueAnimator valueAnimator = this.c;
-                if (valueAnimator != null) {
-                    valueAnimator.start();
-                }
-                this.f = true;
-                if (UbsABTestHelper.isResizeInduceSharingABTest() || UbsABTestHelper.isResizeInduceSharingABTestA()) {
-                    qg.a().postDelayed(this.h, 10000L);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdTypeRecyclerView) == null) {
+            this.k = bdTypeRecyclerView;
         }
     }
 }

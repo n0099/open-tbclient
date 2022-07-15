@@ -1,73 +1,29 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class an4 {
+public abstract class an4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile an4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
-    public float e;
-    public String f;
-    @Nullable
-    public b g;
-    @Nullable
-    public a h;
-    public String i;
-    public String j;
 
     /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
+    public interface a {
+        void a(String str, int i, String str2);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        void b(String str);
 
-        @Nullable
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optString("desc", "权限");
-                String optString = jSONObject.optString("url");
-                aVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    aVar.b = jSONObject.optString("cmd");
-                }
-                aVar.c = jSONObject.optString("cmd");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
+        void c(AccountData accountData);
     }
 
     /* loaded from: classes5.dex */
@@ -76,7 +32,6 @@ public class an4 {
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public String c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -88,29 +43,26 @@ public class an4 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = null;
+            this.b = null;
         }
+    }
 
-        @Nullable
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = jSONObject.optString("desc", "隐私");
-                String optString = jSONObject.optString("url");
-                bVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    bVar.b = jSONObject.optString("cmd");
-                }
-                bVar.c = jSONObject.optString("cmd");
-                return bVar;
-            }
-            return (b) invokeL.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755851030, "Lcom/repackage/an4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755851030, "Lcom/repackage/an4;");
         }
     }
 
@@ -118,76 +70,36 @@ public class an4 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.e = -1.0f;
     }
 
-    public static boolean a(an4 an4Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
+    public static an4 b() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, an4Var)) == null) {
-            if (an4Var == null) {
-                return false;
-            }
-            return (TextUtils.isEmpty(an4Var.f) && TextUtils.isEmpty(an4Var.d) && ((bVar = an4Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = an4Var.h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Nullable
-    public static an4 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            an4 an4Var = new an4();
-            an4Var.a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
-            an4Var.b = jSONObject.optString("app_icon");
-            an4Var.c = jSONObject.optString("app_name");
-            an4Var.d = jSONObject.optString("developer_name");
-            an4Var.f = jSONObject.optString("version");
-            an4Var.g = b.a(jSONObject.optJSONObject("privacy"));
-            an4Var.h = a.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
-            an4Var.i = jSONObject.optString("apk_size");
-            an4Var.j = jSONObject.optString("apk_url");
-            try {
-                float parseFloat = Float.parseFloat(jSONObject.optString("score"));
-                if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
-                    an4Var.e = parseFloat;
-                } else {
-                    an4Var.e = -1.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (an4.class) {
+                    if (a == null && (runTask = MessageManager.getInstance().runTask(2001293, an4.class)) != null && runTask.getData() != null) {
+                        a = (an4) runTask.getData();
+                    }
                 }
-            } catch (NumberFormatException unused) {
-                an4Var.e = -1.0f;
             }
-            return an4Var;
+            return a;
         }
-        return (an4) invokeL.objValue;
+        return (an4) invokeV.objValue;
     }
 
-    public static boolean c(an4 an4Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, an4Var)) == null) {
-            if (an4Var != null && an4Var.a) {
-                return (TextUtils.isEmpty(an4Var.f) || TextUtils.isEmpty(an4Var.d) || (bVar = an4Var.g) == null || TextUtils.isEmpty(bVar.b) || (aVar = an4Var.h) == null || TextUtils.isEmpty(aVar.b)) ? false : true;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a aVar);
+
+    public abstract b c(String str);
+
+    public abstract void d();
 }

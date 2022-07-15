@@ -1,13 +1,15 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class ci2 implements bi2 {
+public class ci2 extends be2<si2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,24 +27,23 @@ public class ci2 implements bi2 {
         }
     }
 
-    @Override // com.repackage.bi2
-    public void a(String str, String str2) {
+    @Override // com.repackage.be2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "seekTo" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.bi2
-    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.be2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull si2 si2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
-        }
-    }
-
-    @Override // com.repackage.bi2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, si2Var) == null) {
+            si2Var.seekTo(command.arg1);
+            String str = command.what;
+            d(si2Var, str, "SeekTo: " + command.arg1, false);
         }
     }
 }

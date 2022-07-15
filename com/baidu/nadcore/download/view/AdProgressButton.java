@@ -23,11 +23,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d01;
-import com.repackage.ii0;
-import com.repackage.yi0;
+import com.repackage.kj0;
+import com.repackage.q01;
+import com.repackage.si0;
 /* loaded from: classes2.dex */
-public class AdProgressButton extends View implements yi0<AdProgressButton> {
+public class AdProgressButton extends View implements kj0<AdProgressButton> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -69,7 +69,7 @@ public class AdProgressButton extends View implements yi0<AdProgressButton> {
         d(context, null);
     }
 
-    @Override // com.repackage.yi0
+    @Override // com.repackage.kj0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
@@ -99,11 +99,11 @@ public class AdProgressButton extends View implements yi0<AdProgressButton> {
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040479, R.attr.obfuscated_res_0x7f04047a, R.attr.obfuscated_res_0x7f04047b, R.attr.obfuscated_res_0x7f04047c, R.attr.obfuscated_res_0x7f04047d, R.attr.obfuscated_res_0x7f04047e, R.attr.obfuscated_res_0x7f04047f, R.attr.obfuscated_res_0x7f040480, R.attr.obfuscated_res_0x7f040481, R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f040483, R.attr.obfuscated_res_0x7f040484, R.attr.obfuscated_res_0x7f040485});
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f06083f);
-            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f06083e);
-            int a = d01.c.a(getContext(), 11.0f);
-            int a2 = d01.c.a(getContext(), 12.0f);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04047d, R.attr.obfuscated_res_0x7f04047e, R.attr.obfuscated_res_0x7f04047f, R.attr.obfuscated_res_0x7f040480, R.attr.obfuscated_res_0x7f040481, R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f040483, R.attr.obfuscated_res_0x7f040484, R.attr.obfuscated_res_0x7f040485, R.attr.obfuscated_res_0x7f040486, R.attr.obfuscated_res_0x7f040487, R.attr.obfuscated_res_0x7f040488, R.attr.obfuscated_res_0x7f04048a});
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f060838);
+            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f060837);
+            int a = q01.c.a(getContext(), 11.0f);
+            int a2 = q01.c.a(getContext(), 12.0f);
             this.j = 1;
             this.f = obtainStyledAttributes.getInteger(0, color2);
             this.b = obtainStyledAttributes.getColor(8, color);
@@ -114,7 +114,7 @@ public class AdProgressButton extends View implements yi0<AdProgressButton> {
             this.i = obtainStyledAttributes.getDimensionPixelSize(5, a2);
             obtainStyledAttributes.recycle();
             this.k = Typeface.defaultFromStyle(1);
-            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dca));
+            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d4a));
             e();
         }
     }
@@ -141,7 +141,7 @@ public class AdProgressButton extends View implements yi0<AdProgressButton> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.yi0
+    @Override // com.repackage.kj0
     @NonNull
     public AdProgressButton getRealView() {
         InterceptResult invokeV;
@@ -233,12 +233,12 @@ public class AdProgressButton extends View implements yi0<AdProgressButton> {
         }
     }
 
-    @Override // com.repackage.yi0
-    public void update(String str, @NonNull ii0 ii0Var) {
+    @Override // com.repackage.kj0
+    public void update(String str, @NonNull si0 si0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, str, ii0Var) == null) {
-            if (ii0Var.c == AdDownloadStatus.DOWNLOADING) {
-                setProgress((int) (ii0Var.i * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(1048592, this, str, si0Var) == null) {
+            if (si0Var.c == AdDownloadStatus.DOWNLOADING) {
+                setProgress((int) (si0Var.i * 100.0f));
                 return;
             }
             setProgressNoText(0);

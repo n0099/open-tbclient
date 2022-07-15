@@ -129,16 +129,16 @@ public class BdTypeRecyclerView extends BdRecyclerView implements tn<BdTypeRecyc
             }
         }
         this.t = null;
-        D();
+        C();
     }
 
-    public nn C(int i) {
+    public nn B(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.t.getItem(i) : (nn) invokeI.objValue;
     }
 
-    public final void D() {
+    public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.t == null) {
@@ -155,14 +155,14 @@ public class BdTypeRecyclerView extends BdRecyclerView implements tn<BdTypeRecyc
         }
     }
 
-    public void E(int i) {
+    public void D(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.t.k(i, getHeaderViewsCount());
         }
     }
 
-    public void F(int i, int i2) {
+    public void E(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             this.t.l(i, i2, getHeaderViewsCount());
@@ -288,42 +288,42 @@ public class BdTypeRecyclerView extends BdRecyclerView implements tn<BdTypeRecyc
                         an anVar = this.u.get(nnVar.getType());
                         if (anVar.x() != null) {
                             gn gnVar = new gn();
-                            gnVar.h(anVar.x());
+                            gnVar.g(anVar.x());
                             if (nnVar instanceof BaseCardInfo) {
                                 gnVar.position = ((BaseCardInfo) nnVar).position;
                                 gnVar.setSupportType(BaseCardInfo.SupportType.TOP);
                             }
-                            gnVar.f(nnVar);
+                            gnVar.d(nnVar);
                             arrayList.add(gnVar);
                         }
                         if (anVar.v() != null) {
                             gn gnVar2 = new gn();
-                            gnVar2.h(anVar.v());
+                            gnVar2.g(anVar.v());
                             if (nnVar instanceof BaseCardInfo) {
                                 gnVar2.position = ((BaseCardInfo) nnVar).position;
                                 gnVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                             }
-                            gnVar2.f(nnVar);
+                            gnVar2.d(nnVar);
                             arrayList.add(gnVar2);
                         }
                         if (anVar.w() != null) {
                             gn gnVar3 = new gn();
-                            gnVar3.h(anVar.w());
+                            gnVar3.g(anVar.w());
                             if (nnVar instanceof BaseCardInfo) {
                                 gnVar3.position = ((BaseCardInfo) nnVar).position;
                                 gnVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             }
-                            gnVar3.f(nnVar);
+                            gnVar3.d(nnVar);
                             arrayList.add(gnVar3);
                         }
                         if (anVar.u() != null) {
                             gn gnVar4 = new gn();
-                            gnVar4.h(anVar.u());
+                            gnVar4.g(anVar.u());
                             if (nnVar instanceof BaseCardInfo) {
                                 gnVar4.position = ((BaseCardInfo) nnVar).position;
                                 gnVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                             }
-                            gnVar4.f(nnVar);
+                            gnVar4.d(nnVar);
                             arrayList.add(gnVar4);
                         }
                     } else {
@@ -377,7 +377,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements tn<BdTypeRecyc
             }
         }
         this.t = null;
-        D();
+        C();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -400,6 +400,6 @@ public class BdTypeRecyclerView extends BdRecyclerView implements tn<BdTypeRecyc
             }
         }
         this.t = null;
-        D();
+        C();
     }
 }

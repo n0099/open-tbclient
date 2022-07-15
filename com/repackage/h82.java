@@ -2,25 +2,199 @@ package com.repackage;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
 public class h82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, Integer> b;
-    public static final Object c;
-    public static boolean d;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public HttpManager a;
+    public String b;
+    public String c;
+    public f82 d;
+
+    /* loaded from: classes6.dex */
+    public class a implements Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h82 a;
+
+        public a(h82 h82Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h82Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h82Var;
+        }
+
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                if (h82.e) {
+                    Log.e("ImageDownloader", this.a.b + " load failed");
+                    iOException.printStackTrace();
+                }
+                if (this.a.d != null) {
+                    this.a.d.fail(-1, this.a.b);
+                }
+            }
+        }
+
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) {
+            FileOutputStream fileOutputStream;
+            File file;
+            InputStream byteStream;
+            String c;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                if (TextUtils.isEmpty(this.a.c)) {
+                    if (rg1.a) {
+                        Log.e("SwanGameRuntime", "非手百环境依赖注入接口未实现，直接返回");
+                        return;
+                    }
+                    return;
+                }
+                byte[] bArr = new byte[2048];
+                InputStream inputStream = null;
+                try {
+                    byteStream = response.body().byteStream();
+                    try {
+                        try {
+                            c = pj2.f().c(this.a.b);
+                        } catch (Throwable th) {
+                            th = th;
+                            fileOutputStream = null;
+                        }
+                    } catch (Exception e) {
+                        e = e;
+                        file = null;
+                        fileOutputStream = null;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    file = null;
+                    fileOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream = null;
+                }
+                if (TextUtils.isEmpty(c)) {
+                    if (rg1.a) {
+                        Log.e("SwanGameRuntime", "非手百环境依赖注入接口convertSrc()未实现，直接返回");
+                    }
+                    jg4.d(byteStream);
+                    jg4.d(null);
+                    jg4.d(response);
+                    return;
+                }
+                String str = this.a.c + c.substring(0, c.lastIndexOf("/"));
+                File file2 = new File(str);
+                if (!file2.exists() || !file2.isDirectory()) {
+                    file2.mkdirs();
+                }
+                String substring = c.substring(c.lastIndexOf("/") + 1);
+                file = new File(str, substring + ".bddownload");
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                    while (true) {
+                        try {
+                            int read = byteStream.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            fileOutputStream.write(bArr, 0, read);
+                        } catch (Exception e3) {
+                            e = e3;
+                            inputStream = byteStream;
+                            try {
+                                if (h82.e) {
+                                    Log.e("ImageDownloader", this.a.b + " load failed", e);
+                                }
+                                if (file != null) {
+                                    file.delete();
+                                }
+                                if (this.a.d != null) {
+                                    this.a.d.fail(-1, this.a.b);
+                                }
+                                jg4.d(inputStream);
+                                jg4.d(fileOutputStream);
+                                jg4.d(response);
+                            } catch (Throwable th3) {
+                                th = th3;
+                                jg4.d(inputStream);
+                                jg4.d(fileOutputStream);
+                                jg4.d(response);
+                                throw th;
+                            }
+                        } catch (Throwable th4) {
+                            th = th4;
+                            inputStream = byteStream;
+                            jg4.d(inputStream);
+                            jg4.d(fileOutputStream);
+                            jg4.d(response);
+                            throw th;
+                        }
+                    }
+                    fileOutputStream.flush();
+                    File file3 = new File(str, substring);
+                    if (file3.exists() && !file3.isDirectory()) {
+                        file3.delete();
+                    }
+                    String absolutePath = file3.getAbsolutePath();
+                    if (file.renameTo(file3)) {
+                        if (h82.e) {
+                            Log.e("ImageDownloader", this.a.b + " load rename success path = " + absolutePath);
+                        }
+                        if (this.a.d != null) {
+                            this.a.d.a(this.a.b, absolutePath);
+                        }
+                    } else {
+                        if (h82.e) {
+                            Log.e("ImageDownloader", this.a.b + " load rename error path = " + absolutePath);
+                        }
+                        file.delete();
+                        if (this.a.d != null) {
+                            this.a.d.fail(-1, absolutePath);
+                        }
+                    }
+                    jg4.d(byteStream);
+                } catch (Exception e4) {
+                    e = e4;
+                    fileOutputStream = null;
+                }
+                jg4.d(fileOutputStream);
+                jg4.d(response);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,113 +209,36 @@ public class h82 {
                 return;
             }
         }
-        a = cg1.a;
-        b = new HashMap();
-        c = new Object();
-        d = i82.a();
+        e = rg1.a;
     }
 
-    public static void a() {
+    public h82(HttpManager httpManager, String str, String str2, f82 f82Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && d) {
-            if (a) {
-                Log.d("ExcludeRecorder", "remove all exclude appIds");
-            }
-            synchronized (c) {
-                b.clear();
-            }
-        }
-    }
-
-    @NonNull
-    public static Set<String> b() {
-        InterceptResult invokeV;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!d) {
-                return Collections.emptySet();
-            }
-            synchronized (c) {
-                strArr = (String[]) b.keySet().toArray(new String[0]);
-            }
-            return wd3.a(strArr);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (d && !TextUtils.isEmpty(str)) {
-                synchronized (c) {
-                    containsKey = b.containsKey(str);
-                }
-                if (a) {
-                    Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
-                }
-                return containsKey;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && d) {
-            if (a) {
-                Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {httpManager, str, str2, f82Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            synchronized (c) {
-                Integer num = b.get(str);
-                if (num == null) {
-                    b.put(str, 1);
-                } else {
-                    b.put(str, Integer.valueOf(num.intValue() + 1));
-                }
-            }
         }
+        this.b = "";
+        this.c = "";
+        this.a = httpManager;
+        this.c = str;
+        this.b = str2;
+        this.d = f82Var;
     }
 
-    public static void e(yc4 yc4Var) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, yc4Var) == null) && d && yc4Var != null) {
-            for (o84 o84Var : yc4Var.j()) {
-                if (o84Var instanceof p84) {
-                    d(o84Var.g);
-                } else if (o84Var instanceof q84) {
-                    d(((q84) o84Var).o);
-                }
-            }
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && d) {
-            if (a) {
-                Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            synchronized (c) {
-                Integer num = b.get(str);
-                if (num != null) {
-                    int intValue = num.intValue() - 1;
-                    if (intValue <= 0) {
-                        b.remove(str);
-                    } else {
-                        b.put(str, Integer.valueOf(intValue));
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            pj2.l().call(this.a, new Request.Builder().url(this.b).build(), new a(this));
         }
     }
 }

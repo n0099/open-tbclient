@@ -1,30 +1,38 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.webview.jshandler.p;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cu implements com.kwad.sdk.core.d<p.a> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(p.a aVar, JSONObject jSONObject) {
+public final class cu implements com.kwad.sdk.core.d<com.kwad.components.ad.interstitial.a.b> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(com.kwad.components.ad.interstitial.a.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        aVar.a = jSONObject.optInt("status");
-        aVar.b = jSONObject.optString("errorMsg");
-        if (jSONObject.opt("errorMsg") == JSONObject.NULL) {
-            aVar.b = "";
-        }
+        bVar.a = jSONObject.optLong("lastShowTimestamp");
+        bVar.b = jSONObject.optInt("currentDailyAdShowCount");
+        bVar.c = jSONObject.optInt("currentDailyRetainShowCount");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(p.a aVar, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(com.kwad.components.ad.interstitial.a.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "status", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "errorMsg", aVar.b);
+        com.kwad.sdk.utils.r.a(jSONObject, "lastShowTimestamp", bVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "currentDailyAdShowCount", bVar.b);
+        com.kwad.sdk.utils.r.a(jSONObject, "currentDailyRetainShowCount", bVar.c);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(com.kwad.components.ad.interstitial.a.b bVar, JSONObject jSONObject) {
+        a2(bVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.components.ad.interstitial.a.b bVar, JSONObject jSONObject) {
+        return b2(bVar, jSONObject);
     }
 }

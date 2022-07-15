@@ -1,73 +1,72 @@
 package com.repackage;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.MotionEvent;
-import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
+import com.baidu.tieba.im.push.PushResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class g77 extends Dialog {
+public class g77 extends xa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onClick();
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g77(@NonNull Context context, int i) {
-        super(context, i);
+    public g77() {
+        super(202009);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        getWindow().setSoftInputMode(32);
     }
 
-    public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @Override // android.app.Dialog
-    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ua
+    /* renamed from: c */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
-        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                Rect rect = new Rect();
-                getWindow().getDecorView().getGlobalVisibleRect(rect);
-                if (rect.contains((int) motionEvent.getX(), (int) motionEvent.getY()) || (aVar = this.a) == null) {
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage instanceof PushResponseMessage) {
+                if (socketResponsedMessage.getError() == 110000) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
                 }
-                aVar.onClick();
-                return true;
+                PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
+                if (pushResponseMessage.getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
+                    CustomMessage customMessage = new CustomMessage(2012100);
+                    customMessage.setData(pushResponseMessage.getNotificationData());
+                    MessageManager.getInstance().sendMessage(customMessage);
+                    return null;
+                }
+                List<GroupMsgData> groupMsg = pushResponseMessage.getGroupMsg();
+                if (groupMsg != null && groupMsg.size() > 0) {
+                    for (GroupMsgData groupMsgData : groupMsg) {
+                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                            MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
+                        }
+                    }
+                }
+                return socketResponsedMessage;
             }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

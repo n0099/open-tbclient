@@ -30,14 +30,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gx;
+import com.repackage.hq4;
+import com.repackage.hx;
+import com.repackage.jm4;
 import com.repackage.jn;
 import com.repackage.ln;
 import com.repackage.pi;
-import com.repackage.sp4;
-import com.repackage.ul4;
 /* loaded from: classes3.dex */
-public class ConcernRecommendLayout extends LinearLayout implements gx {
+public class ConcernRecommendLayout extends LinearLayout implements hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
@@ -120,8 +120,8 @@ public class ConcernRecommendLayout extends LinearLayout implements gx {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ec, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092017);
-            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f84);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920bc);
+            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092029);
             ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.a);
             this.e = concernRecommendListAdapter;
             this.d.setAdapter(concernRecommendListAdapter);
@@ -146,7 +146,7 @@ public class ConcernRecommendLayout extends LinearLayout implements gx {
         }
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
@@ -166,27 +166,27 @@ public class ConcernRecommendLayout extends LinearLayout implements gx {
         }
     }
 
-    public void setData(sp4 sp4Var) {
+    public void setData(hq4 hq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sp4Var) == null) {
-            if (sp4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, hq4Var) == null) {
+            if (hq4Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            if (!TextUtils.isEmpty(sp4Var.a) && sp4Var.b != 0) {
+            if (!TextUtils.isEmpty(hq4Var.a) && hq4Var.b != 0) {
                 this.c.setTextSize(0, pi.f(this.a, R.dimen.tbds37));
-                this.c.setText(sp4Var.a);
+                this.c.setText(hq4Var.a);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
-                this.g = sp4Var.b;
+                this.g = hq4Var.b;
             } else {
                 this.c.setTextSize(0, pi.f(this.a, R.dimen.tbds37));
-                this.c.setText(R.string.obfuscated_res_0x7f0f041a);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0422);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
                 this.g = R.color.CAM_X0105;
             }
             this.e.h(TbadkCoreApplication.getInst().getSkinType());
-            this.e.setData(sp4Var.c());
+            this.e.setData(hq4Var.c());
             this.e.notifyDataSetChanged();
         }
     }
@@ -198,10 +198,10 @@ public class ConcernRecommendLayout extends LinearLayout implements gx {
         }
     }
 
-    public void setOnItemCoverListener(ul4<MetaData> ul4Var) {
+    public void setOnItemCoverListener(jm4<MetaData> jm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ul4Var) == null) {
-            this.e.l(ul4Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, jm4Var) == null) {
+            this.e.l(jm4Var);
         }
     }
 

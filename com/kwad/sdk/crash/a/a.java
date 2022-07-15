@@ -6,7 +6,7 @@ import com.kwad.sdk.crash.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class a {
+public final class a {
     public static boolean a(@NonNull Throwable th) {
         ArrayList arrayList = new ArrayList(5);
         for (int i = 0; i < 5; i++) {
@@ -57,7 +57,7 @@ public class a {
         for (StackTraceElement stackTraceElement : stackTraceElementArr) {
             String className = stackTraceElement.getClassName();
             if (!TextUtils.isEmpty(className) && className.contains(str)) {
-                com.kwad.sdk.core.d.a.a("ExceptionCollector", "CrashFilter filterTags element className=" + className + " filter tag=" + str);
+                com.kwad.sdk.core.d.b.a("ExceptionCollector", "CrashFilter filterTags element className=" + className + " filter tag=" + str);
                 return true;
             }
         }
@@ -68,7 +68,7 @@ public class a {
         for (StackTraceElement stackTraceElement : stackTraceElementArr) {
             String className = stackTraceElement.getClassName();
             if (!TextUtils.isEmpty(className) && className.contains(str)) {
-                com.kwad.sdk.core.d.a.a("ExceptionCollector", "CrashFilter excludeTags element className=" + className + " exclude tag=" + str);
+                com.kwad.sdk.core.d.b.a("ExceptionCollector", "CrashFilter excludeTags element className=" + className + " exclude tag=" + str);
                 return true;
             }
         }

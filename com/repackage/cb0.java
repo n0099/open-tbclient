@@ -1,21 +1,19 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.graphics.Color;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public class cb0 {
+public class cb0 extends ab0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,96 +29,64 @@ public class cb0 {
                 return;
             }
         }
-        Pattern.compile("^((https|http|ftp|rtsp|mms)?://)?(([0-9a-zA-Z_!~*'().&=+$%-]+: )?[0-9a-zA-Z_!~*'().&=+$%-]+@)?(([0-9]{1,3}\\.){3}[0-9]{1,3}|([0-9a-zA-Z_!~*'()-]+\\.)*([0-9a-zA-Z][0-9a-zA-Z-]{0,61})?[0-9a-zA-Z]\\.[a-zA-Z]{2,6})(:[0-9]{1,4})?((/?)|(/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-]+)+/?)$");
+        b = new HashMap<>();
     }
 
-    public static String a(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public cb0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            String c = c(map);
-            if (TextUtils.isEmpty(c)) {
-                return str;
-            }
-            if (str.contains("?")) {
-                return str + "&" + c;
-            }
-            return str + "?" + c;
         }
-        return (String) invokeLL.objValue;
+        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "", ""});
+        b.put("color_white1", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_white2", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_white3", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_F5F5F51", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_F5F5F52", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_F5F5F53", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_FF33551", new String[]{"#FF3355", "", "", ""});
+        b.put("color_FF33552", new String[]{"#1AFF3355", "", "", ""});
+        b.put("color_858585", new String[]{"#858585", "", "", ""});
+        b.put("color_525252", new String[]{"#525252", "", "", ""});
+        b.put("color_FF3333", new String[]{"#FF3333", "", "", ""});
+        b.put("color_768CAE", new String[]{"#768CAE", "", "", ""});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "", ""});
+        b.put("color_8585852", new String[]{"#858585", "", "", ""});
+        b.put("color_5252522", new String[]{"#525252", "", "", ""});
+        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "", ""});
+        b.put("color_btn_fill", new String[]{"#00000000", "", "", ""});
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ab0
+    public int a(Context context, boolean z, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(indexOf + 1);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(Map<String, String> map) {
-        InterceptResult invokeL;
-        String encode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            if (map == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            for (String str : map.keySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), str})) == null) {
+            if (b.containsKey(str)) {
+                String str2 = b.get(str)[0];
+                if (z) {
+                    str2 = b.get(str)[3];
                 }
-                String str2 = map.get(str);
-                if (str != null) {
-                    try {
-                        encode = URLEncoder.encode(str, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        if (ab0.i()) {
-                            throw new RuntimeException("This method requires UTF-8 encoding support", e);
-                        }
-                    }
-                } else {
-                    encode = "";
+                if (ta0.a(str2)) {
+                    return -16777216;
                 }
-                sb.append(encode);
-                sb.append("=");
-                sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Map<String, String> d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
                 try {
-                    hashMap.put(URLDecoder.decode(split[0], "UTF-8"), split.length > 1 ? URLDecoder.decode(split[1], "UTF-8") : "");
-                } catch (UnsupportedEncodingException e) {
-                    throw new RuntimeException("This method requires UTF-8 encoding support", e);
+                    return Color.parseColor(str2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return -16777216;
                 }
             }
-            return hashMap;
+            return -16777216;
         }
-        return (Map) invokeL.objValue;
+        return invokeCommon.intValue;
     }
 }

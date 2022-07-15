@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ge8;
+import com.repackage.bf8;
 /* loaded from: classes4.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +35,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ForumSquareDelegate) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.t75
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            ge8 ge8Var = this.a.mForumSquareView;
-            if (ge8Var != null) {
-                ge8Var.a(i);
+            bf8 bf8Var = this.a.mForumSquareView;
+            if (bf8Var != null) {
+                bf8Var.a(i);
             }
         }
     }

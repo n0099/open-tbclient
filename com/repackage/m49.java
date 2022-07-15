@@ -1,26 +1,56 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.utils.FileUtils;
+import com.repackage.e49;
+import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
-public class m49 {
+public final class m49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioPlayData a;
-    public n49 b;
+    public final LinkedHashMap<String, Long> a;
 
-    public m49(AudioPlayData audioPlayData) {
+    /* loaded from: classes6.dex */
+    public class a extends q49 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
+
+        public a(m49 m49Var, com.baidu.ubs.analytics.a.l lVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m49Var, lVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lVar;
+        }
+
+        @Override // com.repackage.q49
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                new w39().c(this.a);
+            }
+        }
+    }
+
+    public m49() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {audioPlayData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,39 +60,44 @@ public class m49 {
                 return;
             }
         }
-        this.a = audioPlayData;
-        if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
+        this.a = new LinkedHashMap<>();
+    }
+
+    public final void a(String str) {
+        e49 e49Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.b = new n49(audioPlayData.audioPath);
-    }
-
-    public n49 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (n49) invokeV.objValue;
-    }
-
-    public AudioPlayData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AudioPlayData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            n49 n49Var = this.b;
-            return n49Var != null && n49Var.i();
+        com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+        synchronized (this.a) {
+            Long remove = this.a.remove(str);
+            if (remove == null) {
+                return;
+            }
+            try {
+                lVar.setStartTime(String.valueOf(remove));
+                lVar.t(str);
+                lVar.z(String.valueOf(System.currentTimeMillis()));
+                e49Var = e49.a.a;
+                lVar.setPath(e49Var.b());
+                lVar.x(n49.e().I());
+            } catch (Exception e) {
+                w49.a(e.toString());
+                o49.b(e.toString());
+            }
+            p49.c(new a(this, lVar));
         }
-        return invokeV.booleanValue;
     }
 
-    public void d(n49 n49Var) {
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, n49Var) == null) {
-            this.b = n49Var;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (this.a) {
+            this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+            String.valueOf(System.currentTimeMillis());
         }
     }
 }

@@ -1,138 +1,200 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.content.UriMatcher;
-import android.database.Cursor;
 import android.net.Uri;
-import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.regex.Pattern;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mb1 extends lb1 {
+public final class mb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mb1() {
-        super(0, 100);
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0) {
+                if (i != 101) {
+                    if (i != 201) {
+                        if (i != 202) {
+                            if (i != 301) {
+                                if (i != 302) {
+                                    switch (i) {
+                                        case 401:
+                                            return fb1.a().getString(R.string.obfuscated_res_0x7f0f0f0e);
+                                        case 402:
+                                            return fb1.a().getString(R.string.obfuscated_res_0x7f0f0f0b);
+                                        case 403:
+                                            return fb1.a().getString(R.string.obfuscated_res_0x7f0f0f0c);
+                                        default:
+                                            return fb1.a().getString(R.string.obfuscated_res_0x7f0f0f13);
+                                    }
+                                }
+                                return fb1.a().getString(R.string.obfuscated_res_0x7f0f0f0d);
+                            }
+                            return fb1.a().getString(R.string.obfuscated_res_0x7f0f0f0f);
+                        }
+                        return fb1.a().getString(R.string.obfuscated_res_0x7f0f0f12);
+                    }
+                    return fb1.a().getString(R.string.obfuscated_res_0x7f0f0f13);
+                }
+                return fb1.a().getString(R.string.obfuscated_res_0x7f0f0f10);
             }
+            return fb1.a().getString(R.string.obfuscated_res_0x7f0f0f11);
         }
+        return (String) invokeI.objValue;
     }
 
-    @Override // com.repackage.lb1
-    public Bundle call(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public static HashMap<String, String> b(String str) {
+        InterceptResult invokeL;
+        String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, bundle)) == null) {
-            if ("_get_service_handler".equals(str)) {
-                return eb1.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            if (TextUtils.isEmpty(str)) {
+                return hashMap;
             }
-            return null;
+            int indexOf = str.indexOf("?");
+            int indexOf2 = str.indexOf("#");
+            if (indexOf < 0) {
+                return hashMap;
+            }
+            if (indexOf2 < 0) {
+                substring = str.substring(indexOf + 1);
+            } else {
+                substring = str.substring(indexOf + 1, indexOf2);
+            }
+            String[] split = substring.split("&");
+            if (split == null) {
+                return hashMap;
+            }
+            for (String str2 : split) {
+                int indexOf3 = str2.indexOf("=");
+                if (indexOf3 > 0) {
+                    try {
+                        hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
+                    } catch (IllegalArgumentException unused) {
+                    }
+                }
+            }
+            return hashMap;
         }
-        return (Bundle) invokeLLL.objValue;
+        return (HashMap) invokeL.objValue;
     }
 
-    @Override // com.repackage.lb1
-    public boolean d(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public static String[] c(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bundle)) == null) ? "_get_service_handler".equals(str) : invokeLLL.booleanValue;
-    }
-
-    @Override // com.repackage.lb1
-    public int delete(int i, Uri uri, String str, String[] strArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), uri, str, strArr})) == null) {
-            return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
+            if (uri == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(uri.getPathSegments());
+            if (!d(uri)) {
+                arrayList.add(0, uri.getHost());
+            }
+            if (arrayList.size() <= 0) {
+                return null;
+            }
+            return (String[]) arrayList.toArray(new String[0]);
         }
-        return invokeCommon.intValue;
+        return (String[]) invokeL.objValue;
     }
 
-    @Override // com.repackage.lb1
-    public void e(Uri uri, int i) {
+    public static boolean d(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, uri, i) == null) || i == 3) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            String host = uri.getHost();
+            return !TextUtils.isEmpty(host) && host.startsWith("v") && e(host);
         }
-        super.e(uri, i);
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.lb1
-    public void f(UriMatcher uriMatcher, String str) {
+    public static boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, uriMatcher, str) == null) {
-            uriMatcher.addURI(str, "ipc_manager/method/get_service_handler", 1);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? Pattern.compile("[0-9]").matcher(str).find() : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.lb1
-    public String getType(int i, Uri uri) {
+    public static boolean f(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            return TextUtils.equals(ib1.a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return f(Uri.parse(str));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static JSONObject h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? j(null, i) : (JSONObject) invokeI.objValue;
+    }
+
+    public static JSONObject i(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, uri)) == null) {
-            return null;
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    @Override // com.repackage.lb1
-    public Uri insert(int i, Uri uri, ContentValues contentValues) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, uri, contentValues)) == null) {
-            return null;
-        }
-        return (Uri) invokeILL.objValue;
-    }
-
-    @Override // com.repackage.lb1
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.lb1
-    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2})) == null) {
-            if (i == 1) {
-                return new fb1(eb1.a());
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("status", String.valueOf(i));
+                jSONObject.put("message", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return null;
+            return jSONObject;
         }
-        return (Cursor) invokeCommon.objValue;
+        return (JSONObject) invokeIL.objValue;
     }
 
-    @Override // com.repackage.lb1
-    public int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        InterceptResult invokeCommon;
+    public static JSONObject j(JSONObject jSONObject, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), uri, contentValues, str, strArr})) == null) {
-            return 0;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, jSONObject, i)) == null) ? k(jSONObject, i, a(i)) : (JSONObject) invokeLI.objValue;
+    }
+
+    public static JSONObject k(JSONObject jSONObject, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, jSONObject, i, str)) == null) {
+            JSONObject i2 = i(i, str);
+            if (jSONObject != null) {
+                try {
+                    i2.put("data", jSONObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return i2;
         }
-        return invokeCommon.intValue;
+        return (JSONObject) invokeLIL.objValue;
     }
 }

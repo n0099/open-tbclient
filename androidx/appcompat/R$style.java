@@ -492,243 +492,243 @@ public final class R$style {
     public static final int obfuscated_res_0x7f1000e1 = 2131755233;
 
     /* renamed from: Platform_AppCompat */
-    public static final int obfuscated_res_0x7f100152 = 2131755346;
-
-    /* renamed from: Platform_AppCompat_Light */
     public static final int obfuscated_res_0x7f100153 = 2131755347;
 
-    /* renamed from: Platform_ThemeOverlay_AppCompat */
-    public static final int obfuscated_res_0x7f100158 = 2131755352;
+    /* renamed from: Platform_AppCompat_Light */
+    public static final int obfuscated_res_0x7f100154 = 2131755348;
 
-    /* renamed from: Platform_ThemeOverlay_AppCompat_Dark */
+    /* renamed from: Platform_ThemeOverlay_AppCompat */
     public static final int obfuscated_res_0x7f100159 = 2131755353;
 
-    /* renamed from: Platform_ThemeOverlay_AppCompat_Light */
+    /* renamed from: Platform_ThemeOverlay_AppCompat_Dark */
     public static final int obfuscated_res_0x7f10015a = 2131755354;
 
-    /* renamed from: Platform_V21_AppCompat */
+    /* renamed from: Platform_ThemeOverlay_AppCompat_Light */
     public static final int obfuscated_res_0x7f10015b = 2131755355;
 
-    /* renamed from: Platform_V21_AppCompat_Light */
+    /* renamed from: Platform_V21_AppCompat */
     public static final int obfuscated_res_0x7f10015c = 2131755356;
 
-    /* renamed from: Platform_V25_AppCompat */
+    /* renamed from: Platform_V21_AppCompat_Light */
     public static final int obfuscated_res_0x7f10015d = 2131755357;
 
-    /* renamed from: Platform_V25_AppCompat_Light */
+    /* renamed from: Platform_V25_AppCompat */
     public static final int obfuscated_res_0x7f10015e = 2131755358;
 
-    /* renamed from: Platform_Widget_AppCompat_Spinner */
+    /* renamed from: Platform_V25_AppCompat_Light */
     public static final int obfuscated_res_0x7f10015f = 2131755359;
 
-    /* renamed from: RtlOverlay_DialogWindowTitle_AppCompat */
-    public static final int obfuscated_res_0x7f100165 = 2131755365;
+    /* renamed from: Platform_Widget_AppCompat_Spinner */
+    public static final int obfuscated_res_0x7f100160 = 2131755360;
 
-    /* renamed from: RtlOverlay_Widget_AppCompat_ActionBar_TitleItem */
+    /* renamed from: RtlOverlay_DialogWindowTitle_AppCompat */
     public static final int obfuscated_res_0x7f100166 = 2131755366;
 
-    /* renamed from: RtlOverlay_Widget_AppCompat_DialogTitle_Icon */
+    /* renamed from: RtlOverlay_Widget_AppCompat_ActionBar_TitleItem */
     public static final int obfuscated_res_0x7f100167 = 2131755367;
 
-    /* renamed from: RtlOverlay_Widget_AppCompat_PopupMenuItem */
+    /* renamed from: RtlOverlay_Widget_AppCompat_DialogTitle_Icon */
     public static final int obfuscated_res_0x7f100168 = 2131755368;
 
-    /* renamed from: RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup */
+    /* renamed from: RtlOverlay_Widget_AppCompat_PopupMenuItem */
     public static final int obfuscated_res_0x7f100169 = 2131755369;
 
-    /* renamed from: RtlOverlay_Widget_AppCompat_PopupMenuItem_Shortcut */
+    /* renamed from: RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup */
     public static final int obfuscated_res_0x7f10016a = 2131755370;
 
-    /* renamed from: RtlOverlay_Widget_AppCompat_PopupMenuItem_SubmenuArrow */
+    /* renamed from: RtlOverlay_Widget_AppCompat_PopupMenuItem_Shortcut */
     public static final int obfuscated_res_0x7f10016b = 2131755371;
 
-    /* renamed from: RtlOverlay_Widget_AppCompat_PopupMenuItem_Text */
+    /* renamed from: RtlOverlay_Widget_AppCompat_PopupMenuItem_SubmenuArrow */
     public static final int obfuscated_res_0x7f10016c = 2131755372;
 
-    /* renamed from: RtlOverlay_Widget_AppCompat_PopupMenuItem_Title */
+    /* renamed from: RtlOverlay_Widget_AppCompat_PopupMenuItem_Text */
     public static final int obfuscated_res_0x7f10016d = 2131755373;
 
-    /* renamed from: RtlOverlay_Widget_AppCompat_SearchView_MagIcon */
-    public static final int obfuscated_res_0x7f100173 = 2131755379;
-
-    /* renamed from: RtlOverlay_Widget_AppCompat_Search_DropDown */
+    /* renamed from: RtlOverlay_Widget_AppCompat_PopupMenuItem_Title */
     public static final int obfuscated_res_0x7f10016e = 2131755374;
 
-    /* renamed from: RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 */
-    public static final int obfuscated_res_0x7f10016f = 2131755375;
-
-    /* renamed from: RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 */
-    public static final int obfuscated_res_0x7f100170 = 2131755376;
-
-    /* renamed from: RtlOverlay_Widget_AppCompat_Search_DropDown_Query */
-    public static final int obfuscated_res_0x7f100171 = 2131755377;
-
-    /* renamed from: RtlOverlay_Widget_AppCompat_Search_DropDown_Text */
-    public static final int obfuscated_res_0x7f100172 = 2131755378;
-
-    /* renamed from: RtlUnderlay_Widget_AppCompat_ActionButton */
+    /* renamed from: RtlOverlay_Widget_AppCompat_SearchView_MagIcon */
     public static final int obfuscated_res_0x7f100174 = 2131755380;
 
-    /* renamed from: RtlUnderlay_Widget_AppCompat_ActionButton_Overflow */
+    /* renamed from: RtlOverlay_Widget_AppCompat_Search_DropDown */
+    public static final int obfuscated_res_0x7f10016f = 2131755375;
+
+    /* renamed from: RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 */
+    public static final int obfuscated_res_0x7f100170 = 2131755376;
+
+    /* renamed from: RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 */
+    public static final int obfuscated_res_0x7f100171 = 2131755377;
+
+    /* renamed from: RtlOverlay_Widget_AppCompat_Search_DropDown_Query */
+    public static final int obfuscated_res_0x7f100172 = 2131755378;
+
+    /* renamed from: RtlOverlay_Widget_AppCompat_Search_DropDown_Text */
+    public static final int obfuscated_res_0x7f100173 = 2131755379;
+
+    /* renamed from: RtlUnderlay_Widget_AppCompat_ActionButton */
     public static final int obfuscated_res_0x7f100175 = 2131755381;
 
-    /* renamed from: TextAppearance_AppCompat */
-    public static final int obfuscated_res_0x7f1001b3 = 2131755443;
+    /* renamed from: RtlUnderlay_Widget_AppCompat_ActionButton_Overflow */
+    public static final int obfuscated_res_0x7f100176 = 2131755382;
 
-    /* renamed from: TextAppearance_AppCompat_Body1 */
+    /* renamed from: TextAppearance_AppCompat */
     public static final int obfuscated_res_0x7f1001b4 = 2131755444;
 
-    /* renamed from: TextAppearance_AppCompat_Body2 */
+    /* renamed from: TextAppearance_AppCompat_Body1 */
     public static final int obfuscated_res_0x7f1001b5 = 2131755445;
 
-    /* renamed from: TextAppearance_AppCompat_Button */
+    /* renamed from: TextAppearance_AppCompat_Body2 */
     public static final int obfuscated_res_0x7f1001b6 = 2131755446;
 
-    /* renamed from: TextAppearance_AppCompat_Caption */
+    /* renamed from: TextAppearance_AppCompat_Button */
     public static final int obfuscated_res_0x7f1001b7 = 2131755447;
 
-    /* renamed from: TextAppearance_AppCompat_Display1 */
+    /* renamed from: TextAppearance_AppCompat_Caption */
     public static final int obfuscated_res_0x7f1001b8 = 2131755448;
 
-    /* renamed from: TextAppearance_AppCompat_Display2 */
+    /* renamed from: TextAppearance_AppCompat_Display1 */
     public static final int obfuscated_res_0x7f1001b9 = 2131755449;
 
-    /* renamed from: TextAppearance_AppCompat_Display3 */
+    /* renamed from: TextAppearance_AppCompat_Display2 */
     public static final int obfuscated_res_0x7f1001ba = 2131755450;
 
-    /* renamed from: TextAppearance_AppCompat_Display4 */
+    /* renamed from: TextAppearance_AppCompat_Display3 */
     public static final int obfuscated_res_0x7f1001bb = 2131755451;
 
-    /* renamed from: TextAppearance_AppCompat_Headline */
+    /* renamed from: TextAppearance_AppCompat_Display4 */
     public static final int obfuscated_res_0x7f1001bc = 2131755452;
 
-    /* renamed from: TextAppearance_AppCompat_Inverse */
+    /* renamed from: TextAppearance_AppCompat_Headline */
     public static final int obfuscated_res_0x7f1001bd = 2131755453;
 
-    /* renamed from: TextAppearance_AppCompat_Large */
+    /* renamed from: TextAppearance_AppCompat_Inverse */
     public static final int obfuscated_res_0x7f1001be = 2131755454;
 
-    /* renamed from: TextAppearance_AppCompat_Large_Inverse */
+    /* renamed from: TextAppearance_AppCompat_Large */
     public static final int obfuscated_res_0x7f1001bf = 2131755455;
 
-    /* renamed from: TextAppearance_AppCompat_Light_SearchResult_Subtitle */
+    /* renamed from: TextAppearance_AppCompat_Large_Inverse */
     public static final int obfuscated_res_0x7f1001c0 = 2131755456;
 
-    /* renamed from: TextAppearance_AppCompat_Light_SearchResult_Title */
+    /* renamed from: TextAppearance_AppCompat_Light_SearchResult_Subtitle */
     public static final int obfuscated_res_0x7f1001c1 = 2131755457;
 
-    /* renamed from: TextAppearance_AppCompat_Light_Widget_PopupMenu_Large */
+    /* renamed from: TextAppearance_AppCompat_Light_SearchResult_Title */
     public static final int obfuscated_res_0x7f1001c2 = 2131755458;
 
-    /* renamed from: TextAppearance_AppCompat_Light_Widget_PopupMenu_Small */
+    /* renamed from: TextAppearance_AppCompat_Light_Widget_PopupMenu_Large */
     public static final int obfuscated_res_0x7f1001c3 = 2131755459;
 
-    /* renamed from: TextAppearance_AppCompat_Medium */
+    /* renamed from: TextAppearance_AppCompat_Light_Widget_PopupMenu_Small */
     public static final int obfuscated_res_0x7f1001c4 = 2131755460;
 
-    /* renamed from: TextAppearance_AppCompat_Medium_Inverse */
+    /* renamed from: TextAppearance_AppCompat_Medium */
     public static final int obfuscated_res_0x7f1001c5 = 2131755461;
 
-    /* renamed from: TextAppearance_AppCompat_Menu */
+    /* renamed from: TextAppearance_AppCompat_Medium_Inverse */
     public static final int obfuscated_res_0x7f1001c6 = 2131755462;
 
-    /* renamed from: TextAppearance_AppCompat_SearchResult_Subtitle */
+    /* renamed from: TextAppearance_AppCompat_Menu */
     public static final int obfuscated_res_0x7f1001c7 = 2131755463;
 
-    /* renamed from: TextAppearance_AppCompat_SearchResult_Title */
+    /* renamed from: TextAppearance_AppCompat_SearchResult_Subtitle */
     public static final int obfuscated_res_0x7f1001c8 = 2131755464;
 
-    /* renamed from: TextAppearance_AppCompat_Small */
+    /* renamed from: TextAppearance_AppCompat_SearchResult_Title */
     public static final int obfuscated_res_0x7f1001c9 = 2131755465;
 
-    /* renamed from: TextAppearance_AppCompat_Small_Inverse */
+    /* renamed from: TextAppearance_AppCompat_Small */
     public static final int obfuscated_res_0x7f1001ca = 2131755466;
 
-    /* renamed from: TextAppearance_AppCompat_Subhead */
+    /* renamed from: TextAppearance_AppCompat_Small_Inverse */
     public static final int obfuscated_res_0x7f1001cb = 2131755467;
 
-    /* renamed from: TextAppearance_AppCompat_Subhead_Inverse */
+    /* renamed from: TextAppearance_AppCompat_Subhead */
     public static final int obfuscated_res_0x7f1001cc = 2131755468;
 
-    /* renamed from: TextAppearance_AppCompat_Title */
+    /* renamed from: TextAppearance_AppCompat_Subhead_Inverse */
     public static final int obfuscated_res_0x7f1001cd = 2131755469;
 
-    /* renamed from: TextAppearance_AppCompat_Title_Inverse */
+    /* renamed from: TextAppearance_AppCompat_Title */
     public static final int obfuscated_res_0x7f1001ce = 2131755470;
 
-    /* renamed from: TextAppearance_AppCompat_Tooltip */
+    /* renamed from: TextAppearance_AppCompat_Title_Inverse */
     public static final int obfuscated_res_0x7f1001cf = 2131755471;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_ActionBar_Menu */
+    /* renamed from: TextAppearance_AppCompat_Tooltip */
     public static final int obfuscated_res_0x7f1001d0 = 2131755472;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_ActionBar_Subtitle */
+    /* renamed from: TextAppearance_AppCompat_Widget_ActionBar_Menu */
     public static final int obfuscated_res_0x7f1001d1 = 2131755473;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse */
+    /* renamed from: TextAppearance_AppCompat_Widget_ActionBar_Subtitle */
     public static final int obfuscated_res_0x7f1001d3 = 2131755475;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_ActionBar_Title */
+    /* renamed from: TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse */
     public static final int obfuscated_res_0x7f1001d4 = 2131755476;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse */
+    /* renamed from: TextAppearance_AppCompat_Widget_ActionBar_Title */
     public static final int obfuscated_res_0x7f1001d5 = 2131755477;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_ActionMode_Subtitle */
+    /* renamed from: TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse */
     public static final int obfuscated_res_0x7f1001d6 = 2131755478;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse */
+    /* renamed from: TextAppearance_AppCompat_Widget_ActionMode_Subtitle */
     public static final int obfuscated_res_0x7f1001d7 = 2131755479;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_ActionMode_Title */
+    /* renamed from: TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse */
     public static final int obfuscated_res_0x7f1001d8 = 2131755480;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse */
+    /* renamed from: TextAppearance_AppCompat_Widget_ActionMode_Title */
     public static final int obfuscated_res_0x7f1001d9 = 2131755481;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_Button */
+    /* renamed from: TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse */
     public static final int obfuscated_res_0x7f1001da = 2131755482;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_Button_Borderless_Colored */
+    /* renamed from: TextAppearance_AppCompat_Widget_Button */
     public static final int obfuscated_res_0x7f1001db = 2131755483;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_Button_Colored */
+    /* renamed from: TextAppearance_AppCompat_Widget_Button_Borderless_Colored */
     public static final int obfuscated_res_0x7f1001dc = 2131755484;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_Button_Inverse */
+    /* renamed from: TextAppearance_AppCompat_Widget_Button_Colored */
     public static final int obfuscated_res_0x7f1001dd = 2131755485;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_DropDownItem */
+    /* renamed from: TextAppearance_AppCompat_Widget_Button_Inverse */
     public static final int obfuscated_res_0x7f1001de = 2131755486;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_PopupMenu_Header */
+    /* renamed from: TextAppearance_AppCompat_Widget_DropDownItem */
     public static final int obfuscated_res_0x7f1001df = 2131755487;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_PopupMenu_Large */
+    /* renamed from: TextAppearance_AppCompat_Widget_PopupMenu_Header */
     public static final int obfuscated_res_0x7f1001e0 = 2131755488;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_PopupMenu_Small */
+    /* renamed from: TextAppearance_AppCompat_Widget_PopupMenu_Large */
     public static final int obfuscated_res_0x7f1001e1 = 2131755489;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_Switch */
+    /* renamed from: TextAppearance_AppCompat_Widget_PopupMenu_Small */
     public static final int obfuscated_res_0x7f1001e2 = 2131755490;
 
-    /* renamed from: TextAppearance_AppCompat_Widget_TextView_SpinnerItem */
+    /* renamed from: TextAppearance_AppCompat_Widget_Switch */
     public static final int obfuscated_res_0x7f1001e3 = 2131755491;
-    public static final int TextAppearance_Compat_Notification = 2131755492;
-    public static final int TextAppearance_Compat_Notification_Info = 2131755493;
-    public static final int TextAppearance_Compat_Notification_Line2 = 2131755497;
-    public static final int TextAppearance_Compat_Notification_Time = 2131755500;
-    public static final int TextAppearance_Compat_Notification_Title = 2131755502;
+
+    /* renamed from: TextAppearance_AppCompat_Widget_TextView_SpinnerItem */
+    public static final int obfuscated_res_0x7f1001e4 = 2131755492;
+    public static final int TextAppearance_Compat_Notification = 2131755493;
+    public static final int TextAppearance_Compat_Notification_Info = 2131755494;
+    public static final int TextAppearance_Compat_Notification_Line2 = 2131755498;
+    public static final int TextAppearance_Compat_Notification_Time = 2131755501;
+    public static final int TextAppearance_Compat_Notification_Title = 2131755503;
 
     /* renamed from: TextAppearance_Widget_AppCompat_ExpandedMenu_Item */
-    public static final int obfuscated_res_0x7f10020e = 2131755534;
-
-    /* renamed from: TextAppearance_Widget_AppCompat_Toolbar_Subtitle */
     public static final int obfuscated_res_0x7f10020f = 2131755535;
 
-    /* renamed from: TextAppearance_Widget_AppCompat_Toolbar_Title */
+    /* renamed from: TextAppearance_Widget_AppCompat_Toolbar_Subtitle */
     public static final int obfuscated_res_0x7f100210 = 2131755536;
+
+    /* renamed from: TextAppearance_Widget_AppCompat_Toolbar_Title */
+    public static final int obfuscated_res_0x7f100211 = 2131755537;
 
     /* renamed from: ThemeOverlay_AppCompat */
     public static final int obfuscated_res_0x7f100263 = 2131755619;
@@ -758,70 +758,70 @@ public final class R$style {
     public static final int obfuscated_res_0x7f10026b = 2131755627;
 
     /* renamed from: Theme_AppCompat */
-    public static final int obfuscated_res_0x7f100212 = 2131755538;
-
-    /* renamed from: Theme_AppCompat_CompactMenu */
     public static final int obfuscated_res_0x7f100213 = 2131755539;
 
-    /* renamed from: Theme_AppCompat_DayNight */
+    /* renamed from: Theme_AppCompat_CompactMenu */
     public static final int obfuscated_res_0x7f100214 = 2131755540;
 
-    /* renamed from: Theme_AppCompat_DayNight_DarkActionBar */
+    /* renamed from: Theme_AppCompat_DayNight */
     public static final int obfuscated_res_0x7f100215 = 2131755541;
 
-    /* renamed from: Theme_AppCompat_DayNight_Dialog */
+    /* renamed from: Theme_AppCompat_DayNight_DarkActionBar */
     public static final int obfuscated_res_0x7f100216 = 2131755542;
 
-    /* renamed from: Theme_AppCompat_DayNight_DialogWhenLarge */
-    public static final int obfuscated_res_0x7f100219 = 2131755545;
-
-    /* renamed from: Theme_AppCompat_DayNight_Dialog_Alert */
+    /* renamed from: Theme_AppCompat_DayNight_Dialog */
     public static final int obfuscated_res_0x7f100217 = 2131755543;
 
-    /* renamed from: Theme_AppCompat_DayNight_Dialog_MinWidth */
-    public static final int obfuscated_res_0x7f100218 = 2131755544;
-
-    /* renamed from: Theme_AppCompat_DayNight_NoActionBar */
+    /* renamed from: Theme_AppCompat_DayNight_DialogWhenLarge */
     public static final int obfuscated_res_0x7f10021a = 2131755546;
 
-    /* renamed from: Theme_AppCompat_Dialog */
+    /* renamed from: Theme_AppCompat_DayNight_Dialog_Alert */
+    public static final int obfuscated_res_0x7f100218 = 2131755544;
+
+    /* renamed from: Theme_AppCompat_DayNight_Dialog_MinWidth */
+    public static final int obfuscated_res_0x7f100219 = 2131755545;
+
+    /* renamed from: Theme_AppCompat_DayNight_NoActionBar */
     public static final int obfuscated_res_0x7f10021b = 2131755547;
 
-    /* renamed from: Theme_AppCompat_DialogWhenLarge */
-    public static final int obfuscated_res_0x7f10021e = 2131755550;
-
-    /* renamed from: Theme_AppCompat_Dialog_Alert */
+    /* renamed from: Theme_AppCompat_Dialog */
     public static final int obfuscated_res_0x7f10021c = 2131755548;
 
-    /* renamed from: Theme_AppCompat_Dialog_MinWidth */
-    public static final int obfuscated_res_0x7f10021d = 2131755549;
-
-    /* renamed from: Theme_AppCompat_Empty */
+    /* renamed from: Theme_AppCompat_DialogWhenLarge */
     public static final int obfuscated_res_0x7f10021f = 2131755551;
 
-    /* renamed from: Theme_AppCompat_Light */
+    /* renamed from: Theme_AppCompat_Dialog_Alert */
+    public static final int obfuscated_res_0x7f10021d = 2131755549;
+
+    /* renamed from: Theme_AppCompat_Dialog_MinWidth */
+    public static final int obfuscated_res_0x7f10021e = 2131755550;
+
+    /* renamed from: Theme_AppCompat_Empty */
     public static final int obfuscated_res_0x7f100220 = 2131755552;
 
-    /* renamed from: Theme_AppCompat_Light_DarkActionBar */
+    /* renamed from: Theme_AppCompat_Light */
     public static final int obfuscated_res_0x7f100221 = 2131755553;
 
-    /* renamed from: Theme_AppCompat_Light_Dialog */
+    /* renamed from: Theme_AppCompat_Light_DarkActionBar */
     public static final int obfuscated_res_0x7f100222 = 2131755554;
 
-    /* renamed from: Theme_AppCompat_Light_DialogWhenLarge */
-    public static final int obfuscated_res_0x7f100225 = 2131755557;
-
-    /* renamed from: Theme_AppCompat_Light_Dialog_Alert */
+    /* renamed from: Theme_AppCompat_Light_Dialog */
     public static final int obfuscated_res_0x7f100223 = 2131755555;
 
-    /* renamed from: Theme_AppCompat_Light_Dialog_MinWidth */
-    public static final int obfuscated_res_0x7f100224 = 2131755556;
-
-    /* renamed from: Theme_AppCompat_Light_NoActionBar */
+    /* renamed from: Theme_AppCompat_Light_DialogWhenLarge */
     public static final int obfuscated_res_0x7f100226 = 2131755558;
 
-    /* renamed from: Theme_AppCompat_NoActionBar */
+    /* renamed from: Theme_AppCompat_Light_Dialog_Alert */
+    public static final int obfuscated_res_0x7f100224 = 2131755556;
+
+    /* renamed from: Theme_AppCompat_Light_Dialog_MinWidth */
+    public static final int obfuscated_res_0x7f100225 = 2131755557;
+
+    /* renamed from: Theme_AppCompat_Light_NoActionBar */
     public static final int obfuscated_res_0x7f100227 = 2131755559;
+
+    /* renamed from: Theme_AppCompat_NoActionBar */
+    public static final int obfuscated_res_0x7f100228 = 2131755560;
 
     /* renamed from: Widget_AppCompat_ActionBar */
     public static final int obfuscated_res_0x7f1002a5 = 2131755685;

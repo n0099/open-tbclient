@@ -5,7 +5,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +49,6 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, rfVar) == null) {
             super.logStatInBackground(i, rfVar);
-            TiebaStatic.netJson(rfVar, getError(), getErrorString());
         }
     }
 
@@ -71,7 +69,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05a0));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05aa));
                 } else {
                     setErrorString(errorData.getError_msg());
                 }
@@ -81,7 +79,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                 jSONObject = jSONObject2;
                 BdLog.e(e.getMessage());
                 setError(-1);
-                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05a0));
+                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05aa));
                 return jSONObject;
             }
         } catch (Exception e2) {

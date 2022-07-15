@@ -1,167 +1,117 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import java.util.HashMap;
+import tv.athena.revenue.api.MiddleReportConfig;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes7.dex */
-public final class uy9 {
+public class uy9 implements py9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public MiddleRevenueConfig a;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public int a(Class cls) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public int b(Class cls) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public boolean c(Object obj, long j, long j2, long j3) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{obj, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-
-        public long d(Object obj, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, obj, j)) == null) {
-                return 0L;
-            }
-            return invokeLJ.longValue;
-        }
-
-        public Object e(Object obj, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, obj, j)) == null) {
-                return null;
-            }
-            return invokeLJ.objValue;
-        }
-
-        public Object f(Object obj, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, obj, j)) == null) {
-                return null;
-            }
-            return invokeLJ.objValue;
-        }
-
-        public long g(Field field) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, field)) == null) {
-                return 0L;
-            }
-            return invokeL.longValue;
-        }
-
-        public void h(Object obj, long j, Object obj2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, Long.valueOf(j), obj2}) == null) {
-            }
-        }
-
-        public void i(Object obj, long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{obj, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            }
-        }
-
-        public void j(Object obj, long j, Object obj2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{obj, Long.valueOf(j), obj2}) == null) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755244484, "Lcom/repackage/uy9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755244484, "Lcom/repackage/uy9;");
+    public uy9(MiddleRevenueConfig middleRevenueConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {middleRevenueConfig};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        System.getProperty("rx.unsafe-disable");
-        a aVar = null;
-        try {
-            Field declaredField = a.class.getDeclaredField("theUnsafe");
-            declaredField.setAccessible(true);
-            aVar = (a) declaredField.get(null);
-        } catch (Throwable unused) {
-        }
-        a = aVar;
+        this.a = middleRevenueConfig;
     }
 
-    public static long a(Class<?> cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
-            try {
-                return a.g(cls.getDeclaredField(str));
-            } catch (NoSuchFieldException e) {
-                InternalError internalError = new InternalError();
-                internalError.initCause(e);
-                throw internalError;
-            }
-        }
-        return invokeLL.longValue;
-    }
-
-    public static boolean b() {
+    @Override // com.repackage.py9
+    public GetBannerConfigReqParams a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
+            getBannerConfigReqParams.setAppId(this.a.getAppId());
+            getBannerConfigReqParams.setUsedChannel(this.a.getUseChannel());
+            getBannerConfigReqParams.setUid(this.a.getUid());
+            getBannerConfigReqParams.setToken(this.a.getToken());
+            getBannerConfigReqParams.setTokenCallback(this.a.getTokenCallback());
+            return getBannerConfigReqParams;
         }
-        return invokeV.booleanValue;
+        return (GetBannerConfigReqParams) invokeV.objValue;
+    }
+
+    @Override // com.repackage.py9
+    public uw9 b(PayFlowType payFlowType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType)) == null) {
+            uw9 uw9Var = new uw9();
+            uw9Var.B(this.a.getUid());
+            uw9Var.y(this.a.getToken());
+            uw9Var.C(this.a.getUseChannel());
+            uw9Var.s(this.a.getCurrencyType());
+            uw9Var.z(this.a.getTokenCallback());
+            String deviceId = this.a.getDeviceId();
+            MiddleReportConfig reportConfig = this.a.getReportConfig();
+            if (TextUtils.isEmpty(deviceId) && reportConfig != null && !TextUtils.isEmpty(reportConfig.getDeviceId())) {
+                deviceId = reportConfig.getDeviceId();
+            }
+            HashMap hashMap = new HashMap();
+            if (deviceId != null) {
+                hashMap.put("deviceId", deviceId);
+            }
+            hashMap.put("chargeScene", payFlowType == PayFlowType.WALLET_PAY_FLOW ? "1" : "0");
+            uw9Var.t(hashMap);
+            return uw9Var;
+        }
+        return (uw9) invokeL.objValue;
+    }
+
+    @Override // com.repackage.py9
+    public QueryCurrencyReqParams c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
+            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.a.getUid());
+            queryCurrencyReqParams.setToken(this.a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
+            queryCurrencyReqParams.setReturnYb(true);
+            return queryCurrencyReqParams;
+        }
+        return (QueryCurrencyReqParams) invokeV.objValue;
+    }
+
+    @Override // com.repackage.py9
+    public QueryCurrencyReqParams d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
+            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.a.getUid());
+            queryCurrencyReqParams.setToken(this.a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
+            return queryCurrencyReqParams;
+        }
+        return (QueryCurrencyReqParams) invokeV.objValue;
     }
 }

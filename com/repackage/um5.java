@@ -1,27 +1,774 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.FragmentActivity;
+import com.baidu.android.common.util.CommonParam;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.callback.AccountRealNameCallback;
+import com.baidu.sapi2.callback.GetTplStokenCallback;
+import com.baidu.sapi2.callback.OneKeyLoginCallback;
+import com.baidu.sapi2.callback.SmsViewLoginCallback;
+import com.baidu.sapi2.callback.VerifyUserFaceIDCallback;
+import com.baidu.sapi2.dto.FaceIDVerifyDTO;
+import com.baidu.sapi2.dto.RealNameDTO;
+import com.baidu.sapi2.result.AccountRealNameResult;
+import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.baidu.sapi2.result.RealNameFaceIDResult;
+import com.baidu.sapi2.result.SapiResult;
+import com.baidu.sapi2.result.UnRealNameFaceIDResult;
+import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kh3;
+import com.repackage.lz2;
+import com.repackage.oh3;
+import com.repackage.sg3;
+import com.repackage.zi3;
+import java.util.ArrayList;
+import java.util.List;
+@Service
 /* loaded from: classes7.dex */
-public class um5 {
+public class um5 implements jh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile tm5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public gz2 a;
 
-    public static synchronized tm5 a() {
-        InterceptResult invokeV;
-        tm5 tm5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (um5.class) {
-                if (a == null) {
-                    a = new tm5();
+    /* loaded from: classes7.dex */
+    public class a extends GetTplStokenCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sg3.a a;
+
+        public a(um5 um5Var, sg3.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {um5Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                tm5Var = a;
             }
-            return tm5Var;
+            this.a = aVar;
         }
-        return (tm5) invokeV.objValue;
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            sg3.a aVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.a) == null) {
+                return;
+            }
+            aVar.onFinish();
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            sg3.a aVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.a) == null) {
+                return;
+            }
+            aVar.onStart();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(GetTplStokenResult getTplStokenResult) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) || this.a == null) {
+                return;
+            }
+            sg3 sg3Var = new sg3();
+            if (getTplStokenResult != null) {
+                sg3Var.b = getTplStokenResult.tplStokenMap;
+                sg3Var.a = getTplStokenResult.getResultCode();
+                getTplStokenResult.getResultMsg();
+                GetTplStokenResult.FailureType failureType = getTplStokenResult.failureType;
+                if (failureType != null) {
+                    failureType.name();
+                }
+            }
+            this.a.a(sg3Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(GetTplStokenResult getTplStokenResult) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) || this.a == null) {
+                return;
+            }
+            sg3 sg3Var = new sg3();
+            if (getTplStokenResult != null) {
+                sg3Var.b = getTplStokenResult.tplStokenMap;
+                sg3Var.a = getTplStokenResult.getResultCode();
+                getTplStokenResult.getResultMsg();
+                GetTplStokenResult.FailureType failureType = getTplStokenResult.failureType;
+                if (failureType != null) {
+                    failureType.name();
+                }
+            }
+            this.a.b(sg3Var);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends SmsViewLoginCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppPhoneLoginDialog.g a;
+        public final /* synthetic */ Context b;
+
+        /* loaded from: classes7.dex */
+        public class a implements DialogInterface.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // android.content.DialogInterface.OnClickListener
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                }
+            }
+        }
+
+        /* renamed from: com.repackage.um5$b$b  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class DialogInterface$OnClickListenerC0741b implements DialogInterface.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            /* renamed from: com.repackage.um5$b$b$a */
+            /* loaded from: classes7.dex */
+            public class a implements tg1 {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ DialogInterface$OnClickListenerC0741b a;
+
+                public a(DialogInterface$OnClickListenerC0741b dialogInterface$OnClickListenerC0741b) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {dialogInterface$OnClickListenerC0741b};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = dialogInterface$OnClickListenerC0741b;
+                }
+
+                @Override // com.repackage.tg1
+                public void onResult(int i) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                        if (i == 0) {
+                            this.a.a.a.onSuccess();
+                        } else {
+                            this.a.a.a.onFailure();
+                        }
+                    }
+                }
+            }
+
+            public DialogInterface$OnClickListenerC0741b(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // android.content.DialogInterface.OnClickListener
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                    hg3.M((FragmentActivity) this.a.b, false, null, new a(this));
+                }
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class c implements tg1 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public c(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.repackage.tg1
+            public void onResult(int i) {
+                SwanAppPhoneLoginDialog.g gVar;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (gVar = this.a.a) == null) {
+                    return;
+                }
+                if (i == 0) {
+                    gVar.onSuccess();
+                } else {
+                    gVar.onFailure();
+                }
+            }
+        }
+
+        public b(um5 um5Var, SwanAppPhoneLoginDialog.g gVar, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {um5Var, gVar, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gVar;
+            this.b = context;
+        }
+
+        @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
+        public void onCheckCodeViewHide() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
+        public void onCheckCodeViewShow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.a();
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
+        public void onNeedBack(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
+                Context context = this.b;
+                id3.a(context, ((FragmentActivity) context).getWindow().getDecorView().getWindowToken());
+                String string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0074);
+                String string2 = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0076);
+                if (webAuthResult.getResultCode() == 12) {
+                    string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0075);
+                    string2 = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0077);
+                }
+                lz2.a aVar = new lz2.a(this.b);
+                aVar.V(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0078));
+                aVar.x(string);
+                aVar.P(string2, new DialogInterface$OnClickListenerC0741b(this));
+                aVar.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0073), new a(this));
+                aVar.X();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
+                this.a.onFailure();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, webAuthResult) == null) {
+                sm5.l().x(new c(this));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends OneKeyLoginCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oi3 a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ um5 c;
+
+        /* loaded from: classes7.dex */
+        public class a implements tg1 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            @Override // com.repackage.tg1
+            public void onResult(int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                    if (i == 0) {
+                        this.a.a.onResult(0);
+                    } else {
+                        this.a.a.onResult(-1);
+                    }
+                    c cVar = this.a;
+                    cVar.c.q(cVar.b);
+                }
+            }
+        }
+
+        public c(um5 um5Var, oi3 oi3Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {um5Var, oi3Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = um5Var;
+            this.a = oi3Var;
+            this.b = activity;
+        }
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onFail(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
+                this.a.onResult(-1);
+                this.c.q(this.b);
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
+                this.a.onResult(-1);
+                this.c.q(this.b);
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
+                sm5.l().x(new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d extends VerifyUserFaceIDCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ih3 a;
+
+        public d(um5 um5Var, ih3 ih3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {um5Var, ih3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ih3Var;
+        }
+
+        @Override // com.baidu.sapi2.callback.FaceIDCallback
+        public void onFailure(SapiResult sapiResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) {
+                this.a.onFailure(sapiResult.getResultMsg());
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.FaceIDCallback
+        public void onSuccess(SapiResult sapiResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiResult) == null) {
+                gh3 gh3Var = new gh3();
+                if (sapiResult instanceof RealNameFaceIDResult) {
+                    gh3Var.a = ((RealNameFaceIDResult) sapiResult).callBackKey;
+                    this.a.a(gh3Var);
+                } else if (sapiResult instanceof UnRealNameFaceIDResult) {
+                    gh3Var.a = ((UnRealNameFaceIDResult) sapiResult).registerResult;
+                    this.a.a(gh3Var);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e extends AccountRealNameCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ih3 a;
+
+        public e(um5 um5Var, ih3 ih3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {um5Var, ih3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ih3Var;
+        }
+
+        @Override // com.baidu.sapi2.callback.AccountRealNameCallback
+        public void onFinish(AccountRealNameResult accountRealNameResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
+                super.onFinish(accountRealNameResult);
+                if (accountRealNameResult.getResultCode() == 0) {
+                    gh3 gh3Var = new gh3();
+                    if (accountRealNameResult.seniorRealNameSuc) {
+                        gh3Var.a = accountRealNameResult.callbackkey;
+                        this.a.a(gh3Var);
+                        return;
+                    }
+                }
+                this.a.onFailure(accountRealNameResult.getResultMsg());
+            }
+        }
+    }
+
+    public um5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static String p(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? CommonParam.getCUID(context) : (String) invokeL.objValue;
+    }
+
+    public static String r(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            if (TextUtils.isEmpty(str) || str.length() <= 7) {
+                return null;
+            }
+            String substring = str.substring(0, 8);
+            String substring2 = str.substring(8, str.length());
+            String upperCase = SapiUtils.getClientId(context).toUpperCase();
+            return substring + lg4.d((substring2 + lg4.d(upperCase.getBytes(), false)).getBytes(), false);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.jh3
+    public String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? v83.a().getString("bd_box_ptoken", "") : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.jh3
+    public String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? sm5.l().p() : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.jh3
+    public void c(Context context, Bundle bundle, tg1 tg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, bundle, tg1Var) == null) {
+            sm5.l().t(context, bundle, tg1Var);
+        }
+    }
+
+    @Override // com.repackage.jh3
+    public hh3 d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            hh3 hh3Var = new hh3();
+            hh3Var.a = sm5.l().k();
+            hh3Var.b = sm5.l().i();
+            return hh3Var;
+        }
+        return (hh3) invokeL.objValue;
+    }
+
+    @Override // com.repackage.jh3
+    public void e(Activity activity, String str, String str2, ih3 ih3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, activity, str, str2, ih3Var) == null) {
+            RealNameDTO realNameDTO = new RealNameDTO();
+            realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
+            realNameDTO.scene = str;
+            realNameDTO.needCbKey = true;
+            PassportSDK.getInstance().loadAccountRealName(activity, new e(this, ih3Var), realNameDTO);
+        }
+    }
+
+    @Override // com.repackage.jh3
+    public void f(Context context, zi3.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, dVar) == null) {
+            sm5.l().h(context, "1", dVar);
+        }
+    }
+
+    @Override // com.repackage.jh3
+    public boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? sm5.l().s() : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.jh3
+    public String getBduss(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? sm5.l().j() : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.jh3
+    public void h(vg1 vg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vg1Var) == null) {
+            sm5.l().f(vg1Var);
+        }
+    }
+
+    @Override // com.repackage.jh3
+    public void i(Context context, kh3.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, context, dVar) == null) {
+            sm5.l().g(context, "1", dVar);
+        }
+    }
+
+    @Override // com.repackage.jh3
+    public void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, context, gVar, str) == null) {
+            PassportSDK.getInstance().startSmsViewLogin(new b(this, gVar, context), str);
+        }
+    }
+
+    @Override // com.repackage.jh3
+    public String k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("aps_identity", 0);
+            String string = sharedPreferences.getString("uid_v3", "");
+            if (TextUtils.isEmpty(string)) {
+                String p = p(context);
+                SharedPreferences.Editor edit = sharedPreferences.edit();
+                edit.putString("uid_v3", p);
+                edit.apply();
+                return p;
+            }
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.jh3
+    public void l(Activity activity, String str, String str2, ih3 ih3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048588, this, activity, str, str2, ih3Var) == null) {
+            FaceIDVerifyDTO faceIDVerifyDTO = new FaceIDVerifyDTO();
+            faceIDVerifyDTO.businessSence = str;
+            faceIDVerifyDTO.bduss = str2;
+            PassportSDK.getInstance().verifyUserFaceId(activity, new d(this, ih3Var), faceIDVerifyDTO);
+        }
+    }
+
+    @Override // com.repackage.jh3
+    public void m(Activity activity, String str, oi3 oi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, activity, str, oi3Var) == null) {
+            s(activity);
+            PassportSDK.getInstance().loadOneKeyLogin(activity, r(activity, str), new c(this, oi3Var, activity));
+        }
+    }
+
+    @Override // com.repackage.jh3
+    public void n(String str, ArrayList<String> arrayList, oh3.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048590, this, str, arrayList, cVar) == null) {
+            sm5.l().n(str, arrayList, cVar);
+        }
+    }
+
+    @Override // com.repackage.jh3
+    public void o(sg3.a aVar, String str, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048591, this, aVar, str, list) == null) {
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new a(this, aVar), str, list);
+        }
+    }
+
+    public void q(Context context) {
+        gz2 gz2Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, context) == null) || !(context instanceof Activity) || ((Activity) context).isFinishing() || (gz2Var = this.a) == null) {
+            return;
+        }
+        gz2Var.dismiss();
+    }
+
+    public final void s(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, context) == null) {
+            gz2 gz2Var = new gz2(context, 16973833);
+            this.a = gz2Var;
+            Window window = gz2Var.getWindow();
+            if (window != null) {
+                window.setBackgroundDrawableResource(17170445);
+                window.setDimAmount(0.0f);
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                attributes.height = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700d9);
+                attributes.width = -1;
+                window.setAttributes(attributes);
+            }
+            this.a.setCanceledOnTouchOutside(false);
+            this.a.setCancelable(false);
+            this.a.a(true);
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0527);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091b64);
+            ProgressBar progressBar = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091370);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091468);
+            if (findViewById != null) {
+                findViewById.setBackground(findViewById.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df1));
+            }
+            if (progressBar != null) {
+                progressBar.setIndeterminateDrawable(progressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ccd));
+            }
+            if (textView != null) {
+                textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f060777));
+                textView.setText(R.string.obfuscated_res_0x7f0f007c);
+            }
+            this.a.show();
+        }
     }
 }

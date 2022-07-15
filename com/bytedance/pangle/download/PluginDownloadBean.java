@@ -1,28 +1,26 @@
 package com.bytedance.pangle.download;
 
+import android.content.SharedPreferences;
 import androidx.annotation.Keep;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.pangle.util.l;
 import java.util.List;
 @Keep
 /* loaded from: classes4.dex */
 public class PluginDownloadBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean isOffline;
-    public boolean isRevert;
-    public boolean isWifiOnly;
     public int mApiVersionMax;
     public int mApiVersionMin;
     public List<String> mBackupUrlList;
-    public int mClientVersionMax;
-    public int mClientVersionMin;
-    public int mDownloadType;
+    public int mFlag;
+    public long mFollowId;
     public String mMd5;
-    public int mOrder;
     public String mPackageName;
     public String mUrl;
     public int mVersionCode;
@@ -37,16 +35,35 @@ public class PluginDownloadBean {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.mApiVersionMin = 0;
+        this.mApiVersionMax = Integer.MAX_VALUE;
     }
 
-    public String toString() {
+    public boolean allowDownload() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PluginDownloadBean{mPackageName='" + this.mPackageName + "', mVersionCode=" + this.mVersionCode + ", mUrl='" + this.mUrl + "', mMd5='" + this.mMd5 + "', mOrder=" + this.mOrder + ", isOffline=" + this.isOffline + ", isRevert=" + this.isRevert + ", isWifiOnly=" + this.isWifiOnly + ", mClientVersionMin=" + this.mClientVersionMin + ", mClientVersionMax=" + this.mClientVersionMax + ", mApiVersionMin=" + this.mApiVersionMin + ", mApiVersionMax=" + this.mApiVersionMax + ", mDownloadType=" + this.mDownloadType + ", mBackupUrlList=" + this.mBackupUrlList + '}';
+            l a = l.a();
+            String str = this.mPackageName;
+            int i = this.mVersionCode;
+            SharedPreferences sharedPreferences = a.a;
+            return sharedPreferences.getBoolean("ALLOW_DOWNLOAD__" + str + "_" + i, true);
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public boolean isRevert() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFlag == 3 : invokeV.booleanValue;
+    }
+
+    public boolean isUnInstall() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFlag == 1 : invokeV.booleanValue;
     }
 }

@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +59,7 @@ public final class EANManufacturerOrgSupport {
                 if (this.ranges.isEmpty()) {
                     add(new int[]{0, 19}, "US/CA");
                     add(new int[]{30, 39}, "US");
-                    add(new int[]{60, 139}, "US/CA");
+                    add(new int[]{60, Cea708Decoder.COMMAND_TGW}, "US/CA");
                     add(new int[]{300, 379}, "FR");
                     add(new int[]{380}, "BG");
                     add(new int[]{383}, "SI");

@@ -1,27 +1,37 @@
 package com.repackage;
 
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class l09 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile k09 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized k09 a() {
-        InterceptResult invokeV;
-        k09 k09Var;
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (l09.class) {
-                if (a == null) {
-                    a = new k09();
-                }
-                k09Var = a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null || str == null) {
+                return null;
             }
-            return k09Var;
+            try {
+                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                Bundle bundle = applicationInfo != null ? applicationInfo.metaData : null;
+                if (bundle != null) {
+                    return bundle.getString(str);
+                }
+                return null;
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
         }
-        return (k09) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 }

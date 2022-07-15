@@ -1,304 +1,125 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
-import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.frs.smartsort.FrsSmartLoadMoreModel;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.itemtab.card.CardItemDetailListItemLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.AdMixFloor;
 /* loaded from: classes6.dex */
-public class ml6 {
+public class ml6 extends qw<tl6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FrsFragment a;
-    public final FrsLoadMoreModel b;
-    public final FrsSmartLoadMoreModel c;
-    public final FrsModelController d;
-    public final lc6 e;
-    public final b f;
+    public View f;
+    public EMTextView g;
+    public ArrayList<yl6> h;
 
-    /* loaded from: classes6.dex */
-    public class a implements b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ml6 a;
-
-        public a(ml6 ml6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ml6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ml6Var;
-        }
-
-        @Override // com.repackage.ml6.b
-        public void removeItem(int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.e == null || this.a.e.c0() == null) {
-                return;
-            }
-            List<nn> data = this.a.e.c0().getData();
-            if (ListUtils.isEmpty(data) || this.a.e.c0().getAdapter() == null || ((nn) ListUtils.remove(data, i)) == null) {
-                return;
-            }
-            this.a.e.c0().getAdapter().notifyItemRemoved(i);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void removeItem(int i);
-    }
-
-    public ml6(FrsFragment frsFragment, ul6 ul6Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ml6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, ul6Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new a(this);
-        if (frsFragment != null) {
-            this.a = frsFragment;
-            this.b = new FrsLoadMoreModel(frsFragment, ul6Var);
-            FrsSmartLoadMoreModel frsSmartLoadMoreModel = new FrsSmartLoadMoreModel(frsFragment, ul6Var);
-            this.c = frsSmartLoadMoreModel;
-            frsSmartLoadMoreModel.P(this.f);
-            this.b.V(this.f);
-            this.e = frsFragment.k1();
-            FrsModelController K0 = frsFragment.K0();
-            this.d = K0;
-            this.c.setSortType(K0.d0());
-            this.b.setSortType(this.d.d0());
-            return;
-        }
-        throw new NullPointerException("FrsFragment is NullPointerException");
     }
 
-    public boolean b(List<Long> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            FrsModelController frsModelController = this.d;
-            if (frsModelController == null || frsModelController.w0()) {
-                return false;
-            }
-            return this.b.D(list);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public ArrayList<nn> c(boolean z, boolean z2, ArrayList<nn> arrayList, kh8 kh8Var, boolean z3, int i, List<AdMixFloor> list) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, kh8Var, Boolean.valueOf(z3), Integer.valueOf(i), list})) == null) ? d(z, z2, arrayList, kh8Var, false, z3, i, list) : (ArrayList) invokeCommon.objValue;
-    }
-
-    public ArrayList<nn> d(boolean z, boolean z2, ArrayList<nn> arrayList, kh8 kh8Var, boolean z3, boolean z4, int i, List<AdMixFloor> list) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, kh8Var, Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i), list})) == null) {
-            if (this.d == null) {
-                return arrayList;
-            }
-            boolean v0 = this.a.K0().v0();
-            if (this.d.w0()) {
-                return this.c.B(z, v0, arrayList, z3, z4, i, list);
-            }
-            return this.b.G(z, v0, z2, arrayList, kh8Var, list, i);
-        }
-        return (ArrayList) invokeCommon.objValue;
-    }
-
-    public ArrayList<nn> e() {
+    @Override // com.repackage.qw
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.d.w0()) {
-                return this.c.C();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f == null) {
+                View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d019d, (ViewGroup) null, true);
+                this.f = inflate;
+                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f34);
             }
-            return this.d.Z();
+            return this.f;
         }
-        return (ArrayList) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public FrsSmartLoadMoreModel f() {
-        InterceptResult invokeV;
+    @Override // com.repackage.hx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (FrsSmartLoadMoreModel) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            FrsModelController frsModelController = this.d;
-            if (frsModelController == null) {
-                return 1;
-            }
-            if (frsModelController.w0()) {
-                return this.c.getPn();
-            }
-            return this.b.getPn();
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            FrsModelController frsModelController = this.d;
-            if (frsModelController == null) {
-                return -1;
-            }
-            if (frsModelController.w0()) {
-                return this.c.D();
-            }
-            return this.b.I();
-        }
-        return invokeV.intValue;
-    }
-
-    public void i(String str, String str2, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, frsViewData) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
-            if (this.d == null || this.e == null || frsViewData == null) {
-                return;
-            }
-            this.a.I = System.currentTimeMillis();
-            if (this.d.w0()) {
-                if (this.c.D() != 1 || this.d.u0()) {
-                    return;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            ur4 d = ur4.d(this.f);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            ur4 d2 = ur4.d(this.g);
+            d2.A(R.string.F_X02);
+            d2.v(R.color.CAM_X0105);
+            for (int i2 = 0; i2 < ((ViewGroup) this.f).getChildCount(); i2++) {
+                if (((ViewGroup) this.f).getChildAt(i2) instanceof CardItemDetailListItemLayout) {
+                    ((CardItemDetailListItemLayout) ((ViewGroup) this.f).getChildAt(i2)).d();
                 }
-                this.c.setSortType(this.d.d0());
-                this.c.A();
-                int pn = this.c.getPn();
-                this.c.setPn(pn);
-                this.d.z0(pn + 1);
-            } else if (this.d.e0() == 1) {
-                if (this.b.isLoading || this.d.u0()) {
-                    return;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.gx
+    /* renamed from: p */
+    public void a(tl6 tl6Var) {
+        boolean z;
+        View childAt;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, tl6Var) == null) && tl6Var != null && tl6Var.d()) {
+            ArrayList<yl6> c = tl6Var.c();
+            if (ListUtils.getCount(c) != ListUtils.getCount(this.h)) {
+                if (ListUtils.getCount(this.h) > 0) {
+                    ((ViewGroup) this.f).removeViews(1, ListUtils.getCount(this.h));
                 }
-                int pn2 = this.b.getPn();
-                if (this.b.D(frsViewData.getThreadListIds())) {
-                    this.b.E();
-                    this.b.setSortType(this.d.d0());
-                    this.b.R(ng.g(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum, this.d.g0() != null ? b88.e(this.d.g0().getThreadList(), false) : "");
-                } else if (this.b.I() == 1) {
-                    this.b.E();
-                    this.b.setPn(pn2);
-                    this.d.z0(pn2 + 1);
-                    FrsLoadMoreModel frsLoadMoreModel = this.b;
-                    frsLoadMoreModel.loadingDone = false;
-                    frsLoadMoreModel.loadIndex = 0;
-                }
-            } else if (this.d.x0()) {
+                z = true;
             } else {
-                this.d.y0();
+                z = false;
             }
-        }
-    }
-
-    public void j(nn nnVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nnVar) == null) || nnVar == null) {
-            return;
-        }
-        if (this.d.w0()) {
-            this.c.J(nnVar);
-        } else {
-            this.b.O(nnVar);
-        }
-    }
-
-    public void k(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            if (this.d.w0()) {
-                this.c.K(str);
-            } else {
-                this.b.P(str);
+            if (c != null) {
+                for (int i = 0; i < c.size(); i++) {
+                    if (z) {
+                        childAt = new CardItemDetailListItemLayout(this.b);
+                        ((ViewGroup) this.f).addView(childAt, -1, -2);
+                    } else {
+                        childAt = ((ViewGroup) this.f).getChildAt(i + 1);
+                    }
+                    if (childAt instanceof CardItemDetailListItemLayout) {
+                        ((CardItemDetailListItemLayout) childAt).setData(c.get(i));
+                    }
+                }
             }
-        }
-    }
-
-    public void l() {
-        FrsModelController frsModelController;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (frsModelController = this.d) == null) {
-            return;
-        }
-        if (frsModelController.w0()) {
-            this.c.L();
-        } else {
-            this.b.S();
-        }
-    }
-
-    public void m(uq6 uq6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, uq6Var) == null) {
-            this.b.T(uq6Var);
-            this.c.O(uq6Var);
-        }
-    }
-
-    public void n(int i) {
-        FrsModelController frsModelController;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (frsModelController = this.d) == null) {
-            return;
-        }
-        if (frsModelController.w0()) {
-            this.c.setHasMore(i);
-        } else {
-            this.b.setHasMore(i);
-        }
-    }
-
-    public void o(int i) {
-        FrsModelController frsModelController;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || (frsModelController = this.d) == null) {
-            return;
-        }
-        if (frsModelController.w0()) {
-            this.c.setPn(i);
-        } else {
-            this.b.setPn(i);
+            ViewGroup viewGroup = (ViewGroup) this.f;
+            int childCount = viewGroup.getChildCount() - 1;
+            while (true) {
+                if (childCount <= 0) {
+                    break;
+                }
+                if ((viewGroup.getChildAt(childCount) instanceof CardItemDetailListItemLayout) && viewGroup.getChildAt(childCount).getVisibility() == 0) {
+                    ((CardItemDetailListItemLayout) viewGroup.getChildAt(childCount)).setDividerVisible(false);
+                    break;
+                }
+                childCount--;
+            }
+            this.h = c;
         }
     }
 }

@@ -1,34 +1,43 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.components.core.webview.a.a;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bn implements com.kwad.sdk.core.d<AdInfo.H5Config> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdInfo.H5Config h5Config, JSONObject jSONObject) {
+public final class bn implements com.kwad.sdk.core.d<a.C0519a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(a.C0519a c0519a, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        h5Config.apiMisTouch = jSONObject.optInt("apiMisTouch");
-        h5Config.apiAdTag = jSONObject.optInt("apiAdTag");
-        h5Config.apiBreathLamp = jSONObject.optInt("apiBreathLamp");
-        h5Config.tagTip = jSONObject.optString("tagTip");
-        if (jSONObject.opt("tagTip") == JSONObject.NULL) {
-            h5Config.tagTip = "";
+        c0519a.a = jSONObject.optString("url");
+        if (jSONObject.opt("url") == JSONObject.NULL) {
+            c0519a.a = "";
+        }
+        c0519a.b = jSONObject.optString("packageName");
+        if (jSONObject.opt("packageName") == JSONObject.NULL) {
+            c0519a.b = "";
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdInfo.H5Config h5Config, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(a.C0519a c0519a, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "apiMisTouch", h5Config.apiMisTouch);
-        com.kwad.sdk.utils.t.a(jSONObject, "apiAdTag", h5Config.apiAdTag);
-        com.kwad.sdk.utils.t.a(jSONObject, "apiBreathLamp", h5Config.apiBreathLamp);
-        com.kwad.sdk.utils.t.a(jSONObject, "tagTip", h5Config.tagTip);
+        com.kwad.sdk.utils.r.a(jSONObject, "url", c0519a.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "packageName", c0519a.b);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(a.C0519a c0519a, JSONObject jSONObject) {
+        a2(c0519a, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(a.C0519a c0519a, JSONObject jSONObject) {
+        return b2(c0519a, jSONObject);
     }
 }

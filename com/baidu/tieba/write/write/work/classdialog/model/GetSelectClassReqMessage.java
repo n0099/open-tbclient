@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.GetWorksTags.DataReq;
 import tbclient.GetWorksTags.GetWorksTagsReqIdl;
 /* loaded from: classes4.dex */
@@ -42,7 +42,7 @@ public class GetSelectClassReqMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qc5.a(builder, true);
+                td5.a(builder, true);
             }
             GetWorksTagsReqIdl.Builder builder2 = new GetWorksTagsReqIdl.Builder();
             builder2.data = builder.build(false);

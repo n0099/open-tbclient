@@ -1,10 +1,20 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.Choreographer;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,205 +22,171 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sx1;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.repackage.po1;
+import java.lang.ref.WeakReference;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class q53 {
+/* loaded from: classes7.dex */
+public class q53 extends s53<d> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile boolean b;
-    public static volatile boolean c;
+    public static final boolean r;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Activity m;
+    public po1.d n;
+    public c o;
+    public Bundle p;
+    public String q;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        /* renamed from: com.repackage.q53$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0504a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+    /* loaded from: classes7.dex */
+    public class b extends g53 implements tg1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q53 c;
 
-            public RunnableC0504a(a aVar, b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Choreographer.getInstance().postFrameCallback(this.a);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b extends TimerTask {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final ExecutorService a;
-            public final AtomicInteger b;
-            public final List<Float> c;
-            public final /* synthetic */ boolean d;
-            public final /* synthetic */ int e;
-            public final /* synthetic */ Timer f;
-            public final /* synthetic */ p53 g;
-            public final /* synthetic */ boolean h;
-            public final /* synthetic */ b i;
-
-            /* renamed from: com.repackage.q53$a$b$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class RunnableC0505a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b a;
-
-                public RunnableC0505a(b bVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {bVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = bVar;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        float b = rx1.b();
-                        this.a.g.d.add(Long.valueOf(System.currentTimeMillis()));
-                        b bVar = this.a;
-                        bVar.g.e.add(Integer.valueOf(bVar.i.b.get()));
-                        this.a.g.f.add(Float.valueOf(b));
-                        sx1.c i = sx1.i();
-                        this.a.g.h.add(Float.valueOf(i.a));
-                        this.a.g.i.add(Float.valueOf(i.b));
-                        this.a.g.g.add(Float.valueOf(i.c));
-                        this.a.c.add(jd3.D() ? Float.valueOf(b) : null);
-                    }
-                }
-            }
-
-            public b(a aVar, boolean z, int i, Timer timer, p53 p53Var, boolean z2, b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Boolean.valueOf(z), Integer.valueOf(i), timer, p53Var, Boolean.valueOf(z2), bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = z;
-                this.e = i;
-                this.f = timer;
-                this.g = p53Var;
-                this.h = z2;
-                this.i = bVar;
-                this.a = Executors.newCachedThreadPool();
-                this.b = new AtomicInteger(0);
-                this.c = new CopyOnWriteArrayList();
-            }
-
-            @Override // java.util.TimerTask, java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.d && this.b.getAndIncrement() >= this.e) {
-                        q53.l(true);
-                    }
-                    if (!q53.b) {
-                        this.f.cancel();
-                        this.a.shutdown();
-                        sw1.b("SwanAppStabilityDataUtil", "采集静态数据");
-                        this.g.b = sx1.e().floatValue();
-                        this.g.c = c52.k().m(rz2.K().getAppId(), true);
-                        this.g.a(this.c);
-                        sw1.i("SwanAppStabilityDataUtil", "采集结果：" + this.g);
-                        if (q53.c) {
-                            sw1.b("SwanAppStabilityDataUtil", "发送JSMessage=" + this.g);
-                            q53.i(this.g);
-                        }
-                        if (this.h) {
-                            pt2.e(this.g.c());
-                            return;
-                        }
-                        return;
-                    }
-                    this.a.submit(new RunnableC0505a(this));
-                }
-            }
-        }
-
-        public a() {
+        public b(q53 q53Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q53Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = q53Var;
+        }
+
+        @Override // com.repackage.g53
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ug1 N = this.c.M().N();
+                boolean e = N.e(this.c.m);
+                if (q53.r) {
+                    Log.d("LoginRequest", "LoginPreparation isLogin : " + e + " call stack:" + Log.getStackTraceString(new Exception()));
+                }
+                if (!e) {
+                    a73.T(this.c.l, "passLogin");
+                    q53 q53Var = this.c;
+                    N.f(q53Var.m, q53Var.p, this);
+                }
+                return e;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.repackage.tg1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                f53.k("onResult :: " + i, Boolean.FALSE);
+                if (i == -2) {
+                    f53.k("login error ERR_BY_UESR_REFUSE", Boolean.TRUE);
+                    e(new OAuthException(10004));
+                } else if (i != 0) {
+                    f53.k("login error ERR_BY_LOGIN", Boolean.TRUE);
+                    e(new OAuthException(10004));
+                } else {
+                    f53.k("Login Preparation ok, is already login", Boolean.FALSE);
+                    d();
                 }
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public /* synthetic */ b(q53 q53Var, a aVar) {
+            this(q53Var);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<q53> a;
+
+        public /* synthetic */ c(Looper looper, q53 q53Var, a aVar) {
+            this(looper, q53Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            q53 q53Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                p53 p53Var = new p53();
-                p53Var.a = r53.d(p53Var.a);
-                boolean f = r53.f();
-                int c = r53.c(0);
-                boolean z = r53.e(0) == 1;
-                Timer timer = new Timer();
-                b bVar = new b(null);
-                md3.e0(new RunnableC0504a(this, bVar));
-                timer.schedule(new b(this, f, c, timer, p53Var, z, bVar), 0L, p53Var.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (q53Var = this.a.get()) != null && message.what == 1) {
+                if (q53.r) {
+                    Log.d("LoginRequest", "handleMessage: timeout");
+                }
+                f53.k("request timeout", Boolean.TRUE);
+                q53Var.d(new OAuthException(10002));
             }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(Looper looper, q53 q53Var) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper, q53Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(q53Var);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+
+        public /* synthetic */ d(String str, a aVar) {
+            this(str);
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("Result code(%s)", this.a) : (String) invokeV.objValue;
+        }
+
+        public d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str == null ? "" : str;
         }
     }
 
@@ -227,165 +203,127 @@ public class q53 {
                 return;
             }
         }
-        a = cg1.a;
-        b = false;
-        c = false;
+        r = rg1.a;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public q53(Activity activity, po1.d dVar, Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? r53.g() && e() : invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? la2.a() || wy1.c() : invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? r53.h() && e() : invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? r53.f() : invokeV.booleanValue;
-    }
-
-    public static synchronized void h(JSONObject jSONObject, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, jSONObject, str) == null) {
-            synchronized (q53.class) {
-                o53.c(jSONObject, str);
-            }
-        }
-    }
-
-    public static void i(p53 p53Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, p53Var) == null) {
-            Map<String, String> d = p53Var.d();
-            if (a) {
-                Log.d("SwanAppStabilityDataUtil", "#sendJsMessage data=" + JSONObject.wrap(d));
-            }
-            fl2.U().u(new t92("sendStabilityData", d));
-        }
-    }
-
-    public static void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("status", z ? "0" : "1");
-            fl2.U().u(new t92("toggleStabilityTestStatus", hashMap));
-        }
-    }
-
-    public static void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            if (b) {
-                sw1.i("SwanAppStabilityDataUtil", "#startObtainData 正在采集中，退出");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, dVar, bundle};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            b = true;
-            sw1.i("SwanAppStabilityDataUtil", "#startObtainData 开始采集数据");
-            ExecutorUtilsExt.postOnElastic(new a(), "稳定性工具链-设备数据采集", 3);
         }
+        this.m = activity;
+        this.n = dVar;
+        this.o = new c(Looper.getMainLooper(), this, null);
+        if (bundle != null && bundle.containsKey("__plugin__")) {
+            this.q = bundle.getString("__plugin__");
+            bundle.remove("__plugin__");
+            hx1.k("LoginRequest", "Info: Remove previous account.");
+        }
+        this.p = bundle;
     }
 
-    public static void l(boolean z) {
+    @NonNull
+    public g53 Q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            c = z;
-            b = false;
-            r53.b();
-            sw1.b("SwanAppStabilityDataUtil", "#stopObtainData 已停止采集数据");
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this, null) : (g53) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.e53
+    /* renamed from: R */
+    public d m(JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            JSONObject c2 = f53.c(jSONObject);
+            int optInt = c2.optInt("errno", 10001);
+            if (optInt != 0) {
+                if (11001 == optInt) {
+                    f53.m(c2);
+                    f53.t("LoginRequest", c2.toString());
+                }
+                if (r) {
+                    throw new OAuthException(c2.optString("errmsg"), optInt);
+                }
+            }
+            JSONObject jSONObject2 = c2.getJSONObject("data");
+            return new d(jSONObject2 != null ? jSONObject2.optString("code", "") : "", null);
+        }
+        return (d) invokeL.objValue;
+    }
+
+    @Override // com.repackage.e53
+    public void d(@Nullable Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+            super.d(exc);
+            if (r) {
+                Log.d("LoginRequest", "finish: remove timeout msg");
+            }
+            this.o.removeMessages(1);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements Choreographer.FrameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public AtomicInteger b;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
+    @Override // com.repackage.e53
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                boolean isEmpty = TextUtils.isEmpty(this.q);
+                jSONObject.put("ma_id", isEmpty ? M().O() : this.q);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, isEmpty ? M().O() : this.q);
+                jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
+                jSONObject2.put("host_key_hash", f53.g());
+                String l = oj2.o().l();
+                if (!TextUtils.isEmpty(l)) {
+                    jSONObject2.put("host_api_key", l);
                 }
-                this.a = bVar;
+                jSONObject.put("open", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Choreographer.getInstance().removeFrameCallback(this.a);
-                }
-            }
+            v("data", jSONObject.toString());
+            return true;
         }
+        return invokeV.booleanValue;
+    }
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = -1L;
-            this.b = new AtomicInteger(-1);
+    @Override // com.repackage.e53
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            h(Q());
+            return super.k();
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // android.view.Choreographer.FrameCallback
-        public void doFrame(long j) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                if (!q53.b) {
-                    md3.e0(new a(this));
-                    return;
-                }
-                long j2 = this.a;
-                if (j2 > 0 && this.b.get() != (i = (int) (1.0E9d / (j - j2)))) {
-                    this.b.set(i);
-                    sw1.b("SwanAppStabilityDataUtil", "#doFrame fps=" + this.b);
-                }
-                this.a = j;
-                Choreographer.getInstance().postFrameCallback(this);
-            }
-        }
+    @Override // com.repackage.s53
+    public HttpRequest w(s53 s53Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, s53Var)) == null) ? oj2.o().s(this.m, s53Var.B()) : (HttpRequest) invokeL.objValue;
+    }
 
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
+    @Override // com.repackage.s53
+    public SwanInterfaceType z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? SwanInterfaceType.LOGIN : (SwanInterfaceType) invokeV.objValue;
     }
 }

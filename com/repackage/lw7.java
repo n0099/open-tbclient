@@ -1,359 +1,378 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.util.SparseArray;
-import android.widget.TextView;
-import androidx.annotation.Nullable;
+import android.net.Uri;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.img.GetEmotionPidModel;
+import com.baidu.tbadk.img.UploadedImageInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.face.view.EmotionView;
+import com.baidu.tieba.horizonalList.widget.AbsHListView;
+import com.baidu.tieba.horizonalList.widget.HListView;
+import com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import com.repackage.nq4;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kw7;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class lw7 {
+public class lw7 implements QueryMatchEmotionModel.b, kw7.b, EmotionView.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public d9 a;
+    public List<String> b;
+    public HListView c;
+    public kw7 d;
+    public QueryMatchEmotionModel e;
+    public String f;
+    public Handler g;
+    public ViewGroup h;
+    public ViewGroup.LayoutParams i;
+    public EditorTools j;
+    public GetEmotionPidModel k;
+    public Runnable l;
 
-    public static boolean a(List<uq4> list, yq4 yq4Var, PostData postData, PbModel pbModel) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, list, yq4Var, postData, pbModel)) == null) {
-            if (list != null && postData != null && pbModel != null && pbModel.Q1() != null) {
-                rq7 Q1 = pbModel.Q1();
-                if (Q1.h0() && TbadkCoreApplication.isLogin() && !j(postData) && !Q1.g0()) {
-                    uq4 uq4Var = new uq4(9, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0316), yq4Var);
-                    list.add(uq4Var);
-                    ho8.f(uq4Var.d, postData);
-                    return true;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lw7 a;
+
+        public a(lw7 lw7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lw7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return false;
+            this.a = lw7Var;
         }
-        return invokeLLLL.booleanValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f = "";
+                this.a.c.setVisibility(8);
+            }
+        }
     }
 
-    public static List<uq4> b(List<uq4> list, AgreeData agreeData, SparseArray<Object> sparseArray, yq4 yq4Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, list, agreeData, sparseArray, yq4Var)) == null) {
-            if (list == null) {
-                list = new ArrayList<>();
+    /* loaded from: classes6.dex */
+    public class b implements AbsHListView.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lw7 a;
+
+        public b(lw7 lw7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lw7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            ArrayList arrayList = new ArrayList();
-            if (agreeData.hasAgree) {
-                if (agreeData.agreeType == 2) {
-                    uq4 uq4Var = new uq4(-1, tu7.h(R.string.obfuscated_res_0x7f0f0353, new Object[0]), yq4Var);
-                    uq4Var.d.setTag(sparseArray);
-                    arrayList.add(uq4Var);
-                    if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f091666) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091666)).booleanValue()) {
-                        uq4 uq4Var2 = new uq4(-2, tu7.h(R.string.obfuscated_res_0x7f0f0354, new Object[0]), yq4Var);
-                        uq4Var2.d.setTag(sparseArray);
-                        arrayList.add(uq4Var2);
-                    }
+            this.a = lw7Var;
+        }
+
+        @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.i
+        public void a(AbsHListView absHListView, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(1048576, this, absHListView, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.i
+        public void b(AbsHListView absHListView, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absHListView, i) == null) {
+                if (i == 0) {
+                    this.a.g.removeCallbacks(this.a.l);
+                    this.a.g.postDelayed(this.a.l, 5000L);
+                } else if (i != 1) {
                 } else {
-                    uq4 uq4Var3 = new uq4(-1, tu7.h(R.string.obfuscated_res_0x7f0f0352, new Object[0]), yq4Var);
-                    uq4Var3.d.setTag(sparseArray);
-                    arrayList.add(uq4Var3);
-                    if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f091666) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091666)).booleanValue()) {
-                        uq4 uq4Var4 = new uq4(-2, tu7.h(R.string.obfuscated_res_0x7f0f0355, new Object[0]), yq4Var);
-                        uq4Var4.d.setTag(sparseArray);
-                        arrayList.add(uq4Var4);
-                    }
+                    this.a.g.removeCallbacks(this.a.l);
                 }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements GetEmotionPidModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EmotionImageData a;
+        public final /* synthetic */ lw7 b;
+
+        public c(lw7 lw7Var, EmotionImageData emotionImageData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lw7Var, emotionImageData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = lw7Var;
+            this.a = emotionImageData;
+        }
+
+        @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
+        public void a(p45 p45Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, p45Var) == null) || p45Var == null || TextUtils.isEmpty(p45Var.a)) {
+                return;
+            }
+            this.a.setPicId(p45Var.a);
+            this.b.n(this.a);
+        }
+
+        @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
+        public void onFail(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            }
+        }
+    }
+
+    public lw7(d9 d9Var, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d9Var, viewGroup, layoutParams};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.l = new a(this);
+        this.a = d9Var;
+        this.h = viewGroup;
+        this.i = layoutParams;
+        this.g = new Handler();
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.b
+    public void a(String str, List<EmotionImageData> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && !TextUtils.isEmpty(str) && str.equals(this.f)) {
+            if (ListUtils.isEmpty(list)) {
+                this.f = "";
+            } else if (this.h == null || this.i == null) {
             } else {
-                uq4 uq4Var5 = new uq4(-1, tu7.h(R.string.obfuscated_res_0x7f0f0352, new Object[0]), yq4Var);
-                uq4Var5.d.setTag(sparseArray);
-                arrayList.add(uq4Var5);
-                if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f091666) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091666)).booleanValue()) {
-                    uq4 uq4Var6 = new uq4(-2, tu7.h(R.string.obfuscated_res_0x7f0f0354, new Object[0]), yq4Var);
-                    uq4Var6.d.setTag(sparseArray);
-                    arrayList.add(uq4Var6);
+                if (list.size() > 10) {
+                    list = list.subList(0, 10);
                 }
-            }
-            uq4 uq4Var7 = new uq4(-3, tu7.h(R.string.obfuscated_res_0x7f0f0fc2, new Object[0]), yq4Var);
-            uq4Var7.d.setTag(sparseArray);
-            arrayList.add(uq4Var7);
-            uq4 uq4Var8 = new uq4(-4, tu7.h(R.string.obfuscated_res_0x7f0f1145, new Object[0]), yq4Var);
-            uq4Var8.d.setTag(sparseArray);
-            arrayList.add(uq4Var8);
-            list.addAll(0, arrayList);
-            return list;
-        }
-        return (List) invokeLLLL.objValue;
-    }
-
-    public static List<uq4> c(List<uq4> list, AgreeData agreeData, SparseArray<Object> sparseArray, yq4 yq4Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, list, agreeData, sparseArray, yq4Var)) == null) {
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            ArrayList arrayList = new ArrayList();
-            if (agreeData.hasAgree) {
-                if (agreeData.agreeType == 2) {
-                    if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f091666) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091666)).booleanValue()) {
-                        uq4 uq4Var = new uq4(-2, tu7.h(R.string.obfuscated_res_0x7f0f0087, new Object[0]), yq4Var);
-                        uq4Var.d.setTag(sparseArray);
-                        arrayList.add(uq4Var);
-                    }
-                } else if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f091666) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091666)).booleanValue()) {
-                    uq4 uq4Var2 = new uq4(-2, tu7.h(R.string.obfuscated_res_0x7f0f0355, new Object[0]), yq4Var);
-                    uq4Var2.d.setTag(sparseArray);
-                    arrayList.add(uq4Var2);
-                }
-            } else if (sparseArray == null || sparseArray.get(R.id.obfuscated_res_0x7f091666) == null || !((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091666)).booleanValue()) {
-                uq4 uq4Var3 = new uq4(-2, tu7.h(R.string.obfuscated_res_0x7f0f0087, new Object[0]), yq4Var);
-                uq4Var3.d.setTag(sparseArray);
-                arrayList.add(uq4Var3);
-            }
-            uq4 uq4Var4 = new uq4(-3, tu7.h(R.string.obfuscated_res_0x7f0f0fc2, new Object[0]), yq4Var);
-            uq4Var4.d.setTag(sparseArray);
-            arrayList.add(0, uq4Var4);
-            uq4 uq4Var5 = new uq4(-4, tu7.h(R.string.obfuscated_res_0x7f0f1145, new Object[0]), yq4Var);
-            uq4Var5.d.setTag(sparseArray);
-            arrayList.add(1, uq4Var5);
-            list.addAll(0, arrayList);
-            return list;
-        }
-        return (List) invokeLLLL.objValue;
-    }
-
-    public static void d(Activity activity, @Nullable d9<?> d9Var, nq4.e eVar, nq4.e eVar2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, activity, d9Var, eVar, eVar2) == null) {
-            nq4 nq4Var = new nq4(activity);
-            nq4Var.setMessageId(R.string.obfuscated_res_0x7f0f0492);
-            nq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04dc, eVar);
-            nq4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04d7, eVar2);
-            nq4Var.setCancelable(true);
-            nq4Var.create(d9Var);
-            nq4Var.show();
-        }
-    }
-
-    public static List<uq4> e(List<uq4> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (list == null) {
-                return list;
-            }
-            for (uq4 uq4Var : list) {
-                uq4Var.l(g(uq4Var));
-            }
-            return list;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static SpannableStringBuilder f(PostData postData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, postData)) == null) {
-            if (postData == null) {
-                return null;
-            }
-            String tbRichText = postData.Q() != null ? postData.Q().toString() : "";
-            SpannableString n = n(postData.s().getName_show() + ZeusCrashHandler.NAME_SEPERATOR, SkinManager.getColor(R.color.CAM_X0109));
-            SpannableString n2 = n(tbRichText, SkinManager.getColor(R.color.CAM_X0107));
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) n);
-            spannableStringBuilder.append((CharSequence) n2);
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeL.objValue;
-    }
-
-    public static Drawable g(uq4 uq4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, uq4Var)) == null) {
-            switch (uq4Var.f()) {
-                case -4:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08095d, SkinManager.getColor(R.color.CAM_X0107), null);
-                case -3:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080947, SkinManager.getColor(R.color.CAM_X0107), null);
-                case -2:
-                    if (tu7.h(R.string.obfuscated_res_0x7f0f0354, new Object[0]).equals(uq4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094b, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094c, SkinManager.getColor(R.color.CAM_X0107), null);
-                case -1:
-                    if (tu7.h(R.string.obfuscated_res_0x7f0f0352, new Object[0]).equals(uq4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080954, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080955, SkinManager.getColor(R.color.CAM_X0301), null);
-                case 0:
-                default:
-                    return null;
-                case 1:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094d, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 2:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08095c, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 3:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080948, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 4:
-                    if (tu7.h(R.string.obfuscated_res_0x7f0f0a92, new Object[0]).equals(uq4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080945, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080946, SkinManager.getColor(R.color.CAM_X0305), null);
-                case 5:
-                    if (tu7.h(R.string.obfuscated_res_0x7f0f0fdb, new Object[0]).equals(uq4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08095b, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    if (tu7.h(R.string.obfuscated_res_0x7f0f0b33, new Object[0]).equals(uq4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080959, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    return null;
-                case 6:
-                    if (tu7.h(R.string.obfuscated_res_0x7f0f0fdb, new Object[0]).equals(uq4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08095b, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    if (tu7.h(R.string.obfuscated_res_0x7f0f0496, new Object[0]).equals(uq4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094a, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    return null;
-                case 7:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080940, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 8:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080950, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 9:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080935, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 10:
-                    if (tu7.h(R.string.obfuscated_res_0x7f0f04a1, new Object[0]).equals(uq4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094a, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    if (tu7.h(R.string.obfuscated_res_0x7f0f0496, new Object[0]).equals(uq4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094a, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    return null;
-                case 11:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080944, SkinManager.getColor(R.color.CAM_X0107), null);
-                case 12:
-                    if (tu7.h(R.string.obfuscated_res_0x7f0f0b2f, new Object[0]).equals(uq4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080957, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    if (tu7.h(R.string.obfuscated_res_0x7f0f14b0, new Object[0]).equals(uq4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080958, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    return null;
-            }
-        }
-        return (Drawable) invokeL.objValue;
-    }
-
-    public static boolean h(PbModel pbModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pbModel)) == null) ? (pbModel == null || pbModel.Q1() == null || !pbModel.Q1().h0()) ? false : true : invokeL.booleanValue;
-    }
-
-    public static boolean i(hr7 hr7Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, hr7Var)) == null) ? hr7Var != null && hr7Var.q() : invokeL.booleanValue;
-    }
-
-    public static boolean j(PostData postData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, postData)) == null) ? (postData == null || postData.s() == null || StringUtils.isNull(postData.s().getUserId()) || !postData.s().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true : invokeL.booleanValue;
-    }
-
-    public static List<uq4> k(List<uq4> list, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, list, z)) == null) {
-            if (list != null && !z) {
-                Iterator<uq4> it = list.iterator();
-                while (it.hasNext()) {
-                    uq4 next = it.next();
-                    if (next.f() == 2 || next.f() == 1 || next.f() == 3) {
-                        it.remove();
+                TiebaStatic.log("c12488");
+                HListView hListView = this.c;
+                if (hListView == null || hListView.getParent() == null) {
+                    HListView hListView2 = new HListView(this.a.getContext());
+                    this.c = hListView2;
+                    SkinManager.setBackgroundColor(hListView2, R.color.CAM_X0201);
+                    this.c.setDividerWidth(pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702f8));
+                    this.c.setClipToPadding(false);
+                    int f = pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070232);
+                    this.c.setPadding(f, f, f, f);
+                    this.c.setSelector(R.drawable.obfuscated_res_0x7f080c9c);
+                    this.i.height = pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070247);
+                    this.h.addView(this.c, this.i);
+                    if (this.d == null) {
+                        kw7 kw7Var = new kw7();
+                        this.d = kw7Var;
+                        kw7Var.d(this);
+                        this.d.c(this);
+                        this.c.setAdapter((ListAdapter) this.d);
+                        this.c.setOnScrollListener(new b(this));
                     }
                 }
+                this.c.setVisibility(0);
+                this.d.b(list);
+                this.d.notifyDataSetChanged();
+                this.c.setSelection(0);
+                this.g.removeCallbacks(this.l);
+                this.g.postDelayed(this.l, 5000L);
             }
-            return list;
         }
-        return (List) invokeLZ.objValue;
     }
 
-    public static boolean l(TextView textView, PostData postData, hr7 hr7Var) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, textView, postData, hr7Var)) == null) {
-            if (textView != null && hr7Var != null && postData != null) {
-                if (hr7Var.q() && TbadkCoreApplication.isLogin() && !j(postData) && !hr7Var.p()) {
-                    ho8.f(textView, postData);
-                    textView.setVisibility(0);
-                    return true;
-                }
-                textView.setVisibility(8);
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.g.removeCallbacks(this.l);
+            this.g.postDelayed(this.l, 5000L);
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static int m(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
-            if (i != -4) {
-                if (i != -3) {
-                    if (i != -2) {
-                        if (i != -1) {
-                            switch (i) {
-                                case 4:
-                                    return 5;
-                                case 5:
-                                    return 7;
-                                case 6:
-                                    return 6;
-                                case 7:
-                                    return 9;
-                                case 8:
-                                    return 8;
-                                default:
-                                    return 0;
-                            }
-                        }
-                        return 1;
-                    }
-                    return 2;
-                }
-                return 3;
-            }
-            return 4;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
         }
-        return invokeI.intValue;
+        return invokeV.booleanValue;
     }
 
-    public static SpannableString n(String str, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, str, i)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            spannableString.setSpan(new ForegroundColorSpan(i), 0, str.length(), 33);
-            return spannableString;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g.removeCallbacks(this.l);
         }
-        return (SpannableString) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.kw7.b
+    public void f(EmotionImageData emotionImageData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, emotionImageData) == null) {
+            this.g.removeCallbacks(this.l);
+            this.g.postDelayed(this.l, 5000L);
+            if (emotionImageData == null || TextUtils.isEmpty(emotionImageData.getPicUrl()) || this.j == null) {
+                return;
+            }
+            if (!TextUtils.isEmpty(emotionImageData.getPicId()) && !emotionImageData.getPicId().equals("0")) {
+                n(emotionImageData);
+                return;
+            }
+            if (this.k == null) {
+                this.k = new GetEmotionPidModel();
+            }
+            this.k.B(emotionImageData.getPicUrl(), new c(this, emotionImageData));
+        }
+    }
+
+    public void l() {
+        QueryMatchEmotionModel queryMatchEmotionModel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (queryMatchEmotionModel = this.e) == null) {
+            return;
+        }
+        queryMatchEmotionModel.cancelLoadData();
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            HListView hListView = this.c;
+            if (hListView != null) {
+                hListView.setVisibility(8);
+            }
+            this.g.removeCallbacks(this.l);
+            this.f = "";
+        }
+    }
+
+    public final void n(EmotionImageData emotionImageData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, emotionImageData) == null) {
+            TiebaStatic.log("c12489");
+            lx4 lx4Var = new lx4();
+            StringBuilder sb = new StringBuilder();
+            sb.append(emotionImageData.getPicId());
+            sb.append(",");
+            sb.append(emotionImageData.getWidth());
+            sb.append(",");
+            sb.append(emotionImageData.getHeight());
+            sb.append(",");
+            String lowerCase = vi.c(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT + sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase();
+            lx4Var.n("#(meme,net_" + Uri.encode(emotionImageData.getPicUrl()) + "," + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX);
+            lx4Var.q(EmotionGroupType.NET_SUG);
+            lx4Var.s(emotionImageData.getWidth());
+            lx4Var.l(emotionImageData.getHeight());
+            lx4Var.r(emotionImageData.getPicUrl());
+            this.j.A(new j15(24, -1, lx4Var));
+        }
+    }
+
+    public final void o(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || TextUtils.isEmpty(str) || str.equals(this.f)) {
+            return;
+        }
+        this.f = str;
+        if (this.e == null) {
+            this.e = new QueryMatchEmotionModel(this.a);
+        }
+        this.e.D(str, this);
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.b
+    public void onFail(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) {
+        }
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || TextUtils.isEmpty(str) || ListUtils.isEmpty(this.b) || !this.b.contains(str)) {
+            return;
+        }
+        o(str);
+    }
+
+    public void q(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    public void r(EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, editorTools) == null) {
+            this.j = editorTools;
+        }
     }
 }

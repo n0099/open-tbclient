@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-import com.kuaishou.weapon.un.w0;
 import kotlin.text.Typography;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes5.dex */
@@ -102,7 +102,7 @@ public final class GeneralAppIdDecoder {
                     return new DecodedChar(i + 7, (char) (extractNumericValueFromBitArray2 + 7));
                 }
                 switch (extractNumericValueFromBitArray(i, 8)) {
-                    case w0.c1 /* 232 */:
+                    case 232:
                         c = '!';
                         break;
                     case 233:
@@ -111,7 +111,7 @@ public final class GeneralAppIdDecoder {
                     case 234:
                         c = '%';
                         break;
-                    case w0.k0 /* 235 */:
+                    case 235:
                         c = '&';
                         break;
                     case 236:
@@ -129,10 +129,10 @@ public final class GeneralAppIdDecoder {
                     case 240:
                         c = '+';
                         break;
-                    case 241:
+                    case MatroskaExtractor.ID_CUE_CLUSTER_POSITION /* 241 */:
                         c = ',';
                         break;
-                    case w0.i0 /* 242 */:
+                    case 242:
                         c = SignatureImpl.SEP;
                         break;
                     case 243:
@@ -141,7 +141,7 @@ public final class GeneralAppIdDecoder {
                     case GDiffPatcher.COPY_UBYTE_UBYTE /* 244 */:
                         c = WebvttCueParser.CHAR_SLASH;
                         break;
-                    case 245:
+                    case GDiffPatcher.COPY_UBYTE_USHORT /* 245 */:
                         c = ':';
                         break;
                     case 246:
@@ -150,7 +150,7 @@ public final class GeneralAppIdDecoder {
                     case GDiffPatcher.DATA_USHORT /* 247 */:
                         c = '<';
                         break;
-                    case 248:
+                    case GDiffPatcher.DATA_INT /* 248 */:
                         c = '=';
                         break;
                     case 249:
@@ -162,7 +162,7 @@ public final class GeneralAppIdDecoder {
                     case 251:
                         c = '_';
                         break;
-                    case 252:
+                    case GDiffPatcher.COPY_INT_UBYTE /* 252 */:
                         c = WebvttCueParser.CHAR_SPACE;
                         break;
                     default:

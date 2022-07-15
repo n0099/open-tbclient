@@ -1,181 +1,203 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.pay.IPayCallback;
-import com.baidu.searchbox.live.interfaces.pay.IPayChannel;
-import com.baidu.searchbox.live.interfaces.pay.PayChannelType;
-import com.baidu.searchbox.live.interfaces.pay.YYPayResultService;
-import com.baidu.searchbox.live.interfaces.service.PayChannelService;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.wallet.ITiebaPay;
-import com.baidu.tieba.wallet.ITiebaPayCallback;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import tbclient.RankingParam;
+import tbclient.SugRankingInfo;
 /* loaded from: classes7.dex */
-public class vf7 implements PayChannelService {
+public class vf7 implements nn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ITiebaPay a;
+    public String a;
+    public String b;
+    public String c;
+    public a d;
 
     /* loaded from: classes7.dex */
-    public class a implements IPayChannel {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vf7 a;
+        public Integer a;
+        public Integer b;
+        public String c;
+        public Integer d;
 
-        /* renamed from: com.repackage.vf7$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0545a implements ITiebaPayCallback {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ IPayCallback a;
-
-            public C0545a(a aVar, IPayCallback iPayCallback) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, iPayCallback};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = iPayCallback;
-            }
-
-            @Override // com.baidu.tieba.wallet.ITiebaPayCallback
-            public void onPayResult(int i, String str) {
-                IPayCallback iPayCallback;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || (iPayCallback = this.a) == null) {
-                    return;
-                }
-                iPayCallback.onPayResult(i, str);
-            }
-        }
-
-        public a(vf7 vf7Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vf7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = vf7Var;
         }
 
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public PayChannelType getType() {
+        public Integer a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? PayChannelType.WALLET : (PayChannelType) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Integer) invokeV.objValue;
         }
 
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public String getUaForFrontPay() {
+        public Integer b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return pd5.b() + " (Baidu; P1 " + Build.VERSION.RELEASE + SmallTailInfo.EMOTION_SUFFIX;
-            }
-            return (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Integer) invokeV.objValue;
         }
 
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public void onPayResult(String str, String str2, String str3, Context context, boolean z) {
+        public String c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, context, Boolean.valueOf(z)}) == null) {
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+        }
+
+        public Integer d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (Integer) invokeV.objValue;
+        }
+
+        public void e(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
             }
         }
 
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public void pay(Activity activity, HashMap<String, String> hashMap, IPayCallback iPayCallback) {
+        public void f(Integer num) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048579, this, activity, hashMap, iPayCallback) == null) || hashMap == null || hashMap.isEmpty()) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
+                this.b = num;
+            }
+        }
+
+        public void g(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, num) == null) {
+                this.a = num;
+            }
+        }
+
+        public void h(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, num) == null) {
+            }
+        }
+
+        public void i(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+                this.c = str;
+            }
+        }
+
+        public void j(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, num) == null) {
+                this.d = num;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755233014, "Lcom/repackage/vf7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755233014, "Lcom/repackage/vf7;");
                 return;
             }
-            this.a.c();
-            if (this.a.a != null) {
-                this.a.a.pay(hashMap.remove("channel"), hashMap, new C0545a(this, iPayCallback));
-            } else if (iPayCallback != null) {
-                iPayCallback.onPayResult(2, null);
-            }
         }
-
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public void release() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
+        e = BdUniqueId.gen();
     }
 
     public vf7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.a = "";
+        this.b = "";
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
-    public IPayChannel buildPayChannel(PayChannelType payChannelType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payChannelType)) == null) {
-            if (payChannelType == PayChannelType.WALLET) {
-                return new a(this);
-            }
-            return null;
-        }
-        return (IPayChannel) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
-    public YYPayResultService buildYYPayResChannel() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (YYPayResultService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public final void c() {
-        CustomResponsedMessage runTask;
+    public a b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
-            this.a = (ITiebaPay) runTask.getData();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (a) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void g(SugRankingInfo sugRankingInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sugRankingInfo) == null) {
+            String str = sugRankingInfo.rank_title;
+            this.a = str;
+            this.c = str;
+            RankingParam rankingParam = sugRankingInfo.rank_param;
+            if (rankingParam != null) {
+                a aVar = new a();
+                aVar.g(rankingParam.rank_type);
+                aVar.f(rankingParam.rank_code);
+                aVar.i(rankingParam.sort_type);
+                aVar.j(rankingParam.tab_id);
+                aVar.e(rankingParam.pn);
+                aVar.h(rankingParam.rn);
+                this.d = aVar;
+            }
+        }
+    }
+
+    @Override // com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b = str;
         }
     }
 }

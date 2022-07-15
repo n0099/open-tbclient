@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.os.Vibrator;
 import android.util.AttributeSet;
@@ -17,9 +18,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr7;
-import com.repackage.or7;
-import com.repackage.qr7;
+import com.repackage.fs7;
+import com.repackage.gs7;
+import com.repackage.is7;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -37,9 +38,9 @@ public class EjectionAnimationView extends View {
     public boolean f;
     public int g;
     public int h;
-    public ArrayList<nr7> i;
+    public ArrayList<fs7> i;
     public List<Bitmap> j;
-    public qr7 k;
+    public is7 k;
     public Vibrator l;
 
     /* loaded from: classes3.dex */
@@ -48,7 +49,9 @@ public class EjectionAnimationView extends View {
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<EjectionAnimationView> a;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EjectionAnimationView ejectionAnimationView) {
+            super(Looper.getMainLooper());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,6 +61,7 @@ public class EjectionAnimationView extends View {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -121,16 +125,16 @@ public class EjectionAnimationView extends View {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || !this.e || ListUtils.isEmpty(this.j) || (bitmap = this.j.get(new Random().nextInt(this.j.size()))) == null) {
             return;
         }
-        this.i.add(new or7(bitmap, this.g, this.h, this.b, this.c));
+        this.i.add(new gs7(bitmap, this.g, this.h, this.b, this.c));
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.f = true;
-            Iterator<nr7> it = this.i.iterator();
+            Iterator<fs7> it = this.i.iterator();
             while (it.hasNext()) {
-                nr7 next = it.next();
+                fs7 next = it.next();
                 if (next.v == LifeCycleState.ACTIVE) {
                     this.f = false;
                     next.a();
@@ -167,9 +171,9 @@ public class EjectionAnimationView extends View {
             this.d = 1;
             this.i = new ArrayList<>();
             this.a.removeMessages(0);
-            qr7 qr7Var = this.k;
-            if (qr7Var != null) {
-                qr7Var.onStop();
+            is7 is7Var = this.k;
+            if (is7Var != null) {
+                is7Var.onStop();
             }
             Vibrator vibrator = this.l;
             if (vibrator != null) {
@@ -185,9 +189,9 @@ public class EjectionAnimationView extends View {
             this.i = new ArrayList<>();
             this.e = true;
             this.d = 1;
-            qr7 qr7Var = this.k;
-            if (qr7Var != null) {
-                qr7Var.onStart();
+            is7 is7Var = this.k;
+            if (is7Var != null) {
+                is7Var.onStart();
             }
             this.a.sendEmptyMessage(0);
             Vibrator vibrator = this.l;
@@ -223,13 +227,13 @@ public class EjectionAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
             super.onDraw(canvas);
-            ArrayList<nr7> arrayList = this.i;
+            ArrayList<fs7> arrayList = this.i;
             if (arrayList == null) {
                 return;
             }
-            Iterator<nr7> it = arrayList.iterator();
+            Iterator<fs7> it = arrayList.iterator();
             while (it.hasNext()) {
-                nr7 next = it.next();
+                fs7 next = it.next();
                 if (next.v == LifeCycleState.ACTIVE) {
                     next.b(canvas);
                 }
@@ -262,10 +266,10 @@ public class EjectionAnimationView extends View {
         }
     }
 
-    public void setEjectionAnimationViewCallback(qr7 qr7Var) {
+    public void setEjectionAnimationViewCallback(is7 is7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, qr7Var) == null) {
-            this.k = qr7Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, is7Var) == null) {
+            this.k = is7Var;
         }
     }
 

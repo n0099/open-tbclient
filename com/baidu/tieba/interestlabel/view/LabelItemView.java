@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb7;
 import com.repackage.pi;
+import com.repackage.tb7;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LabelItemView extends LinearLayout {
@@ -57,7 +57,7 @@ public class LabelItemView extends LinearLayout {
     public final TextView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0469, (ViewGroup) this, false) : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0481, (ViewGroup) this, false) : (TextView) invokeV.objValue;
     }
 
     public final void b() {
@@ -96,7 +96,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    public void setData(List<bb7> list, boolean z) {
+    public void setData(List<tb7> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(1048579, this, list, z) == null) || ListUtils.isEmpty(list)) {
@@ -110,19 +110,19 @@ public class LabelItemView extends LinearLayout {
             if (i2 >= i) {
                 break;
             }
-            bb7 bb7Var = list.get(i2);
-            if (bb7Var != null && (getChildAt(i2) instanceof TextView)) {
+            tb7 tb7Var = list.get(i2);
+            if (tb7Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = bb7Var.b;
-                if (!StringUtils.isNull(str) && bb7Var.b.length() > 4) {
-                    str = bb7Var.b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = tb7Var.b;
+                if (!StringUtils.isNull(str) && tb7Var.b.length() > 4) {
+                    str = tb7Var.b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(bb7Var.c);
-                textView.setTag(bb7Var);
+                textView.setSelected(tb7Var.c);
+                textView.setTag(tb7Var);
             }
             i2++;
         }

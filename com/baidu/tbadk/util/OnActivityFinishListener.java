@@ -32,7 +32,7 @@ public class OnActivityFinishListener<T> extends SimpleMessageListener {
                 return;
             }
         }
-        e(tbPageContext);
+        d(tbPageContext);
     }
 
     public static <T> void l(@NonNull TbPageContext<?> tbPageContext, @Nullable T t) {

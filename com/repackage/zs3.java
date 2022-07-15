@@ -1,208 +1,123 @@
 package com.repackage;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.gamecenter.network.models.ReservationGameInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zs3 extends EventTargetImpl implements ws3 {
+public class zs3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yo3 a;
-    @V8JavascriptField
-    public String adUnitId;
-    public String b;
-    public boolean c;
-    public xs3 d;
-    public ys3 e;
-    public Map<String, String> f;
-    public ho3 g;
-    public b h;
-    public boolean i;
-    public boolean j;
-    public re3 k;
-    public xo3 l;
 
     /* loaded from: classes7.dex */
-    public class a implements xo3 {
+    public class a implements ts3<List<ReservationGameInfo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zs3 a;
+        public final /* synthetic */ String[] a;
+        public final /* synthetic */ zs3 b;
 
-        /* renamed from: com.repackage.zs3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0580a implements re3 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
+        public a(zs3 zs3Var, String[] strArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zs3Var, strArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zs3Var;
+            this.a = strArr;
+        }
 
-            public C0580a(a aVar) {
-                Interceptable interceptable = $ic;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ts3
+        /* renamed from: a */
+        public void onSuccess(List<ReservationGameInfo> list) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(list);
+            ArrayList arrayList2 = new ArrayList(Arrays.asList(this.a));
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                ReservationGameInfo reservationGameInfo = (ReservationGameInfo) it.next();
+                boolean z = reservationGameInfo.auto_download;
+                String str = reservationGameInfo.app_id;
+                if (z) {
+                    String str2 = reservationGameInfo.download_url;
+                    String str3 = reservationGameInfo.package_id;
+                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
+                        this.b.e(str2, str3, str);
+                        ss3.b().c(str);
+                        if (arrayList2.remove(str)) {
+                            this.b.f(arrayList2);
+                        }
+                    }
+                } else if (arrayList2.remove(str)) {
+                    this.b.f(arrayList2);
+                }
+            }
+        }
+
+        @Override // com.repackage.ts3
+        public void onFail(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final zs3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(196930777, "Lcom/repackage/zs3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
+                    $ic = interceptable;
                 }
-                this.a = aVar;
-            }
-
-            @Override // com.repackage.re3
-            public void b() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                }
-            }
-
-            @Override // com.repackage.re3
-            public void g() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.a.a.i = false;
-                    this.a.a.a.i0();
-                }
-            }
-
-            @Override // com.repackage.re3
-            public void n() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.a.a.i = true;
-                    if (this.a.a.j) {
-                        this.a.a.a.N();
-                    }
-                }
-            }
-        }
-
-        public a(zs3 zs3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zs3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(196930777, "Lcom/repackage/zs3$b;");
                     return;
                 }
             }
-            this.a = zs3Var;
-        }
-
-        @Override // com.repackage.xo3
-        public void a(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-                if (z) {
-                    this.a.dispatchEvent(new JSEvent("load"));
-                    if (this.a.d != null) {
-                        this.a.d.c();
-                    }
-                    vs3.b().c(16, "");
-                    ps3.b(this.a.getType(), "success");
-                    return;
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(str);
-                }
-                vs3.b().c(17, str);
-                ps3.c(this.a.getType(), com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
-            }
-        }
-
-        @Override // com.repackage.xo3
-        public void b(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
-                if (z) {
-                    if (this.a.e != null) {
-                        this.a.e.c();
-                    }
-                    if (this.a.h == null) {
-                        this.a.h = new b(this.a, null);
-                        IntentFilter intentFilter = new IntentFilter();
-                        intentFilter.addAction("android.intent.action.SCREEN_ON");
-                        intentFilter.addAction("android.intent.action.SCREEN_OFF");
-                        AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
-                    }
-                    if (this.a.k == null) {
-                        this.a.k = new C0580a(this);
-                        zs3.M(this.a.k);
-                    }
-                } else if (this.a.e != null) {
-                    this.a.e.b(str);
-                }
-            }
-        }
-
-        @Override // com.repackage.xo3
-        public void c(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                JSEvent jSEvent = new JSEvent("close");
-                jSEvent.data = at3.a(z);
-                this.a.dispatchEvent(jSEvent);
-                ps3.a(this.a.getType(), "pageclose", i);
-                this.a.destroy();
-            }
-        }
-
-        @Override // com.repackage.xo3
-        public void onClick(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                ps3.a(this.a.getType(), "click", i);
-            }
-        }
-
-        @Override // com.repackage.xo3
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                JSEvent jSEvent = new JSEvent("error");
-                jSEvent.data = at3.b(str);
-                this.a.dispatchEvent(jSEvent);
-                ap3.k(this.a.f, str);
-                this.a.destroy();
-            }
+            a = new zs3();
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b extends BroadcastReceiver {
+    public class c implements zr3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zs3 this$0;
 
-        public b(zs3 zs3Var) {
+        public c(zs3 zs3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -214,141 +129,90 @@ public class zs3 extends EventTargetImpl implements ws3 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.this$0 = zs3Var;
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
+        @Override // com.repackage.zr3
+        public void a(bs3 bs3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_ON")) {
-                    this.this$0.j = true;
-                    if (this.this$0.i) {
-                        this.this$0.a.N();
-                    }
-                } else if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_OFF")) {
-                    this.this$0.j = false;
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, bs3Var) == null) {
             }
-        }
-
-        public /* synthetic */ b(zs3 zs3Var, a aVar) {
-            this(zs3Var);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zs3(c72 c72Var, JsObject jsObject) {
-        super(c72Var);
+    public zs3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {c72Var, jsObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.adUnitId = "";
-        this.f = new TreeMap();
-        this.j = true;
-        this.l = new a(this);
-        zr1 F = zr1.F(jsObject);
-        if (F != null) {
-            this.adUnitId = F.B("adUnitId");
-            this.b = F.B("appSid");
-        }
-        if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.b)) {
-            boolean g = lp3.g();
-            this.c = g;
-            if (g) {
-                this.b = lp3.c();
-                this.adUnitId = lp3.d();
-            }
-            this.f = ap3.a("video", "game", this.b, this.adUnitId, this.c);
-            this.g = new ns3();
-            yo3 yo3Var = new yo3(fl2.U().getActivity(), this.b, this.adUnitId, this.c, this.l, this.g);
-            this.a = yo3Var;
-            yo3Var.k0(this.f);
-            loadAd(null);
-            return;
-        }
-        c72Var.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
-    }
-
-    public static void M(re3 re3Var) {
-        jh1 W;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, null, re3Var) == null) || (W = fl2.U().W()) == null) {
-            return;
-        }
-        W.e(re3Var);
-    }
-
-    public static void N(re3 re3Var) {
-        jh1 W;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65550, null, re3Var) == null) || (W = fl2.U().W()) == null) {
-            return;
-        }
-        W.f(re3Var);
-    }
-
-    public final void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.h != null) {
-                AppRuntime.getAppContext().unregisterReceiver(this.h);
-                this.h = null;
-            }
-            re3 re3Var = this.k;
-            if (re3Var != null) {
-                N(re3Var);
-                this.k = null;
             }
         }
     }
 
-    public String getType() {
+    public static final zs3 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c ? "gdtvideo" : "video" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (zs3) invokeV.objValue;
     }
 
-    @JavascriptInterface
-    public synchronized void loadAd(JsObject jsObject) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-            synchronized (this) {
-                this.d = xs3.d(zr1.F(jsObject));
-                vs3.b().a(this.d);
-                if (this.a != null) {
-                    this.a.c0();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && oj2.h0().e(oj2.c())) {
+            String string = v83.a().getString("reservation_apk_ids", "");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            String[] split = string.split(",");
+            if (split.length == 0) {
+                return;
+            }
+            ss3.b().d(new a(this, split));
+        }
+    }
+
+    public final void e(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                fr3.n().H(str, str2, str3, new c(this));
+                return;
+            }
+            cx2 y = g03.K().y();
+            if (y != null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("url", str);
+                    jSONObject.put("packageName", str2);
+                    jSONObject.put("apkId", str3);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+                Bundle bundle = new Bundle();
+                bundle.putString("operation", "startDownload");
+                bundle.putString("data", jSONObject.toString());
+                bundle.putString("ubc_params", new fs3().a());
+                y.W(bundle, tr3.class);
             }
         }
     }
 
-    @JavascriptInterface
-    public synchronized void showAd(JsObject jsObject) {
+    public final void f(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
-            synchronized (this) {
-                ps3.d(getType());
-                this.e = ys3.d(zr1.F(jsObject));
-                if (this.a != null) {
-                    this.a.l0();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i = 0; i < arrayList.size(); i++) {
+                stringBuffer.append(arrayList.get(i));
+                if (i < arrayList.size() - 1) {
+                    stringBuffer.append(",");
                 }
             }
+            v83.a().putString("reservation_apk_ids", stringBuffer.toString());
         }
     }
 }

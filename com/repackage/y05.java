@@ -1,74 +1,60 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.emotiontool.EmotionNoLaunchView;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.CustomState;
+import tbclient.StateInfo;
 /* loaded from: classes7.dex */
-public class y05 extends t05 {
+public class y05 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int t;
-    public static final int u;
-    public static final int v;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755195597, "Lcom/repackage/y05;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755195597, "Lcom/repackage/y05;");
-                return;
-            }
-        }
-        t = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
-        u = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds46);
-        v = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds68);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y05(Context context) {
-        super(context, (String) null, 37);
+    public y05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.o = true;
-        this.n = 8;
-        this.m = new EmotionNoLaunchView(context);
-        int i3 = v;
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(t + i3, i3 + (u * 2));
-        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-        ((View) this.m).setLayoutParams(layoutParams);
-        int i4 = t;
-        int i5 = u;
-        ((View) this.m).setPadding(i4, i5, 0, i5);
-        this.p = new int[]{1, 5};
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void c(CustomState customState) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customState) == null) || customState == null) {
+            return;
+        }
+        this.a = customState.icon;
+        this.b = customState.content;
+    }
+
+    public void d(StateInfo stateInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, stateInfo) == null) {
+            this.a = stateInfo.icon;
+            this.b = stateInfo.text;
+        }
     }
 }

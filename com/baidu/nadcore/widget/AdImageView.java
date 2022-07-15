@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.k31;
-import com.repackage.w21;
+import com.repackage.y31;
 /* loaded from: classes2.dex */
 public class AdImageView extends AppCompatImageView implements IAdImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k31 a;
+    public final y31 a;
     public IAdImageView.ImageScaleType b;
     public final Path c;
 
@@ -54,7 +54,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public void f(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048576, this, str, i, i2) == null) {
-            w21.a().a(str, this, i, i2);
+            k31.a().a(str, this, i, i2);
         }
     }
 
@@ -64,16 +64,16 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
             if (TextUtils.isEmpty(str)) {
                 setImageBitmap(null);
             } else {
-                w21.a().e(str, this);
+                k31.a().e(str, this);
             }
         }
     }
 
     @NonNull
-    public k31 getConfig() {
+    public y31 getConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (k31) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (y31) invokeV.objValue;
     }
 
     public IAdImageView.ImageScaleType getImageScaleType() {
@@ -85,7 +85,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            w21.a().c(str);
+            k31.a().c(str);
         }
     }
 
@@ -94,7 +94,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04006e, R.attr.obfuscated_res_0x7f0400df, R.attr.obfuscated_res_0x7f0400e0, R.attr.obfuscated_res_0x7f040146, R.attr.obfuscated_res_0x7f040258, R.attr.obfuscated_res_0x7f0402e9, R.attr.obfuscated_res_0x7f0402fc, R.attr.obfuscated_res_0x7f0403d8, R.attr.obfuscated_res_0x7f0403de, R.attr.obfuscated_res_0x7f040434, R.attr.obfuscated_res_0x7f04053f, R.attr.obfuscated_res_0x7f040544});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04006e, R.attr.obfuscated_res_0x7f0400df, R.attr.obfuscated_res_0x7f0400e0, R.attr.obfuscated_res_0x7f040146, R.attr.obfuscated_res_0x7f040258, R.attr.obfuscated_res_0x7f0402e7, R.attr.obfuscated_res_0x7f0402fa, R.attr.obfuscated_res_0x7f0403e0, R.attr.obfuscated_res_0x7f0403e6, R.attr.obfuscated_res_0x7f04043c, R.attr.obfuscated_res_0x7f040540, R.attr.obfuscated_res_0x7f040545});
         int resourceId = obtainStyledAttributes.getResourceId(5, 0);
         if (resourceId != 0) {
             this.a.a = resourceId;
@@ -103,7 +103,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         if (resourceId2 != 0) {
             this.a.c = resourceId2;
         }
-        k31.a aVar = new k31.a();
+        y31.a aVar = new y31.a();
         if (obtainStyledAttributes.getBoolean(3, false)) {
             aVar.a = true;
         } else {
@@ -127,7 +127,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
-            k31.a aVar = getConfig().d;
+            y31.a aVar = getConfig().d;
             if (aVar == null) {
                 super.onDraw(canvas);
                 return;
@@ -170,9 +170,9 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public void setBorder(float f, @ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
-            k31.a aVar = this.a.d;
+            y31.a aVar = this.a.d;
             if (aVar == null) {
-                aVar = new k31.a();
+                aVar = new y31.a();
             }
             aVar.c = f;
             aVar.d = i;
@@ -183,9 +183,9 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public void setCircle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            k31.a aVar = this.a.d;
+            y31.a aVar = this.a.d;
             if (aVar == null) {
-                aVar = new k31.a();
+                aVar = new y31.a();
             }
             aVar.a = true;
             this.a.d = aVar;
@@ -218,9 +218,9 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public void setRadius(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            k31.a aVar = this.a.d;
+            y31.a aVar = this.a.d;
             if (aVar == null) {
-                aVar = new k31.a();
+                aVar = new y31.a();
             }
             aVar.a = false;
             aVar.b = new float[]{f, f2, f3, f4};
@@ -268,7 +268,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
                 return;
             }
         }
-        this.a = new k31();
+        this.a = new y31();
         this.c = new Path();
         m(attributeSet);
     }

@@ -1,7 +1,9 @@
 package com.repackage;
+
+import android.view.SurfaceHolder;
 /* loaded from: classes6.dex */
 public interface md1 {
     void a();
 
-    void b(nd1 nd1Var);
+    void surfaceCreated(SurfaceHolder surfaceHolder);
 }

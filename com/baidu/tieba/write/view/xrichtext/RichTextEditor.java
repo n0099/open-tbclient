@@ -33,12 +33,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
 import com.repackage.pi;
+import com.repackage.pv4;
 import com.repackage.qg;
-import com.repackage.ru4;
-import com.repackage.rv8;
+import com.repackage.tw8;
 import com.repackage.ub;
+import com.repackage.ur4;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -51,7 +51,7 @@ public class RichTextEditor extends LinearLayout {
     public int c;
     public WriteImagesInfo d;
     public View.OnClickListener e;
-    public ru4.a f;
+    public pv4.a f;
     public long g;
     public View.OnFocusChangeListener h;
     public TextWatcher i;
@@ -175,10 +175,10 @@ public class RichTextEditor extends LinearLayout {
                 }
                 if (this.a.getContext() instanceof WriteActivity) {
                     if (ListUtils.isEmpty(this.a.d.getChosedFiles())) {
-                        ((WriteActivity) this.a.getContext()).N6();
+                        ((WriteActivity) this.a.getContext()).D2();
                     }
-                    ((WriteActivity) this.a.getContext()).J6();
-                    ((WriteActivity) this.a.getContext()).P6();
+                    ((WriteActivity) this.a.getContext()).C6();
+                    ((WriteActivity) this.a.getContext()).H6();
                 }
             }
         }
@@ -348,9 +348,9 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setBackgroundResource(0);
             spanGroupEditText.setPadding(0, 0, 0, 0);
             spanGroupEditText.setLineSpacing(pi.f(getContext(), R.dimen.M_T_X002), 1.0f);
-            rv8.l(spanGroupEditText, R.drawable.obfuscated_res_0x7f0804ac);
+            tw8.l(spanGroupEditText, R.drawable.obfuscated_res_0x7f0804ac);
             spanGroupEditText.setTextSize(0, getResources().getDimension(R.dimen.T_X06));
-            fr4.d(spanGroupEditText).v(R.color.CAM_X0105);
+            ur4.d(spanGroupEditText).v(R.color.CAM_X0105);
             spanGroupEditText.setDrawingCacheEnabled(false);
             spanGroupEditText.setGravity(51);
             spanGroupEditText.setHint(str);
@@ -360,7 +360,7 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setForumId(this.g);
             spanGroupEditText.setOnClickListener(this.e);
             spanGroupEditText.addTextChangedListener(this.i);
-            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f090fbf, Boolean.TRUE);
+            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f090fd0, Boolean.TRUE);
             return spanGroupEditText;
         }
         return (SpanGroupEditText) invokeL.objValue;
@@ -369,7 +369,7 @@ public class RichTextEditor extends LinearLayout {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            SpanGroupEditText l = l(getContext().getString(R.string.obfuscated_res_0x7f0f0e67));
+            SpanGroupEditText l = l(getContext().getString(R.string.obfuscated_res_0x7f0f0e60));
             addView(l, new LinearLayout.LayoutParams(-1, -2));
             this.b = l;
         }
@@ -517,7 +517,7 @@ public class RichTextEditor extends LinearLayout {
         }
     }
 
-    public void setOnSpanGroupChangedListener(ru4.a aVar) {
+    public void setOnSpanGroupChangedListener(pv4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, aVar) == null) {
             this.f = aVar;
@@ -581,7 +581,7 @@ public class RichTextEditor extends LinearLayout {
                 if (childAt instanceof RichImageItem) {
                     ((RichImageItem) childAt).f();
                 } else if (childAt instanceof SpanGroupEditText) {
-                    fr4.d(childAt).v(R.color.CAM_X0105);
+                    ur4.d(childAt).v(R.color.CAM_X0105);
                     ((SpanGroupEditText) childAt).setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
                 }
             }
@@ -607,7 +607,7 @@ public class RichTextEditor extends LinearLayout {
             if (childCount > 1) {
                 ((SpanGroupEditText) childAt).setHint("");
             } else {
-                ((SpanGroupEditText) childAt).setHint(getContext().getString(R.string.obfuscated_res_0x7f0f0e67));
+                ((SpanGroupEditText) childAt).setHint(getContext().getString(R.string.obfuscated_res_0x7f0f0e60));
             }
         }
     }
@@ -667,7 +667,7 @@ public class RichTextEditor extends LinearLayout {
         this.k = new c(this);
         setOrientation(1);
         setLayoutTransition(null);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fd1));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f51));
         setShowDividers(2);
         this.a = new a(this);
     }

@@ -1,111 +1,77 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.horizonalList.widget.AbsHListView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z17 implements y17 {
+public class z17 extends jx5<x17> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y17 a;
-    public AbsHListView b;
+    public View i;
+    public x17 j;
 
-    public z17(AbsHListView absHListView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z17(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {absHListView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = absHListView;
+        this.i = h().findViewById(R.id.obfuscated_res_0x7f090566);
     }
 
-    @Override // com.repackage.y17
-    @TargetApi(11)
-    public void a(ActionMode actionMode, int i, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{actionMode, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.a.a(actionMode, i, j, z);
-            if (this.b.getCheckedItemCount() == 0) {
-                actionMode.finish();
-            }
-        }
-    }
-
-    public boolean b() {
+    @Override // com.repackage.jx5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b7 : invokeV.intValue;
     }
 
-    public void c(y17 y17Var) {
+    @Override // com.repackage.jx5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y17Var) == null) {
-            this.a = y17Var;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
         }
     }
 
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-        InterceptResult invokeLL;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menuItem)) == null) ? this.a.onActionItemClicked(actionMode, menuItem) : invokeLL.booleanValue;
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
-            if (this.a.onCreateActionMode(actionMode, menu)) {
-                this.b.setLongClickable(false);
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public void onDestroyActionMode(ActionMode actionMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, actionMode) == null) {
-            this.a.onDestroyActionMode(actionMode);
-            AbsHListView absHListView = this.b;
-            absHListView.mChoiceActionMode = null;
-            absHListView.clearChoices();
-            AbsHListView absHListView2 = this.b;
-            absHListView2.mDataChanged = true;
-            absHListView2.rememberSyncState();
-            this.b.requestLayout();
-            this.b.setLongClickable(true);
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.jx5
+    /* renamed from: r */
+    public void i(x17 x17Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, actionMode, menu)) == null) ? this.a.onPrepareActionMode(actionMode, menu) : invokeLL.booleanValue;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, x17Var) == null) || x17Var == null) {
+            return;
+        }
+        this.j = x17Var;
+        SkinManager.setBackgroundColor(this.i, x17Var.b);
+        ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
+        layoutParams.height = pi.f(this.c, x17Var.a);
+        this.i.setLayoutParams(layoutParams);
     }
 }

@@ -1,38 +1,220 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipSpecialItem;
+import com.repackage.cr4;
+import java.util.Date;
 /* loaded from: classes6.dex */
 public class mi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public mi7(VipSpecialItem vipSpecialItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialItem};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a implements cr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ BubbleListData.BubbleData b;
+
+        public a(e eVar, BubbleListData.BubbleData bubbleData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, bubbleData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+            this.b = bubbleData;
+        }
+
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
+                e eVar = this.a;
+                if (eVar != null) {
+                    eVar.a(this.b.getBcode());
+                }
             }
         }
-        String str = vipSpecialItem.title;
-        String str2 = vipSpecialItem.desc;
-        String str3 = vipSpecialItem.img_url;
-        String str4 = vipSpecialItem.link;
-        String str5 = vipSpecialItem.update_time;
-        vipSpecialItem.id.intValue();
-        vipSpecialItem.type.intValue();
-        vipSpecialItem.task_id.intValue();
-        vipSpecialItem.is_finish.intValue();
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements cr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+
+        public b(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+        }
+
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
+                e eVar = this.a;
+                if (eVar != null) {
+                    eVar.b();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements cr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ BubbleListData.BubbleData b;
+
+        public c(e eVar, BubbleListData.BubbleData bubbleData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, bubbleData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+            this.b = bubbleData;
+        }
+
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
+                e eVar = this.a;
+                if (eVar != null) {
+                    eVar.a(this.b.getBcode());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d implements cr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+
+        public d(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+        }
+
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
+                e eVar = this.a;
+                if (eVar != null) {
+                    eVar.b();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a(int i);
+
+        void b();
+    }
+
+    public static void a(TbPageContext<?> tbPageContext, BubbleListData.BubbleData bubbleData, e eVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, bubbleData, eVar) == null) || bubbleData == null) {
+            return;
+        }
+        cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
+        cr4Var.setCanceledOnTouchOutside(false);
+        Date date = new Date();
+        Date date2 = new Date(date.getTime() + (bubbleData.getTime_interval() * 1000));
+        String dateStringDay = oi.getDateStringDay(date);
+        String dateStringDay2 = oi.getDateStringDay(date2);
+        String format = String.format(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f034b), bubbleData.getBname(), Integer.valueOf(bubbleData.getTime_interval() / 86400));
+        View inflate = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0161, (ViewGroup) null);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092097);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092098);
+        SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(textView2, R.color.CAM_X0108, 1);
+        textView.setText(format);
+        textView2.setText(dateStringDay + tbPageContext.getString(R.string.obfuscated_res_0x7f0f1434) + dateStringDay2);
+        cr4Var.setContentView(inflate);
+        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f14e9, new a(eVar, bubbleData));
+        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(eVar));
+        cr4Var.create(tbPageContext);
+        cr4Var.show();
+    }
+
+    public static void b(TbPageContext<?> tbPageContext, BubbleListData.BubbleData bubbleData, e eVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, bubbleData, eVar) == null) || bubbleData == null) {
+            return;
+        }
+        cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
+        cr4Var.setCanceledOnTouchOutside(false);
+        cr4Var.setMessage(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f034d), bubbleData.getLevel_name()));
+        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ce3, new c(eVar, bubbleData));
+        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(eVar));
+        cr4Var.create(tbPageContext);
+        cr4Var.show();
     }
 }

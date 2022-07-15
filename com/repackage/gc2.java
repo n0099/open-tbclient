@@ -1,21 +1,22 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class gc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int b;
-    @V8JavascriptField
-    public String errMsg;
-    @V8JavascriptField
-    public sb2[] fileList;
+    public String b;
+    public List<String> c;
+    public nc2 d;
+    public long e;
+    public List<hc2> f;
+    public String g;
+    public byte[] h;
 
     public gc2() {
         Interceptable interceptable = $ic;
@@ -27,20 +28,7 @@ public class gc2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.a = 0 + 1;
-        this.b = 0;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GetSavedFileListCallBack" + this.b;
-        }
-        return (String) invokeV.objValue;
     }
 }

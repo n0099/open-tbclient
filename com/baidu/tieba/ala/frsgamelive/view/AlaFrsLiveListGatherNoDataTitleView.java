@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bs5;
-import com.repackage.mw5;
+import com.repackage.jx5;
+import com.repackage.ys5;
 /* loaded from: classes3.dex */
-public class AlaFrsLiveListGatherNoDataTitleView extends mw5<bs5> {
+public class AlaFrsLiveListGatherNoDataTitleView extends jx5<ys5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView i;
@@ -71,19 +71,19 @@ public class AlaFrsLiveListGatherNoDataTitleView extends mw5<bs5> {
         this.l = 3;
         this.k = tbPageContext;
         View h = h();
-        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090ad1);
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090ad2);
+        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090ad9);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090ada);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00ee : invokeV.intValue;
     }
 
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.l == i) {
@@ -102,11 +102,11 @@ public class AlaFrsLiveListGatherNoDataTitleView extends mw5<bs5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     /* renamed from: r */
-    public void i(bs5 bs5Var) {
+    public void i(ys5 ys5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bs5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, ys5Var) == null) {
             j(this.k, TbadkCoreApplication.getInst().getSkinType());
         }
     }

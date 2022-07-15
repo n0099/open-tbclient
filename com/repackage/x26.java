@@ -1,8 +1,5 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Message;
-import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,220 +7,56 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class x26 {
+public final class x26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public b e;
-    public Handler.Callback f;
-    public Handler g;
+    public final int a;
+    public final int b;
 
-    /* loaded from: classes7.dex */
-    public class a implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x26 a;
-
-        public a(x26 x26Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x26Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x26Var;
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i = message.arg1;
-                int i2 = message.arg2;
-                int i3 = message.what;
-                if (i3 == 0) {
-                    this.a.e.a(i, i2);
-                    return true;
-                } else if (i3 == 1) {
-                    this.a.e.b(i, i2);
-                    return true;
-                } else if (i3 == 2) {
-                    this.a.e.d(i, i2);
-                    return true;
-                } else if (i3 != 3) {
-                    return false;
-                } else {
-                    this.a.e.c(i, i2);
-                    return true;
-                }
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(int i, int i2);
-
-        void b(int i, int i2);
-
-        void c(int i, int i2);
-
-        void d(int i, int i2);
-    }
-
-    public x26() {
+    public x26(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new a(this);
-        this.g = new Handler(this.f);
+        this.a = i;
+        this.b = i2;
     }
 
-    public final void b(int i, int i2) {
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            this.g.removeMessages(2);
-            if (this.g.hasMessages(2)) {
-                return;
-            }
-            Message message = new Message();
-            message.what = 2;
-            message.arg1 = i;
-            message.arg2 = i2;
-            this.g.sendMessageDelayed(message, 60L);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0012, code lost:
-        if (r0 != 3) goto L11;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean c(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 2) {
-                        float rawX = motionEvent.getRawX();
-                        float rawY = motionEvent.getRawY();
-                        if (this.c == 0.0f || this.d == 0.0f) {
-                            this.c = motionEvent.getRawX();
-                            float rawY2 = motionEvent.getRawY();
-                            this.d = rawY2;
-                            this.a = this.c;
-                            this.b = rawY2;
-                        }
-                        int i = (int) (rawY - this.b);
-                        int i2 = (int) (rawY - this.d);
-                        if (this.e != null) {
-                            if (i > 0) {
-                                e(i2, i);
-                            } else {
-                                g(i2, i);
-                            }
-                        }
-                        this.a = rawX;
-                        this.b = rawY;
-                    }
-                }
-                if (this.e != null) {
-                    int i3 = (int) (this.a - this.c);
-                    int i4 = (int) (this.b - this.d);
-                    if (Math.abs(i3) >= Math.abs(i4)) {
-                        f(i3, (int) this.c);
-                    } else {
-                        b(i3, i4);
-                    }
-                }
-                this.c = 0.0f;
-                this.d = 0.0f;
-            } else {
-                this.c = motionEvent.getRawX();
-                float rawY3 = motionEvent.getRawY();
-                this.d = rawY3;
-                this.a = this.c;
-                this.b = rawY3;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void d(b bVar) {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('[' char), (wrap: int : 0x000e: IGET  (r1v3 int A[REMOVE]) = (r4v0 'this' com.repackage.x26 A[IMMUTABLE_TYPE, THIS]) com.repackage.x26.a int), ('x' char), (wrap: int : 0x0018: IGET  (r1v5 int A[REMOVE]) = (r4v0 'this' com.repackage.x26 A[IMMUTABLE_TYPE, THIS]) com.repackage.x26.b int), (']' char)] */
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            sb.append(this.a);
+            sb.append('x');
+            sb.append(this.b);
+            sb.append(']');
+            return sb.toString();
         }
-    }
-
-    public final void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            this.g.removeMessages(0);
-            if (this.g.hasMessages(1)) {
-                return;
-            }
-            Message message = new Message();
-            message.what = 1;
-            message.arg1 = i;
-            message.arg2 = i2;
-            this.g.sendMessageDelayed(message, 60L);
-        }
-    }
-
-    public final void f(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            this.g.removeMessages(3);
-            if (this.g.hasMessages(3)) {
-                return;
-            }
-            Message message = new Message();
-            message.what = 3;
-            message.arg1 = i;
-            message.arg2 = i2;
-            this.g.sendMessageDelayed(message, 60L);
-        }
-    }
-
-    public final void g(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.g.removeMessages(1);
-            if (this.g.hasMessages(0)) {
-                return;
-            }
-            Message message = new Message();
-            message.what = 0;
-            message.arg1 = i;
-            message.arg2 = i2;
-            this.g.sendMessageDelayed(message, 60L);
-        }
+        return (String) invokeV.objValue;
     }
 }

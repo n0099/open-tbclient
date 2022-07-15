@@ -33,20 +33,20 @@ public class dj implements LoggerInterface {
     public static volatile dj a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f213a;
+    public static String f940a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final SimpleDateFormat f214a;
+    public static final SimpleDateFormat f941a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static List<Pair<String, Throwable>> f215a;
+    public static List<Pair<String, Throwable>> f942a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f216a;
+    public Context f943a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f217a;
+    public Handler f944a;
     public String b;
     public String c;
 
@@ -63,9 +63,9 @@ public class dj implements LoggerInterface {
                 return;
             }
         }
-        f214a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
-        f213a = "/MiPushLog";
-        f215a = Collections.synchronizedList(new ArrayList());
+        f941a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
+        f940a = "/MiPushLog";
+        f942a = Collections.synchronizedList(new ArrayList());
     }
 
     public dj(Context context) {
@@ -84,14 +84,14 @@ public class dj implements LoggerInterface {
             }
         }
         this.c = "";
-        this.f216a = context;
+        this.f943a = context;
         if (context.getApplicationContext() != null) {
-            this.f216a = context.getApplicationContext();
+            this.f943a = context.getApplicationContext();
         }
-        this.b = this.f216a.getPackageName() + "-" + Process.myPid();
+        this.b = this.f943a.getPackageName() + "-" + Process.myPid();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
-        this.f217a = new Handler(handlerThread.getLooper());
+        this.f944a = new Handler(handlerThread.getLooper());
     }
 
     public static dj a(Context context) {
@@ -113,7 +113,7 @@ public class dj implements LoggerInterface {
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:87:0x017e -> B:128:0x0183). Please submit an issue!!! */
     /* renamed from: a  reason: collision with other method in class */
-    public void m262a() {
+    public void m1205a() {
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
         File file;
@@ -124,10 +124,10 @@ public class dj implements LoggerInterface {
             try {
                 try {
                     try {
-                        if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f216a.getExternalFilesDir(null)) != null) {
+                        if (TextUtils.isEmpty(this.c) && (externalFilesDir = this.f943a.getExternalFilesDir(null)) != null) {
                             this.c = externalFilesDir.getAbsolutePath() + "";
                         }
-                        file = new File(this.c + f213a);
+                        file = new File(this.c + f940a);
                     } catch (Throwable th) {
                         th = th;
                     }
@@ -156,9 +156,9 @@ public class dj implements LoggerInterface {
                 fileLock = randomAccessFile.getChannel().lock();
                 try {
                     BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
-                    while (!f215a.isEmpty()) {
+                    while (!f942a.isEmpty()) {
                         try {
-                            Pair<String, Throwable> remove = f215a.remove(0);
+                            Pair<String, Throwable> remove = f942a.remove(0);
                             String str = (String) remove.first;
                             if (remove.second != null) {
                                 str = (str + "\n") + Log.getStackTraceString((Throwable) remove.second);
@@ -263,7 +263,7 @@ public class dj implements LoggerInterface {
     public final void log(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, th) == null) {
-            this.f217a.post(new dk(this, str, th));
+            this.f944a.post(new dk(this, str, th));
         }
     }
 

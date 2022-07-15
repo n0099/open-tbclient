@@ -63,13 +63,13 @@ public final class Thread2GroupShareView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d081b, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0839, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c96);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc7);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f0905d8);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905d1);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d0);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d3a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d6b);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f0905da);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905d3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d2);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
             SkinManager.setViewTextColor(this.d, R.color.CAM_X0106, 1);

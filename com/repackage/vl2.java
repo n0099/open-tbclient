@@ -1,8 +1,10 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,18 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xl2;
-import com.repackage.yl2;
-import com.repackage.zl2;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class vl2 {
+public class vl2 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean c;
+    public static volatile vl2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<xl2> a;
+    public boolean a;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +35,7 @@ public class vl2 {
                 return;
             }
         }
-        b = cg1.a;
+        c = rg1.a;
     }
 
     public vl2() {
@@ -53,92 +51,134 @@ public class vl2 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        e();
+        this.a = false;
     }
 
-    @Nullable
-    public final yl2 a(@NonNull String str, int i, int i2, @NonNull String str2, @NonNull Object obj) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, obj})) == null) {
-            yl2.a aVar = new yl2.a();
-            aVar.e(str);
-            aVar.g(i);
-            aVar.c(i2);
-            aVar.b(str2);
-            aVar.f(obj);
-            yl2 a = aVar.a();
-            if (a == null) {
-                if (b) {
-                    Log.e("SwanLocalABTestAutoRegister", "build branch(" + str + ") fail: " + aVar.d().getMessage());
-                    return null;
-                }
-                return null;
-            }
-            return a;
-        }
-        return (yl2) invokeCommon.objValue;
-    }
-
-    @Nullable
-    public final zl2 b(int i, @NonNull String str, @NonNull Object obj) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, obj)) == null) {
-            zl2.a aVar = new zl2.a();
-            aVar.e(i);
-            aVar.d(str);
-            aVar.b(obj);
-            zl2 a = aVar.a();
-            if (a == null) {
-                if (b) {
-                    Log.e("SwanLocalABTestAutoRegister", "build switch(" + str + ") fail: " + aVar.c().getMessage());
-                }
-                return null;
-            }
-            return a;
-        }
-        return (zl2) invokeILL.objValue;
-    }
-
-    @NonNull
-    public List<xl2> c() {
+    public static vl2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.a) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (vl2.class) {
+                    if (d == null) {
+                        d = new vl2();
+                    }
+                }
+            }
+            return d;
+        }
+        return (vl2) invokeV.objValue;
     }
 
-    public final boolean d() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            zl2 b2 = b(3, "swan_local_first_installation_update_core_delay", 0L);
-            if (b2 == null) {
-                return false;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(a("local_1000", 0, 20, "control group", 0L));
-            arrayList.add(a("local_1001", 1, 20, "test group 1", 100L));
-            arrayList.add(a("local_1002", 1, 20, "test group 2", 500L));
-            arrayList.add(a("local_1003", 1, 20, "test group 3", 1000L));
-            arrayList.add(a("local_1004", 1, 20, "test group 4", 2000L));
-            xl2.a aVar = new xl2.a();
-            aVar.c(b2);
-            aVar.a(arrayList);
-            xl2 b3 = aVar.b();
-            if (b3 == null) {
-                return false;
-            }
-            return this.a.add(b3);
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public final void e() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && d()) {
-            sw1.c("SwanLocalABTestAutoRegister", "test 'first install updateCore delay' register failed'");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (c) {
+                Log.d("SwanAppLifecycle", "registerSelf for lifecycle");
+            }
+            oj2.c().registerActivityLifecycleCallbacks(this);
+        }
+    }
+
+    public void d(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (z2 = this.a) == z) {
+            return;
+        }
+        if (z2) {
+            this.a = false;
+            jm2.a().e(null);
+            return;
+        }
+        this.a = true;
+        jm2.a().d(null);
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (c) {
+                Log.d("SwanAppLifecycle", "un registerSelf for lifecycle");
+            }
+            oj2.c().unregisterActivityLifecycleCallbacks(this);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, activity) == null) || this.a) {
+            return;
+        }
+        this.a = true;
+        jm2.a().d(activity);
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
+            int i = this.b + 1;
+            this.b = i;
+            if (i != 1 || this.a) {
+                return;
+            }
+            if (c) {
+                Log.d("SwanAppLifecycle", "onBackgroundToForeground");
+            }
+            this.a = true;
+            jm2.a().d(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
+            int i = this.b - 1;
+            this.b = i;
+            if (i == 0 && this.a) {
+                if (c) {
+                    Log.d("SwanAppLifecycle", "onForegroundToBackground");
+                }
+                this.a = false;
+                jm2.a().e(activity);
+            }
         }
     }
 }

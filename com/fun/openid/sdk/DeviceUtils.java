@@ -6,6 +6,7 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -113,7 +114,7 @@ public class DeviceUtils {
             if (context != null) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager == null || !checkPermission(context, "android.permission.READ_PHONE_STATE")) {
+                    if (telephonyManager == null || !checkPermission(context, PermissionChecker.READ_PHONE_STATE)) {
                         return null;
                     }
                     return telephonyManager.getDeviceId();
@@ -135,7 +136,7 @@ public class DeviceUtils {
             if (context != null) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager == null || !checkPermission(context, "android.permission.READ_PHONE_STATE")) {
+                    if (telephonyManager == null || !checkPermission(context, PermissionChecker.READ_PHONE_STATE)) {
                         return null;
                     }
                     if (Build.VERSION.SDK_INT >= 26) {
@@ -189,7 +190,7 @@ public class DeviceUtils {
             if (context != null) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    return (!checkPermission(context, "android.permission.READ_PHONE_STATE") || telephonyManager == null) ? "" : telephonyManager.getNetworkOperator();
+                    return (!checkPermission(context, PermissionChecker.READ_PHONE_STATE) || telephonyManager == null) ? "" : telephonyManager.getNetworkOperator();
                 } catch (Throwable th) {
                     th.printStackTrace();
                     return "";
@@ -205,7 +206,7 @@ public class DeviceUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (telephonyManager == null || !checkPermission(context, "android.permission.READ_PHONE_STATE") || Build.VERSION.SDK_INT >= 30) {
+            if (telephonyManager == null || !checkPermission(context, PermissionChecker.READ_PHONE_STATE) || Build.VERSION.SDK_INT >= 30) {
                 return 0;
             }
             return telephonyManager.getNetworkType();

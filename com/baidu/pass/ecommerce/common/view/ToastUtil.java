@@ -55,12 +55,12 @@ public class ToastUtil {
             LayoutInflater from = LayoutInflater.from(context);
             SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
             if (confignation != null && (confignation.isDarkMode || confignation.isNightMode)) {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04ae, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c7, (ViewGroup) null);
             } else {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04b0, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c9, (ViewGroup) null);
             }
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bbb);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bbc);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c5a);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c5b);
             if (-1 == i) {
                 imageView.setVisibility(8);
             } else {

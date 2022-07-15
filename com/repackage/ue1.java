@@ -1,87 +1,81 @@
 package com.repackage;
 
-import android.content.ContentValues;
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.HashSet;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ue1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ue1 c;
+    public static volatile ue1 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public Context b;
+    public BroadcastReceiver a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public HashSet<String> f;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ ue1 a;
 
-    /* loaded from: classes7.dex */
-    public class b extends SQLiteOpenHelper {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ b(ue1 ue1Var, Context context, a aVar) {
-            this(ue1Var, context);
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onCreate(SQLiteDatabase sQLiteDatabase) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-                try {
-                    sQLiteDatabase.execSQL("create table if not exists rp_tb(id integer primary key autoincrement, a text, c integer, d integer);");
-                } catch (Throwable th) {
-                    df1.d(th);
-                }
-            }
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ue1 ue1Var, Context context) {
-            super(context, "sso.db", (SQLiteDatabase.CursorFactory) null, 1);
+        public a(ue1 ue1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ue1Var, context};
+                Object[] objArr = {ue1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = ue1Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                String stringExtra = intent.getStringExtra("ss");
+                if (this.a.b == 1) {
+                    return;
+                }
+                if (TextUtils.isEmpty(stringExtra)) {
+                    this.a.b = 1;
+                } else if ("LOADED".equals(stringExtra)) {
+                    if (this.a.f.isEmpty()) {
+                        return;
+                    }
+                    this.a.b = 1;
+                } else {
+                    this.a.b = 1;
+                    this.a.f.add(stringExtra);
+                }
+            }
         }
     }
 
-    public ue1(Context context) {
+    public ue1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -91,218 +85,107 @@ public class ue1 {
                 return;
             }
         }
-        this.b = context;
-        this.a = new b(this, this.b, null);
+        this.b = 0;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = new HashSet<>();
     }
 
-    public static ue1 a(Context context) {
-        InterceptResult invokeL;
+    public static ue1 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (c == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (g == null) {
                 synchronized (ue1.class) {
-                    if (c == null) {
-                        c = new ue1(context);
+                    if (g == null) {
+                        g = new ue1();
                     }
                 }
             }
-            return c;
+            return g;
         }
-        return (ue1) invokeL.objValue;
+        return (ue1) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public ArrayList<ve1> b(String str) {
-        InterceptResult invokeL;
-        Throwable th;
-        Cursor cursor;
+    public void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, str)) != null) {
-            return (ArrayList) invokeL.objValue;
-        }
-        try {
-            SQLiteDatabase writableDatabase = this.a.getWritableDatabase();
-            StringBuilder sb = new StringBuilder();
-            sb.append("SELECT * FROM rp_tb WHERE c IN (");
-            sb.append(str);
-            sb.append(") LIMIT 100");
-            cursor = writableDatabase.rawQuery(sb.toString(), null);
-            if (cursor != null) {
-                try {
-                    if (cursor.getCount() != 0) {
-                        ArrayList<ve1> arrayList = new ArrayList<>();
-                        while (cursor.moveToNext()) {
-                            ve1 ve1Var = new ve1();
-                            ve1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
-                            ve1Var.c(ff1.a(this.b, cursor.getString(cursor.getColumnIndex("a"))));
-                            ve1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
-                            ve1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
-                            arrayList.add(ve1Var);
-                        }
-                        return arrayList;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        df1.d(th);
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                            } catch (Throwable th3) {
-                                df1.d(th3);
-                            }
-                        }
-                        return null;
-                    } finally {
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                            } catch (Throwable th4) {
-                                df1.d(th4);
-                            }
-                        }
-                    }
-                }
-            }
-            if (cursor != null) {
-                try {
-                    if (!cursor.isClosed()) {
-                        cursor.close();
-                    }
-                } catch (Throwable th5) {
-                    df1.d(th5);
-                }
-            }
-            return null;
-        } catch (Throwable th6) {
-            th = th6;
-            cursor = null;
-        }
-    }
-
-    public void c(ve1 ve1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ve1Var) == null) || ve1Var == null) {
-            return;
-        }
-        try {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("a", ff1.b(this.b, ve1Var.d().getBytes()));
-            contentValues.put("c", Integer.valueOf(ve1Var.h()));
-            contentValues.put("d", Integer.valueOf(ve1Var.f()));
-            this.a.getWritableDatabase().insert("rp_tb", null, contentValues);
-        } catch (Throwable th) {
-            df1.d(th);
-        }
-    }
-
-    public void d(ArrayList<ve1> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) || arrayList == null) {
-            return;
-        }
-        try {
-            if (arrayList.size() == 0) {
-                return;
-            }
-            for (int i = 0; i < arrayList.size(); i++) {
-                f(arrayList.get(i));
-            }
-        } catch (Throwable th) {
-            df1.d(th);
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public ArrayList<ve1> e(String str) {
-        InterceptResult invokeL;
-        Throwable th;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
-            return (ArrayList) invokeL.objValue;
-        }
-        try {
-            SQLiteDatabase writableDatabase = this.a.getWritableDatabase();
-            StringBuilder sb = new StringBuilder();
-            sb.append("SELECT * FROM rp_tb WHERE c IN (");
-            sb.append(str);
-            sb.append(") and ");
-            sb.append("d");
-            sb.append("=");
-            sb.append(2);
-            sb.append(" LIMIT 100");
-            cursor = writableDatabase.rawQuery(sb.toString(), null);
-            if (cursor != null) {
-                try {
-                    if (cursor.getCount() != 0) {
-                        ArrayList<ve1> arrayList = new ArrayList<>();
-                        while (cursor.moveToNext()) {
-                            ve1 ve1Var = new ve1();
-                            ve1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
-                            ve1Var.c(ff1.a(this.b, cursor.getString(cursor.getColumnIndex("a"))));
-                            ve1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
-                            ve1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
-                            arrayList.add(ve1Var);
-                        }
-                        return arrayList;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        df1.d(th);
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                            } catch (Throwable th3) {
-                                df1.d(th3);
-                            }
-                        }
-                        return null;
-                    } finally {
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                            } catch (Throwable th4) {
-                                df1.d(th4);
-                            }
-                        }
-                    }
-                }
-            }
-            if (cursor != null) {
-                try {
-                    if (!cursor.isClosed()) {
-                        cursor.close();
-                    }
-                } catch (Throwable th5) {
-                    df1.d(th5);
-                }
-            }
-            return null;
-        } catch (Throwable th6) {
-            th = th6;
-            cursor = null;
-        }
-    }
-
-    public final void f(ve1 ve1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ve1Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             try {
-                this.a.getWritableDatabase().delete("rp_tb", "id=?", new String[]{String.valueOf(ve1Var.a())});
+                if (this.a != null) {
+                    return;
+                }
+                this.a = new a(this);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("android.intent.action.SIM_STATE_CHANGED");
+                context.registerReceiver(this.a, intentFilter);
             } catch (Throwable th) {
-                System.currentTimeMillis();
-                df1.d(th);
+                sf1.d(th);
             }
+        }
+    }
+
+    public void e(Context context, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject) == null) {
+            this.d = jSONObject.optInt("1", 0) == 1;
+            this.c = jSONObject.optInt("2", 0) == 1;
+            this.e = jSONObject.optInt("3", 0) == 1;
+            if (this.c) {
+                d(context);
+            } else {
+                h(context);
+            }
+        }
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.c) {
+                return this.b;
+            }
+            return -1000;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            try {
+                if (this.a == null) {
+                    return;
+                }
+                context.unregisterReceiver(this.a);
+                this.a = null;
+            } catch (Throwable th) {
+                sf1.d(th);
+            }
+        }
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.d) {
+                if (this.e) {
+                    return this.c && this.b != 1;
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = 0;
+            this.f.clear();
         }
     }
 }

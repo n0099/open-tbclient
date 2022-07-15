@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cg1;
-import com.repackage.lx2;
-import com.repackage.ux2;
-import com.repackage.vx2;
+import com.repackage.ay2;
+import com.repackage.jy2;
+import com.repackage.ky2;
+import com.repackage.rg1;
 /* loaded from: classes2.dex */
-public class SPSwitchPanelLinearLayout extends LinearLayout implements ux2, vx2 {
+public class SPSwitchPanelLinearLayout extends LinearLayout implements jy2, ky2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public lx2 a;
+    public ay2 a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements ux2, vx2 
                 return;
             }
         }
-        b = cg1.a;
+        b = rg1.a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -65,11 +65,11 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements ux2, vx2 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new lx2(this);
+            this.a = new ay2(this);
         }
     }
 
-    @Override // com.repackage.ux2
+    @Override // com.repackage.jy2
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -77,7 +77,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements ux2, vx2 
         }
     }
 
-    @Override // com.repackage.ux2
+    @Override // com.repackage.jy2
     public void handleShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -100,7 +100,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements ux2, vx2 
         }
     }
 
-    @Override // com.repackage.vx2
+    @Override // com.repackage.ky2
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -108,7 +108,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements ux2, vx2 
         }
     }
 
-    @Override // com.repackage.vx2
+    @Override // com.repackage.ky2
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {

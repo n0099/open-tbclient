@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sv8;
-import com.repackage.tv8;
+import com.repackage.uw8;
+import com.repackage.vw8;
 /* loaded from: classes4.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tv8 a;
-    public sv8 b;
+    public vw8 a;
+    public uw8 b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -48,7 +48,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
             if (accessState == null || accessState.getUserInfo() == null) {
                 return null;
             }
-            return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.d.getToken(), this.d.getType(), this.d.getUserInfo().strMobile, this.d.getUserInfo().strEmail);
+            return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "https://tieba.baidu.com/mo/q/account/access", this.d.getToken(), this.d.getType(), this.d.getUserInfo().strMobile, this.d.getUserInfo().strEmail);
         }
         return (String) invokeV.objValue;
     }
@@ -90,7 +90,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new tv8(this);
+            this.a = new vw8(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -103,11 +103,11 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                 this.c = newWriteModel;
                 newWriteModel.setWriteData(this.e);
                 if (this.e.getWriteImagesInfo() != null) {
-                    this.c.a0(this.e.getWriteImagesInfo().size() > 0);
+                    this.c.c0(this.e.getWriteImagesInfo().size() > 0);
                 }
-                sv8 sv8Var = new sv8(this.a, this.c);
-                this.b = sv8Var;
-                this.a.l(sv8Var);
+                uw8 uw8Var = new uw8(this.a, this.c);
+                this.b = uw8Var;
+                this.a.l(uw8Var);
                 this.b.h(A1());
                 return;
             }

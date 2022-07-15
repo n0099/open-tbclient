@@ -1,174 +1,115 @@
 package com.repackage;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
 public class lo7 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public View b;
+    public TextView c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755522275, "Lcom/repackage/lo7;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Integer a;
+        public final /* synthetic */ lo7 b;
+
+        public a(lo7 lo7Var, Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lo7Var, num};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = lo7Var;
+            this.a = num;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755522275, "Lcom/repackage/lo7;");
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Integer num;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (num = this.a) == null || num.intValue() == 0) {
+                return;
+            }
+            this.b.a.setVisibility(0);
         }
     }
 
-    public lo7() {
+    public lo7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d025d, (ViewGroup) null);
+        this.b = inflate;
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09086d);
+        this.a = findViewById;
+        findViewById.setVisibility(8);
+        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090873);
+    }
+
+    public View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            View view2 = this.b;
+            if (view2 != null) {
+                SkinManager.setBackgroundColor(view2, R.color.cp_bg_line_d_alpha90, i);
+            }
+            View view3 = this.a;
+            if (view3 != null) {
+                SkinManager.setBackgroundColor(view3, R.color.CAM_X0204, i);
+            }
+            TextView textView = this.c;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i);
             }
         }
     }
 
-    public void a(int i, go7 go7Var, int i2, List<nn> list, BdTypeRecyclerView bdTypeRecyclerView) {
-        List<eo7> list2;
+    /* JADX DEBUG: Method merged with bridge method */
+    public void update(Integer num) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), go7Var, Integer.valueOf(i2), list, bdTypeRecyclerView}) == null) || go7Var == null || (list2 = go7Var.a) == null || ListUtils.isEmpty(list2)) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        c(i, arrayList, list);
-        List<eo7> list3 = go7Var.a;
-        if (list3 == null || list3.size() <= 0) {
-            return;
-        }
-        int i3 = 0;
-        for (eo7 eo7Var : list3) {
-            if (eo7Var != null && i == eo7Var.b.intValue()) {
-                List<ko7> list4 = eo7Var.a;
-                if (list4 == null || list4.size() <= 0) {
-                    return;
-                }
-                for (int i4 = 0; i4 < list4.size(); i4++) {
-                    if (list4.get(i4) != null) {
-                        if (arrayList.size() >= 20) {
-                            d(list.get(i2));
-                            bdTypeRecyclerView.setData(list);
-                            return;
-                        } else if (i3 >= 4) {
-                            bdTypeRecyclerView.setData(list);
-                            return;
-                        } else {
-                            if (i4 == list4.size() - 1) {
-                                d(list.get(i2));
-                            }
-                            RecommendForumInfo recommendForumInfo = list4.get(i4).a;
-                            if (!arrayList.contains(recommendForumInfo.forum_id)) {
-                                ho7 ho7Var = new ho7();
-                                ho7Var.n(eo7Var.b.intValue());
-                                ho7Var.l(recommendForumInfo.avatar);
-                                ho7Var.q(recommendForumInfo.forum_id.longValue());
-                                ho7Var.r(recommendForumInfo.forum_name);
-                                ho7Var.s(recommendForumInfo.member_count.intValue());
-                                ho7Var.w(recommendForumInfo.thread_count.intValue());
-                                ho7Var.v(recommendForumInfo.slogan);
-                                ho7Var.t(false);
-                                list.add(i2, ho7Var);
-                                arrayList.add(recommendForumInfo.forum_id);
-                                i2++;
-                                i3++;
-                            }
-                        }
-                    }
-                }
-                bdTypeRecyclerView.setData(list);
-            }
-        }
-    }
-
-    public List<nn> b(List<eo7> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (list == null || list.size() <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (eo7 eo7Var : list) {
-                if (eo7Var != null) {
-                    jo7 jo7Var = new jo7();
-                    jo7Var.f(eo7Var.b.intValue());
-                    jo7Var.c(eo7Var.d);
-                    jo7Var.g(eo7Var.c);
-                    arrayList.add(jo7Var);
-                    List<ko7> list2 = eo7Var.a;
-                    if (list2 != null && list2.size() > 0) {
-                        a = 0;
-                        for (ko7 ko7Var : list2) {
-                            if (ko7Var != null) {
-                                if (a >= 4) {
-                                    break;
-                                }
-                                ho7 ho7Var = new ho7();
-                                RecommendForumInfo recommendForumInfo = ko7Var.a;
-                                ho7Var.n(eo7Var.b.intValue());
-                                ho7Var.o(eo7Var.c);
-                                ho7Var.l(recommendForumInfo.avatar);
-                                ho7Var.q(recommendForumInfo.forum_id.longValue());
-                                ho7Var.r(recommendForumInfo.forum_name);
-                                ho7Var.s(recommendForumInfo.member_count.intValue());
-                                ho7Var.w(recommendForumInfo.thread_count.intValue());
-                                ho7Var.v(recommendForumInfo.slogan);
-                                arrayList.add(ho7Var);
-                                a++;
-                            }
-                        }
-                        io7 io7Var = new io7();
-                        io7Var.f(eo7Var.b.intValue());
-                        io7Var.g(eo7Var.c);
-                        arrayList.add(io7Var);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final void c(int i, List<Long> list, List<nn> list2) {
-        ho7 ho7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, list, list2) == null) {
-            for (nn nnVar : list2) {
-                if ((nnVar instanceof ho7) && (ho7Var = (ho7) nnVar) != null && ho7Var.b() == i) {
-                    list.add(Long.valueOf(ho7Var.c()));
-                }
-            }
-        }
-    }
-
-    public final void d(nn nnVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, nnVar) == null) && (nnVar instanceof io7)) {
-            ((io7) nnVar).h(false);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
+            qg.a().post(new a(this, num));
         }
     }
 }

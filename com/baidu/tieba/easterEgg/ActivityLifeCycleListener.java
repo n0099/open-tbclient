@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z26;
+import com.repackage.x36;
 /* loaded from: classes3.dex */
 public class ActivityLifeCycleListener extends Fragment {
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +29,7 @@ public class ActivityLifeCycleListener extends Fragment {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            z26.f().e();
+            x36.f().e();
             super.onStop();
         }
     }

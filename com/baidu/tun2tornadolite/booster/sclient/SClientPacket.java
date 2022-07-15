@@ -76,7 +76,7 @@ public final class SClientPacket {
                 sb.append('%');
                 sb.append(i);
                 sb.append('s');
-                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m1965toStringLxnNnR4(b, 2)}, 1));
+                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m2908toStringLxnNnR4(b, 2)}, 1));
                 Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
                 return new Regex(" ").replace(format, "0");
             }
@@ -94,7 +94,7 @@ public final class SClientPacket {
                 sb.append('%');
                 sb.append(i2);
                 sb.append('s');
-                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m1966toStringV7xB4Y4(i, 2)}, 1));
+                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m2909toStringV7xB4Y4(i, 2)}, 1));
                 Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
                 return new Regex(" ").replace(format, "0");
             }
@@ -113,7 +113,7 @@ public final class SClientPacket {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, header)) == null) {
                 Intrinsics.checkNotNullParameter(header, "header");
-                return new SClientPacket(UInt.m787constructorimpl((UByte.m711constructorimpl(header[0]) & 255) >> 4), UInt.m787constructorimpl(UByte.m711constructorimpl(header[0]) & 255 & 15), UInt.m787constructorimpl(UByte.m711constructorimpl(header[1]) & 255), UInt.m787constructorimpl(UInt.m787constructorimpl(UByte.m711constructorimpl(header[3]) & 255) | UInt.m787constructorimpl(UInt.m787constructorimpl(UByte.m711constructorimpl(header[2]) & 255) << 8)), null);
+                return new SClientPacket(UInt.m1730constructorimpl((UByte.m1654constructorimpl(header[0]) & 255) >> 4), UInt.m1730constructorimpl(UByte.m1654constructorimpl(header[0]) & 255 & 15), UInt.m1730constructorimpl(UByte.m1654constructorimpl(header[1]) & 255), UInt.m1730constructorimpl(UInt.m1730constructorimpl(UByte.m1654constructorimpl(header[3]) & 255) | UInt.m1730constructorimpl(UInt.m1730constructorimpl(UByte.m1654constructorimpl(header[2]) & 255) << 8)), null);
             }
             return (SClientPacket) invokeL.objValue;
         }
@@ -164,13 +164,13 @@ public final class SClientPacket {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, buf) == null) {
             Intrinsics.checkNotNullParameter(buf, "buf");
-            int m787constructorimpl = UInt.m787constructorimpl(UInt.m787constructorimpl(m60getVersionpVg5ArA() & 15) << 28);
-            this.header = m787constructorimpl;
-            int m787constructorimpl2 = UInt.m787constructorimpl(m787constructorimpl | UInt.m787constructorimpl(UInt.m787constructorimpl(m59getReservedpVg5ArA() & 15) << 24));
-            this.header = m787constructorimpl2;
-            int m787constructorimpl3 = UInt.m787constructorimpl(m787constructorimpl2 | UInt.m787constructorimpl(UInt.m787constructorimpl(m58getCommandpVg5ArA() & 255) << 16));
-            this.header = m787constructorimpl3;
-            this.header = UInt.m787constructorimpl(m787constructorimpl3 | UInt.m787constructorimpl(UInt.m787constructorimpl(m57getBodyLengthpVg5ArA() & 65535) << 0));
+            int m1730constructorimpl = UInt.m1730constructorimpl(UInt.m1730constructorimpl(m60getVersionpVg5ArA() & 15) << 28);
+            this.header = m1730constructorimpl;
+            int m1730constructorimpl2 = UInt.m1730constructorimpl(m1730constructorimpl | UInt.m1730constructorimpl(UInt.m1730constructorimpl(m59getReservedpVg5ArA() & 15) << 24));
+            this.header = m1730constructorimpl2;
+            int m1730constructorimpl3 = UInt.m1730constructorimpl(m1730constructorimpl2 | UInt.m1730constructorimpl(UInt.m1730constructorimpl(m58getCommandpVg5ArA() & 255) << 16));
+            this.header = m1730constructorimpl3;
+            this.header = UInt.m1730constructorimpl(m1730constructorimpl3 | UInt.m1730constructorimpl(UInt.m1730constructorimpl(m57getBodyLengthpVg5ArA() & 65535) << 0));
             this.headerBuf = buf;
             ByteBuffer byteBuffer = null;
             if (buf == null) {
@@ -183,26 +183,26 @@ public final class SClientPacket {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
                 byteBuffer2 = null;
             }
-            byteBuffer2.put((byte) UInt.m787constructorimpl(UInt.m787constructorimpl(this.header >>> 24) & 255));
+            byteBuffer2.put((byte) UInt.m1730constructorimpl(UInt.m1730constructorimpl(this.header >>> 24) & 255));
             ByteBuffer byteBuffer3 = this.headerBuf;
             if (byteBuffer3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
                 byteBuffer3 = null;
             }
-            byteBuffer3.put((byte) UInt.m787constructorimpl(UInt.m787constructorimpl(this.header >>> 16) & 255));
+            byteBuffer3.put((byte) UInt.m1730constructorimpl(UInt.m1730constructorimpl(this.header >>> 16) & 255));
             ByteBuffer byteBuffer4 = this.headerBuf;
             if (byteBuffer4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
                 byteBuffer4 = null;
             }
-            byteBuffer4.put((byte) UInt.m787constructorimpl(UInt.m787constructorimpl(this.header >>> 8) & 255));
+            byteBuffer4.put((byte) UInt.m1730constructorimpl(UInt.m1730constructorimpl(this.header >>> 8) & 255));
             ByteBuffer byteBuffer5 = this.headerBuf;
             if (byteBuffer5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
             } else {
                 byteBuffer = byteBuffer5;
             }
-            byteBuffer.put((byte) UInt.m787constructorimpl(UInt.m787constructorimpl(this.header >>> 0) & 255));
+            byteBuffer.put((byte) UInt.m1730constructorimpl(UInt.m1730constructorimpl(this.header >>> 0) & 255));
         }
     }
 

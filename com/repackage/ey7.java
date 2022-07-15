@@ -1,82 +1,137 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
+import android.text.SpannableStringBuilder;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.CardForumHeadLayout;
-import com.baidu.tieba.R;
-import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumViewHolder;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ey7 extends an<mr7, VideoPbEnterForumViewHolder> {
+import tbclient.ExcPbPage.ExcContent;
+/* loaded from: classes6.dex */
+public class ey7 implements ay7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SpannableStringBuilder a;
+    public int b;
+    public String c;
+    public int d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ey7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public ey7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = 0;
+        this.d = -1;
+        this.a = new SpannableStringBuilder();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, mr7 mr7Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
-        a0(i, view2, viewGroup, mr7Var, videoPbEnterForumViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public VideoPbEnterForumViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ay7
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a);
-            CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.a);
-            cardForumHeadLayout.setPadding(pi.f(this.a, R.dimen.tbds32), 0, 0, 0);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, pi.f(this.a, R.dimen.tbds156));
-            layoutParams.leftMargin = pi.f(this.a, R.dimen.tbds44);
-            layoutParams.rightMargin = pi.f(this.a, R.dimen.tbds44);
-            layoutParams.bottomMargin = pi.f(this.a, R.dimen.tbds76);
-            frameLayout.addView(cardForumHeadLayout, layoutParams);
-            return new VideoPbEnterForumViewHolder(frameLayout);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.b;
+            return (i > 0 && i < 3) || !StringUtils.isNull(this.c);
         }
-        return (VideoPbEnterForumViewHolder) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public View a0(int i, View view2, ViewGroup viewGroup, mr7 mr7Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.ay7
+    public CharSequence b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mr7Var, videoPbEnterForumViewHolder})) == null) {
-            if (mr7Var != null) {
-                videoPbEnterForumViewHolder.setData(mr7Var.a);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (CharSequence) invokeV.objValue;
+    }
+
+    public void c(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) || charSequence == null) {
+            return;
+        }
+        this.a.append(charSequence);
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    @Override // com.repackage.by7
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public ey7(Context context, ExcContent excContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, excContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            videoPbEnterForumViewHolder.c();
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+        this.b = 0;
+        this.d = -1;
+        if (excContent == null) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        this.a = spannableStringBuilder;
+        if (excContent != null) {
+            spannableStringBuilder.append((CharSequence) excContent.text);
+        }
+        Integer num = excContent.align;
+        if (num != null) {
+            this.b = num.intValue();
+        }
+        if (!StringUtils.isNull(excContent.color)) {
+            this.c = excContent.color;
+        }
+        Integer num2 = excContent.size;
+        if (num2 == null || num2.intValue() <= 0 || context == null || context.getResources() == null) {
+            return;
+        }
+        int identifier = context.getResources().getIdentifier("fontsize" + excContent.size, EMABTest.TYPE_DIMEN, context.getPackageName());
+        if (identifier <= 0) {
+            return;
+        }
+        this.d = context.getResources().getDimensionPixelSize(identifier);
     }
 }

@@ -22,22 +22,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b08;
-import com.repackage.cl4;
-import com.repackage.mx5;
+import com.repackage.jy5;
 import com.repackage.pi;
+import com.repackage.r18;
+import com.repackage.rl4;
 import com.repackage.w08;
 /* loaded from: classes3.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b08 a;
+    public w08 a;
     public Bundle b;
-    public w08 c;
-    public mx5 d;
+    public r18 c;
+    public jy5 d;
 
     /* loaded from: classes3.dex */
-    public class a extends mx5<w08> {
+    public class a extends jy5<r18> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -61,12 +61,12 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mx5
+        @Override // com.repackage.jy5
         /* renamed from: d */
-        public void a(View view2, w08 w08Var) {
+        public void a(View view2, r18 r18Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, w08Var) == null) {
-                this.b.c = w08Var;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, r18Var) == null) {
+                this.b.c = r18Var;
                 if (this.b.c == null || this.b.G1()) {
                     return;
                 }
@@ -101,7 +101,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             F1(str);
         } else if (str.startsWith("nohead:url")) {
             StringBuilder sb = new StringBuilder();
-            sb.append(str.replaceFirst(UrlSchemaHelper.PREFIX_BOOK_TOWN, ""));
+            sb.append(str.replaceFirst("nohead:url=", ""));
             sb.append(str.contains("?") ? "&" : "?");
             sb.append("jump=open_full_screen_web_page&nonavigationbar=1");
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{sb.toString()});
@@ -117,14 +117,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                pi.N(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f044e);
+                pi.N(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0456);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            cl4.x(getPageContext().getPageActivity(), true, str);
+            rl4.x(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -146,9 +146,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            b08 b08Var = this.a;
-            if (b08Var != null) {
-                b08Var.c();
+            w08 w08Var = this.a;
+            if (w08Var != null) {
+                w08Var.c();
             }
         }
     }
@@ -162,10 +162,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0696);
-            b08 b08Var = new b08(getPageContext(), this.b, this.d);
-            this.a = b08Var;
-            b08Var.b();
+            setContentView(R.layout.obfuscated_res_0x7f0d06b2);
+            w08 w08Var = new w08(getPageContext(), this.b, this.d);
+            this.a = w08Var;
+            w08Var.b();
         }
     }
 

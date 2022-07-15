@@ -1,58 +1,56 @@
 package com.repackage;
 
-import android.view.MotionEvent;
-import android.view.View;
+import android.content.Context;
+import android.os.IBinder;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class id3 implements View.OnTouchListener {
+public class id3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
 
-    public id3() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755622343, "Lcom/repackage/id3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755622343, "Lcom/repackage/id3;");
+                return;
+            }
+        }
+        a = rg1.a;
+    }
+
+    public static void a(Context context, IBinder iBinder) {
+        InputMethodManager inputMethodManager;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, iBinder) == null) || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
+            return;
+        }
+        try {
+            inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
+        } catch (Exception e) {
+            if (a) {
+                e.printStackTrace();
             }
         }
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
+    public static void b(Context context, boolean z) {
+        InputMethodManager inputMethodManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                View view3 = this.a;
-                if (view3 == null) {
-                    view2.setAlpha(zi2.M().a() ? 0.5f : 0.2f);
-                    return false;
-                }
-                view3.setAlpha(zi2.M().a() ? 0.5f : 0.2f);
-                return false;
-            } else if (action != 2) {
-                View view4 = this.a;
-                if (view4 == null) {
-                    view2.setAlpha(1.0f);
-                    return false;
-                }
-                view4.setAlpha(1.0f);
-                return false;
-            } else {
-                return false;
-            }
+        if (!(interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        inputMethodManager.toggleSoftInput(z ? 2 : 0, 2);
     }
 }

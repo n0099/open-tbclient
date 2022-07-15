@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.h9;
-import com.repackage.tn8;
+import com.repackage.po8;
 /* loaded from: classes4.dex */
 public class MemberRecommendView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public class MemberRecommendView extends FrameLayout {
     public TbImageView c;
     public TextView d;
     public TextView e;
-    public tn8 f;
+    public po8 f;
     public int g;
 
     /* loaded from: classes4.dex */
@@ -156,13 +156,13 @@ public class MemberRecommendView extends FrameLayout {
         }
     }
 
-    public void e(tn8 tn8Var) {
+    public void e(po8 po8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tn8Var) == null) || tn8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, po8Var) == null) || po8Var == null) {
             return;
         }
-        this.f = tn8Var;
-        this.c.J(tn8Var.b(), 10, false);
+        this.f = po8Var;
+        this.c.J(po8Var.b(), 10, false);
         this.d.setText(this.f.c());
         if (StringUtils.isNull(this.f.a())) {
             this.e.setVisibility(8);
@@ -175,15 +175,15 @@ public class MemberRecommendView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0523, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d053d, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923b5);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09245d);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081224);
+            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
             this.c.setAutoChangeStyle(true);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092049);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090fb6);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920ee);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090fc7);
             this.e = textView;
             textView.setOnClickListener(new a(this));
         }

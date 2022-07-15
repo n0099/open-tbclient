@@ -1,36 +1,37 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.contentalliance.coupon.model.CouponStatusInfo;
+import com.kwad.sdk.core.report.m;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ar implements com.kwad.sdk.core.d<CouponStatusInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(CouponStatusInfo couponStatusInfo, JSONObject jSONObject) {
+public final class ar implements com.kwad.sdk.core.d<m.a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(m.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        couponStatusInfo.statusCode = jSONObject.optInt("statusCode", new Integer("-1").intValue());
-        couponStatusInfo.statusName = jSONObject.optString("statusName");
-        if (jSONObject.opt("statusName") == JSONObject.NULL) {
-            couponStatusInfo.statusName = "";
-        }
-        couponStatusInfo.currTotalAmount = jSONObject.optDouble("currTotalAmount");
-        couponStatusInfo.couponLeftTimes = jSONObject.optInt("couponLeftTimes");
-        couponStatusInfo.isNewUser = jSONObject.optBoolean("isNewUser");
+        aVar.a = jSONObject.optInt("posIdWidth");
+        aVar.b = jSONObject.optInt("posIdHeight");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(CouponStatusInfo couponStatusInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(m.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "statusCode", couponStatusInfo.statusCode);
-        com.kwad.sdk.utils.t.a(jSONObject, "statusName", couponStatusInfo.statusName);
-        com.kwad.sdk.utils.t.a(jSONObject, "currTotalAmount", couponStatusInfo.currTotalAmount);
-        com.kwad.sdk.utils.t.a(jSONObject, "couponLeftTimes", couponStatusInfo.couponLeftTimes);
-        com.kwad.sdk.utils.t.a(jSONObject, "isNewUser", couponStatusInfo.isNewUser);
+        com.kwad.sdk.utils.r.a(jSONObject, "posIdWidth", aVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "posIdHeight", aVar.b);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(m.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(m.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

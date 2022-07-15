@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class bx extends xw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ym4 h;
+    public nn4 h;
     public ForumGoodsEnterLayout i;
     public int j;
     public final View.OnClickListener k;
@@ -49,10 +49,10 @@ public class bx extends xw {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.e() == null) {
                 return;
             }
-            this.a.d().a(view2, this.a.h);
+            this.a.e().a(view2, this.a.h);
         }
     }
 
@@ -77,21 +77,21 @@ public class bx extends xw {
         this.k = new a(this);
         int f = pi.f(context, R.dimen.M_H_X003);
         int f2 = pi.f(context, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
-        r(f);
-        q(f2);
+        s(f);
+        r(f2);
         ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
         this.i = forumGoodsEnterLayout;
         forumGoodsEnterLayout.setOnAfterClickListener(this.k);
     }
 
     @Override // com.repackage.qw
-    public View g() {
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -99,37 +99,37 @@ public class bx extends xw {
         }
     }
 
-    public void t() {
+    public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int f = pi.f(this.b, R.dimen.M_H_X003);
-            r(f);
-            q(0);
-            w(this.i, f, 0);
+            s(f);
+            r(0);
+            x(this.i, f, 0);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fx
-    /* renamed from: u */
-    public void a(ym4 ym4Var) {
+    @Override // com.repackage.gx
+    /* renamed from: v */
+    public void a(nn4 nn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ym4Var) == null) {
-            this.h = ym4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, nn4Var) == null) {
+            this.h = nn4Var;
             this.i.setSourceForPb(this.a.i());
             this.i.setFrstype(this.j);
-            this.i.setData(ym4Var);
+            this.i.setData(nn4Var);
         }
     }
 
-    public void v(int i) {
+    public void w(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.j = i;
         }
     }
 
-    public void w(View view2, int i, int i2) {
+    public void x(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLII(1048582, this, view2, i, i2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();

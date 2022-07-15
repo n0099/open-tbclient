@@ -251,7 +251,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
             this.o.setWebChromeClient(new a(this));
             this.o.setOnTouchListener(new b(this));
             this.o.setOnLoadUrlListener(new c(this));
-            c(this.i.getUniqueId());
+            d(this.i.getUniqueId());
             this.n.addView(this.o);
         }
     }
@@ -301,9 +301,9 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
             int i = pi.i(getContext());
             int container = webViewCard.getContainer();
             if (container == 1) {
-                setWebviewHeight(i - pi.f(getContext(), R.dimen.obfuscated_res_0x7f070285));
+                setWebviewHeight(i - pi.f(getContext(), R.dimen.obfuscated_res_0x7f070284));
             } else if (container == 2) {
-                setWebviewHeight(i - pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702a1));
+                setWebviewHeight(i - pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702a0));
             }
         }
         if (TextUtils.isEmpty(webViewCard.getPageUrl())) {
@@ -312,8 +312,8 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         CompatibleUtile.getInstance().loadUrl(this.o, webViewCard.getPageUrl());
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.repackage.xc7
-    public void c(BdUniqueId bdUniqueId) {
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.repackage.pd7
+    public void d(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null) {
             return;

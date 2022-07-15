@@ -1,31 +1,18 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.config.item.InstallActivateReminderConfigItem;
-import org.json.JSONObject;
+import com.ksad.annotation.invoker.InvokeBy;
+import com.kwad.sdk.core.report.a;
+import com.kwad.sdk.core.report.m;
+import com.kwad.sdk.core.report.u;
 /* loaded from: classes5.dex */
-public class cb implements com.kwad.sdk.core.d<InstallActivateReminderConfigItem.InstallActivateReminderConfig> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(InstallActivateReminderConfigItem.InstallActivateReminderConfig installActivateReminderConfig, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        installActivateReminderConfig.noticeTotalCount = jSONObject.optInt("noticeTotalCount", new Integer("3").intValue());
-        installActivateReminderConfig.perAppNoticeCount = jSONObject.optInt("perAppNoticeCount", new Integer("2").intValue());
-        installActivateReminderConfig.noticeAppearTime = jSONObject.optInt("noticeAppearTime", new Integer("15000").intValue());
-        installActivateReminderConfig.noticeContinueTime = jSONObject.optInt("noticeContinueTime", new Integer("15000").intValue());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(InstallActivateReminderConfigItem.InstallActivateReminderConfig installActivateReminderConfig, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            jSONObject = new JSONObject();
-        }
-        com.kwad.sdk.utils.t.a(jSONObject, "noticeTotalCount", installActivateReminderConfig.noticeTotalCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "perAppNoticeCount", installActivateReminderConfig.perAppNoticeCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "noticeAppearTime", installActivateReminderConfig.noticeAppearTime);
-        com.kwad.sdk.utils.t.a(jSONObject, "noticeContinueTime", installActivateReminderConfig.noticeContinueTime);
-        return jSONObject;
+public final class cb {
+    @InvokeBy(invokerClass = cz.class, methodId = "registerHolder")
+    public static void a() {
+        cz.a().put(u.a.class, new aq());
+        cz.a().put(u.b.class, new as());
+        cz.a().put(com.kwad.sdk.core.report.m.class, new eg());
+        cz.a().put(m.a.class, new ar());
+        cz.a().put(a.C0544a.class, new bv());
+        cz.a().put(com.kwad.sdk.core.report.g.class, new at());
     }
 }

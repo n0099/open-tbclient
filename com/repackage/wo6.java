@@ -1,89 +1,89 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.widget.LinearGradientView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.share.ImplicitShareMessage;
+import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class wo6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public Context b;
-    public View c;
-    public Bitmap d;
-    public ForumData e;
-    public b f;
-    public zu7 g;
-    public PermissionJudgePolicy h;
+    public View a;
+    public RelativeLayout b;
+    public LinearGradientView c;
+    public BarImageView d;
+    public TextView e;
+    public FrsHeaderBannerView f;
+    public LinearLayout g;
+    public ImageView h;
+    public View i;
+    public TbImageView j;
+    public ImageView k;
+    public ImageView l;
+    public ImageView m;
+    public ImageView n;
 
     /* loaded from: classes7.dex */
-    public class a extends ad5<ShareItem> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bitmap a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ wo6 c;
+        public final /* synthetic */ Context a;
 
-        public a(wo6 wo6Var, Bitmap bitmap, int i) {
+        public a(wo6 wo6Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wo6Var, bitmap, Integer.valueOf(i)};
+                Object[] objArr = {wo6Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = wo6Var;
-            this.a = bitmap;
-            this.b = i;
+            this.a = context;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ad5
-        /* renamed from: a */
-        public ShareItem doInBackground() {
-            InterceptResult invokeV;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c.e(this.a, this.b) : (ShareItem) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Context context = this.a;
+                if (context instanceof Activity) {
+                    ((Activity) context).finish();
+                }
+            }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a();
-
-        void b();
-    }
-
-    public wo6(TbPageContext tbPageContext, Context context, View view2, b bVar) {
+    public wo6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, context, view2, bVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -93,126 +93,52 @@ public class wo6 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = context;
-        this.c = view2;
-        this.f = bVar;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                return true;
-            }
-            if (this.h == null) {
-                this.h = new PermissionJudgePolicy();
-            }
-            this.h.clearRequestPermissionList();
-            this.h.appendRequestPermission(this.a.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            return this.h.startRequestPermission(this.a.getPageActivity());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d();
-            g(this.d);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d == null) {
-            b bVar = this.f;
-            if (bVar != null) {
-                bVar.a();
-            }
-            this.c.buildDrawingCache();
-            this.d = this.c.getDrawingCache();
-            b bVar2 = this.f;
-            if (bVar2 != null) {
-                bVar2.b();
-            }
-        }
-    }
-
-    public final ShareItem e(Bitmap bitmap, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bitmap, i)) == null) {
-            if (this.b == null || this.e == null) {
-                return null;
-            }
-            ShareItem shareItem = new ShareItem();
-            shareItem.n0 = false;
-            shareItem.m0 = false;
-            shareItem.g0 = 1;
-            shareItem.u = this.b.getString(R.string.obfuscated_res_0x7f0f029e);
-            shareItem.v = "";
-            shareItem.i(bitmap);
-            shareItem.g();
-            Bundle bundle = new Bundle();
-            bundle.putInt("obj_locate", 21);
-            shareItem.k(bundle);
-            return shareItem;
-        }
-        return (ShareItem) invokeLI.objValue;
-    }
-
-    public /* synthetic */ void f(int i, ShareItem shareItem) {
-        if (shareItem == null) {
+        UtilHelper.getDimenPixelSize(R.dimen.tbds42);
+        UtilHelper.getStatusBarHeight();
+        UtilHelper.getDimenPixelSize(R.dimen.tbds50);
+        UtilHelper.getStatusBarHeight();
+        UtilHelper.getDimenPixelSize(R.dimen.tbds51);
+        UtilHelper.getStatusBarHeight();
+        if (context == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.a.getPageActivity(), i, shareItem, false));
-    }
-
-    public final void g(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) || this.a == null || b()) {
-            return;
-        }
-        if (this.g == null) {
-            this.g = new zu7(this.a);
-        }
-        ForumData forumData = this.e;
-        this.g.b((forumData == null || TextUtils.isEmpty(forumData.forum_share_link)) ? "http://tieba.baidu.com" : this.e.forum_share_link, BitmapHelper.Bitmap2Bytes(bitmap, 100));
-    }
-
-    public void h(ForumData forumData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, forumData) == null) {
-            this.e = forumData;
-        }
-    }
-
-    public final void i(Bitmap bitmap, final int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, bitmap, i) == null) || this.a == null || bitmap == null || b()) {
-            return;
-        }
-        ed5.b(new a(this, bitmap, i), new gc5() { // from class: com.repackage.ko6
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.repackage.gc5
-            public final void onReturnDataInUI(Object obj) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                    wo6.this.f(i, (ShareItem) obj);
-                }
-            }
-        });
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            d();
-            i(this.d, i);
-        }
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02fc, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090cdf);
+        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090ce2);
+        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ce0);
+        this.j = tbImageView;
+        tbImageView.setDefaultBgResource(R.color.transparent);
+        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f080ea5);
+        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b12);
+        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a3f);
+        this.e = textView;
+        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090b01);
+        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090944);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090943);
+        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090cf8);
+        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090946);
+        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090948);
+        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090945);
+        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090947);
+        this.k.setOnClickListener(new a(this, context));
+        this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f02dd));
+        this.d.setStrokeWith(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+        this.d.setShowOval(true);
+        this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
+        this.d.setStrokeColorResId(R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+        ur4 d = ur4.d(this.i);
+        d.m(1);
+        d.n(R.string.J_X14);
+        d.f(R.color.CAM_X0201);
+        SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
+        SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f08060d);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f08060f, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809d9, SkinManager.getColor(R.color.CAM_X0101), null));
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.obfuscated_res_0x7f08060e, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0802d6, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
     }
 }

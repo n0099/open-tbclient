@@ -1,23 +1,19 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class fw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
+    public int c;
     public String d;
-    public String e;
-    public String f;
-    public String g;
 
     public fw4() {
         Interceptable interceptable = $ic;
@@ -29,74 +25,38 @@ public class fw4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = 0;
+        this.d = null;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1561);
+                case 2:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1566);
+                case 3:
+                    return gj.a(R.string.obfuscated_res_0x7f0f0c2b);
+                case 4:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1564);
+                case 5:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1562);
+                case 6:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1565);
+                case 7:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1563);
+                default:
+                    return "";
+            }
         }
-        try {
-            jSONObject.optString("splash_bear_sid_ios", "");
-            jSONObject.optString("homepage_bear_sid_ios", "");
-            jSONObject.optString("frs_bear_sid_ios", "");
-            jSONObject.optString("pb_banner_bear_sid_ios", "");
-            jSONObject.optString("pb_comment_bear_sid_ios", "");
-            jSONObject.optString("picpage_bear_sid_ios", "");
-            jSONObject.optString("videoflow_bear_sid_ios", "");
-            this.a = jSONObject.optString("splash_bear_sid_android", "");
-            this.b = jSONObject.optString("homepage_bear_sid_android", "");
-            this.c = jSONObject.optString("frs_bear_sid_android", "");
-            this.d = jSONObject.optString("pb_banner_bear_sid_android", "");
-            this.e = jSONObject.optString("pb_comment_bear_sid_android", "");
-            this.f = jSONObject.optString("picpage_bear_sid_android", "");
-            this.g = jSONObject.optString("videoflow_bear_sid_android", "");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return (String) invokeI.objValue;
     }
 }

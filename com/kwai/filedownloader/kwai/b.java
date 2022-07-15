@@ -11,8 +11,6 @@ public interface b {
 
     void a(String str, String str2);
 
-    boolean a(String str, long j);
-
     Map<String, List<String>> b();
 
     Map<String, List<String>> c();

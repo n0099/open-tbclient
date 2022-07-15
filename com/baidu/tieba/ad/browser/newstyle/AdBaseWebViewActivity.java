@@ -32,16 +32,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ah5;
+import com.repackage.an4;
+import com.repackage.di5;
 import com.repackage.ei;
-import com.repackage.kj5;
-import com.repackage.lm4;
 import com.repackage.ni;
-import com.repackage.nj5;
-import com.repackage.pd5;
+import com.repackage.nk5;
 import com.repackage.pi;
 import com.repackage.qg;
-import com.repackage.y88;
+import com.repackage.qk5;
+import com.repackage.se5;
+import com.repackage.t98;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     public static /* synthetic */ Interceptable $ic;
     public static final List<String> s;
     public transient /* synthetic */ FieldHolder $fh;
-    public nj5 a;
+    public qk5 a;
     public String b;
     public final Runnable c;
     public String d;
@@ -66,7 +66,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     public HashMap<String, e> j;
     public String k;
     public final Runnable l;
-    public pd5.b m;
+    public se5.b m;
     public Timer n;
     public String o;
     public String p;
@@ -211,7 +211,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!ni.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c37);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
                     return;
                 }
                 this.a.a.f();
@@ -327,7 +327,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (ah5.a().m()) {
+            if (di5.a().m()) {
                 return true;
             }
             for (String str2 : s) {
@@ -344,7 +344,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     public boolean D1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? y88.l(str, getApplicationContext()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? t98.l(str, getApplicationContext()) : invokeL.booleanValue;
     }
 
     @JavascriptInterface
@@ -381,7 +381,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
             if (StringUtils.isNull(this.d, true)) {
-                shareItem.u = getResources().getString(R.string.obfuscated_res_0x7f0f1154);
+                shareItem.u = getResources().getString(R.string.obfuscated_res_0x7f0f114b);
             } else {
                 shareItem.u = this.d;
             }
@@ -450,7 +450,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.t75
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -516,7 +516,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         this.a.v(z);
         setUseStyleImmersiveSticky(intent.getBooleanExtra(WebViewActivityConfig.TAG_NEED_STYLE_IMMERSIVE_STICKY, true));
         if (TextUtils.isEmpty(this.b)) {
-            pi.O(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14eb));
+            pi.O(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14e5));
             return;
         }
         if (this.b.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
@@ -628,7 +628,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            lm4.b c2 = lm4.b().c(TbadkCoreApplication.getCurrentBduss());
+            an4.b c2 = an4.b().c(TbadkCoreApplication.getCurrentBduss());
             String str2 = "";
             if (c2 != null) {
                 String str3 = c2.a;
@@ -644,8 +644,8 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
                 str = "";
             }
             boolean z = true;
-            pd5.b bVar = new pd5.b(str2, str);
-            pd5.b bVar2 = this.m;
+            se5.b bVar = new se5.b(str2, str);
+            se5.b bVar2 = this.m;
             if (bVar2 == null || (bVar2 != null && bVar2.equals(bVar))) {
                 z = false;
             }
@@ -684,17 +684,17 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (interceptable == null || interceptable.invokeL(1048600, this, view2) == null) {
             super.onClick(view2);
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092416) {
+            if (id == R.id.obfuscated_res_0x7f0924d6) {
                 this.a.c();
                 loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
                 qg.a().post(this.l);
-            } else if (id == R.id.obfuscated_res_0x7f092414) {
+            } else if (id == R.id.obfuscated_res_0x7f0924d4) {
                 this.a.c();
-                kj5.f(getPageContext().getPageActivity(), this.b);
-            } else if (id == R.id.obfuscated_res_0x7f092412) {
+                nk5.f(getPageContext().getPageActivity(), this.b);
+            } else if (id == R.id.obfuscated_res_0x7f0924d2) {
                 this.a.c();
                 ei.a(this.b);
-                pi.O(view2.getContext(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f043e));
+                pi.O(view2.getContext(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0446));
             }
         }
     }
@@ -706,7 +706,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             initWebView();
-            this.a = new nj5(this);
+            this.a = new qk5(this);
             initData();
             this.a.j();
             this.a.x(new c(this));
@@ -735,9 +735,9 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             webViewDestory();
             TbadkCoreApplication.getInst().delRemoteActivity(this);
             stopLoadTimer();
-            nj5 nj5Var = this.a;
-            if (nj5Var != null) {
-                nj5Var.o();
+            qk5 qk5Var = this.a;
+            if (qk5Var != null) {
+                qk5Var.o();
             }
             super.onDestroy();
         }
@@ -758,14 +758,14 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        nj5 nj5Var;
+        qk5 qk5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, intent) == null) {
             super.onNewIntent(intent);
             this.b = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
             this.q = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
-            if (C1(this.b) && (nj5Var = this.a) != null) {
-                nj5Var.r(false);
+            if (C1(this.b) && (qk5Var = this.a) != null) {
+                qk5Var.r(false);
             }
             refresh();
         }
@@ -806,9 +806,9 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             dismissAllDialog();
             dismissAllPopupWindow();
             hideListMenu();
-            nj5 nj5Var = this.a;
-            if (nj5Var != null) {
-                nj5Var.c();
+            qk5 qk5Var = this.a;
+            if (qk5Var != null) {
+                qk5Var.c();
             }
         }
     }
@@ -818,9 +818,9 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
             super.onUserChanged(z);
-            nj5 nj5Var = this.a;
-            if (nj5Var != null) {
-                nj5Var.u(z);
+            qk5 qk5Var = this.a;
+            if (qk5Var != null) {
+                qk5Var.u(z);
             }
         }
     }

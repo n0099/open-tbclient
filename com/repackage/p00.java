@@ -1,16 +1,17 @@
 package com.repackage;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class p00 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface p00 {
 
-    public static final String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? str.substring(str.lastIndexOf("/") + 1, str.length()) : (String) invokeL.objValue;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(String str, p00 p00Var);
     }
+
+    void cancel();
+
+    boolean isRunning();
+
+    void pause();
+
+    void start();
 }

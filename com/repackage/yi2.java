@@ -1,32 +1,40 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Collection;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class yi2 extends DataOutputStream {
+public class yi2 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final wi2<byte[], String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public String[] b;
 
     /* loaded from: classes7.dex */
-    public static class a implements wi2<byte[], String> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a() {
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageView a;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,183 +48,118 @@ public class yi2 extends DataOutputStream {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.wi2
-        @Nullable
-        public byte[] call(@Nullable String str) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (str == null) {
-                    return null;
-                }
-                return str.getBytes();
-            }
-            return (byte[]) invokeL.objValue;
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements wi2<byte[], Boolean> {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yi2 a;
+        public TextView a;
 
-        public b(yi2 yi2Var) {
+        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yi2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = yi2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.wi2
-        @Nullable
-        public byte[] call(@Nullable Boolean bool) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool)) == null) {
-                if (bool == null || !bool.booleanValue()) {
-                    return null;
-                }
-                return new byte[0];
-            }
-            return (byte[]) invokeL.objValue;
+        public /* synthetic */ c(a aVar) {
+            this();
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755140913, "Lcom/repackage/yi2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755140913, "Lcom/repackage/yi2;");
-                return;
-            }
-        }
-        a = new a();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yi2(OutputStream outputStream) throws IOException {
-        super(outputStream);
+    public yi2(Context context, @NonNull String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {outputStream};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, strArr};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((OutputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = context;
+        this.b = strArr;
     }
 
-    public void a(Map<String, Boolean> map) throws IOException {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            e(map, new b(this));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.length : invokeV.intValue;
     }
 
-    public void b(byte[] bArr) throws IOException {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
-            if (bArr == null) {
-                writeInt(-1);
-                return;
-            }
-            writeInt(bArr.length);
-            if (bArr.length > 0) {
-                write(bArr);
-            }
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b[i] : invokeI.objValue;
     }
 
-    public <T> void c(@Nullable T t, @NonNull wi2<byte[], T> wi2Var) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, wi2Var) == null) {
-            try {
-                b(wi2Var.call(t));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    public <T> void d(@Nullable Collection<T> collection, wi2<byte[], T> wi2Var) throws IOException {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: com.repackage.yi2$b */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
+        View inflate;
+        c cVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, collection, wi2Var) == null) {
-            if (collection == null) {
-                writeInt(-1);
-                return;
-            }
-            writeInt(collection.size());
-            for (T t : collection) {
-                try {
-                    b(wi2Var.call(t));
-                } catch (Exception e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                if (i == 11) {
+                    inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00b1, null);
+                    b bVar = new b(null);
+                    bVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090750);
+                    cVar2 = bVar;
+                } else {
+                    inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00b3, null);
+                    c cVar3 = new c(null);
+                    cVar3.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090fd2);
+                    cVar2 = cVar3;
+                    if (i == 9) {
+                        if (TextUtils.isEmpty(this.b[9])) {
+                            inflate.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603bb));
+                            cVar2 = cVar3;
+                        } else {
+                            inflate.setBackgroundResource(R.drawable.obfuscated_res_0x7f080183);
+                            cVar2 = cVar3;
+                        }
+                    }
                 }
+                view2 = inflate;
+                view2.setTag(cVar2);
+                cVar = cVar2;
+            } else {
+                cVar = view2.getTag();
             }
-        }
-    }
-
-    public <T> void e(Map<String, T> map, wi2<byte[], T> wi2Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, map, wi2Var) == null) {
-            if (map == null) {
-                writeInt(-1);
-                return;
+            if (i != 11 && (cVar instanceof c)) {
+                ((c) cVar).a.setText(this.b[i]);
             }
-            writeInt(map.size());
-            g(map.keySet());
-            d(map.values(), wi2Var);
+            return view2;
         }
-    }
-
-    public void f(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            try {
-                b(a.call(str));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void g(Collection<String> collection) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, collection) == null) {
-            d(collection, a);
-        }
-    }
-
-    public void h(Map<String, String> map) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            e(map, a);
-        }
+        return (View) invokeILL.objValue;
     }
 }

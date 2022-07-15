@@ -89,7 +89,7 @@ public class GodHeadImageView extends FrameLayout {
                 return;
             }
         }
-        i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e9);
+        i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e8);
         j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
         k = 7;
     }
@@ -125,7 +125,7 @@ public class GodHeadImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04026a, R.attr.obfuscated_res_0x7f04026b, R.attr.obfuscated_res_0x7f040594, R.attr.obfuscated_res_0x7f04059f});
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04026a, R.attr.obfuscated_res_0x7f04026b, R.attr.obfuscated_res_0x7f040595, R.attr.obfuscated_res_0x7f0405a0});
                 this.g = obtainStyledAttributes.getDimensionPixelSize(0, i);
                 this.f = obtainStyledAttributes.getInteger(2, this.e);
                 this.d = obtainStyledAttributes.getInteger(3, this.c);

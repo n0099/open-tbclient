@@ -58,7 +58,7 @@ public class HWPushHelper {
     public static boolean hasNetwork(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m149a(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m1092a(context) : invokeL.booleanValue;
     }
 
     public static boolean isHmsTokenSynced(Context context) {
@@ -220,7 +220,7 @@ public class HWPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) {
-            i.m148a(context, e.a, str);
+            i.m1091a(context, e.a, str);
         }
     }
 }

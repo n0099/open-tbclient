@@ -1,68 +1,91 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.module.frs.Frs$From;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface y45 {
-    public static final a a = a.a;
+public class y45 extends v45 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ a a;
-        public static final ServiceReference b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(110179354, "Lcom/repackage/y45$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(110179354, "Lcom/repackage/y45$a;");
-                    return;
-                }
-            }
-            a = new a();
-            b = new ServiceReference("Frs", "FrsService");
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+    public y45() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-
-        public final ServiceReference a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (ServiceReference) invokeV.objValue;
-        }
+        this.a = 0;
     }
 
-    void a(TbPageContext<?> tbPageContext, long j);
+    public static ImageOperation e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            ImageOperation imageOperation = new ImageOperation();
+            imageOperation.actionName = "rotate";
+            imageOperation.actionParam = String.valueOf(i);
+            return imageOperation;
+        }
+        return (ImageOperation) invokeI.objValue;
+    }
 
-    void b(Context context, Frs$From frs$From, Long l, String str);
+    @Override // com.repackage.v45
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rotate" : (String) invokeV.objValue;
+    }
 
-    void c(Long l, String str);
+    @Override // com.repackage.v45
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            l45.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            int i = this.a;
+            if (i == 0 || i == 1) {
+                return BitmapHelper.rotateBitmap(bitmap, this.a);
+            }
+            return (i == 2 || i == 3) ? BitmapHelper.reversalBitmap(bitmap, this.a) : bitmap;
+        }
+        return (Bitmap) invokeLZ.objValue;
+    }
+
+    @Override // com.repackage.v45
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int max = Math.max(pi.k(TbadkCoreApplication.getInst().getApp()), pi.i(TbadkCoreApplication.getInst().getApp()));
+            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    @Override // com.repackage.v45
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
+            return;
+        }
+        this.a = Integer.parseInt(str);
+    }
 }

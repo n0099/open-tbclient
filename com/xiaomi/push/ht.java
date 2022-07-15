@@ -43,7 +43,7 @@ public final class ht {
     public static final ht a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ht[] f497a;
+    public static final /* synthetic */ ht[] f1224a;
     public static final ht aa;
     public static final ht ab;
     public static final ht ac;
@@ -79,7 +79,7 @@ public final class ht {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f498a;
+    public final String f1225a;
 
     static {
         InterceptResult invokeClinit;
@@ -154,7 +154,7 @@ public final class ht {
         af = new ht("DetectAppAlive", 57, "detect_app_alive");
         ht htVar = new ht("DetectAppAliveResult", 58, "detect_app_alive_result");
         ag = htVar;
-        f497a = new ht[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, htVar};
+        f1224a = new ht[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, htVar};
     }
 
     public ht(String str, int i2, String str2) {
@@ -175,7 +175,7 @@ public final class ht {
                 return;
             }
         }
-        this.f498a = str2;
+        this.f1225a = str2;
     }
 
     public static ht valueOf(String str) {
@@ -187,13 +187,13 @@ public final class ht {
     public static ht[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ht[]) f497a.clone() : (ht[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ht[]) f1224a.clone() : (ht[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f498a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1225a : (String) invokeV.objValue;
     }
 }

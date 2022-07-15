@@ -1,17 +1,19 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.app.NotificationCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class mv0 {
+public class mv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nv0 a;
-    public kv0 b;
 
     public mv0() {
         Interceptable interceptable = $ic;
@@ -27,41 +29,41 @@ public final class mv0 {
         }
     }
 
-    public final kv0 a() {
-        InterceptResult invokeV;
+    public static mv0 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (kv0) invokeV.objValue;
-    }
-
-    public final nv0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (nv0) invokeV.objValue;
-    }
-
-    public final void c(kv0 kv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kv0Var) == null) {
-            this.b = kv0Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                mv0 mv0Var = new mv0();
+                jSONObject.optString("type_text");
+                jSONObject.optString("text");
+                jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
+                jSONObject.optString("cmd");
+                return mv0Var;
+            }
+            return null;
         }
+        return (mv0) invokeL.objValue;
     }
 
-    public final void d(String str) {
+    public static List<mv0> b(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        mv0 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray == null || jSONArray.length() == 0) {
+                return null;
+            }
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null && (a = a(optJSONObject)) != null) {
+                    arrayList.add(a);
+                }
+            }
+            return arrayList;
         }
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-        }
-    }
-
-    public final void f(nv0 nv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nv0Var) == null) {
-            this.a = nv0Var;
-        }
+        return (List) invokeL.objValue;
     }
 }

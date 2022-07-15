@@ -1,15 +1,15 @@
 package com.kwad.sdk.pngencrypt;
 
-import com.kwad.sdk.pngencrypt.chunk.ah;
+import com.kwad.sdk.pngencrypt.chunk.w;
 import java.io.Closeable;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
-public class o implements Closeable {
+public final class o implements Closeable {
     public final k a;
     public final boolean b;
     public final c c;
     public final a d;
-    public final ah e;
+    public final w e;
     public int f;
     public ErrorBehaviour g = ErrorBehaviour.STRICT;
     public i<? extends Object> h;
@@ -18,21 +18,23 @@ public class o implements Closeable {
         this.f = -1;
         a aVar = new a(inputStream);
         this.d = aVar;
-        aVar.a(z);
+        boolean z2 = true;
+        aVar.a(true);
         c f = f();
         this.c = f;
         try {
-            if (this.d.b(f, 36) != 36) {
-                com.kwad.sdk.core.d.a.a(new PngjException("Could not read first 36 bytes (PNG signature+IHDR chunk)"));
+            if (this.d.a(f, 36) != 36) {
+                com.kwad.sdk.core.d.b.a(new PngjException("Could not read first 36 bytes (PNG signature+IHDR chunk)"));
             }
-            this.a = this.c.j();
-            this.b = this.c.k() != null;
+            this.a = this.c.g();
+            if (this.c.h() == null) {
+                z2 = false;
+            }
+            this.b = z2;
             b(5024024L);
             a(901001001L);
             c(2024024L);
-            this.c.c("fdAT");
-            this.c.c("fcTL");
-            this.e = new ah(this.c.i);
+            this.e = new w(this.c.i);
             a(m.a());
             this.f = -1;
         } catch (RuntimeException e) {
@@ -42,73 +44,64 @@ public class o implements Closeable {
         }
     }
 
-    public void a() {
+    private void a(long j) {
+        this.c.a(901001001L);
+    }
+
+    private void a(i<? extends Object> iVar) {
+        this.h = iVar;
+    }
+
+    private void b(long j) {
+        this.c.c(5024024L);
+    }
+
+    private void c(long j) {
+        this.c.b(2024024L);
+    }
+
+    private void d() {
         while (true) {
             c cVar = this.c;
             if (cVar.h >= 4) {
                 return;
             }
             if (this.d.a(cVar) <= 0) {
-                com.kwad.sdk.core.d.a.a(new PngjException("Premature ending reading first chunks"));
+                com.kwad.sdk.core.d.b.a(new PngjException("Premature ending reading first chunks"));
             }
         }
     }
 
-    public void a(long j) {
-        this.c.a(j);
+    private void e() {
+        this.c.a(false);
     }
 
-    public void a(i<? extends Object> iVar) {
-        this.h = iVar;
+    public static c f() {
+        return new c(false);
     }
 
-    public ah b() {
-        if (this.c.g()) {
-            a();
+    public final w a() {
+        if (this.c.e()) {
+            d();
         }
         return this.e;
     }
 
-    public void b(long j) {
-        this.c.c(j);
-    }
-
-    public void c() {
+    public final void b() {
         e();
-        this.c.c("IDAT");
-        this.c.c("fdAT");
-        if (this.c.g()) {
-            a();
+        if (this.c.e()) {
+            d();
         }
-        d();
+        c();
     }
 
-    public void c(long j) {
-        this.c.b(j);
-    }
-
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
+    public final void c() {
         try {
-            if (this.c != null) {
-                this.c.close();
+            if (this.c.e()) {
+                d();
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.e("PNG_ENCRYPT", "error closing chunk sequence:" + e.getMessage());
-        }
-        a aVar = this.d;
-        if (aVar != null) {
-            aVar.close();
-        }
-    }
-
-    public void d() {
-        try {
-            if (this.c.g()) {
-                a();
-            }
-            if (this.c.h() != null && !this.c.h().d()) {
-                this.c.h().g();
+            if (this.c.f() != null && !this.c.f().c()) {
+                this.c.f().f();
             }
             while (!this.c.b() && this.d.a(this.c) > 0) {
             }
@@ -117,15 +110,13 @@ public class o implements Closeable {
         }
     }
 
-    public void e() {
-        this.c.a(false);
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public final void close() {
+        com.kwad.sdk.crash.utils.b.a(this.c);
+        com.kwad.sdk.crash.utils.b.a(this.d);
     }
 
-    public c f() {
-        return new c(false);
-    }
-
-    public String toString() {
+    public final String toString() {
         return this.a.toString() + " interlaced=" + this.b;
     }
 }

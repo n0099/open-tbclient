@@ -54,38 +54,26 @@ public final class vt implements yr {
     }
 
     @Override // com.repackage.yr
-    public zr b() {
-        InterceptResult invokeV;
+    public void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            zr r = this.b.r();
-            Intrinsics.checkExpressionValueIsNotNull(r, "bdTaskConfig.taskEnv");
-            return r;
-        }
-        return (zr) invokeV.objValue;
-    }
-
-    @Override // com.repackage.yr
-    public void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || xs.a(activity)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || xs.a(activity)) {
             return;
         }
         this.a = new WeakReference<>(activity);
     }
 
     @Override // com.repackage.yr
-    public boolean d() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.t() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.t() : invokeV.booleanValue;
     }
 
     @Override // com.repackage.yr
     public Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Context context = this.b.getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "bdTaskConfig.context");
             return context;
@@ -97,12 +85,24 @@ public final class vt implements yr {
     public String getAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             String k = this.b.k();
             Intrinsics.checkExpressionValueIsNotNull(k, "bdTaskConfig.appVersion");
             return k;
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.yr
+    public zr getEnv() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            zr r = this.b.r();
+            Intrinsics.checkExpressionValueIsNotNull(r, "bdTaskConfig.taskEnv");
+            return r;
+        }
+        return (zr) invokeV.objValue;
     }
 
     @Override // com.repackage.yr

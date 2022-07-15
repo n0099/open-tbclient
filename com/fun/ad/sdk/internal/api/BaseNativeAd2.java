@@ -14,6 +14,8 @@ import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.fun.ad.sdk.FunNativeInfo;
 import com.fun.ad.sdk.NativeInflater;
+import com.fun.ad.sdk.internal.api.flavor.Flavors;
+import com.fun.ad.sdk.internal.api.flavor.RCInterceptor;
 /* loaded from: classes4.dex */
 public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     public static /* synthetic */ Interceptable $ic;
@@ -93,11 +95,30 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd2
-    public final void show(Activity activity, NativeInflater nativeInflater, String str, FunAdInteractionListener funAdInteractionListener) {
+    public String getPlatform() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, nativeInflater, str, funAdInteractionListener) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d.getLoader().getAdType().getPlatform() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd2
+    public final void show(Activity activity, NativeInflater nativeInflater, String str, FunAdInteractionListener funAdInteractionListener) {
+        RCInterceptor shouldIntercept;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, activity, nativeInflater, str, funAdInteractionListener) == null) {
             if (activity == null || nativeInflater == null || str == null || funAdInteractionListener == null) {
                 throw new IllegalArgumentException("Null args is not allowed");
+            }
+            PidLoaderSession<A> session = this.d.getSession(this.mAd);
+            if (session != null && session.getShowSidSessionMeta(this.mAd) == null) {
+                session.setShowSidSessionMeta(this.mAd, new SidSessionMeta(str, session.getLoadSidSessionMeta().sidVer));
+            }
+            ReporterPidLoader<A> loader = this.d.getLoader();
+            if (loader != null && (shouldIntercept = Flavors.PLUGIN_RC.shouldIntercept(loader.getPid().pid, loader.getAdType())) != null) {
+                if (shouldIntercept.shouldInterceptShow(shouldIntercept.needRipper() ? loader.getRippedAdInternal(this.mAd) : null)) {
+                    funAdInteractionListener.onAdError(str);
+                    return;
+                }
             }
             FunNativeAd2.NativeType nativeType = getNativeType();
             if (nativeInflater instanceof CustomInflater) {
@@ -116,14 +137,14 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
 
     public void showCustom(Activity activity, CustomInflater customInflater, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, activity, customInflater, str, funAdInteractionListener) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, activity, customInflater, str, funAdInteractionListener) == null) {
             this.d.showCustom(activity, customInflater, str, this.mAd, this, funAdInteractionListener);
         }
     }
 
     public void showExpress(Activity activity, ExpressInflater expressInflater, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, activity, expressInflater, str, funAdInteractionListener) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048582, this, activity, expressInflater, str, funAdInteractionListener) == null) {
             this.d.showExpress(activity, expressInflater, str, this.mAd, this, funAdInteractionListener);
         }
     }

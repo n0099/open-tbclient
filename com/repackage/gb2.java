@@ -1,131 +1,192 @@
 package com.repackage;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b72;
+import com.repackage.m53;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gb2 extends fb2 {
+public class gb2 extends e23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755683878, "Lcom/repackage/gb2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a implements af3<k53<m53.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ JSONObject c;
+
+        public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {callbackHandler, unitedSchemeEntity, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755683878, "Lcom/repackage/gb2;");
-                return;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = jSONObject;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public void a(k53<m53.e> k53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
+                if (!f53.h(k53Var)) {
+                    f53.p(k53Var, this.a, this.b);
+                    return;
+                }
+                if (this.c.has("emitLive")) {
+                    gw2.Q(va2.b(this.c.optInt("emitLive")));
+                }
+                if (this.c.has("emitHttps")) {
+                    gw2.N(va2.b(this.c.optInt("emitHttps")));
+                }
+                if (this.c.has("emitDomain")) {
+                    gw2.T(!va2.b(this.c.optInt("emitDomain")));
+                    gw2.W(!va2.b(this.c.optInt("emitDomain")));
+                }
+                if (this.c.has("emitWss")) {
+                    gw2.P(va2.b(this.c.optInt("emitWss")));
+                }
+                if (this.c.has("emitLaunchMode")) {
+                    gw2.U(va2.b(this.c.optInt("emitLaunchMode")));
+                }
+                if (this.c.has("debugEnvData")) {
+                    gw2.K(this.c.optString("debugEnvData"));
+                }
+                if (this.c.has("emitReplaceJsNative")) {
+                    gw2.O(va2.b(this.c.optInt("emitReplaceJsNative")));
+                }
+                if (this.c.has("emitReplaceV8Core")) {
+                    b72.v.e(b72.v.b(this.c.optInt("emitReplaceV8Core")));
+                }
+                if (this.c.has("emitHostEnv")) {
+                    gw2.S(this.c.optInt("emitHostEnv"));
+                }
+                if (this.c.has("openStabilityCollector")) {
+                    ab2.b(va2.b(this.c.optInt("openStabilityCollector")));
+                }
+                if (this.c.has("openPerformanceTesting")) {
+                    za2.b(va2.b(this.c.optInt("openPerformanceTesting")));
+                }
+                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
+                gw2.Z();
             }
         }
-        d = cg1.a;
     }
 
-    public gb2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gb2(e13 e13Var) {
+        super(e13Var, "/swanAPI/debug/setDebugConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.eb2
-    public void f() {
+    public static boolean j(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, unitedSchemeEntity, callbackHandler, h03Var, jSONObject)) == null) {
+            h03Var.e0().g(context, "mapp_cts_debug", new a(callbackHandler, unitedSchemeEntity, jSONObject));
+            return true;
         }
+        return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.repackage.eb2
-    public <T extends ya2> Exception g(@NonNull T t) {
-        InterceptResult invokeL;
+    public static boolean k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject, JSONObject jSONObject2) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            if (d) {
-                Log.d("SwanNoPresetExtensionCoreControl", "doUpdate: preset");
-                return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, unitedSchemeEntity, callbackHandler, jSONObject, jSONObject2)) == null) {
+            if (!e23.b) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
+                return false;
+            } else if (!TextUtils.equals(jSONObject.optString("category"), "swanGame")) {
+                hx1.c("setDebugConfig", "params is not swangame");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                if (jSONObject2.has("emitHttps")) {
+                    gw2.N(va2.b(jSONObject2.optInt("emitHttps")));
+                }
+                if (jSONObject2.has("emitWss")) {
+                    gw2.P(va2.b(jSONObject2.optInt("emitWss")));
+                }
+                if (jSONObject2.has("debugEnvData")) {
+                    gw2.K(jSONObject2.optString("debugEnvData"));
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                gw2.Z();
+                return true;
             }
-            return null;
         }
-        return (Exception) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.repackage.eb2
-    @NonNull
-    public ExtensionCore h() {
-        InterceptResult invokeV;
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ExtensionCore extensionCore = new ExtensionCore();
-            extensionCore.extensionCoreVersionCode = 0L;
-            extensionCore.extensionCoreVersionName = "0";
-            extensionCore.extensionCorePath = "";
-            extensionCore.extensionCoreType = 0;
-            return extensionCore;
-        }
-        return (ExtensionCore) invokeV.objValue;
-    }
-
-    @Override // com.repackage.eb2
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.repackage.eb2
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "0" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fb2, com.repackage.eb2
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (d) {
-                Log.d("SwanNoPresetExtensionCoreControl", "isNeedUpdate false");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            JSONObject a2 = e23.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                hx1.c("setDebugConfig", "params is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            return false;
+            JSONObject optJSONObject = a2.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
+            if (optJSONObject == null) {
+                hx1.c("setDebugConfig", "config is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            int k = g03.K().k();
+            if (k != 0) {
+                if (k != 1) {
+                    hx1.c("setDebugConfig", "frame type error");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                return k(unitedSchemeEntity, callbackHandler, a2, optJSONObject);
+            }
+            return j(context, unitedSchemeEntity, callbackHandler, h03Var, optJSONObject);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.eb2
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-        }
-    }
-
-    @Override // com.repackage.eb2
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,6 +1,8 @@
 package com.kwad.sdk.internal.api;
 
 import android.text.TextUtils;
+import com.ksad.json.annotation.KsJson;
+@KsJson
 /* loaded from: classes5.dex */
 public class a extends com.kwad.sdk.core.response.kwai.a {
     public int a;
@@ -12,11 +14,11 @@ public class a extends com.kwad.sdk.core.response.kwai.a {
     public String g;
     public long h;
 
-    public boolean a() {
+    public final boolean a() {
         return this.a == 0 && this.b == 0 && TextUtils.isEmpty(this.c);
     }
 
-    public boolean b() {
+    public final boolean b() {
         return TextUtils.isEmpty(this.d) && TextUtils.isEmpty(this.e) && TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.f);
     }
 }

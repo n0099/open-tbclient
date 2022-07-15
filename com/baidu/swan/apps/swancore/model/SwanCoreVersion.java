@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hd3;
+import com.repackage.wd3;
 /* loaded from: classes2.dex */
 public class SwanCoreVersion extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
@@ -103,7 +103,7 @@ public class SwanCoreVersion extends SwanAppIPCData {
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? hd3.e(this.swanCorePath) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? wd3.e(this.swanCorePath) : invokeV.booleanValue;
     }
 
     public String toString() {

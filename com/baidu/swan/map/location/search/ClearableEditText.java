@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd3;
+import com.repackage.yd3;
 /* loaded from: classes2.dex */
 public class ClearableEditText extends AppCompatEditText {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +37,7 @@ public class ClearableEditText extends AppCompatEditText {
                 return;
             }
         }
-        b = jd3.g(10.0f);
+        b = yd3.g(10.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

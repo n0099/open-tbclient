@@ -2,7 +2,7 @@ package com.kwad.sdk.core.videocache;
 
 import java.io.File;
 /* loaded from: classes5.dex */
-public class c {
+public final class c {
     public final File a;
     public final com.kwad.sdk.core.videocache.kwai.c b;
     public final com.kwad.sdk.core.videocache.kwai.a c;
@@ -17,7 +17,7 @@ public class c {
         this.e = bVar2;
     }
 
-    public File a(String str) {
+    public final File a(String str) {
         return new File(this.a, this.b.a(str));
     }
 }

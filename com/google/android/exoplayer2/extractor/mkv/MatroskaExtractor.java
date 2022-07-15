@@ -1773,10 +1773,10 @@ public final class MatroskaExtractor implements Extractor {
                 case 159:
                 case ID_PIXEL_WIDTH /* 176 */:
                 case 179:
-                case 186:
+                case ID_PIXEL_HEIGHT /* 186 */:
                 case 215:
                 case 231:
-                case 241:
+                case ID_CUE_CLUSTER_POSITION /* 241 */:
                 case 251:
                 case ID_CONTENT_COMPRESSION_ALGORITHM /* 16980 */:
                 case ID_DOC_TYPE_READ_VERSION /* 17029 */:
@@ -1898,7 +1898,7 @@ public final class MatroskaExtractor implements Extractor {
                     case 179:
                         this.cueTimesUs.add(scaleTimecodeToUs(j));
                         return;
-                    case 186:
+                    case ID_PIXEL_HEIGHT /* 186 */:
                         this.currentTrack.height = (int) j;
                         return;
                     case 215:
@@ -1907,7 +1907,7 @@ public final class MatroskaExtractor implements Extractor {
                     case 231:
                         this.clusterTimecodeUs = scaleTimecodeToUs(j);
                         return;
-                    case 241:
+                    case ID_CUE_CLUSTER_POSITION /* 241 */:
                         if (this.seenClusterPositionForCurrentCuePoint) {
                             return;
                         }

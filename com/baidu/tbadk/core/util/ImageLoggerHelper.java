@@ -107,7 +107,7 @@ public class ImageLoggerHelper {
                     return "";
                 }
                 this.lastGetTiebaIpTime = currentTimeMillis;
-                this.cachedTiebaIp = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
+                this.cachedTiebaIp = UtilHelper.getIpFromDomain("tiebac.baidu.com");
             }
             return this.cachedTiebaIp;
         }

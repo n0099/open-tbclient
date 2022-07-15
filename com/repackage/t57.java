@@ -1,95 +1,61 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.BroadcastInfo;
-import tbclient.GetForumBroadcastList.DataRes;
-import tbclient.Page;
 /* loaded from: classes7.dex */
 public class t57 {
     public static /* synthetic */ Interceptable $ic;
+    public static t57 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<u57> a;
-    public Page b;
-    public boolean c;
-    public boolean d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755339685, "Lcom/repackage/t57;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755339685, "Lcom/repackage/t57;");
+                return;
+            }
+        }
+        a = new t57();
+    }
 
     public t57() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public List<u57> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void d(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        Page page = dataRes.page;
-        this.b = page;
-        if (page != null) {
-            this.c = page.has_more.intValue() == 1;
-        }
-        List<BroadcastInfo> list = dataRes.bcast_infos;
-        if (list != null) {
-            for (int i = 0; i < list.size(); i++) {
-                u57 u57Var = new u57();
-                u57Var.l(list.get(i));
-                this.a.add(u57Var);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void e(boolean z) {
+    public static t57 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (t57) invokeV.objValue;
     }
 
-    public void f() {
-        List<u57> list;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (list = this.a) == null || list.size() <= 0) {
-            return;
-        }
-        for (u57 u57Var : this.a) {
-            if (u57Var != null) {
-                n57.v().z(u57Var.e().forum_id.longValue(), u57Var.b() * 100, u57Var.i());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                t77.j().l();
+                s77.j().l();
+                q77.k().n();
             }
         }
     }

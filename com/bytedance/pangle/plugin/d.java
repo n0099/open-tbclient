@@ -8,22 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.Zeus;
-import com.bytedance.pangle.g;
-import com.bytedance.pangle.helper.PluginDirHelper;
 import com.bytedance.pangle.log.ZeusLogger;
-import com.bytedance.pangle.util.e;
 import com.bytedance.pangle.util.f;
 import java.io.File;
 import java.io.FileFilter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 /* loaded from: classes4.dex */
 public final class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -35,15 +27,11 @@ public final class d implements Runnable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
     }
 
     private void a(File file) {
-        PluginProvider pluginProvider;
-        File provideBuiltInPlugin;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, file) == null) {
             ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusScanRunnable listPluginDownloadDir, dir = ".concat(String.valueOf(file)));
@@ -76,13 +64,13 @@ public final class d implements Runnable {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file2)) == null) {
                         if (file2 != null && (file2.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX) || file2.getName().endsWith(".jar"))) {
-                            PluginManager.getInstance().asyncInstall(file2);
+                            PluginManager.getInstance().asyncInstall(null, file2);
                             return true;
                         } else if (file2.getAbsolutePath().endsWith(".temp") && System.currentTimeMillis() - file2.lastModified() < ImagesInvalidService.FILE_VALID_TIME) {
                             ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusScanRunnable installPluginDir find : ".concat(String.valueOf(file2)));
                             return false;
                         } else {
-                            e.a(file2);
+                            f.a(file2);
                             ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusScanRunnable installPluginDir deleted : ".concat(String.valueOf(file2)));
                             return false;
                         }
@@ -90,41 +78,19 @@ public final class d implements Runnable {
                     return invokeL.booleanValue;
                 }
             });
-            if (file.equals(this.a) || (pluginProvider = g.a().b.getPluginProvider()) == null || (provideBuiltInPlugin = pluginProvider.provideBuiltInPlugin()) == null) {
-                return;
-            }
-            PluginManager.getInstance().asyncInstall(provideBuiltInPlugin);
         }
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        String[] list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                String downloadDir = PluginDirHelper.getDownloadDir();
-                for (String str : Zeus.getAppApplication().getAssets().list("plugins/")) {
-                    if (str.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
-                        String concat = "plugins/".concat(String.valueOf(str));
-                        File file = new File(downloadDir, str);
-                        ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusScanRunnable releaseCopyFile " + concat + " --> " + file.getAbsolutePath());
-                        f.a(Zeus.getAppApplication().getAssets().open(concat), new FileOutputStream(file), 0L);
-                    }
-                }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e2) {
-                e2.printStackTrace();
-            }
-            a(new File(PluginDirHelper.getDownloadDir()));
-            String pushDir = PluginDirHelper.getPushDir();
-            if (TextUtils.isEmpty(pushDir)) {
+            a(new File(com.bytedance.pangle.c.c.a()));
+            String c = com.bytedance.pangle.c.c.c();
+            if (TextUtils.isEmpty(c)) {
                 return;
             }
-            File file2 = new File(pushDir);
-            this.a = file2;
-            a(file2);
+            a(new File(c));
         }
     }
 }

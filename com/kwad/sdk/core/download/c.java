@@ -1,25 +1,70 @@
 package com.kwad.sdk.core.download;
+
+import com.kwad.sdk.service.ServiceProvider;
 /* loaded from: classes5.dex */
-public interface c {
-    String a();
+public final class c {
+    public static final boolean a = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).j();
 
-    void a(String str, int i, int i2, int i3);
+    public static void a(String str) {
+        if (a) {
+            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onDownloadStart(), id=" + str);
+        }
+        e.a().b(str);
+    }
 
-    void a(String str, int i, f fVar);
+    public static void a(String str, int i, int i2, int i3) {
+        if (a) {
+            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onProgressUpdate(), id=" + str + " progress=" + i + " soFarBytes=" + i2 + " totalBytes=" + i3);
+        }
+        e.a().a(str, i, i2, i3);
+    }
 
-    void a(String str, int i, String str2, f fVar);
+    public static void a(String str, int i, String str2) {
+        if (a) {
+            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onDownloadFail(), id=" + str + " errorCode=0 errorMsg=" + str2);
+        }
+        e.a().a(str, 0, str2);
+    }
 
-    void a(String str, f fVar);
+    public static void a(String str, String str2) {
+        if (a) {
+            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onDownloadFinished(), id=" + str + " filePath=" + str2);
+        }
+        e.a().a(str, str2);
+    }
 
-    void a(String str, String str2, f fVar);
+    public static void b(String str) {
+        if (a) {
+            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onDownloadPaused(), id=" + str);
+        }
+        e.a().c(str);
+    }
 
-    String b();
+    public static void c(String str) {
+        if (a) {
+            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onDownloadResumed(), id=" + str);
+        }
+        e.a().d(str);
+    }
 
-    void b(String str, f fVar);
+    public static void d(String str) {
+        if (a) {
+            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onDownloadCanceled(), id=" + str);
+        }
+        e.a().e(str);
+    }
 
-    void c(String str, f fVar);
+    public static void e(String str) {
+        if (a) {
+            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onLowStorage(), id=" + str);
+        }
+        e.a().g(str);
+    }
 
-    void d(String str, f fVar);
-
-    void e(String str, f fVar);
+    public static void f(String str) {
+        if (a) {
+            com.kwad.sdk.core.d.b.a("DownloadMonitor", "onStartInstallApk(), id=" + str);
+        }
+        e.a().f(str);
+    }
 }

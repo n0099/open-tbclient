@@ -1,64 +1,171 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.my1;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
+import java.util.Map;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
 public class ny1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755453269, "Lcom/repackage/ny1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a extends my1.b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final boolean b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-141137522, "Lcom/repackage/ny1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-141137522, "Lcom/repackage/ny1$a;");
+                    return;
+                }
+            }
+            b = rg1.a;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(my1.a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755453269, "Lcom/repackage/ny1;");
-                return;
-            }
-        }
-        boolean z = cg1.a;
-    }
-
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            HashMap hashMap = new HashMap(1);
-            hashMap.put("data", str2);
-            fl2.U().m(fl2.U().q().c(), new t92(str, hashMap));
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            am1 A = fl2.U().A(fl2.U().C());
-            if (A != null) {
-                sw1.i("ConsoleMessageHelper", "send full San request");
-                A.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((my1.a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
             }
         }
-    }
 
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a("sanFullData2Console", str);
+        @Override // com.repackage.my1.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Upgrade", "websocket");
+                hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
+                try {
+                    hashMap.put("Sec-WebSocket-Accept", oy1.g(this.a.a.get("sec-websocket-key")));
+                } catch (NoSuchAlgorithmException e) {
+                    if (b) {
+                        Log.e("HandShakeResponse", "make accept key fail for error invalid algorithm", e);
+                    }
+                }
+                return hashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
+
+        @Override // com.repackage.my1.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "101 Switching Protocols" : (String) invokeV.objValue;
         }
     }
 
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a("sanIncData2Console", str);
+    /* loaded from: classes6.dex */
+    public static class b extends my1.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(my1.a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((my1.a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
+
+        @Override // com.repackage.my1.b
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.b == null) {
+                    this.b = new jy1().toString();
+                }
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.my1.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Content-Type", "application/json; charset=UTF-8");
+                hashMap.put(Util.ACCEPT_RANGES, "bytes");
+                hashMap.put(HTTP.CONN_DIRECTIVE, "keep-alive");
+                return hashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
+
+        @Override // com.repackage.my1.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "200 OK" : (String) invokeV.objValue;
+        }
+    }
+
+    public static my1.b a(my1.a aVar) {
+        InterceptResult invokeL;
+        Map<String, String> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
+            if (aVar == null || (map = aVar.a) == null || map.size() < 1) {
+                return null;
+            }
+            if (oy1.f(aVar.a)) {
+                aVar.e = true;
+                return new a(aVar);
+            }
+            aVar.e = false;
+            return new b(aVar);
+        }
+        return (my1.b) invokeL.objValue;
     }
 }

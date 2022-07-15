@@ -15,10 +15,10 @@ import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.module.csj.f0;
+import com.fun.module.csj.g0;
 import java.util.List;
 /* loaded from: classes4.dex */
-public final class CSJNativeAdSmallImgView extends f0 {
+public final class CSJNativeAdSmallImgView extends g0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView f;
@@ -89,7 +89,7 @@ public final class CSJNativeAdSmallImgView extends f0 {
         this.g = 1.78f;
     }
 
-    @Override // com.fun.module.csj.f0
+    @Override // com.fun.module.csj.g0
     public void a(TTNativeAd tTNativeAd) {
         TTImage tTImage;
         Interceptable interceptable = $ic;
@@ -106,12 +106,12 @@ public final class CSJNativeAdSmallImgView extends f0 {
         }
     }
 
-    @Override // com.fun.module.csj.f0, android.view.View
+    @Override // com.fun.module.csj.g0, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a7);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a8);
         }
     }
 

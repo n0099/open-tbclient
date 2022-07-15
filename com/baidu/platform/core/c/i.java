@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes2.dex */
 public class i extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
@@ -80,7 +79,7 @@ public class i extends com.baidu.platform.base.e {
             this.a.a("query", poiBoundSearchOption.mKeyword);
             this.a.a("tag", poiBoundSearchOption.mTag);
             com.baidu.platform.util.a aVar = this.a;
-            aVar.a(AnimationProperty.BOUNDS, poiBoundSearchOption.mBound.southwest.latitude + "," + poiBoundSearchOption.mBound.southwest.longitude + "," + poiBoundSearchOption.mBound.northeast.latitude + "," + poiBoundSearchOption.mBound.northeast.longitude);
+            aVar.a("bounds", poiBoundSearchOption.mBound.southwest.latitude + "," + poiBoundSearchOption.mBound.southwest.longitude + "," + poiBoundSearchOption.mBound.northeast.latitude + "," + poiBoundSearchOption.mBound.northeast.longitude);
             this.a.a("output", "json");
             com.baidu.platform.util.a aVar2 = this.a;
             StringBuilder sb = new StringBuilder();

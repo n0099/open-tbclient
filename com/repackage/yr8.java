@@ -1,79 +1,131 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.video.record.StickerItem;
+import com.baidu.tieba.video.record.VideoEffectLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class yr8 extends j05 {
+public class yr8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public List<StickerItem> a;
+    public VideoEffectLayout.h b;
 
     /* loaded from: classes7.dex */
-    public class a implements i05 {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xr8 a;
+        public final /* synthetic */ int a;
         public final /* synthetic */ yr8 b;
 
-        public a(yr8 yr8Var, xr8 xr8Var) {
+        public a(yr8 yr8Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yr8Var, xr8Var};
+                Object[] objArr = {yr8Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.b = yr8Var;
-            this.a = xr8Var;
+            this.a = i;
         }
 
-        @Override // com.repackage.i05
-        public void C(h05 h05Var) {
-            xr8 xr8Var;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, h05Var) == null) || (xr8Var = this.a) == null || xr8Var.a() == null || h05Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ((StickerItem) this.b.a.get(this.a * 2)).isSelect || this.b.b == null) {
                 return;
             }
-            int i = h05Var.a;
-            if (i == 4) {
-                this.a.u((String) h05Var.c);
-            } else if (i == 7) {
-                this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0d13);
-            } else if (i != 8) {
-            } else {
-                this.a.y();
-                if (this.b.h(this.a.getContext(), 25066)) {
-                    this.a.o();
-                    if (this.b.a != null) {
-                        this.b.a.a(this.a.l());
-                    }
-                }
-            }
+            this.b.b.x1((StickerItem) this.b.a.get(this.a * 2));
         }
     }
 
     /* loaded from: classes7.dex */
-    public interface b {
-        void a(String str);
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ yr8 b;
+
+        public b(yr8 yr8Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yr8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = yr8Var;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ((StickerItem) this.b.a.get((this.a * 2) + 1)).isSelect || this.b.b == null) {
+                return;
+            }
+            this.b.b.x1((StickerItem) this.b.a.get((this.a * 2) + 1));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public RelativeLayout a;
+        public RelativeLayout b;
+        public TbImageView c;
+        public TbImageView d;
+        public ProgressBar e;
+        public ProgressBar f;
+        public ImageView g;
+
+        public c(yr8 yr8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yr8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     public yr8() {
@@ -90,74 +142,122 @@ public class yr8 extends j05 {
         }
     }
 
-    @Override // com.repackage.j05
-    public l05 b(Context context) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public StickerItem getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setHideBigEmotion(true);
-            editorTools.setBarLauncherType(4);
-            editorTools.setBackgroundColorId(R.color.CAM_X0207);
-            return new xr8(editorTools);
-        }
-        return (l05) invokeL.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (StickerItem) ListUtils.getItem(this.a, i) : (StickerItem) invokeI.objValue;
     }
 
-    @Override // com.repackage.j05
-    public void c(l05 l05Var) {
+    public void d(List<StickerItem> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l05Var) == null) && (l05Var instanceof xr8)) {
-            EditorTools a2 = l05Var.a();
-            a aVar = new a(this, (xr8) l05Var);
-            a2.setActionListener(4, aVar);
-            a2.setActionListener(7, aVar);
-            a2.setActionListener(8, aVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
         }
     }
 
-    @Override // com.repackage.j05
-    public void d(l05 l05Var) {
+    public void e(VideoEffectLayout.h hVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l05Var) == null) || l05Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) {
+            this.b = hVar;
         }
-        EditorTools a2 = l05Var.a();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(5);
-        a2.h(arrayList);
-        t05 n = a2.n(5);
-        if (n != null) {
-            n.e(false);
-            n.d = 0;
-        }
-        a2.d(new zr8(a2.getContext()));
-        a2.f();
-        a2.A(new h05(35, 5, Boolean.FALSE));
-        a2.o();
     }
 
-    public l05 g(Context context, b bVar) {
-        InterceptResult invokeLL;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
-            this.a = bVar;
-            return super.a(context);
-        }
-        return (l05) invokeLL.objValue;
-    }
-
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null || currentAccount.length() <= 0) {
-                TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (ListUtils.isEmpty(this.a)) {
+                return 0;
             }
-            return true;
+            return (int) Math.ceil(this.a.size() / 2.0d);
         }
-        return invokeLI.booleanValue;
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0503, (ViewGroup) null);
+                cVar = new c(this);
+                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092150);
+                cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903d6);
+                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092138);
+                cVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09160e);
+                cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903bd);
+                cVar.e = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09214f);
+                cVar.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0903d2);
+                view2.setTag(cVar);
+            } else {
+                cVar = (c) view2.getTag();
+            }
+            cVar.c.setAutoChangeStyle(false);
+            cVar.d.setAutoChangeStyle(false);
+            cVar.c.setGifIconSupport(false);
+            cVar.d.setGifIconSupport(false);
+            int i2 = i * 2;
+            if (ListUtils.getItem(this.a, i2) instanceof StickerItem) {
+                cVar.a.setVisibility(0);
+                if (this.a.get(i2).id == -1) {
+                    cVar.g.setVisibility(0);
+                    cVar.c.setVisibility(8);
+                    cVar.g.setImageResource(R.drawable.obfuscated_res_0x7f080ae6);
+                } else {
+                    cVar.g.setVisibility(8);
+                    cVar.c.setVisibility(0);
+                    cVar.c.J(this.a.get(i2).img, 10, true);
+                }
+                cVar.a.setOnClickListener(new a(this, i));
+                if (this.a.get(i2).isDownLoading) {
+                    cVar.e.setVisibility(0);
+                } else {
+                    cVar.e.setVisibility(8);
+                }
+                if (this.a.get(i2).isSelect) {
+                    SkinManager.setBackgroundResource(cVar.a, R.drawable.obfuscated_res_0x7f0802dc);
+                } else {
+                    cVar.a.setBackgroundResource(R.color.transparent);
+                }
+            } else {
+                cVar.a.setVisibility(8);
+            }
+            int i3 = i2 + 1;
+            if (ListUtils.getItem(this.a, i3) instanceof StickerItem) {
+                cVar.b.setVisibility(0);
+                cVar.d.J(this.a.get(i3).img, 10, true);
+                cVar.b.setOnClickListener(new b(this, i));
+                if (this.a.get(i3).isDownLoading) {
+                    cVar.f.setVisibility(0);
+                } else {
+                    cVar.f.setVisibility(8);
+                }
+                if (this.a.get(i3).isSelect) {
+                    SkinManager.setBackgroundResource(cVar.b, R.drawable.obfuscated_res_0x7f0802dc);
+                } else {
+                    cVar.b.setBackgroundResource(R.color.transparent);
+                }
+            } else {
+                cVar.b.setVisibility(8);
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

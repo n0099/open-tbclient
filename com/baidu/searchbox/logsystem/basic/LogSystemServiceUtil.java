@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.db1;
+import com.repackage.sb1;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class LogSystemServiceUtil {
@@ -85,7 +85,7 @@ public class LogSystemServiceUtil {
             }
             Intent intent = new Intent();
             intent.setClass(context, LokiService.class);
-            intent.putExtra(LokiService.Constant.LOG_PROCESS_NAME, db1.b());
+            intent.putExtra(LokiService.Constant.LOG_PROCESS_NAME, sb1.b());
             intent.putExtra("logtype", logType);
             if (str != null) {
                 intent.putExtra(LokiService.Constant.LOG_BASIC_DATA, str);
@@ -110,7 +110,7 @@ public class LogSystemServiceUtil {
     public static void tranLogHandlerAction(@NonNull Context context, @NonNull LogType logType, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65543, null, context, logType, str, file, logExtra) == null) {
-            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(db1.b());
+            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(sb1.b());
             if (!obtainFileDirWithProcessName.exists()) {
                 obtainFileDirWithProcessName.mkdirs();
             }

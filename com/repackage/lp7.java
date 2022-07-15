@@ -1,100 +1,64 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class lp7 implements qv4 {
+public class lp7 {
     public static /* synthetic */ Interceptable $ic;
-    public static lp7 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public List<an> b;
+    public tn c;
 
-    public lp7() {
+    public lp7(TbPageContext tbPageContext, tn tnVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, tnVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
+        this.c = tnVar;
+        a();
+        this.c.a(this.b);
     }
 
-    public static synchronized lp7 d() {
-        InterceptResult invokeV;
-        lp7 lp7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (lp7.class) {
-                if (a == null) {
-                    a = new lp7();
-                }
-                lp7Var = a;
-            }
-            return lp7Var;
-        }
-        return (lp7) invokeV.objValue;
-    }
-
-    @Override // com.repackage.qv4
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                SapiAccountManager.getInstance().logout();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            ArrayList arrayList = new ArrayList();
+            this.b = arrayList;
+            arrayList.add(new mp7(this.a));
         }
     }
 
-    @Override // com.repackage.qv4
-    public void b(AccountData accountData) {
+    public void b() {
+        tn tnVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (TextUtils.isEmpty(accountData.getID()) || loginAccounts == null || loginAccounts.size() <= 0) {
-                return;
-            }
-            for (SapiAccount sapiAccount : loginAccounts) {
-                if (accountData.getID().equals(sapiAccount.uid)) {
-                    SapiAccountManager.getInstance().validate(sapiAccount);
-                    return;
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tnVar = this.c) == null) {
+            return;
         }
+        tnVar.getListAdapter().notifyDataSetChanged();
     }
 
-    @Override // com.repackage.qv4
-    public void c(AccountData accountData) {
+    public void c(List<nn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
-                SapiAccountManager.getInstance().logout();
-                return;
-            }
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (loginAccounts == null || loginAccounts.size() <= 0) {
-                return;
-            }
-            for (SapiAccount sapiAccount : loginAccounts) {
-                if (accountData.getID().equals(sapiAccount.uid)) {
-                    SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
-                    return;
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c.setData(list);
         }
     }
 }

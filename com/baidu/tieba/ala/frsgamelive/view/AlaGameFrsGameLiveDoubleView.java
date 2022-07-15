@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.is5;
-import com.repackage.jn5;
-import com.repackage.mw5;
-import com.repackage.ps5;
+import com.repackage.ft5;
+import com.repackage.jx5;
+import com.repackage.mo5;
+import com.repackage.mt5;
 /* loaded from: classes3.dex */
-public class AlaGameFrsGameLiveDoubleView extends mw5<ps5> {
+public class AlaGameFrsGameLiveDoubleView extends jx5<mt5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public is5 i;
-    public is5 j;
+    public ft5 i;
+    public ft5 j;
 
     /* loaded from: classes3.dex */
     public static class AlaGameFrsGameLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
@@ -72,14 +72,14 @@ public class AlaGameFrsGameLiveDoubleView extends mw5<ps5> {
         r();
     }
 
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0109 : invokeV.intValue;
     }
 
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -98,8 +98,8 @@ public class AlaGameFrsGameLiveDoubleView extends mw5<ps5> {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = new is5(g());
-            this.j = new is5(g());
+            this.i = new ft5(g());
+            this.j = new ft5(g());
             ViewGroup viewGroup = (ViewGroup) h();
             View view2 = new View(getContext());
             viewGroup.addView(this.i.c());
@@ -109,15 +109,15 @@ public class AlaGameFrsGameLiveDoubleView extends mw5<ps5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     /* renamed from: s */
-    public void i(ps5 ps5Var) {
+    public void i(mt5 mt5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, ps5Var) == null) || ps5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, mt5Var) == null) || mt5Var == null) {
             return;
         }
-        this.i.d(ps5Var.a);
-        this.j.d(ps5Var.b);
+        this.i.d(mt5Var.a);
+        this.j.d(mt5Var.b);
     }
 
     public void t(String str) {
@@ -128,11 +128,11 @@ public class AlaGameFrsGameLiveDoubleView extends mw5<ps5> {
         }
     }
 
-    public void u(jn5 jn5Var) {
+    public void u(mo5 mo5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jn5Var) == null) {
-            this.i.g(jn5Var);
-            this.j.g(jn5Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, mo5Var) == null) {
+            this.i.g(mo5Var);
+            this.j.g(mo5Var);
         }
     }
 }

@@ -196,7 +196,6 @@ public class ClientStartStatic {
             }
         }
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            new c(null).execute(new Void[0]);
             MessageManager.getInstance().registerListener(new a(2001011));
             MessageManager.getInstance().registerListener(2921644, new b(0));
         }

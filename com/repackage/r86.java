@@ -1,216 +1,182 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.flow.CoverFlowView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v86;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes7.dex */
 public class r86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Pattern a;
-    public TbPageContext<?> b;
-    public View c;
-    public CoverFlowView<kr4> d;
-    public v86 e;
-    public nr4<kr4> f;
 
-    /* loaded from: classes7.dex */
-    public class a extends lr4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r86 a;
-
-        public a(r86 r86Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r86Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static List<String> a(String str, InputStream inputStream) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65536, null, str, inputStream)) != null) {
+            return (List) invokeLL.objValue;
+        }
+        ZipInputStream zipInputStream = null;
+        try {
+            ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(inputStream));
+            while (true) {
+                try {
+                    ZipEntry nextEntry = zipInputStream2.getNextEntry();
+                    if (nextEntry == null) {
+                        break;
+                    } else if (!nextEntry.isDirectory()) {
+                        h(str, nextEntry.getName(), zipInputStream2);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    zipInputStream = zipInputStream2;
+                    qi.e(zipInputStream);
+                    throw th;
                 }
             }
-            this.a = r86Var;
-        }
-
-        @Override // com.repackage.lr4, com.repackage.jr4
-        public mr4 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                mr4 a = super.a();
-                if (a != null) {
-                    a.d(81);
-                    a.e(R.dimen.obfuscated_res_0x7f0701d5);
+            zipInputStream2.close();
+            qi.e(zipInputStream2);
+            byte[] e = e(str, "map.txt");
+            if (e != null) {
+                String str2 = new String(e, "UTF-8");
+                LinkedList linkedList = new LinkedList();
+                for (String str3 : str2.split("\n")) {
+                    String trim = str3.trim();
+                    if (trim.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
+                        String[] split = trim.split("=");
+                        if (split.length == 2) {
+                            String trim2 = split[0].trim();
+                            String trim3 = split[1].trim();
+                            g(str, "s_" + trim3 + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, b(trim2, false));
+                            g(str, "d_" + trim3 + ".gif", b(trim2, true));
+                            linkedList.add(trim2);
+                        }
+                    }
                 }
-                return a;
+                return linkedList;
             }
-            return (mr4) invokeV.objValue;
-        }
-
-        @Override // com.repackage.lr4, com.repackage.jr4
-        public or4 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                or4 or4Var = new or4();
-                or4Var.a((int) (pi.k(this.a.b.getPageActivity()) / 2.5714285f));
-                return or4Var;
-            }
-            return (or4) invokeV.objValue;
-        }
-
-        @Override // com.repackage.lr4, com.repackage.jr4
-        public TbImageView d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                TbImageView tbImageView = new TbImageView(context);
-                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                tbImageView.setGifIconSupport(false);
-                return tbImageView;
-            }
-            return (TbImageView) invokeL.objValue;
+            throw new FileNotFoundException("map.txt file not exsit!");
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements nr4<kr4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r86 a;
+    public static String b(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
+            long hashCode = str.hashCode();
+            if (hashCode < 0) {
+                hashCode *= -1;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(z ? "d_" : "s_");
+            sb.append(hashCode);
+            return sb.toString();
+        }
+        return (String) invokeLZ.objValue;
+    }
 
-        public b(r86 r86Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r86Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String c(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            long hashCode = str.hashCode();
+            if (hashCode < 0) {
+                hashCode *= -1;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(z ? "s_" : "d_");
+            sb.append(hashCode);
+            String sb2 = sb.toString();
+            if (z2 && !z) {
+                return sb2 + ".gif";
+            }
+            return sb2 + ".jpg";
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Bitmap f = f(str, "panel.png");
+            if (f == null) {
+                return false;
+            }
+            f.recycle();
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static byte[] e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return FileHelper.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static Bitmap f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            return FileHelper.getImage(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
+        }
+        return (Bitmap) invokeLL.objValue;
+    }
+
+    public static boolean g(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            String str4 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/" + str + "/";
+            File file = new File(str4, str2);
+            if (file.exists()) {
+                File file2 = new File(str4, str3);
+                if (file2.exists()) {
+                    if (file2.delete() && file.renameTo(file2)) {
+                        return true;
+                    }
+                    return FileHelper.copyFileByRelativelyPath(file.getAbsolutePath(), file2.getAbsolutePath());
+                } else if (file.renameTo(file2)) {
+                    return true;
+                } else {
+                    return FileHelper.copyFileByRelativelyPath(file.getAbsolutePath(), file2.getAbsolutePath());
                 }
             }
-            this.a = r86Var;
+            return false;
         }
-
-        @Override // com.repackage.nr4
-        public void a(int i, kr4 kr4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, kr4Var) != null) || kr4Var == null) {
-            }
-        }
-
-        @Override // com.repackage.nr4
-        public void b(int i, String str) {
-            v86.a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || (aVar = (v86.a) this.a.d.n(i)) == null) {
-                return;
-            }
-            Matcher matcher = this.a.a.matcher(aVar.b());
-            if (matcher.find()) {
-                this.a.b.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.b.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
-            }
-        }
+        return invokeLLL.booleanValue;
     }
 
-    public r86(TbPageContext<?> tbPageContext) {
+    public static boolean h(String str, String str2, InputStream inputStream) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, inputStream)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath());
+            sb.append("/");
+            sb.append(".emotions/" + str);
+            sb.append("/");
+            sb.append(str2);
+            return FileHelper.saveFileByStream(sb.toString(), inputStream) != null;
         }
-        this.a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.f = new b(this);
-        this.b = tbPageContext;
-        d();
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (View) invokeV.objValue;
-    }
-
-    public final void d() {
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.b) == null) {
-            return;
-        }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d077a, (ViewGroup) null);
-        this.c = inflate;
-        if (inflate == null) {
-            return;
-        }
-        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f091d51);
-        a aVar = new a(this);
-        this.d.setDisableParentEvent(false);
-        this.d.setCoverFlowFactory(aVar);
-        this.d.setCallback(this.f);
-    }
-
-    public void e(v86 v86Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v86Var) == null) || v86Var == null || v86Var == this.e) {
-            return;
-        }
-        this.d.setData(v86Var.a());
-        this.e = v86Var;
-    }
-
-    public void f(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bdUniqueId) != null) || bdUniqueId == null) {
-        }
-    }
-
-    public void g() {
-        CoverFlowView<kr4> coverFlowView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (coverFlowView = this.d) == null) {
-            return;
-        }
-        coverFlowView.v();
+        return invokeLLL.booleanValue;
     }
 }

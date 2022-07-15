@@ -1,625 +1,302 @@
 package com.repackage;
 
-import android.app.Application;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.adaptation.implementation.DefaultSwanAppBgMusicPlayer;
-import com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher;
+import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.Editable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.PopupWindow;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.bl1;
-import com.repackage.qj1;
-import com.repackage.tk1;
-import com.repackage.uk1;
-import com.repackage.vl1;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class zi2 {
+public class zi2 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Inject(force = false)
-    public static ij1 A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new fl3() : (ij1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static sl1 A0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new bj1() : (sl1) invokeV.objValue;
-    }
-
-    @Inject
-    public static e42 B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new nl3() : (e42) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static d72 B0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new v72() : (d72) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static mk1 C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? wl3.a() : (mk1) invokeV.objValue;
-    }
-
-    @Inject
-    public static yj2 C0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new ch4() : (yj2) invokeV.objValue;
-    }
-
-    @Inject
-    public static nk1 D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new sg4() : (nk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static kl1 D0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new xi1() : (kl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static jj1 E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new oh1() : (jj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ll1 E0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new cl3() : (ll1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static kj1 F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? km5.a() : (kj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static tl1 F0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new hm1() : (tl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ok1 G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? new sl3() : (ok1) invokeV.objValue;
-    }
-
-    @Inject
-    public static zj2 G0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? en5.a() : (zj2) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static pk1 H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? yl5.a() : (pk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static as2 H0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? as2.a : (as2) invokeV.objValue;
-    }
-
-    @Inject
-    public static sj2 I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? x34.a() : (sj2) invokeV.objValue;
-    }
-
-    @Inject
-    public static tj2 J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? c44.a() : (tj2) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static t54 K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? bl3.a() : (t54) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static tk1 L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? new tk1.a() : (tk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static cj1 M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? xm5.a() : (cj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static uk1 N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? new uk1.a() : (uk1) invokeV.objValue;
-    }
-
-    @Inject
-    public static vk1 O() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? gm3.a() : (vk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static mj1 P() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? new ph1() : (mj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static wk1 Q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? new ol3() : (wk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static xk1 R() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? new mi1() : (xk1) invokeV.objValue;
-    }
-
-    @Inject
-    public static uj2 S() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? dm5.a() : (uj2) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static vj2 T() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) ? bn5.a() : (vj2) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static yk1 U() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) ? new oi1() : (yk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static zk1 V() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? hm5.a() : (zk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static al1 W() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? new pi1() : (al1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static rj1 X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? new th1() : (rj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static bl1 Y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) ? new bl1.a() : (bl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static pl1 Z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) ? new zi1() : (pl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ol1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) ? new yi1() : (ol1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static dl1 a0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? new qi1() : (dl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ISwanApkFetcher b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? new ISwanApkFetcher.b() : (ISwanApkFetcher) invokeV.objValue;
-    }
-
-    @Inject
-    public static wj2 b0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) ? ul5.a() : (wj2) invokeV.objValue;
-    }
-
-    public static Application c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? AppRuntime.getApplication() : (Application) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static gl1 c0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) ? new ti1() : (gl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static qj1 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) ? new qj1.b() : (qj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static nj1 d0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) ? new qh1() : (nj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static fj1 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) ? new pi3() : (fj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static il1 e0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) ? new ui1() : (il1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static uj1 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) ? DefaultSwanAppBgMusicPlayer.j() : (uj1) invokeV.objValue;
-    }
-
-    @Inject
-    public static xj2 f0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) ? um5.a() : (xj2) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static vj1 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) ? new nh1() : (vj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static oj1 g0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) ? new lm3() : (oj1) invokeV.objValue;
-    }
-
-    @Inject
-    public static ub3 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) ? xm3.a() : (ub3) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static pj1 h0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) ? pg3.a() : (pj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static wj1 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65586, null)) == null) ? zk3.a() : (wj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static tj1 i0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) ? new t43() : (tj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static xj1 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) ? new uh1() : (xj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static yj1 j0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65589, null)) == null) ? xg3.a() : (yj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static zj1 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65590, null)) == null) ? new vh1() : (zj1) invokeV.objValue;
-    }
-
-    @Inject
-    public static pj2 k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65591, null)) == null) ? mi3.a() : (pj2) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ak1 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65592, null)) == null) ? new wh1() : (ak1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static hk1 l0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65593, null)) == null) ? new ci1() : (hk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static bk1 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65594, null)) == null) ? new xh1() : (bk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static lk1 m0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65595, null)) == null) ? new gi1() : (lk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static el1 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65596, null)) == null) ? new ri1() : (el1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static rj2 n0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65597, null)) == null) ? new hi1() : (rj2) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ck1 o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65598, null)) == null) ? wl5.a() : (ck1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static qk1 o0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65599, null)) == null) ? new ii1() : (qk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static gj1 p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65600, null)) == null) ? zm3.a() : (gj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static rk1 p0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65601, null)) == null) ? new ji1() : (rk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static dk1 q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65602, null)) == null) ? new eh3() : (dk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static sk1 q0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65603, null)) == null) ? new li1() : (sk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ek1 r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65604, null)) == null) ? new zh1() : (ek1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static aa4 r0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65605, null)) == null) ? el3.a() : (aa4) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static qj2 s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65606, null)) == null) ? ll3.a() : (qj2) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static cl1 s0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65607, null)) == null) ? ci3.a() : (cl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static fk1 t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65608, null)) == null) ? new ai1() : (fk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static fl1 t0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65609, null)) == null) ? new si1() : (fl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static gk1 u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65610, null)) == null) ? new bi1() : (gk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ml1 u0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65611, null)) == null) ? new ni1() : (ml1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static vl1 v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65612, null)) == null) ? new vl1.b() : (vl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static nl1 v0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65613, null)) == null) ? bs3.a() : (nl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static hj1 w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65614, null)) == null) ? new mh1() : (hj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ql1 w0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65615, null)) == null) ? new nm3() : (ql1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ik1 x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65616, null)) == null) ? new di1() : (ik1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static rl1 x0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65617, null)) == null) ? new aj1() : (rl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static jk1 y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65618, null)) == null) ? new ei1() : (jk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static dj1 y0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65619, null)) == null) ? new vi1() : (dj1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static kk1 z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65620, null)) == null) ? new fi1() : (kk1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    @Deprecated
-    public static jl1 z0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65621, null)) == null) ? new wi1() : (jl1) invokeV.objValue;
+    public SwanAppActivity a;
+    public EditText b;
+    public String[] c;
+    public int d;
+    public d e;
+
+    /* loaded from: classes7.dex */
+    public class a implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ zi2 b;
+
+        public a(zi2 zi2Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zi2Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zi2Var;
+            this.a = i;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                int selectionStart = this.b.b.getSelectionStart();
+                Editable text = this.b.b.getText();
+                if (i == 11) {
+                    if (selectionStart <= 0 || text == null || text.length() <= 0) {
+                        return;
+                    }
+                    int i2 = selectionStart - 1;
+                    text.delete(i2, selectionStart);
+                    this.b.b.setText(text);
+                    this.b.b.setSelection(i2);
+                    return;
+                }
+                int length = text.length();
+                int i3 = this.a;
+                if (length < i3 || i3 < 0) {
+                    text.insert(selectionStart, this.b.c[i]);
+                    this.b.b.setText(text);
+                    this.b.b.setSelection(selectionStart + this.b.c[i].length());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GridView a;
+        public final /* synthetic */ AdapterView.OnItemClickListener b;
+
+        /* loaded from: classes7.dex */
+        public class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    int intValue = ((Integer) view2.getTag()).intValue();
+                    b bVar = this.a;
+                    bVar.b.onItemClick(bVar.a, view2, intValue, intValue);
+                }
+            }
+        }
+
+        public b(zi2 zi2Var, GridView gridView, AdapterView.OnItemClickListener onItemClickListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zi2Var, gridView, onItemClickListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gridView;
+            this.b = onItemClickListener;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int childCount = this.a.getChildCount();
+                if (childCount > 0) {
+                    this.a.setClickable(false);
+                    for (int i = 0; i < childCount; i++) {
+                        View childAt = this.a.getChildAt(i);
+                        childAt.setTag(Integer.valueOf(i));
+                        childAt.setOnClickListener(new a(this));
+                    }
+                    return;
+                }
+                this.a.setOnItemClickListener(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zi2 a;
+
+        public c(zi2 zi2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zi2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zi2Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                this.a.b.clearFocus();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface d {
+        void a();
+
+        void b(int i);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zi2(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i, int i2) {
+        super(swanAppActivity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {swanAppActivity, editText, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new String[12];
+        c(i);
+        d(swanAppActivity, editText, i2);
+    }
+
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            int i2 = 0;
+            while (i2 < 9) {
+                int i3 = i2 + 1;
+                this.c[i2] = String.valueOf(i3);
+                i2 = i3;
+            }
+            if (i == 1) {
+                this.c[9] = "X";
+            } else if (i == 0) {
+                this.c[9] = "";
+            } else if (i == 2) {
+                this.c[9] = ".";
+            }
+            this.c[10] = "0";
+        }
+    }
+
+    public final void d(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity, editText, i) == null) {
+            this.a = swanAppActivity;
+            this.b = editText;
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(swanAppActivity).inflate(R.layout.obfuscated_res_0x7f0d00b2, (ViewGroup) null);
+            this.d = swanAppActivity.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070154);
+            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            GridView gridView = (GridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090fd4);
+            gridView.setAdapter((ListAdapter) new yi2(swanAppActivity, this.c));
+            be3.a0(new b(this, gridView, new a(this, i)));
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09062d);
+            imageView.setOnClickListener(new c(this));
+            imageView.setClickable(true);
+            setContentView(linearLayout);
+            setWidth(-1);
+            setHeight(this.d);
+            setBackgroundDrawable(new BitmapDrawable());
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.dismiss();
+            d dVar = this.e;
+            if (dVar != null) {
+                dVar.a();
+            }
+        }
+    }
+
+    public void e(@NonNull d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+            this.e = dVar;
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || isShowing()) {
+            return;
+        }
+        showAtLocation(this.a.getWindow().getDecorView(), 80, 0, 0);
+        d dVar = this.e;
+        if (dVar != null) {
+            dVar.b(this.d);
+        }
     }
 }

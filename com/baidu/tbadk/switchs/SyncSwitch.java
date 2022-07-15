@@ -104,8 +104,6 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(TencentMMSwitch.class);
             SwitchManager.getInstance().registerSwitch(VCacheSwitch.class);
             SwitchManager.getInstance().registerSwitch(PageStayDurationSwitch.class);
-            SwitchManager.getInstance().registerSwitch(PluginClassChangeSwitch.class);
-            SwitchManager.getInstance().registerSwitch(UseNewMethodCheckLogoSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseHttpdnsSdkSwitch.class);
             SwitchManager.getInstance().registerSwitch(bi.class);
             SwitchManager.getInstance().registerSwitch(RepostToDynamicDefaultSwitch.class);
@@ -114,10 +112,8 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(FlutterPersonAttentionEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterForumDetailEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterMyTabEnableSwitch.class);
-            SwitchManager.getInstance().registerSwitch(NativeCrashHandler.class);
             SwitchManager.getInstance().registerSwitch(FlutterConcernForumEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterAttachSwitch.class);
-            SwitchManager.getInstance().registerSwitch(XiaomiWebViewInitSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterPersonCenterEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterCrashRepairEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdSdkSwitch.class);
@@ -130,7 +126,6 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(WorkIntroSwitch.class);
             SwitchManager.getInstance().registerSwitch(CreateCenterTipSwitch.class);
             SwitchManager.getInstance().registerSwitch(FollowListSwitch.class);
-            SwitchManager.getInstance().registerSwitch(SplashDealyTimeoutSwitch.class);
             SwitchManager.getInstance().registerSwitch(IColorSDKSwitch.class);
             SwitchManager.getInstance().registerSwitch(VideoMiddleAdSwitch.class);
             SwitchManager.getInstance().registerSwitch(GdtPrivacySwitch.class);

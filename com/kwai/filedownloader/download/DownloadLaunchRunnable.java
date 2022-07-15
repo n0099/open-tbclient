@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.crash.utils.g;
 import com.kwai.filedownloader.download.ConnectTask;
 import com.kwai.filedownloader.download.c;
 import com.kwai.filedownloader.download.e;
@@ -29,7 +30,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class DownloadLaunchRunnable implements f, Runnable {
+public final class DownloadLaunchRunnable implements f, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadPoolExecutor o;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,13 +60,6 @@ public class DownloadLaunchRunnable implements f, Runnable {
     public long x;
     public long y;
     public long z;
-
-    /* renamed from: com.kwai.filedownloader.download.DownloadLaunchRunnable$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     /* loaded from: classes5.dex */
     public class DiscardSafely extends Throwable {
@@ -146,7 +140,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
             }
         }
 
-        public a a(com.kwai.filedownloader.c.b bVar) {
+        public final a a(com.kwai.filedownloader.c.b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
@@ -156,7 +150,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
             return (a) invokeL.objValue;
         }
 
-        public a a(com.kwai.filedownloader.c.c cVar) {
+        public final a a(com.kwai.filedownloader.c.c cVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
@@ -166,7 +160,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
             return (a) invokeL.objValue;
         }
 
-        public a a(y yVar) {
+        public final a a(y yVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yVar)) == null) {
@@ -176,7 +170,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
             return (a) invokeL.objValue;
         }
 
-        public a a(Boolean bool) {
+        public final a a(Boolean bool) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bool)) == null) {
@@ -186,7 +180,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
             return (a) invokeL.objValue;
         }
 
-        public a a(Integer num) {
+        public final a a(Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, num)) == null) {
@@ -196,19 +190,19 @@ public class DownloadLaunchRunnable implements f, Runnable {
             return (a) invokeL.objValue;
         }
 
-        public DownloadLaunchRunnable a() {
+        public final DownloadLaunchRunnable a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 if (this.a == null || this.c == null || this.d == null || this.e == null || this.f == null || this.g == null || this.h == null) {
                     throw new IllegalArgumentException();
                 }
-                return new DownloadLaunchRunnable(this.a, this.b, this.c, this.d.intValue(), this.e.intValue(), this.f.booleanValue(), this.g.booleanValue(), this.h.intValue(), null);
+                return new DownloadLaunchRunnable(this.a, this.b, this.c, this.d.intValue(), this.e.intValue(), this.f.booleanValue(), this.g.booleanValue(), this.h.intValue(), (byte) 0);
             }
             return (DownloadLaunchRunnable) invokeV.objValue;
         }
 
-        public a b(Boolean bool) {
+        public final a b(Boolean bool) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bool)) == null) {
@@ -218,7 +212,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
             return (a) invokeL.objValue;
         }
 
-        public a b(Integer num) {
+        public final a b(Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, num)) == null) {
@@ -228,7 +222,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
             return (a) invokeL.objValue;
         }
 
-        public a c(Integer num) {
+        public final a c(Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, num)) == null) {
@@ -290,12 +284,12 @@ public class DownloadLaunchRunnable implements f, Runnable {
         this.b = new d(cVar, i3, i, i2);
     }
 
-    public /* synthetic */ DownloadLaunchRunnable(com.kwai.filedownloader.c.c cVar, com.kwai.filedownloader.c.b bVar, y yVar, int i, int i2, boolean z, boolean z2, int i3, AnonymousClass1 anonymousClass1) {
+    public /* synthetic */ DownloadLaunchRunnable(com.kwai.filedownloader.c.c cVar, com.kwai.filedownloader.c.b bVar, y yVar, int i, int i2, boolean z, boolean z2, int i3, byte b) {
         this(cVar, bVar, yVar, i, i2, z, z2, i3);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0064  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0069  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0062  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0067  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -306,16 +300,16 @@ public class DownloadLaunchRunnable implements f, Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, list)) == null) {
-            int n = this.d.n();
+            int m = this.d.m();
             String e = this.d.e();
             String d = this.d.d();
-            boolean z2 = n > 1;
+            boolean z2 = m > 1;
             if ((!z2 || this.k) && com.kwai.filedownloader.e.f.a(this.d.a(), this.d)) {
                 if (!this.k) {
                     g = new File(e).length();
                 } else if (!z2) {
                     g = this.d.g();
-                } else if (n == list.size()) {
+                } else if (m == list.size()) {
                     g = com.kwai.filedownloader.c.a.a(list);
                 }
                 j = g;
@@ -324,7 +318,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
                 this.p = z;
                 if (!z) {
                     this.h.d(this.d.a());
-                    com.kwai.filedownloader.e.f.c(d, e);
+                    com.kwai.filedownloader.e.f.b(d, e);
                 }
                 return new com.kwai.filedownloader.download.a(0L, j, 0L, this.d.h() - j);
             }
@@ -383,19 +377,19 @@ public class DownloadLaunchRunnable implements f, Runnable {
             com.kwai.filedownloader.d.a aVar = null;
             if (j != -1) {
                 try {
-                    aVar = com.kwai.filedownloader.e.f.l(this.d.e());
+                    aVar = com.kwai.filedownloader.e.f.h(this.d.e());
                     long length = new File(str).length();
                     long j2 = j - length;
-                    long f = com.kwai.filedownloader.e.f.f(str);
-                    if (f < j2) {
-                        throw new FileDownloadOutOfSpaceException(f, j2, length);
+                    long a2 = g.a(str);
+                    if (a2 < j2) {
+                        throw new FileDownloadOutOfSpaceException(a2, j2, length);
                     }
                     if (!com.kwai.filedownloader.e.e.a().f) {
                         aVar.b(j);
                     }
                 } finally {
                     if (0 != 0) {
-                        aVar.b();
+                        aVar.close();
                     }
                 }
             }
@@ -447,9 +441,6 @@ public class DownloadLaunchRunnable implements f, Runnable {
                     if (com.kwai.filedownloader.e.d.a) {
                         com.kwai.filedownloader.e.d.c(this, "enable multiple connection: %s", aVar);
                     }
-                    if (a3 == null) {
-                        throw new IllegalArgumentException("the download runnable must not be null!");
-                    }
                     this.l.add(a3);
                 } else if (com.kwai.filedownloader.e.d.a) {
                     com.kwai.filedownloader.e.d.c(this, "pass connection[%d-%d], because it has been completed", Integer.valueOf(aVar.a()), Integer.valueOf(aVar.b()));
@@ -498,7 +489,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
                     throw new FileDownloadHttpException(e, map, bVar.c());
                 }
                 long b = com.kwai.filedownloader.e.f.b(a2, bVar);
-                String a4 = this.d.l() ? com.kwai.filedownloader.e.f.a(bVar, this.d.b()) : null;
+                String a4 = this.d.k() ? com.kwai.filedownloader.e.f.a(bVar, this.d.b()) : null;
                 boolean z2 = b == -1;
                 this.r = z2;
                 this.b.a(this.p && this.q, !z2 ? this.d.g() + b : b, a3, a4);
@@ -508,7 +499,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
                 com.kwai.filedownloader.e.d.d(this, "there is precondition failed on this request[%d] with old etag[%s]、new etag[%s]、response requestHttpCode is %d", Integer.valueOf(a2), j, a3, Integer.valueOf(e));
             }
             this.h.d(this.d.a());
-            com.kwai.filedownloader.e.f.c(this.d.d(), this.d.e());
+            com.kwai.filedownloader.e.f.b(this.d.d(), this.d.e());
             this.p = false;
             if (j != 0 && j.equals(a3)) {
                 com.kwai.filedownloader.e.d.d(this, "the old etag[%s] is the same to the new etag[%s], but the response status requestHttpCode is %d not Partial(206), so wo have to start this task from very beginning for task[%d]!", j, a3, Integer.valueOf(e), Integer.valueOf(a2));
@@ -517,8 +508,8 @@ public class DownloadLaunchRunnable implements f, Runnable {
             this.d.a(0L);
             this.d.c(0L);
             this.d.b(a3);
-            this.d.o();
-            this.h.a(a2, this.d.j(), this.d.g(), this.d.h(), this.d.n());
+            this.d.n();
+            this.h.a(a2, this.d.j(), this.d.g(), this.d.h(), this.d.m());
             throw new RetryDirectly(this);
         }
     }
@@ -526,16 +517,16 @@ public class DownloadLaunchRunnable implements f, Runnable {
     private boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? (!this.p || this.d.n() > 1) && this.q && this.k && !this.r : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? (!this.p || this.d.m() > 1) && this.q && this.k && !this.r : invokeV.booleanValue;
     }
 
     private void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            if (this.g && !com.kwai.filedownloader.e.f.j("android.permission.ACCESS_NETWORK_STATE")) {
+            if (this.g && !com.kwai.filedownloader.e.f.g("android.permission.ACCESS_NETWORK_STATE")) {
                 throw new FileDownloadGiveUpRetryException(com.kwai.filedownloader.e.f.a("Task[%d] can't start the download runnable, because this task require wifi, but user application nor current process has %s, so we can't check whether the network type connection.", Integer.valueOf(this.d.a()), "android.permission.ACCESS_NETWORK_STATE"));
             }
-            if (this.g && com.kwai.filedownloader.e.f.d()) {
+            if (this.g && com.kwai.filedownloader.e.f.a()) {
                 throw new FileDownloadNetworkPolicyException();
             }
         }
@@ -545,30 +536,30 @@ public class DownloadLaunchRunnable implements f, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             int a2 = this.d.a();
-            if (this.d.l()) {
+            if (this.d.k()) {
                 String d = this.d.d();
-                int b = com.kwai.filedownloader.e.f.b(this.d.b(), d);
+                int a3 = com.kwai.filedownloader.e.f.a(this.d.b(), d);
                 if (com.kwai.filedownloader.e.c.a(a2, d, this.f, false)) {
                     this.h.e(a2);
                     this.h.d(a2);
                     throw new DiscardSafely(this);
                 }
-                com.kwai.filedownloader.c.c b2 = this.h.b(b);
-                if (b2 != null) {
-                    if (com.kwai.filedownloader.e.c.a(a2, b2, this.i, false)) {
+                com.kwai.filedownloader.c.c b = this.h.b(a3);
+                if (b != null) {
+                    if (com.kwai.filedownloader.e.c.a(a2, b, this.i, false)) {
                         this.h.e(a2);
                         this.h.d(a2);
                         throw new DiscardSafely(this);
                     }
-                    List<com.kwai.filedownloader.c.a> c = this.h.c(b);
-                    this.h.e(b);
-                    this.h.d(b);
-                    com.kwai.filedownloader.e.f.n(this.d.d());
-                    if (com.kwai.filedownloader.e.f.a(b, b2)) {
-                        this.d.a(b2.g());
-                        this.d.c(b2.h());
-                        this.d.b(b2.j());
-                        this.d.b(b2.n());
+                    List<com.kwai.filedownloader.c.a> c = this.h.c(a3);
+                    this.h.e(a3);
+                    this.h.d(a3);
+                    com.kwai.filedownloader.e.f.i(this.d.d());
+                    if (com.kwai.filedownloader.e.f.a(a3, b)) {
+                        this.d.a(b.g());
+                        this.d.c(b.h());
+                        this.d.b(b.j());
+                        this.d.b(b.m());
                         this.h.a(this.d);
                         if (c != null) {
                             for (com.kwai.filedownloader.c.a aVar : c) {
@@ -588,7 +579,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
         }
     }
 
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.t = true;
@@ -607,7 +598,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
     }
 
     @Override // com.kwai.filedownloader.download.f
-    public void a(long j) {
+    public final void a(long j) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.t) {
             return;
@@ -616,7 +607,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
     }
 
     @Override // com.kwai.filedownloader.download.f
-    public void a(c cVar, long j, long j2) {
+    public final void a(c cVar, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{cVar, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             if (this.t) {
@@ -642,7 +633,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
     }
 
     @Override // com.kwai.filedownloader.download.f
-    public void a(Exception exc, long j) {
+    public final void a(Exception exc, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048579, this, exc, j) == null) {
             if (this.t) {
@@ -663,14 +654,14 @@ public class DownloadLaunchRunnable implements f, Runnable {
     }
 
     @Override // com.kwai.filedownloader.download.f
-    public boolean a(Exception exc) {
+    public final boolean a(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, exc)) == null) {
             if (exc instanceof FileDownloadHttpException) {
                 int code = ((FileDownloadHttpException) exc).getCode();
                 if (this.n && code == 416 && !this.j) {
-                    com.kwai.filedownloader.e.f.c(this.d.d(), this.d.e());
+                    com.kwai.filedownloader.e.f.b(this.d.d(), this.d.e());
                     this.j = true;
                     return true;
                 }
@@ -680,12 +671,12 @@ public class DownloadLaunchRunnable implements f, Runnable {
         return invokeL.booleanValue;
     }
 
-    public void b() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.d.n() > 1) {
+            if (this.d.m() > 1) {
                 List<com.kwai.filedownloader.c.a> c = this.h.c(this.d.a());
-                if (this.d.n() == c.size()) {
+                if (this.d.m() == c.size()) {
                     this.d.a(com.kwai.filedownloader.c.a.a(c));
                 } else {
                     this.d.a(0L);
@@ -697,7 +688,7 @@ public class DownloadLaunchRunnable implements f, Runnable {
     }
 
     @Override // com.kwai.filedownloader.download.f
-    public void b(Exception exc) {
+    public final void b(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, exc) == null) {
             this.u = true;
@@ -720,51 +711,48 @@ public class DownloadLaunchRunnable implements f, Runnable {
     }
 
     @Override // com.kwai.filedownloader.download.f
-    public void c() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.h.a(this.d.a(), this.d.g());
         }
     }
 
-    public int d() {
+    public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d.a() : invokeV.intValue;
     }
 
-    public boolean e() {
+    public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.s.get() || this.b.a() : invokeV.booleanValue;
     }
 
-    public String f() {
+    public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d.e() : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:100:0x01e3, code lost:
-        a(r10, r7);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:101:0x01e7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x01e5, code lost:
         a(r17, r10);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:102:0x01ec, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:101:0x01ea, code lost:
         r9 = r2;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:103:0x01ed, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:102:0x01eb, code lost:
         if (r9 == null) goto L82;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:104:0x01ef, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x01ed, code lost:
         r9.f();
      */
     /* JADX WARN: Code restructure failed: missing block: B:107:0x0203, code lost:
         throw new java.lang.IllegalAccessException(com.kwai.filedownloader.e.f.a("invalid connection count %d, the connection count must be larger than 0", r9));
      */
     /* JADX WARN: Code restructure failed: missing block: B:33:0x00a3, code lost:
-        if (com.kwai.filedownloader.e.d.a == false) goto L168;
+        if (com.kwai.filedownloader.e.d.a == false) goto L164;
      */
     /* JADX WARN: Code restructure failed: missing block: B:34:0x00a5, code lost:
         com.kwai.filedownloader.e.d.c(r19, "High concurrent cause, start runnable but already paused %d", java.lang.Integer.valueOf(r19.d.a()));
@@ -773,10 +761,10 @@ public class DownloadLaunchRunnable implements f, Runnable {
         r19.b.b();
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x00bd, code lost:
-        if (r19.t == false) goto L170;
+        if (r19.t == false) goto L166;
      */
     /* JADX WARN: Code restructure failed: missing block: B:39:0x00c2, code lost:
-        if (r19.u == false) goto L172;
+        if (r19.u == false) goto L168;
      */
     /* JADX WARN: Code restructure failed: missing block: B:41:0x00c5, code lost:
         r19.b.g();
@@ -787,133 +775,136 @@ public class DownloadLaunchRunnable implements f, Runnable {
     /* JADX WARN: Code restructure failed: missing block: B:44:0x00cc, code lost:
         r2 = r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0126, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0124, code lost:
         if (r19.t == false) goto L55;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x0128, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0126, code lost:
         r19.d.a((byte) -2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x012d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x012b, code lost:
         if (r9 == null) goto L46;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x012f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x012d, code lost:
         r9.f();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0132, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0130, code lost:
         r19.b.b();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0139, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x0137, code lost:
         if (r19.t == false) goto L48;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x013f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x013d, code lost:
         if (r19.u == false) goto L50;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x0143, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x0141, code lost:
         r19.b.g();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x014a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x0148, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x014b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0149, code lost:
         r2 = r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:65:0x014e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x014c, code lost:
         i();
         r14 = r19.d.h();
         a(r14, r19.d.e());
      */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x0164, code lost:
-        if (g() == false) goto L107;
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x0162, code lost:
+        if (g() == false) goto L103;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0166, code lost:
+        if (r19.p == false) goto L102;
      */
     /* JADX WARN: Code restructure failed: missing block: B:68:0x0168, code lost:
-        if (r19.p == false) goto L106;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x016a, code lost:
-        r10 = r19.d.n();
+        r10 = r19.d.m();
         r17 = r14;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:70:0x0173, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x0171, code lost:
         r17 = r14;
         r10 = com.kwai.filedownloader.download.b.a().a(r19.d.a(), r19.d.b(), r19.d.c(), r17);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:71:0x0193, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x0191, code lost:
         r17 = r14;
         r10 = 1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:72:0x0196, code lost:
-        if (r10 <= 0) goto L104;
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x0194, code lost:
+        if (r10 <= 0) goto L100;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:74:0x019a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x0198, code lost:
         if (r19.t == false) goto L75;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:75:0x019c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:74:0x019a, code lost:
         r19.d.a((byte) -2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x01a1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:75:0x019f, code lost:
         if (r9 == null) goto L66;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:77:0x01a3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x01a1, code lost:
         r9.f();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x01a6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:77:0x01a4, code lost:
         r19.b.b();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:79:0x01ad, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x01ab, code lost:
         if (r19.t == false) goto L68;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x01b3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x01b1, code lost:
         if (r19.u == false) goto L70;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:84:0x01b7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x01b5, code lost:
         r19.b.g();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:86:0x01be, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:85:0x01bc, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:87:0x01bf, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:86:0x01bd, code lost:
         r2 = r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:88:0x01c2, code lost:
-        if (r10 != 1) goto L103;
+    /* JADX WARN: Code restructure failed: missing block: B:87:0x01c0, code lost:
+        if (r10 != 1) goto L99;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:89:0x01c4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:88:0x01c2, code lost:
         r11 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:90:0x01c6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:89:0x01c4, code lost:
         r11 = false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:91:0x01c7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:90:0x01c5, code lost:
         r19.n = r11;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:92:0x01c9, code lost:
-        if (r11 == false) goto L95;
+    /* JADX WARN: Code restructure failed: missing block: B:91:0x01c7, code lost:
+        if (r11 == false) goto L91;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:93:0x01cb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:92:0x01c9, code lost:
         a(r8.e(), r9);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:94:0x01d3, code lost:
-        if (r9 == null) goto L102;
+    /* JADX WARN: Code restructure failed: missing block: B:93:0x01d1, code lost:
+        if (r9 == null) goto L98;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:95:0x01d5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:94:0x01d3, code lost:
         r9.f();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:97:0x01d9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:96:0x01d7, code lost:
         r2 = r9;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:98:0x01da, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:97:0x01d8, code lost:
         r19.b.e();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:99:0x01e1, code lost:
-        if (r19.p == false) goto L101;
+    /* JADX WARN: Code restructure failed: missing block: B:98:0x01df, code lost:
+        if (r19.p == false) goto L97;
      */
-    /* JADX WARN: Removed duplicated region for block: B:156:0x0260 A[Catch: all -> 0x021b, TryCatch #24 {all -> 0x021b, blocks: (B:49:0x00d5, B:98:0x01da, B:100:0x01e3, B:101:0x01e7, B:154:0x025a, B:156:0x0260, B:159:0x0268, B:126:0x021f), top: B:209:0x025a }] */
-    /* JADX WARN: Removed duplicated region for block: B:175:0x02a0 A[Catch: all -> 0x02a4, TRY_ENTER, TryCatch #1 {all -> 0x02a4, blocks: (B:5:0x0009, B:8:0x0018, B:10:0x0020, B:12:0x0024, B:13:0x0036, B:27:0x0094, B:29:0x0098, B:30:0x009d, B:32:0x00a1, B:34:0x00a5, B:45:0x00ce, B:54:0x012f, B:77:0x01a3, B:104:0x01ef, B:175:0x02a0, B:176:0x02a3, B:131:0x022f, B:128:0x0227, B:161:0x026d), top: B:194:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:215:0x0268 A[SYNTHETIC] */
+    /* JADX WARN: Code restructure failed: missing block: B:99:0x01e1, code lost:
+        a(r10, r7);
+     */
+    /* JADX WARN: Removed duplicated region for block: B:155:0x025e A[Catch: all -> 0x021b, TryCatch #24 {all -> 0x021b, blocks: (B:48:0x00d3, B:97:0x01d8, B:99:0x01e1, B:100:0x01e5, B:153:0x0258, B:155:0x025e, B:158:0x0266, B:126:0x021e), top: B:206:0x0258 }] */
+    /* JADX WARN: Removed duplicated region for block: B:162:0x0271 A[Catch: all -> 0x0291, TryCatch #23 {all -> 0x0291, blocks: (B:5:0x0009, B:8:0x0018, B:10:0x0020, B:12:0x0024, B:13:0x0036, B:27:0x0094, B:29:0x0098, B:30:0x009d, B:32:0x00a1, B:34:0x00a5, B:45:0x00ce, B:53:0x012d, B:76:0x01a1, B:103:0x01ed, B:162:0x0271, B:163:0x0274, B:130:0x022d, B:128:0x0226, B:160:0x026b), top: B:205:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:212:0x0266 A[SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void run() {
+    public final void run() {
         IOException iOException;
         Exception exc;
         Throwable th;
@@ -948,11 +939,10 @@ public class DownloadLaunchRunnable implements f, Runnable {
                         this.b.d();
                     }
                     while (true) {
-                        if (this.t) {
-                            break;
-                        } else if (this.h == null) {
-                            break;
-                        } else {
+                        if (!this.t) {
+                            if (this.h == null) {
+                                break;
+                            }
                             com.kwai.filedownloader.kwai.b bVar = null;
                             try {
                                 h();
@@ -971,19 +961,22 @@ public class DownloadLaunchRunnable implements f, Runnable {
                                             bVar.f();
                                         }
                                         this.b.b();
-                                        if (this.t) {
-                                            this.b.f();
-                                        } else if (this.u) {
-                                            this.b.a(this.v);
-                                        } else {
-                                            try {
-                                                this.b.g();
-                                            } catch (IOException e3) {
-                                                this.b.a(e3);
+                                        if (!this.t) {
+                                            if (!this.u) {
+                                                try {
+                                                    this.b.g();
+                                                } catch (IOException e3) {
+                                                    iOException = e3;
+                                                    this.b.a(iOException);
+                                                    this.s.set(false);
+                                                }
+                                                this.s.set(false);
                                             }
+                                            this.b.a(this.v);
+                                            this.s.set(false);
                                         }
+                                        this.b.f();
                                         this.s.set(false);
-                                        return;
                                     }
                                     a(exc, 0L);
                                     if (bVar != null) {
@@ -1096,6 +1089,8 @@ public class DownloadLaunchRunnable implements f, Runnable {
                                 }
                                 throw th;
                             }
+                        } else {
+                            break;
                         }
                     }
                     this.b.a(this.v);

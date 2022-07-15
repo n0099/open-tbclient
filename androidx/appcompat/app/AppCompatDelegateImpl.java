@@ -1112,7 +1112,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 if (i2 != 0) {
                     newTheme.applyStyle(i2, true);
                 } else {
-                    newTheme.applyStyle(R$style.obfuscated_res_0x7f100213, true);
+                    newTheme.applyStyle(R$style.obfuscated_res_0x7f100214, true);
                 }
                 androidx.appcompat.view.ContextThemeWrapper contextThemeWrapper = new androidx.appcompat.view.ContextThemeWrapper(context, 0);
                 contextThemeWrapper.getTheme().setTo(newTheme);
@@ -2353,7 +2353,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 Configuration configuration = context.getPackageManager().getResourcesForApplication(context.getApplicationInfo()).getConfiguration();
                 Configuration configuration2 = context.getResources().getConfiguration();
                 Configuration createOverrideConfigurationForDayNight = createOverrideConfigurationForDayNight(context, mapNightMode, configuration.equals(configuration2) ? null : generateConfigDelta(configuration, configuration2));
-                androidx.appcompat.view.ContextThemeWrapper contextThemeWrapper = new androidx.appcompat.view.ContextThemeWrapper(context, R$style.obfuscated_res_0x7f10021f);
+                androidx.appcompat.view.ContextThemeWrapper contextThemeWrapper = new androidx.appcompat.view.ContextThemeWrapper(context, R$style.obfuscated_res_0x7f100220);
                 contextThemeWrapper.applyOverrideConfiguration(createOverrideConfigurationForDayNight);
                 boolean z = false;
                 try {

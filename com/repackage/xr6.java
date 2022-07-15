@@ -1,70 +1,104 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StrikethroughSpan;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.wallet.CurrencyHelper;
+import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xt6;
-import com.squareup.wire.Message;
 /* loaded from: classes7.dex */
-public class xr6 implements nd7 {
+public class xr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xt6.d a;
 
-    public xr6(xt6.d dVar) {
+    public static SpannableString a(long j, int i, int i2) {
+        InterceptResult invokeCommon;
+        String formatOverBaiwanNum;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (CurrencySwitchUtil.isYyIsConvert(i2)) {
+                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i2, j);
+            } else {
+                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
             }
+            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i2);
+            String str = "[icon]" + formatOverBaiwanNum;
+            SpannableString spannableString = new SpannableString(str);
+            if (TbadkApplication.getInst().getSkinType() == 1) {
+                moneyIcon.setAlpha(179);
+            } else {
+                moneyIcon.setAlpha(255);
+            }
+            int f = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
+            moneyIcon.setBounds(0, 0, f, f);
+            ze5 ze5Var = new ze5(moneyIcon);
+            ze5Var.b(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070232));
+            ze5Var.c(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070232));
+            UtilHelper.setSpan(spannableString, str, "[icon]", ze5Var);
+            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
+            return spannableString;
         }
-        this.a = dVar;
+        return (SpannableString) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.nd7
-    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
+    public static SpannableString b(long j, boolean z, int i) {
+        InterceptResult invokeCommon;
+        String formatOverBaiwanNum;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
-            yr6 yr6Var = new yr6();
-            gd7 gd7Var = new gd7();
-            gd7Var.a = j;
-            gd7Var.b = str;
-            cd7 a = ld7.d().a(gd7Var);
-            if (a != null) {
-                a.c(z, message, z2, i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (CurrencySwitchUtil.isYyIsConvert(i)) {
+                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i, j);
+            } else {
+                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
             }
-            yr6Var.b(a);
-            xt6.d dVar = this.a;
-            if (dVar != null) {
-                dVar.e(z, yr6Var, z2, "", str, true);
+            if (z) {
+                str = "=[icon]" + formatOverBaiwanNum;
+            } else {
+                str = "[icon]" + formatOverBaiwanNum;
             }
+            SpannableString spannableString = new SpannableString(str);
+            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i);
+            int f = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
+            moneyIcon.setBounds(0, 0, f, f);
+            ze5 ze5Var = new ze5(moneyIcon);
+            ze5Var.b(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070232));
+            ze5Var.c(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070232));
+            UtilHelper.setSpan(spannableString, str, "[icon]", ze5Var);
+            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
+            if (z) {
+                UtilHelper.setSpan(spannableString, str, "=", new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
+            }
+            return spannableString;
         }
+        return (SpannableString) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.nd7
-    public void b(long j, String str, String str2, int i) {
-        xt6.d dVar;
+    public static SpannableString c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) || (dVar = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (StringUtils.isNull(str)) {
+                return new SpannableString("");
+            }
+            SpannableString spannableString = new SpannableString(str);
+            UtilHelper.setSpan(spannableString, str, str, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)));
+            UtilHelper.setSpan(spannableString, str, str2, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
+            if (!StringUtils.isNull(str3)) {
+                UtilHelper.setSpan(spannableString, str, str3, new StrikethroughSpan());
+            }
+            return spannableString;
         }
-        dVar.c(str, str2, i, true, 1);
-    }
-
-    @Override // com.repackage.nd7
-    public void c(long j, String str, Message message, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
-        }
+        return (SpannableString) invokeLLL.objValue;
     }
 }

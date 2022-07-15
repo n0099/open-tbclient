@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.ReturnKeyType;
 import java.security.InvalidParameterException;
 /* loaded from: classes5.dex */
 public class aa extends jj {
@@ -152,7 +151,7 @@ public class aa extends jj {
             z();
             n9 n9Var = n9.b;
             if (n9Var != null) {
-                n9Var.a(this.d.getCmd(), ReturnKeyType.SEND, this.d.getData());
+                n9Var.a(this.d.getCmd(), "send", this.d.getData());
             }
         }
     }

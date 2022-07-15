@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.AddPollPost.AddPollPostReqIdl;
 import tbclient.AddPollPost.DataReq;
 /* loaded from: classes3.dex */
@@ -49,7 +49,7 @@ public class AddPollPostRequestNetMessage extends NetMessage {
             builder.options = this.options;
             builder.forum_id = Long.valueOf(this.forumId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qc5.a(builder, true);
+                td5.a(builder, true);
             }
             AddPollPostReqIdl.Builder builder2 = new AddPollPostReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -10,7 +10,7 @@ import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.message.e;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class aa implements e.b {
+public final class aa implements e.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,25 +28,25 @@ public class aa implements e.b {
         }
     }
 
-    private boolean a(List<a.b> list, MessageSnapshot messageSnapshot) {
+    public static boolean a(List<a.InterfaceC0555a> list, MessageSnapshot messageSnapshot) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, list, messageSnapshot)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, messageSnapshot)) == null) {
             if (list.size() > 1 && messageSnapshot.b() == -3) {
-                for (a.b bVar : list) {
-                    if (bVar.G().c(messageSnapshot)) {
+                for (a.InterfaceC0555a interfaceC0555a : list) {
+                    if (interfaceC0555a.G().c(messageSnapshot)) {
                         return true;
                     }
                 }
             }
-            for (a.b bVar2 : list) {
-                if (bVar2.G().b(messageSnapshot)) {
+            for (a.InterfaceC0555a interfaceC0555a2 : list) {
+                if (interfaceC0555a2.G().b(messageSnapshot)) {
                     return true;
                 }
             }
             if (-4 == messageSnapshot.b()) {
-                for (a.b bVar3 : list) {
-                    if (bVar3.G().d(messageSnapshot)) {
+                for (a.InterfaceC0555a interfaceC0555a3 : list) {
+                    if (interfaceC0555a3.G().d(messageSnapshot)) {
                         return true;
                     }
                 }
@@ -60,11 +60,11 @@ public class aa implements e.b {
     }
 
     @Override // com.kwai.filedownloader.message.e.b
-    public void a(MessageSnapshot messageSnapshot) {
+    public final void a(MessageSnapshot messageSnapshot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
             synchronized (Integer.toString(messageSnapshot.m()).intern()) {
-                List<a.b> b = h.a().b(messageSnapshot.m());
+                List<a.InterfaceC0555a> b = h.a().b(messageSnapshot.m());
                 if (b.size() > 0) {
                     a F = b.get(0).F();
                     if (com.kwai.filedownloader.e.d.a) {
@@ -72,9 +72,9 @@ public class aa implements e.b {
                     }
                     if (!a(b, messageSnapshot)) {
                         StringBuilder sb = new StringBuilder("The event isn't consumed, id:" + messageSnapshot.m() + " status:" + ((int) messageSnapshot.b()) + " task-count:" + b.size());
-                        for (a.b bVar : b) {
+                        for (a.InterfaceC0555a interfaceC0555a : b) {
                             sb.append(" | ");
-                            sb.append((int) bVar.F().v());
+                            sb.append((int) interfaceC0555a.F().v());
                         }
                         com.kwai.filedownloader.e.d.b(this, sb.toString(), new Object[0]);
                     }

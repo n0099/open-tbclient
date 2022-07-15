@@ -1,65 +1,63 @@
 package com.repackage;
 
-import org.json.JSONObject;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface oj1 {
-    boolean A();
+public class oj1 implements em1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean B();
+    public oj1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean C();
+    @Override // com.repackage.em1
+    public void a(Context context, af3<Boolean> af3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, af3Var) == null) || af3Var == null) {
+            return;
+        }
+        af3Var.a(null);
+    }
 
-    JSONObject D();
+    @Override // com.repackage.em1
+    public void b(boolean z, af3<String> af3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, af3Var) == null) || af3Var == null) {
+            return;
+        }
+        af3Var.a(null);
+    }
 
-    boolean E();
+    @Override // com.repackage.em1
+    public void c(Context context, af3<String> af3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, af3Var) == null) || af3Var == null) {
+            return;
+        }
+        af3Var.a(null);
+    }
 
-    void F();
-
-    long G();
-
-    boolean H();
-
-    long I();
-
-    JSONObject getRawSwitch();
-
-    int getSwitch(String str, int i);
-
-    String getSwitch(String str, String str2);
-
-    boolean getSwitch(String str, boolean z);
-
-    boolean j();
-
-    String k();
-
-    boolean l();
-
-    boolean m();
-
-    long n();
-
-    boolean o();
-
-    String p();
-
-    boolean q();
-
-    int r();
-
-    boolean s();
-
-    boolean t();
-
-    boolean u();
-
-    int v();
-
-    boolean w();
-
-    boolean x();
-
-    boolean y();
-
-    int z();
+    @Override // com.repackage.em1
+    public void d(af3<Integer> af3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, af3Var) == null) || af3Var == null) {
+            return;
+        }
+        af3Var.a(null);
+    }
 }

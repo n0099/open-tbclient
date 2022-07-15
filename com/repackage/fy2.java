@@ -1,47 +1,24 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.repackage.el2;
 /* loaded from: classes6.dex */
-public class fy2<T> implements hy2 {
+public class fy2 extends j73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
 
-    public fy2(List<T> list) {
+    public static void onEvent(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            el2.a W = g03.K().q().W();
+            k73 k73Var = new k73();
+            k73Var.b = str;
+            k73Var.a = a73.n(W.G());
+            k73Var.f = W.H();
+            k73Var.c = W.T();
+            a73.x("1088", k73Var);
         }
-        this.a = list;
-    }
-
-    @Override // com.repackage.hy2
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.size() : invokeV.intValue;
-    }
-
-    @Override // com.repackage.hy2
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (i < 0 || i >= this.a.size()) ? "" : this.a.get(i) : invokeI.objValue;
     }
 }

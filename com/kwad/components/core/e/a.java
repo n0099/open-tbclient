@@ -1,0 +1,179 @@
+package com.kwad.components.core.e;
+
+import android.content.Context;
+import com.baidu.nps.utils.Constant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.utils.g;
+import java.io.File;
+import java.io.FileFilter;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes5.dex */
+public final class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: com.kwad.components.core.e.a$a  reason: collision with other inner class name */
+    /* loaded from: classes5.dex */
+    public static final class C0510a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final a a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-133575772, "Lcom/kwad/components/core/e/a$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-133575772, "Lcom/kwad/components/core/e/a$a;");
+                    return;
+                }
+            }
+            a = new a((byte) 0);
+        }
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public /* synthetic */ a(byte b) {
+        this();
+    }
+
+    public static a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0510a.a : (a) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Context context, long j) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLJ(65539, this, context, j) == null) || (listFiles = c(context).listFiles(new FileFilter(this) { // from class: com.kwad.components.core.e.a.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = this;
+            }
+
+            @Override // java.io.FileFilter
+            public final boolean accept(File file) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
+                    String name = file.getName();
+                    return name.startsWith("dynamic-") && name.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                }
+                return invokeL.booleanValue;
+            }
+        })) == null || listFiles.length <= 0) {
+            return;
+        }
+        long j2 = 0;
+        for (File file : listFiles) {
+            j2 = Math.max(j2, file.lastModified());
+        }
+        long min = Math.min(j, j2);
+        for (File file2 : listFiles) {
+            if (file2.exists() && file2.lastModified() < min) {
+                file2.delete();
+            }
+        }
+    }
+
+    private void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
+            g.a(new Runnable(this, context, System.currentTimeMillis()) { // from class: com.kwad.components.core.e.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Context a;
+                public final /* synthetic */ long b;
+                public final /* synthetic */ a c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, context, Long.valueOf(r8)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.c = this;
+                    this.a = context;
+                    this.b = r8;
+                }
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            this.c.a(this.a, this.b);
+                        } catch (Throwable th) {
+                            b.b(th);
+                        }
+                    }
+                }
+            }, 10L, TimeUnit.SECONDS);
+        }
+    }
+
+    public static File c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? new File(context.getApplicationInfo().dataDir, "ksad_dynamic") : (File) invokeL.objValue;
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            b(context);
+        }
+    }
+}

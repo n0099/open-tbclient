@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
 import com.repackage.d9;
+import com.repackage.wh8;
 import com.repackage.za;
 /* loaded from: classes3.dex */
 public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
@@ -93,12 +93,12 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
-        bh8.h(309611, ADSocketResponseMessage.class, false, false);
-        bh8.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
+        wh8.h(309611, ADSocketResponseMessage.class, false, false);
+        wh8.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
         registerListener(this.b);
     }
 
-    public void A(long j, int i, int i2) {
+    public void B(long j, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             cancelMessage();
@@ -110,7 +110,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void B(b bVar) {
+    public void C(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.a = bVar;

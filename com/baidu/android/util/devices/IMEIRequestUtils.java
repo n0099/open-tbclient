@@ -5,6 +5,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +39,7 @@ public class IMEIRequestUtils {
             if (AppRuntime.getAppContext() == null) {
                 return str;
             }
-            if (!DeviceUtil.OSInfo.hasMarshMallow() || AppRuntime.getAppContext().checkSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
+            if (!DeviceUtil.OSInfo.hasMarshMallow() || AppRuntime.getAppContext().checkSelfPermission(PermissionChecker.READ_PHONE_STATE) == 0) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
                     String deviceId = telephonyManager != null ? telephonyManager.getDeviceId() : null;

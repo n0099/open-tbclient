@@ -1,26 +1,48 @@
 package com.repackage;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.util.Map;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.n74;
 /* loaded from: classes6.dex */
-public interface h74<T> extends j74 {
-    void a(T t);
+public class h74 extends n74.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(T t);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h74(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    String d(T t);
-
-    void e(T t, k84 k84Var);
-
-    void f(T t);
-
-    k84 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException;
-
-    void i(T t);
-
-    void j(T t);
-
-    Map<String, Object> k();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.n74.a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    /* renamed from: a */
+    public n74 build() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            x64.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
+        }
+        return (n74) invokeV.objValue;
+    }
 }

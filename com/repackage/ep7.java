@@ -1,91 +1,141 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewStub;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-/* loaded from: classes5.dex */
-public class ep7 extends zo7 {
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class ep7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewStub o;
-    public View p;
-    public TbImageView q;
-    public TextView r;
-    public TextView s;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ep7(TbPageContext tbPageContext, View view2) {
-        super(tbPageContext, view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        @JvmStatic
+        public final void a(int i, int i2, int i3, String objParam1, String fid) {
+            int i4;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), objParam1, fid}) == null) {
+                Intrinsics.checkNotNullParameter(objParam1, "objParam1");
+                Intrinsics.checkNotNullParameter(fid, "fid");
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_CLICK);
+                statisticItem.param("obj_name", i);
+                if (UbsABTestHelper.isFirstLoginTestA()) {
+                    i4 = 1;
+                } else {
+                    i4 = UbsABTestHelper.isFirstLoginTestB() ? 2 : 3;
+                }
+                statisticItem.param("obj_type", i4);
+                statisticItem.param("obj_locate", i2);
+                statisticItem.param("obj_source", i3);
+                statisticItem.param("obj_param1", objParam1);
+                statisticItem.param("fid", fid);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @JvmStatic
+        public final void b(String objName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objName) == null) {
+                Intrinsics.checkNotNullParameter(objName, "objName");
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_SEE_MORE_CLICK);
+                statisticItem.param("obj_name", objName);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @JvmStatic
+        public final void c(int i, int i2) {
+            int i3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_SHOW);
+                statisticItem.param("obj_name", i);
+                if (UbsABTestHelper.isFirstLoginTestA()) {
+                    i3 = 1;
+                } else {
+                    i3 = UbsABTestHelper.isFirstLoginTestB() ? 2 : 3;
+                }
+                statisticItem.param("obj_type", i3);
+                statisticItem.param("obj_source", i2);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755729851, "Lcom/repackage/ep7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755729851, "Lcom/repackage/ep7;");
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0923ae);
-        this.o = viewStub;
-        viewStub.inflate();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
-        layoutParams.topMargin = pi.i(tbPageContext.getPageActivity()) / 2;
-        this.o.setLayoutParams(layoutParams);
-        this.p = view2.findViewById(R.id.obfuscated_res_0x7f09227c);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092266);
-        this.q = tbImageView;
-        tbImageView.setIsRound(true);
-        this.q.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092285);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a0);
+        a = new a(null);
     }
 
-    @Override // com.repackage.zo7
-    public void a(int i) {
+    @JvmStatic
+    public static final void a(int i, int i2, int i3, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            super.a(i);
-            fr4 d = fr4.d(this.p);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0204);
-            fr4 d2 = fr4.d(this.r);
-            d2.v(R.color.CAM_X0105);
-            d2.z(R.dimen.T_X05);
-            d2.A(R.string.F_X02);
-            fr4 d3 = fr4.d(this.s);
-            d3.v(R.color.CAM_X0108);
-            d3.z(R.dimen.T_X08);
-            d3.A(R.string.F_X01);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, str2}) == null) {
+            a.a(i, i2, i3, str, str2);
         }
     }
 
-    @Override // com.repackage.zo7
-    public void c(ap7 ap7Var) {
-        ShareStorage.StorageModel storageModel;
+    @JvmStatic
+    public static final void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ap7Var) == null) || ap7Var == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(ap7Var.d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            a.b(str);
         }
-        this.q.J(storageModel.url, 10, false);
-        this.r.setText(storageModel.displayname);
-        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1158, storageModel.app));
+    }
+
+    @JvmStatic
+    public static final void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
+            a.c(i, i2);
+        }
     }
 }

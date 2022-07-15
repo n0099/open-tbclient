@@ -98,7 +98,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
         }
 
         @Override // com.kwai.filedownloader.message.c
-        public byte b() {
+        public final byte b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -139,20 +139,17 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 }
             }
 
-            /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Removed duplicated region for block: B:48:0x0098  */
             /* JADX WARN: Removed duplicated region for block: B:50:0x009b  */
-            @Override // android.os.Parcelable.Creator
-            /* renamed from: a */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public MessageSnapshot createFromParcel(Parcel parcel) {
+            public static MessageSnapshot a(Parcel parcel) {
                 InterceptResult invokeL;
                 MessageSnapshot jVar;
                 MessageSnapshot messageSnapshot;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 != null && (invokeL = interceptable2.invokeL(1048576, this, parcel)) != null) {
+                if (interceptable2 != null && (invokeL = interceptable2.invokeL(65537, null, parcel)) != null) {
                     return (MessageSnapshot) invokeL.objValue;
                 }
                 boolean z = parcel.readByte() == 1;
@@ -162,7 +159,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == -3) {
                     jVar = z ? new d.b(parcel) : new h.b(parcel);
                 } else if (readByte == -1) {
-                    jVar = z ? new d.C0366d(parcel) : new h.d(parcel);
+                    jVar = z ? new d.C0563d(parcel) : new h.d(parcel);
                 } else if (readByte == 1) {
                     jVar = z ? new d.f(parcel) : new h.f(parcel);
                 } else if (readByte == 2) {
@@ -170,7 +167,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == 3) {
                     jVar = z ? new d.g(parcel) : new h.g(parcel);
                 } else if (readByte == 5) {
-                    jVar = z ? new d.h(parcel) : new h.C0367h(parcel);
+                    jVar = z ? new d.h(parcel) : new h.C0564h(parcel);
                 } else if (readByte != 6) {
                     messageSnapshot = null;
                     if (messageSnapshot == null) {
@@ -186,13 +183,22 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 }
             }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            /* renamed from: a */
-            public MessageSnapshot[] newArray(int i) {
+            public static MessageSnapshot[] a(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MessageSnapshot[i] : (MessageSnapshot[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(65538, null, i)) == null) ? new MessageSnapshot[i] : (MessageSnapshot[]) invokeI.objValue;
+            }
+
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // android.os.Parcelable.Creator
+            public final /* synthetic */ MessageSnapshot createFromParcel(Parcel parcel) {
+                return a(parcel);
+            }
+
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+            @Override // android.os.Parcelable.Creator
+            public final /* synthetic */ MessageSnapshot[] newArray(int i) {
+                return a(i);
             }
         };
     }
@@ -333,13 +339,13 @@ public abstract class MessageSnapshot implements Parcelable, c {
         return invokeV.intValue;
     }
 
-    public int m() {
+    public final int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public boolean n() {
+    public final boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a : invokeV.booleanValue;

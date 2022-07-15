@@ -204,7 +204,7 @@ public class ScrollItemView extends ListView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0729, viewGroup, false);
+                    view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0747, viewGroup, false);
                     dVar = new d(this.c, view2);
                     view2.setTag(dVar);
                 } else {
@@ -241,7 +241,7 @@ public class ScrollItemView extends ListView {
                 }
             }
             this.b = scrollItemView;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f64);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f75);
         }
     }
 

@@ -1,135 +1,31 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewStub;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
-public class cp7 extends zo7 {
+public class cp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewStub o;
-    public ViewStub p;
-    public TextView q;
-    public TextView r;
-    public TextView s;
-    public TextView t;
-    public TextView u;
-    public TextView v;
-    public TextView w;
+    public RecommendForumInfo a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cp7(TbPageContext tbPageContext, View view2) {
-        super(tbPageContext, view2);
+    public cp7(RecommendForumInfo recommendForumInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {recommendForumInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0923af);
-        this.o = viewStub;
-        viewStub.inflate();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
-        layoutParams.topMargin = ((pi.i(tbPageContext.getPageActivity()) / 2) + pi.f(tbPageContext.getPageActivity(), R.dimen.tbds239)) - pi.f(tbPageContext.getPageActivity(), R.dimen.tbds140);
-        this.o.setLayoutParams(layoutParams);
-        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09228c);
-        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0923ac);
-        this.p = viewStub2;
-        viewStub2.inflate();
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff6);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915c6);
-        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff7);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090162);
-        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff8);
-        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918e9);
-    }
-
-    @Override // com.repackage.zo7
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            super.a(i);
-            fr4 d = fr4.d(this.q);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X03);
-            d.A(R.string.F_X02);
-            fr4 d2 = fr4.d(this.r);
-            d2.v(R.color.CAM_X0108);
-            d2.z(R.dimen.tbds29);
-            d2.A(R.string.F_X01);
-            fr4 d3 = fr4.d(this.t);
-            d3.v(R.color.CAM_X0108);
-            d3.z(R.dimen.tbds29);
-            d3.A(R.string.F_X01);
-            fr4 d4 = fr4.d(this.v);
-            d4.v(R.color.CAM_X0108);
-            d4.z(R.dimen.tbds29);
-            d4.A(R.string.F_X01);
-            fr4 d5 = fr4.d(this.s);
-            d5.v(R.color.CAM_X0302);
-            d5.z(R.dimen.tbds29);
-            d5.A(R.string.F_X01);
-            fr4 d6 = fr4.d(this.u);
-            d6.v(R.color.CAM_X0302);
-            d6.z(R.dimen.tbds29);
-            d6.A(R.string.F_X01);
-            fr4 d7 = fr4.d(this.w);
-            d7.v(R.color.CAM_X0302);
-            d7.z(R.dimen.tbds29);
-            d7.A(R.string.F_X01);
-        }
-    }
-
-    @Override // com.repackage.zo7
-    public void c(ap7 ap7Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ap7Var) == null) || ap7Var == null) {
-            return;
-        }
-        this.q.setText(ap7Var.a);
-        f(ap7Var.a());
-    }
-
-    @Override // com.repackage.zo7
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            super.d(onClickListener);
-            this.s.setOnClickListener(onClickListener);
-            this.u.setOnClickListener(onClickListener);
-            this.w.setOnClickListener(onClickListener);
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i == 1) {
-                this.s.setText(R.string.obfuscated_res_0x7f0f0cde);
-            } else if (i == 2) {
-                this.s.setText(R.string.obfuscated_res_0x7f0f0cdf);
-            } else if (i != 3) {
-            } else {
-                this.s.setText(R.string.obfuscated_res_0x7f0f0ce0);
-            }
-        }
+        this.a = recommendForumInfo;
     }
 }

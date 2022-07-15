@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i60;
+import com.repackage.j60;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -358,7 +358,7 @@ public class BindStateManager {
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                     try {
-                        i60.g(context).f(context, creatMethodIntent);
+                        j60.g(context).f(context, creatMethodIntent);
                     } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);
                         onRegisterNotifyResult(context, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, false);
@@ -508,7 +508,7 @@ public class BindStateManager {
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                     try {
-                        i60.g(context).f(context, creatMethodIntent);
+                        j60.g(context).f(context, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         LogUtils.e(TAG, "Exception ", e);

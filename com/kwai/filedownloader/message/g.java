@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public class g {
+public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<a> a;
@@ -45,14 +45,14 @@ public class g {
             this.c = com.kwai.filedownloader.e.b.a(1, "Flow-" + i);
         }
 
-        public void a(int i) {
+        public final void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 this.b.add(Integer.valueOf(i));
             }
         }
 
-        public void a(MessageSnapshot messageSnapshot) {
+        public final void a(MessageSnapshot messageSnapshot) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageSnapshot) == null) {
                 this.c.execute(new Runnable(this, messageSnapshot) { // from class: com.kwai.filedownloader.message.g.a.1
@@ -81,7 +81,7 @@ public class g {
                     }
 
                     @Override // java.lang.Runnable
-                    public void run() {
+                    public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             this.b.a.b.a(this.a);
@@ -113,12 +113,12 @@ public class g {
         }
         this.b = bVar;
         this.a = new ArrayList();
-        for (int i4 = 0; i4 < i; i4++) {
+        for (int i4 = 0; i4 < 5; i4++) {
             this.a.add(new a(this, i4));
         }
     }
 
-    public void a(MessageSnapshot messageSnapshot) {
+    public final void a(MessageSnapshot messageSnapshot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
             a aVar = null;

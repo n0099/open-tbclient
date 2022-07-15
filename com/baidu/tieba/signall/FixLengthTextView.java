@@ -110,7 +110,7 @@ public class FixLengthTextView extends TextView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04046b});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04046f});
         this.a = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(0));
         obtainStyledAttributes.recycle();
     }

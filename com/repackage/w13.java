@@ -1,48 +1,35 @@
 package com.repackage;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pk2;
-import com.repackage.x43;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class w13 extends p13 {
+public class w13 extends e23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public boolean d;
 
     /* loaded from: classes7.dex */
-    public class a implements le3<v43<x43.e>> {
+    public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ sz2 c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ w13 e;
+        public final /* synthetic */ om1 a;
 
-        public a(w13 w13Var, CallbackHandler callbackHandler, String str, sz2 sz2Var, UnitedSchemeEntity unitedSchemeEntity) {
+        public a(w13 w13Var, om1 om1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w13Var, callbackHandler, str, sz2Var, unitedSchemeEntity};
+                Object[] objArr = {w13Var, om1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,37 +39,26 @@ public abstract class w13 extends p13 {
                     return;
                 }
             }
-            this.e = w13Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = sz2Var;
-            this.d = unitedSchemeEntity;
+            this.a = om1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.le3
-        /* renamed from: b */
-        public void a(v43<x43.e> v43Var) {
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v43Var) == null) {
-                if (!q43.h(v43Var)) {
-                    q43.q(v43Var, this.a, this.b);
-                    this.e.l(this.c, this.d, this.a, this.b);
-                    return;
-                }
-                this.e.k(this.c, this.d, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                this.a.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w13(p03 p03Var, String str) {
-        super(p03Var, str);
+    public w13(e13 e13Var) {
+        super(e13Var, "/swanAPI/pageScrollTo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var, str};
+            Object[] objArr = {e13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -94,106 +70,47 @@ public abstract class w13 extends p13 {
                 return;
             }
         }
-        this.c = null;
-        this.d = false;
     }
 
-    public static void m(String str, String str2, String str3) {
-        sz2 b0;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) || (b0 = sz2.b0()) == null) {
-            return;
-        }
-        u63 u63Var = new u63();
-        pk2.a W = b0.W();
-        u63Var.a = l63.n(W.G());
-        u63Var.e = str3;
-        u63Var.b = DI.BD.FAVOR;
-        u63Var.f = b0.O();
-        SwanCoreVersion j0 = W.j0();
-        String Z = b0.Z();
-        String str4 = j0 != null ? j0.swanCoreVersionName : "";
-        u63Var.a("appName", Z);
-        u63Var.a("isFavor", str);
-        u63Var.a("favorBy", str2);
-        u63Var.a("swan", str4);
-        z53.i("2571", "89", u63Var.f());
-    }
-
-    @Override // com.repackage.p13
-    public final boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
         InterceptResult invokeLLLL;
+        int f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (sz2Var == null) {
-                sw1.c("favorite", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (p13.b) {
-                    Log.d("SwanAppAction", "getSwanHistory --- illegal swanApp");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (h03Var != null && context != null) {
+                JSONObject a2 = e23.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    hx1.i("PageScrollToAction", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
+                    return false;
                 }
+                int optInt = a2.optInt("scrollTop", -1);
+                int optInt2 = a2.optInt("duration", -1);
+                if (optInt > -1 && optInt2 > -1) {
+                    om1 i = ul2.U().i();
+                    if (i != null) {
+                        if (i instanceof NgWebView) {
+                            f = ep1.z(i, yd3.f(context, optInt));
+                        } else {
+                            f = yd3.f(context, optInt);
+                        }
+                        ValueAnimator ofInt = ValueAnimator.ofInt(i.getWebViewScrollY(), f);
+                        ofInt.setDuration(optInt2);
+                        ofInt.addUpdateListener(new a(this, i));
+                        ofInt.start();
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
+                }
+                hx1.c("PageScrollToAction", "illegal scrollTop or duration");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
                 return false;
             }
-            JSONObject d = sc3.d(unitedSchemeEntity.getParam("params"));
-            String optString = d.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                sw1.c("favorite", "none cb");
-                if (p13.b) {
-                    Log.d("SwanAppAction", "getSwanHistory --- cb is empty");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            this.d = d.optBoolean("isFavorButton", false);
-            if (!j(sz2Var, unitedSchemeEntity)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, IActiveUploadListener.PARAM_ERR_MSG);
-                return false;
-            }
-            String optString2 = d.optString("slaveId");
-            String T = fl2.U().T();
-            if (TextUtils.equals(optString2, fl2.U().C()) && (TextUtils.equals(T, "pages/swan-news-showcase/index") || TextUtils.equals(T, "pages/swan-operate-news/index"))) {
-                k(sz2Var, unitedSchemeEntity, callbackHandler, optString);
-            } else if (!o(unitedSchemeEntity)) {
-                sz2Var.e0().g(context, this.d ? "scope_favorite_button" : "mapp_favorite", new a(this, callbackHandler, optString, sz2Var, unitedSchemeEntity));
-            } else {
-                k(sz2Var, unitedSchemeEntity, callbackHandler, optString);
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public abstract boolean j(sz2 sz2Var, UnitedSchemeEntity unitedSchemeEntity);
-
-    public abstract void k(sz2 sz2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
-
-    public void l(sz2 sz2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, sz2Var, unitedSchemeEntity, callbackHandler, str) == null) {
-        }
-    }
-
-    public void n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, unitedSchemeEntity, callbackHandler, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("success", "0");
-            } catch (JSONException e) {
-                if (cg1.a) {
-                    e.printStackTrace();
-                }
-            }
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
-        }
-    }
-
-    public boolean o(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, unitedSchemeEntity)) == null) {
+            hx1.c("PageScrollToAction", "swanApp is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

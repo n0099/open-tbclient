@@ -38,7 +38,7 @@ public class KsLifecycle {
         }
 
         @Keep
-        public Lifecycle.Event getReal() {
+        public final Lifecycle.Event getReal() {
             return this.mRealValue;
         }
     }
@@ -67,7 +67,7 @@ public class KsLifecycle {
             return null;
         }
 
-        public boolean isAtLeast(@NonNull KsLifeState ksLifeState) {
+        public final boolean isAtLeast(@NonNull KsLifeState ksLifeState) {
             return compareTo(ksLifeState) >= 0;
         }
     }

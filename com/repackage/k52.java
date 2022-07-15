@@ -1,95 +1,188 @@
 package com.repackage;
 
-import android.util.Log;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class k52 implements j52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static volatile k52 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final d52 b;
+    public final Map<String, i52> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755607959, "Lcom/repackage/k52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ k52 b;
+
+        public a(k52 k52Var, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k52Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755607959, "Lcom/repackage/k52;");
-                return;
+            this.b = k52Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.h(this.a);
             }
         }
-        c = cg1.a;
     }
 
-    public k52(int i) {
+    public k52() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i >= 20 ? Math.min(i, 300) : 20;
-        this.b = new g52(10);
+        this.a = new HashMap();
     }
 
-    @Override // com.repackage.j52
-    public d52 a() {
+    public static k52 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (d52) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j52
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.j52
-    public boolean c(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
-            if (c) {
-                Log.d("LocalLruStrategy", "prelink url - " + str3);
-            }
-            e52 a = this.b.a(str2, str3);
-            if (a == null) {
-                if (c) {
-                    Log.d("LocalLruStrategy", "url not in LRU, do prelink");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (k52.class) {
+                    if (b == null) {
+                        b = new k52();
+                    }
                 }
-                return true;
             }
-            boolean z = System.currentTimeMillis() - a.b >= ((long) (this.a * 1000));
-            if (c) {
-                Log.d("LocalLruStrategy", "url in LRU, time is out - " + z);
-            }
-            return z;
+            return b;
         }
-        return invokeLLL.booleanValue;
+        return (k52) invokeV.objValue;
+    }
+
+    public synchronized k52 b(String str, UbcFlowEvent ubcFlowEvent) {
+        InterceptResult invokeLL;
+        i52 i52Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
+            synchronized (this) {
+                if (c(str) && (i52Var = this.a.get(str)) != null) {
+                    i52Var.a(str, ubcFlowEvent);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (k52) invokeLL.objValue;
+    }
+
+    public final boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) : invokeL.booleanValue;
+    }
+
+    public synchronized k52 e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        i52 i52Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (c(str) && (i52Var = this.a.get(str)) != null) {
+                    i52Var.d(str, z);
+                    if (z2) {
+                        i(str);
+                    }
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (k52) invokeCommon.objValue;
+    }
+
+    public synchronized k52 f(String str, l52 l52Var) {
+        InterceptResult invokeLL;
+        i52 i52Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, l52Var)) == null) {
+            synchronized (this) {
+                if (c(str) && (i52Var = this.a.get(str)) != null) {
+                    i52Var.e(str, l52Var);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (k52) invokeLL.objValue;
+    }
+
+    public synchronized k52 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c(str) && !this.a.containsKey(str)) {
+                    i52 i52Var = new i52();
+                    this.a.put(str, i52Var);
+                    i52Var.f(str);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (k52) invokeL.objValue;
+    }
+
+    public final synchronized void h(String str) {
+        i52 i52Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                if (c(str) && (i52Var = this.a.get(str)) != null) {
+                    this.a.remove(str);
+                    i52Var.h(str);
+                }
+            }
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            j(str, 0L);
+        }
+    }
+
+    public void j(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
+            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
+        }
     }
 }

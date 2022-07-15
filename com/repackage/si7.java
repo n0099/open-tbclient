@@ -1,16 +1,9 @@
 package com.repackage;
 
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,167 +11,78 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.GetVipInfo.VipBasicList;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes7.dex */
-public class si7 extends BaseAdapter {
+public class si7 implements nn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pi7> a;
-    public MemberTaskCenterActivity b;
-    public View.OnClickListener c;
+    public ti7 a;
+    public List<VipSpecialItem> b;
+    public int c;
+    public String d;
 
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public TextView c;
-        public View d;
-
-        public a(si7 si7Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755319504, "Lcom/repackage/si7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {si7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755319504, "Lcom/repackage/si7;");
+                return;
             }
         }
+        e = BdUniqueId.gen();
     }
 
-    public si7(MemberTaskCenterActivity memberTaskCenterActivity) {
+    public si7(VipBasicList vipBasicList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {memberTaskCenterActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vipBasicList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = memberTaskCenterActivity;
-    }
-
-    public final SpannableString a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            SpannableString spannableString = new SpannableString(str + str2);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), 0, str.length(), 33);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), str.length(), spannableString.length(), 33);
-            return spannableString;
+        this.c = 0;
+        this.d = "";
+        if (vipBasicList == null || vipBasicList.item.size() <= 0) {
+            return;
         }
-        return (SpannableString) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public pi7 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<pi7> list = this.a;
-            if (list == null || list.size() <= i) {
-                return null;
-            }
-            return this.a.get(i);
-        }
-        return (pi7) invokeI.objValue;
-    }
-
-    public void c(List<pi7> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a.clear();
-            if (list != null) {
-                this.a.addAll(list);
-            }
+        this.d = vipBasicList.card_id;
+        this.c = vipBasicList.card_type.intValue();
+        ti7 ti7Var = new ti7();
+        this.a = ti7Var;
+        ti7Var.e(5);
+        this.a.d(vipBasicList.class_name);
+        this.a.f(vipBasicList.class_url_name);
+        this.a.g(vipBasicList.class_url);
+        this.b = new ArrayList();
+        for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
+            this.b.add(vipSpecialItem);
         }
     }
 
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.c = onClickListener;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public List<VipSpecialItem> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<pi7> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && (view2.getTag() instanceof a)) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d052c, (ViewGroup) null);
-                aVar = new a(this);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed6);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed7);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed8);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907c3);
-            }
-            pi7 item = getItem(i);
-            if (item != null) {
-                aVar.a.setText(item.f());
-                aVar.b.setText(a(String.valueOf(item.a()), item.b()));
-                if (item.d()) {
-                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f08dd), TextView.BufferType.EDITABLE);
-                    aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                    aVar.c.setBackgroundDrawable(null);
-                    aVar.c.setOnClickListener(null);
-                } else {
-                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f047f), TextView.BufferType.EDITABLE);
-                    SkinManager.setViewTextColor(aVar.c, (int) R.color.member_center_task_btn_textcolor);
-                    aVar.c.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
-                    aVar.c.setTag(item);
-                    aVar.c.setOnClickListener(this.c);
-                }
-                SkinManager.setViewTextColor(aVar.b, (int) R.color.CAM_X0109);
-                SkinManager.setViewTextColor(aVar.a, (int) R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(aVar.d, R.color.CAM_X0204);
-            }
-            view2.setTag(aVar);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
     }
 }

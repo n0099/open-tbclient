@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bj4;
 import com.repackage.jg;
-import com.repackage.mi4;
 import com.repackage.pi;
 import com.repackage.ym;
 /* loaded from: classes3.dex */
@@ -32,7 +32,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public RoundRelativeLayout a;
     public NewUserRedPackageData b;
-    public mi4 c;
+    public bj4 c;
     public ImageView d;
     public ImageView e;
     public View.OnClickListener f;
@@ -163,16 +163,16 @@ public class NewUserRedPackageActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0044);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091add);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b7c);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(pi.f(this, R.dimen.tbds31));
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e5d);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e60);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6c);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6f);
             this.d.setOnClickListener(this.f);
             this.e.setOnClickListener(this.f);
             D1();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.c = new mi4();
+            this.c = new bj4();
         }
     }
 }

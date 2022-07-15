@@ -1,36 +1,80 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
+import com.baidu.mapapi.search.core.PoiInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public interface t54 {
+public class t54 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public PoiInfo a;
+    public boolean b;
+    public boolean c;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(int i);
+    public t54(PoiInfo poiInfo, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {poiInfo, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (poiInfo == null) {
+            this.a = new PoiInfo();
+        }
+        this.a = poiInfo;
+        this.b = z;
+        this.c = z2;
     }
 
-    boolean a();
+    public static List<t54> a(List<PoiInfo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (list != null && list.size() > 0) {
+                ArrayList arrayList = new ArrayList(list.size());
+                for (PoiInfo poiInfo : list) {
+                    if (poiInfo.location != null) {
+                        arrayList.add(new t54(poiInfo));
+                    }
+                }
+                return arrayList;
+            }
+            return new ArrayList();
+        }
+        return (List) invokeL.objValue;
+    }
 
-    void b(Activity activity, y54 y54Var);
-
-    void c(int i, List<y54> list);
-
-    void d(int i, List<y54> list);
-
-    void e(int i, List<y54> list);
-
-    void f(int i, List<y54> list, a aVar);
-
-    void g(Activity activity, y54 y54Var);
-
-    void h(Context context, JSONObject jSONObject);
-
-    void i(JSONObject jSONObject);
-
-    boolean j(y54 y54Var);
-
-    boolean k(boolean z, int i);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public t54(PoiInfo poiInfo) {
+        this(poiInfo, false, false);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {poiInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((PoiInfo) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 }

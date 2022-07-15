@@ -18,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.ThreadPool;
@@ -96,7 +95,7 @@ public class SensorController implements SensorEventListener, SensorListener {
                     BatteryInfo batteryInfo = new BatteryInfo();
                     batteryInfo.level = intExtra2;
                     batteryInfo.status = intExtra;
-                    batteryInfo.pecent = (intExtra2 * 100) / registerReceiver.getIntExtra(AnimationProperty.SCALE, -1);
+                    batteryInfo.pecent = (intExtra2 * 100) / registerReceiver.getIntExtra("scale", -1);
                     batteryInfo.chargePlugged = intExtra3;
                     return batteryInfo;
                 } catch (Throwable th) {

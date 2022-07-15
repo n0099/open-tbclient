@@ -1,58 +1,47 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bh5 {
+public class bh5<T> implements sh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<T> a;
 
-    public bh5() {
+    public bh5(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = list;
     }
 
-    public static void b(zv4 zv4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, zv4Var) == null) || zv4Var == null) {
-            return;
-        }
-        if (zv4Var.b != 0) {
-            ht4.k().y("app_entrance_nologin", zv4Var.b + "");
-        }
-        if (zv4Var.a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
-            return;
-        }
-        ht4.k().y("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), zv4Var.a + "");
-    }
-
+    @Override // com.repackage.sh5
     public int a() {
         InterceptResult invokeV;
-        String q;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TbadkCoreApplication.getCurrentAccount() == null) {
-                q = ht4.k().q("app_entrance_nologin", "");
-            } else {
-                ht4 k = ht4.k();
-                q = k.q("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
-            }
-            int e = ng.e(q, 0);
-            return (e != 1 && e == 2) ? 1 : 2;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.size() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.sh5
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (i < 0 || i >= this.a.size()) ? "" : this.a.get(i) : invokeI.objValue;
     }
 }

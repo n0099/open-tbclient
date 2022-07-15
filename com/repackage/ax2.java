@@ -1,53 +1,127 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ax2 extends p13 {
+public class ax2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ax2(p03 p03Var) {
-        super(p03Var, "/swanAPI/community/closeReplyEditor");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755841482, "Lcom/repackage/ax2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755841482, "Lcom/repackage/ax2;");
                 return;
             }
         }
+        a = rg1.a;
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    public static void a(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (yw2.c().b()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0, "");
-                return true;
+        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
+            if (a) {
+                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "closeReplyEditor failed");
-            return false;
+            int i = message.arg1;
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
+            }
+            iw2.a(i, str2, str, bundle);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static void b(Message message) {
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
+            }
+            iw2.a(-1000, str2, str, bundle);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void c(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (a) {
+                    throw new RuntimeException("delegation msg obj is not a bundle");
+                }
+                return;
+            }
+            Bundle bundle = (Bundle) obj;
+            kw2 kw2Var = new kw2(bundle.getString("key_observer_id", ""));
+            kw2Var.setResult(bundle.getBundle("key_result_data"));
+            lw2.b().c(kw2Var);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void d(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (a) {
+                    throw new RuntimeException("delegation msg obj is not a bundle");
+                }
+                return;
+            }
+            Bundle bundle = (Bundle) obj;
+            kw2 kw2Var = new kw2(bundle.getString("key_observer_id", ""));
+            kw2Var.setResult(bundle.getBundle("key_result_data"));
+            lw2.b().c(kw2Var);
+        }
+    }
+
+    public static void e(int i, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
+            xw2 e = xw2.e();
+            zw2 zw2Var = new zw2(126, bundle);
+            zw2Var.a(i);
+            e.h(zw2Var);
+        }
+    }
+
+    public static void f(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
+            xw2.e().h(new zw2(21, bundle));
+        }
     }
 }

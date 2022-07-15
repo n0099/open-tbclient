@@ -1,47 +1,48 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ns1 extends iv1 {
+public final class ns1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public qk2 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ns1(String str) {
-        super("camera", "cameraId");
+    public ns1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        try {
-            a(new JSONObject(str));
-        } catch (JSONException e) {
-            sw1.d("Camera", "parsing CameraModel occurs exception", e);
+        this.a = new qk2();
+    }
+
+    public void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            this.a.a(activity);
         }
     }
 
-    @Override // com.repackage.iv1, com.repackage.rp2
-    public void a(JSONObject jSONObject) throws JSONException {
+    public void b(p72 p72Var, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            super.a(jSONObject);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p72Var, context) == null) {
+            UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
+            this.a.e(p72Var, context, p72Var, unitedSchemeMainDispatcher);
+            a13.a(unitedSchemeMainDispatcher);
         }
     }
 }

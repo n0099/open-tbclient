@@ -1,6 +1,5 @@
 package com.repackage;
 
-import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,9 +8,17 @@ public class m99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static Object a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? Build.MANUFACTURER : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return Class.forName(str).newInstance();
+            } catch (Exception e) {
+                e.printStackTrace(System.out);
+                return null;
+            }
+        }
+        return invokeL.objValue;
     }
 }

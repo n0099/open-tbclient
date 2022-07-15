@@ -1,22 +1,17 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-@Service
 /* loaded from: classes7.dex */
-public class vf0 extends lg0 {
+public final class vf0 implements pl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,29 +29,68 @@ public class vf0 extends lg0 {
         }
     }
 
-    @Override // com.repackage.lg0
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.pl0
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+        }
     }
 
-    @Override // com.repackage.lg0
-    public boolean b(@NonNull Context context, @NonNull pg0 pg0Var, @Nullable Map<String, Object> map, @Nullable tg0 tg0Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.pl0
+    public void onActivityDestroyed(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, pg0Var, map, tg0Var)) == null) {
-            super.b(context, pg0Var, map, tg0Var);
-            HashMap<String, String> d = pg0Var.d();
-            String str = d.get("key");
-            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                d(tg0Var, pg0Var, wf0.a().b(str), 0, true);
-                return true;
-            }
-            c(tg0Var, pg0Var, 202, false);
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.pl0
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+        }
+    }
+
+    @Override // com.repackage.pl0
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        }
+    }
+
+    @Override // com.repackage.pl0
+    public void onActivitySaveInstanceState(@NonNull Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // com.repackage.pl0
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // com.repackage.pl0
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
+    }
+
+    @Override // com.repackage.pl0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+            ek0.a().a(new lk0(true));
+        }
+    }
+
+    @Override // com.repackage.pl0
+    public void onForegroundToBackground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
+            ek0.a().a(new lk0(false));
+        }
     }
 }

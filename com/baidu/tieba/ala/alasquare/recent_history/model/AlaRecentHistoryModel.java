@@ -21,15 +21,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cq5;
-import com.repackage.dq5;
+import com.repackage.ar5;
+import com.repackage.zq5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaRecentHistoryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<dq5> a;
+    public List<ar5> a;
     public b b;
     public int c;
     public int d;
@@ -76,19 +76,19 @@ public class AlaRecentHistoryModel extends BdBaseModel {
                         this.a.b.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f);
                     }
                 } else {
-                    cq5 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
+                    zq5 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
                     if (recentHistoryData == null) {
                         return;
                     }
                     this.a.e = recentHistoryData.a;
-                    List<dq5> list = recentHistoryData.b;
+                    List<ar5> list = recentHistoryData.b;
                     if (!this.a.f) {
                         this.a.a.clear();
                         if (!ListUtils.isEmpty(list)) {
                             this.a.a.addAll(list);
                         }
                     } else if (!ListUtils.isEmpty(list)) {
-                        AlaRecentHistoryModel.E(this.a);
+                        AlaRecentHistoryModel.F(this.a);
                         this.a.a.addAll(list);
                     }
                     if (this.a.b != null) {
@@ -102,7 +102,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<dq5> list);
+        void a(boolean z, List<ar5> list);
 
         void b(int i, String str, boolean z);
     }
@@ -130,7 +130,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         registerTask();
     }
 
-    public static /* synthetic */ int E(AlaRecentHistoryModel alaRecentHistoryModel) {
+    public static /* synthetic */ int F(AlaRecentHistoryModel alaRecentHistoryModel) {
         int i = alaRecentHistoryModel.d;
         alaRecentHistoryModel.d = i + 1;
         return i;
@@ -159,7 +159,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public List<dq5> getData() {
+    public List<ar5> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;

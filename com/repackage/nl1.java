@@ -1,10 +1,14 @@
 package com.repackage;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
+import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public interface nl1 {
-    @Nullable
-    sr1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull wc2 wc2Var);
+    void a(@NonNull JSONArray jSONArray);
+
+    k42 b(Context context, File file, long j);
+
+    void c(@NonNull JSONArray jSONArray);
 }

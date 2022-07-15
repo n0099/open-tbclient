@@ -131,10 +131,17 @@ public final class g {
     }
 
     public static a a(PackageManager packageManager, PackageInfo packageInfo) {
+        Drawable drawable = null;
         if (packageInfo == null) {
             return null;
         }
         ApplicationInfo applicationInfo = packageInfo.applicationInfo;
-        return new a(packageInfo.packageName, applicationInfo.loadLabel(packageManager).toString(), applicationInfo.loadIcon(packageManager), applicationInfo.sourceDir, packageInfo.versionName, packageInfo.versionCode, (applicationInfo.flags & 1) != 0);
+        String str = packageInfo.packageName;
+        String charSequence = applicationInfo.loadLabel(packageManager).toString();
+        try {
+            drawable = applicationInfo.loadIcon(packageManager);
+        } catch (Exception unused) {
+        }
+        return new a(str, charSequence, drawable, applicationInfo.sourceDir, packageInfo.versionName, packageInfo.versionCode, (applicationInfo.flags & 1) != 0);
     }
 }

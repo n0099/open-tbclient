@@ -1,62 +1,45 @@
 package com.repackage;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.baidu.webkit.sdk.CookieManager;
+import com.baidu.webkit.sdk.CookieSyncManager;
 /* loaded from: classes6.dex */
 public class pn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ObjectAnimator a(View view2) {
-        InterceptResult invokeL;
+    public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.TRANSLATE_Y, 0.0f);
-            ofFloat.setDuration(320L);
-            ofFloat.setInterpolator(new v54(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) || context == null) {
+            return;
         }
-        return (ObjectAnimator) invokeL.objValue;
+        CookieManager.getInstance().setCookie(".baidu.com", zd3.k(".baidu.com", "OPENBDUSS", str, 31449600L));
+        CookieSyncManager.createInstance(AppRuntime.getAppContext());
+        CookieSyncManager.getInstance().sync();
     }
 
-    public static ObjectAnimator b(View view2) {
-        InterceptResult invokeL;
+    public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 0.0f);
-            ofFloat.setDuration(240L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                a(context, str);
+            } else {
+                c(context, str);
+            }
         }
-        return (ObjectAnimator) invokeL.objValue;
     }
 
-    public static ObjectAnimator c(View view2) {
-        InterceptResult invokeL;
+    public static void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 1.0f);
-            ofFloat.setDuration(320L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("bduss", str);
+            uw2.b(qn1.class, bundle);
         }
-        return (ObjectAnimator) invokeL.objValue;
-    }
-
-    public static ObjectAnimator d(View view2, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.TRANSLATE_Y, i);
-            ofFloat.setDuration(240L);
-            ofFloat.setInterpolator(new v54(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeLI.objValue;
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -73,8 +74,8 @@ public class HeadObject {
                 if (this.a) {
                     return;
                 }
-                bo.e(context, "android.permission.READ_PHONE_STATE");
-                bo.e(context, "android.permission.INTERNET");
+                bo.e(context, PermissionChecker.READ_PHONE_STATE);
+                bo.e(context, PermissionChecker.INTERNET);
                 bo.e(context, "android.permission.ACCESS_NETWORK_STATE");
                 bo.e(context, "android.permission.WRITE_SETTINGS");
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");

@@ -1,5 +1,6 @@
 package com.ss.android.socialbase.downloader.i;
 
+import com.bytedance.sdk.openadsdk.TTAdConstant;
 import org.apache.http.HttpStatus;
 /* loaded from: classes7.dex */
 public class b {
@@ -88,9 +89,9 @@ public class b {
                                                             return "Unsupported Media Type";
                                                         case 416:
                                                             return "Requested Range Not Satisfiable";
-                                                        case HttpStatus.SC_EXPECTATION_FAILED /* 417 */:
+                                                        case 417:
                                                             return "Expectation Failed";
-                                                        case 418:
+                                                        case TTAdConstant.DEEPLINK_FALL_BACK_CODE /* 418 */:
                                                             return "I'm a teapot";
                                                         default:
                                                             switch (i) {

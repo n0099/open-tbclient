@@ -3,7 +3,8 @@ package com.kwad.sdk.api;
 import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.loader.Loader;
-import com.kwad.sdk.api.model.b;
+import com.kwad.sdk.api.model.IKsAdLabel;
+import com.kwad.sdk.api.model.SplashAdExtraData;
 import java.io.Serializable;
 import java.util.Map;
 import org.json.JSONObject;
@@ -35,8 +36,8 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder adLabel(b bVar) {
-            this.scene.setKsAdLabel(bVar);
+        public Builder adLabel(com.kwad.sdk.api.model.a aVar) {
+            this.scene.setKsAdLabel(aVar);
             return this;
         }
 
@@ -104,8 +105,29 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
+        public Builder setBidResponse(String str) {
+            this.scene.setBidResponse(str);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public Builder setBidResponseV2(String str) {
+            this.scene.setBidResponseV2(str);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
         public Builder setComment(String str) {
             this.scene.setComment(str);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public Builder setSplashExtraData(SplashAdExtraData splashAdExtraData) {
+            this.scene.setSplashExtraData(splashAdExtraData);
             return this;
         }
 
@@ -146,6 +168,14 @@ public interface KsScene extends Serializable {
     @KsAdSdkApi
     @Keep
     String getBackUrl();
+
+    @KsAdSdkApi
+    @Keep
+    String getBidResponse();
+
+    @KsAdSdkApi
+    @Keep
+    String getBidResponseV2();
 
     @KsAdSdkApi
     @Keep
@@ -205,6 +235,14 @@ public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
+    void setBidResponse(String str);
+
+    @KsAdSdkApi
+    @Keep
+    void setBidResponseV2(String str);
+
+    @KsAdSdkApi
+    @Keep
     void setComment(String str);
 
     @KsAdSdkApi
@@ -213,7 +251,7 @@ public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    void setKsAdLabel(com.kwad.sdk.api.model.a aVar);
+    void setKsAdLabel(IKsAdLabel iKsAdLabel);
 
     @KsAdSdkApi
     @Keep
@@ -230,6 +268,10 @@ public interface KsScene extends Serializable {
     @KsAdSdkApi
     @Keep
     void setScreenOrientation(int i);
+
+    @KsAdSdkApi
+    @Keep
+    void setSplashExtraData(SplashAdExtraData splashAdExtraData);
 
     @KsAdSdkApi
     @Keep

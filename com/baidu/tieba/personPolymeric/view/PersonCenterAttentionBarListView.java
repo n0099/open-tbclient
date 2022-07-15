@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.eg;
 import com.repackage.fg;
-import com.repackage.l38;
-import com.repackage.o38;
+import com.repackage.g48;
+import com.repackage.j48;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -29,7 +29,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public l38 b;
+    public g48 b;
     public TextView c;
     public ListViewPager d;
     public View e;
@@ -163,7 +163,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<o38> e = this.a.e(i);
+                List<j48> e = this.a.e(i);
                 if (ListUtils.isEmpty(e)) {
                     return null;
                 }
@@ -213,20 +213,20 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         f(context);
     }
 
-    public final List<o38> e(int i) {
+    public final List<j48> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            l38 l38Var = this.b;
-            if (l38Var == null || ListUtils.isEmpty(l38Var.a)) {
+            g48 g48Var = this.b;
+            if (g48Var == null || ListUtils.isEmpty(g48Var.a)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             int i2 = i * 4;
             for (int i3 = i2; i3 < i2 + 4; i3++) {
-                o38 o38Var = (o38) ListUtils.getItem(this.b.a, i3);
-                if (o38Var != null) {
-                    arrayList.add(o38Var);
+                j48 j48Var = (j48) ListUtils.getItem(this.b.a, i3);
+                if (j48Var != null) {
+                    arrayList.add(j48Var);
                 }
             }
             return arrayList;
@@ -238,11 +238,11 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06ab, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06c7, this);
             this.e = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090666);
-            this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f090667);
-            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f0907c3);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09066b);
+            this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f09066c);
+            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f0907ca);
             this.d.setOffscreenPageLimit(1);
         }
     }
@@ -250,7 +250,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d06ab : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d06c7 : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

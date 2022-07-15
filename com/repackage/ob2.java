@@ -1,15 +1,14 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ob2 extends sv2 {
+public class ob2 extends rb2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,13 +26,19 @@ public class ob2 extends sv2 {
         }
     }
 
-    @Override // com.repackage.sv2
-    public void b(@NonNull Bundle bundle) {
-        sz2 b0;
+    @Override // com.repackage.qb2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || (b0 = sz2.b0()) == null || TextUtils.equals(b0.O(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
-            return;
-        }
-        SwanFavorDataManager.h().m(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "key_cur_preset_apps_extension_core_ver" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.qb2
+    @NonNull
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "key_cur_preset_apps_extension_core_ver_name" : (String) invokeV.objValue;
     }
 }

@@ -1,61 +1,111 @@
 package com.repackage;
 
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jr1 {
+public class jr1 extends gr1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-262118773, "Lcom/repackage/jr1$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+        public a(jr1 jr1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jr1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-262118773, "Lcom/repackage/jr1$a;");
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                qz1 V = ul2.U().V();
+                if (V == null) {
+                    hx1.c("CloseAppApi", "close fail by getSwanAppFragmentManager() return null");
                     return;
                 }
-            }
-            int[] iArr = new int[BasePendingOperation.OperationType.values().length];
-            a = iArr;
-            try {
-                iArr[BasePendingOperation.OperationType.OPERATION_TYPE_MAIN_THREAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+                pz1 o = V.o();
+                if (o == null) {
+                    hx1.c("CloseAppApi", "close fail by getTopFragment() return null");
+                } else {
+                    o.m2();
+                }
             }
         }
     }
 
-    public static fr1 a(BasePendingOperation.OperationType operationType) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jr1(@NonNull io1 io1Var) {
+        super(io1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {io1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((io1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.repackage.ko1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CloseAppApi" : (String) invokeV.objValue;
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            be3.e0(new a(this));
+        }
+    }
+
+    public hs1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, operationType)) == null) {
-            int i = a.a[operationType.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return new kr1();
-                }
-                return new ir1();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#hasCloseHandler", false);
+            Pair<hs1, JSONObject> s = s(str);
+            hs1 hs1Var = (hs1) s.first;
+            if (!hs1Var.isSuccess()) {
+                x();
+                return hs1Var;
             }
-            return new hr1();
+            if (((JSONObject) s.second).optBoolean("hasCloseHandler", false)) {
+                kc4.a().c();
+            } else {
+                x();
+            }
+            return hs1.f();
         }
-        return (fr1) invokeL.objValue;
+        return (hs1) invokeL.objValue;
     }
 }

@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
@@ -78,7 +77,7 @@ public class WebpUtil {
     public static int getInt(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) ? ((((byte) inputStream.read()) << 24) & (-16777216)) | ((((byte) inputStream.read()) << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16711680) | ((((byte) inputStream.read()) << 8) & 65280) | (((byte) inputStream.read()) & 255) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) ? ((((byte) inputStream.read()) << 24) & (-16777216)) | ((((byte) inputStream.read()) << 16) & 16711680) | ((((byte) inputStream.read()) << 8) & 65280) | (((byte) inputStream.read()) & 255) : invokeL.intValue;
     }
 
     public static short getShort(InputStream inputStream) throws IOException {
@@ -225,7 +224,7 @@ public class WebpUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, inputStream)) == null) {
-            return ((getByte(inputStream) << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16711680) | ((getByte(inputStream) << 8) & 65280) | (getByte(inputStream) & 255);
+            return ((getByte(inputStream) << 16) & 16711680) | ((getByte(inputStream) << 8) & 65280) | (getByte(inputStream) & 255);
         }
         return invokeL.intValue;
     }

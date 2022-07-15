@@ -9,43 +9,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTCustomController;
-import com.kwad.sdk.api.KsCustomController;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public final class FunAdConfig {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int DOWNLOAD_TYPE_NO_POPUP = 0;
-    public static final int DOWNLOAD_TYPE_POPUP = 1;
-    public static final int SPLASH_BUTTON_TYPE_DOWNLOADER_BAR = 2;
-    public static final int SPLASH_BUTTON_TYPE_FULL_SCREEN = 1;
-    public static final int TITLE_BAR_THEME_DARK = 1;
-    public static final int TITLE_BAR_THEME_LIGHT = 0;
-    public static final int TITLE_BAR_THEME_NO_TITLE_BAR = -1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context appContext;
     public final String appId;
     public final String appName;
-    public final int downLoadType;
     public final Set<String> forbiddenPlatforms;
-    public final boolean isFilterDeepLinkAd;
     public final boolean isUseCloudAdConfiguration;
     public final boolean isUseTextureView;
     public final boolean isVideoDataFlowAutoStart;
     public final boolean isVideoSoundEnable;
-    public final boolean ksCanReadICCID;
-    public final boolean ksCanReadMacAddress;
-    public final boolean ksCanReadNearbyWifiList;
-    public final KsCustomController ksCustomCtr;
     public final boolean logEnabled;
-    public final int splashButtonType;
-    public final int titleBarTheme;
-    public final TTCustomController ttCustomCtr;
-    public final TTAdSdk.InitCallback ttInitCallback;
-    public final boolean ttSupportMultiProcess;
+    public final Map<String, ModuleAdConfig> moduleConfigMap;
+    public final FunModuleInitManager moduleInitManager;
+    public final FunRuntimeAdConfig runtimeAdConfig;
     public final String userId;
 
     /* renamed from: com.fun.ad.sdk.FunAdConfig$1  reason: invalid class name */
@@ -59,27 +43,17 @@ public final class FunAdConfig {
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Context a;
+        public final Context a;
         public String b;
         public String c;
         public boolean d;
-        public int e;
-        public int f;
-        public int g;
+        public boolean e;
+        public boolean f;
+        public boolean g;
         public boolean h;
-        public boolean i;
-        public boolean j;
-        public boolean k;
-        public boolean l;
-        public boolean m;
-        public TTCustomController n;
-        public KsCustomController o;
-        public String p;
-        public Set<String> q;
-        public boolean r;
-        public boolean s;
-        public boolean t;
-        public TTAdSdk.InitCallback u;
+        public String i;
+        public final Set<String> j;
+        public final Map<String, ModuleAdConfig> moduleConfigMap;
 
         public Builder(@NonNull Context context) {
             Interceptable interceptable = $ic;
@@ -97,21 +71,12 @@ public final class FunAdConfig {
                 }
             }
             this.d = false;
-            this.e = -1;
-            this.f = 1;
-            this.g = 0;
-            this.h = false;
-            this.i = false;
-            this.j = false;
-            this.k = true;
-            this.m = false;
-            this.n = null;
-            this.o = null;
-            this.q = new HashSet();
-            this.r = true;
-            this.s = true;
-            this.t = true;
-            this.u = null;
+            this.e = false;
+            this.f = false;
+            this.g = false;
+            this.h = true;
+            this.j = new HashSet();
+            this.moduleConfigMap = new HashMap();
             this.a = context.getApplicationContext();
         }
 
@@ -125,7 +90,7 @@ public final class FunAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.q.add(str);
+                this.j.add(str);
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -151,61 +116,41 @@ public final class FunAdConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setDownLoadType(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.g = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        public Builder setFilterDeepLinkAd(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.m = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setKsCanReadICCID(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.r = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setKsCanReadMacAddress(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.t = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setKsCanReadNearbyWifiList(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                this.s = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setKsCustomController(KsCustomController ksCustomController) {
+        public Builder setBzAdConfig(ModuleAdConfig moduleAdConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, ksCustomController)) == null) {
-                this.o = ksCustomController;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, moduleAdConfig)) == null) {
+                this.moduleConfigMap.put(FunAdSdk.PLATFORM_BZ, moduleAdConfig);
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setCsjAdConfig(ModuleAdConfig moduleAdConfig) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, moduleAdConfig)) == null) {
+                this.moduleConfigMap.put(FunAdSdk.PLATFORM_CSJ, moduleAdConfig);
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setGdtAdConfig(ModuleAdConfig moduleAdConfig) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, moduleAdConfig)) == null) {
+                this.moduleConfigMap.put(FunAdSdk.PLATFORM_GDT, moduleAdConfig);
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setKsAdConfig(ModuleAdConfig moduleAdConfig) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, moduleAdConfig)) == null) {
+                this.moduleConfigMap.put(FunAdSdk.PLATFORM_KS, moduleAdConfig);
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -214,68 +159,48 @@ public final class FunAdConfig {
         public Builder setLogEnabled(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-                this.j = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+                this.g = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setSplashButtonType(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-                this.f = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        public Builder setTTCustomController(TTCustomController tTCustomController) {
+        public Builder setMaxAdConfig(ModuleAdConfig moduleAdConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tTCustomController)) == null) {
-                this.n = tTCustomController;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, moduleAdConfig)) == null) {
+                this.moduleConfigMap.put(FunAdSdk.PLATFORM_MAX, moduleAdConfig);
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setTitleBarTheme(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-                this.e = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        public Builder setTtInitCallback(TTAdSdk.InitCallback initCallback) {
+        public Builder setMmAdConfig(ModuleAdConfig moduleAdConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, initCallback)) == null) {
-                this.u = initCallback;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, moduleAdConfig)) == null) {
+                this.moduleConfigMap.put(FunAdSdk.PLATFORM_MM, moduleAdConfig);
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setTtSupportMultiProcess(boolean z) {
-            InterceptResult invokeZ;
+        public Builder setPgAdConfig(ModuleAdConfig moduleAdConfig) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-                this.l = z;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, moduleAdConfig)) == null) {
+                this.moduleConfigMap.put(FunAdSdk.PLATFORM_PG, moduleAdConfig);
                 return this;
             }
-            return (Builder) invokeZ.objValue;
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setUseCloudAdConfiguration(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
-                this.k = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+                this.h = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -284,7 +209,7 @@ public final class FunAdConfig {
         public Builder setUseTextureView(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
                 this.d = z;
                 return this;
             }
@@ -294,8 +219,8 @@ public final class FunAdConfig {
         public Builder setUserId(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-                this.p = str;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+                this.i = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -304,8 +229,8 @@ public final class FunAdConfig {
         public Builder setVideoDataFlowAutoStart(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048595, this, z)) == null) {
-                this.i = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
+                this.f = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -314,8 +239,8 @@ public final class FunAdConfig {
         public Builder setVideoSoundEnable(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048596, this, z)) == null) {
-                this.h = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
+                this.e = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -341,22 +266,14 @@ public final class FunAdConfig {
         this.appName = builder.b;
         this.appId = builder.c;
         this.isUseTextureView = builder.d;
-        this.titleBarTheme = builder.e;
-        this.splashButtonType = builder.f;
-        this.downLoadType = builder.g;
-        this.isVideoSoundEnable = builder.h;
-        this.isVideoDataFlowAutoStart = builder.i;
-        this.logEnabled = builder.j;
-        this.isUseCloudAdConfiguration = builder.k;
-        this.isFilterDeepLinkAd = builder.m;
-        this.userId = builder.p;
-        this.forbiddenPlatforms = Collections.unmodifiableSet(builder.q);
-        this.ttCustomCtr = builder.n;
-        this.ksCustomCtr = builder.o;
-        this.ksCanReadICCID = builder.r;
-        this.ksCanReadNearbyWifiList = builder.s;
-        this.ksCanReadMacAddress = builder.t;
-        this.ttSupportMultiProcess = builder.l;
-        this.ttInitCallback = builder.u;
+        this.isVideoSoundEnable = builder.e;
+        this.isVideoDataFlowAutoStart = builder.f;
+        this.logEnabled = builder.g;
+        this.isUseCloudAdConfiguration = builder.h;
+        this.userId = builder.i;
+        this.forbiddenPlatforms = Collections.unmodifiableSet(builder.j);
+        this.moduleConfigMap = builder.moduleConfigMap;
+        this.runtimeAdConfig = new FunRuntimeAdConfig();
+        this.moduleInitManager = new FunModuleInitManager();
     }
 }

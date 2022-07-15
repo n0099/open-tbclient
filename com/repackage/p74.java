@@ -1,226 +1,327 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class p74 extends q74<PMSAppInfo> {
+public class p74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755457020, "Lcom/repackage/p74;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755457020, "Lcom/repackage/p74;");
+        }
+    }
 
     public p74() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.q74
-    public List<PMSAppInfo> e(Cursor cursor) {
-        InterceptResult invokeL;
+    public static void a(@NonNull JSONObject jSONObject, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return arrayList;
-            }
-            do {
-                arrayList.add(h(cursor));
-            } while (cursor.moveToNext());
-            return arrayList;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, jSONObject, map) == null) || map == null) {
+            return;
         }
-        return (List) invokeL.objValue;
+        try {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                jSONObject.put(entry.getKey(), entry.getValue());
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.q74
-    /* renamed from: f */
-    public ContentValues c(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
-        InterceptResult invokeL;
+    public static boolean b(lb4 lb4Var, a84 a84Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
-            ContentValues contentValues = new ContentValues();
-            if (pMSAppInfo == null) {
-                return contentValues;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, lb4Var, a84Var)) == null) {
+            if (a84Var == null) {
+                return true;
             }
-            contentValues.put("app_id", pMSAppInfo.appId);
-            contentValues.put(GameGuideConfigInfo.KEY_APP_KEY, pMSAppInfo.appKey);
-            contentValues.put("app_sign", Long.valueOf(pMSAppInfo.appSign));
-            contentValues.put("version_code", Long.valueOf(pMSAppInfo.versionCode));
-            contentValues.put("version_name", pMSAppInfo.versionName);
-            contentValues.put("description", pMSAppInfo.description);
-            contentValues.put("app_status", Integer.valueOf(pMSAppInfo.appStatus));
-            contentValues.put("status_detail", pMSAppInfo.statusDetail);
-            contentValues.put("status_desc", pMSAppInfo.statusDesc);
-            contentValues.put("resume_date", pMSAppInfo.resumeDate);
-            contentValues.put("icon_url", pMSAppInfo.iconUrl);
-            contentValues.put("app_name", pMSAppInfo.appName);
-            contentValues.put("service_category", pMSAppInfo.serviceCategory);
-            contentValues.put("subject_info", pMSAppInfo.subjectInfo);
-            contentValues.put("type", Integer.valueOf(pMSAppInfo.type));
-            contentValues.put("pkg_size", Long.valueOf(pMSAppInfo.pkgSize));
-            contentValues.put("pending_err_code", Integer.valueOf(pMSAppInfo.pendingErrCode));
-            contentValues.put("app_category", Integer.valueOf(pMSAppInfo.appCategory));
-            contentValues.put("orientation", Integer.valueOf(pMSAppInfo.getOrientation()));
-            contentValues.put("max_age", Long.valueOf(pMSAppInfo.maxAge));
-            contentValues.put("create_time", Long.valueOf(pMSAppInfo.createTime));
-            contentValues.put("webview_domains", pMSAppInfo.webViewDomains);
-            contentValues.put("web_action", pMSAppInfo.webAction);
-            contentValues.put("domains", pMSAppInfo.domains);
-            contentValues.put(SwanAppBearInfo.BEAR_INFO, pMSAppInfo.bearInfo);
-            contentValues.put("server_ext", pMSAppInfo.serverExt);
-            contentValues.put("pay_protected", Integer.valueOf(pMSAppInfo.payProtected));
-            contentValues.put("customer_service", Integer.valueOf(pMSAppInfo.customerService));
-            contentValues.put("global_notice", Integer.valueOf(pMSAppInfo.globalNotice));
-            contentValues.put("global_private", Integer.valueOf(pMSAppInfo.globalPrivate));
-            contentValues.put("pa_number", pMSAppInfo.paNumber);
-            contentValues.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, pMSAppInfo.brandsInfo);
-            contentValues.put("quick_app_key", pMSAppInfo.quickAppKey);
-            long lastLaunchTime = pMSAppInfo.getLastLaunchTime();
-            if (0 < lastLaunchTime) {
-                contentValues.put("last_launch_time", Long.valueOf(lastLaunchTime));
+            if (lb4Var == null) {
+                a84Var.C(new z84(2100, "request对象为空"));
+                return true;
             }
-            int launchCount = pMSAppInfo.getLaunchCount();
-            if (launchCount > 0) {
-                contentValues.put("launch_count", Integer.valueOf(launchCount));
-            }
-            int installSrc = pMSAppInfo.getInstallSrc();
-            if (installSrc > 0) {
-                contentValues.put("install_src", Integer.valueOf(installSrc));
-            }
-            contentValues.put("web_url", pMSAppInfo.webUrl);
-            contentValues.put("web_permit", Integer.valueOf(pMSAppInfo.webPermit));
-            contentValues.put("cs_protocol_version", Integer.valueOf(pMSAppInfo.csProtocolVersion));
-            contentValues.put("user_action_apis", pMSAppInfo.userActionApis);
-            contentValues.put("rank", Integer.valueOf(pMSAppInfo.rank));
-            return contentValues;
+            return false;
         }
-        return (ContentValues) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.q74
-    /* renamed from: g */
-    public PMSAppInfo d(Cursor cursor) {
-        InterceptResult invokeL;
+    public static synchronized void c(hb4 hb4Var, a84 a84Var) {
+        o94 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, hb4Var, a84Var) == null) {
+            synchronized (p74.class) {
+                if (b(hb4Var, a84Var)) {
+                    return;
+                }
+                if (TextUtils.isEmpty(hb4Var.g())) {
+                    a84Var.C(new z84(2100, "bundleId为空"));
+                    return;
+                }
+                HashMap<String, String> i = j94.i(hb4Var);
+                if (a84Var.B() != null) {
+                    i.putAll(a84Var.B());
+                }
+                a84Var.D();
+                if (hb4Var.n() == 1 && hb4Var.h() == 2101) {
+                    M = q74.b().n();
+                } else {
+                    M = q74.b().M();
+                }
+                M.z(n94.e(), i, a84Var.t(), new ua4(hb4Var.g(), a84Var, hb4Var));
             }
-            return h(cursor);
         }
-        return (PMSAppInfo) invokeL.objValue;
     }
 
-    public final PMSAppInfo h(Cursor cursor) {
-        InterceptResult invokeL;
+    public static synchronized void d(eb4 eb4Var, a84 a84Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("app_id");
-                int columnIndex2 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
-                int columnIndex3 = cursor.getColumnIndex("app_sign");
-                int columnIndex4 = cursor.getColumnIndex("version_code");
-                int columnIndex5 = cursor.getColumnIndex("version_name");
-                int columnIndex6 = cursor.getColumnIndex("description");
-                int columnIndex7 = cursor.getColumnIndex("app_status");
-                int columnIndex8 = cursor.getColumnIndex("status_detail");
-                int columnIndex9 = cursor.getColumnIndex("status_desc");
-                int columnIndex10 = cursor.getColumnIndex("resume_date");
-                int columnIndex11 = cursor.getColumnIndex("icon_url");
-                int columnIndex12 = cursor.getColumnIndex("app_name");
-                int columnIndex13 = cursor.getColumnIndex("service_category");
-                int columnIndex14 = cursor.getColumnIndex("subject_info");
-                int columnIndex15 = cursor.getColumnIndex("type");
-                int columnIndex16 = cursor.getColumnIndex("pkg_size");
-                int columnIndex17 = cursor.getColumnIndex("pending_err_code");
-                int columnIndex18 = cursor.getColumnIndex("app_category");
-                int columnIndex19 = cursor.getColumnIndex("orientation");
-                int columnIndex20 = cursor.getColumnIndex("max_age");
-                int columnIndex21 = cursor.getColumnIndex("create_time");
-                int columnIndex22 = cursor.getColumnIndex("webview_domains");
-                int columnIndex23 = cursor.getColumnIndex("web_action");
-                int columnIndex24 = cursor.getColumnIndex("domains");
-                int columnIndex25 = cursor.getColumnIndex(SwanAppBearInfo.BEAR_INFO);
-                int columnIndex26 = cursor.getColumnIndex("server_ext");
-                int columnIndex27 = cursor.getColumnIndex("pay_protected");
-                int columnIndex28 = cursor.getColumnIndex("customer_service");
-                int columnIndex29 = cursor.getColumnIndex("global_notice");
-                int columnIndex30 = cursor.getColumnIndex("global_private");
-                int columnIndex31 = cursor.getColumnIndex("pa_number");
-                int columnIndex32 = cursor.getColumnIndex(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND);
-                int columnIndex33 = cursor.getColumnIndex("last_launch_time");
-                int columnIndex34 = cursor.getColumnIndex("launch_count");
-                int columnIndex35 = cursor.getColumnIndex("install_src");
-                int columnIndex36 = cursor.getColumnIndex("quick_app_key");
-                int columnIndex37 = cursor.getColumnIndex("web_url");
-                int columnIndex38 = cursor.getColumnIndex("web_permit");
-                int columnIndex39 = cursor.getColumnIndex("cs_protocol_version");
-                int columnIndex40 = cursor.getColumnIndex("user_action_apis");
-                PMSAppInfo pMSAppInfo = new PMSAppInfo();
-                pMSAppInfo.appId = cursor.getString(columnIndex);
-                pMSAppInfo.appKey = cursor.getString(columnIndex2);
-                pMSAppInfo.appSign = cursor.getLong(columnIndex3);
-                pMSAppInfo.versionCode = cursor.getInt(columnIndex4);
-                pMSAppInfo.versionName = cursor.getString(columnIndex5);
-                pMSAppInfo.description = cursor.getString(columnIndex6);
-                pMSAppInfo.appStatus = cursor.getInt(columnIndex7);
-                pMSAppInfo.statusDetail = cursor.getString(columnIndex8);
-                pMSAppInfo.statusDesc = cursor.getString(columnIndex9);
-                pMSAppInfo.resumeDate = cursor.getString(columnIndex10);
-                pMSAppInfo.iconUrl = cursor.getString(columnIndex11);
-                pMSAppInfo.appName = cursor.getString(columnIndex12);
-                pMSAppInfo.serviceCategory = cursor.getString(columnIndex13);
-                pMSAppInfo.subjectInfo = cursor.getString(columnIndex14);
-                pMSAppInfo.type = cursor.getInt(columnIndex15);
-                pMSAppInfo.pkgSize = cursor.getLong(columnIndex16);
-                pMSAppInfo.pendingErrCode = cursor.getInt(columnIndex17);
-                pMSAppInfo.appCategory = cursor.getInt(columnIndex18);
-                pMSAppInfo.setOrientation(cursor.getInt(columnIndex19));
-                pMSAppInfo.maxAge = cursor.getLong(columnIndex20);
-                pMSAppInfo.createTime = cursor.getLong(columnIndex21);
-                pMSAppInfo.webViewDomains = cursor.getString(columnIndex22);
-                pMSAppInfo.webAction = cursor.getString(columnIndex23);
-                pMSAppInfo.domains = cursor.getString(columnIndex24);
-                pMSAppInfo.bearInfo = cursor.getString(columnIndex25);
-                pMSAppInfo.serverExt = cursor.getString(columnIndex26);
-                pMSAppInfo.payProtected = cursor.getInt(columnIndex27);
-                pMSAppInfo.customerService = cursor.getInt(columnIndex28);
-                pMSAppInfo.globalNotice = cursor.getInt(columnIndex29);
-                pMSAppInfo.globalPrivate = cursor.getInt(columnIndex30);
-                pMSAppInfo.paNumber = cursor.getString(columnIndex31);
-                pMSAppInfo.brandsInfo = cursor.getString(columnIndex32);
-                pMSAppInfo.quickAppKey = cursor.getString(columnIndex36);
-                pMSAppInfo.updateLastLaunchTime(cursor.getLong(columnIndex33));
-                pMSAppInfo.updateLaunchCount(cursor.getInt(columnIndex34));
-                pMSAppInfo.updateInstallSrc(cursor.getInt(columnIndex35));
-                pMSAppInfo.webUrl = cursor.getString(columnIndex37);
-                pMSAppInfo.webPermit = cursor.getInt(columnIndex38);
-                pMSAppInfo.csProtocolVersion = cursor.getInt(columnIndex39);
-                pMSAppInfo.userActionApis = cursor.getString(columnIndex40);
-                pMSAppInfo.rank = cursor.getInt(cursor.getColumnIndex("rank"));
-                return pMSAppInfo;
+        if (interceptable == null || interceptable.invokeLL(65541, null, eb4Var, a84Var) == null) {
+            synchronized (p74.class) {
+                if (b(eb4Var, a84Var)) {
+                    return;
+                }
+                if (eb4Var.f() != null && !eb4Var.f().isEmpty()) {
+                    HashMap<String, String> f = j94.f(eb4Var);
+                    if (a84Var.B() != null && f != null) {
+                        f.putAll(a84Var.B());
+                    }
+                    JSONObject d = j94.d(eb4Var);
+                    if (d == null) {
+                        a84Var.C(new z84(2100, "构造请求body失败"));
+                        return;
+                    }
+                    a(d, a84Var.y());
+                    a84Var.D();
+                    q74.b().M().b(n94.d(), f, a84Var.t(), d, new sa4(a84Var, eb4Var));
+                    return;
+                }
+                a84Var.C(new z84(2100, "pkg List为空"));
             }
-            return null;
         }
-        return (PMSAppInfo) invokeL.objValue;
+    }
+
+    public static void e(List<String> list, @Nullable String str, @Nullable u74 u74Var) {
+        o74 b;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65542, null, list, str, u74Var) == null) || (b = q74.b()) == null) {
+            return;
+        }
+        if (PMSConstants.a(b)) {
+            uc4.e().f();
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("appkeys", new JSONArray((Collection) list));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        HashMap hashMap = new HashMap();
+        hashMap.put("src_app", str);
+        b.M().b(n94.c(), hashMap, null, jSONObject, new v74(u74Var));
+    }
+
+    public static synchronized void f(gb4 gb4Var, a84 a84Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, gb4Var, a84Var) == null) {
+            synchronized (p74.class) {
+                if (b(gb4Var, a84Var)) {
+                    return;
+                }
+                if (gb4Var.f() != null && !gb4Var.f().isEmpty()) {
+                    HashMap<String, String> f = j94.f(gb4Var);
+                    if (a84Var.B() != null && f != null) {
+                        f.putAll(a84Var.B());
+                    }
+                    JSONObject e = j94.e(gb4Var);
+                    if (e == null) {
+                        a84Var.C(new z84(2100, "构造请求body失败"));
+                        return;
+                    }
+                    if (PMSConstants.a(q74.b())) {
+                        uc4.e().f();
+                    }
+                    a(e, a84Var.y());
+                    a84Var.D();
+                    q74.b().M().b(n94.d(), f, a84Var.t(), e, new ta4(a84Var, gb4Var));
+                    return;
+                }
+                a84Var.C(new z84(2100, "pkg List为空"));
+            }
+        }
+    }
+
+    public static synchronized void g(ib4 ib4Var, a84 a84Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, ib4Var, a84Var) == null) {
+            synchronized (p74.class) {
+                if (b(ib4Var, a84Var)) {
+                    return;
+                }
+                HashMap<String, String> j = j94.j(ib4Var);
+                if (a84Var.B() != null) {
+                    j.putAll(a84Var.B());
+                }
+                a84Var.D();
+                q74.b().M().z(n94.f(), j, a84Var.t(), new va4(a84Var, ib4Var));
+            }
+        }
+    }
+
+    public static synchronized void h(kb4 kb4Var, a84 a84Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, kb4Var, a84Var) == null) {
+            synchronized (p74.class) {
+                if (b(kb4Var, a84Var)) {
+                    return;
+                }
+                if (TextUtils.isEmpty(kb4Var.f())) {
+                    a84Var.C(new z84(2100, "bundleId为空"));
+                } else if (TextUtils.isEmpty(kb4Var.k())) {
+                    a84Var.C(new z84(2100, "分包名为空"));
+                } else {
+                    HashMap<String, String> k = j94.k(kb4Var);
+                    if (a84Var.B() != null) {
+                        k.putAll(a84Var.B());
+                    }
+                    a84Var.D();
+                    q74.b().M().z(n94.e(), k, a84Var.t(), new wa4(kb4Var.f(), a84Var, kb4Var));
+                }
+            }
+        }
+    }
+
+    public static JSONObject i(@Nullable pb4<JSONArray> pb4Var, @Nullable pb4<JSONObject> pb4Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, pb4Var, pb4Var2)) == null) ? sb4.a(pb4Var, pb4Var2) : (JSONObject) invokeLL.objValue;
+    }
+
+    public static synchronized boolean j(String str) {
+        InterceptResult invokeL;
+        boolean c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            synchronized (p74.class) {
+                c = fa4.b().c(str);
+            }
+            return c;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static synchronized boolean k(String str) {
+        InterceptResult invokeL;
+        boolean d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            synchronized (p74.class) {
+                d = fa4.b().d(str);
+            }
+            return d;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static synchronized void l(mb4 mb4Var, a84 a84Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, mb4Var, a84Var) == null) {
+            synchronized (p74.class) {
+                m(mb4Var, a84Var, null);
+            }
+        }
+    }
+
+    public static synchronized void m(mb4 mb4Var, a84 a84Var, a84 a84Var2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65550, null, mb4Var, a84Var, a84Var2) == null) {
+            synchronized (p74.class) {
+                n(mb4Var, a84Var, a84Var2, null);
+            }
+        }
+    }
+
+    public static synchronized void n(mb4 mb4Var, a84 a84Var, a84 a84Var2, @Nullable cd4 cd4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65551, null, mb4Var, a84Var, a84Var2, cd4Var) == null) {
+            synchronized (p74.class) {
+                if (b(mb4Var, a84Var)) {
+                    return;
+                }
+                if (PMSConstants.a(q74.b())) {
+                    uc4.e().f();
+                }
+                pb4<JSONArray> g = cd4Var == null ? null : cd4Var.g();
+                a84 callback = cd4Var == null ? null : cd4Var.getCallback();
+                HashMap hashMap = new HashMap();
+                if (a84Var.B() != null) {
+                    hashMap.putAll(a84Var.B());
+                }
+                a84Var.D();
+                q74.b().M().b(n94.g(), hashMap, a84Var.t(), i(g, null), new xa4(a84Var, mb4Var, a84Var2, callback));
+            }
+        }
+    }
+
+    public static synchronized void o(cd4 cd4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, cd4Var) == null) {
+            synchronized (p74.class) {
+                if (cd4Var == null) {
+                    return;
+                }
+                a84 callback = cd4Var.getCallback();
+                if (callback == null) {
+                    return;
+                }
+                lb4 request = cd4Var.getRequest();
+                if (request == null) {
+                    callback.C(new z84(2100, "request对象为空"));
+                    return;
+                }
+                Map<String, String> B = callback.B();
+                if (callback.B() != null) {
+                    B = new HashMap(B);
+                }
+                callback.D();
+                q74.b().M().b(n94.g(), B, callback.t(), i(cd4Var.g(), null), new xa4(callback, request, null, callback));
+            }
+        }
     }
 }

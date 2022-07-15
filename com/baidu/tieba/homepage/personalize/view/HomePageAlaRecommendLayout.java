@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ey5;
+import com.repackage.bz5;
 import com.repackage.pi;
 import java.util.List;
 import tbclient.AlaLiveInfo;
@@ -110,10 +110,10 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0388, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d038b, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090218);
+            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090219);
             AlaRecommendListAdapter alaRecommendListAdapter = new AlaRecommendListAdapter(this.a);
             this.d = alaRecommendListAdapter;
             this.c.setAdapter(alaRecommendListAdapter);
@@ -166,12 +166,12 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         }
     }
 
-    public void setData(ey5 ey5Var) {
+    public void setData(bz5 bz5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ey5Var) == null) {
-            if (ey5Var != null && !ListUtils.isEmpty(ey5Var.c())) {
-                this.e = ey5Var.c();
-                this.f = ey5Var.f();
+        if (interceptable == null || interceptable.invokeL(1048581, this, bz5Var) == null) {
+            if (bz5Var != null && !ListUtils.isEmpty(bz5Var.c())) {
+                this.e = bz5Var.c();
+                this.f = bz5Var.d();
                 setVisibility(0);
                 d();
                 return;

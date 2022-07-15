@@ -1,35 +1,38 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.SharedPreferences;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
-import com.baidu.mobstat.Config;
-import com.baidu.sofire.d.D;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.net.WebAddress;
-import com.facebook.common.internal.Sets;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.tachikoma.core.component.input.ReturnKeyType;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
-import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes6.dex */
-public class p83 {
+public class p83 extends u83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final int b;
-    public static final int c;
-    public static final Set<String> d;
-    public static final String[] e;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final b b;
+    public final boolean c;
+    public final String d;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -44,374 +47,728 @@ public class p83 {
                 return;
             }
         }
-        a = cg1.a;
-        b = 6;
-        c = 8;
-        d = Sets.newHashSet("https", "http", "wss");
-        String[] strArr = {D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, "co", "com", Config.EVENT_PATH_MAPPING, "edu", ReturnKeyType.GO, "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
-        e = strArr;
-        Arrays.sort(strArr);
+        e = rg1.a;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p83(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = new b(this, null);
+        this.d = str;
+        this.c = ProcessUtils.isMainProcess() || b();
+    }
+
+    @Override // com.repackage.u83, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor clear() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.c) {
+                super.clear();
+            } else {
+                uw2.c(t83.class, q83.a(h(), 100, "", ""));
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeV.objValue;
+    }
+
+    public boolean d(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) ? super.getBoolean(str, z) : invokeLZ.booleanValue;
+    }
+
+    public float e(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f)) == null) ? super.getFloat(str, f) : invokeLF.floatValue;
+    }
+
+    @Override // com.repackage.u83, android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c ? super.edit() : this.b : (SharedPreferences.Editor) invokeV.objValue;
+    }
+
+    public int f(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) ? super.getInt(str, i) : invokeLI.intValue;
+    }
+
+    public long g(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j)) == null) ? super.getLong(str, j) : invokeLJ.longValue;
+    }
+
+    @Override // com.repackage.u83, com.repackage.hg4, android.content.SharedPreferences
+    public Map<String, ?> getAll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? j() ? super.getAll() : new HashMap(super.getAll()) : (Map) invokeV.objValue;
+    }
+
+    @Override // com.repackage.u83, android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            try {
+                if (this.c) {
+                    return d(str, z);
+                }
+                ww2 c = uw2.c(s83.class, q83.a(h(), 3, str, String.valueOf(z)));
+                if (e) {
+                    Log.d("IpcSp", "getBoolean processName:" + ProcessUtils.getCurProcessName() + " result value:" + c.a.getBoolean("result_value"));
+                }
+                return c.a.getBoolean("result_value");
+            } catch (ClassCastException e2) {
+                Log.e("IpcSp", SharedPreferenceManager.OPERATION_GET_BOOLEAN, e2);
                 return false;
             }
-            for (String str2 : d) {
-                if (str.startsWith(str2)) {
-                    return true;
-                }
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+        return invokeLZ.booleanValue;
     }
 
-    public static String b(Collection<n83> collection, String str) {
+    @Override // com.repackage.u83, android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
+            if (this.c) {
+                return e(str, f);
+            }
+            ww2 c = uw2.c(s83.class, q83.a(h(), 5, str, String.valueOf(f)));
+            if (e) {
+                Log.d("IpcSp", "getFloat processName:" + ProcessUtils.getCurProcessName() + " result value:" + c.a.getFloat("result_value"));
+            }
+            return c.a.getFloat("result_value");
+        }
+        return invokeLF.floatValue;
+    }
+
+    @Override // com.repackage.u83, android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
+            if (this.c) {
+                return f(str, i);
+            }
+            ww2 c = uw2.c(s83.class, q83.a(h(), 1, str, String.valueOf(i)));
+            if (e) {
+                Log.d("IpcSp", "getInt processName:" + ProcessUtils.getCurProcessName() + " result value:" + c.a.getInt("result_value"));
+            }
+            return c.a.getInt("result_value");
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // com.repackage.u83, android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
+            if (this.c) {
+                return g(str, j);
+            }
+            ww2 c = uw2.c(s83.class, q83.a(h(), 2, str, String.valueOf(j)));
+            if (e) {
+                Log.d("IpcSp", "getLong processName:" + ProcessUtils.getCurProcessName() + " result value:" + c.a.getLong("result_value"));
+            }
+            return c.a.getLong("result_value");
+        }
+        return invokeLJ.longValue;
+    }
+
+    @Override // com.repackage.u83, android.content.SharedPreferences
+    public String getString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, collection, str)) == null) {
-            if (collection == null || collection.isEmpty()) {
-                return str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            if (this.c) {
+                return i(str, str2);
             }
-            String trim = str == null ? "" : str.trim();
-            int length = trim.length();
-            if (!TextUtils.isEmpty(trim)) {
-                int i = length - 1;
-                if (trim.charAt(i) == ';') {
-                    trim = trim.substring(0, i);
-                }
+            ww2 c = uw2.c(s83.class, q83.a(h(), 4, str, str2));
+            if (e) {
+                Log.d("IpcSp", "getString processName:" + ProcessUtils.getCurProcessName() + " result value:" + c.a.getString("result_value"));
             }
-            StringBuilder sb = new StringBuilder(trim);
-            for (n83 n83Var : collection) {
-                if (n83Var != null) {
-                    if (sb.length() > 0) {
-                        sb.append(WebvttCueParser.CHAR_SEMI_COLON);
-                        sb.append(WebvttCueParser.CHAR_SPACE);
-                    }
-                    sb.append(n83Var.c);
-                    if (n83Var.d != null) {
-                        sb.append('=');
-                        sb.append(n83Var.d);
-                    }
-                }
-            }
-            return TextUtils.isEmpty(sb) ? str : sb.toString();
+            return c.a.getString("result_value");
         }
         return (String) invokeLL.objValue;
     }
 
-    public static int c(@NonNull String str, int i, int i2) {
-        InterceptResult invokeLII;
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, str, i, i2)) == null) {
-            int indexOf = str.indexOf(59, i);
-            int indexOf2 = str.indexOf(44, i);
-            return (indexOf == -1 && indexOf2 == -1) ? i2 : indexOf == -1 ? indexOf2 : indexOf2 == -1 ? indexOf : Math.min(indexOf, indexOf2);
-        }
-        return invokeLII.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public static String d(String str) {
+    public String i(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) ? super.getString(str, str2) : (String) invokeLL.objValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.u83, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048591, this, str, z)) == null) {
+            if (this.c) {
+                super.putBoolean(str, z);
+            } else {
+                uw2.c(t83.class, q83.a(h(), 3, str, String.valueOf(z)));
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLZ.objValue;
+    }
+
+    @Override // com.repackage.u83, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048592, this, str, f)) == null) {
+            if (this.c) {
+                super.putFloat(str, f);
+            } else {
+                uw2.c(t83.class, q83.a(h(), 5, str, String.valueOf(f)));
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLF.objValue;
+    }
+
+    @Override // com.repackage.u83, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, str, i)) == null) {
+            if (this.c) {
+                super.putInt(str, i);
+            } else {
+                uw2.c(t83.class, q83.a(h(), 1, str, String.valueOf(i)));
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLI.objValue;
+    }
+
+    @Override // com.repackage.u83, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048594, this, str, j)) == null) {
+            if (this.c) {
+                super.edit().putLong(str, j).commit();
+            } else {
+                uw2.c(t83.class, q83.a(h(), 2, str, String.valueOf(j)));
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLJ.objValue;
+    }
+
+    @Override // com.repackage.u83, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, str, str2)) == null) {
+            if (this.c) {
+                super.putString(str, str2);
+            } else {
+                uw2.c(t83.class, q83.a(h(), 4, str, str2));
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.u83, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor remove(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
+            if (this.c) {
+                super.remove(str);
+            } else {
+                uw2.c(t83.class, q83.a(h(), 101, str, ""));
             }
-            int i = 0;
-            int indexOf = str.indexOf(46);
-            int lastIndexOf = str.lastIndexOf(46);
-            while (indexOf < lastIndexOf) {
-                i = indexOf + 1;
-                indexOf = str.indexOf(46, i);
-            }
-            return i > 0 ? str.substring(i) : str;
+            return this;
         }
-        return (String) invokeL.objValue;
+        return (SharedPreferences.Editor) invokeL.objValue;
     }
 
-    public static String[] e(WebAddress webAddress) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, webAddress)) == null) {
-            if (webAddress == null || TextUtils.isEmpty(webAddress.getHost()) || TextUtils.isEmpty(webAddress.getPath()) || v83.b(webAddress.getHost())) {
-                return null;
-            }
-            String[] strArr = {webAddress.getHost().toLowerCase(), webAddress.getPath()};
-            int indexOf = strArr[0].indexOf(46);
-            if (indexOf == -1) {
-                return null;
-            }
-            if (indexOf == strArr[0].lastIndexOf(46)) {
-                strArr[0] = IStringUtil.EXTENSION_SEPARATOR + strArr[0];
-            }
-            if (strArr[1].charAt(0) != '/') {
-                return null;
-            }
-            int indexOf2 = strArr[1].indexOf(63);
-            if (indexOf2 != -1) {
-                strArr[1] = strArr[1].substring(0, indexOf2);
-            }
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class b implements SharedPreferences.Editor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Deque<Runnable> a;
+        public final /* synthetic */ p83 b;
 
-    public static int f(n83 n83Var, String str, int i, int i2, String str2) {
-        InterceptResult invokeCommon;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{n83Var, str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
-            if (n83Var == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return i2;
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ String b;
+            public final /* synthetic */ b c;
+
+            public a(b bVar, String str, String str2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, str, str2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = bVar;
+                this.a = str;
+                this.b = str2;
             }
-            while (i >= 0 && i < i2) {
-                if (str.charAt(i) == ' ' || str.charAt(i) == ';') {
-                    i++;
-                } else if (str.charAt(i) == ',') {
-                    return i + 1;
-                } else {
-                    int i3 = i2 - i;
-                    int i4 = b;
-                    if (i3 >= i4 && str.substring(i, i4 + i).equalsIgnoreCase(ClientCookie.SECURE_ATTR)) {
-                        int i5 = b + i;
-                        if (i5 == i2) {
-                            n83Var.f = true;
-                            return i5;
-                        } else if (str.charAt(i5) == ';' || str.charAt(i5) == '=' || str.charAt(i5) == ',') {
-                            n83Var.f = true;
-                            i = c(str, i5, i2);
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.c.b.putString(this.a, this.b);
+                }
+            }
+        }
+
+        /* renamed from: com.repackage.p83$b$b  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0704b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ Set b;
+            public final /* synthetic */ b c;
+
+            public RunnableC0704b(b bVar, String str, Set set) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, str, set};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = bVar;
+                this.a = str;
+                this.b = set;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.c.b.putStringSet(this.a, this.b);
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class c implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ int b;
+            public final /* synthetic */ b c;
+
+            public c(b bVar, String str, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, str, Integer.valueOf(i)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = bVar;
+                this.a = str;
+                this.b = i;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.c.b.putInt(this.a, this.b);
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class d implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ long b;
+            public final /* synthetic */ b c;
+
+            public d(b bVar, String str, long j) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, str, Long.valueOf(j)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = bVar;
+                this.a = str;
+                this.b = j;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.c.b.putLong(this.a, this.b);
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class e implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ float b;
+            public final /* synthetic */ b c;
+
+            public e(b bVar, String str, float f) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, str, Float.valueOf(f)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = bVar;
+                this.a = str;
+                this.b = f;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.c.b.putFloat(this.a, this.b);
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class f implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ boolean b;
+            public final /* synthetic */ b c;
+
+            public f(b bVar, String str, boolean z) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, str, Boolean.valueOf(z)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = bVar;
+                this.a = str;
+                this.b = z;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.c.b.putBoolean(this.a, this.b);
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class g implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ b b;
+
+            public g(b bVar, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, str};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = str;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.b.remove(this.a);
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class h implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public h(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.b.clear();
+                }
+            }
+        }
+
+        public b(p83 p83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p83Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = p83Var;
+            this.a = new ArrayDeque();
+        }
+
+        @Override // android.content.SharedPreferences.Editor
+        public void apply() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                commit();
+            }
+        }
+
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor clear() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                d(new h(this));
+                return this;
+            }
+            return (SharedPreferences.Editor) invokeV.objValue;
+        }
+
+        @Override // android.content.SharedPreferences.Editor
+        public boolean commit() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                synchronized (this.a) {
+                    while (!this.a.isEmpty()) {
+                        Runnable poll = this.a.poll();
+                        if (poll != null) {
+                            poll.run();
                         }
                     }
-                    int i6 = c;
-                    if (i3 >= i6 && str.substring(i, i6 + i).equalsIgnoreCase("httponly")) {
-                        int i7 = c + i;
-                        if (i7 == i2) {
-                            return i7;
-                        }
-                        if (str.charAt(i7) == ';' || str.charAt(i7) == '=' || str.charAt(i7) == ',') {
-                            i = c(str, i7, i2);
-                        }
-                    }
-                    int indexOf2 = str.indexOf(61, i);
-                    if (indexOf2 <= 0) {
-                        return i2;
-                    }
-                    String lowerCase = str.substring(i, indexOf2).toLowerCase();
-                    i = c(str, n(str, lowerCase, i, indexOf2), i2);
-                    if (i >= indexOf2) {
-                        String substring = str.substring(indexOf2 + 1, i);
-                        if (substring.length() > 2 && substring.charAt(0) == '\"' && (indexOf = substring.indexOf(34, 1)) > 0) {
-                            substring = substring.substring(1, indexOf);
-                        }
-                        i(n83Var, lowerCase, substring, str2);
-                    }
                 }
+                return true;
             }
-            return i;
+            return invokeV.booleanValue;
         }
-        return invokeCommon.intValue;
-    }
 
-    public static ArrayList<n83> g(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, str3)) == null) {
-            if (a) {
-                Log.d("SwanCookieParser", "parseCookie: host=" + str + "; path=" + str2 + "; cookieString=" + str3);
-            }
-            ArrayList<n83> arrayList = new ArrayList<>();
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-                int i = 0;
-                int length = str3.length();
-                while (i >= 0 && i < length) {
-                    if (str3.charAt(i) == ' ') {
-                        i++;
-                    } else {
-                        n83 n83Var = new n83(str, str2);
-                        i = f(n83Var, str3, h(n83Var, str3, i, length), length, str);
-                        if (!TextUtils.isEmpty(n83Var.a) && !TextUtils.isEmpty(n83Var.c) && n83Var.d != null) {
-                            arrayList.add(n83Var);
-                            if (a) {
-                                Log.d("SwanCookieParser", "parseCookies result: " + n83Var.toString());
-                            }
-                        }
-                    }
+        public final b d(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, runnable)) == null) {
+                synchronized (this.a) {
+                    this.a.offer(runnable);
                 }
+                return this;
             }
-            return arrayList;
+            return (b) invokeL.objValue;
         }
-        return (ArrayList) invokeLLL.objValue;
-    }
 
-    public static int h(n83 n83Var, String str, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, n83Var, str, i, i2)) == null) {
-            if (n83Var != null && !TextUtils.isEmpty(str)) {
-                int indexOf = str.indexOf(59, i);
-                int indexOf2 = str.indexOf(61, i);
-                if (indexOf > indexOf2 && indexOf2 != -1) {
-                    n83Var.c = str.substring(i, indexOf2);
-                    int i3 = indexOf2 + 1;
-                    if (str.charAt(i3) == '\"' && (i = str.indexOf(34, indexOf2 + 2)) == -1) {
-                        n83Var.a = null;
-                        return i2;
-                    }
-                    int indexOf3 = str.indexOf(59, i);
-                    if (indexOf3 != -1) {
-                        i2 = indexOf3;
-                    }
-                    if (i3 != i2 && i2 >= indexOf2) {
-                        n83Var.d = str.substring(i3, i2);
-                    } else {
-                        n83Var.d = "";
-                    }
-                    return i2;
-                }
-                if (indexOf != -1) {
-                    i2 = indexOf;
-                }
-                n83Var.c = str.substring(i, i2);
-                n83Var.d = null;
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor putBoolean(String str, boolean z) {
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
+                d(new f(this, str, z));
+                return this;
             }
-            return i2;
+            return (SharedPreferences.Editor) invokeLZ.objValue;
         }
-        return invokeLLII.intValue;
-    }
 
-    public static void i(n83 n83Var, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65545, null, n83Var, str, str2, str3) == null) || n83Var == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str3)) {
-            return;
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor putFloat(String str, float f2) {
+            InterceptResult invokeLF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048581, this, str, f2)) == null) {
+                d(new e(this, str, f2));
+                return this;
+            }
+            return (SharedPreferences.Editor) invokeLF.objValue;
         }
-        char c2 = 65535;
-        switch (str.hashCode()) {
-            case -1326197564:
-                if (str.equals("domain")) {
-                    c2 = 3;
-                    break;
-                }
-                break;
-            case -1309235404:
-                if (str.equals("expires")) {
-                    c2 = 0;
-                    break;
-                }
-                break;
-            case 3433509:
-                if (str.equals("path")) {
-                    c2 = 2;
-                    break;
-                }
-                break;
-            case 842940694:
-                if (str.equals(ClientCookie.MAX_AGE_ATTR)) {
-                    c2 = 1;
-                    break;
-                }
-                break;
-        }
-        if (c2 == 0) {
-            k(n83Var, str2);
-        } else if (c2 == 1) {
-            l(n83Var, str2);
-        } else if (c2 == 2) {
-            m(n83Var, str2);
-        } else if (c2 != 3) {
-        } else {
-            j(n83Var, str2, str3);
-        }
-    }
 
-    public static void j(@NonNull n83 n83Var, @NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65546, null, n83Var, str, str2) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        int lastIndexOf = str.lastIndexOf(46);
-        if (lastIndexOf <= 0) {
-            n83Var.a = null;
-            return;
-        }
-        if (v83.b(str.startsWith(".") ? str.substring(1) : str)) {
-            n83Var.a = null;
-            return;
-        }
-        String lowerCase = str.toLowerCase();
-        if (lowerCase.charAt(0) != '.') {
-            lowerCase = IStringUtil.EXTENSION_SEPARATOR + lowerCase;
-            lastIndexOf++;
-        }
-        if (!str2.endsWith(lowerCase.substring(1))) {
-            n83Var.a = null;
-            return;
-        }
-        int length = lowerCase.length();
-        int length2 = str2.length();
-        if (length2 > length - 1 && str2.charAt(length2 - length) != '.') {
-            n83Var.a = null;
-            return;
-        }
-        if (length == lastIndexOf + 3 && length >= 6 && length <= 8) {
-            if (Arrays.binarySearch(e, lowerCase.substring(1, lastIndexOf)) >= 0) {
-                n83Var.a = null;
-                return;
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor putInt(String str, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
+                d(new c(this, str, i));
+                return this;
             }
+            return (SharedPreferences.Editor) invokeLI.objValue;
         }
-        n83Var.a = lowerCase;
-    }
 
-    public static void k(@NonNull n83 n83Var, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, n83Var, str) == null) {
-            if (a) {
-                Log.d("SwanCookieParser", "setExpires value: " + str);
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor putLong(String str, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) {
+                d(new d(this, str, j));
+                return this;
             }
-            if (n83Var.e != -1) {
-                return;
-            }
-            long e2 = u83.e(str);
-            if (a) {
-                Log.d("SwanCookieParser", "setExpires result: " + e2);
-            }
-            if (e2 != -1) {
-                n83Var.e = e2;
-            }
+            return (SharedPreferences.Editor) invokeLJ.objValue;
         }
-    }
 
-    public static void l(@NonNull n83 n83Var, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, n83Var, str) == null) {
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                long parseLong = Long.parseLong(str);
-                Long.signum(parseLong);
-                n83Var.e = currentTimeMillis + (parseLong * 1000);
-            } catch (NumberFormatException unused) {
-                if (a) {
-                    Log.e("SwanCookieParser", "illegal max-age: " + str);
-                }
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor putString(String str, @Nullable String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+                d(new a(this, str, str2));
+                return this;
             }
+            return (SharedPreferences.Editor) invokeLL.objValue;
         }
-    }
 
-    public static void m(@NonNull n83 n83Var, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65549, null, n83Var, str) == null) && !TextUtils.isEmpty(str) && str.charAt(0) == '/') {
-            n83Var.b = str;
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor putStringSet(String str, @Nullable Set<String> set) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, set)) == null) {
+                d(new RunnableC0704b(this, str, set));
+                return this;
+            }
+            return (SharedPreferences.Editor) invokeLL.objValue;
         }
-    }
 
-    public static int n(@NonNull String str, String str2, int i, int i2) {
-        InterceptResult invokeLLII;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65550, null, str, str2, i, i2)) == null) ? (TextUtils.equals("expires", str2) && (indexOf = str.indexOf(44, i2)) != -1 && indexOf - i2 <= 10) ? indexOf + 1 : i : invokeLLII.intValue;
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor remove(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+                d(new g(this, str));
+                return this;
+            }
+            return (SharedPreferences.Editor) invokeL.objValue;
+        }
+
+        public /* synthetic */ b(p83 p83Var, a aVar) {
+            this(p83Var);
+        }
     }
 }

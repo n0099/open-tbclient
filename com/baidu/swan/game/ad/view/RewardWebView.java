@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jo3;
+import com.repackage.yo3;
 /* loaded from: classes2.dex */
 public class RewardWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
@@ -217,7 +217,7 @@ public class RewardWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebSettings settings = getSettings();
-            settings.setUserAgentString(jo3.b().o(settings.getUserAgentString()));
+            settings.setUserAgentString(yo3.b().i(settings.getUserAgentString()));
         }
     }
 

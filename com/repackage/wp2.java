@@ -1,9 +1,9 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,42 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileFilter;
-import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wp2 {
+public class wp2 extends up2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a implements FileFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? file.isDirectory() && TextUtils.isDigitsOnly(file.getName()) : invokeL.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -61,127 +29,46 @@ public class wp2 {
                 return;
             }
         }
-        a = cg1.a;
+        boolean z = rg1.a;
     }
 
-    public static void a(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wp2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file = new File(oi2.g(), str);
-        if (file.exists()) {
-            if (a) {
-                Log.d("PkgInfoExt", "clear all pkg info's ext ,appId - " + str);
-            }
-            File[] listFiles = file.listFiles(new a());
-            if (listFiles == null || listFiles.length <= 0) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            for (File file2 : listFiles) {
-                b(str, file2.getName());
-            }
         }
     }
 
-    public static void b(String str, String str2) {
+    private void update(pp2 pp2Var, rp2 rp2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            String e = e(str, str2);
-            if (TextUtils.isEmpty(e)) {
-                return;
-            }
-            g83.a().edit().remove(e).apply();
-            if (a) {
-                Log.d("PkgInfoExt", "clear pkg info's ext , appId - " + str + ", version code - " + str2);
-            }
+        if (interceptable == null || interceptable.invokeLLLL(65538, this, pp2Var, rp2Var, unitedSchemeEntity, callbackHandler) == null) {
+            pp2Var.h(rp2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 
-    public static String c(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    @Override // com.repackage.up2
+    public boolean a(pp2 pp2Var, rp2 rp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pMSAppInfo)) == null) ? d(pMSAppInfo.appId, pMSAppInfo.versionCode) : (String) invokeL.objValue;
-    }
-
-    public static String d(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) ? e(str, String.valueOf(j)) : (String) invokeLJ.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                return str + "_" + str2 + "_pkg_info_ext";
-            } else if (a) {
-                Log.e("PkgInfoExt", "#getExtKey appId or version code is empty");
-                Log.d("PkgInfoExt", "#getExtKey appId=" + str + " version=" + str2);
-                return null;
-            } else {
-                return null;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{pp2Var, rp2Var, context, unitedSchemeEntity, callbackHandler, h03Var})) == null) {
+            hx1.b("vrvideo", "update, video id:" + rp2Var.j + " slave id: " + rp2Var.c);
+            update(pp2Var, rp2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String f(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, pMSAppInfo)) == null) {
-            if (pMSAppInfo == null) {
-                return "";
-            }
-            String c = c(pMSAppInfo);
-            if (TextUtils.isEmpty(c)) {
-                return "";
-            }
-            String string = g83.a().getString(c, "");
-            if (a) {
-                Log.d("PkgInfoExt", "appId - " + pMSAppInfo.appId + ", get pkg info' ext - " + string);
-            }
-            return string;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void g(String str, JSONObject jSONObject, p84 p84Var, List<q84> list) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65543, null, str, jSONObject, p84Var, list) == null) {
-            if (jSONObject == null) {
-                if (a) {
-                    Log.d("PkgInfoExt", "pkgObject from pms is null");
-                }
-            } else if (p84Var == null && list == null) {
-                if (a) {
-                    Log.d("PkgInfoExt", "pkg info's ext must has at lest one main or sub pkg");
-                }
-            } else {
-                String str2 = null;
-                if (p84Var != null) {
-                    str = p84Var.g;
-                    j = p84Var.i;
-                    str2 = p84Var.p;
-                } else if (list.size() > 0) {
-                    q84 q84Var = list.get(0);
-                    j = q84Var.i;
-                    str2 = q84Var.s;
-                } else {
-                    j = -1;
-                }
-                if (str2 == null) {
-                    if (a) {
-                        Log.e("PkgInfoExt", "can not get ext from pkg ");
-                    }
-                } else if (!TextUtils.isEmpty(str) && j != -1) {
-                    g83.a().edit().putString(d(str, j), str2).apply();
-                } else if (a) {
-                    Log.e("PkgInfoExt", "can not get appId and version code from pkg ");
-                }
-            }
-        }
+        return invokeCommon.booleanValue;
     }
 }

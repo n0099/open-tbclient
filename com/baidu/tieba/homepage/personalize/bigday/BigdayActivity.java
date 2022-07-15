@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ht4;
+import com.repackage.xt4;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class BigdayActivity extends BaseActivity {
@@ -81,7 +81,7 @@ public class BigdayActivity extends BaseActivity {
                 calendar.set(12, 59);
                 calendar.set(13, 59);
                 calendar.set(14, 0);
-                ht4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+                xt4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
                 finish();
             }
@@ -95,12 +95,12 @@ public class BigdayActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0155);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09036d);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09036f);
             this.a = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09036c);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09036e);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f07028a));
+                ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f070289));
             }
             Intent intent = getIntent();
             if (intent != null) {

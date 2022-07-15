@@ -1,7 +1,9 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
@@ -9,10 +11,8 @@ import org.json.JSONObject;
 public class uw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
+    public vw4 a;
+    public vw4 b;
 
     public uw4() {
         Interceptable interceptable = $ic;
@@ -24,23 +24,40 @@ public class uw4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = 0;
-        this.d = 0;
     }
 
-    public void a(JSONObject jSONObject) {
+    public vw4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (vw4) invokeV.objValue;
+    }
+
+    public vw4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (vw4) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optInt("days_new_user", 0);
-        this.b = jSONObject.optInt("days_low_active", 0);
-        this.c = jSONObject.optInt("limit_day", 0);
-        this.d = jSONObject.optInt("limit_count", 0);
+        JSONObject optJSONObject = jSONObject.optJSONObject("homepage");
+        if (optJSONObject != null) {
+            vw4 vw4Var = new vw4();
+            this.a = vw4Var;
+            vw4Var.q = 1;
+            vw4Var.e(optJSONObject);
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
+        if (optJSONObject2 != null) {
+            vw4 vw4Var2 = new vw4();
+            this.b = vw4Var2;
+            vw4Var2.q = 2;
+            vw4Var2.e(optJSONObject2);
+        }
     }
 }

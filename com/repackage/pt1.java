@@ -1,6 +1,8 @@
 package com.repackage;
 
 import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,14 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class pt1 extends ys1 {
+public class pt1 extends nt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+    public RectF a;
     public float b;
     public float c;
-    public float d;
-    public boolean e;
+    public boolean d;
 
     public pt1() {
         Interceptable interceptable = $ic;
@@ -27,30 +28,51 @@ public class pt1 extends ys1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = false;
     }
 
-    @Override // com.repackage.ys1
-    public void a(zs1 zs1Var, Canvas canvas) {
+    @Override // com.repackage.nt1
+    public void a(ot1 ot1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, zs1Var, canvas) == null) && this.e) {
-            zs1Var.f.quadTo(this.a, this.b, this.c, this.d);
-        }
-    }
-
-    @Override // com.repackage.ys1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 3) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) || this.a == null) {
             return;
         }
-        this.a = jd3.g((float) jSONArray.optDouble(0));
-        this.b = jd3.g((float) jSONArray.optDouble(1));
-        this.c = jd3.g((float) jSONArray.optDouble(2));
-        this.d = jd3.g((float) jSONArray.optDouble(3));
-        this.e = true;
+        if (!this.d && Math.abs(this.c) >= 360.0f) {
+            Path path = ot1Var.f;
+            RectF rectF = this.a;
+            float f = rectF.bottom;
+            float f2 = rectF.top;
+            path.addCircle((rectF.right + rectF.left) / 2.0f, (f + f2) / 2.0f, (f - f2) / 2.0f, Path.Direction.CW);
+            ot1Var.f.arcTo(this.a, 0.0f, this.b);
+            return;
+        }
+        float f3 = this.c % 360.0f;
+        if (f3 < 0.0f && !this.d) {
+            f3 += 360.0f;
+        } else if (f3 > 0.0f && this.d) {
+            f3 -= 360.0f;
+        }
+        ot1Var.f.arcTo(this.a, this.b, f3);
+    }
+
+    @Override // com.repackage.nt1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            if (jSONArray.length() > 4) {
+                int g = yd3.g((float) jSONArray.optDouble(0));
+                int g2 = yd3.g((float) jSONArray.optDouble(1));
+                int g3 = yd3.g((float) jSONArray.optDouble(2));
+                float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
+                float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
+                this.a = new RectF(g - g3, g2 - g3, g + g3, g2 + g3);
+                this.b = degrees;
+                this.c = degrees2 - degrees;
+            }
+            if (jSONArray.length() > 5) {
+                this.d = jSONArray.optBoolean(5);
+            }
+        }
     }
 }

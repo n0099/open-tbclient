@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.eg;
-import com.repackage.o38;
+import com.repackage.j48;
 import com.repackage.pi;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class PersonCommonForumCardView extends FlowLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context e;
-    public List<o38> f;
+    public List<j48> f;
     public List<PersonCommonForumItemView> g;
     public eg<PersonCommonForumItemView> h;
 
@@ -51,10 +51,10 @@ public class PersonCommonForumCardView extends FlowLayout {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || ListUtils.isEmpty(this.f)) {
             return;
         }
-        for (o38 o38Var : this.f) {
-            if (o38Var != null) {
+        for (j48 j48Var : this.f) {
+            if (j48Var != null) {
                 PersonCommonForumItemView b = this.h.b();
-                b.setData(o38Var);
+                b.setData(j48Var);
                 addView(b, new ViewGroup.LayoutParams(((pi.k(this.e) - pi.f(this.e, R.dimen.tbds88)) - pi.f(this.e, R.dimen.tbds96)) / 2, -2));
                 this.g.add(b);
             }
@@ -83,7 +83,7 @@ public class PersonCommonForumCardView extends FlowLayout {
         removeAllViews();
     }
 
-    public void setData(List<o38> list) {
+    public void setData(List<j48> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.f = list;

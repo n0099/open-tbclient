@@ -9,21 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.design.provider.ServiceProvider;
+import com.kwad.sdk.service.ServiceProvider;
 import com.kwai.filedownloader.services.FileDownloadServiceProxy;
 import com.kwai.filedownloader.services.e;
 /* loaded from: classes5.dex */
-public class n implements u {
+public final class n implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final u a;
-
-    /* renamed from: com.kwai.filedownloader.n$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     /* loaded from: classes5.dex */
     public static final class a {
@@ -44,7 +37,7 @@ public class n implements u {
                     return;
                 }
             }
-            a = new n(null);
+            a = new n((byte) 0);
         }
     }
 
@@ -61,10 +54,10 @@ public class n implements u {
                 return;
             }
         }
-        this.a = com.kwai.filedownloader.e.e.a().d ? new o() : new p(((com.kwad.sdk.design.kwai.b) ServiceProvider.a(com.kwad.sdk.design.kwai.b.class)).a(FileDownloadServiceProxy.SeparateProcessServiceProxy.class));
+        this.a = com.kwai.filedownloader.e.e.a().d ? new o() : new p(((com.kwad.sdk.service.kwai.e) ServiceProvider.a(com.kwad.sdk.service.kwai.e.class)).a(FileDownloadServiceProxy.SeparateProcessServiceProxy.class));
     }
 
-    public /* synthetic */ n(AnonymousClass1 anonymousClass1) {
+    public /* synthetic */ n(byte b) {
         this();
     }
 
@@ -87,7 +80,7 @@ public class n implements u {
     }
 
     @Override // com.kwai.filedownloader.u
-    public void a(Context context) {
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a.a(context);
@@ -95,35 +88,35 @@ public class n implements u {
     }
 
     @Override // com.kwai.filedownloader.u
-    public boolean a(int i) {
+    public final boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.a.a(i) : invokeI.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.u
-    public boolean a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3) {
+    public final boolean a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), bVar, Boolean.valueOf(z3)})) == null) ? this.a.a(str, str2, z, i, i2, i3, z2, bVar, z3) : invokeCommon.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.u
-    public byte b(int i) {
+    public final byte b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.a.b(i) : invokeI.byteValue;
     }
 
     @Override // com.kwai.filedownloader.u
-    public boolean c() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.c() : invokeV.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.u
-    public boolean c(int i) {
+    public final boolean c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? this.a.c(i) : invokeI.booleanValue;

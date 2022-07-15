@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pa;
-import com.repackage.q85;
+import com.repackage.s95;
 import com.repackage.vg;
 /* loaded from: classes3.dex */
 public class AlaJumpStatStatic {
@@ -164,7 +164,7 @@ public class AlaJumpStatStatic {
             vg statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "ala_jump_fail");
             statsItem.b(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, str);
-            statsItem.c(FetchLog.START_TIME, Long.valueOf(System.currentTimeMillis() - q85.b().c()));
+            statsItem.c(FetchLog.START_TIME, Long.valueOf(System.currentTimeMillis() - s95.b().c()));
             if (obj instanceof AlaLiveRoomActivityConfig) {
                 AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
                 statsItem.b(SapiAccount.SAPI_ACCOUNT_FROMTYPE, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE));

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p71;
+import com.repackage.d81;
 /* loaded from: classes2.dex */
 public class TipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -58,9 +58,9 @@ public class TipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0883, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09200b);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09200f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08a1, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920b0);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b4);
         }
     }
 
@@ -89,11 +89,11 @@ public class TipView extends LinearLayout {
             this.a.clearAnimation();
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07058f);
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705f4);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            p71.b().a(this.a, str);
+            d81.b().a(this.a, str);
             this.b.setText(str2);
         }
     }

@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.util.devices.RomUtils;
 import com.ss.android.socialbase.appdownloader.e.d;
 import com.ss.android.socialbase.downloader.constants.e;
 import com.ss.android.socialbase.downloader.downloader.c;
@@ -67,7 +66,7 @@ public class a extends Fragment {
                 intent.putExtra("packageName", packageName);
                 intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));
                 return intent;
-            } else if (lowerCase.contains(RomUtils.MANUFACTURER_VIVO)) {
+            } else if (lowerCase.contains("vivo")) {
                 Intent intent2 = new Intent();
                 intent2.putExtra("packagename", packageName);
                 if (Build.VERSION.SDK_INT >= 25) {

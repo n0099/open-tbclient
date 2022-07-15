@@ -1,182 +1,171 @@
 package com.repackage;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.q01;
 /* loaded from: classes7.dex */
-public class t11 {
+public abstract class t11 {
     public static /* synthetic */ Interceptable $ic;
-    public static w11 a;
-    public static a21 b;
-    public static i11 c;
-    public static c21 d;
-    public static b21 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ValueAnimator.AnimatorUpdateListener a;
+    public final Rect b;
+    public Drawable.Callback c;
+    public ValueAnimator d;
+    public long e;
+    public float f;
+    public float g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755343715, "Lcom/repackage/t11;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t11 a;
+
+        public a(t11 t11Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t11Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t11Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755343715, "Lcom/repackage/t11;");
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                this.a.c(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.a.f();
+            }
         }
     }
 
-    public t11() {
+    public t11(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new a(this);
+        this.b = new Rect();
+        e(context);
+        m();
+    }
+
+    public void b(Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
+            this.d.addListener(animatorListener);
         }
     }
 
-    public static w11 a() {
-        InterceptResult invokeV;
+    public abstract void c(float f);
+
+    public abstract void d(Canvas canvas);
+
+    public final void e(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (t11.class) {
-                    if (a == null) {
-                        a = (w11) ServiceManager.getService(w11.a);
-                    }
-                    if (a == null) {
-                        a = w11.b;
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            this.f = q01.c.a(context, 31.0f);
+            this.g = q01.c.a(context, 31.0f);
+            this.e = 1333L;
         }
-        return (w11) invokeV.objValue;
     }
 
-    public static i11 b() {
-        InterceptResult invokeV;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (t11.class) {
-                    if (c == null) {
-                        c = (i11) ServiceManager.getService(i11.a);
-                    }
-                    if (c == null) {
-                        c = i11.b;
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c.invalidateDrawable(null);
         }
-        return (i11) invokeV.objValue;
     }
 
-    public static Context c() {
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? bh0.b() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d.isRunning() : invokeV.booleanValue;
     }
 
-    public static x11 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? x11.a : (x11) invokeV.objValue;
-    }
+    public abstract void h();
 
-    public static u11 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? u11.a : (u11) invokeV.objValue;
-    }
+    public abstract void i(int i);
 
-    public static v11 f() {
-        InterceptResult invokeV;
+    public void j(Rect rect) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? v11.a : (v11) invokeV.objValue;
-    }
-
-    public static b21 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (e == null) {
-                synchronized (t11.class) {
-                    if (e == null) {
-                        e = (b21) ServiceManager.getService(b21.a);
-                    }
-                    if (e == null) {
-                        e = b21.b;
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect) == null) {
+            this.b.set(rect);
         }
-        return (b21) invokeV.objValue;
     }
 
-    public static boolean h() {
-        InterceptResult invokeV;
+    public void k(Drawable.Callback callback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? gk0.b().a().a("nad_web_view_forbid_kb_opt_switch", 0) == 1 : invokeV.booleanValue;
-    }
-
-    public static a21 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (b == null) {
-                synchronized (t11.class) {
-                    if (b == null) {
-                        b = (a21) ServiceManager.getService(a21.a);
-                    }
-                    if (b == null) {
-                        b = a21.b;
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeL(1048585, this, callback) == null) {
+            this.c = callback;
         }
-        return (a21) invokeV.objValue;
     }
 
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? gk0.b().a().a("nad_web_view_type_switch", 0) == 1 : invokeV.booleanValue;
-    }
+    public abstract void l(ColorFilter colorFilter);
 
-    public static c21 k() {
-        InterceptResult invokeV;
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (d == null) {
-                synchronized (t11.class) {
-                    if (d == null) {
-                        d = (c21) ServiceManager.getService(c21.a);
-                    }
-                    if (d == null) {
-                        d = c21.b;
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+            this.d = ofFloat;
+            ofFloat.setRepeatCount(-1);
+            this.d.setRepeatMode(1);
+            this.d.setDuration(this.e);
+            this.d.setInterpolator(new LinearInterpolator());
         }
-        return (c21) invokeV.objValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            h();
+            this.d.addUpdateListener(this.a);
+            this.d.setRepeatCount(-1);
+            this.d.setDuration(this.e);
+            this.d.setStartDelay(200L);
+            this.d.start();
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.d.removeUpdateListener(this.a);
+            this.d.setRepeatCount(0);
+            this.d.setDuration(0L);
+            this.d.end();
+        }
     }
 }

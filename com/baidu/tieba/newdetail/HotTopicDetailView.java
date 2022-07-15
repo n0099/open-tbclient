@@ -65,32 +65,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import com.google.android.material.appbar.AppBarLayout;
-import com.repackage.fr4;
-import com.repackage.gd5;
-import com.repackage.h27;
-import com.repackage.h45;
-import com.repackage.i27;
-import com.repackage.i45;
+import com.repackage.b37;
+import com.repackage.c37;
+import com.repackage.d37;
+import com.repackage.fe1;
 import com.repackage.ig;
+import com.repackage.j55;
+import com.repackage.je5;
 import com.repackage.jg;
-import com.repackage.l27;
-import com.repackage.m27;
-import com.repackage.mu4;
-import com.repackage.n27;
+import com.repackage.jv4;
+import com.repackage.k55;
 import com.repackage.ni;
 import com.repackage.nn;
+import com.repackage.om7;
 import com.repackage.pi;
-import com.repackage.qd1;
+import com.repackage.pm7;
 import com.repackage.qg;
-import com.repackage.wl7;
-import com.repackage.xf8;
-import com.repackage.xl7;
-import com.repackage.yl7;
+import com.repackage.qm7;
+import com.repackage.sg8;
+import com.repackage.ur4;
+import com.repackage.x27;
+import com.repackage.y27;
 import com.repackage.ym;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
-public class HotTopicDetailView extends RelativeLayout implements xl7 {
+public class HotTopicDetailView extends RelativeLayout implements pm7 {
     public static /* synthetic */ Interceptable $ic;
     public static int L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,9 +98,9 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
     public RecyclerView.OnScrollListener B;
     public boolean C;
     public ValueAnimator D;
-    public m27 E;
+    public c37 E;
     public AppBarLayout.OnOffsetChangedListener F;
-    public mu4 G;
+    public jv4 G;
     public final ig<ym> H;
     public Runnable I;
     public ClickableSpan J;
@@ -108,14 +108,14 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
     public int a;
     public int b;
     public TbPageContext<HotTopicDetailActivity> c;
-    public wl7 d;
+    public om7 d;
     public View e;
     public NavigationBar f;
     public ImageView g;
     public boolean h;
     public ViewGroup i;
-    public h45 j;
-    public i45 k;
+    public j55 j;
+    public k55 k;
     public LottieSlideLoadingLayout l;
     public HotTopicDetailHeadView m;
     public TextView n;
@@ -127,7 +127,7 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
     public View t;
     public HotTopicDetailPkLayout u;
     public HotTopicDetailSpecialLayout v;
-    public h27 w;
+    public x27 w;
     public CustomViewPager x;
     public HotTopicDetailPagerAdapter y;
     public TbTabLayout z;
@@ -235,9 +235,9 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                yl7.f(this.a.c, "c14389");
+                qm7.f(this.a.c, "c14389");
                 if (!ni.z()) {
-                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f1459);
+                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f1453);
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
@@ -318,7 +318,7 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements mu4 {
+    public class f implements jv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicDetailView a;
@@ -341,14 +341,14 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
             this.a = hotTopicDetailView;
         }
 
-        @Override // com.repackage.mu4
+        @Override // com.repackage.jv4
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.repackage.mu4
+        @Override // com.repackage.jv4
         public void onLoadingStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -393,13 +393,13 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
                 if (ymVar == null || !ymVar.w() || (p = ymVar.p()) == null) {
                     return;
                 }
-                qd1.a aVar = new qd1.a();
+                fe1.a aVar = new fe1.a();
                 aVar.c(Tri.TRUE);
                 aVar.b(Tri.TRUE);
                 aVar.d(50, 100);
                 aVar.e(40, 80);
                 String e = SmartColorSDK.d().e(aVar.a(), p);
-                if (TextUtils.isEmpty(e) || (f = xf8.f(e)) == Integer.MAX_VALUE) {
+                if (TextUtils.isEmpty(e) || (f = sg8.f(e)) == Integer.MAX_VALUE) {
                     z = false;
                 } else {
                     z = true;
@@ -407,7 +407,7 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
                         HotTopicDetailView.setWriteViewStyle(this.a.n, f);
                     }
                     if (this.a.m != null) {
-                        this.a.m.setBgCoverViewColor(xf8.a(f, 0.5f));
+                        this.a.m.setBgCoverViewColor(sg8.a(f, 0.5f));
                     }
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SMART_COLOR_FETCH_COLOR);
@@ -523,7 +523,7 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
                 if (this.a.p.length() > 500) {
                     spannableStringBuilder.append((CharSequence) "...  ");
                 }
-                String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0870) + GlideException.IndentedAppendable.INDENT;
+                String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f087b) + GlideException.IndentedAppendable.INDENT;
                 spannableStringBuilder.append((CharSequence) str);
                 SpannableString spannableString = new SpannableString(spannableStringBuilder);
                 spannableString.setSpan(this.a.K, spannableString.length() - str.length(), spannableString.length(), 33);
@@ -563,13 +563,13 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailView(TbPageContext<?> tbPageContext, wl7 wl7Var, Bundle bundle) {
+    public HotTopicDetailView(TbPageContext<?> tbPageContext, om7 om7Var, Bundle bundle) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, wl7Var, bundle};
+            Object[] objArr = {tbPageContext, om7Var, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -593,7 +593,7 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         this.J = new j(this);
         this.K = new a(this);
         this.c = tbPageContext;
-        this.d = wl7Var;
+        this.d = om7Var;
         V(bundle);
         a();
     }
@@ -615,17 +615,17 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
     public static void setWriteViewStyle(@NonNull TextView textView, @ColorInt int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65553, null, textView, i2) == null) {
-            fr4 d2 = fr4.d(textView);
+            ur4 d2 = ur4.d(textView);
             d2.n(R.string.J_X01);
             d2.v(R.color.CAM_X0101);
             d2.g(i2);
             textView.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.icon_pure_topic_post48, SkinManager.getColor(R.color.CAM_X0101), null), (Drawable) null, (Drawable) null, (Drawable) null);
             ShadowLayout Q = Q(textView);
             if (Q != null) {
-                Q.e(R.dimen.obfuscated_res_0x7f070234);
-                Q.f(R.dimen.obfuscated_res_0x7f07030b);
-                Q.d(R.dimen.obfuscated_res_0x7f070232, R.dimen.obfuscated_res_0x7f070224);
-                Q.c(xf8.a(i2, 0.5f));
+                Q.e(R.dimen.obfuscated_res_0x7f070232);
+                Q.f(R.dimen.obfuscated_res_0x7f07030a);
+                Q.d(R.dimen.obfuscated_res_0x7f070231, R.dimen.obfuscated_res_0x7f070224);
+                Q.c(sg8.a(i2, 0.5f));
                 Q.a();
             }
         }
@@ -645,7 +645,7 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) this.p);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0873);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f087e);
             SpannableStringBuilder spannableStringBuilder2 = (SpannableStringBuilder) spannableStringBuilder.subSequence(0, (this.o.getLayout().getLineEnd(1) - string.length()) - 2);
             spannableStringBuilder2.append((CharSequence) "...  ");
             int length = spannableStringBuilder2.length();
@@ -660,13 +660,13 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    public final void R(n27 n27Var) {
+    public final void R(d37 d37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n27Var) == null) {
-            if (StringUtils.isNull(n27Var.c)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d37Var) == null) {
+            if (StringUtils.isNull(d37Var.c)) {
                 this.o.setVisibility(8);
             } else {
-                this.o.setText(n27Var.c);
+                this.o.setText(d37Var.c);
             }
         }
     }
@@ -687,29 +687,29 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    public final void T(@NonNull m27 m27Var) {
+    public final void T(@NonNull c37 c37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m27Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, c37Var) == null) {
             W();
-            this.m.setTopicInfo(m27Var.e());
-            if (SwitchManager.getInstance().findType(IColorSDKSwitch.KEY) == 1 && m27Var.e() != null && !TextUtils.isEmpty(m27Var.e().f)) {
-                jg.h().m(m27Var.e().f, 39, this.H, this.c.getUniqueId());
+            this.m.setTopicInfo(c37Var.e());
+            if (SwitchManager.getInstance().findType(IColorSDKSwitch.KEY) == 1 && c37Var.e() != null && !TextUtils.isEmpty(c37Var.e().f)) {
+                jg.h().m(c37Var.e().f, 39, this.H, this.c.getUniqueId());
             }
-            R(m27Var.e());
-            d(m27Var);
-            List<nn> f2 = m27Var.f();
+            R(c37Var.e());
+            d(c37Var);
+            List<nn> f2 = c37Var.f();
             if (ListUtils.isEmpty(f2)) {
                 this.v.setVisibility(8);
             } else {
                 this.v.setData(f2);
                 this.v.setVisibility(0);
             }
-            if (m27Var.e() != null) {
-                String str = m27Var.e().b;
-                if (gd5.d(str) > 15) {
-                    str = gd5.n(str, 15) + StringHelper.STRING_MORE;
+            if (c37Var.e() != null) {
+                String str = c37Var.e().b;
+                if (je5.d(str) > 15) {
+                    str = je5.n(str, 15) + StringHelper.STRING_MORE;
                 }
-                this.f.setCenterTextTitle(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0875), str));
+                this.f.setCenterTextTitle(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0880), str));
             }
         }
     }
@@ -732,12 +732,12 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
                 StatusbarColorUtils.setStatusBarDarkIcon(this.c.getPageActivity().getWindow(), false);
             }
             if ((d2 > 0.3d && this.a == 0) || this.E == null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09242f), R.drawable.obfuscated_res_0x7f08060d, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0809dd, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0924ef), R.drawable.obfuscated_res_0x7f08060d, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0809e6, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 return;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09242f), R.drawable.obfuscated_res_0x7f08060d, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0809dd, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0924ef), R.drawable.obfuscated_res_0x7f08060d, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0809e6, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -745,54 +745,54 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0039, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092084);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092127);
             this.e = findViewById;
             findViewById.setAlpha(0.0f);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092366);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09240e);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.f.getCenterText().setAlpha(0.0f);
-            ImageView imageView = (ImageView) this.f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03a7, new c(this));
+            ImageView imageView = (ImageView) this.f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03aa, new c(this));
             this.g = imageView;
             imageView.setVisibility(4);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091d91);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091e35);
             ViewGroup.LayoutParams layoutParams = findViewById2.getLayoutParams();
             layoutParams.height = this.b;
             findViewById2.setLayoutParams(layoutParams);
-            this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0906ae);
-            LottieSlideLoadingLayout lottieSlideLoadingLayout = (LottieSlideLoadingLayout) findViewById(R.id.obfuscated_res_0x7f0906ab);
+            this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0906b3);
+            LottieSlideLoadingLayout lottieSlideLoadingLayout = (LottieSlideLoadingLayout) findViewById(R.id.obfuscated_res_0x7f0906b0);
             this.l = lottieSlideLoadingLayout;
             lottieSlideLoadingLayout.j(this.G);
             this.l.n();
-            HotTopicDetailHeadView hotTopicDetailHeadView = (HotTopicDetailHeadView) findViewById(R.id.obfuscated_res_0x7f090d5f);
+            HotTopicDetailHeadView hotTopicDetailHeadView = (HotTopicDetailHeadView) findViewById(R.id.obfuscated_res_0x7f090d6d);
             this.m = hotTopicDetailHeadView;
             this.l.l(hotTopicDetailHeadView);
-            this.t = findViewById(R.id.obfuscated_res_0x7f090cdf);
+            this.t = findViewById(R.id.obfuscated_res_0x7f090cec);
             this.f.post(new d(this));
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090d62);
-            this.u = (HotTopicDetailPkLayout) findViewById(R.id.obfuscated_res_0x7f090d60);
-            HotTopicDetailSpecialLayout hotTopicDetailSpecialLayout = (HotTopicDetailSpecialLayout) findViewById(R.id.obfuscated_res_0x7f090d61);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090d70);
+            this.u = (HotTopicDetailPkLayout) findViewById(R.id.obfuscated_res_0x7f090d6e);
+            HotTopicDetailSpecialLayout hotTopicDetailSpecialLayout = (HotTopicDetailSpecialLayout) findViewById(R.id.obfuscated_res_0x7f090d6f);
             this.v = hotTopicDetailSpecialLayout;
-            hotTopicDetailSpecialLayout.G(this.c);
-            this.r = findViewById(R.id.obfuscated_res_0x7f0906aa);
-            AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f090276);
+            hotTopicDetailSpecialLayout.F(this.c);
+            this.r = findViewById(R.id.obfuscated_res_0x7f0906af);
+            AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f090279);
             this.s = appBarLayout;
             appBarLayout.addOnOffsetChangedListener(this.F);
-            this.x = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f090d65);
+            this.x = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f090d73);
             HotTopicDetailPagerAdapter hotTopicDetailPagerAdapter = new HotTopicDetailPagerAdapter(getContext());
             this.y = hotTopicDetailPagerAdapter;
             hotTopicDetailPagerAdapter.p(this.B);
             this.x.setAdapter(this.y);
-            TbTabLayout tbTabLayout = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f091e17);
+            TbTabLayout tbTabLayout = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f091ebb);
             this.z = tbTabLayout;
             tbTabLayout.setSelectedTabTextBlod(true);
             this.z.setTabTextSize(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds46));
             this.z.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
             this.z.setupWithViewPager(this.x);
-            this.A = findViewById(R.id.obfuscated_res_0x7f0907b5);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920f0);
+            this.A = findViewById(R.id.obfuscated_res_0x7f0907bc);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092193);
             this.n = textView;
-            this.w = new h27(textView, this.c);
+            this.w = new x27(textView, this.c);
         }
     }
 
@@ -803,12 +803,12 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
         this.h = true;
         this.g.setVisibility(0);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09242f), R.drawable.obfuscated_res_0x7f08060d, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0809dd, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0924ef), R.drawable.obfuscated_res_0x7f08060d, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0809e6, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         SkinManager.setNavbarTitleColor(this.f.getCenterText(), R.color.CAM_X0105, R.color.s_navbar_title_color);
-        wl7 wl7Var = this.d;
-        if (wl7Var instanceof Activity) {
-            UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) wl7Var);
+        om7 om7Var = this.d;
+        if (om7Var instanceof Activity) {
+            UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) om7Var);
         }
     }
 
@@ -820,7 +820,7 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -832,18 +832,18 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         SkinManager.setBackgroundColor(this.t, R.color.CAM_X0201);
         SkinManager.setBackgroundColor(this.e, R.color.CAM_X0207);
         SkinManager.setNavbarTitleColor(this.f.getCenterText(), R.color.CAM_X0105, R.color.s_navbar_title_color);
-        h45 h45Var = this.j;
-        if (h45Var != null) {
-            h45Var.o(SkinManager.getColor(R.color.CAM_X0201));
+        j55 j55Var = this.j;
+        if (j55Var != null) {
+            j55Var.o(SkinManager.getColor(R.color.CAM_X0201));
         }
         this.u.m(skinType);
         this.z.setTabTextColors(SkinManager.getColor(R.color.CAM_X0107), SkinManager.getColor(R.color.CAM_X0105));
-        this.v.I(skinType);
+        this.v.H(skinType);
         this.y.l(skinType);
         this.a = skinType;
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void b(boolean z) {
         int i2;
         Interceptable interceptable = $ic;
@@ -860,23 +860,23 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
                 Q.setVisibility(8);
             }
             if (this.k == null) {
-                this.k = new i45(this.c.getPageActivity(), null);
+                this.k = new k55(this.c.getPageActivity(), null);
             }
-            this.k.k(this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ad));
+            this.k.k(this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ac));
             this.k.e();
             this.k.f(R.color.CAM_X0201);
             this.k.i(R.drawable.new_pic_emotion_06);
-            this.k.o(this.c.getString(R.string.obfuscated_res_0x7f0f0872));
+            this.k.o(this.c.getString(R.string.obfuscated_res_0x7f0f087d));
             this.k.attachView(this.i, false);
-            wl7 wl7Var = this.d;
-            if (!(wl7Var instanceof Activity) || (i2 = this.a) == 1 || i2 == 4) {
+            om7 om7Var = this.d;
+            if (!(om7Var instanceof Activity) || (i2 = this.a) == 1 || i2 == 4) {
                 return;
             }
-            UtilHelper.changeStatusBarIconAndTextColor(false, (Activity) wl7Var);
+            UtilHelper.changeStatusBarIconAndTextColor(false, (Activity) om7Var);
         }
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
@@ -884,34 +884,34 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    @Override // com.repackage.xl7
-    public void d(m27 m27Var) {
-        i27 i27Var;
+    @Override // com.repackage.pm7
+    public void d(c37 c37Var) {
+        y27 y27Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, m27Var) == null) {
-            if (m27Var.a() != null) {
-                i27Var = m27Var.a();
-                i27Var.e = 3;
-            } else if (m27Var.b() != null) {
-                i27Var = m27Var.b();
-                i27Var.e = 2;
-            } else if (m27Var.g() != null) {
-                i27Var = m27Var.g();
-                i27Var.e = 1;
+        if (interceptable == null || interceptable.invokeL(1048588, this, c37Var) == null) {
+            if (c37Var.a() != null) {
+                y27Var = c37Var.a();
+                y27Var.e = 3;
+            } else if (c37Var.b() != null) {
+                y27Var = c37Var.b();
+                y27Var.e = 2;
+            } else if (c37Var.g() != null) {
+                y27Var = c37Var.g();
+                y27Var.e = 1;
             } else {
-                i27Var = null;
+                y27Var = null;
             }
-            this.m.setBlessInfo(i27Var);
-            if (m27Var.d() == null) {
+            this.m.setBlessInfo(y27Var);
+            if (c37Var.d() == null) {
                 this.u.setVisibility(8);
                 return;
             }
             this.u.setVisibility(0);
-            this.u.i(m27Var.d());
+            this.u.i(c37Var.d());
         }
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -935,27 +935,27 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void e() {
-        i45 i45Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (i45Var = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (k55Var = this.k) == null) {
             return;
         }
-        i45Var.dettachView(this.i);
+        k55Var.dettachView(this.i);
         this.k = null;
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            i45 i45Var = this.k;
-            if (i45Var == null || !i45Var.isViewAttached()) {
+            k55 k55Var = this.k;
+            if (k55Var == null || !k55Var.isViewAttached()) {
                 if (this.k == null) {
-                    this.k = new i45(getContext(), new h(this));
+                    this.k = new k55(getContext(), new h(this));
                 }
-                this.k.k(this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ad));
+                this.k.k(this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ac));
                 this.k.attachView(this.i, false);
                 this.k.f(R.color.CAM_X0201);
                 this.k.p();
@@ -963,7 +963,7 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void g(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
@@ -971,27 +971,27 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    @Override // com.repackage.xl7
-    public m27 h() {
+    @Override // com.repackage.pm7
+    public c37 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.E : (m27) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.E : (c37) invokeV.objValue;
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             if (this.j == null) {
-                h45 h45Var = new h45(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b8));
-                this.j = h45Var;
-                h45Var.o(SkinManager.getColor(R.color.CAM_X0201));
+                j55 j55Var = new j55(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b6));
+                this.j = j55Var;
+                j55Var.o(SkinManager.getColor(R.color.CAM_X0201));
             }
             this.j.attachView(this.i, false);
         }
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void j(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
@@ -999,7 +999,7 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
@@ -1007,14 +1007,14 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.y.c() : invokeV.intValue;
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && this.C) {
@@ -1023,20 +1023,20 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    @Override // com.repackage.xl7
-    public void n(@NonNull m27 m27Var) {
+    @Override // com.repackage.pm7
+    public void n(@NonNull c37 c37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, m27Var) == null) {
-            this.E = m27Var;
-            if (m27Var.e() != null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, c37Var) == null) {
+            this.E = c37Var;
+            if (c37Var.e() != null) {
                 this.w.e(this.E.e().a);
                 this.w.d(this.E.e().b);
             }
-            T(m27Var);
+            T(c37Var);
         }
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void o(long j2, long j3, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
@@ -1053,14 +1053,14 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    @Override // com.repackage.xl7
-    public l27 p(int i2) {
+    @Override // com.repackage.pm7
+    public b37 p(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? this.y.b(i2) : (l27) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? this.y.b(i2) : (b37) invokeI.objValue;
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void pause() {
         HotTopicDetailPagerAdapter hotTopicDetailPagerAdapter;
         Interceptable interceptable = $ic;
@@ -1070,17 +1070,17 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         hotTopicDetailPagerAdapter.m();
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void q() {
-        h45 h45Var;
+        j55 j55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || (h45Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || (j55Var = this.j) == null) {
             return;
         }
-        h45Var.dettachView(this.i);
+        j55Var.dettachView(this.i);
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
@@ -1088,7 +1088,7 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void resume() {
         HotTopicDetailPagerAdapter hotTopicDetailPagerAdapter;
         Interceptable interceptable = $ic;
@@ -1098,7 +1098,7 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         hotTopicDetailPagerAdapter.n();
     }
 
-    @Override // com.repackage.xl7
+    @Override // com.repackage.pm7
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
@@ -1106,15 +1106,15 @@ public class HotTopicDetailView extends RelativeLayout implements xl7 {
         }
     }
 
-    @Override // com.repackage.xl7
-    public void t(l27 l27Var, boolean z, int i2) {
+    @Override // com.repackage.pm7
+    public void t(b37 b37Var, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{l27Var, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            m27 m27Var = this.E;
-            if (m27Var != null) {
-                this.y.o(m27Var.c());
+        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{b37Var, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            c37 c37Var = this.E;
+            if (c37Var != null) {
+                this.y.o(c37Var.c());
             }
-            this.y.s(l27Var, z, i2);
+            this.y.s(b37Var, z, i2);
         }
     }
 }

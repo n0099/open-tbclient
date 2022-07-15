@@ -1,17 +1,18 @@
 package com.repackage;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetForumSquare.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class oe8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
     public oe8() {
         Interceptable interceptable = $ic;
@@ -27,14 +28,16 @@ public class oe8 {
         }
     }
 
-    public void a(DataRes dataRes) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        String str = dataRes.class_name;
-        Page page = dataRes.page;
-        List<String> list = dataRes.page_structure;
-        List<RecommendForumInfo> list2 = dataRes.forum_info;
+        try {
+            this.a = jSONObject.optString(SpeedStatsUtils.UBC_VALUE_BANNER);
+            this.b = jSONObject.optString("link");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.C0294;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -276,7 +277,7 @@ public class DeviceInfoUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             try {
-                String[] split = new BufferedReader(new FileReader("/proc/cpuinfo")).readLine().split(":\\s+", 2);
+                String[] split = new BufferedReader(new FileReader(C0294.f19)).readLine().split(":\\s+", 2);
                 for (int i = 0; i < split.length; i++) {
                 }
                 return split[1];
@@ -314,7 +315,7 @@ public class DeviceInfoUtil {
         Matcher matcher;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/cpuinfo"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(C0294.f19));
             Pattern compile = Pattern.compile(str + "\\s*:\\s*(.*)");
             do {
                 try {

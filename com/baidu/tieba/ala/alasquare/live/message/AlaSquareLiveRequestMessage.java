@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ni;
 import com.repackage.pi;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.LiveSquare.DataReq;
 import tbclient.LiveSquare.LiveSquareReqIdl;
 /* loaded from: classes3.dex */
@@ -59,7 +59,7 @@ public class AlaSquareLiveRequestMessage extends NetMessage {
                 builder.scr_dip = Integer.valueOf((int) pi.h(TbadkCoreApplication.getInst()));
                 builder.network_type = String.valueOf(ni.K());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    qc5.a(builder, true);
+                    td5.a(builder, true);
                 }
                 LiveSquareReqIdl.Builder builder2 = new LiveSquareReqIdl.Builder();
                 builder2.data = builder.build(false);

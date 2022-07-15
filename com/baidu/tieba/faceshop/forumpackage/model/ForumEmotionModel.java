@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ca6;
 import com.repackage.d9;
-import com.repackage.f96;
 /* loaded from: classes3.dex */
 public class ForumEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -29,7 +29,7 @@ public class ForumEmotionModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public final f96 c;
+    public final ca6 c;
     public final HttpMessageListener d;
 
     /* loaded from: classes3.dex */
@@ -77,10 +77,10 @@ public class ForumEmotionModel extends BdBaseModel {
                     if (forumEmotionCenterResponseMessage.getStatusCode() == 200) {
                         if (forumEmotionCenterResponseMessage.getError() == 0 && forumEmotionCenterResponseMessage.data != null) {
                             if (this.a.a == 1) {
-                                bVar.e1(forumEmotionCenterResponseMessage.data);
+                                bVar.g1(forumEmotionCenterResponseMessage.data);
                                 return;
                             } else {
-                                bVar.t0(forumEmotionCenterResponseMessage.data);
+                                bVar.w0(forumEmotionCenterResponseMessage.data);
                                 return;
                             }
                         }
@@ -95,11 +95,11 @@ public class ForumEmotionModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void e1(ForumEmotionData forumEmotionData);
+        void g1(ForumEmotionData forumEmotionData);
 
         void onFailed(String str);
 
-        void t0(ForumEmotionData forumEmotionData);
+        void w0(ForumEmotionData forumEmotionData);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -122,7 +122,7 @@ public class ForumEmotionModel extends BdBaseModel {
         }
         this.a = 1;
         this.b = true;
-        this.c = new f96();
+        this.c = new ca6();
         this.d = new a(this, CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
         registerTask();
         this.d.setTag(getUniqueId());
@@ -130,13 +130,13 @@ public class ForumEmotionModel extends BdBaseModel {
         registerListener(this.d);
     }
 
-    public f96 B() {
+    public ca6 C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (f96) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ca6) invokeV.objValue;
     }
 
-    public void C(b bVar) {
+    public void D(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
@@ -150,7 +150,7 @@ public class ForumEmotionModel extends BdBaseModel {
         }
     }
 
-    public void D(b bVar) {
+    public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.a = 1;
@@ -163,21 +163,21 @@ public class ForumEmotionModel extends BdBaseModel {
         }
     }
 
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
             return true;
         }
         return invokeV.booleanValue;
-    }
-
-    public boolean hasMore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

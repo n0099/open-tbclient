@@ -1,35 +1,24 @@
 package com.kwad.sdk.utils;
+
+import com.baidu.searchbox.player.widget.BdPlayerProgressView;
+import java.util.Formatter;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class ay {
-    public static volatile ay l;
-    public volatile boolean a = false;
-    public volatile boolean b = false;
-    public volatile boolean c = false;
-    public volatile boolean d = false;
-    public volatile boolean e = false;
-    public volatile boolean f = false;
-    public volatile long g = 0;
-    public volatile long h = 0;
-    public volatile long i = 0;
-    public volatile long j = -1;
-    public volatile boolean k = false;
-
-    public static ay a() {
-        if (l == null) {
-            synchronized (ay.class) {
-                if (l == null) {
-                    l = new ay();
-                }
-            }
+public final class ay {
+    public static String a(long j) {
+        if (j <= 0 || j >= 86400000) {
+            return BdPlayerProgressView.DEFAULT_TIME_TEXT;
         }
-        return l;
-    }
-
-    public void a(long j) {
-        this.j = j;
-    }
-
-    public boolean b() {
-        return this.f;
+        try {
+            long j2 = j / 1000;
+            long j3 = j2 % 60;
+            long j4 = (j2 / 60) % 60;
+            long j5 = j2 / 3600;
+            Formatter formatter = new Formatter(new StringBuilder(), Locale.getDefault());
+            return j5 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j5), Long.valueOf(j4), Long.valueOf(j3)).toString() : formatter.format("%02d:%02d", Long.valueOf(j4), Long.valueOf(j3)).toString();
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.b.a(e);
+            return "";
+        }
     }
 }

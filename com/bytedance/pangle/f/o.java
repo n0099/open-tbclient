@@ -12,13 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.security.PublicKey;
-import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
 import java.util.Arrays;
 /* loaded from: classes4.dex */
 public final class o {
@@ -76,7 +72,7 @@ public final class o {
     public static ArraySet<PublicKey> a(Signature[] signatureArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, signatureArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, signatureArr)) == null) {
             ArraySet<PublicKey> arraySet = new ArraySet<>(signatureArr.length);
             for (Signature signature : signatureArr) {
                 Method a2 = com.bytedance.pangle.a.a.a.a(Signature.class, "getPublicKey", new Class[0]);
@@ -95,24 +91,6 @@ public final class o {
             return arraySet;
         }
         return (ArraySet) invokeL.objValue;
-    }
-
-    public static boolean b(Signature[] signatureArr, Signature[] signatureArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, signatureArr, signatureArr2)) == null) {
-            CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-            Signature[] signatureArr3 = new Signature[signatureArr.length];
-            for (int i = 0; i < signatureArr.length; i++) {
-                signatureArr3[i] = a(certificateFactory, signatureArr[i]);
-            }
-            Signature[] signatureArr4 = new Signature[signatureArr2.length];
-            for (int i2 = 0; i2 < signatureArr2.length; i2++) {
-                signatureArr4[i2] = a(certificateFactory, signatureArr2[i2]);
-            }
-            return a(signatureArr3, signatureArr4);
-        }
-        return invokeLL.booleanValue;
     }
 
     public final boolean equals(Object obj) {
@@ -198,21 +176,23 @@ public final class o {
     public static boolean a(Signature[] signatureArr, Signature[] signatureArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, signatureArr, signatureArr2)) == null) ? signatureArr.length == signatureArr2.length && com.bytedance.pangle.util.b.a((Object[]) signatureArr, (Object[]) signatureArr2) && com.bytedance.pangle.util.b.a((Object[]) signatureArr2, (Object[]) signatureArr) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, signatureArr, signatureArr2)) == null) ? signatureArr.length == signatureArr2.length && com.bytedance.pangle.util.c.a((Object[]) signatureArr, (Object[]) signatureArr2) && com.bytedance.pangle.util.c.a((Object[]) signatureArr2, (Object[]) signatureArr) : invokeLL.booleanValue;
     }
 
-    public static Signature a(CertificateFactory certificateFactory, Signature signature) {
+    public static boolean a(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, certificateFactory, signature)) == null) {
-            Signature signature2 = new Signature(((X509Certificate) certificateFactory.generateCertificate(new ByteArrayInputStream(signature.toByteArray()))).getEncoded());
-            int length = signature2.toByteArray().length;
-            int length2 = signature.toByteArray().length;
-            if (Math.abs(length - length2) <= 2) {
-                return signature2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, bArr2)) == null) {
+            if (bArr.length != bArr2.length) {
+                return false;
             }
-            throw new CertificateException("Bounced cert length looks fishy; before " + length2 + ", after " + length);
+            for (int i = 0; i < bArr.length; i++) {
+                if (bArr[i] != bArr2[i]) {
+                    return false;
+                }
+            }
+            return true;
         }
-        return (Signature) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 }

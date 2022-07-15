@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.CommonReq;
 import tbclient.Share.DataReq;
 import tbclient.Share.ShareReqIdl;
@@ -20,7 +20,7 @@ public class ShareReportNetMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1048common;
+    public CommonReq f1775common;
     public long fid;
     public int from;
     public long tid;
@@ -50,12 +50,12 @@ public class ShareReportNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1340common = getCommon();
+            builder.f2070common = getCommon();
             builder.fid = Long.valueOf(getFid());
             builder.tid = Long.valueOf(getTid());
             builder.from = Integer.valueOf(getFrom());
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qc5.a(builder, true);
+                td5.a(builder, true);
             }
             ShareReqIdl.Builder builder2 = new ShareReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -67,7 +67,7 @@ public class ShareReportNetMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1048common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1775common : (CommonReq) invokeV.objValue;
     }
 
     public long getFid() {
@@ -91,7 +91,7 @@ public class ShareReportNetMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, commonReq) == null) {
-            this.f1048common = commonReq;
+            this.f1775common = commonReq;
         }
     }
 

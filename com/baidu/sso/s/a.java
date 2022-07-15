@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
-import com.kuaishou.weapon.un.g;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
 public final class a {
@@ -48,12 +47,12 @@ public final class a {
         a = new a("UNSUPPORT", 0, -1, "unsupport");
         b = new a("HUA_WEI", 1, 0, "HUAWEI");
         c = new a("XIAOMI", 2, 1, "Xiaomi");
-        d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-        e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+        d = new a("VIVO", 3, 2, "vivo");
+        e = new a("OPPO", 4, 3, "oppo");
         f = new a("MOTO", 5, 4, "motorola");
         g = new a("LENOVO", 6, 5, "lenovo");
         h = new a("ASUS", 7, 6, "asus");
-        i = new a(g.j, 8, 7, ManufacturerUtils.SAMSUNG);
+        i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
         j = new a("MEIZU", 9, 8, "meizu");
         k = new a("ALPS", 10, 9, "alps");
         a aVar = new a(RomUtils.ROM_NUBIA, 11, 10, RomUtils.MANUFACTURER_NUBIA);

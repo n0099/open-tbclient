@@ -1,139 +1,70 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class y26 extends x26 {
+public class y26 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ScaleGestureDetector h;
-    public b i;
+    public ThreadData a;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755193644, "Lcom/repackage/y26;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755193644, "Lcom/repackage/y26;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    public y26(Context context) {
+    public y26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.h = new ScaleGestureDetector(context, new c(this, null));
     }
 
-    @Override // com.repackage.x26
-    public boolean c(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public void c(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            try {
-                this.h.onTouchEvent(motionEvent);
-                return super.c(motionEvent);
-            } catch (Exception unused) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
+            this.a = threadData;
         }
-        return invokeL.booleanValue;
     }
 
-    public void i(b bVar) {
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.i = bVar;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public final class c extends ScaleGestureDetector.SimpleOnScaleGestureListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ y26 b;
-
-        public c(y26 y26Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y26Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = y26Var;
-            this.a = false;
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scaleGestureDetector)) == null) {
-                if (scaleGestureDetector != null && this.b.i != null) {
-                    float scaleFactor = scaleGestureDetector.getScaleFactor();
-                    if (!this.a && scaleFactor > 1.0f) {
-                        this.a = true;
-                        this.b.i.a(true);
-                    } else if (!this.a && scaleFactor > 0.0f && scaleFactor < 1.0f) {
-                        this.a = true;
-                        this.b.i.a(false);
-                    }
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public final boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scaleGestureDetector)) == null) {
-                this.a = false;
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scaleGestureDetector) == null) {
-                this.a = true;
-            }
-        }
-
-        public /* synthetic */ c(y26 y26Var, a aVar) {
-            this(y26Var);
-        }
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

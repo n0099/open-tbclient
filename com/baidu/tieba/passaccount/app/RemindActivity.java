@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jp7;
-import com.repackage.kp7;
+import com.repackage.bq7;
+import com.repackage.cq7;
 /* loaded from: classes3.dex */
 public class RemindActivity extends BaseActivity<RemindActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -31,12 +31,12 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
 
         /* renamed from: com.baidu.tieba.passaccount.app.RemindActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0218a implements kp7.e {
+        public class C0220a implements cq7.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0218a(a aVar) {
+            public C0220a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,37 +54,37 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
                 this.a = aVar;
             }
 
-            @Override // com.repackage.kp7.e
+            @Override // com.repackage.cq7.e
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-                    jp7.f().d(z, str);
+                    bq7.f().d(z, str);
                     this.a.a.A1(true);
                 }
             }
 
-            @Override // com.repackage.kp7.e
+            @Override // com.repackage.cq7.e
             public void b(boolean z, boolean z2, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                    jp7.f().d(z2, str);
+                    bq7.f().d(z2, str);
                     this.a.a.A1(true);
                 }
             }
 
-            @Override // com.repackage.kp7.e
+            @Override // com.repackage.cq7.e
             public void c() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    jp7.f().d(false, null);
+                    bq7.f().d(false, null);
                 }
             }
 
-            @Override // com.repackage.kp7.e
+            @Override // com.repackage.cq7.e
             public void onFail() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                    jp7.f().d(false, null);
+                    bq7.f().d(false, null);
                 }
             }
         }
@@ -111,7 +111,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                kp7.i().g(this.a, new C0218a(this));
+                cq7.i().g(this.a, new C0220a(this));
             }
         }
     }
@@ -170,7 +170,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
             if (z) {
                 return;
             }
-            jp7.f().a(null);
+            bq7.f().a(null);
         }
     }
 
@@ -187,11 +187,11 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0718);
-            ((NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ((Button) findViewById(R.id.obfuscated_res_0x7f091a25)).setOnClickListener(new a(this));
-            findViewById(R.id.obfuscated_res_0x7f09095d).setVisibility(FaceFeedbackEnableSwitch.isOn() ? 0 : 8);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f09095e)).setOnClickListener(new b(this));
+            setContentView(R.layout.obfuscated_res_0x7f0d0735);
+            ((NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            ((Button) findViewById(R.id.obfuscated_res_0x7f091acd)).setOnClickListener(new a(this));
+            findViewById(R.id.obfuscated_res_0x7f090964).setVisibility(FaceFeedbackEnableSwitch.isOn() ? 0 : 8);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f090965)).setOnClickListener(new b(this));
         }
     }
 }

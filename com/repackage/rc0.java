@@ -1,70 +1,162 @@
 package com.repackage;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mcn.McnVideoAdView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class rc0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public McnVideoAdView b;
+    public McnVideoAdView.c c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755355278, "Lcom/repackage/rc0;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a implements McnVideoAdView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(rc0 rc0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rc0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+
+        @Override // com.baidu.mcn.McnVideoAdView.c
+        public void a(pc0 pc0Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, pc0Var) == null) || pc0Var == null || StringUtils.isNull(pc0Var.d)) {
+                return;
+            }
+            qc0.b().c(pc0Var.d);
+        }
+
+        @Override // com.baidu.mcn.McnVideoAdView.c
+        public void b(pc0 pc0Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pc0Var) == null) || pc0Var == null) {
+                return;
+            }
+            StatisticItem statisticItem = new StatisticItem("c13405");
+            statisticItem.param("tid", pc0Var.e);
+            statisticItem.param("fid", pc0Var.f);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_locate", pc0Var.g);
+            TiebaStatic.log(statisticItem);
+        }
+
+        @Override // com.baidu.mcn.McnVideoAdView.c
+        public void c(pc0 pc0Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pc0Var) == null) || pc0Var == null) {
+                return;
+            }
+            StatisticItem statisticItem = new StatisticItem("c13404");
+            statisticItem.param("tid", pc0Var.e);
+            statisticItem.param("fid", pc0Var.f);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_locate", pc0Var.g);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public rc0(Context context) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755355278, "Lcom/repackage/rc0;");
-        }
+        this.c = new a(this);
+        this.a = context;
+        McnVideoAdView mcnVideoAdView = new McnVideoAdView(context);
+        this.b = mcnVideoAdView;
+        mcnVideoAdView.setIMcnStatListener(this.c);
     }
 
-    public static void a(String str, String str2) {
+    public void a() {
+        McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || 7 - a > 3) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (mcnVideoAdView = this.b) == null) {
             return;
         }
-        Log.i("cyber-" + str, str2);
+        mcnVideoAdView.f();
     }
 
-    public static void b(String str, String str2, Throwable th) {
+    public void b() {
+        McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || 7 - a > 6) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mcnVideoAdView = this.b) == null) {
             return;
         }
-        Log.e("cyber-" + str, str2, th);
+        mcnVideoAdView.g();
     }
 
-    public static void c(String str, String str2) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - a > 4) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            McnVideoAdView mcnVideoAdView = this.b;
+            if (mcnVideoAdView != null) {
+                return mcnVideoAdView.i();
+            }
+            return false;
         }
-        Log.i("cyber-" + str, str2);
+        return invokeV.booleanValue;
     }
 
-    public static void d(String str, String str2) {
+    public void d() {
+        McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - a > 5) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (mcnVideoAdView = this.b) == null) {
             return;
         }
-        Log.w("cyber-" + str, str2);
+        mcnVideoAdView.k();
     }
 
-    public static void e(String str, String str2) {
+    public void e(pc0 pc0Var, ViewGroup viewGroup) {
+        McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || 7 - a > 6) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, pc0Var, viewGroup) == null) || (mcnVideoAdView = this.b) == null) {
             return;
         }
-        Log.e("cyber-" + str, str2);
+        mcnVideoAdView.l(pc0Var, viewGroup);
+    }
+
+    public void f(pc0 pc0Var, ViewGroup viewGroup) {
+        McnVideoAdView mcnVideoAdView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, pc0Var, viewGroup) == null) || (mcnVideoAdView = this.b) == null) {
+            return;
+        }
+        mcnVideoAdView.m(pc0Var, viewGroup);
     }
 }

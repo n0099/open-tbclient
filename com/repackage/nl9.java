@@ -6,66 +6,74 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public class nl9 {
+public class nl9<E> extends ol9<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static nl9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap a;
+    public Object[] a;
+    public int b;
+    public boolean c;
 
-    public nl9() {
+    public nl9(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        this.a = new Object[4];
+        this.b = 0;
     }
 
-    public static nl9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (nl9.class) {
-                    if (b == null) {
-                        b = new nl9();
-                    }
-                }
-            }
-            return b;
-        }
-        return (nl9) invokeV.objValue;
-    }
-
-    public Info b(String str) {
+    public final nl9<E> a(E e) {
         InterceptResult invokeL;
-        Info info;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (nl9.class) {
-                info = (Info) this.a.remove(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e != null) {
+                b(this.b + 1);
+                Object[] objArr = this.a;
+                int i = this.b;
+                this.b = i + 1;
+                objArr[i] = e;
+                return this;
             }
-            return info;
+            throw null;
         }
-        return (Info) invokeL.objValue;
+        return (nl9) invokeL.objValue;
     }
 
-    public void c(String str, Info info) {
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, info) == null) {
-            synchronized (nl9.class) {
-                this.a.put(str, info);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            Object[] objArr = this.a;
+            int length = objArr.length;
+            if (length >= i) {
+                if (this.c) {
+                    this.a = (Object[]) objArr.clone();
+                    this.c = false;
+                    return;
+                }
+                return;
             }
+            int i2 = length + (length >> 1) + 1;
+            if (i2 < i) {
+                int highestOneBit = Integer.highestOneBit(i - 1);
+                i2 = highestOneBit + highestOneBit;
+            }
+            if (i2 < 0) {
+                i2 = Integer.MAX_VALUE;
+            }
+            this.a = Arrays.copyOf(objArr, i2);
+            this.c = false;
         }
     }
 }

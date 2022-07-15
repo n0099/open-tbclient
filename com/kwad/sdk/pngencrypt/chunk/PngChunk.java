@@ -22,41 +22,26 @@ public abstract class PngChunk {
         AFTER_IDAT,
         NA;
 
-        public boolean isOk(int i, boolean z) {
+        public final boolean isOk(int i, boolean z) {
             if (this == NONE) {
                 return true;
             }
-            if (this == BEFORE_IDAT) {
-                return i < 4;
-            } else if (this == BEFORE_PLTE_AND_IDAT) {
-                return i < 2;
-            } else if (this != AFTER_PLTE_BEFORE_IDAT) {
-                return this == AFTER_IDAT && i > 4;
-            } else {
-                if (z) {
-                    if (i < 4) {
-                        return true;
-                    }
-                } else if (i < 4 && i > 2) {
-                    return true;
-                }
-                return false;
-            }
+            return this == BEFORE_IDAT ? i < 4 : this == BEFORE_PLTE_AND_IDAT ? i < 2 : this == AFTER_PLTE_BEFORE_IDAT ? z ? i < 4 : i < 4 && i > 2 : this == AFTER_IDAT && i > 4;
         }
 
-        public boolean mustGoAfterIDAT() {
+        public final boolean mustGoAfterIDAT() {
             return this == AFTER_IDAT;
         }
 
-        public boolean mustGoAfterPLTE() {
+        public final boolean mustGoAfterPLTE() {
             return this == AFTER_PLTE_BEFORE_IDAT || this == AFTER_PLTE_BEFORE_IDAT_PLTE_REQUIRED;
         }
 
-        public boolean mustGoBeforeIDAT() {
+        public final boolean mustGoBeforeIDAT() {
             return this == BEFORE_IDAT || this == BEFORE_PLTE_AND_IDAT || this == AFTER_PLTE_BEFORE_IDAT;
         }
 
-        public boolean mustGoBeforePLTE() {
+        public final boolean mustGoBeforePLTE() {
             return this == BEFORE_PLTE_AND_IDAT;
         }
     }
@@ -69,12 +54,20 @@ public abstract class PngChunk {
         this.d = b.d(str);
     }
 
-    public int a() {
+    private int a() {
         d dVar = this.f;
         if (dVar != null) {
             return dVar.a;
         }
         return -1;
+    }
+
+    private long b() {
+        d dVar = this.f;
+        if (dVar != null) {
+            return dVar.b();
+        }
+        return -1L;
     }
 
     public final void a(int i) {
@@ -83,15 +76,7 @@ public abstract class PngChunk {
 
     public abstract void a(d dVar);
 
-    public long b() {
-        d dVar = this.f;
-        if (dVar != null) {
-            return dVar.c();
-        }
-        return -1L;
-    }
-
-    public void b(d dVar) {
+    public final void b(d dVar) {
         this.f = dVar;
     }
 

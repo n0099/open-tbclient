@@ -1,35 +1,35 @@
 package com.repackage;
 
-import com.baidu.tbadk.util.AppLaunchInfoFetcher;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes7.dex */
-public class vr4 implements AppLaunchInfoFetcher.a {
+public class vr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public vr4() {
+    public static Path a(RectF rectF, float[] fArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rectF, fArr)) == null) {
+            Path path = new Path();
+            path.addRoundRect(rectF, fArr, Path.Direction.CW);
+            return path;
         }
+        return (Path) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(nc5 nc5Var) {
+    public static float[] b(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, nc5Var) == null) || nc5Var == null) {
-            return;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            float[] fArr = new float[8];
+            Arrays.fill(fArr, f);
+            return fArr;
         }
-        wr4.a().c(nc5Var.b);
+        return (float[]) invokeF.objValue;
     }
 }

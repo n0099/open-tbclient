@@ -119,7 +119,7 @@ public class MtjConfig {
             UMENG = new PushPlatform("UMENG", 5, BaseConstants.CATEGORY_UMENG, 5);
             XINGE = new PushPlatform("XINGE", 6, "xinge", 6);
             ALIYUN = new PushPlatform("ALIYUN", 7, "aliyun", 7);
-            OPPO = new PushPlatform("OPPO", 8, RomUtils.MANUFACTURER_OPPO, 8);
+            OPPO = new PushPlatform("OPPO", 8, "oppo", 8);
             PushPlatform pushPlatform = new PushPlatform("MEIZU", 9, "meizu", 9);
             MEIZU = pushPlatform;
             c = new PushPlatform[]{BAIDUYUN, JIGUANG, GETUI, HUAWEI, XIAOMI, UMENG, XINGE, ALIYUN, OPPO, pushPlatform};

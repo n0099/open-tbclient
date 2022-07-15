@@ -1,18 +1,16 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.WindowManager;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z46 {
+public class z46 implements z75 {
     public static /* synthetic */ Interceptable $ic;
-    public static z46 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public int c;
 
     public z46() {
         Interceptable interceptable = $ic;
@@ -25,40 +23,6 @@ public class z46 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public static z46 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (z46.class) {
-                    if (a == null) {
-                        a = new z46();
-                    }
-                }
-            }
-            return a;
-        }
-        return (z46) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a = null;
-        }
-    }
-
-    public void c(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            if (context != null) {
-                WindowManager windowManager = (WindowManager) context.getSystemService("window");
-                return;
-            }
-            throw new IllegalArgumentException("context cannot be null");
         }
     }
 }

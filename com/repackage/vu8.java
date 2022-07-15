@@ -1,7 +1,15 @@
 package com.repackage;
 
-import com.repackage.nu8;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 /* loaded from: classes7.dex */
 public interface vu8 {
-    void a(nu8.b bVar);
+    void a();
+
+    void b(CloudMusicData.MusicTagList.MusicList musicList, int i);
+
+    void c();
+
+    void d(CloudMusicData.MusicTagList musicTagList);
+
+    void e(int i);
 }

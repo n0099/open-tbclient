@@ -51,6 +51,8 @@ public interface AdConfig {
     @Deprecated
     Object removeExtra(String str);
 
+    void setAgeGroup(int i);
+
     @Deprecated
     void setExtra(String str, Object obj);
 }

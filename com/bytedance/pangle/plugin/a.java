@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.download.ZeusPluginListener;
+import com.bytedance.pangle.ZeusPluginStateListener;
 import com.bytedance.pangle.e.a.e;
 import com.bytedance.pangle.log.ZeusLogger;
 import java.io.File;
@@ -14,15 +14,15 @@ import java.io.File;
 public final class a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public ZeusPluginListener b;
+    public final File a;
+    public final String b;
 
-    public a(File file, ZeusPluginListener zeusPluginListener) {
+    public a(String str, File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, zeusPluginListener};
+            Object[] objArr = {str, file};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,7 +33,7 @@ public final class a implements Runnable {
             }
         }
         this.a = file;
-        this.b = zeusPluginListener;
+        this.b = str;
     }
 
     public final boolean a() {
@@ -41,30 +41,28 @@ public final class a implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             e a = com.bytedance.pangle.e.a.d.a(this.a);
-            boolean z = false;
-            if (a != null) {
-                Plugin plugin = PluginManager.getInstance().getPlugin(a.a);
-                if (plugin != null) {
-                    z = plugin.install(this.a, a);
-                    ZeusPluginListener zeusPluginListener = this.b;
-                    if (zeusPluginListener != null) {
-                        zeusPluginListener.onEvent(z ? 21 : 22, "install result = ".concat(String.valueOf(z)));
-                    }
-                } else {
-                    ZeusPluginListener zeusPluginListener2 = this.b;
-                    if (zeusPluginListener2 != null) {
-                        zeusPluginListener2.onEvent(22, "cannot query valid plugin !!! packageName = " + a.a);
-                    }
-                    ZeusLogger.w(ZeusLogger.TAG_INSTALL, "PluginInstallRunnable cannot query valid plugin !!! packageName = " + a.a);
-                }
-            } else {
-                ZeusPluginListener zeusPluginListener3 = this.b;
-                if (zeusPluginListener3 != null) {
-                    zeusPluginListener3.onEvent(22, "read local file package info failed !!!" + this.a.getAbsolutePath() + " exists:" + this.a.exists());
-                }
-                ZeusLogger.w(ZeusLogger.TAG_INSTALL, "PluginInstallRunnable read local file package info failed !!!" + this.a.getAbsolutePath() + " exists:" + this.a.exists());
+            if (a == null) {
+                String str = this.b;
+                ZeusPluginStateListener.postStateChange(str, 7, " read local file package info failed !!! pluginPkg = " + this.b + " mApkFile.exists = " + this.a.exists());
+                StringBuilder sb = new StringBuilder("PluginInstallRunnable read local file package info failed !!! pluginPkg = ");
+                sb.append(this.b);
+                ZeusLogger.w(ZeusLogger.TAG_INSTALL, sb.toString());
+                return false;
             }
-            return z;
+            Plugin plugin = PluginManager.getInstance().getPlugin(a.a);
+            if (plugin == null) {
+                String str2 = this.b;
+                ZeusPluginStateListener.postStateChange(str2, 7, " plugin == null !!! pluginPkg = " + this.b);
+                ZeusLogger.w(ZeusLogger.TAG_INSTALL, "PluginInstallRunnable cannot query valid plugin !!! packageName = " + a.a);
+                return false;
+            }
+            boolean install = plugin.install(this.a, a);
+            if (install) {
+                ZeusPluginStateListener.postStateChange(a.a, 6, new Object[0]);
+            } else {
+                ZeusPluginStateListener.postStateChange(a.a, 7, "Internal error.");
+            }
+            return install;
         }
         return invokeV.booleanValue;
     }

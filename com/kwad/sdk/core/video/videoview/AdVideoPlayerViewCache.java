@@ -3,19 +3,19 @@ package com.kwad.sdk.core.video.videoview;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class AdVideoPlayerViewCache {
-    public HashMap<String, WeakReference<b>> a;
+public final class AdVideoPlayerViewCache {
+    public HashMap<String, WeakReference<a>> a;
 
     /* loaded from: classes5.dex */
     public enum Holder {
         INSTANCE;
         
-        public AdVideoPlayerViewCache mInstance = new AdVideoPlayerViewCache();
+        public AdVideoPlayerViewCache mInstance = new AdVideoPlayerViewCache((byte) 0);
 
         Holder() {
         }
 
-        public AdVideoPlayerViewCache getInstance() {
+        public final AdVideoPlayerViewCache getInstance() {
             return this.mInstance;
         }
     }
@@ -24,24 +24,28 @@ public class AdVideoPlayerViewCache {
         this.a = new HashMap<>(1);
     }
 
+    public /* synthetic */ AdVideoPlayerViewCache(byte b) {
+        this();
+    }
+
     public static AdVideoPlayerViewCache a() {
         return Holder.INSTANCE.getInstance();
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a.remove(str);
     }
 
-    public void a(String str, b bVar) {
-        this.a.put(str, new WeakReference<>(bVar));
+    public final void a(String str, a aVar) {
+        this.a.put(str, new WeakReference<>(aVar));
     }
 
-    public b b(String str) {
-        WeakReference<b> weakReference = this.a.get(str);
+    public final a b(String str) {
+        WeakReference<a> weakReference = this.a.get(str);
         if (weakReference != null) {
-            b bVar = weakReference.get();
-            if (bVar != null) {
-                return bVar;
+            a aVar = weakReference.get();
+            if (aVar != null) {
+                return aVar;
             }
             this.a.remove(str);
         }

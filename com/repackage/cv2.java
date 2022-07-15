@@ -1,26 +1,104 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class cv2 {
+public class cv2 implements ll2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public JSONObject g;
-    public String h;
-    public sr1 i;
+    public Map<Runnable, String> c;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final cv2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-458798924, "Lcom/repackage/cv2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-458798924, "Lcom/repackage/cv2$b;");
+                    return;
+                }
+            }
+            a = new cv2(null);
+        }
+    }
+
+    public /* synthetic */ cv2(a aVar) {
+        this();
+    }
+
+    public static cv2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (cv2) invokeV.objValue;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c.isEmpty()) {
+            return;
+        }
+        if (ll2.a) {
+            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.c.size());
+        }
+        for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
+            if (entry != null) {
+                ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
+            }
+        }
+        this.c.clear();
+    }
+
+    public void c(Message message) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || message == null || (obj = message.obj) == null || !(obj instanceof Bundle)) {
+            return;
+        }
+        Bundle bundle = (Bundle) obj;
+        boolean z = bundle.getBoolean("is_timeout", false);
+        String string = bundle.getString("app_id", null);
+        if (ll2.a) {
+            Log.e("SwanPerformance", "main process launch end，timeout = " + z + " ; appId = " + string);
+        }
+        a();
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (ll2.a) {
+                Log.e("SwanPerformance", "main process launch start，appId = " + str);
+            }
+            System.currentTimeMillis();
+        }
+    }
 
     public cv2() {
         Interceptable interceptable = $ic;
@@ -32,54 +110,9 @@ public class cv2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.e)) ? false : true : invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            sr1 sr1Var = this.i;
-            return (sr1Var == null || sr1Var.isSuccess()) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("SwanPluginFunPageModel{providerAppKey='");
-            sb.append(this.a);
-            sb.append('\'');
-            sb.append(", providerRootPath='");
-            sb.append(this.c);
-            sb.append('\'');
-            sb.append(", providerVersion='");
-            sb.append(this.d);
-            sb.append('\'');
-            sb.append(", componentId='");
-            sb.append(this.f);
-            sb.append('\'');
-            sb.append(", cb='");
-            sb.append(this.h);
-            sb.append('\'');
-            sb.append(", pageParams=");
-            sb.append(this.g);
-            sb.append(", swanApiResult=");
-            sr1 sr1Var = this.i;
-            sb.append(sr1Var == null ? null : sr1Var.a());
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        this.c = new ConcurrentHashMap();
     }
 }

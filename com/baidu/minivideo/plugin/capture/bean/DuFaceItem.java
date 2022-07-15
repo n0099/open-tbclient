@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yc0;
+import com.repackage.dd0;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -97,7 +97,7 @@ public class DuFaceItem extends FaceItem {
             boolean z2 = false;
             try {
                 FileUtils.unzipFile(new File(str), getFilePath());
-                z = yc0.k1(getFilePath());
+                z = dd0.k1(getFilePath());
                 if (!z) {
                     LogUtils.d("DuFaceData", getFilePath() + " not verify");
                     FileUtils.deleteDir(new File(getFilePath()));

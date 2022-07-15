@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int BUILD_CRIUS_STL = 1;
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;
     public static final String LIBRARY_PACKAGE_NAME = "com.baidu.crius";

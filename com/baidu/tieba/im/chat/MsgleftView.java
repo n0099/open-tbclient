@@ -26,13 +26,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a67;
-import com.repackage.ht4;
+import com.repackage.g47;
 import com.repackage.pi;
-import com.repackage.q37;
+import com.repackage.s67;
+import com.repackage.xt4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class MsgleftView extends q37 {
+public class MsgleftView extends g47 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String L = "com.baidu.tieba.im.chat.MsgleftView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,12 +83,12 @@ public class MsgleftView extends q37 {
                     if (System.currentTimeMillis() - this.a > 200) {
                         if (this.b.H.get()) {
                             MsgleftView msgleftView = this.b;
-                            msgleftView.c.o(view2, 2, msgleftView.f, 0L);
+                            msgleftView.c.m(view2, 2, msgleftView.f, 0L);
                             this.b.H.set(false);
                         }
                     } else {
                         MsgleftView msgleftView2 = this.b;
-                        msgleftView2.b.i(view2, 2, msgleftView2.f, 0L);
+                        msgleftView2.b.h(view2, 2, msgleftView2.f, 0L);
                     }
                 }
                 return false;
@@ -150,7 +150,7 @@ public class MsgleftView extends q37 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgleftView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0542);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d055c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,16 +171,16 @@ public class MsgleftView extends q37 {
         this.K = new b(this);
         this.I = tbPageContext;
         o();
-        this.G = (ImageView) a(R.id.obfuscated_res_0x7f090f97);
-        this.D = (TextView) a(R.id.obfuscated_res_0x7f091f00);
-        this.E = (ViewGroup) a(R.id.obfuscated_res_0x7f0903df);
-        HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f090e83);
+        this.G = (ImageView) a(R.id.obfuscated_res_0x7f090fa8);
+        this.D = (TextView) a(R.id.obfuscated_res_0x7f091fa4);
+        this.E = (ViewGroup) a(R.id.obfuscated_res_0x7f0903e1);
+        HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f090e92);
         this.C = headImageView;
         headImageView.setAutoChangeStyle(false);
         this.C.setDrawerType(1);
         this.C.setRadius(pi.d(this.I.getContext(), 4.0f));
         this.C.setPlaceHolder(1);
-        this.F = (UserIconBox) a(R.id.obfuscated_res_0x7f0922a7);
+        this.F = (UserIconBox) a(R.id.obfuscated_res_0x7f09234f);
         this.C.setLongClickable(true);
         this.C.setOnLongClickListener(this.K);
         this.C.setOnTouchListener(new a(this));
@@ -191,7 +191,7 @@ public class MsgleftView extends q37 {
     public final void R(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) {
-            String q = ht4.k().q("live_room_chat_page_author_id", "");
+            String q = xt4.k().q("live_room_chat_page_author_id", "");
             if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(q)) {
                 this.G.setVisibility(0);
             } else {
@@ -243,7 +243,7 @@ public class MsgleftView extends q37 {
         }
     }
 
-    @Override // com.repackage.q37
+    @Override // com.repackage.g47
     public void q() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.B == TbadkCoreApplication.getInst().getSkinType()) {
@@ -259,7 +259,7 @@ public class MsgleftView extends q37 {
 
     /* JADX WARN: Removed duplicated region for block: B:37:0x013a A[Catch: Exception -> 0x01d3, TryCatch #0 {Exception -> 0x01d3, blocks: (B:17:0x00ac, B:19:0x00b2, B:20:0x00d4, B:22:0x00e1, B:25:0x00ec, B:27:0x00f0, B:28:0x0102, B:30:0x0106, B:32:0x0112, B:33:0x0118, B:35:0x0127, B:37:0x013a, B:38:0x015d, B:55:0x01a9, B:56:0x01ad, B:57:0x01b1, B:58:0x01b7, B:59:0x01bd, B:60:0x01c1, B:61:0x01c7, B:62:0x01cd, B:34:0x0120), top: B:70:0x00ac }] */
     /* JADX WARN: Removed duplicated region for block: B:40:0x018e  */
-    @Override // com.repackage.q37
+    @Override // com.repackage.g47
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -276,7 +276,7 @@ public class MsgleftView extends q37 {
                 userIconBox.setVisibility(0);
                 this.F.setAutoChangedStyle(false);
                 Resources resources = this.I.getResources();
-                this.F.h(tShowInfoNew, 2, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070305), true);
+                this.F.h(tShowInfoNew, 2, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070304), true);
             }
             if (chatMessage == null) {
                 this.D.setText((CharSequence) null);
@@ -308,7 +308,7 @@ public class MsgleftView extends q37 {
                 }
                 if (chatMessage.getUserInfo().getUserType() != 1 && chatMessage.getUserInfo().getUserType() != 3) {
                     if (this.J == null) {
-                        this.J = a67.o().i(String.valueOf(chatMessage.getUserId()), 2);
+                        this.J = s67.o().i(String.valueOf(chatMessage.getUserId()), 2);
                     }
                     if (this.J != null && !TextUtils.isEmpty(this.J.getGroup_head())) {
                         str = this.J.getGroup_head();

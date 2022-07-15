@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -141,7 +140,7 @@ public class MessageRedDotView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             String str = Build.MODEL;
-            if (str.contains(RomUtils.MANUFACTURER_VIVO) && str.contains("X20")) {
+            if (str.contains("vivo") && str.contains("X20")) {
                 pi.f(getContext(), R.dimen.tbds2);
             }
         }

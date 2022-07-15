@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vl0;
+import com.repackage.im0;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u001a\u0010\u0004J\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0019\u0010\u0007\u001a\u00020\u00022\b\u0010\u0006\u001a\u0004\u0018\u00010\u0005H\u0014¢\u0006\u0004\b\u0007\u0010\bJ\u001f\u0010\u000e\u001a\u00020\r2\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\f\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0012\u001a\u00020\u00022\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010H\u0014¢\u0006\u0004\b\u0012\u0010\u0013R\u0016\u0010\u0015\u001a\u00020\u00148\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0018\u001a\u00020\u00178\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b\u0018\u0010\u0019¨\u0006\u001b"}, d2 = {"Lcom/baidu/nadcore/max/ImmersiveVideoDetailActivity;", "Lcom/baidu/nadcore/appframework/BaseActivity;", "", "initComponentManager", "()V", "Landroid/os/Bundle;", "savedInstanceState", "onCreate", "(Landroid/os/Bundle;)V", "", "keyCode", "Landroid/view/KeyEvent;", "event", "", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", "Landroid/content/Intent;", "intent", "onNewIntent", "(Landroid/content/Intent;)V", "Lcom/baidu/nadcore/component/ComponentArchManager;", "componentManager", "Lcom/baidu/nadcore/component/ComponentArchManager;", "Landroid/widget/FrameLayout;", "rootView", "Landroid/widget/FrameLayout;", "<init>", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u001c\u0010\u0004J\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0019\u0010\u0007\u001a\u00020\u00022\b\u0010\u0006\u001a\u0004\u0018\u00010\u0005H\u0014¢\u0006\u0004\b\u0007\u0010\bJ\u001f\u0010\u000e\u001a\u00020\r2\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\f\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0012\u001a\u00020\u00022\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010H\u0014¢\u0006\u0004\b\u0012\u0010\u0013J\u0019\u0010\u0014\u001a\u00020\r2\b\u0010\u0006\u001a\u0004\u0018\u00010\u0005H\u0014¢\u0006\u0004\b\u0014\u0010\u0015R\u0016\u0010\u0017\u001a\u00020\u00168\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b\u0017\u0010\u0018R\u0016\u0010\u001a\u001a\u00020\u00198\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b\u001a\u0010\u001b¨\u0006\u001d"}, d2 = {"Lcom/baidu/nadcore/max/ImmersiveVideoDetailActivity;", "Lcom/baidu/nadcore/appframework/BaseActivity;", "", "initComponentManager", "()V", "Landroid/os/Bundle;", "savedInstanceState", "onCreateEx", "(Landroid/os/Bundle;)V", "", "keyCode", "Landroid/view/KeyEvent;", "event", "", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", "Landroid/content/Intent;", "intent", "onNewIntentEx", "(Landroid/content/Intent;)V", "preCreate", "(Landroid/os/Bundle;)Z", "Lcom/baidu/nadcore/component/ComponentArchManager;", "componentManager", "Lcom/baidu/nadcore/component/ComponentArchManager;", "Landroid/widget/FrameLayout;", "rootView", "Landroid/widget/FrameLayout;", "<init>", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class ImmersiveVideoDetailActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -50,9 +50,87 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
         }
     }
 
-    public final void S0() {
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void B0(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.B0(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d05b9);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b73);
+            Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
+            this.v = (FrameLayout) findViewById;
+            getWindow().setFormat(-3);
+            d1();
+            ComponentArchManager componentArchManager = this.u;
+            if (componentArchManager == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
+            }
+            Intent intent = getIntent();
+            Intrinsics.checkNotNullExpressionValue(intent, "intent");
+            componentArchManager.n(intent);
+            ComponentArchManager componentArchManager2 = this.u;
+            if (componentArchManager2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
+            }
+            FrameLayout frameLayout = this.v;
+            if (frameLayout == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("rootView");
+            }
+            componentArchManager2.d(frameLayout);
+            ComponentArchManager componentArchManager3 = this.u;
+            if (componentArchManager3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
+            }
+            im0 im0Var = (im0) componentArchManager3.q(im0.class);
+            if (im0Var != null) {
+                String str = ClogBuilder.LogType.VIDEO_LP_PV.type;
+                Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.VIDEO_LP_PV.type");
+                im0Var.a(str, "");
+            }
+            a1(false);
+        }
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void D0(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
+            super.D0(intent);
+            if (intent != null) {
+                ComponentArchManager componentArchManager = this.u;
+                if (componentArchManager == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("componentManager");
+                }
+                componentArchManager.n(intent);
+            }
+        }
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public boolean N0(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
+            if (super.N0(bundle)) {
+                getWindow().setSoftInputMode(19);
+                requestWindowFeature(1);
+                if (Build.VERSION.SDK_INT == 26) {
+                    setEnableSliding(false);
+                    setCurrentActivityNoTransparent();
+                } else {
+                    setEnableSliding(true);
+                    a1(true);
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void d1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Lifecycle lifecycle = getLifecycle();
             Intrinsics.checkNotNullExpressionValue(lifecycle, "lifecycle");
             ComponentArchManager componentArchManager = new ComponentArchManager(this, lifecycle);
@@ -105,61 +183,11 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.nadcore.appframework.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            getWindow().setSoftInputMode(19);
-            requestWindowFeature(1);
-            if (Build.VERSION.SDK_INT == 26) {
-                setEnableSliding(false);
-                setCurrentActivityNoTransparent();
-            } else {
-                setEnableSliding(true);
-                N0(true);
-            }
-            super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d059e);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091ad4);
-            Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
-            this.v = (FrameLayout) findViewById;
-            getWindow().setFormat(-3);
-            S0();
-            ComponentArchManager componentArchManager = this.u;
-            if (componentArchManager == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
-            }
-            Intent intent = getIntent();
-            Intrinsics.checkNotNullExpressionValue(intent, "intent");
-            componentArchManager.n(intent);
-            ComponentArchManager componentArchManager2 = this.u;
-            if (componentArchManager2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
-            }
-            FrameLayout frameLayout = this.v;
-            if (frameLayout == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("rootView");
-            }
-            componentArchManager2.e(frameLayout);
-            ComponentArchManager componentArchManager3 = this.u;
-            if (componentArchManager3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("componentManager");
-            }
-            vl0 vl0Var = (vl0) componentArchManager3.q(vl0.class);
-            if (vl0Var != null) {
-                String str = ClogBuilder.LogType.VIDEO_LP_PV.type;
-                Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.VIDEO_LP_PV.type");
-                vl0Var.a(str, "");
-            }
-            N0(false);
-        }
-    }
-
     @Override // com.baidu.nadcore.appframework.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent event) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, event)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, event)) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             super.onKeyDown(i, event);
             ComponentArchManager componentArchManager = this.u;
@@ -169,20 +197,5 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
             return componentArchManager.o(i, event);
         }
         return invokeIL.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onNewIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            super.onNewIntent(intent);
-            if (intent != null) {
-                ComponentArchManager componentArchManager = this.u;
-                if (componentArchManager == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("componentManager");
-                }
-                componentArchManager.n(intent);
-            }
-        }
     }
 }

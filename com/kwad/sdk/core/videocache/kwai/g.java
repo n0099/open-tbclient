@@ -1,8 +1,6 @@
 package com.kwad.sdk.core.videocache.kwai;
-
-import java.io.File;
 /* loaded from: classes5.dex */
-public class g extends e {
+public final class g extends e {
     public final long a;
 
     public g(long j) {
@@ -13,7 +11,7 @@ public class g extends e {
     }
 
     @Override // com.kwad.sdk.core.videocache.kwai.e
-    public boolean a(File file, long j, int i) {
+    public final boolean a(long j) {
         return j <= this.a;
     }
 }

@@ -1,25 +1,27 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 /* loaded from: classes7.dex */
-public class x94 extends c94 {
+public class x94 implements ba4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s94 a;
-    public boolean b;
+    public final Response a;
 
-    public x94(s94 s94Var, boolean z) {
+    public x94(@NonNull Response response) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s94Var, Boolean.valueOf(z)};
+            Object[] objArr = {response};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,53 +31,36 @@ public class x94 extends c94 {
                 return;
             }
         }
-        this.a = s94Var;
-        this.b = z;
+        this.a = response;
     }
 
-    @Override // com.repackage.c94
-    public s94 a() {
+    @Override // com.repackage.ba4
+    @Nullable
+    public aa4 body() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (s94) invokeV.objValue;
-    }
-
-    @Override // com.repackage.c94
-    public boolean b(s94 s94Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s94Var)) == null) {
-            s94 s94Var2 = this.a;
-            if (s94Var2 == s94Var) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ResponseBody body = this.a.body();
+            if (body == null) {
+                return null;
             }
-            return s94Var2.d(s94Var);
+            return new y94(body);
         }
-        return invokeL.booleanValue;
+        return (aa4) invokeV.objValue;
     }
 
-    @Override // com.repackage.c94
-    public void c(boolean z) {
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.b) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.close();
         }
-        if (z) {
-            s94 s94Var = this.a;
-            s94Var.a.b.b = 0L;
-            s94Var.b(0);
-        }
-        q94.b().f(this.a);
     }
 
-    @Override // com.repackage.c94
-    @NonNull
-    public String toString() {
+    @Override // com.repackage.ba4
+    public int code() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "isAttached=" + this.b + " " + super.toString();
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.code() : invokeV.intValue;
     }
 }

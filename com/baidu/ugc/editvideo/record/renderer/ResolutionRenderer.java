@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.je0;
+import com.repackage.oe0;
 /* loaded from: classes4.dex */
 public class ResolutionRenderer extends MediaBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
@@ -45,12 +45,12 @@ public class ResolutionRenderer extends MediaBaseRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(je0 je0Var, int i, float[] fArr) {
+    public void onDrawFrame(oe0 oe0Var, int i, float[] fArr) {
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, je0Var, i, fArr) == null) || this.mRatio == 0.0f) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, oe0Var, i, fArr) == null) || this.mRatio == 0.0f) {
             return;
         }
         if (!(this.mResolutionWidth == this.mSurfaceViewWidth && this.mResolutionHeight == this.mSurfaceViewHeight) && (i2 = (this.mSurfaceViewHeight - this.mResolutionHeight) / 2) > 1) {

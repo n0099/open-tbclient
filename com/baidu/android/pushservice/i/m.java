@@ -38,6 +38,7 @@ import com.baidu.down.utils.Constants;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -51,7 +52,6 @@ import com.facebook.cache.disk.DefaultDiskStorage;
 import com.heytap.mcssdk.PushManager;
 import com.heytap.mcssdk.callback.PushCallback;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.tachikoma.core.component.button.StyleHelper;
 import com.vivo.push.IPushActionListener;
 import com.vivo.push.PushClient;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -92,7 +92,7 @@ public final class m {
                 return;
             }
         }
-        b = new String[]{"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE"};
+        b = new String[]{PermissionChecker.INTERNET, "android.permission.ACCESS_NETWORK_STATE"};
     }
 
     public static boolean A(Context context) {
@@ -1082,7 +1082,7 @@ public final class m {
             if (SapiOptions.KEY_CACHE_ENABLED.equals(a2)) {
                 return false;
             }
-            if (StyleHelper.KEY_ONDISABLE.equals(a2)) {
+            if ("disabled".equals(a2)) {
                 return true;
             }
             return a(context, context.getPackageName(), "DisableService");
@@ -1944,7 +1944,7 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65624, null, context)) == null) {
             try {
-                return c(context, true).contains(com.kuaishou.weapon.un.g.j);
+                return c(context, true).contains("SAMSUNG");
             } catch (Exception unused) {
                 return false;
             }

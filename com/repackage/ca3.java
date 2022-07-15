@@ -2,7 +2,9 @@ package com.repackage;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -11,19 +13,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.aa3;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ca3 extends p13 {
+public abstract class ca3 extends e23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ca3(p03 p03Var) {
-        super(p03Var, "/swanAPI/stopDeviceMotion");
+    public ca3(e13 e13Var, String str) {
+        super(e13Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
+            Object[] objArr = {e13Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,31 +42,49 @@ public class ca3 extends p13 {
         }
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    public boolean j(Context context, h03 h03Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (sz2Var == null) {
-                sw1.c("StopDeviceMotionAction", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-                if (p13.b) {
-                    Log.d("SwanAppAction", "stopOrientationAction --- illegal swanApp");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, h03Var, unitedSchemeEntity)) == null) {
+            if (h03Var == null) {
+                hx1.c("battery", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (e23.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal swanApp");
                 }
                 return false;
             } else if (context == null) {
-                sw1.c("StopDeviceMotionAction", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-                if (p13.b) {
-                    Log.d("SwanAppAction", "stopOrientationAction --- illegal context");
+                hx1.c("battery", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (e23.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal context");
                 }
                 return false;
             } else {
-                aa3.h().m();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLL.booleanValue;
+    }
+
+    @Nullable
+    public JSONObject k(@NonNull aa3.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                int i = 100;
+                if (aVar.a <= 100) {
+                    i = aVar.a;
+                }
+                jSONObject.put("level", String.valueOf(i));
+                jSONObject.put("isCharging", aVar.b);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

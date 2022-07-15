@@ -130,7 +130,7 @@ public class pr {
             d5.a(3);
             d5.b(ct.a(bytes));
             linkedList.offer(d5.c());
-            if (ar.c.h().d()) {
+            if (ar.c.h().c()) {
                 DebugTrace debugTrace = DebugTrace.a;
                 debugTrace.a("groupId encode=" + dHGroupId);
                 DebugTrace debugTrace2 = DebugTrace.a;

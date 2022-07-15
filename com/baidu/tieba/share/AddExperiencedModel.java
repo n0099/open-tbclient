@@ -151,13 +151,13 @@ public class AddExperiencedModel extends BdBaseModel {
         registerListener(this.d);
     }
 
-    public static boolean E(String str) {
+    public static boolean F(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? ng.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? ng.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str) : invokeL.booleanValue;
     }
 
-    public void D(String str, String str2) {
+    public void E(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);

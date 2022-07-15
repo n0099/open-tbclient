@@ -1,21 +1,92 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
+import android.graphics.Rect;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class wb3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean f;
+    public static ub3 g;
+    public static volatile wb3 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public ViewTreeObserver.OnGlobalLayoutListener d;
+    public String e;
+
+    /* loaded from: classes7.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ wb3 b;
+
+        public a(wb3 wb3Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wb3Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wb3Var;
+            this.a = view2;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (wb3.g != null) {
+                    wb3.g.c(this.b.e);
+                }
+                Rect rect = new Rect();
+                this.a.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.b.c == this.b.a) {
+                    this.b.c = height;
+                } else if (this.b.c == height) {
+                } else {
+                    if (this.b.c - height > this.b.b) {
+                        if (wb3.g != null) {
+                            wb3.g.b(this.b.e, this.b.c - height);
+                            if (wb3.f) {
+                                Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + this.b.c + " visibleHeight " + height);
+                            }
+                        }
+                        this.b.c = height;
+                    } else if (height - this.b.c > this.b.b) {
+                        if (wb3.g != null) {
+                            wb3.g.a(this.b.e, height - this.b.c);
+                        }
+                        if (wb3.f) {
+                            Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + this.b.c + " visibleHeight " + height);
+                        }
+                        this.b.c = height;
+                    }
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -30,86 +101,77 @@ public class wb3 {
                 return;
             }
         }
-        a = cg1.a;
+        f = rg1.a;
     }
 
-    public static JSONObject a(String str, String str2, String str3) throws JSONException {
-        InterceptResult invokeLLL;
+    public wb3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("success", str);
-            jSONObject.put("swan", str2);
-            jSONObject.put("type", "NA");
-            jSONObject.put("error", str3);
-            return jSONObject;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (JSONObject) invokeLLL.objValue;
+        this.a = 0;
+        this.b = 200;
     }
 
-    public static JSONObject b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static wb3 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", a(str, str2, str3));
-                jSONObject.put("os", "android");
-                jSONObject.put("type", CommonTbJsBridge.GET_APIS);
-                jSONObject.put("from", "swan");
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (h == null) {
+                synchronized (wb3.class) {
+                    if (h == null) {
+                        h = new wb3();
+                    }
                 }
             }
-            return jSONObject;
+            return h;
         }
-        return (JSONObject) invokeLLL.objValue;
+        return (wb3) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x001c  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(@Nullable String str) {
-        String str2;
-        SwanCoreVersion e;
+    public static void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            try {
-                e = x83.e(0);
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
-            }
-            if (e != null) {
-                str2 = e.swanCoreVersionName;
-                if (str == null) {
-                    str = "";
-                }
-                z53.k("1087", b("2", str2, str));
-            }
-            str2 = "";
-            if (str == null) {
-            }
-            z53.k("1087", b("2", str2, str));
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            g = null;
+            h = null;
         }
     }
 
-    public static void d() {
-        String str;
+    public final void h(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                str = m62.U().d0().swanCoreVersionName;
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                str = "";
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            if (this.d == null) {
+                this.d = new a(this, view2);
             }
-            z53.k("1087", b("1", str, ""));
+            view2.getViewTreeObserver().addOnGlobalLayoutListener(this.d);
+        }
+    }
+
+    public void k(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            view2.getViewTreeObserver().removeOnGlobalLayoutListener(this.d);
+            this.e = "";
+            g = null;
+            this.c = 0;
+        }
+    }
+
+    public void l(View view2, String str, ub3 ub3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, str, ub3Var) == null) {
+            h(view2);
+            this.e = str;
+            g = ub3Var;
+            this.c = 0;
         }
     }
 }

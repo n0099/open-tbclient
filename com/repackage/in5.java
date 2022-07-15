@@ -1,77 +1,131 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.sapi2.service.AbstractThirdPartyService;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class in5 {
+public class in5 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static in5 b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StatisticItem> a;
+
+    /* loaded from: classes6.dex */
+    public class a implements hn5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ in5 a;
+
+        public a(in5 in5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {in5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = in5Var;
+        }
+
+        @Override // com.repackage.hn5
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+                this.a.mResult.putInt("status_code", bundle.getInt("result_code"));
+                this.a.mResult.putString("params", bundle.getString(AbstractThirdPartyService.EXTRA_RESULT_MSG));
+                this.a.finish();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755612671, "Lcom/repackage/in5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755612671, "Lcom/repackage/in5;");
+                return;
+            }
+        }
+        a = rg1.a;
+    }
 
     public in5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static in5 b() {
+    public static Bundle d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("order_info", str);
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (in5.class) {
-                    if (b == null) {
-                        b = new in5();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.mParams.isEmpty()) {
+                if (a) {
+                    Log.d("BaiFuBaoPayDelegation", "onExec params is null.");
                 }
+                return false;
             }
-            return b;
-        }
-        return (in5) invokeV.objValue;
-    }
-
-    public void a(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null) {
-            return;
-        }
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        List<StatisticItem> list = this.a;
-        if (list != null) {
-            list.add(statisticItem);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ListUtils.getCount(this.a) == 0) {
-            return;
-        }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                TiebaStatic.log(statisticItem);
+            if (a) {
+                Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
+            }
+            Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
+            if (!e95.c().d()) {
+                pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0e9a);
+                return false;
+            } else if (getAgent() instanceof Activity) {
+                en5 en5Var = new en5();
+                en5Var.mParams.putInt("type", 1);
+                en5Var.mParams.putString("orderInfo", this.mParams.getString("order_info"));
+                en5Var.d(getAgent());
+                en5Var.e(new a(this));
+                en5Var.onExec();
+                return false;
+            } else {
+                return false;
             }
         }
-        this.a.clear();
+        return invokeV.booleanValue;
     }
 }

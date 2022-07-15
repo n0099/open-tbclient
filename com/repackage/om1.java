@@ -1,59 +1,31 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import android.webkit.ValueCallback;
 /* loaded from: classes6.dex */
-public class om1 extends SwanAppSimpleH5Widget {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface om1 extends fz1 {
+    boolean canGoBack();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755435010, "Lcom/repackage/om1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755435010, "Lcom/repackage/om1;");
-                return;
-            }
-        }
-        boolean z = cg1.a;
-    }
+    View covertToView();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public om1(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
+    void destroy();
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.am1
-    public String e0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ai_apps_ad_landing" : (String) invokeV.objValue;
-    }
+    @Override // com.repackage.fz1
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
+
+    int getContentHeight();
+
+    View getCurrentWebView();
+
+    float getScale();
+
+    int getWebViewScrollX();
+
+    int getWebViewScrollY();
+
+    void goBack();
+
+    void setDefaultViewSize(int i, int i2, String str);
+
+    void webViewScrollTo(int i, int i2);
 }

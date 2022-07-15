@@ -1,10 +1,7 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.telephony.PhoneStateListener;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,8 +10,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vo2 extends uo2 {
+public class vo2 extends PhoneStateListener {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,52 +28,48 @@ public class vo2 extends uo2 {
                 return;
             }
         }
-        boolean z = cg1.a;
+        a = rg1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vo2(String str) {
-        super(str);
+    public vo2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.repackage.uo2
-    public boolean a(ko2 ko2Var, mo2 mo2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeCommon;
+    @Override // android.telephony.PhoneStateListener
+    public void onCallStateChanged(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ko2Var, mo2Var, context, unitedSchemeEntity, callbackHandler, sz2Var})) == null) {
-            sw1.i("video", "remove, video id:" + mo2Var.j + " slave id: " + mo2Var.c);
-            d(ko2Var, mo2Var, unitedSchemeEntity, callbackHandler);
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void d(ko2 ko2Var, mo2 mo2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ko2Var, mo2Var, unitedSchemeEntity, callbackHandler) == null) {
-            hv1 a = fw1.a(mo2Var);
-            if (a != null) {
-                a.B();
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            super.onCallStateChanged(i, str);
+            if (i == 0) {
+                xo2.k().o();
+                if (a) {
+                    Log.i("PhoneStateListener", "挂断");
+                }
+            } else if (i == 1) {
+                xo2.k().n();
+                if (a) {
+                    Log.i("PhoneStateListener", "响铃:" + str);
+                }
+            } else if (i != 2) {
+                if (a) {
+                    Log.e("PhoneStateListener", "invalid state");
+                }
             } else {
-                lw1.a("VideoPlayerAction", "remove with a null component");
+                xo2.k().n();
+                if (a) {
+                    Log.i("PhoneStateListener", "接听");
+                }
             }
-            ko2Var.onDestroy();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

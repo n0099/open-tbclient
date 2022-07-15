@@ -1,23 +1,17 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dm2 extends em2 {
+public class dm2 implements em2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] A;
-    public ArrayList<lm2> z;
+    public int a;
+    public int b;
 
     public dm2() {
         Interceptable interceptable = $ic;
@@ -32,46 +26,66 @@ public class dm2 extends em2 {
                 return;
             }
         }
-        this.A = new int[]{0, 0, 0, 0};
+        this.a = -2;
+        this.b = -2;
     }
 
-    @Override // com.repackage.em2, com.repackage.iv1, com.repackage.rp2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray jSONArray;
-        JSONArray jSONArray2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
-            int length = jSONArray2.length();
-            this.z = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    lm2 lm2Var = new lm2();
-                    lm2Var.a(jSONObject2);
-                    if (lm2Var.isValid()) {
-                        this.z.add(lm2Var);
-                    }
-                }
-            }
-        }
-        if (!jSONObject.has(CriusAttrConstants.PADDING) || (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) == null || jSONArray.length() <= 0) {
-            return;
-        }
-        int min = Math.min(jSONArray.length(), 4);
-        for (int i2 = 0; i2 < min; i2++) {
-            this.A[i2] = jd3.g(jSONArray.optInt(i2));
-        }
-    }
-
-    @Override // com.repackage.iv1, com.repackage.rp2
-    public boolean isValid() {
+    @Override // com.repackage.em2
+    public int a() {
         InterceptResult invokeV;
-        ArrayList<lm2> arrayList;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b) || (arrayList = this.z) == null || arrayList.size() <= 0) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    @Override // com.repackage.em2
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.em2
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == -2) {
+                oj2.g0().getSwitch("swan_webview_pause_control", 3);
+                this.b = 3;
+            }
+            return (this.b & 2) == 2;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.em2
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == -2) {
+                oj2.g0().getSwitch("swan_webview_pause_control", 3);
+                this.b = 3;
+            }
+            return (this.b & 1) == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.em2
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == -2) {
+                oj2.g0().getSwitch("swan_webview_backstage_optimize", -1);
+                this.a = -1;
+            }
+            return this.a > -1;
+        }
+        return invokeV.booleanValue;
     }
 }

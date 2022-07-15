@@ -1,13 +1,12 @@
 package com.kwad.sdk.widget;
 
-import android.app.Dialog;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.kwad.sdk.api.loader.Wrapper;
+import android.animation.ValueAnimator;
 /* loaded from: classes5.dex */
-public class a extends Dialog {
-    public a(@NonNull Context context) {
-        super(Wrapper.wrapContextIfNeed(context));
-        requestWindowFeature(1);
+public final class a {
+    public static ValueAnimator a(int... iArr) {
+        ValueAnimator valueAnimator = new ValueAnimator();
+        valueAnimator.setIntValues(iArr);
+        valueAnimator.setEvaluator(b.a());
+        return valueAnimator;
     }
 }

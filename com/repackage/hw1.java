@@ -1,342 +1,174 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.ArrayMap;
-import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public final class hw1 {
+public final class hw1 extends wv1<CanvasView, ev1> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public we3 a;
-    @NonNull
-    public ArrayMap<String, hv1> b;
-    @NonNull
-    public ArrayMap<String, List<hv1>> c;
+    public CanvasView i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755633937, "Lcom/repackage/hw1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CanvasView.c a;
+
+        public a(hw1 hw1Var, CanvasView.c cVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hw1Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755633937, "Lcom/repackage/hw1;");
+            this.a = cVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            CanvasView.c cVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.a) == null) {
                 return;
             }
+            cVar.a();
         }
-        d = cg1.a;
     }
 
-    public hw1(@NonNull we3 we3Var) {
+    /* loaded from: classes6.dex */
+    public class b extends nf3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean j;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(hw1 hw1Var, String str, String str2, String str3, boolean z) {
+            super(str, str2, str3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hw1Var, str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.j = z;
+        }
+
+        @Override // com.repackage.nf3, android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) ? this.j && super.onTouch(view2, motionEvent) : invokeLL.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hw1(@NonNull Context context, @NonNull ev1 ev1Var) {
+        super(context, ev1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {we3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, ev1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (xv1) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = we3Var;
-        this.b = new ArrayMap<>();
-        this.c = new ArrayMap<>();
-    }
-
-    @Nullable
-    public SwanAppComponentContainerView a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            hv1 hv1Var = this.b.get(str);
-            if (hv1Var == null) {
-                sw1.c("Component-Container", "getContainerView : get a null  component#" + str);
-                return null;
-            }
-            return hv1Var.m();
-        }
-        return (SwanAppComponentContainerView) invokeL.objValue;
-    }
-
-    @UiThread
-    public boolean b(hv1 hv1Var) {
-        InterceptResult invokeL;
-        boolean b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hv1Var)) == null) {
-            if (hv1Var == null) {
-                lw1.a("Component-Container", "insert component with a null component");
-                return false;
-            }
-            iv1 n = hv1Var.n();
-            String str = n.a;
-            String str2 = n.b;
-            String o = hv1Var.o();
-            SwanAppComponentContainerView m = hv1Var.m();
-            if (m == null) {
-                lw1.a("Component-Container", "insert " + o + " with a null container view");
-                return false;
-            }
-            if (this.b.containsKey(str2)) {
-                sw1.o("Component-Container", o + " repeat insert: " + str2);
-            }
-            if (TextUtils.isEmpty(str2)) {
-                lw1.a("Component-Container", "insert " + o + " with a empty component id");
-                return false;
-            }
-            yp2 yp2Var = n.h;
-            if (yp2Var == null) {
-                lw1.a("Component-Container", "insert " + o + " with a null position");
-                return false;
-            }
-            if (!yp2Var.h()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("insert ");
-                sb.append(o);
-                sb.append(" with a invalid position: ");
-                Object obj = n.h;
-                if (obj == null) {
-                    obj = StringUtil.NULL_STRING;
-                }
-                sb.append(obj);
-                lw1.a("Component-Container", sb.toString());
-                n.h = new yp2();
-            }
-            if (!gw1.c(n)) {
-                if (TextUtils.isEmpty(n.d)) {
-                    b = this.a.c(m, n.h);
-                } else {
-                    SwanAppComponentContainerView a = a(n.d);
-                    if (a == null) {
-                        sw1.c("Component-Container", "insert " + o + " to parent with a null parent container view");
-                        return false;
-                    }
-                    if (a.indexOfChild(m) >= 0) {
-                        lw1.a("Component-Container", o + " repeat insert view!");
-                        a.removeView(m);
-                    }
-                    a.addView(m, n.b());
-                    b = true;
-                }
-            } else {
-                b = gw1.b(this, n, m);
-                if (!b) {
-                    lw1.a("Component-Container", o + " insertComponentForScroll fail");
-                }
-            }
-            if (b) {
-                this.b.put(n.b, hv1Var);
-                if (hv1Var.s(2)) {
-                    sw1.o("Component-Container", o + " insert with FLAG_CAN_NO_COMPONENT_ID");
-                    List<hv1> list = this.c.get(str);
-                    if (list == null) {
-                        list = new ArrayList<>();
-                        this.c.put(str, list);
-                    }
-                    list.add(hv1Var);
-                }
-            }
-            return b;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c() {
-        hv1 value;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (d) {
-                Log.d("Component-Container", "container destroy");
-            }
-            for (Map.Entry<String, hv1> entry : this.b.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null) {
-                    value.y();
-                }
-            }
-            this.b.clear();
-            this.c.clear();
+        CanvasView canvasView = new CanvasView(context);
+        this.i = canvasView;
+        canvasView.setInterceptTouchEvent(ev1Var.j);
+        this.i.setHide(ev1Var.f);
+        this.i.setGesture(ev1Var.g);
+        if (ev1Var.g) {
+            this.i.setInterceptTouchEvent(false);
         }
     }
 
-    public final boolean d(@NonNull hv1 hv1Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull iv1 iv1Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, hv1Var, swanAppComponentContainerView, iv1Var)) == null) {
-            String o = hv1Var.o();
-            if (d) {
-                Log.d("Component-Container", o + " perform position update");
-            }
-            yp2 yp2Var = iv1Var.h;
-            if (yp2Var != null && yp2Var.h()) {
-                if (gw1.c(iv1Var) && !gw1.e(this, iv1Var, swanAppComponentContainerView)) {
-                    lw1.a("Component-Container", o + " performPositionUpdateForScroll fail");
-                }
-                String str = iv1Var.d;
-                if (TextUtils.isEmpty(str)) {
-                    return this.a.a(swanAppComponentContainerView, iv1Var.h);
-                }
-                SwanAppComponentContainerView a = a(str);
-                if (a == null) {
-                    sw1.c("Component-Container", "update " + o + " to parent with a null parent container view");
-                    return false;
-                } else if (swanAppComponentContainerView.getParent() == a) {
-                    a.updateViewLayout(swanAppComponentContainerView, iv1Var.b());
-                    return true;
-                } else {
-                    lw1.a("Component-Container", "update " + o + " to parent with a illegal parent view");
-                    return false;
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("insert ");
-            sb.append(o);
-            sb.append(" with a invalid position: ");
-            Object obj = iv1Var.h;
-            if (obj == null) {
-                obj = StringUtil.NULL_STRING;
-            }
-            sb.append(obj);
-            lw1.a("Component-Container", sb.toString());
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @UiThread
-    public boolean e(hv1 hv1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hv1Var)) == null) {
-            boolean z = false;
-            if (hv1Var == null) {
-                lw1.a("Component-Container", "remove component with a null component");
-                return false;
-            }
-            iv1 n = hv1Var.n();
-            String str = n.a;
-            String str2 = n.b;
-            String o = hv1Var.o();
-            SwanAppComponentContainerView m = hv1Var.m();
-            if (m == null) {
-                lw1.a("Component-Container", "remove " + o + " with a null container view");
-                return false;
-            } else if (TextUtils.isEmpty(str2)) {
-                lw1.a("Component-Container", "remove " + o + " with a empty component id");
-                return false;
-            } else {
-                if (!gw1.c(n)) {
-                    if (TextUtils.isEmpty(n.d)) {
-                        z = this.a.removeView(m);
-                    } else {
-                        SwanAppComponentContainerView a = a(n.d);
-                        if (a == null) {
-                            sw1.c("Component-Container", "remove " + o + " to parent with a null parent container view");
-                        } else if (a == m.getParent()) {
-                            a.removeView(m);
-                            z = true;
-                        } else {
-                            lw1.a("Component-Container", "remove " + o + " to parent with a illegal parent view");
-                        }
-                    }
-                } else {
-                    z = gw1.g(this, n, m);
-                    if (!z) {
-                        lw1.a("Component-Container", o + " removeComponentForScroll fail");
-                    }
-                }
-                if (z || hv1Var.s(1)) {
-                    this.b.remove(str2);
-                    if (hv1Var.s(2)) {
-                        sw1.o("Component-Container", o + " remove with FLAG_CAN_NO_COMPONENT_ID");
-                        List<hv1> list = this.c.get(str);
-                        if (list != null) {
-                            list.remove(hv1Var);
-                        }
-                    }
-                }
-                return z;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @UiThread
-    public boolean f(hv1 hv1Var, @NonNull kw1 kw1Var) {
+    public boolean F(ev1 ev1Var, CanvasView.c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, hv1Var, kw1Var)) == null) {
-            if (hv1Var == null) {
-                lw1.a("Component-Container", "update component with a null component");
-                return false;
-            }
-            iv1 n = hv1Var.n();
-            String o = hv1Var.o();
-            SwanAppComponentContainerView m = hv1Var.m();
-            if (m == null) {
-                lw1.a("Component-Container", "update " + o + " with a null container view");
-                return false;
-            }
-            if (!this.b.containsKey(n.b)) {
-                sw1.c("Component-Container", "don't insert" + o);
-            }
-            if (hv1Var instanceof zv1) {
-                if (kw1Var.a(7)) {
-                    boolean d2 = gw1.d(this, hv1Var, n, m, kw1Var);
-                    if (!d2) {
-                        lw1.a("Component-Container", o + " perform scroll type update fail");
-                    }
-                    return d2;
-                } else if (kw1Var.a(8)) {
-                    gw1.f(this, hv1Var, n, m, kw1Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ev1Var, cVar)) == null) {
+            if (ev1Var != null && (ev1Var instanceof fv1)) {
+                ev1 n = n();
+                if (!TextUtils.equals(n.b, ev1Var.b) || !TextUtils.equals(n.c, ev1Var.c)) {
+                    ax1.a("Component-Canvas", "drawCanvas with illegal ids!");
                 }
-            }
-            if (kw1Var.a(3) && !d(hv1Var, m, n)) {
-                sw1.c("Component-Container", o + " perform position update fail");
-                return false;
-            } else if (hv1Var instanceof fv1) {
-                fv1 fv1Var = (fv1) hv1Var;
-                if (fv1Var.J()) {
-                    if (d) {
-                        Log.d("Component-Container", o + "perform position update with animation");
-                    }
-                    if (fv1Var.M()) {
-                        return true;
-                    }
-                    sw1.c("Component-Container", o + " perform position update with animation fail");
-                    return false;
-                }
-                return true;
-            } else {
+                fv1 fv1Var = (fv1) ev1Var;
+                this.i.c(fv1Var.h(), fv1Var.i());
+                this.i.postInvalidate();
+                this.i.post(new a(this, cVar));
                 return true;
             }
+            hx1.c("Component-Canvas", "some params is invalid");
+            return false;
         }
         return invokeLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wv1
+    @SuppressLint({"ClickableViewAccessibility"})
+    /* renamed from: G */
+    public void r(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull ev1 ev1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppComponentContainerView, ev1Var) == null) {
+            swanAppComponentContainerView.setOnTouchListener(new b(this, ev1Var.c, ev1Var.b, ev1Var.a, ev1Var.g));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wv1
+    @NonNull
+    /* renamed from: H */
+    public CanvasView v(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? this.i : (CanvasView) invokeL.objValue;
+    }
+
+    @Override // com.repackage.wv1
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.z();
+            this.i.f();
+        }
     }
 }

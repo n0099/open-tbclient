@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class PBError {
     public static /* synthetic */ Interceptable $ic;
+    public static final PBError JSON_ERROR;
     public static final PBError LOAD_TIME_OUT;
     public static final PBError LOAD_TOO_FREQUENTLY;
     public static final PBError LOAD_TYPE_ERROR;
@@ -43,9 +44,10 @@ public class PBError {
         NO_FILL = new PBError(2001, "NO FILL");
         TIMEOUT = new PBError(2002, "TIME OUT");
         LOAD_TOO_FREQUENTLY = new PBError(2003, "LOAD TOO FREQUENTLY");
-        SERVER_ERROR = new PBError(2004, "NET ERROR");
+        JSON_ERROR = new PBError(2004, "JSON ERROR");
         PID_INVALID = new PBError(2005, "PID INVALID");
         PID_TYPE_ERROR = new PBError(2006, "PID ERROR");
+        SERVER_ERROR = new PBError(2007, "NET ERROR");
         UNKNOWN = new PBError(2030, "UNKNOWN ERROR");
         NO_NETWORK = new PBError(2030, "No network available");
         NO_LOAD = new PBError(2031, "No Load");

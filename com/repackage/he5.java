@@ -1,123 +1,129 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebStorage;
-import android.webkit.WebView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class he5 extends WebChromeClient {
+public class he5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
+    public static final BdAsyncTaskParallel b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public ii8 b;
 
-    public he5(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a<T> extends BdAsyncTask<String, Object, T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public de5<T> a;
+        public jd5<T> b;
+
+        public a(de5<T> de5Var, jd5<T> jd5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {de5Var, jd5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+            this.a = de5Var;
+            this.b = jd5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public T doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                try {
+                    if (this.a != null) {
+                        return this.a.doInBackground();
+                    }
+                    return null;
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
+                    return null;
+                }
+            }
+            return (T) invokeL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(T t) {
+            jd5<T> jd5Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || (jd5Var = this.b) == null) {
+                return;
+            }
+            jd5Var.onReturnDataInUI(t);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755651111, "Lcom/repackage/he5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755651111, "Lcom/repackage/he5;");
                 return;
             }
         }
-        this.a = activity;
+        a = BdUniqueId.gen();
+        b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, a);
     }
 
-    public final void a(WebView webView, String str, String str2) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) || webView == null || oi.isEmpty(str) || oi.isEmpty(str2)) {
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            BdAsyncTask.removeAllTask(a);
+        }
+    }
+
+    public static <T> void b(de5<T> de5Var, jd5<T> jd5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, de5Var, jd5Var) == null) || de5Var == null) {
             return;
         }
-        webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
+        a aVar = new a(de5Var, jd5Var);
+        aVar.setParallel(b);
+        aVar.setTag(a);
+        aVar.setPriority(4);
+        aVar.execute(new String[0]);
     }
 
-    public void b(ii8 ii8Var) {
+    public static <T> void c(de5<T> de5Var, jd5<T> jd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ii8Var) == null) {
-            this.b = ii8Var;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, de5Var, jd5Var) == null) || de5Var == null) {
+            return;
         }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            quotaUpdater.updateQuota(j2 * 2);
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-            if (sg.e(this.a)) {
-                return super.onJsAlert(webView, str, str2, jsResult);
-            }
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            if (sg.e(this.a)) {
-                return super.onJsBeforeUnload(webView, str, str2, jsResult);
-            }
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            if (sg.e(this.a)) {
-                return super.onJsConfirm(webView, str, str2, jsResult);
-            }
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        ii8 ii8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!vw4.a(str) && str2.startsWith("tiebaapp")) {
-                li8 li8Var = new li8();
-                li8Var.v(pi8.b(str2));
-                li8Var.x(301);
-                a(webView, li8Var.c(), li8Var.d());
-            }
-            if (vw4.a(str) && (ii8Var = this.b) != null && ii8Var.onJsPrompt(str2, jsPromptResult)) {
-                return true;
-            }
-            jsPromptResult.cancel();
-            return true;
-        }
-        return invokeLLLLL.booleanValue;
+        a aVar = new a(de5Var, jd5Var);
+        aVar.setParallel(TiebaIMConfig.getParallel());
+        aVar.setTag(a);
+        aVar.setPriority(4);
+        aVar.execute(new String[0]);
     }
 }

@@ -1,87 +1,75 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yv0;
+import java.util.ArrayList;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class xv0<T extends yv0> {
+public final class xv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object[] a;
-    public int b;
+    public final ArrayList<vv0> a;
 
-    public xv0(int i) {
+    public xv0(ArrayList<vv0> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Object[i <= 0 ? 2 : i];
+        this.a = arrayList;
     }
 
-    @NonNull
-    public T a() {
+    public final ArrayList<vv0> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.b;
-            if (i <= 0) {
-                T b = b();
-                b.onInit();
-                return b;
-            }
-            int i2 = i - 1;
-            Object[] objArr = this.a;
-            T t = (T) objArr[i2];
-            objArr[i2] = null;
-            this.b = i - 1;
-            t.onInit();
-            return t;
-        }
-        return (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
     }
 
-    public abstract T b();
-
-    public final boolean c(T t) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            for (int i = 0; i < this.b; i++) {
-                if (this.a[i] == t) {
-                    return true;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this != obj) {
+                return (obj instanceof xv0) && Intrinsics.areEqual(this.a, ((xv0) obj).a);
             }
-            return false;
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public void d(@NonNull T t) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || c(t)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<vv0> arrayList = this.a;
+            if (arrayList != null) {
+                return arrayList.hashCode();
+            }
+            return 0;
         }
-        int i = this.b;
-        Object[] objArr = this.a;
-        if (i < objArr.length) {
-            objArr[i] = t;
-            this.b = i + 1;
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "Interact(adaptationSetList=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
         }
-        t.onRelease();
+        return (String) invokeV.objValue;
     }
 }

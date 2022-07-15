@@ -6,12 +6,13 @@ import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
-import com.bytedance.sdk.openadsdk.api.b.d;
-import com.bytedance.sdk.openadsdk.api.plugin.g;
+import com.bytedance.sdk.openadsdk.TTCodeGroupRit;
+import com.bytedance.sdk.openadsdk.api.a;
+import com.bytedance.sdk.openadsdk.api.plugin.f;
 /* loaded from: classes4.dex */
 public final class TTAdSdk {
     public static final String INITIALIZER_CLASS_NAME = "com.bytedance.sdk.openadsdk.core.AdSdkInitializerHolder";
-    public static final TTInitializer a = new g();
+    public static final TTInitializer a = new f();
 
     /* loaded from: classes4.dex */
     public interface InitCallback {
@@ -22,13 +23,13 @@ public final class TTAdSdk {
 
     public static void a(Context context, TTAdConfig tTAdConfig) {
         if (Looper.getMainLooper() != Looper.myLooper()) {
-            d.a("Wrong Thread ! Please exec TTAdSdk.init in main thread.");
+            a.a("Wrong Thread ! Please exec TTAdSdk.init in main thread.");
         }
         a(context, "Context is null, please check.");
         a(tTAdConfig, "TTAdConfig is null, please check.");
         TTAppContextHolder.setContext(context);
         if (tTAdConfig.isDebug()) {
-            d.a();
+            a.a();
         }
         tTAdConfig.setExtra(TTAdConstant.PANGLE_INIT_START_TIME, Long.valueOf(SystemClock.elapsedRealtime()));
         tTAdConfig.setExtra(TTAdConstant.KEY_S_C, "main");
@@ -42,13 +43,33 @@ public final class TTAdSdk {
         return null;
     }
 
-    @Deprecated
-    public static TTAdManager init(Context context, TTAdConfig tTAdConfig) {
-        d.a("Please call init(final Context context, final TTAdConfig config, final InitCallback callback), this method will be deprecated");
-        a(context, tTAdConfig);
+    public static void getCodeGroupRit(final long j, final TTCodeGroupRit.TTCodeGroupRitListener tTCodeGroupRitListener) {
         TTInitializer tTInitializer = a;
         if (tTInitializer != null) {
-            return tTInitializer.init(context, tTAdConfig);
+            tTInitializer.getAdManager().register(new CodeGroupRitObject() { // from class: com.bytedance.sdk.openadsdk.TTAdSdk.1
+                @Override // com.bytedance.sdk.openadsdk.CodeGroupRitObject
+                public long getCodeGroupId() {
+                    return j;
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.CodeGroupRitObject
+                public TTCodeGroupRit.TTCodeGroupRitListener getListener() {
+                    return tTCodeGroupRitListener;
+                }
+            });
+        } else if (tTCodeGroupRitListener != null) {
+            tTCodeGroupRitListener.onFail(4100, "please init sdk first!");
+        }
+    }
+
+    @Deprecated
+    public static TTAdManager init(Context context, TTAdConfig tTAdConfig) {
+        a.a("Please call init(final Context context, final TTAdConfig config, final InitCallback callback), this method will be deprecated");
+        a(context, tTAdConfig);
+        Context applicationContext = context.getApplicationContext();
+        TTInitializer tTInitializer = a;
+        if (tTInitializer != null) {
+            return tTInitializer.init(applicationContext, tTAdConfig);
         }
         return null;
     }
@@ -94,11 +115,12 @@ public final class TTAdSdk {
 
     public static void init(Context context, TTAdConfig tTAdConfig, InitCallback initCallback) {
         a(context, tTAdConfig);
+        Context applicationContext = context.getApplicationContext();
         TTInitializer tTInitializer = a;
         if (tTInitializer == null) {
             initCallback.fail(4100, "Load initializer failed");
         } else {
-            tTInitializer.init(context, tTAdConfig, initCallback);
+            tTInitializer.init(applicationContext, tTAdConfig, initCallback);
         }
     }
 

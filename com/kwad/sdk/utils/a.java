@@ -1,45 +1,60 @@
 package com.kwad.sdk.utils;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.kwad.sdk.utils.InstalledAppInfoManager;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.security.MessageDigest;
 /* loaded from: classes5.dex */
-public class a extends BroadcastReceiver {
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        if (intent == null) {
-            return;
+public final class a {
+    @Nullable
+    @WorkerThread
+    public static byte[] a(File file) {
+        if (file == null) {
+            return null;
         }
-        if (!TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-            if (!TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction()) || intent.getData() == null) {
-                return;
-            }
-            String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-            InstalledAppInfoManager.AppPackageInfo appPackageInfo = new InstalledAppInfoManager.AppPackageInfo();
-            appPackageInfo.packageName = schemeSpecificPart;
-            com.kwad.sdk.core.report.d.a(InstalledAppInfoManager.a(appPackageInfo), 2);
-            com.kwad.sdk.core.d.a.a("APPInstalledChangerReceiver", "uninstalled packageName :" + schemeSpecificPart);
-        } else if (intent.getData() != null) {
-            String schemeSpecificPart2 = intent.getData().getSchemeSpecificPart();
-            if (TextUtils.isEmpty(schemeSpecificPart2)) {
-                return;
-            }
-            try {
-                PackageManager packageManager = context.getPackageManager();
-                PackageInfo packageInfo = packageManager.getPackageInfo(schemeSpecificPart2, 0);
-                if (packageInfo == null) {
-                    return;
+        FileInputStream fileInputStream = new FileInputStream(file);
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            byte[] bArr = new byte[4096];
+            while (true) {
+                int read = fileInputStream.read(bArr);
+                if (read == -1) {
+                    return messageDigest.digest();
                 }
-                com.kwad.sdk.core.report.d.a(InstalledAppInfoManager.a(InstalledAppInfoManager.a(packageInfo, packageManager)), 1);
-                com.kwad.sdk.core.d.a.a("APPInstalledChangerReceiver", "installed packageName :" + schemeSpecificPart2);
-            } catch (Throwable th) {
-                com.kwad.sdk.core.d.a.b(th);
+                messageDigest.update(bArr, 0, read);
             }
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.b.a("FileMD5Utils", "getting file md5 digest error.", e);
+            return null;
+        } finally {
+            com.kwad.sdk.crash.utils.b.a(fileInputStream);
+        }
+    }
+
+    @Nullable
+    @WorkerThread
+    public static byte[] a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        return a(new File(str));
+    }
+
+    @Nullable
+    @WorkerThread
+    public static String b(File file) {
+        try {
+            byte[] a = a(file);
+            if (a != null && a.length != 0) {
+                return z.a(a, 0, a.length);
+            }
+            return null;
+        } catch (IOException e) {
+            com.kwad.sdk.core.d.b.a("FileMD5Utils", "cannot calculate md5 of file", e);
+            return null;
         }
     }
 }

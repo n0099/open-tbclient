@@ -1,16 +1,10 @@
 package com.repackage;
 
-import com.repackage.ma5;
-import com.repackage.na5;
+import com.repackage.pb5;
+import com.repackage.qb5;
 /* loaded from: classes6.dex */
-public interface oa5<Q extends ma5, P extends na5> {
-    int a();
+public interface oa5<Q extends pb5, P extends qb5> {
+    void a(Q q, P p);
 
-    Q b();
-
-    String c();
-
-    P d();
-
-    int e();
+    void b(Q q, boolean z);
 }

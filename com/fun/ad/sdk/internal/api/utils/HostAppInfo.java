@@ -1,22 +1,20 @@
 package com.fun.ad.sdk.internal.api.utils;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.NetworkInfo;
 import android.os.Build;
-import android.preference.PreferenceManager;
+import android.os.Looper;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,15 +22,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.BuildConfig;
 import com.fun.ad.sdk.FunAdSdk;
-import com.fun.i0;
+import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
+import com.fun.n0;
 import com.fun.openid.sdk.FunOpenIDSdk;
-import com.fun.openid.sdk.OnGetOaidListener;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.repackage.kb9;
-import java.nio.charset.Charset;
-import java.security.MessageDigest;
+import com.repackage.oj9;
+import com.repackage.uc9;
+import com.repackage.xc9;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
-import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -44,12 +42,12 @@ public class HostAppInfo {
     public static final String RETRY_I = "retry_i";
     public static volatile long a;
     public static volatile HostAppInfo b;
+    public static final Object c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
     public String d;
     public String e;
-    public int f;
-    public String g;
+    public String f;
+    public int g;
     public String h;
     public String i;
     public String j;
@@ -64,129 +62,123 @@ public class HostAppInfo {
     public String s;
     public String t;
     public String u;
+    public String v;
+    public String w;
+    public String x;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(166778178, "Lcom/fun/ad/sdk/internal/api/utils/HostAppInfo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(166778178, "Lcom/fun/ad/sdk/internal/api/utils/HostAppInfo;");
+                return;
+            }
+        }
+        c = new Object();
+    }
 
     public HostAppInfo() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.f = String.valueOf(-1);
+        this.g = -1;
     }
 
     public static HostAppInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                LogPrinter.e("HostAppInfo should be initialized in async thread", new Object[0]);
+                if (FunAdSdk.isLogEnabled()) {
+                    throw new RuntimeException("HostAppInfo should be initialized in async thread");
+                }
+            }
             if (b == null) {
                 synchronized (HostAppInfo.class) {
                     if (b == null) {
                         b = new HostAppInfo();
                         Context appContext = FunAdSdk.getAppContext();
-                        b.s = FunAdSdk.getFunAdConfig().userId;
-                        b.r = FunAdSdk.getFunAdConfig().appId;
-                        b.q = appContext.getResources().getConfiguration().locale.getLanguage();
-                        b.o = FunOpenIDSdk.getAndroidId(appContext);
+                        b.t = FunAdSdk.getFunAdConfig().userId;
+                        b.s = FunAdSdk.getFunAdConfig().appId;
+                        b.r = appContext.getResources().getConfiguration().locale.getLanguage();
+                        b.p = FunOpenIDSdk.getAndroidId(appContext);
                         b.a(appContext);
-                        HostAppInfo hostAppInfo = b;
-                        hostAppInfo.getClass();
-                        i0.b bVar = new i0.b(hostAppInfo) { // from class: com.fun.ad.sdk.internal.api.utils.HostAppInfo.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ HostAppInfo a;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {hostAppInfo};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.a = hostAppInfo;
-                            }
-
-                            @Override // com.fun.i0.b
-                            public void onActiveNetworkInfo(@Nullable NetworkInfo networkInfo) {
-                                HostAppInfo hostAppInfo2;
-                                String str;
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, networkInfo) == null) {
-                                    if (networkInfo == null) {
-                                        this.a.g = "unknow";
-                                        return;
-                                    }
-                                    if (networkInfo.isConnectedOrConnecting()) {
-                                        String subtypeName = networkInfo.getSubtypeName();
-                                        if (!TextUtils.isEmpty(subtypeName)) {
-                                            this.a.g = subtypeName;
-                                            return;
-                                        } else {
-                                            hostAppInfo2 = this.a;
-                                            str = networkInfo.getTypeName();
-                                        }
-                                    } else {
-                                        hostAppInfo2 = this.a;
-                                        str = "unknow";
-                                    }
-                                    hostAppInfo2.g = str;
-                                }
-                            }
-                        };
-                        HashSet<i0.b> hashSet = i0.b;
-                        synchronized (hashSet) {
-                            hashSet.add(bVar);
-                        }
-                        bVar.onActiveNetworkInfo(i0.a);
+                        b.b();
                         String imei = FunOpenIDSdk.getImei(appContext);
                         if (!TextUtils.isEmpty(imei)) {
-                            b.t = FunOpenIDSdk.getMD5(imei);
+                            b.u = FunOpenIDSdk.getMD5(imei);
                         }
                         String imeiNew = FunOpenIDSdk.getImeiNew(appContext);
                         if (!TextUtils.isEmpty(imeiNew)) {
-                            b.u = FunOpenIDSdk.getMD5(imeiNew);
+                            b.v = FunOpenIDSdk.getMD5(imeiNew);
                         }
-                        FunOpenIDSdk.getOaid(appContext, new OnGetOaidListener() { // from class: com.fun.ad.sdk.internal.api.utils.HostAppInfo.2
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                    }
-                                }
-                            }
-
-                            @Override // com.fun.openid.sdk.OnGetOaidListener
-                            public void onGetOaid(String str) {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                                    HostAppInfo.b.p = str;
-                                    LogPrinter.d("Got oaid:%s", str);
-                                }
-                            }
-                        });
+                        FunOpenIDSdk.getOaid(appContext, uc9.a);
                         if (FunAdSdk.isLogEnabled()) {
                             LogPrinter.d(b.toString(), new Object[0]);
+                        }
+                        Object obj = c;
+                        synchronized (obj) {
+                            new Thread(new Runnable(appContext) { // from class: com.fun.ad.sdk.internal.api.utils.HostAppInfo.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ Context a;
+
+                                {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {appContext};
+                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.a = appContext;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                        try {
+                                            HostAppInfo.b.x = oj9.a(this.a).a();
+                                        } catch (Exception e) {
+                                            HostAppInfo.b.x = null;
+                                            LogPrinter.e(e);
+                                        }
+                                        String str = HostAppInfo.KEY;
+                                        Object obj2 = HostAppInfo.c;
+                                        synchronized (obj2) {
+                                            obj2.notify();
+                                        }
+                                    }
+                                }
+                            }).start();
+                            try {
+                                obj.wait(2000L);
+                            } catch (InterruptedException unused) {
+                            }
                         }
                     }
                 }
@@ -196,13 +188,37 @@ public class HostAppInfo {
         return (HostAppInfo) invokeV.objValue;
     }
 
-    public static JSONObject buildReportJson(String str, JSONObject jSONObject, long j) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public /* synthetic */ void a(NetworkInfo networkInfo) {
+        String str;
+        if (networkInfo == null) {
+            this.h = "unknown";
+            return;
+        }
+        if (networkInfo.isConnectedOrConnecting()) {
+            String subtypeName = networkInfo.getSubtypeName();
+            if (!TextUtils.isEmpty(subtypeName)) {
+                this.h = subtypeName;
+                return;
+            }
+            str = networkInfo.getTypeName();
+        } else {
+            str = "unknow";
+        }
+        this.h = str;
+    }
+
+    public static /* synthetic */ void a(String str) {
+        b.q = str;
+        LogPrinter.d("Got oaid:%s", str);
+    }
+
+    public static JSONObject buildBaseJson(String str, JSONObject jSONObject, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, jSONObject, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, jSONObject, Long.valueOf(j)})) == null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
-                fillHostAppInfo(jSONObject2);
                 jSONObject2.put("key", str);
                 jSONObject2.put("content", jSONObject);
                 jSONObject2.put(OCCUR_T, j);
@@ -214,33 +230,49 @@ public class HostAppInfo {
         return (JSONObject) invokeCommon.objValue;
     }
 
+    public static JSONObject buildReportJson(String str, JSONObject jSONObject, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, jSONObject, Long.valueOf(j)})) == null) {
+            JSONObject buildBaseJson = buildBaseJson(str, jSONObject, j);
+            try {
+                fillHostAppInfo(buildBaseJson);
+            } catch (JSONException unused) {
+            }
+            return buildBaseJson;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
     public static HostAppInfo fillHostAppInfo(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jSONObject)) == null) {
             HostAppInfo a2 = a();
-            jSONObject.put("app", a2.c);
-            jSONObject.put("appv", a2.e);
-            jSONObject.put("appvn", a2.d);
-            jSONObject.put("net", a2.g);
-            jSONObject.put("manu", a2.h);
-            jSONObject.put("model", a2.i);
-            jSONObject.put("sysv", a2.j);
-            jSONObject.put("h", a2.k);
-            jSONObject.put("w", a2.l);
-            jSONObject.put("locale", a2.q);
-            jSONObject.put("opcode", a2.m);
-            jSONObject.put("tk", a2.n);
+            jSONObject.put("app", a2.d);
+            jSONObject.put("appv", a2.f);
+            jSONObject.put("appvn", a2.e);
+            jSONObject.put("net", a2.h);
+            jSONObject.put("manu", a2.i);
+            jSONObject.put("model", a2.j);
+            jSONObject.put("sysv", a2.k);
+            jSONObject.put("h", a2.l);
+            jSONObject.put("w", a2.m);
+            jSONObject.put("locale", a2.r);
+            jSONObject.put("opcode", a2.n);
+            jSONObject.put("tk", a2.o);
             jSONObject.put("sdkvn", getSdkVersion());
             jSONObject.put("sdkv", BuildConfig.VERSION_CODE);
-            jSONObject.put("anid", a2.o);
-            jSONObject.put("lic", a2.r);
+            jSONObject.put("anid", a2.p);
+            jSONObject.put("lic", a2.s);
             jSONObject.put("plat", "a");
-            jSONObject.put("oaid", a2.p);
-            jSONObject.put(DpStatConstants.KEY_USER_ID, a2.s);
-            jSONObject.put("iid", a2.t);
-            jSONObject.put("iidn", a2.u);
+            jSONObject.put("oaid", a2.q);
+            jSONObject.put(DpStatConstants.KEY_USER_ID, a2.t);
+            jSONObject.put("iid", a2.u);
+            jSONObject.put("iidn", a2.v);
             jSONObject.put("cfgv", a);
+            jSONObject.put(Constants.PHONE_BRAND, a2.w);
+            jSONObject.put("gaid", a2.x);
             return a2;
         }
         return (HostAppInfo) invokeL.objValue;
@@ -248,10 +280,10 @@ public class HostAppInfo {
 
     public static void fillReqParams(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, null, jSONObject) == null) {
             HostAppInfo fillHostAppInfo = fillHostAppInfo(jSONObject);
             long currentTimeMillis = System.currentTimeMillis();
-            String mD5String = MD5Utils.getMD5String(fillHostAppInfo.n + fillHostAppInfo.c + fillHostAppInfo.d + fillHostAppInfo.q + currentTimeMillis + "c643144089d135c383c4c87f1df87a9d4ccc1c0f70cee0a5f78fd32d475f1a49");
+            String mD5String = MD5Utils.getMD5String(fillHostAppInfo.o + fillHostAppInfo.d + fillHostAppInfo.e + fillHostAppInfo.r + currentTimeMillis + "c643144089d135c383c4c87f1df87a9d4ccc1c0f70cee0a5f78fd32d475f1a49");
             jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
             jSONObject.put("vc", mD5String);
         }
@@ -260,63 +292,69 @@ public class HostAppInfo {
     public static int getAppVersionCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a().f : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (b == null) {
+                Context appContext = FunAdSdk.getAppContext();
+                try {
+                    PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
+                    if (packageInfo != null) {
+                        return packageInfo.versionCode;
+                    }
+                    return -1;
+                } catch (PackageManager.NameNotFoundException unused) {
+                    return -1;
+                }
+            }
+            return b.g;
+        }
+        return invokeV.intValue;
     }
 
     public static String getSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? BuildConfig.VERSION_NAME : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? BuildConfig.VERSION_NAME : (String) invokeV.objValue;
     }
 
     public static int getSdkVersionCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? BuildConfig.VERSION_CODE : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? BuildConfig.VERSION_CODE : invokeV.intValue;
     }
 
     public static void updateCfgv(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65549, null, j) == null) {
             a = j;
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "HostAppInfo{packageName='" + this.c + "', versionName='" + this.d + "', versionCode='" + this.e + "', networkTypeName='" + this.g + "', manufacturer='" + this.h + "', model='" + this.i + "', osVersion='" + this.j + "', h='" + this.k + "', w='" + this.l + "', opcode='" + this.m + "', token='" + this.n + "', anid='" + this.o + "', oaid='" + this.p + "', locale='" + this.q + "', lic='" + this.r + "', userId='" + this.s + "', imei='" + this.t + "', imeiNew='" + this.u + "', cfgv='" + a + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
-
     public final void a(Context context) {
         DisplayMetrics displayMetrics;
-        String substring;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             PackageManager packageManager = context.getPackageManager();
-            this.c = context.getPackageName();
+            this.d = context.getPackageName();
             try {
                 PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
-                this.c = packageInfo.packageName;
-                this.d = packageInfo.versionName;
+                this.d = packageInfo.packageName;
+                this.e = packageInfo.versionName;
                 int i = packageInfo.versionCode;
-                this.f = i;
-                this.e = String.valueOf(i);
+                this.g = i;
+                this.f = String.valueOf(i);
             } catch (PackageManager.NameNotFoundException unused) {
             }
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager != null) {
                 String networkOperator = telephonyManager.getNetworkOperator();
                 if (!TextUtils.isEmpty(networkOperator)) {
-                    this.m = networkOperator;
+                    this.n = networkOperator;
                 }
             }
-            this.h = Build.MANUFACTURER;
-            this.i = Build.MODEL;
-            this.j = String.valueOf(Build.VERSION.SDK_INT);
+            this.i = Build.MANUFACTURER;
+            this.j = Build.MODEL;
+            this.w = Build.BRAND;
+            this.k = String.valueOf(Build.VERSION.SDK_INT);
             WindowManager windowManager = (WindowManager) context.getSystemService("window");
             if (windowManager == null) {
                 displayMetrics = context.getResources().getDisplayMetrics();
@@ -326,28 +364,42 @@ public class HostAppInfo {
                 defaultDisplay.getMetrics(displayMetrics2);
                 displayMetrics = displayMetrics2;
             }
-            this.k = String.valueOf(displayMetrics.heightPixels);
-            this.l = String.valueOf(displayMetrics.widthPixels);
-            if (TextUtils.isEmpty(kb9.a)) {
-                SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(FunAdSdk.getAppContext());
-                String string = defaultSharedPreferences.getString("u_tok", "");
-                if (TextUtils.isEmpty(string)) {
-                    string = UUID.randomUUID().toString();
-                    try {
-                        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                        messageDigest.update(string.getBytes(Charset.forName("UTF-8")));
-                        substring = Base64.encodeToString(messageDigest.digest(), 2);
-                    } catch (Throwable unused2) {
-                        if (string.length() >= 24) {
-                            substring = string.substring(0, 24);
-                        }
-                    }
-                    string = substring;
-                    defaultSharedPreferences.edit().putString("u_tok", string).apply();
-                }
-                kb9.a = string;
-            }
-            this.n = kb9.a;
+            this.l = String.valueOf(displayMetrics.heightPixels);
+            this.m = String.valueOf(displayMetrics.widthPixels);
+            this.o = xc9.c();
         }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            n0.b bVar = new n0.b() { // from class: com.repackage.tc9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.fun.n0.b
+                public final void a(NetworkInfo networkInfo) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, networkInfo) == null) {
+                        HostAppInfo.this.a(networkInfo);
+                    }
+                }
+            };
+            HashSet<n0.b> hashSet = n0.b;
+            synchronized (hashSet) {
+                hashSet.add(bVar);
+            }
+            bVar.a(n0.a);
+        }
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "HostAppInfo{packageName='" + this.d + "', versionName='" + this.e + "', versionCode='" + this.f + "', networkTypeName='" + this.h + "', manufacturer='" + this.i + "', model='" + this.j + "', osVersion='" + this.k + "', h='" + this.l + "', w='" + this.m + "', opcode='" + this.n + "', token='" + this.o + "', anid='" + this.p + "', oaid='" + this.q + "', locale='" + this.r + "', lic='" + this.s + "', userId='" + this.t + "', imei='" + this.u + "', imeiNew='" + this.v + "', cfgv='" + a + "', brand='" + this.w + "', gaid='" + this.x + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

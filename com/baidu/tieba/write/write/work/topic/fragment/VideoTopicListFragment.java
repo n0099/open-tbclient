@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c37;
-import com.repackage.f37;
+import com.repackage.s37;
+import com.repackage.v37;
 /* loaded from: classes4.dex */
 public class VideoTopicListFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -63,10 +63,10 @@ public class VideoTopicListFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(f37 f37Var) {
+        public void a(v37 v37Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, f37Var) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, f37Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, v37Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, v37Var));
             }
         }
     }
@@ -101,7 +101,7 @@ public class VideoTopicListFragment extends BaseFragment {
         }
     }
 
-    public static VideoTopicListFragment r1() {
+    public static VideoTopicListFragment s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new VideoTopicListFragment() : (VideoTopicListFragment) invokeV.objValue;
@@ -141,18 +141,10 @@ public class VideoTopicListFragment extends BaseFragment {
         return (View) invokeLLL.objValue;
     }
 
-    public void s1() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.d.getItemCount() <= 0) {
-            return;
-        }
-        this.a.scrollToPosition(0);
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void setUserVisibleHint(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             super.setUserVisibleHint(z);
             if (z) {
                 int i = this.b;
@@ -169,7 +161,15 @@ public class VideoTopicListFragment extends BaseFragment {
         }
     }
 
-    public void t1(long j) {
+    public void t1() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.d.getItemCount() <= 0) {
+            return;
+        }
+        this.a.scrollToPosition(0);
+    }
+
+    public void u1(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             this.c = j;
@@ -181,12 +181,12 @@ public class VideoTopicListFragment extends BaseFragment {
         }
     }
 
-    public void u1(c37 c37Var) {
+    public void v1(s37 s37Var) {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, c37Var) == null) || (videoHotTopicSearchAdapter = this.d) == null || c37Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, s37Var) == null) || (videoHotTopicSearchAdapter = this.d) == null || s37Var == null) {
             return;
         }
-        videoHotTopicSearchAdapter.d("", c37Var.c());
+        videoHotTopicSearchAdapter.d("", s37Var.c());
     }
 }

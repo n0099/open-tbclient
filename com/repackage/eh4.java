@@ -1,20 +1,50 @@
 package com.repackage;
 
-import android.view.MotionEvent;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
-/* loaded from: classes5.dex */
-public interface eh4 {
-    boolean a(MotionEvent motionEvent);
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class eh4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode);
+    public static boolean a(Activity activity, View view2) {
+        InterceptResult invokeLL;
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, view2)) == null) {
+            if (activity == null || view2 == null || (viewGroup = (ViewGroup) activity.getWindow().getDecorView()) == null) {
+                return false;
+            }
+            b(view2);
+            viewGroup.removeView(view2);
+            viewGroup.addView(view2);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
 
-    boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
-
-    boolean d(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
-
-    boolean e(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
-
-    boolean onDoubleTap(MotionEvent motionEvent);
-
-    boolean onDown(MotionEvent motionEvent);
+    public static boolean b(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 == null || view2.getParent() == null || !(view2.getParent() instanceof ViewGroup)) {
+                return false;
+            }
+            ViewGroup viewGroup = (ViewGroup) view2.getParent();
+            if (viewGroup.indexOfChild(view2) != -1) {
+                try {
+                    viewGroup.removeView(view2);
+                    return true;
+                } catch (Exception unused) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

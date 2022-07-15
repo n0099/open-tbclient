@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o38;
+import com.repackage.j48;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class PersonCommonForumItemView extends RelativeLayout {
@@ -34,7 +34,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public TextView e;
     public int f;
     public Context g;
-    public o38 h;
+    public j48 h;
     public View.OnClickListener i;
 
     /* loaded from: classes3.dex */
@@ -96,7 +96,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
         this.f = 3;
         this.g = context;
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06aa, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06c6, (ViewGroup) this, true);
         c();
         d();
     }
@@ -104,11 +104,11 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = (BarImageView) findViewById(R.id.obfuscated_res_0x7f0909f4);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a37);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a3c);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a60);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a61);
+            this.a = (BarImageView) findViewById(R.id.obfuscated_res_0x7f0909fc);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a3f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a44);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a68);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a69);
         }
     }
 
@@ -133,15 +133,15 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
     }
 
-    public void setData(o38 o38Var) {
+    public void setData(j48 j48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, o38Var) == null) {
-            this.h = o38Var;
-            this.a.J(o38Var.c, 10, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, j48Var) == null) {
+            this.h = j48Var;
+            this.a.J(j48Var.c, 10, false);
             TextView textView = this.b;
-            textView.setText(StringHelper.cutForumNameWithSuffix(o38Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f0646));
-            this.d.setText(StringHelper.numberUniformFormat((long) o38Var.d));
-            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0e40), StringHelper.getUserDescByGender(o38Var.e)));
+            textView.setText(StringHelper.cutForumNameWithSuffix(j48Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f0650));
+            this.d.setText(StringHelper.numberUniformFormat((long) j48Var.d));
+            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0e36), StringHelper.getUserDescByGender(j48Var.e)));
             if (getRootView() != null) {
                 getRootView().setOnClickListener(this.i);
             }

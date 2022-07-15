@@ -6,7 +6,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes5.dex */
 public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
-    public final ExecutorService a = com.kwad.sdk.core.i.b.b();
+    public final ExecutorService a = com.kwad.sdk.core.threads.b.a();
 
     /* loaded from: classes5.dex */
     public class a implements Callable<Void> {
@@ -17,6 +17,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: private */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() {
@@ -27,21 +28,20 @@ public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
 
     private void a(List<File> list) {
         long b = b(list);
-        int size = list.size();
+        list.size();
         for (File file : list) {
-            if (!a(file, b, size)) {
+            if (!a(b)) {
                 long length = file.length();
                 if (file.delete()) {
-                    size--;
                     b -= length;
                 } else {
-                    com.kwad.sdk.core.d.a.e("LruDiskUsage", "Error deleting file " + file + " for trimming cache");
+                    com.kwad.sdk.core.d.b.e("LruDiskUsage", "Error deleting file " + file + " for trimming cache");
                 }
             }
         }
     }
 
-    private long b(List<File> list) {
+    public static long b(List<File> list) {
         long j = 0;
         for (File file : list) {
             j += file.length();
@@ -56,9 +56,9 @@ public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.videocache.kwai.a
-    public void a(File file) {
+    public final void a(File file) {
         this.a.submit(new a(file));
     }
 
-    public abstract boolean a(File file, long j, int i);
+    public abstract boolean a(long j);
 }

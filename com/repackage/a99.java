@@ -1,73 +1,58 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a99 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "UnionIDFactory";
-    public static boolean c;
+public abstract class a99 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e99 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755901808, "Lcom/repackage/a99;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static float a(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, str, f)) == null) {
+            if (str == null) {
+                return f;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755901808, "Lcom/repackage/a99;");
-                return;
+            try {
+                return Float.parseFloat(str);
+            } catch (Exception unused) {
+                return f;
             }
         }
-        c = x89.e();
+        return invokeLF.floatValue;
     }
 
-    public a99(Context context) {
+    public static int b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            if (str == null) {
+                return i;
+            }
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return i;
             }
         }
-        int a = y89.a();
-        if (c) {
-            String str = b;
-            Log.e(str, "UnionIDFactory manufacturer:" + a);
-        }
-        if (a == 10001) {
-            this.a = new g99(context);
-        } else if (a != 10002) {
-            this.a = new h99(context);
-        } else {
-            if (c) {
-                Log.e(b, "UnionIDFactory XMUnionID");
-            }
-            this.a = new i99(context);
-        }
+        return invokeLI.intValue;
     }
 
-    public e99 a() {
-        InterceptResult invokeV;
+    public static long c(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (e99) invokeV.objValue;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            if (str == null) {
+                return j;
+            }
+            try {
+                return Long.parseLong(str);
+            } catch (Exception unused) {
+                return j;
+            }
+        }
+        return invokeLJ.longValue;
     }
 }

@@ -16,7 +16,7 @@ public class c extends XMPushService.j {
     public XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fl[] f956a;
+    public fl[] f1683a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(XMPushService xMPushService, fl[] flVarArr) {
@@ -38,7 +38,7 @@ public class c extends XMPushService.j {
         }
         this.a = null;
         this.a = xMPushService;
-        this.f956a = flVarArr;
+        this.f1683a = flVarArr;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
@@ -53,8 +53,8 @@ public class c extends XMPushService.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                if (this.f956a != null) {
-                    this.a.a(this.f956a);
+                if (this.f1683a != null) {
+                    this.a.a(this.f1683a);
                 }
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);

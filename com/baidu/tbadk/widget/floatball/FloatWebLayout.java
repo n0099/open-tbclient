@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ie5;
+import com.repackage.lf5;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class FloatWebLayout extends FrameLayout {
@@ -42,7 +42,7 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public ie5 i;
+    public lf5 i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -200,9 +200,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            ie5 ie5Var = this.i;
-            if (ie5Var != null) {
-                ie5Var.A();
+            lf5 lf5Var = this.i;
+            if (lf5Var != null) {
+                lf5Var.A();
             }
             this.a.setOnClickListener(null);
         }
@@ -226,11 +226,11 @@ public class FloatWebLayout extends FrameLayout {
     public final void e(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0479, (ViewGroup) this, true);
-            this.b = (SuspendIdleView) findViewById(R.id.obfuscated_res_0x7f091dc9);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914e7);
-            this.d = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091dc7);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09069b);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0491, (ViewGroup) this, true);
+            this.b = (SuspendIdleView) findViewById(R.id.obfuscated_res_0x7f091e6d);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091590);
+            this.d = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091e6b);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906a0);
             h(context);
             g(context);
             f(context);
@@ -243,20 +243,20 @@ public class FloatWebLayout extends FrameLayout {
     public final void f(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            ie5 ie5Var = new ie5(context, this.h, this);
-            this.i = ie5Var;
-            this.b.setContentViewTop(ie5Var);
+            lf5 lf5Var = new lf5(context, this.h, this);
+            this.i = lf5Var;
+            this.b.setContentViewTop(lf5Var);
         }
     }
 
     public final void g(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0478, (View.OnClickListener) null);
-            this.e = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0902f6);
-            this.f = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090631);
-            this.g = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0905b6);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f0809c8, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0490, (View.OnClickListener) null);
+            this.e = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0902f8);
+            this.f = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090633);
+            this.g = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0905b8);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f0809d1, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08060d, R.color.CAM_X0105, null);
             SkinManager.setNavbarTitleColor(this.g, R.color.CAM_X0105, R.color.s_navbar_title_color);
             this.e.setOnClickListener(new a(this));
@@ -302,9 +302,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            ie5 ie5Var = this.i;
-            if (ie5Var != null) {
-                ie5Var.z(str, false);
+            lf5 lf5Var = this.i;
+            if (lf5Var != null) {
+                lf5Var.z(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));
@@ -331,9 +331,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            ie5 ie5Var = this.i;
-            if (ie5Var != null) {
-                ie5Var.onDestroy();
+            lf5 lf5Var = this.i;
+            if (lf5Var != null) {
+                lf5Var.onDestroy();
             }
         }
     }

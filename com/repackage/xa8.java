@@ -1,39 +1,33 @@
 package com.repackage;
 
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes7.dex */
-public class xa8 {
+public abstract class xa8 implements pd7<AdCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
-    public String k;
-    public long l;
-    public long m;
-    public boolean n;
-    public boolean o;
-    public int p;
-    public String q;
-    public String r;
-    public long s;
-    public long t;
+    public AdCard a;
+    public AdvertAppInfo b;
+    public Context c;
+    public TbPageContext d;
+    public tc7 e;
 
-    public xa8() {
+    public xa8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,40 +37,97 @@ public class xa8 {
                 return;
             }
         }
-        this.k = "";
+        this.d = tbPageContext;
+        this.c = tbPageContext.getPageActivity();
     }
 
-    public static void a(xa8 xa8Var) {
+    public AdvertAppInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, xa8Var) == null) {
-            xa8Var.i = 0;
-            xa8Var.g = 4;
-            xa8Var.h = 4;
-            xa8Var.l = System.currentTimeMillis();
-            xa8Var.n = true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (AdvertAppInfo) invokeV.objValue;
+    }
+
+    public abstract void b();
+
+    public void c(AdCard adCard) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) {
+            this.a = adCard;
+            this.b = adCard.getAdvertAppInfo();
         }
     }
 
-    public xa8(MsgContent msgContent) {
+    @Override // com.repackage.pd7
+    public void d(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {msgContent};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
         }
-        this.k = "";
-        this.d = msgContent.title;
-        this.q = msgContent.url;
-        this.f = msgContent.src;
-        this.e = msgContent.text;
-        a(this);
+    }
+
+    @Override // com.repackage.pd7
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.pd7
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.pd7
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.pd7
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.pd7
+    public void setAfterClickSchemeListener(tc7 tc7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tc7Var) == null) {
+            this.e = tc7Var;
+        }
+    }
+
+    @Override // com.repackage.pd7
+    public void setBusinessType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.pd7
+    public void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.pd7
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.pd7
+    public void update(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, obj) == null) && (obj instanceof AdCard)) {
+            this.a = (AdCard) obj;
+            b();
+            c(this.a);
+        }
     }
 }

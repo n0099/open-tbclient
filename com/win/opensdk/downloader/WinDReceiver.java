@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
-import com.repackage.co9;
-import com.repackage.in9;
-import com.repackage.sl9;
-import com.repackage.un9;
-import com.repackage.yn9;
+import com.win.opensdk.M;
+import com.win.opensdk.Z1;
 import com.win.opensdk.core.Info;
+import com.win.opensdk.d1;
+import com.win.opensdk.e1;
+import com.win.opensdk.f1;
 import java.io.File;
+import java.net.URI;
 import org.json.JSONException;
 /* loaded from: classes8.dex */
 public class WinDReceiver extends BroadcastReceiver {
@@ -45,13 +45,11 @@ public class WinDReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, info) == null) {
             try {
-                File file = new File(sl9.f(context, info.getOpen()));
+                File file = new File(M.a(context, info.getOpen()));
                 if (file.exists()) {
                     file.delete();
-                    un9 a = yn9.a(context);
-                    a.j(new co9(info), info.getDl_pkg(), info.getDl_vsc(), 2);
-                    a.m();
-                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(w0.c1);
+                    e1.a(context).a(new f1(info), info.getDl_pkg(), info.getDl_vsc(), 2).a();
+                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(232);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -61,44 +59,65 @@ public class WinDReceiver extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        boolean z;
         String[] split;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, intent) == null) && intent.getAction().equals(PackageChangedReceiver.ACTION_INSTALL)) {
-            String dataString = intent.getDataString();
-            String str = (TextUtils.isEmpty(dataString) || !dataString.contains(":") || (split = dataString.split(":")) == null || split.length <= 0) ? "" : split[1];
-            try {
-                Info info = (Info) in9.i(context, str);
-                if (info == null || TextUtils.isEmpty(str)) {
-                    return;
-                }
-                try {
-                    z = info.getDl_pkg().equals(str);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    z = false;
-                }
-                if (z) {
-                    un9 a = yn9.a(context);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, intent) == null) {
+            boolean z = false;
+            if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
+                boolean booleanExtra = intent.getBooleanExtra("android.intent.extra.REPLACING", false);
+                String dataString = intent.getDataString();
+                String schemeSpecificPart = dataString == null ? "" : URI.create(dataString).getSchemeSpecificPart();
+                if (!booleanExtra) {
+                    d1 a = e1.a(context);
                     try {
-                        a.b = yn9.d("wie", new co9(info));
-                        a.k("co", 200);
-                    } catch (JSONException unused) {
-                    }
-                    a.m();
-                    try {
-                        sl9.o(info, 302, "");
-                        if (!TextUtils.isEmpty(info.getVv_ins_urls())) {
-                            sl9.K(info.getVv_ins_urls());
+                        a.b = e1.b();
+                        int abs = Math.abs(M.a(a.a, schemeSpecificPart, "SHA1").hashCode());
+                        d1 a2 = a.a("e", "ins");
+                        try {
+                            schemeSpecificPart = M.a(schemeSpecificPart);
+                        } catch (Exception unused) {
                         }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                        a2.a("pkg", schemeSpecificPart).a("timeis", e1.a()).a("tp", booleanExtra ? 1L : 0L).a("pksg", abs);
+                    } catch (JSONException unused2) {
                     }
-                    a(context, info);
-                    a(context, info, str);
+                    a.a();
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            }
+            if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
+                String dataString2 = intent.getDataString();
+                String str = (TextUtils.isEmpty(dataString2) || !dataString2.contains(":") || (split = dataString2.split(":")) == null || split.length <= 0) ? "" : split[1];
+                try {
+                    Info info = (Info) Z1.b(context, str);
+                    if (info == null || TextUtils.isEmpty(str)) {
+                        return;
+                    }
+                    try {
+                        z = info.getDl_pkg().equals(str);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (z) {
+                        d1 a3 = e1.a(context);
+                        try {
+                            a3.b = e1.a("wie", new f1(info));
+                            a3.a("co", 200);
+                        } catch (JSONException unused3) {
+                        }
+                        a3.a();
+                        try {
+                            M.a(info, 302, "");
+                            if (!TextUtils.isEmpty(info.getVv_ins_urls())) {
+                                M.g(info.getVv_ins_urls());
+                            }
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                        a(context, info);
+                        a(context, info, str);
+                    }
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
             }
         }
     }
@@ -109,18 +128,18 @@ public class WinDReceiver extends BroadcastReceiver {
             try {
                 Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
                 if (launchIntentForPackage != null) {
-                    un9 a = yn9.a(context);
-                    co9 co9Var = new co9(info);
+                    d1 a = e1.a(context);
+                    f1 f1Var = new f1(info);
                     String open = info.getOpen();
                     try {
-                        a.b = yn9.d("wiop", co9Var);
-                        a.l("msg", yn9.b(open));
+                        a.b = e1.a("wiop", f1Var);
+                        a.a("msg", e1.a(open));
                     } catch (JSONException unused) {
                     }
-                    a.m();
+                    a.a();
                     launchIntentForPackage.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                     context.startActivity(launchIntentForPackage);
-                    in9.e(context, str);
+                    Z1.a(context, str);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

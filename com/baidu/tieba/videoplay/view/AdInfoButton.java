@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.managers.setting.GlobalSetting;
-import com.repackage.er4;
-import com.repackage.fr4;
 import com.repackage.pi;
+import com.repackage.tr4;
+import com.repackage.ur4;
 /* loaded from: classes4.dex */
 public class AdInfoButton extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -184,8 +184,8 @@ public class AdInfoButton extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int[] iArr = {((Integer) valueAnimator.getAnimatedValue()).intValue()};
-                if (this.a.a.getBackground() instanceof er4) {
-                    ((er4) this.a.a.getBackground()).C(iArr);
+                if (this.a.a.getBackground() instanceof tr4) {
+                    ((tr4) this.a.a.getBackground()).C(iArr);
                     this.a.a.invalidate();
                 }
             }
@@ -225,13 +225,13 @@ public class AdInfoButton extends RelativeLayout {
             relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
             ImageView imageView = new ImageView(context);
             this.b = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f0900a3);
+            imageView.setId(R.id.obfuscated_res_0x7f0900a4);
             int f = pi.f(context, R.dimen.tbds42);
             this.b.setLayoutParams(new RelativeLayout.LayoutParams(f, f));
             relativeLayout.addView(this.b);
             this.c = new EMTextView(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900a3);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900a4);
             layoutParams2.addRule(15);
             layoutParams2.leftMargin = pi.f(context, R.dimen.M_W_X002);
             this.c.setLayoutParams(layoutParams2);
@@ -246,12 +246,12 @@ public class AdInfoButton extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.e == AdChannel.CSJ) {
-                fr4 d = fr4.d(this.a);
+                ur4 d = ur4.d(this.a);
                 d.n(R.string.J_X05);
                 d.m(0);
                 d.f(R.color.CAM_X0614);
             } else {
-                fr4 d2 = fr4.d(this.a);
+                ur4 d2 = ur4.d(this.a);
                 d2.n(R.string.J_X05);
                 d2.m(0);
                 d2.f(R.color.CAM_X0302);
@@ -260,9 +260,9 @@ public class AdInfoButton extends RelativeLayout {
             if (adType == AdType.DOWNLOAD) {
                 WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0806d3, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             } else if (adType == AdType.INFO) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080783, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080785, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             }
-            fr4 d3 = fr4.d(this.c);
+            ur4 d3 = ur4.d(this.c);
             d3.z(R.dimen.T_X08);
             d3.v(R.color.CAM_X0101);
         }

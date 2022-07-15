@@ -1,21 +1,11 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes7.dex */
-public interface u41<View> {
-    void a();
+public interface u41 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "crius.runtime");
 
-    View getRealView();
+    int a();
 
-    void setBtnIconNightModeEnable(boolean z);
-
-    void setBtnPlaceholder(View view2);
-
-    void setData(@NonNull om0 om0Var);
-
-    void setEnhanceBtnListener(@NonNull s41 s41Var);
-
-    void setVisible(int i);
-
-    void update(int i);
+    boolean b();
 }

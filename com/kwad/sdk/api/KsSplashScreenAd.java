@@ -4,8 +4,6 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;
 import androidx.annotation.Keep;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
 @KsAdSdkApi
@@ -53,11 +51,6 @@ public interface KsSplashScreenAd {
     @KsAdSdkApi
     @Keep
     int getECPM();
-
-    @Nullable
-    @KsAdSdkApi
-    @Keep
-    Fragment getFragment(SplashScreenAdInteractionListener splashScreenAdInteractionListener);
 
     @KsAdSdkApi
     @Keep

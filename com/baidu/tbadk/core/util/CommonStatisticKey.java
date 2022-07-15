@@ -183,6 +183,9 @@ public class CommonStatisticKey {
     public static final String KEY_STATISTICS_MOBADS_CLICK = "c13043";
     public static final String KEY_STATISTICS_MOBADS_SHOW = "c13042";
     public static final String KEY_SYSTEM_SERVICE = "c14052";
+    public static final String KEY_TAB_CLICKED = "c13749";
+    public static final String KEY_THREAD_POST_FAIL_DIALOG_RETRY_CLICK = "c14041";
+    public static final String KEY_THREAD_POST_RESULT_DIALOG_SHOW = "c14040";
     public static final String KEY_TIE_PLUS_CPC_REQUEST_COST_URL = "c14567";
     public static final String KEY_TIE_PLUS_CPC_REQUEST_SHOW_URL = "c14568";
     public static final String KEY_TIE_PLUS_DIALOG_EXPOSE = "c14298";

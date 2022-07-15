@@ -51,7 +51,7 @@ public final class RecommendsStaticAutoGenerateUrlCollectorImpl implements ICmdR
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
             arrayList.add("PbChosenActivityConfig");
-            arrayList.add("http://tieba.baidu.com/mo/q/recommendpb");
+            arrayList.add("https://tieba.baidu.com/mo/q/recommendpb");
             hashMap.put("com.baidu.tieba.pb.chosen.RecommendsStatic", arrayList);
             return hashMap;
         }

@@ -1,9 +1,8 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.Color;
-import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.asynctask.BdAsyncTask;
+import com.baidu.live.asynctask.BdAsyncTaskParallelType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +10,71 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class wa0 extends va0 {
+public class wa0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String[]> b;
+    public static final gb0 a;
+    public static final y70 b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class a<T> extends BdAsyncTask<String, Object, T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public xa0<T> m;
+        public ya0<T> n;
+
+        public a(xa0<T> xa0Var, ya0<T> ya0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xa0Var, ya0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.m = null;
+            this.n = null;
+            this.m = xa0Var;
+            this.n = ya0Var;
+        }
+
+        @Override // com.baidu.live.asynctask.BdAsyncTask
+        public void q(T t) {
+            ya0<T> ya0Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) || (ya0Var = this.n) == null) {
+                return;
+            }
+            ya0Var.onReturnDataInUI(t);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.asynctask.BdAsyncTask
+        /* renamed from: z */
+        public T f(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+                try {
+                    if (this.m != null) {
+                        return this.m.a();
+                    }
+                    return null;
+                } catch (Throwable th) {
+                    fb0.c(th);
+                    return null;
+                }
+            }
+            return (T) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,72 +89,30 @@ public class wa0 extends va0 {
                 return;
             }
         }
-        b = new HashMap<>();
+        a = gb0.a();
+        b = new y70(BdAsyncTaskParallelType.SERIAL, a);
     }
 
-    public wa0() {
+    public static <T> BdAsyncTask a(xa0<T> xa0Var, ya0<T> ya0Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "", ""});
-        b.put("color_white1", new String[]{"#FFFFFF", "", "", ""});
-        b.put("color_white2", new String[]{"#FFFFFF", "", "", ""});
-        b.put("color_white3", new String[]{"#FFFFFF", "", "", ""});
-        b.put("color_F5F5F51", new String[]{"#F4F5F6", "", "", ""});
-        b.put("color_F5F5F52", new String[]{"#F4F5F6", "", "", ""});
-        b.put("color_F5F5F53", new String[]{"#F4F5F6", "", "", ""});
-        b.put("color_FF33551", new String[]{"#FF3355", "", "", ""});
-        b.put("color_FF33552", new String[]{"#1AFF3355", "", "", ""});
-        b.put("color_858585", new String[]{"#858585", "", "", ""});
-        b.put("color_525252", new String[]{"#525252", "", "", ""});
-        b.put("color_FF3333", new String[]{"#FF3333", "", "", ""});
-        b.put("color_768CAE", new String[]{"#768CAE", "", "", ""});
-        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "", ""});
-        b.put("color_8585852", new String[]{"#858585", "", "", ""});
-        b.put("color_5252522", new String[]{"#525252", "", "", ""});
-        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "", ""});
-        b.put("color_btn_fill", new String[]{"#00000000", "", "", ""});
-        b.put("color_222222", new String[]{"#222222", "", "", ""});
-        b.put("color_888888", new String[]{"#888888", "", "", ""});
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, xa0Var, ya0Var)) == null) ? b(xa0Var, ya0Var, 2) : (BdAsyncTask) invokeLL.objValue;
     }
 
-    @Override // com.repackage.va0
-    @SuppressLint({"Range"})
-    public int a(Context context, boolean z, String str) {
-        InterceptResult invokeCommon;
+    public static <T> BdAsyncTask b(xa0<T> xa0Var, ya0<T> ya0Var, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), str})) == null) {
-            if (b.containsKey(str)) {
-                String str2 = "";
-                try {
-                    str2 = b.get(str)[0];
-                    if (z) {
-                        str2 = b.get(str)[3];
-                    }
-                } catch (Exception e) {
-                    LiveFeedPageSdk.m("getColor Exception: " + e.getMessage());
-                }
-                if (oa0.a(str2)) {
-                    return -16777216;
-                }
-                try {
-                    return Color.parseColor(str2);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return -16777216;
-                }
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, xa0Var, ya0Var, i)) == null) {
+            if (xa0Var != null) {
+                a aVar = new a(xa0Var, ya0Var);
+                aVar.v(b);
+                aVar.x(a);
+                aVar.w(i);
+                aVar.g(new String[0]);
+                return aVar;
             }
-            return -16777216;
+            return null;
         }
-        return invokeCommon.intValue;
+        return (BdAsyncTask) invokeLLI.objValue;
     }
 }

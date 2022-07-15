@@ -1,227 +1,207 @@
 package com.repackage;
 
+import android.content.ComponentName;
 import android.content.Context;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
+import android.os.RemoteException;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
-import org.apache.http.protocol.HTTP;
+import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 /* loaded from: classes7.dex */
-public class vm9 extends Thread {
+public class vm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List b;
-    public bn9 c;
-    public Context d;
-    public boolean e;
+    public Handler a;
+    public Context b;
+    public c c;
+    public ServiceConnection d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vm9(Context context, String str, List list, bn9 bn9Var) {
-        super("resc");
+    /* loaded from: classes7.dex */
+    public class a implements ServiceConnection {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vm9 a;
+
+        public a(vm9 vm9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vm9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vm9Var;
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onBindingDied(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, componentName) == null) {
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onNullBinding(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, componentName, iBinder) == null) {
+                this.a.a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
+                this.a.a.removeMessages(2);
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vm9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(vm9 vm9Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vm9Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vm9Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i == 0) {
+                    this.a.c.a(-1, null);
+                } else if (i != 1) {
+                    if (i != 2) {
+                        return;
+                    }
+                    this.a.c.a(-2, null);
+                } else {
+                    OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
+                    try {
+                        try {
+                            this.a.c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            try {
+                                this.a.b.unbindService(this.a.d);
+                            } catch (Exception e) {
+                                this.a.c.a(-4, e);
+                            }
+                        } catch (RemoteException e2) {
+                            this.a.c.a(-3, e2);
+                            try {
+                                this.a.b.unbindService(this.a.d);
+                            } catch (Exception unused) {
+                            }
+                        }
+                    } catch (Throwable th) {
+                        try {
+                            this.a.b.unbindService(this.a.d);
+                        } catch (Exception e3) {
+                            this.a.c.a(-4, e3);
+                        }
+                        throw th;
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(int i, Exception exc);
+
+        void b(String str, boolean z);
+    }
+
+    public vm9(Context context, c cVar, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, list, bn9Var};
+            Object[] objArr = {context, cVar, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = context;
-        this.a = str;
-        this.b = list;
-        this.c = bn9Var;
+        this.d = new a(this);
+        this.b = context;
+        this.c = cVar;
+        this.a = new b(this, handler == null ? Looper.getMainLooper() : handler.getLooper());
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:100:0x0063 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:101:0x00c2 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0011 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x00e1  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x00f6 A[Catch: Exception -> 0x00fa, TRY_ENTER, TryCatch #4 {Exception -> 0x00fa, blocks: (B:36:0x00c2, B:35:0x00bc, B:59:0x00f6, B:62:0x00ff), top: B:86:0x00bc }] */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x00ff A[Catch: Exception -> 0x00fa, TRY_LEAVE, TryCatch #4 {Exception -> 0x00fa, blocks: (B:36:0x00c2, B:35:0x00bc, B:59:0x00f6, B:62:0x00ff), top: B:86:0x00bc }] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x010d A[Catch: Exception -> 0x0115, TryCatch #8 {Exception -> 0x0115, blocks: (B:67:0x0108, B:69:0x010d, B:71:0x0112), top: B:90:0x0108 }] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0112 A[Catch: Exception -> 0x0115, TRY_LEAVE, TryCatch #8 {Exception -> 0x0115, blocks: (B:67:0x0108, B:69:0x010d, B:71:0x0112), top: B:90:0x0108 }] */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x0108 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x0064 A[SYNTHETIC] */
-    @Override // java.lang.Thread, java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream;
-        Exception e;
-        File file;
-        boolean z;
+    public static void d(Context context, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVar) == null) {
+            e(context, cVar, null);
+        }
+    }
+
+    public static void e(Context context, c cVar, Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, cVar, handler) == null) {
+            new vm9(context.getApplicationContext(), cVar, handler).f();
+        }
+    }
+
+    public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.run();
-            long currentTimeMillis = System.currentTimeMillis();
-            for (String str : this.b) {
-                String str2 = this.a;
-                FileOutputStream fileOutputStream = null;
-                r6 = null;
-                InputStream inputStream2 = null;
-                fileOutputStream = null;
-                try {
-                    File file2 = new File(str2);
-                    if (!file2.exists()) {
-                        file2.mkdirs();
-                    }
-                    file = new File(str2, String.valueOf(str.hashCode()));
-                } catch (Exception e2) {
-                    e = e2;
-                    httpURLConnection = null;
-                } catch (Throwable th) {
-                    th = th;
-                    httpURLConnection = null;
-                }
-                if (file.exists() && file.isFile()) {
-                    if (file.length() == ym9.b(this.d).a(str)) {
-                        z = true;
-                        if (z) {
-                            httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                            try {
-                                httpURLConnection.setConnectTimeout(3000);
-                                httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                                httpURLConnection.setReadTimeout(3000);
-                                httpURLConnection.connect();
-                                long contentLength = httpURLConnection.getContentLength();
-                                if (contentLength > 0) {
-                                    ym9.b(this.d).c(str, contentLength);
-                                    FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                                    try {
-                                        inputStream2 = httpURLConnection.getInputStream();
-                                        byte[] bArr = new byte[4096];
-                                        while (true) {
-                                            int read = inputStream2.read(bArr);
-                                            if (read != -1) {
-                                                fileOutputStream2.write(bArr, 0, read);
-                                            } else {
-                                                try {
-                                                    break;
-                                                } catch (Exception unused) {
-                                                }
-                                            }
-                                        }
-                                        fileOutputStream2.close();
-                                        inputStream2.close();
-                                    } catch (Exception e3) {
-                                        e = e3;
-                                        InputStream inputStream3 = inputStream2;
-                                        fileOutputStream = fileOutputStream2;
-                                        inputStream = inputStream3;
-                                        try {
-                                            if (this.c != null) {
-                                            }
-                                            if (fileOutputStream != null) {
-                                            }
-                                            if (inputStream != null) {
-                                            }
-                                            if (httpURLConnection == null) {
-                                            }
-                                        } catch (Throwable th2) {
-                                            th = th2;
-                                            if (fileOutputStream != null) {
-                                                try {
-                                                    fileOutputStream.close();
-                                                } catch (Exception unused2) {
-                                                    throw th;
-                                                }
-                                            }
-                                            if (inputStream != null) {
-                                                inputStream.close();
-                                            }
-                                            if (httpURLConnection != null) {
-                                                httpURLConnection.disconnect();
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (Throwable th3) {
-                                        th = th3;
-                                        InputStream inputStream4 = inputStream2;
-                                        fileOutputStream = fileOutputStream2;
-                                        inputStream = inputStream4;
-                                        if (fileOutputStream != null) {
-                                        }
-                                        if (inputStream != null) {
-                                        }
-                                        if (httpURLConnection != null) {
-                                        }
-                                        throw th;
-                                    }
-                                } else if (this.c != null) {
-                                    this.e = true;
-                                    this.c.a(950, str);
-                                }
-                            } catch (Exception e4) {
-                                e = e4;
-                                e = e;
-                                inputStream = null;
-                                if (this.c != null) {
-                                    int i = CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE;
-                                    if (httpURLConnection != null) {
-                                        try {
-                                            i = httpURLConnection.getResponseCode();
-                                        } catch (Exception unused3) {
-                                        }
-                                    }
-                                    this.e = true;
-                                    this.c.a(i, e.getMessage());
-                                }
-                                if (fileOutputStream != null) {
-                                    fileOutputStream.close();
-                                }
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                }
-                                if (httpURLConnection == null) {
-                                    httpURLConnection.disconnect();
-                                }
-                            } catch (Throwable th4) {
-                                th = th4;
-                                inputStream = null;
-                                if (fileOutputStream != null) {
-                                }
-                                if (inputStream != null) {
-                                }
-                                if (httpURLConnection != null) {
-                                }
-                                throw th;
-                            }
-                            httpURLConnection.disconnect();
-                        }
-                    } else {
-                        sl9.q(file);
-                    }
-                }
-                z = false;
-                if (z) {
-                }
-            }
-            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            bn9 bn9Var = this.c;
-            if (bn9Var == null || this.e) {
+            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+            intent.setPackage("com.huawei.hwid");
+            if (this.b.bindService(intent, this.d, 1)) {
+                Handler handler = this.a;
+                handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
                 return;
             }
-            un9 a = yn9.a(bn9Var.a);
-            a.c(new co9(bn9Var.b), 200);
-            a.k("dr", currentTimeMillis2);
-            a.m();
+            this.a.sendEmptyMessage(0);
         }
     }
 }

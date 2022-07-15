@@ -11,12 +11,12 @@ import android.os.Build;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.defs.interf.IStatisAPI;
 import com.yy.hiidostatis.inner.util.ArdUtil;
@@ -101,7 +101,7 @@ public class DeviceController {
                 int intExtra = registerReceiver.getIntExtra("status", -1);
                 if (intExtra != 2 && intExtra != 5) {
                     z = false;
-                    float intExtra2 = (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra(AnimationProperty.SCALE, -1);
+                    float intExtra2 = (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra("scale", -1);
                     int intExtra3 = registerReceiver.getIntExtra("plugged", -1);
                     z2 = intExtra3 != 2;
                     boolean z3 = intExtra3 != 1;
@@ -167,7 +167,7 @@ public class DeviceController {
                     this.statisAPI.reportDevice(j, statisContent);
                 }
                 z = true;
-                float intExtra22 = (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra(AnimationProperty.SCALE, -1);
+                float intExtra22 = (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra("scale", -1);
                 int intExtra32 = registerReceiver.getIntExtra("plugged", -1);
                 if (intExtra32 != 2) {
                 }
@@ -271,7 +271,7 @@ public class DeviceController {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             String[] strArr = new String[3];
             try {
-                if (ArdUtil.checkPermissions(context, "android.permission.ACCESS_WIFI_STATE")) {
+                if (ArdUtil.checkPermissions(context, PermissionChecker.ACCESS_WIFI_STATE)) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager.isWifiEnabled() && wifiManager.getWifiState() == 3 && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                         int ipAddress = connectionInfo.getIpAddress();

@@ -1,25 +1,26 @@
 package com.repackage;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActHot;
-import tbclient.ActPost;
-import tbclient.LinkInfo;
+import tbclient.ForumRuleStatus;
 /* loaded from: classes6.dex */
-public class hh8 {
+public class hh8 implements nn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<fh8> a;
-    public ArrayList<gh8> b;
+    public ForumRuleStatus a;
 
-    public hh8() {
+    public hh8(ForumData forumData, ForumRuleStatus forumRuleStatus) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forumData, forumRuleStatus};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,30 +30,29 @@ public class hh8 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
+        this.a = forumRuleStatus;
     }
 
-    public void a(ActPost actPost) {
+    public ForumRuleStatus a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, actPost) == null) || actPost == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ForumRuleStatus) invokeV.objValue;
+    }
+
+    public void b(ForumRuleStatus forumRuleStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumRuleStatus) == null) {
+            this.a = forumRuleStatus;
         }
-        String str = actPost.list_head;
-        for (ActHot actHot : actPost.act_hot) {
-            if (actHot != null) {
-                fh8 fh8Var = new fh8();
-                fh8Var.g(actHot);
-                this.a.add(fh8Var);
-            }
+    }
+
+    @Override // com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-        List<LinkInfo> list = actPost.link_info;
-        for (LinkInfo linkInfo : list) {
-            if (list != null) {
-                gh8 gh8Var = new gh8();
-                gh8Var.a(linkInfo);
-                this.b.add(gh8Var);
-            }
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

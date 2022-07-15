@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ws4;
+import com.repackage.mt4;
 /* loaded from: classes3.dex */
 public class LoginActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -121,9 +122,19 @@ public class LoginActivityConfig extends IntentConfig {
         }
     }
 
+    public void setJumpUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        getIntent().putExtra(LoginDialogActivityConfig.HOME_OPERATE_JUMP_URL, str);
+        setRequestCode(25071);
+        setIntentAction(IntentAction.ActivityForResult);
+    }
+
     public void setLoginListener(ILoginListener iLoginListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, iLoginListener) == null) || iLoginListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, iLoginListener) == null) || iLoginListener == null) {
             return;
         }
         getIntent().putExtra("login_dialog_login_listener", iLoginListener);
@@ -131,7 +142,7 @@ public class LoginActivityConfig extends IntentConfig {
 
     public void setMinePageStatisticParams(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             getIntent().putExtra(LoginDialogActivityConfig.MINE_PAGE_LOGIN_DIALOG_DATA_KEY, str);
             getIntent().putExtra(LoginDialogActivityConfig.MINE_PAGE_LOGIN_DIALOG_DATA_LOCATE, str2);
         }
@@ -139,7 +150,7 @@ public class LoginActivityConfig extends IntentConfig {
 
     public void setThirdPartyLoginForResult(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
             getIntent().putExtra("social_type", i);
             getIntent().putExtra("activity_id", str);
             setRequestCode(11043);
@@ -149,7 +160,7 @@ public class LoginActivityConfig extends IntentConfig {
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             getIntent().putExtra("url", str);
         }
     }
@@ -195,7 +206,7 @@ public class LoginActivityConfig extends IntentConfig {
                 return;
             }
         }
-        ws4.a(DI.ACCOUNT, -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
+        mt4.a(DI.ACCOUNT, -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

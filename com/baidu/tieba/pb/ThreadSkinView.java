@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ng;
 import com.repackage.pi;
-import com.repackage.xh8;
+import com.repackage.ti8;
 import tbclient.SkinInfo;
 /* loaded from: classes3.dex */
 public class ThreadSkinView extends TbImageView {
@@ -26,7 +26,7 @@ public class ThreadSkinView extends TbImageView {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext v0;
     public SkinInfo w0;
-    public xh8.b x0;
+    public ti8.b x0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadSkinView(Context context) {
@@ -56,7 +56,7 @@ public class ThreadSkinView extends TbImageView {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (skinInfo = this.w0) == null || StringUtils.isNull(skinInfo.url)) {
             return;
         }
-        xh8.b bVar = this.x0;
+        ti8.b bVar = this.x0;
         if (bVar != null) {
             bVar.delete("action_type");
             this.x0.d("action_type", "CLICK");
@@ -65,7 +65,7 @@ public class ThreadSkinView extends TbImageView {
         UrlManager.getInstance().dealOneLink(this.v0, new String[]{this.w0.url});
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, xh8.b bVar) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, ti8.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, skinInfo, bVar) == null) {
             if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {

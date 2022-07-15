@@ -20,7 +20,7 @@ public class x {
     public static ArrayList<Pair<String, byte[]>> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Map<String, byte[]> f1003a;
+    public static final Map<String, byte[]> f1730a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,19 +36,19 @@ public class x {
                 return;
             }
         }
-        f1003a = new HashMap();
+        f1730a = new HashMap();
         a = new ArrayList<>();
     }
 
     public static void a(Context context, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
-            synchronized (f1003a) {
-                for (String str2 : f1003a.keySet()) {
-                    com.xiaomi.channel.commonutils.logger.b.m84a("notify registration error. " + str2);
-                    a(context, str2, f1003a.get(str2), i, str);
+            synchronized (f1730a) {
+                for (String str2 : f1730a.keySet()) {
+                    com.xiaomi.channel.commonutils.logger.b.m1027a("notify registration error. " + str2);
+                    a(context, str2, f1730a.get(str2), i, str);
                 }
-                f1003a.clear();
+                f1730a.clear();
             }
         }
     }
@@ -97,10 +97,10 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, xMPushService, z) == null) {
             try {
-                synchronized (f1003a) {
-                    for (String str : f1003a.keySet()) {
-                        com.xiaomi.channel.commonutils.logger.b.m84a("processing pending registration request. " + str);
-                        ah.a(xMPushService, str, f1003a.get(str));
+                synchronized (f1730a) {
+                    for (String str : f1730a.keySet()) {
+                        com.xiaomi.channel.commonutils.logger.b.m1027a("processing pending registration request. " + str);
+                        ah.a(xMPushService, str, f1730a.get(str));
                         if (z && !com.xiaomi.push.w.a()) {
                             try {
                                 Thread.sleep(200L);
@@ -108,7 +108,7 @@ public class x {
                             }
                         }
                     }
-                    f1003a.clear();
+                    f1730a.clear();
                 }
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.d("fail to deal with pending register request. " + e);
@@ -120,9 +120,9 @@ public class x {
     public static void a(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, str, bArr) == null) {
-            synchronized (f1003a) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("pending registration request. " + str);
-                f1003a.put(str, bArr);
+            synchronized (f1730a) {
+                com.xiaomi.channel.commonutils.logger.b.m1027a("pending registration request. " + str);
+                f1730a.put(str, bArr);
             }
         }
     }

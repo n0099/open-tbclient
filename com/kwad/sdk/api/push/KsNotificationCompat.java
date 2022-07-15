@@ -39,361 +39,361 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder addAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
+        public final Builder addAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
             this.mBuilder.addAction(i, charSequence, pendingIntent);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder addExtras(Bundle bundle) {
+        public final Builder addExtras(Bundle bundle) {
             this.mBuilder.addExtras(bundle);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder addPerson(String str) {
+        public final Builder addPerson(String str) {
             this.mBuilder.addPerson(str);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Notification build() {
+        public final Notification build() {
             return this.mBuilder.build();
         }
 
         @KsAdSdkApi
         @Keep
-        public Bundle getExtras() {
+        public final Bundle getExtras() {
             return this.mBuilder.getExtras();
         }
 
         @KsAdSdkApi
         @Keep
-        public Notification getNotification() {
+        public final Notification getNotification() {
             return build();
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setAutoCancel(boolean z) {
+        public final Builder setAutoCancel(boolean z) {
             this.mBuilder.setAutoCancel(z);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setBadgeIconType(int i) {
+        public final Builder setBadgeIconType(int i) {
             this.mBuilder.setBadgeIconType(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setCategory(String str) {
+        public final Builder setCategory(String str) {
             this.mBuilder.setCategory(str);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setChannelId(@NonNull String str) {
+        public final Builder setChannelId(@NonNull String str) {
             this.mBuilder.setChannelId(str);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setColor(@ColorInt int i) {
+        public final Builder setColor(@ColorInt int i) {
             this.mBuilder.setColor(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setColorized(boolean z) {
+        public final Builder setColorized(boolean z) {
             this.mBuilder.setColorized(z);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setContent(RemoteViews remoteViews) {
+        public final Builder setContent(RemoteViews remoteViews) {
             this.mBuilder.setContent(remoteViews);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setContentInfo(CharSequence charSequence) {
+        public final Builder setContentInfo(CharSequence charSequence) {
             this.mBuilder.setContentInfo(charSequence);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setContentIntent(PendingIntent pendingIntent) {
+        public final Builder setContentIntent(PendingIntent pendingIntent) {
             this.mBuilder.setContentIntent(pendingIntent);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setContentText(CharSequence charSequence) {
+        public final Builder setContentText(CharSequence charSequence) {
             this.mBuilder.setContentText(charSequence);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setContentTitle(CharSequence charSequence) {
+        public final Builder setContentTitle(CharSequence charSequence) {
             this.mBuilder.setContentTitle(charSequence);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setCustomBigContentView(RemoteViews remoteViews) {
+        public final Builder setCustomBigContentView(RemoteViews remoteViews) {
             this.mBuilder.setCustomBigContentView(remoteViews);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setCustomContentView(RemoteViews remoteViews) {
+        public final Builder setCustomContentView(RemoteViews remoteViews) {
             this.mBuilder.setCustomContentView(remoteViews);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setCustomHeadsUpContentView(RemoteViews remoteViews) {
+        public final Builder setCustomHeadsUpContentView(RemoteViews remoteViews) {
             this.mBuilder.setCustomHeadsUpContentView(remoteViews);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setDefaults(int i) {
+        public final Builder setDefaults(int i) {
             this.mBuilder.setDefaults(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setDeleteIntent(PendingIntent pendingIntent) {
+        public final Builder setDeleteIntent(PendingIntent pendingIntent) {
             this.mBuilder.setDeleteIntent(pendingIntent);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setExtras(Bundle bundle) {
+        public final Builder setExtras(Bundle bundle) {
             this.mBuilder.setExtras(bundle);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setFullScreenIntent(PendingIntent pendingIntent, boolean z) {
+        public final Builder setFullScreenIntent(PendingIntent pendingIntent, boolean z) {
             this.mBuilder.setFullScreenIntent(pendingIntent, z);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setGroup(String str) {
+        public final Builder setGroup(String str) {
             this.mBuilder.setGroup(str);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setGroupAlertBehavior(int i) {
+        public final Builder setGroupAlertBehavior(int i) {
             this.mBuilder.setGroupAlertBehavior(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setGroupSummary(boolean z) {
+        public final Builder setGroupSummary(boolean z) {
             this.mBuilder.setGroupSummary(z);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setLargeIcon(Bitmap bitmap) {
+        public final Builder setLargeIcon(Bitmap bitmap) {
             this.mBuilder.setLargeIcon(bitmap);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setLights(@ColorInt int i, int i2, int i3) {
+        public final Builder setLights(@ColorInt int i, int i2, int i3) {
             this.mBuilder.setLights(i, i2, i3);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setLocalOnly(boolean z) {
+        public final Builder setLocalOnly(boolean z) {
             this.mBuilder.setLocalOnly(z);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setNumber(int i) {
+        public final Builder setNumber(int i) {
             this.mBuilder.setNumber(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setOngoing(boolean z) {
+        public final Builder setOngoing(boolean z) {
             this.mBuilder.setOngoing(z);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setOnlyAlertOnce(boolean z) {
+        public final Builder setOnlyAlertOnce(boolean z) {
             this.mBuilder.setOnlyAlertOnce(z);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setPriority(int i) {
+        public final Builder setPriority(int i) {
             this.mBuilder.setPriority(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setProgress(int i, int i2, boolean z) {
+        public final Builder setProgress(int i, int i2, boolean z) {
             this.mBuilder.setProgress(i, i2, z);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setPublicVersion(Notification notification) {
+        public final Builder setPublicVersion(Notification notification) {
             this.mBuilder.setPublicVersion(notification);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setRemoteInputHistory(CharSequence[] charSequenceArr) {
+        public final Builder setRemoteInputHistory(CharSequence[] charSequenceArr) {
             this.mBuilder.setRemoteInputHistory(charSequenceArr);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setShortcutId(String str) {
+        public final Builder setShortcutId(String str) {
             this.mBuilder.setShortcutId(str);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setShowWhen(boolean z) {
+        public final Builder setShowWhen(boolean z) {
             this.mBuilder.setShowWhen(z);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setSmallIcon(int i) {
+        public final Builder setSmallIcon(int i) {
             this.mBuilder.setSmallIcon(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setSmallIcon(int i, int i2) {
+        public final Builder setSmallIcon(int i, int i2) {
             this.mBuilder.setSmallIcon(i, i2);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setSortKey(String str) {
+        public final Builder setSortKey(String str) {
             this.mBuilder.setSortKey(str);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setSound(Uri uri) {
+        public final Builder setSound(Uri uri) {
             this.mBuilder.setSound(uri);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setSound(Uri uri, int i) {
+        public final Builder setSound(Uri uri, int i) {
             this.mBuilder.setSound(uri, i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setSubText(CharSequence charSequence) {
+        public final Builder setSubText(CharSequence charSequence) {
             this.mBuilder.setSubText(charSequence);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setTicker(CharSequence charSequence) {
+        public final Builder setTicker(CharSequence charSequence) {
             this.mBuilder.setTicker(charSequence);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setTicker(CharSequence charSequence, RemoteViews remoteViews) {
+        public final Builder setTicker(CharSequence charSequence, RemoteViews remoteViews) {
             this.mBuilder.setTicker(charSequence, remoteViews);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setTimeoutAfter(long j) {
+        public final Builder setTimeoutAfter(long j) {
             this.mBuilder.setTimeoutAfter(j);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setUsesChronometer(boolean z) {
+        public final Builder setUsesChronometer(boolean z) {
             this.mBuilder.setUsesChronometer(z);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setVibrate(long[] jArr) {
+        public final Builder setVibrate(long[] jArr) {
             this.mBuilder.setVibrate(jArr);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setVisibility(int i) {
+        public final Builder setVisibility(int i) {
             this.mBuilder.setVisibility(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setWhen(long j) {
+        public final Builder setWhen(long j) {
             this.mBuilder.setWhen(j);
             return this;
         }

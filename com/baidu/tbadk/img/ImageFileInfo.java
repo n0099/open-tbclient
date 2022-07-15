@@ -19,7 +19,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.ProducerConstants;
 import com.repackage.jg;
 import com.repackage.oi;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -108,7 +107,7 @@ public class ImageFileInfo extends MediaFileInfo {
         Iterator<ImageOperation> it = getPageActionsList().iterator();
         while (it.hasNext()) {
             ImageOperation next = it.next();
-            if (AnimationProperty.ROTATE.equals(next.actionName)) {
+            if ("rotate".equals(next.actionName)) {
                 if (imageFileInfo != null) {
                     imageFileInfo.setIsGif(false);
                 }

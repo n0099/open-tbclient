@@ -1,21 +1,17 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.websocket.WebSocketTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-/* loaded from: classes5.dex */
-public class ez3 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class ez3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String key;
-    @V8JavascriptField
-    public String value;
 
     public ez3() {
         Interceptable interceptable = $ic;
@@ -31,50 +27,51 @@ public class ez3 {
         }
     }
 
-    public boolean a() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                if (this.key != null) {
-                    if (this.key.getBytes("UTF-8").length <= 128) {
-                        return true;
-                    }
-                }
-                return false;
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return true;
+            tr2 d = d();
+            if (d != null) {
+                return d.a();
             }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final void b(WebSocketTask task) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                if (this.key != null && this.value != null) {
-                    if (this.key.getBytes("UTF-8").length + this.value.getBytes("UTF-8").length <= 1024) {
-                        return true;
-                    }
-                }
-                return false;
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
+            Intrinsics.checkNotNullParameter(task, "task");
+            tr2 d = d();
+            if (d != null) {
+                d.b(task);
             }
         }
-        return invokeV.booleanValue;
     }
 
-    public String toString() {
+    public final void c(String taskId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
+            Intrinsics.checkNotNullParameter(taskId, "taskId");
+            tr2 d = d();
+            if (d != null) {
+                d.c(taskId);
+            }
+        }
+    }
+
+    public final tr2 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.key + ":" + this.value;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            h03 M = h03.M();
+            if (M != null) {
+                return M.m0();
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (tr2) invokeV.objValue;
     }
 }

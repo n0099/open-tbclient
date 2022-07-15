@@ -1,88 +1,154 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 /* loaded from: classes6.dex */
-public class o49 {
+public final class o49 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static boolean b;
+    public static StringBuffer c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<q49> a;
-    public m49 b;
-    public String c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public o49(List<q49> list) {
-        this(list, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a extends q49 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+
+        public a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+        }
+
+        @Override // com.repackage.q49
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                StringBuffer stringBuffer = new StringBuffer();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss:SSS");
+                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
+                stringBuffer.append(simpleDateFormat.format(new Date()));
+                stringBuffer.append("\t");
+                stringBuffer.append(this.a);
+                stringBuffer.append("\t");
+                stringBuffer.append(this.b);
+                stringBuffer.append("\t");
+                stringBuffer.append(this.c);
+                t49.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.c, o49.c.toString());
             }
         }
     }
 
-    public o49(List<q49> list, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755489539, "Lcom/repackage/o49;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755489539, "Lcom/repackage/o49;");
                 return;
             }
         }
-        this.a = list;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public m49 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (m49) invokeV.objValue;
-    }
-
-    public List<q49> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c = str;
+        c = new StringBuffer();
+        if (n39.h() != null) {
+            a = !com.baidu.ubs.analytics.d.a.a();
+            b = true;
+            c.append("ABsdkLog-");
+            c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            c.append("_");
+            try {
+                c.append(c(j49.g(n39.h().getContext()).getBytes("UTF-8")));
+            } catch (UnsupportedEncodingException e) {
+                w49.d(e);
+            } catch (Exception e2) {
+                w49.d(e2);
+            }
+            c.append(".log");
         }
     }
 
-    public void e(m49 m49Var) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m49Var) == null) {
-            this.b = m49Var;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            if (a) {
+                Log.w("BaiDuUbs", str);
+            }
+            d("w", "BaiDuUbs", str);
         }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            if (a) {
+                Log.e("BaiDuUbs", str);
+            }
+            d("e", "BaiDuUbs", str);
+        }
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder("");
+            if (bArr == null || bArr.length <= 0) {
+                return null;
+            }
+            for (byte b2 : bArr) {
+                String hexString = Integer.toHexString(b2 & 255);
+                if (hexString.length() < 2) {
+                    sb.append(0);
+                }
+                sb.append(hexString);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) && b) {
+            p49.a(new a(str, str2, str3));
+        }
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c.toString() : (String) invokeV.objValue;
     }
 }

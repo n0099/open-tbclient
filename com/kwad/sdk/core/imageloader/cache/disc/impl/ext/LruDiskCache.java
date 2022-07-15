@@ -1,11 +1,12 @@
 package com.kwad.sdk.core.imageloader.cache.disc.impl.ext;
 
 import android.graphics.Bitmap;
+import com.kwad.sdk.core.diskcache.kwai.a;
 import com.kwad.sdk.core.imageloader.cache.disc.DiskCache;
-import com.kwad.sdk.core.imageloader.cache.disc.impl.ext.DiskLruCache;
 import com.kwad.sdk.core.imageloader.cache.disc.naming.FileNameGenerator;
 import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import com.kwad.sdk.core.imageloader.utils.L;
+import com.kwad.sdk.crash.utils.b;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class LruDiskCache implements DiskCache {
     public static final String ERROR_ARG_NEGATIVE = " argument must be positive number";
     public static final String ERROR_ARG_NULL = " argument must be not null";
     public int bufferSize;
-    public DiskLruCache cache;
+    public a cache;
     public Bitmap.CompressFormat compressFormat;
     public int compressQuality;
     public final FileNameGenerator fileNameGenerator;
@@ -58,7 +59,7 @@ public class LruDiskCache implements DiskCache {
 
     private void initCache(File file, File file2, long j, int i) {
         try {
-            this.cache = DiskLruCache.open(file, 1, 1, j, i);
+            this.cache = a.a(file, 1, 1, j, i);
         } catch (IOException e) {
             L.e(e);
             if (file2 != null) {
@@ -73,12 +74,12 @@ public class LruDiskCache implements DiskCache {
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public void clear() {
         try {
-            this.cache.delete();
+            this.cache.e();
         } catch (IOException e) {
             L.e(e);
         }
         try {
-            initCache(this.cache.getDirectory(), this.reserveCacheDir, this.cache.getMaxSize(), this.cache.getMaxFileCount());
+            initCache(this.cache.a(), this.reserveCacheDir, this.cache.b(), this.cache.c());
         } catch (IOException e2) {
             L.e(e2);
         }
@@ -86,70 +87,55 @@ public class LruDiskCache implements DiskCache {
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public void close() {
-        try {
-            this.cache.close();
-        } catch (IOException e) {
-            L.e(e);
-        }
+        b.a(this.cache);
         this.cache = null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:23:0x002e  */
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public File get(String str) {
         Throwable th;
-        DiskLruCache.Snapshot snapshot;
+        a.c cVar;
         File file = null;
         try {
-            snapshot = this.cache.get(getKey(str));
-            if (snapshot != null) {
+            cVar = this.cache.a(getKey(str));
+            if (cVar != null) {
                 try {
                     try {
-                        file = snapshot.getFile(0);
+                        file = cVar.a(0);
                     } catch (IOException e) {
                         e = e;
                         L.e(e);
-                        if (snapshot != null) {
-                            snapshot.close();
-                        }
+                        b.a(cVar);
                         return null;
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    if (snapshot != null) {
-                        snapshot.close();
-                    }
+                    b.a(cVar);
                     throw th;
                 }
             }
-            if (snapshot != null) {
-                snapshot.close();
-            }
+            b.a(cVar);
             return file;
         } catch (IOException e2) {
             e = e2;
-            snapshot = null;
+            cVar = null;
         } catch (Throwable th3) {
             th = th3;
-            snapshot = null;
-            if (snapshot != null) {
-            }
+            cVar = null;
+            b.a(cVar);
             throw th;
         }
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public File getDirectory() {
-        return this.cache.getDirectory();
+        return this.cache.a();
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public boolean remove(String str) {
         try {
-            return this.cache.remove(getKey(str));
+            return this.cache.c(getKey(str));
         } catch (IOException e) {
             L.e(e);
             return false;
@@ -158,43 +144,43 @@ public class LruDiskCache implements DiskCache {
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public boolean save(String str, Bitmap bitmap) {
-        DiskLruCache.Editor edit = this.cache.edit(getKey(str));
-        if (edit == null) {
+        a.C0537a b = this.cache.b(getKey(str));
+        if (b == null) {
             return false;
         }
-        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(edit.newOutputStream(0), this.bufferSize);
+        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(b.a(0), this.bufferSize);
         try {
             boolean compress = bitmap.compress(this.compressFormat, this.compressQuality, bufferedOutputStream);
             if (compress) {
-                edit.commit();
+                b.a();
             } else {
-                edit.abort();
+                b.b();
             }
             return compress;
         } finally {
-            IoUtils.closeSilently(bufferedOutputStream);
+            b.a(bufferedOutputStream);
         }
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public boolean save(String str, InputStream inputStream, IoUtils.CopyListener copyListener) {
-        DiskLruCache.Editor edit = this.cache.edit(getKey(str));
-        if (edit == null) {
+        a.C0537a b = this.cache.b(getKey(str));
+        if (b == null) {
             return false;
         }
-        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(edit.newOutputStream(0), this.bufferSize);
+        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(b.a(0), this.bufferSize);
         try {
             boolean copyStream = IoUtils.copyStream(inputStream, bufferedOutputStream, copyListener, this.bufferSize);
-            IoUtils.closeSilently(bufferedOutputStream);
+            b.a(bufferedOutputStream);
             if (copyStream) {
-                edit.commit();
+                b.a();
             } else {
-                edit.abort();
+                b.b();
             }
             return copyStream;
         } catch (Throwable th) {
-            IoUtils.closeSilently(bufferedOutputStream);
-            edit.abort();
+            b.a(bufferedOutputStream);
+            b.b();
             throw th;
         }
     }

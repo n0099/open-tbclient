@@ -23,19 +23,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aw5;
+import com.repackage.mw5;
 import com.repackage.ng;
-import com.repackage.pv5;
-import com.repackage.qv5;
-import com.repackage.rv5;
+import com.repackage.nw5;
+import com.repackage.ow5;
+import com.repackage.xw5;
 /* loaded from: classes3.dex */
 public class FloatMyRecordCard extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public rv5 c;
-    public pv5 d;
+    public ow5 c;
+    public mw5 d;
     public TextView e;
     public BazhuHeadView f;
     public TextView g;
@@ -106,16 +106,16 @@ public class FloatMyRecordCard extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09220c);
-            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f092266);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0922b2);
+            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f09230c);
             this.f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.f.getHeadView().setIsRound(true);
             }
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092285);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c88);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0923db);
-            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f091464);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09232d);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c91);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09249b);
+            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f09150c);
         }
     }
 
@@ -125,18 +125,18 @@ public class FloatMyRecordCard extends LinearLayout {
             this.a = getContext();
             setOrientation(0);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0287, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0288, (ViewGroup) this, true);
             b();
         }
     }
 
     public void d(int i) {
-        pv5 pv5Var;
+        mw5 mw5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (pv5Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (mw5Var = this.d) == null) {
             return;
         }
-        if (pv5Var.i() > 3) {
+        if (mw5Var.i() > 3) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
@@ -147,21 +147,21 @@ public class FloatMyRecordCard extends LinearLayout {
         setGrade(this.d.d());
     }
 
-    public void setData(rv5 rv5Var) {
-        pv5 pv5Var;
+    public void setData(ow5 ow5Var) {
+        mw5 mw5Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rv5Var) == null) {
-            this.c = rv5Var;
-            if (rv5Var != null && rv5Var.a() != null) {
-                qv5 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048579, this, ow5Var) == null) {
+            this.c = ow5Var;
+            if (ow5Var != null && ow5Var.a() != null) {
+                nw5 a2 = this.c.a();
                 if (a2 != null) {
                     this.b = a2.g();
                 }
                 this.d = this.c.f();
             }
-            if (this.c != null && (pv5Var = this.d) != null && this.b == aw5.c) {
-                int i = pv5Var.i();
+            if (this.c != null && (mw5Var = this.d) != null && this.b == xw5.c) {
+                int i = mw5Var.i();
                 if (i < 10) {
                     this.e.setText("0" + i);
                 } else {

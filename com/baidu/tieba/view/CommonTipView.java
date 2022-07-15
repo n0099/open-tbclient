@@ -213,7 +213,7 @@ public class CommonTipView extends TextView {
         }
         this.a = 4000;
         this.b = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.obfuscated_res_0x7f010064);
-        this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702e0), 0.0f);
+        this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702df), 0.0f);
         this.d = new a(this);
         this.e = new b(this);
         g();
@@ -271,7 +271,7 @@ public class CommonTipView extends TextView {
         if (!(interceptable == null || interceptable.invokeLI(1048581, this, frameLayout, i) == null) || frameLayout == null) {
             return;
         }
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e0));
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702df));
         layoutParams.setMargins(0, 0, 0, 0);
         frameLayout.addView(this, layoutParams);
         h(i);
@@ -283,7 +283,7 @@ public class CommonTipView extends TextView {
         if (!(interceptable == null || interceptable.invokeLI(1048582, this, linearLayout, i) == null) || linearLayout == null) {
             return;
         }
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e0));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702df));
         layoutParams.gravity = 48;
         linearLayout.addView(this, layoutParams);
         h(i);
@@ -319,7 +319,7 @@ public class CommonTipView extends TextView {
         }
         this.a = 4000;
         this.b = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.obfuscated_res_0x7f010064);
-        this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702e0), 0.0f);
+        this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702df), 0.0f);
         this.d = new a(this);
         this.e = new b(this);
         g();
@@ -346,7 +346,7 @@ public class CommonTipView extends TextView {
         }
         this.a = 4000;
         this.b = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.obfuscated_res_0x7f010064);
-        this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702e0), 0.0f);
+        this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702df), 0.0f);
         this.d = new a(this);
         this.e = new b(this);
         g();

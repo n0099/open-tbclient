@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn0;
-import com.repackage.dn0;
+import com.repackage.pn0;
+import com.repackage.qn0;
 /* loaded from: classes2.dex */
 public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     public static /* synthetic */ Interceptable $ic;
@@ -54,11 +54,11 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             super.a(attributeSet);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09149f);
-            this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0914a0);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0914a1);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091547);
+            this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f091548);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091549);
             c();
-            setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080dc9);
+            setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080d49);
         }
     }
 
@@ -67,43 +67,43 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TextView textView = this.i;
             if (textView != null) {
-                textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060251));
+                textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060254));
             }
             AppCompatRatingBar appCompatRatingBar = this.j;
             if (appCompatRatingBar != null) {
-                appCompatRatingBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f06029c), PorterDuff.Mode.SRC_ATOP);
+                appCompatRatingBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f06029f), PorterDuff.Mode.SRC_ATOP);
             }
             TextView textView2 = this.k;
             if (textView2 != null) {
-                textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060274));
+                textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060277));
             }
             TextView textView3 = this.a;
             if (textView3 != null) {
-                textView3.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060274));
+                textView3.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060277));
             }
             TextView textView4 = this.b;
             if (textView4 != null) {
-                textView4.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060274));
+                textView4.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060277));
             }
             TextView textView5 = this.c;
             if (textView5 != null) {
-                textView5.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060274));
+                textView5.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060277));
             }
             TextView textView6 = this.d;
             if (textView6 != null) {
-                textView6.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060274));
+                textView6.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060277));
             }
         }
     }
 
     @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView
-    public void setAdInfo(dn0 dn0Var) {
+    public void setAdInfo(qn0 qn0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dn0Var) == null) {
-            super.setAdInfo(dn0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qn0Var) == null) {
+            super.setAdInfo(qn0Var);
             if (this.i != null) {
-                if (!TextUtils.isEmpty(dn0Var.c)) {
-                    this.i.setText(dn0Var.c);
+                if (!TextUtils.isEmpty(qn0Var.c)) {
+                    this.i.setText(qn0Var.c);
                     this.i.setVisibility(0);
                 } else {
                     this.i.setVisibility(8);
@@ -111,7 +111,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             TextView textView = this.k;
             if (textView != null) {
-                double d = dn0Var.e;
+                double d = qn0Var.e;
                 if (d != -1.0d) {
                     textView.setText(String.valueOf(d));
                     this.k.setVisibility(0);
@@ -121,7 +121,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             AppCompatRatingBar appCompatRatingBar = this.j;
             if (appCompatRatingBar != null) {
-                double d2 = dn0Var.e;
+                double d2 = qn0Var.e;
                 if (d2 != -1.0d) {
                     appCompatRatingBar.setRating((float) d2);
                     this.j.setVisibility(0);
@@ -146,17 +146,17 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     public void update(AdBaseModel adBaseModel) {
-        dn0 dn0Var;
-        cn0.a aVar;
+        qn0 qn0Var;
+        pn0.a aVar;
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, adBaseModel) == null) || adBaseModel == null || (dn0Var = adBaseModel.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, adBaseModel) == null) || adBaseModel == null || (qn0Var = adBaseModel.i) == null) {
             return;
         }
-        setAdInfo(dn0Var);
+        setAdInfo(qn0Var);
         c();
-        cn0 cn0Var = adBaseModel.p;
-        if (cn0Var == null || (aVar = cn0Var.j) == null || (i = aVar.h) == 0) {
+        pn0 pn0Var = adBaseModel.p;
+        if (pn0Var == null || (aVar = pn0Var.j) == null || (i = aVar.h) == 0) {
             return;
         }
         setRatingBarViewLP(i);

@@ -1,25 +1,37 @@
 package com.repackage;
 
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class v48 extends mw5<t38> {
+public class v48 implements yt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
+    public TbPageContext a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v48(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public v48(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,49 +41,78 @@ public class v48 extends mw5<t38> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = (TextView) h();
+        this.b = 1;
+        this.c = 2;
+        this.d = false;
+        this.a = tbPageContext;
     }
 
-    @Override // com.repackage.mw5
-    public int d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.yt8
+    public void a(View view2, q76 q76Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a9 : invokeV.intValue;
-    }
-
-    @Override // com.repackage.mw5
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.a == i) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, q76Var) == null) || q76Var == null) {
             return;
         }
-        this.a = i;
-        SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1);
-        SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        UserData userData = null;
+        Bundle bundle = q76Var.b;
+        if (bundle != null && (userData = (UserData) bundle.getSerializable(UserData.TYPE_USER)) != null) {
+            this.b = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
+            this.c = userData.isGod() ? 1 : 2;
+            this.d = this.b == 1;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.mw5
-    /* renamed from: r */
-    public void i(t38 t38Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, t38Var) == null) || t38Var == null) {
-            return;
+        switch (q76Var.a) {
+            case 2:
+                if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
+                    UrlManager.getInstance().dealOneLink(this.a, new String[]{TbConfig.URL_MEMBER_BUY});
+                    return;
+                }
+                return;
+            case 3:
+                if (userData == null) {
+                    return;
+                }
+                rl4.s(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f14ed), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
+                return;
+            case 4:
+                if (userData == null) {
+                    return;
+                }
+                if (q76Var instanceof z18) {
+                    TiebaStatic.log(new StatisticItem("c11586"));
+                } else {
+                    TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 2).param("obj_type", this.b).param("obj_source", this.c));
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
+                return;
+            case 5:
+                PersonRedTipManager.getInstance().updateRedTipState(2, false, this.d);
+                if (userData == null) {
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 3).param("obj_type", this.b).param("obj_source", this.c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), false, userData.getUserId(), userData.getSex())));
+                return;
+            case 6:
+                if (userData == null) {
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 1).param("obj_type", this.b).param("obj_source", this.c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.a.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
+                return;
+            case 7:
+                if (userData == null) {
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 4).param("obj_type", this.b).param("obj_source", this.c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.a.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
+                return;
+            default:
+                return;
         }
-        this.i.setPadding(t38Var.b, t38Var.c, 0, t38Var.d);
-        this.i.setText(this.c.getString(t38Var.a));
     }
 }

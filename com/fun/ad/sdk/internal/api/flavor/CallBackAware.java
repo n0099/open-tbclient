@@ -8,7 +8,7 @@ public interface CallBackAware {
 
     void onAdClicked(FunAdInteractionListener funAdInteractionListener, String str, String str2, String str3, String... strArr);
 
-    void onRewardedVideo(FunAdInteractionListener funAdInteractionListener, String str, boolean z, String... strArr);
+    void onRewardedVideo(FunAdInteractionListener funAdInteractionListener, String str, boolean z, String str2, int i, String str3, String... strArr);
 
-    void show(FunAdInteractionListener funAdInteractionListener, String str, String str2, String str3, double d, RippedAd rippedAd, String... strArr);
+    void show(FunAdInteractionListener funAdInteractionListener, String str, String str2, String str3, RippedAd rippedAd, String... strArr);
 }

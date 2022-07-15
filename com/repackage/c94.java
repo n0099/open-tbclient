@@ -2,11 +2,10 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class c94 {
+public class c94 extends d94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,20 +21,5 @@ public abstract class c94 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public abstract s94 a();
-
-    public abstract boolean b(s94 s94Var);
-
-    public abstract void c(boolean z);
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "task=" + a();
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,18 +1,92 @@
 package com.kwad.sdk.core.network.a;
-
-import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
-public class a {
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public String f;
-    public String g;
+public final class a implements b {
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b a() {
+        return this;
+    }
 
-    @NonNull
-    public String toString() {
-        return "NetworkMonitorInfo{requestTotalTime=" + this.a + ", mRequestCreateTime" + this.b + ", requestResponseTime=" + this.c + ", requestParseDataTime=" + this.d + ", requestCallbackTime=" + this.e + ", requestFailReason='" + this.f + "', requestUrl='" + this.g + "'}";
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b a(int i) {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b a(long j) {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b a(String str) {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b b() {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b b(int i) {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b b(String str) {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b c() {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b c(int i) {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b c(String str) {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b d() {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b d(int i) {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b d(String str) {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b e() {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b e(String str) {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b f() {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final b g() {
+        return this;
+    }
+
+    @Override // com.kwad.sdk.core.network.a.b
+    public final void h() {
     }
 }

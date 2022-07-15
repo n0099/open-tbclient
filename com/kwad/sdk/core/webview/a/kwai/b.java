@@ -1,5 +1,8 @@
 package com.kwad.sdk.core.webview.a.kwai;
+
+import androidx.annotation.MainThread;
 /* loaded from: classes5.dex */
-public class b extends com.kwad.sdk.core.response.kwai.a {
-    public boolean a;
+public interface b {
+    @MainThread
+    void a();
 }

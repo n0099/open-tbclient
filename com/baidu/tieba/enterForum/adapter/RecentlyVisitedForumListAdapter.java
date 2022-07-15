@@ -174,8 +174,8 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             this.g = recentlyVisitedForumListAdapter;
             view2.setOnClickListener(new a(this, recentlyVisitedForumListAdapter));
             view2.setOnLongClickListener(new b(this, recentlyVisitedForumListAdapter));
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f092095);
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a23);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f092138);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a2b);
             this.d = barImageView;
             barImageView.setShowOval(true);
             this.d.setShowOuterBorder(false);
@@ -183,12 +183,12 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             this.d.setStrokeWith(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3));
             this.d.setStrokeColorResId(R.color.CAM_X0401);
             this.d.setPlaceHolderAutoChangeSkinType(1);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a37);
-            this.e = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091a15);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a16);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a3f);
+            this.e = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091abd);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a1e);
             this.e.setThreeDotMode(2);
             this.e.setEnterForumStyle(true);
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090747);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09074e);
             this.f = imageView;
             imageView.setOnClickListener(new c(this, recentlyVisitedForumListAdapter));
         }
@@ -261,7 +261,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
     public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new ForumViewHolder(this, this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d06fe, (ViewGroup) null)) : (ForumViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new ForumViewHolder(this, this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d071b, (ViewGroup) null)) : (ForumViewHolder) invokeLI.objValue;
     }
 
     public void i(LinkedList<VisitedForumData> linkedList) {

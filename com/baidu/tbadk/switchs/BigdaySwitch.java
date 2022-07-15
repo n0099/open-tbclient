@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.af;
-import com.repackage.ht4;
+import com.repackage.xt4;
 /* loaded from: classes3.dex */
 public class BigdaySwitch extends af {
     public static /* synthetic */ Interceptable $ic = null;
@@ -51,7 +51,7 @@ public class BigdaySwitch extends af {
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ht4.k().l("key_bigday_sync_switch", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? xt4.k().l("key_bigday_sync_switch", 0) : invokeV.intValue;
     }
 
     @Override // com.repackage.af

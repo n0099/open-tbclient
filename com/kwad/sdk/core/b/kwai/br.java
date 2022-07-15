@@ -1,43 +1,48 @@
 package com.kwad.sdk.core.b.kwai;
 
-import android.net.http.Headers;
+import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class br implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.a> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(com.kwad.sdk.c.kwai.a aVar, JSONObject jSONObject) {
+public final class br implements com.kwad.sdk.core.d<AdMatrixInfo.DownloadTexts> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdMatrixInfo.DownloadTexts downloadTexts, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        aVar.a = jSONObject.optString("Access-Control-Allow-Origin");
-        if (jSONObject.opt("Access-Control-Allow-Origin") == JSONObject.NULL) {
-            aVar.a = "";
+        downloadTexts.adActionDescription = jSONObject.optString("adActionDescription");
+        if (jSONObject.opt("adActionDescription") == JSONObject.NULL) {
+            downloadTexts.adActionDescription = "";
         }
-        aVar.b = jSONObject.optString("Timing-Allow-Origin");
-        if (jSONObject.opt("Timing-Allow-Origin") == JSONObject.NULL) {
-            aVar.b = "";
+        downloadTexts.installAppLabel = jSONObject.optString("installAppLabel");
+        if (jSONObject.opt("installAppLabel") == JSONObject.NULL) {
+            downloadTexts.installAppLabel = "";
         }
-        aVar.c = jSONObject.optString(Headers.CONTENT_TYPE);
-        if (jSONObject.opt(Headers.CONTENT_TYPE) == JSONObject.NULL) {
-            aVar.c = "";
-        }
-        aVar.d = jSONObject.optString("Date");
-        if (jSONObject.opt("Date") == JSONObject.NULL) {
-            aVar.d = "";
+        downloadTexts.openAppLabel = jSONObject.optString("openAppLabel");
+        if (jSONObject.opt("openAppLabel") == JSONObject.NULL) {
+            downloadTexts.openAppLabel = "";
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(com.kwad.sdk.c.kwai.a aVar, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdMatrixInfo.DownloadTexts downloadTexts, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "Access-Control-Allow-Origin", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "Timing-Allow-Origin", aVar.b);
-        com.kwad.sdk.utils.t.a(jSONObject, Headers.CONTENT_TYPE, aVar.c);
-        com.kwad.sdk.utils.t.a(jSONObject, "Date", aVar.d);
+        com.kwad.sdk.utils.r.a(jSONObject, "adActionDescription", downloadTexts.adActionDescription);
+        com.kwad.sdk.utils.r.a(jSONObject, "installAppLabel", downloadTexts.installAppLabel);
+        com.kwad.sdk.utils.r.a(jSONObject, "openAppLabel", downloadTexts.openAppLabel);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.DownloadTexts downloadTexts, JSONObject jSONObject) {
+        a2(downloadTexts, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.DownloadTexts downloadTexts, JSONObject jSONObject) {
+        return b2(downloadTexts, jSONObject);
     }
 }

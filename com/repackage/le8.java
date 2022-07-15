@@ -1,21 +1,29 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class le8 {
+public class le8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+    public int a;
+    public String b;
+    public int c;
+    public String d;
+    public int e;
+    public String f;
+    public ee8 g;
+    public ArrayList<me8> h;
 
     public le8() {
         Interceptable interceptable = $ic;
@@ -27,77 +35,98 @@ public abstract class le8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = new ee8();
+        this.h = new ArrayList<>();
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public String b() {
+    public ee8 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (ee8) invokeV.objValue;
     }
 
-    public boolean c() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    public abstract void d(JSONObject jSONObject) throws Exception;
-
-    public void e(String str) {
+    public ArrayList<me8> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            try {
-                f(new JSONObject(str));
-            } catch (Exception e) {
-                g("网络不给力呀");
-                e.printStackTrace();
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (ArrayList) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || str == null) {
+            return;
+        }
+        try {
+            j(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    public void f(JSONObject jSONObject) {
+    public void j(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            try {
-                int optInt = jSONObject.optInt("error_code", 0);
-                this.b = optInt;
-                if (optInt != 0) {
-                    g(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络不给力呀"));
-                    return;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("error");
-                if (optJSONObject != null) {
-                    int optInt2 = optJSONObject.optInt("errno", 0);
-                    this.b = optInt2;
-                    if (optInt2 != 0) {
-                        g(optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG, "网络不给力呀"));
-                        return;
-                    }
-                }
-                long optLong = jSONObject.optLong("ctime", 0L);
-                if (optLong > 0) {
-                    new Date(optLong * 1000);
-                }
-                d(jSONObject);
-            } catch (Exception e) {
-                g("网络不给力呀");
-                e.printStackTrace();
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a = str;
+        try {
+            this.g.c(jSONObject.optJSONObject("error"));
+            this.a = jSONObject.optInt("show_dialog");
+            this.b = jSONObject.optString("sign_notice");
+            this.c = jSONObject.optInt("is_timeout");
+            this.d = jSONObject.optString("timeout_notice");
+            this.e = jSONObject.optInt("error_code");
+            this.f = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+            JSONArray optJSONArray = jSONObject.optJSONArray("info");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                    me8 me8Var = new me8();
+                    me8Var.f(jSONObject2);
+                    this.h.add(me8Var);
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

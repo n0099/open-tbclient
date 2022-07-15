@@ -1,22 +1,31 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b66 {
+public class b66 extends lo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public op4 a;
-    public ArrayList<nn> b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public c66 g;
-    public boolean h;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public List<c66> i;
+    public d66 j;
+    public String k;
+    public boolean l;
+    public int m;
+    public int n;
 
     public b66() {
         Interceptable interceptable = $ic;
@@ -31,12 +40,192 @@ public class b66 {
                 return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.h = true;
-        this.b = new ArrayList<>();
-        this.a = new op4();
+        this.l = false;
+        this.m = Integer.MIN_VALUE;
+        this.n = Integer.MIN_VALUE;
+        d(14);
+    }
+
+    public static b66 A(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            b66 b66Var = new b66();
+            String optString = jSONObject.optString("forum_id");
+            b66Var.C(optString);
+            String optString2 = jSONObject.optString("forum_name");
+            b66Var.D(optString2);
+            b66Var.B(jSONObject.optString("avatar"));
+            b66Var.G(jSONObject.optString("member_count"));
+            b66Var.L(jSONObject.optString("thread_count"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("threadlist");
+            ArrayList arrayList = new ArrayList();
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    c66 g = c66.g(optJSONArray.optJSONObject(i));
+                    g.h(optString);
+                    g.i(optString2);
+                    arrayList.add(g);
+                }
+            }
+            b66Var.K(arrayList);
+            b66Var.H(jSONObject.optString("need_trans"));
+            b66Var.E(jSONObject.optString("from"));
+            b66Var.J(d66.b(jSONObject.optJSONObject("theme_color")));
+            return b66Var;
+        }
+        return (b66) invokeL.objValue;
+    }
+
+    public void B(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void C(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void D(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void E(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.k = str;
+        }
+    }
+
+    public void F(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void G(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void H(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        }
+    }
+
+    public void I(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.n = i;
+        }
+    }
+
+    public void J(d66 d66Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d66Var) == null) {
+            this.j = d66Var;
+        }
+    }
+
+    public void K(List<c66> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            this.i = list;
+        }
+    }
+
+    public void L(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public String getFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.k : (String) invokeV.objValue;
+    }
+
+    public int getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.m : invokeV.intValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.n : invokeV.intValue;
+    }
+
+    public d66 s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.j : (d66) invokeV.objValue;
+    }
+
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.m = i;
+        }
+    }
+
+    public List<c66> t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.i : (List) invokeV.objValue;
+    }
+
+    public String u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.l : invokeV.booleanValue;
     }
 }

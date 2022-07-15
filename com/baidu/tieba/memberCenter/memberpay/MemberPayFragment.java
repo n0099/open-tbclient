@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vi7;
-import com.repackage.zi7;
+import com.repackage.nj7;
+import com.repackage.rj7;
 /* loaded from: classes3.dex */
 public class MemberPayFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -23,8 +23,8 @@ public class MemberPayFragment extends BaseFragment {
     public String c;
     public boolean d;
     public int e;
-    public vi7 f;
-    public zi7 g;
+    public nj7 f;
+    public rj7 g;
     public View h;
 
     public MemberPayFragment() {
@@ -62,9 +62,9 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            vi7 vi7Var = this.f;
-            if (vi7Var != null) {
-                vi7Var.p(i);
+            nj7 nj7Var = this.f;
+            if (nj7Var != null) {
+                nj7Var.p(i);
             }
         }
     }
@@ -88,31 +88,31 @@ public class MemberPayFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.h = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0526, viewGroup, false);
-            vi7 vi7Var = new vi7(getPageContext(), this.h, this.a, this.b, this.c, this.d, this.e);
-            this.f = vi7Var;
-            vi7Var.s(this.g);
+            this.h = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0540, viewGroup, false);
+            nj7 nj7Var = new nj7(getPageContext(), this.h, this.a, this.b, this.c, this.d, this.e);
+            this.f = nj7Var;
+            nj7Var.s(this.g);
             return this.h;
         }
         return (View) invokeLLL.objValue;
     }
 
-    public void r1(Boolean bool) {
-        vi7 vi7Var;
+    public void s1(Boolean bool) {
+        nj7 nj7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bool) == null) || (vi7Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bool) == null) || (nj7Var = this.f) == null) {
             return;
         }
-        vi7Var.q(bool.booleanValue());
+        nj7Var.q(bool.booleanValue());
     }
 
-    public void s1(zi7 zi7Var) {
+    public void t1(rj7 rj7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zi7Var) == null) {
-            this.g = zi7Var;
-            vi7 vi7Var = this.f;
-            if (vi7Var != null) {
-                vi7Var.s(zi7Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, rj7Var) == null) {
+            this.g = rj7Var;
+            nj7 nj7Var = this.f;
+            if (nj7Var != null) {
+                nj7Var.s(rj7Var);
             }
         }
     }

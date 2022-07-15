@@ -1,6 +1,5 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,15 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class t94 implements Runnable {
+public class t94 {
     public static /* synthetic */ Interceptable $ic;
-    public static final sc4 d;
+    public static final hd4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public o94 a;
-    public AtomicBoolean b;
-    public n94 c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,60 +27,39 @@ public class t94 implements Runnable {
                 return;
             }
         }
-        d = sc4.e();
+        a = hd4.e();
     }
 
-    public t94(AtomicBoolean atomicBoolean, o94 o94Var, n94 n94Var) {
+    public t94() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {atomicBoolean, o94Var, n94Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = atomicBoolean;
-        this.a = o94Var;
-        this.c = n94Var;
     }
 
-    public final <T> void a(s94<T> s94Var) {
+    public Integer a(Map<String, Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, s94Var) == null) {
-            this.a.a(s94Var);
-            try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
+            if (map != null && !map.isEmpty() && map.containsKey("queue_priority")) {
                 try {
-                    s94Var.run();
+                    int intValue = ((Integer) map.get("queue_priority")).intValue();
+                    if (intValue == 200 || intValue == 300) {
+                        return Integer.valueOf(intValue);
+                    }
                 } catch (Exception e) {
-                    d.g("PMSTaskExecutor", "#runTask 包下载任务出错", e);
-                }
-            } finally {
-                this.a.b(s94Var);
-            }
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.b.get()) {
-                Runnable a = this.c.a(true);
-                if (!(a instanceof s94)) {
-                    return;
-                }
-                try {
-                    a((s94) a);
-                } catch (Throwable th) {
-                    d.g("PMSTaskExecutor", "#run 包下载任务出错", th);
+                    a.h("QueuePriorityOptionHelper", "#parseOption error", e, false);
                 }
             }
+            return 100;
         }
+        return (Integer) invokeL.objValue;
     }
 }

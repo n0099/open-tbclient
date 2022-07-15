@@ -1,81 +1,97 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.by;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.ss.android.download.api.constant.BaseConstants;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ok6 extends fc6<al6, ThreadCardViewHolder<al6>> {
+public class ok6 extends bt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public zs4 c;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ok6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+    public ok6(zs4 zs4Var, String str) {
+        super(zs4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {zs4Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((zs4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = tbPageContext;
-        this.e = bdUniqueId2;
+        this.c = zs4Var;
+        this.d = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: l0 */
-    public ThreadCardViewHolder<al6> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @ct4(isAsync = false, value = "downloadGame")
+    private void downloadGame(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            by.b bVar = new by.b(this.k.getPageActivity(), true);
-            bVar.n(new tk6(this.k.getPageActivity()));
-            bVar.l().b(0);
-            bVar.l().c(0);
-            bVar.l().f(0);
-            bVar.l().e(0);
-            bVar.l().i(0);
-            bVar.l().h(0);
-            ThreadCardViewHolder<al6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.m));
-            threadCardViewHolder.k(this.e);
-            return threadCardViewHolder;
+        if (!(interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        String optString = jSONObject.optString("packageName");
+        String optString2 = jSONObject.optString(TTDownloadField.TT_DOWNLOAD_URL);
+        String optString3 = jSONObject.optString("imageUrl");
+        if (StringUtils.isNull(optString)) {
+            return;
+        }
+        if (!ni.z()) {
+            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0c2b);
+            return;
+        }
+        if (StringUtils.isNull(optString2)) {
+            g(optString);
+        } else {
+            ha8.n().E(optString, optString2, optString, 0, ha8.o(optString).intValue(), null, true, false, true, optString3, null, null);
+        }
+        TiebaStatic.log(new StatisticItem("c12775").param("fid", StringUtils.isNull(this.d) ? "" : this.d));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc6, com.repackage.an
-    /* renamed from: m0 */
-    public View S(int i, View view2, ViewGroup viewGroup, al6 al6Var, ThreadCardViewHolder<al6> threadCardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.bt4
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, al6Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(al6Var);
-            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_DOWNLOAD_GAME" : (String) invokeV.objValue;
+    }
+
+    public final void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(BaseConstants.MARKET_PREFIX + str));
+            try {
+                if (!(this.c.getContext() instanceof Activity)) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                this.c.getContext().startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        return (View) invokeCommon.objValue;
     }
 }

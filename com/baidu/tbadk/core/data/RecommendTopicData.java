@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.by5;
-import com.repackage.cy5;
+import com.repackage.yy5;
+import com.repackage.zy5;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -122,17 +122,17 @@ public class RecommendTopicData {
             return invokeV.intValue;
         }
 
-        public by5 getConvertedCardData() {
+        public yy5 getConvertedCardData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                by5 by5Var = new by5();
-                by5Var.c = this.tag;
-                by5Var.a = this.topicId;
-                by5Var.b = this.topicName;
-                return by5Var;
+                yy5 yy5Var = new yy5();
+                yy5Var.c = this.tag;
+                yy5Var.a = this.topicId;
+                yy5Var.b = this.topicName;
+                return yy5Var;
             }
-            return (by5) invokeV.objValue;
+            return (yy5) invokeV.objValue;
         }
 
         public long getDiscussNum() {
@@ -260,13 +260,13 @@ public class RecommendTopicData {
         this.b = new ArrayList();
     }
 
-    public cy5 a() {
+    public zy5 a() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            cy5 cy5Var = new cy5();
-            cy5Var.c = b();
+            zy5 zy5Var = new zy5();
+            zy5Var.c = b();
             if (this.b != null) {
                 arrayList = new ArrayList();
                 for (RecommendTopicListData recommendTopicListData : this.b) {
@@ -277,10 +277,10 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            cy5Var.d = arrayList;
-            return cy5Var;
+            zy5Var.d = arrayList;
+            return zy5Var;
         }
-        return (cy5) invokeV.objValue;
+        return (zy5) invokeV.objValue;
     }
 
     public String b() {
@@ -288,7 +288,7 @@ public class RecommendTopicData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (StringUtils.isNull(this.a)) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f086e);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0879);
             }
             return this.a;
         }

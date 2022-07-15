@@ -33,11 +33,20 @@ public class NewFaceGroupShareModel extends FaceBaseModel {
         registerTask();
     }
 
+    public void A(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_FACE_GROUP);
+            httpMessage.addParam("id", str);
+            sendMessage(httpMessage);
+        }
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_SHARE_FACE_GROUP);
             return true;
         }
@@ -48,7 +57,7 @@ public class NewFaceGroupShareModel extends FaceBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -56,19 +65,10 @@ public class NewFaceGroupShareModel extends FaceBaseModel {
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SHARE_FACE_GROUP, TbConfig.SERVER_ADDRESS + "c/e/meme/share");
             tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_FACE_GROUP);
-            httpMessage.addParam("id", str);
-            sendMessage(httpMessage);
         }
     }
 }

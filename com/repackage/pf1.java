@@ -1,31 +1,30 @@
 package com.repackage;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sso.o.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileFilter;
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class pf1 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static pf1 b = null;
+    public static int c = Integer.MAX_VALUE;
+    public static long d = 120;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public com.baidu.sso.o.d b;
-    public ServiceConnection c;
-    public of1 d;
+    public ThreadPoolExecutor a;
 
     /* loaded from: classes6.dex */
-    public class a implements ServiceConnection {
+    public class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pf1 a;
 
         public a(pf1 pf1Var) {
             Interceptable interceptable = $ic;
@@ -39,40 +38,22 @@ public class pf1 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pf1Var;
-        }
-
-        @Override // android.content.ServiceConnection
-        public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                synchronized (this) {
-                    this.a.b = d.a.a(iBinder);
-                    of1 of1Var = this.a.d;
                 }
             }
         }
 
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                pf1 pf1Var = this.a;
-                pf1Var.b = null;
-                of1 of1Var = pf1Var.d;
-            }
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? Pattern.matches("cpu[0-9]", file.getName()) : invokeL.booleanValue;
         }
     }
 
-    public pf1(Context context) {
+    public pf1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,33 +63,48 @@ public class pf1 {
                 return;
             }
         }
-        this.a = null;
-        this.a = context;
+        int a2 = (a() / 2) + 2;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(a2 > 3 ? 3 : a2, c, d, TimeUnit.SECONDS, new PriorityBlockingQueue());
+        this.a = threadPoolExecutor;
+        threadPoolExecutor.setThreadFactory(new of1());
+        this.a.allowCoreThreadTimeOut(true);
     }
 
-    public String a() {
+    public static pf1 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (pf1.class) {
+                if (b == null) {
+                    b = new pf1();
+                }
+            }
+            return b;
+        }
+        return (pf1) invokeV.objValue;
+    }
+
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (this.b != null) {
-                    return ((d.a.C0154a) this.b).a();
-                }
-                return null;
+                return new File("/sys/devices/system/cpu/").listFiles(new a(this)).length;
             } catch (Throwable unused) {
-                return null;
+                return 2;
             }
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void b() {
+    public void b(lf1 lf1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new a(this);
-            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
-            intent.setPackage("com.huawei.hwid");
-            this.a.bindService(intent, this.c, 1);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lf1Var) == null) {
+            try {
+                this.a.execute(lf1Var);
+            } catch (Throwable th) {
+                sf1.d(th);
+            }
         }
     }
 }

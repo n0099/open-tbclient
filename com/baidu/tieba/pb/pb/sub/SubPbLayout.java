@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
+import com.repackage.ox7;
 import com.repackage.pi;
-import com.repackage.uw7;
+import com.repackage.ur4;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class SubPbLayout extends ViewGroup {
     public View.OnClickListener a;
     public View.OnLongClickListener b;
     public View.OnTouchListener c;
-    public uw7 d;
+    public ox7 d;
     public int e;
     public PostData f;
     public View g;
@@ -121,11 +121,11 @@ public class SubPbLayout extends ViewGroup {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-            if ((i > 0 && (this.f.F() == 1 || this.f.F() == 3 || this.f.U() > this.e)) || this.f.d0(this.l)) {
+            if ((i > 0 && (this.f.F() == 1 || this.f.F() == 3 || this.f.U() > this.e)) || this.f.f0(this.l)) {
                 if (this.k) {
-                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1226), Integer.valueOf(this.f.U()));
+                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f121f), Integer.valueOf(this.f.U()));
                 } else {
-                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1227), Integer.valueOf(this.f.U()));
+                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1220), Integer.valueOf(this.f.U()));
                 }
                 this.j.setText(format);
                 this.i.setOnClickListener(this.a);
@@ -134,8 +134,8 @@ public class SubPbLayout extends ViewGroup {
                     sparseArray = new SparseArray();
                     this.i.setTag(sparseArray);
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f091e65, this.f);
-                sparseArray.put(R.id.obfuscated_res_0x7f091e67, this.g);
+                sparseArray.put(R.id.obfuscated_res_0x7f091f09, this.f);
+                sparseArray.put(R.id.obfuscated_res_0x7f091f0b, this.g);
                 this.i.setVisibility(0);
                 this.i.measure(((i2 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             } else {
@@ -155,7 +155,7 @@ public class SubPbLayout extends ViewGroup {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, list, i)) == null) {
             int count = ListUtils.getCount(list);
             this.e = count;
-            if (!this.f.i0()) {
+            if (!this.f.k0()) {
                 if (count <= 4) {
                     this.e = count;
                 } else {
@@ -195,21 +195,21 @@ public class SubPbLayout extends ViewGroup {
                         sparseArray = new SparseArray();
                         childAt2.setTag(sparseArray);
                     }
-                    Object obj = sparseArray.get(R.id.obfuscated_res_0x7f091e65);
+                    Object obj = sparseArray.get(R.id.obfuscated_res_0x7f091f09);
                     PostData postData = this.f;
                     if (obj != postData) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f091e65, postData);
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f09, postData);
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e67, this.g);
-                    sparseArray.put(R.id.obfuscated_res_0x7f091e62, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f0b, this.g);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f06, Boolean.TRUE);
                     if (list.get(i3) != null && list.get(i3).s() != null) {
-                        if (sparseArray.get(R.id.obfuscated_res_0x7f091e66) != list.get(i3)) {
-                            sparseArray.put(R.id.obfuscated_res_0x7f091e66, list.get(i3));
+                        if (sparseArray.get(R.id.obfuscated_res_0x7f091f0a) != list.get(i3)) {
+                            sparseArray.put(R.id.obfuscated_res_0x7f091f0a, list.get(i3));
                         }
-                        sparseArray.put(R.id.obfuscated_res_0x7f091e79, list.get(i3).s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091e77, list.get(i3).s().getPortrait());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091e78, list.get(i3).s().getUserId());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091e49, list.get(i3));
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f1d, list.get(i3).s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f1b, list.get(i3).s().getPortrait());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f1c, list.get(i3).s().getUserId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091eed, list.get(i3));
                     }
                     SparseArray<Object> sparseArray2 = this.n;
                     if (sparseArray2 != null) {
@@ -218,7 +218,7 @@ public class SubPbLayout extends ViewGroup {
                         sparseArray.put(-3, this.n.get(-3));
                         sparseArray.put(-4, this.n.get(-4));
                     }
-                    uw7.b bVar = (uw7.b) sparseArray.get(R.id.obfuscated_res_0x7f091e5e);
+                    ox7.b bVar = (ox7.b) sparseArray.get(R.id.obfuscated_res_0x7f091f02);
                     this.d.c(bVar, list.get(i3), this.f.U() > list.size() || list.size() - i3 > 1, i3 == 0, false);
                     bVar.e.setPadding(0, 0, 0, pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
                     if (UbsABTestHelper.isPBPlanA()) {
@@ -286,9 +286,9 @@ public class SubPbLayout extends ViewGroup {
         }
         textView.setTextSize(0, TbConfig.getContentSizeOfLzl());
         if (this.k) {
-            fr4.d(this.j).v(R.color.CAM_X0304);
+            ur4.d(this.j).v(R.color.CAM_X0304);
         } else {
-            fr4.d(this.j).v(R.color.CAM_X0108);
+            ur4.d(this.j).v(R.color.CAM_X0108);
         }
     }
 
@@ -300,9 +300,9 @@ public class SubPbLayout extends ViewGroup {
         }
         textView.setTextSize(0, TbConfig.getTestContentSizeOfLzl());
         if (this.k) {
-            fr4.d(this.j).v(R.color.CAM_X0318);
+            ur4.d(this.j).v(R.color.CAM_X0318);
         } else {
-            fr4.d(this.j).v(R.color.CAM_X0108);
+            ur4.d(this.j).v(R.color.CAM_X0108);
         }
     }
 
@@ -370,7 +370,7 @@ public class SubPbLayout extends ViewGroup {
         if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
             if (this.d != null && (postData = this.f) != null && postData.S() != null) {
                 int size = View.MeasureSpec.getSize(i);
-                if (this.f.i0()) {
+                if (this.f.k0()) {
                     S = this.f.y();
                 } else {
                     S = this.f.S();
@@ -433,10 +433,10 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setSubPbAdapter(uw7 uw7Var) {
+    public void setSubPbAdapter(ox7 ox7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, uw7Var) == null) {
-            this.d = uw7Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, ox7Var) == null) {
+            this.d = ox7Var;
         }
     }
 
@@ -467,7 +467,7 @@ public class SubPbLayout extends ViewGroup {
         this.m = new ViewGroup.MarginLayoutParams(-1, -2);
         RelativeLayout relativeLayout = new RelativeLayout(context);
         this.i = relativeLayout;
-        relativeLayout.setId(R.id.obfuscated_res_0x7f091683);
+        relativeLayout.setId(R.id.obfuscated_res_0x7f09172c);
         TextView textView = new TextView(context);
         this.j = textView;
         textView.setPadding(0, pi.f(context, R.dimen.tbds_3), 0, pi.f(context, R.dimen.tbds12));

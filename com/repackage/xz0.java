@@ -1,112 +1,68 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
-import android.text.TextUtils;
 import android.widget.Toast;
-import androidx.core.content.FileProvider;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class xz0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xz0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", DI.TOAST_NAME);
+    public static final xz0 b = new a();
 
-    public static boolean a(Context context, File file, Intent intent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, file, intent)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                try {
-                    if (TextUtils.isEmpty(bh0.a().o())) {
-                        return false;
-                    }
-                    Uri uriForFile = FileProvider.getUriForFile(context, bh0.a().o(), file);
-                    if (uriForFile == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(uriForFile, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        ActivityInfo activityInfo = resolveInfo.activityInfo;
-                        if (activityInfo != null && !TextUtils.isEmpty(activityInfo.packageName)) {
-                            context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 1);
-                        }
-                    }
-                } catch (IllegalArgumentException unused) {
-                    return false;
+    /* loaded from: classes7.dex */
+    public static class a implements xz0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return true;
         }
-        return invokeLLL.booleanValue;
-    }
 
-    public static void b(Dialog dialog) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, dialog) == null) || dialog == null) {
-            return;
-        }
-        try {
-            dialog.show();
-        } catch (Exception unused) {
-        }
-    }
-
-    public static boolean c(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) ? d(context, intent, false) : invokeLL.booleanValue;
-    }
-
-    public static boolean d(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, context, intent, z)) == null) ? e(context, intent, z, false) : invokeLLZ.booleanValue;
-    }
-
-    public static boolean e(Context context, Intent intent, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z || !(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            try {
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException unused) {
-                if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0b5d, 0).show();
-                    return false;
-                }
-                return false;
-            } catch (SecurityException unused2) {
-                if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0b5d, 0).show();
-                    return false;
-                }
-                return false;
-            } catch (Exception unused3) {
-                return false;
+        @Override // com.repackage.xz0
+        public void a(@NonNull Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
+                Toast.makeText(context, str, 0).show();
             }
         }
-        return invokeCommon.booleanValue;
+
+        @Override // com.repackage.xz0
+        public void b(@NonNull Context context, @StringRes int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
+                Toast.makeText(context, i, 0).show();
+            }
+        }
+
+        @Override // com.repackage.xz0
+        public void c(@NonNull Context context, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, context, i, i2) == null) {
+                Toast.makeText(context, i, i2).show();
+            }
+        }
     }
+
+    void a(@NonNull Context context, String str);
+
+    void b(@NonNull Context context, @StringRes int i);
+
+    void c(@NonNull Context context, @StringRes int i, int i2);
 }

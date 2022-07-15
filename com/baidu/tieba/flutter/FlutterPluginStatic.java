@@ -14,7 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.em4;
+import com.repackage.tm4;
+import com.repackage.y95;
 /* loaded from: classes3.dex */
 public class FlutterPluginStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +34,7 @@ public class FlutterPluginStatic {
                 return;
             }
         }
-        if (em4.c().contains("-Flutter")) {
+        if (tm4.c().contains("-Flutter")) {
             MessageManager.getInstance().registerListener(new CustomMessageListener(2921674) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -67,6 +68,8 @@ public class FlutterPluginStatic {
                     }
                     if (customResponsedMessage.getData() instanceof IntentConfig) {
                         FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
+                    } else if (customResponsedMessage.getData() instanceof y95) {
+                        FlutterPluginManager.getInstance().init((y95) customResponsedMessage.getData());
                     } else {
                         FlutterPluginManager.getInstance().init();
                     }

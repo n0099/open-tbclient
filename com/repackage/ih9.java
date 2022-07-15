@@ -1,66 +1,82 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
-import java.util.Map;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.kwad.sdk.api.KsDrawAd;
+import com.repackage.gh9;
 /* loaded from: classes6.dex */
-public class ih9 {
+public class ih9 extends FunNativeAd2Bridger<KsDrawAd, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, PidLoaderCreator> a;
-    public final Map<Ssp.Pid, PidLoader> b;
+    public boolean b;
+    public final gh9.b c;
+    public final /* synthetic */ Context d;
+    public final /* synthetic */ gh9 e;
 
-    public ih9(Map<String, PidLoaderCreator> map) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ih9(gh9 gh9Var, ReporterPidLoader reporterPidLoader, KsDrawAd ksDrawAd, String str, Context context) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {map};
+            Object[] objArr = {gh9Var, reporterPidLoader, ksDrawAd, str, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new HashMap();
-        this.a = map;
+        this.e = gh9Var;
+        this.d = context;
+        this.c = new gh9.b(gh9Var, ksDrawAd, str);
     }
 
-    public PidLoader a(Ssp.Pid pid) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(KsDrawAd ksDrawAd) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            synchronized (this.b) {
-                PidLoader pidLoader = this.b.get(pid);
-                if (pidLoader != null) {
-                    return pidLoader;
-                }
-                PidLoaderCreator pidLoaderCreator = this.a.get(pid.ssp.type);
-                if (pidLoaderCreator == null) {
-                    LogPrinter.d("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", pid.type);
-                    return null;
-                }
-                PidLoader create = pidLoaderCreator.create(pid);
-                if (create == null) {
-                    LogPrinter.d("The creator of ssp:%s should't create null for pid:%s", pid.ssp.type, pid.type);
-                    return null;
-                }
-                zg9 zg9Var = new zg9(create);
-                this.b.put(pid, zg9Var);
-                return zg9Var;
-            }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksDrawAd)) == null) ? ksDrawAd.getDrawView(this.d) : (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, KsDrawAd ksDrawAd, BaseNativeAd2<KsDrawAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ksDrawAd, baseNativeAd2, funAdInteractionListener}) == null) {
         }
-        return (PidLoader) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, KsDrawAd ksDrawAd, BaseNativeAd2<KsDrawAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksDrawAd, baseNativeAd2, funAdInteractionListener}) == null) {
+            KsDrawAd ksDrawAd2 = ksDrawAd;
+            this.e.onShowStart(ksDrawAd2, this.b);
+            this.b = true;
+            gh9.b bVar = this.c;
+            bVar.e = funAdInteractionListener;
+            ksDrawAd2.setAdInteractionListener(bVar);
+            expressInflater.inflate();
+        }
     }
 }

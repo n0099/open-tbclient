@@ -13,6 +13,10 @@ public abstract class TTCustomController {
         return null;
     }
 
+    public String getMacAddress() {
+        return null;
+    }
+
     public LocationProvider getTTLocation() {
         return null;
     }

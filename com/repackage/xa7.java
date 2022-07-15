@@ -1,118 +1,77 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.NewFloorInfo;
 /* loaded from: classes7.dex */
 public class xa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public List<ya7> c;
-    public ArrayList<Integer> d;
 
-    public xa7() {
+    public static void a(oa7 oa7Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeLI(65536, null, oa7Var, i) == null) || oa7Var == null || oa7Var.D() == null || ListUtils.isEmpty(oa7Var.m()) || oa7Var.m().size() < 2) {
+            return;
         }
-    }
-
-    public static xa7 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            xa7 xa7Var = new xa7();
-            xa7Var.h(jSONObject.optInt("follow_forum_number"));
-            xa7Var.i(jSONObject.optInt("interest_board_stage"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("day_config");
-            if (optJSONArray != null) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    arrayList.add(ya7.c(optJSONArray.optJSONObject(i)));
+        List<NewFloorInfo> m = oa7Var.m();
+        if (m.size() > 2) {
+            if (StringHelper.equals(oa7Var.D().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                if (m.get(1) != null) {
+                    if (m.get(1).is_floor.intValue() == 0) {
+                        b(oa7Var, 12, i);
+                        return;
+                    } else if (m.get(1).is_floor.intValue() == 1) {
+                        b(oa7Var, 13, i);
+                        return;
+                    } else {
+                        return;
+                    }
                 }
-                xa7Var.g(arrayList);
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("class_id");
-            if (optJSONArray2 != null) {
-                ArrayList<Integer> arrayList2 = new ArrayList<>();
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    arrayList2.add(Integer.valueOf(optJSONArray2.optInt(i2)));
+                return;
+            } else if (m.get(1) != null) {
+                if (m.get(1).is_floor.intValue() == 0) {
+                    if (oa7Var.x() != null) {
+                        if (StringHelper.equals(oa7Var.x().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                            b(oa7Var, 14, i);
+                            return;
+                        } else {
+                            b(oa7Var, 15, i);
+                            return;
+                        }
+                    }
+                    return;
+                } else if (m.get(1).is_floor.intValue() == 1) {
+                    b(oa7Var, 16, i);
+                    return;
+                } else {
+                    return;
                 }
-                xa7Var.f(arrayList2);
+            } else {
+                return;
             }
-            return xa7Var;
         }
-        return (xa7) invokeL.objValue;
+        b(oa7Var, 11, i);
     }
 
-    public ArrayList<Integer> a() {
-        InterceptResult invokeV;
+    public static void b(oa7 oa7Var, int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
-    }
-
-    public List<ya7> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (List) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void f(ArrayList<Integer> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.d = arrayList;
+        if (!(interceptable == null || interceptable.invokeLII(65537, null, oa7Var, i, i2) == null) || oa7Var == null || oa7Var.A() == null || oa7Var.o() == null) {
+            return;
         }
-    }
-
-    public void g(List<ya7> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.c = list;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
-        }
+        StatisticItem statisticItem = new StatisticItem("c12928");
+        statisticItem.param("tid", oa7Var.o().f);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+        statisticItem.param("fid", oa7Var.o().e);
+        statisticItem.param("fname", oa7Var.o().d);
+        statisticItem.param("pid", oa7Var.t());
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", i2);
+        TiebaStatic.log(statisticItem);
     }
 }

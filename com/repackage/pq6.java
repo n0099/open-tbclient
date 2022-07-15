@@ -1,68 +1,57 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.recyclerview.widget.DiffUtil;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class pq6 {
+public final class pq6 extends DiffUtil.ItemCallback<VoiceRoomWrapper> {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755401220, "Lcom/repackage/pq6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public pq6() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755401220, "Lcom/repackage/pq6;");
-        }
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            a++;
-            StatisticItem.make(TbadkCoreStatisticKey.KEY_FRS_REQUEST_PAGE).eventStat();
-        }
-    }
-
-    public static String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? String.format(Locale.CHINA, "%s%d", "#FunAd#", Integer.valueOf(String.format(Locale.CHINA, "%d%d", Long.valueOf(System.currentTimeMillis()), Integer.valueOf(i)).hashCode())) : (String) invokeI.objValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return (System.currentTimeMillis() + str).hashCode() & Integer.MAX_VALUE;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return str.startsWith("#FunAd#");
         }
-        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
+    /* renamed from: a */
+    public boolean areContentsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, oldItem, newItem)) == null) {
+            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
+            Intrinsics.checkNotNullParameter(newItem, "newItem");
+            return Intrinsics.areEqual(oldItem.getVoiceRoom().status, newItem.getVoiceRoom().status) && Intrinsics.areEqual(oldItem.getVoiceRoom().joined_num, newItem.getVoiceRoom().joined_num);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
+    /* renamed from: b */
+    public boolean areItemsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, oldItem, newItem)) == null) {
+            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
+            Intrinsics.checkNotNullParameter(newItem, "newItem");
+            return Intrinsics.areEqual(oldItem.getVoiceRoom().room_id, newItem.getVoiceRoom().room_id);
+        }
+        return invokeLL.booleanValue;
     }
 }

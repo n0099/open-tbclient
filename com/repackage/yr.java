@@ -6,15 +6,15 @@ import android.content.Context;
 public interface yr {
     Activity a();
 
-    zr b();
+    void b(Activity activity);
 
-    void c(Activity activity);
-
-    boolean d();
+    boolean c();
 
     Context getAppContext();
 
     String getAppVersion();
+
+    zr getEnv();
 
     String getSdkVersion();
 }

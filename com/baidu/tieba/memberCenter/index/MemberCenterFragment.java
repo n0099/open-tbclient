@@ -30,8 +30,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl4;
 import com.repackage.ni;
+import com.repackage.rl4;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
 public class MemberCenterFragment extends BaseFragment {
@@ -80,7 +80,7 @@ public class MemberCenterFragment extends BaseFragment {
                     }
                     if (StringUtils.isNull(str) || !str.contains(UrlSchemaHelper.JUMP_TO_THIS_PAGE)) {
                         if (!StringUtils.isNull(str) && str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
-                            cl4.t(this.a.getPageContext().getContext(), null, str, false, true, false, false, false);
+                            rl4.t(this.a.getPageContext().getContext(), null, str, false, true, false, false, false);
                             return true;
                         }
                         UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{str}, true);
@@ -122,7 +122,7 @@ public class MemberCenterFragment extends BaseFragment {
         public void E0(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                this.a.y1();
+                this.a.A1();
             }
         }
     }
@@ -156,9 +156,9 @@ public class MemberCenterFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 if (ni.z()) {
-                    this.a.y1();
+                    this.a.A1();
                 } else {
-                    this.a.x1();
+                    this.a.y1();
                 }
             }
         }
@@ -192,7 +192,7 @@ public class MemberCenterFragment extends BaseFragment {
         public void a(WebView webView, int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, webView, i, str, str2) == null) {
-                this.a.x1();
+                this.a.y1();
             }
         }
     }
@@ -225,7 +225,7 @@ public class MemberCenterFragment extends BaseFragment {
         public void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, webView, sslErrorHandler, sslError) == null) {
-                this.a.x1();
+                this.a.y1();
             }
         }
     }
@@ -246,9 +246,19 @@ public class MemberCenterFragment extends BaseFragment {
         this.g = false;
     }
 
+    public final void A1() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e == null || this.b == null) {
+            return;
+        }
+        hideNetRefreshView(this.d);
+        this.e.setVisibility(0);
+        this.b.setVisibility(8);
+    }
+
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e == null || this.g) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.e == null || this.g) {
             return;
         }
         refresh();
@@ -257,7 +267,7 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
             if (this.mSkinType == i) {
                 return;
@@ -265,9 +275,9 @@ public class MemberCenterFragment extends BaseFragment {
             this.mSkinType = i;
             if (this.e != null) {
                 if (StringUtils.isNull(this.f)) {
-                    t1(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
+                    u1(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
                 } else {
-                    t1(this.f);
+                    u1(this.f);
                 }
             }
             this.b.onChangeSkinType(getPageContext(), i);
@@ -278,7 +288,7 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
         }
     }
@@ -287,15 +297,15 @@ public class MemberCenterFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03c1, (ViewGroup) null);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03c4, (ViewGroup) null);
             this.c = inflate;
-            this.a = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f092391);
-            this.b = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09238f);
-            u1();
-            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f091398);
-            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f09240a);
+            this.a = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f092439);
+            this.b = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f092437);
             v1();
+            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f09143e);
+            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f0924ca);
+            w1();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             TiebaStatic.log("c10387");
             return this.c;
@@ -306,7 +316,7 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             QuickWebView quickWebView = this.e;
             if (quickWebView != null) {
                 quickWebView.destroy();
@@ -318,7 +328,7 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             refresh();
         }
     }
@@ -326,7 +336,7 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPrimary();
             if (this.e == null || this.g) {
                 return;
@@ -338,43 +348,43 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             super.onUserChanged(z);
         }
     }
 
     public final void refresh() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.g = true;
             if (StringUtils.isNull(this.f)) {
-                t1(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
+                u1(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
                 return;
             }
-            t1(this.f);
+            u1(this.f);
         }
     }
 
-    public final void t1(String str) {
+    public final void u1(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || this.e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || this.e == null) {
             return;
         }
         if (ni.A()) {
-            y1();
+            A1();
             this.e.loadUrl(str);
             return;
         }
-        x1();
+        y1();
     }
 
-    public void u1() {
+    public void v1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09238f);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f092437);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.b.setTitleText(R.string.obfuscated_res_0x7f0f0ab3);
+            this.b.setTitleText(R.string.obfuscated_res_0x7f0f0aa1);
             SkinManager.setNavbarTitleColor(this.b.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
             if (this.b.getBackImageView() != null) {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b.getBackImageView(), R.drawable.obfuscated_res_0x7f08060d, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -383,9 +393,9 @@ public class MemberCenterFragment extends BaseFragment {
         }
     }
 
-    public final void v1() {
+    public final void w1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.e.setHorizontalScrollBarEnabled(false);
             this.e.requestDisallowInterceptTouchEvent(true);
             this.e.setOnLoadUrlListener(new a(this));
@@ -396,31 +406,21 @@ public class MemberCenterFragment extends BaseFragment {
         }
     }
 
-    public void w1(String str) {
+    public void x1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.f = str;
         }
     }
 
-    public final void x1() {
+    public final void y1() {
         QuickWebView quickWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (quickWebView = this.e) == null || this.b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (quickWebView = this.e) == null || this.b == null) {
             return;
         }
         quickWebView.setVisibility(8);
         this.b.setVisibility(0);
-        showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c37), true);
-    }
-
-    public final void y1() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.e == null || this.b == null) {
-            return;
-        }
-        hideNetRefreshView(this.d);
-        this.e.setVisibility(0);
-        this.b.setVisibility(8);
+        showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2b), true);
     }
 }

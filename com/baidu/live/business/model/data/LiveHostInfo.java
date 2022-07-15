@@ -21,7 +21,7 @@ public class LiveHostInfo implements Parcelable {
     public String uk;
 
     /* loaded from: classes2.dex */
-    public class a implements Parcelable.Creator<LiveHostInfo> {
+    public static class a implements Parcelable.Creator<LiveHostInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

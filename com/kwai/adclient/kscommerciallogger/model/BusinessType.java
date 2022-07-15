@@ -18,6 +18,7 @@ public final class BusinessType {
     public static final BusinessType AD_INTERSTITIAL;
     public static final BusinessType AD_NATIVE;
     public static final BusinessType AD_REWARD;
+    public static final BusinessType AD_SDK_INIT;
     public static final BusinessType AD_SPLASH;
     public static final BusinessType CU_FEED;
     public static final BusinessType CU_FEED_SLIDE;
@@ -36,6 +37,7 @@ public final class BusinessType {
     public static final BusinessType EU_LIVE_SLIDE;
     public static final BusinessType OTHER;
     public static final BusinessType TACHIKOMA;
+    public static final BusinessType WEB_CACHE;
     public transient /* synthetic */ FieldHolder $fh;
     public String value;
 
@@ -75,9 +77,11 @@ public final class BusinessType {
         CU_WALLPAPER_SLIDE = new BusinessType("CU_WALLPAPER_SLIDE", 20, "CU_WALLPAPER_SLIDE");
         EU_LIVE_SLIDE = new BusinessType("EU_LIVE_SLIDE", 21, "EU_LIVE_SLIDE");
         EU_LIVE_REPLAY = new BusinessType("EU_LIVE_REPLAY", 22, "EU_LIVE_REPLAY");
-        BusinessType businessType = new BusinessType("OTHER", 23, "OTHER");
+        WEB_CACHE = new BusinessType("WEB_CACHE", 23, "WEB_CACHE");
+        AD_SDK_INIT = new BusinessType("AD_SDK_INIT", 24, "AD_SDK_INIT");
+        BusinessType businessType = new BusinessType("OTHER", 25, "OTHER");
         OTHER = businessType;
-        $VALUES = new BusinessType[]{TACHIKOMA, AD_SPLASH, AD_INTERSTITIAL, AD_FULLSCREEN, AD_REWARD, AD_FEED, AD_NATIVE, AD_DRAW, CU_SLIDE, CU_PROFILE, CU_PROFILE_SLIDE, CU_FEED, CU_FEED_SLIDE, CU_HOTSPOT_ENTRY, CU_HOTSPOT_SLIDE, CU_HORIZONTAL_FEED, CU_VIDEO_DETAIL, CU_IMAGE_TEXT_FEED, CU_IMAGE_TEXT_DETAIL, CU_WALLPAPER_FEED, CU_WALLPAPER_SLIDE, EU_LIVE_SLIDE, EU_LIVE_REPLAY, businessType};
+        $VALUES = new BusinessType[]{TACHIKOMA, AD_SPLASH, AD_INTERSTITIAL, AD_FULLSCREEN, AD_REWARD, AD_FEED, AD_NATIVE, AD_DRAW, CU_SLIDE, CU_PROFILE, CU_PROFILE_SLIDE, CU_FEED, CU_FEED_SLIDE, CU_HOTSPOT_ENTRY, CU_HOTSPOT_SLIDE, CU_HORIZONTAL_FEED, CU_VIDEO_DETAIL, CU_IMAGE_TEXT_FEED, CU_IMAGE_TEXT_DETAIL, CU_WALLPAPER_FEED, CU_WALLPAPER_SLIDE, EU_LIVE_SLIDE, EU_LIVE_REPLAY, WEB_CACHE, AD_SDK_INIT, businessType};
     }
 
     public BusinessType(String str, int i, String str2) {

@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ei;
 import com.repackage.ng;
 import com.repackage.pi;
-import com.repackage.yd7;
+import com.repackage.qe7;
 /* loaded from: classes3.dex */
 public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +48,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public long j;
     public String k;
     public ShareItem l;
-    public yd7 m;
+    public qe7 m;
 
     /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnDismissListener {
@@ -217,14 +217,14 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
             return;
         }
         ei.a(shareItem.w);
-        pi.O(getApplicationContext(), getResources().getString(R.string.obfuscated_res_0x7f0f043e));
+        pi.O(getApplicationContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0446));
     }
 
     public final void G1() {
-        yd7 yd7Var;
+        qe7 qe7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (yd7Var = this.m) != null) {
-            if (ListUtils.isEmpty(yd7Var.b())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (qe7Var = this.m) != null) {
+            if (ListUtils.isEmpty(qe7Var.b())) {
                 this.m.c();
             }
             this.m.e(ng.g(this.g, 0L), this.i, this.l);
@@ -245,19 +245,19 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         shareDialogConfig.setOnDismissListener(new a(this));
         if (TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.i)) {
             if (this.j > 0) {
-                shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f114e, R.drawable.obfuscated_res_0x7f08099b, new c(this));
+                shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f1145, R.drawable.obfuscated_res_0x7f0809a4, new c(this));
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VOICE_ROOM_SHARE_PANEL);
                 statisticItem.addParam("room_id", this.j);
                 statisticItem.addParam("obj_type", this.k);
                 statisticItem.eventStat();
             }
         } else {
-            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0244, R.drawable.obfuscated_res_0x7f0808db, new b(this));
+            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0246, R.drawable.obfuscated_res_0x7f0808e4, new b(this));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        yd7 yd7Var = this.m;
-        if (yd7Var != null) {
-            yd7Var.c();
+        qe7 qe7Var = this.m;
+        if (qe7Var != null) {
+            qe7Var.c();
         }
     }
 
@@ -279,7 +279,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.m = new yd7(getPageContext());
+            this.m = new qe7(getPageContext());
             if (bundle != null) {
                 this.a = bundle.getString("title");
                 this.b = bundle.getString("content");
@@ -325,9 +325,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            yd7 yd7Var = this.m;
-            if (yd7Var != null) {
-                yd7Var.d();
+            qe7 qe7Var = this.m;
+            if (qe7Var != null) {
+                qe7Var.d();
             }
         }
     }

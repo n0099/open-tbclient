@@ -1,51 +1,17 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
+import javax.annotation.CheckForNull;
 /* loaded from: classes7.dex */
-public class wl9 extends Handler {
+public final class wl9 extends vl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ km9 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wl9(km9 km9Var, Looper looper) {
-        super(looper);
+    public static boolean a(@CheckForNull Object obj, @CheckForNull Object obj2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {km9Var, looper};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = km9Var;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
-            this.a.e = true;
-            this.a.k.removeMessages(11);
-            int wt = this.a.f() ? this.a.f.getWt() : 0;
-            un9 a = yn9.a(this.a.b);
-            a.e(new co9(this.a.f), 2002, wt * 1000);
-            a.m();
-            this.a.h.onFail(PBError.TIMEOUT);
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
     }
 }

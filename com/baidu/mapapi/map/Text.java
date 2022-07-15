@@ -15,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import mapsdkvi.com.gdi.bgl.android.java.EnvDrawText;
 /* loaded from: classes2.dex */
 public final class Text extends Overlay {
@@ -109,7 +108,7 @@ public final class Text extends Overlay {
                     f = 0.5f;
                 }
                 bundle.putFloat("align_y", f);
-                bundle.putFloat(AnimationProperty.ROTATE, this.i);
+                bundle.putFloat("rotate", this.i);
                 bundle.putInt("update", this.j);
                 return bundle;
             }

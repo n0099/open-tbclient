@@ -1,158 +1,157 @@
 package com.kwad.sdk.utils;
 
+import android.app.AppOpsManager;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
+import android.os.Binder;
 import android.os.Build;
-import android.os.Environment;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.api.core.fragment.FileProvider;
-import java.io.File;
+import android.os.Process;
+import android.provider.Settings;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class ag {
-    public static String a(String str) {
-        PackageInfo packageArchiveInfo;
-        if (!new File(str).exists()) {
-            com.kwad.sdk.core.d.a.d("PackageUtil", "cannot save package, download apk is not exists.");
-            return null;
-        }
-        Context context = KsAdSDKImpl.get().getContext();
-        if (context == null || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(str, 1)) == null) {
-            return null;
-        }
-        return packageArchiveInfo.applicationInfo.packageName;
+public final class ag {
+    public static Map<String, Integer> a;
+    public static Set<String> b;
+    public static Method c;
+
+    static {
+        HashSet hashSet = new HashSet();
+        b = hashSet;
+        hashSet.add("android.permission.REQUEST_INSTALL_PACKAGES");
+        b.add("android.permission.WRITE_SETTINGS");
+        b.add("android.permission.SYSTEM_ALERT_WINDOW");
     }
 
-    public static void a(String str, String str2) {
-        String str3;
-        com.kwad.sdk.core.d.a.d("PackageUtil", "saveDownloadFile " + str2);
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            str3 = "cannot save package, has no download apk info.";
-        } else {
-            File file = new File(str);
-            if (file.exists()) {
-                Context context = KsAdSDKImpl.get().getContext();
-                if (context == null) {
-                    return;
+    public static int a(Context context, String str) {
+        int b2;
+        if (a == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 4096);
+                if (packageInfo != null) {
+                    a(packageInfo.requestedPermissions);
                 }
-                as.b(context, str2, file.length());
-                try {
-                    as.a(context, str2, c.b(file));
-                    return;
-                } catch (Exception e) {
-                    com.kwad.sdk.core.d.a.a(e);
-                    return;
+            } catch (PackageManager.NameNotFoundException unused) {
+            }
+        }
+        if (!b.contains(str) || (b2 = b(context, str)) == -2) {
+            int c2 = c(context, str);
+            return c2 != -2 ? c2 : context.checkPermission(str, Process.myPid(), Process.myUid());
+        }
+        return b2;
+    }
+
+    public static String a(String str) {
+        if (str == null) {
+            return null;
+        }
+        int lastIndexOf = str.lastIndexOf(".");
+        if (lastIndexOf < 0) {
+            return str;
+        }
+        try {
+            return str.substring(lastIndexOf + 1);
+        } catch (Exception unused) {
+            return str;
+        }
+    }
+
+    public static void a(String[] strArr) {
+        if (Build.VERSION.SDK_INT < 19 || strArr == null) {
+            return;
+        }
+        a = new HashMap();
+        for (String str : strArr) {
+            try {
+                int intValue = ((Integer) q.a((Class<?>) AppOpsManager.class, "OP_" + a(str))).intValue();
+                if (intValue >= 0) {
+                    a.put(str, Integer.valueOf(intValue));
+                }
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static boolean a(Context context) {
+        int i;
+        try {
+            i = Settings.Secure.getInt(context.getContentResolver(), "accessibility_enabled");
+        } catch (Throwable unused) {
+            i = 0;
+        }
+        return i == 1;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:29:0x004b A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int b(Context context, String str) {
+        char c2;
+        int hashCode = str.hashCode();
+        if (hashCode == -2078357533) {
+            if (str.equals("android.permission.WRITE_SETTINGS")) {
+                c2 = 1;
+            }
+            c2 = 65535;
+        } else if (hashCode != -1561629405) {
+            if (hashCode == 1777263169 && str.equals("android.permission.REQUEST_INSTALL_PACKAGES")) {
+                c2 = 0;
+            }
+            c2 = 65535;
+        } else {
+            if (str.equals("android.permission.SYSTEM_ALERT_WINDOW")) {
+                c2 = 2;
+            }
+            c2 = 65535;
+        }
+        if (c2 == 0) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                if (context.getPackageManager().canRequestPackageInstalls()) {
+                    return 0;
                 }
             }
-            str3 = "cannot save package, download apk is not exists.";
+            return -2;
+        } else if (c2 != 1) {
+            if (c2 == 2 && Build.VERSION.SDK_INT >= 23) {
+                return Settings.canDrawOverlays(context) ? 0 : -1;
+            }
+            return -2;
+        } else {
+            if (Build.VERSION.SDK_INT >= 23) {
+                if (Settings.System.canWrite(context)) {
+                    return 0;
+                }
+            }
+            return -2;
         }
-        com.kwad.sdk.core.d.a.d("PackageUtil", str3);
     }
 
-    public static boolean a(Context context, String str) {
-        try {
-            return context.getPackageManager().getPackageInfo(str, 0) != null;
-        } catch (Exception unused) {
-            return false;
+    public static int c(Context context, String str) {
+        if (str == null) {
+            return -2;
         }
-    }
-
-    public static int b(@Nullable Context context, String str) {
-        if (context == null || str == null) {
-            return -1;
-        }
-        if ((context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29 || Environment.isExternalStorageLegacy()) && ContextCompat.checkSelfPermission(context, "android.permission.READ_EXTERNAL_STORAGE") == 0) {
-            String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-            File file = new File(absolutePath + "/Android/data/" + str);
-            return (file.exists() && file.isDirectory()) ? 1 : 0;
-        }
-        return -1;
-    }
-
-    public static int b(String str, String str2) {
-        String str3;
-        ApplicationInfo applicationInfo;
-        com.kwad.sdk.core.d.a.d("PackageUtil", "isPackageChanged " + str + " packageName " + str2);
-        Context context = KsAdSDKImpl.get().getContext();
-        if (context == null) {
+        if (Build.VERSION.SDK_INT < 19) {
             return 0;
         }
-        long b = as.b(context, str);
-        String c = as.c(context, str);
-        if (TextUtils.isEmpty(c) || b <= 0) {
-            str3 = "cannot judge package, has no download apk info.";
-        } else {
+        if (a.containsKey(str)) {
+            int intValue = a.get(str).intValue();
             try {
-                PackageInfo packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(str2, 0);
-                if (TextUtils.isEmpty(str2) || packageInfo == null || (applicationInfo = packageInfo.applicationInfo) == null || TextUtils.isEmpty(applicationInfo.publicSourceDir)) {
-                    str3 = "cannot judge package, cannot get installed apk info.";
-                } else {
-                    File file = new File(packageInfo.applicationInfo.publicSourceDir);
-                    if (!file.exists()) {
-                        str3 = "cannot judge package, insgtalled apk is not exists.";
-                    } else if (b != file.length()) {
-                        return 1;
-                    } else {
-                        if (TextUtils.isEmpty(c)) {
-                            str3 = "cannot judge package, cannot calculate md5 of download file.";
-                        } else {
-                            String b2 = c.b(file);
-                            if (!TextUtils.isEmpty(b2)) {
-                                return c.equalsIgnoreCase(b2) ? 2 : 1;
-                            }
-                            str3 = "cannot judge package, cannot calculate md5 of installed file.";
-                        }
-                    }
+                if (c == null) {
+                    Method declaredMethod = AppOpsManager.class.getDeclaredMethod("checkOp", Integer.TYPE, Integer.TYPE, String.class);
+                    c = declaredMethod;
+                    declaredMethod.setAccessible(true);
                 }
-            } catch (PackageManager.NameNotFoundException e) {
-                com.kwad.sdk.core.d.a.a(e);
+                return ((Integer) c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.b.a(e);
                 return 0;
             }
         }
-        com.kwad.sdk.core.d.a.d("PackageUtil", str3);
-        return 0;
-    }
-
-    public static boolean c(@Nullable Context context, @Nullable String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return false;
-        }
-        try {
-            Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
-            if (launchIntentForPackage == null) {
-                return false;
-            }
-            launchIntentForPackage.setFlags(337641472);
-            context.startActivity(launchIntentForPackage);
-            return true;
-        } catch (Exception unused) {
-            return false;
-        }
-    }
-
-    public static void d(Context context, String str) {
-        if (context != null && !TextUtils.isEmpty(str)) {
-            try {
-                File file = new File(str);
-                Intent intent = new Intent("android.intent.action.VIEW");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                intent.addFlags(3);
-                Uri uriForFile = Build.VERSION.SDK_INT >= 24 ? FileProvider.getUriForFile(context, context.getPackageName() + ".adFileProvider", file) : Uri.fromFile(file);
-                intent.setDataAndType(uriForFile, "application/vnd.android.package-archive");
-                for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 65536)) {
-                    context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 3);
-                }
-                context.startActivity(intent);
-            } catch (Exception unused) {
-            }
-        }
+        return -2;
     }
 }

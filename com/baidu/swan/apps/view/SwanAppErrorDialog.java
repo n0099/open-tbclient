@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cg1;
-import com.repackage.md3;
+import com.repackage.be3;
+import com.repackage.rg1;
 /* loaded from: classes2.dex */
 public class SwanAppErrorDialog extends BaseActivityDialog {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +32,7 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
                 return;
             }
         }
-        boolean z = cg1.a;
+        boolean z = rg1.a;
     }
 
     public SwanAppErrorDialog() {
@@ -59,10 +59,10 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = md3.c0(this);
+            int c0 = be3.c0(this);
             super.onCreate(bundle);
-            md3.g(this, c0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090781);
+            be3.g(this, c0);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090788);
             this.r = textView;
             textView.setGravity(17);
         }

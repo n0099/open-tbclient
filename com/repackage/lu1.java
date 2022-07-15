@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class lu1 extends ys1 {
+public class lu1 extends nt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gt1 a;
+    public int a;
 
     public lu1() {
         Interceptable interceptable = $ic;
@@ -27,27 +27,29 @@ public class lu1 extends ys1 {
         }
     }
 
-    @Override // com.repackage.ys1
-    public void a(zs1 zs1Var, Canvas canvas) {
-        gt1 gt1Var;
+    @Override // com.repackage.nt1
+    public void a(ot1 ot1Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, zs1Var, canvas) == null) && (gt1Var = this.a) != null && gt1Var.d()) {
-            if (this.a.c()) {
-                zs1Var.c.setShader(this.a.b());
-                return;
-            }
-            zs1Var.m = this.a.a();
-            zs1Var.c.setColor(this.a.a());
-            zs1Var.b.setShader(null);
-        }
-    }
-
-    @Override // com.repackage.ys1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) || (i = this.a) <= 0) {
             return;
         }
-        this.a = new gt1(jSONArray);
+        ot1Var.e.setTextSize(i);
+    }
+
+    @Override // com.repackage.nt1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    this.a = yd3.g((float) jSONArray.optDouble(0));
+                }
+            } catch (Exception e) {
+                if (rg1.a) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

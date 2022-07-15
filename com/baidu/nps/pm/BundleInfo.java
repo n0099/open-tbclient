@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.TKBase;
 import com.tencent.open.SocialOperation;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -148,7 +147,7 @@ public class BundleInfo implements IBundleInfo {
             ArrayList arrayList3 = arrayList2;
             int columnIndex15 = cursor.getColumnIndex("icon_url");
             int columnIndex16 = cursor.getColumnIndex("dependence");
-            int columnIndex17 = cursor.getColumnIndex(TKBase.VISIBILITY_VISIBLE);
+            int columnIndex17 = cursor.getColumnIndex("visible");
             int columnIndex18 = cursor.getColumnIndex("removalbe");
             int columnIndex19 = cursor.getColumnIndex("size");
             int columnIndex20 = cursor.getColumnIndex("need_remove");
@@ -294,7 +293,7 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("download_url", bundleInfo.getDownloadUrl());
             contentValues.put("icon_url", bundleInfo.getIconUrl());
             contentValues.put("dependence", bundleInfo.getDependence());
-            contentValues.put(TKBase.VISIBILITY_VISIBLE, Boolean.valueOf(bundleInfo.isVisible()));
+            contentValues.put("visible", Boolean.valueOf(bundleInfo.isVisible()));
             contentValues.put("removalbe", Boolean.valueOf(bundleInfo.isRemovable()));
             contentValues.put("size", Long.valueOf(bundleInfo.getSize()));
             contentValues.put("need_remove", Boolean.valueOf(bundleInfo.isNeedRemove()));
@@ -851,7 +850,7 @@ public class BundleInfo implements IBundleInfo {
             bundleInfo.setDownloadUrl(contentValues.getAsString("download_url"));
             bundleInfo.setIconUrl(contentValues.getAsString("icon_url"));
             bundleInfo.setDependence(contentValues.getAsString("dependence"));
-            bundleInfo.setVisible(contentValues.getAsBoolean(TKBase.VISIBILITY_VISIBLE).booleanValue());
+            bundleInfo.setVisible(contentValues.getAsBoolean("visible").booleanValue());
             bundleInfo.setRemovable(contentValues.getAsBoolean("removalbe").booleanValue());
             bundleInfo.setSize(contentValues.getAsLong("size").longValue());
             bundleInfo.setNeedRemove(contentValues.getAsBoolean("need_remove").booleanValue());
@@ -893,7 +892,7 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("download_url", iBundleInfo.getDownloadUrl());
             contentValues.put("icon_url", iBundleInfo.getIconUrl());
             contentValues.put("dependence", iBundleInfo.getDependence());
-            contentValues.put(TKBase.VISIBILITY_VISIBLE, Boolean.valueOf(iBundleInfo.isVisible()));
+            contentValues.put("visible", Boolean.valueOf(iBundleInfo.isVisible()));
             contentValues.put("removalbe", Boolean.valueOf(iBundleInfo.isRemovable()));
             contentValues.put("size", Long.valueOf(iBundleInfo.getSize()));
             contentValues.put("need_remove", Boolean.valueOf(iBundleInfo.isNeedRemove()));

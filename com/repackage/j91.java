@@ -1,33 +1,75 @@
 package com.repackage;
 
-import android.content.res.ColorStateList;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import android.os.Build;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.auth.NTLMEngineImpl;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class j91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ColorStateList a(int i) {
-        InterceptResult invokeI;
+    public static Bundle a(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            int i2 = i - (-805306368);
-            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842912, 16842919}, new int[]{-16842912, 16842919}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-520093696), LaunchTaskConstants.OTHER_PROCESS, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH});
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
+            Bundle bundle = new Bundle();
+            for (String str : map.keySet()) {
+                bundle.putString(str, map.get(str));
+            }
+            return bundle;
         }
-        return (ColorStateList) invokeI.objValue;
+        return (Bundle) invokeL.objValue;
     }
 
-    public static ColorStateList b(int i) {
-        InterceptResult invokeI;
+    public static JSONObject b(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            int i2 = i - (-1728053248);
-            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842919, -16842912}, new int[]{16842919, 16842912}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-1442840576), -4539718, i2, i2, i | (-16777216), -1118482});
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            for (String str : map.keySet()) {
+                jSONObject.put(str, map.get(str));
+            }
+            return jSONObject;
         }
-        return (ColorStateList) invokeI.objValue;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static <K, V> Map<K, V> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return new ArrayMap();
+            }
+            return new HashMap();
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public static Map<String, String> d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            Map<String, String> c = c();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!TextUtils.isEmpty(next)) {
+                        c.put(next, jSONObject.optString(next));
+                    }
+                }
+            }
+            return c;
+        }
+        return (Map) invokeL.objValue;
     }
 }

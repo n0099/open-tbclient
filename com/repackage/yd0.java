@@ -1,198 +1,161 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.DecimalFormat;
+import java.util.Vector;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
 public class yd0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Vector<Integer> a;
+    public long b;
+    public long c;
+    public Vector<Integer> d;
 
-    public static void a(Closeable closeable) {
+    public yd0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        try {
-            closeable.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.a = new Vector<>();
+        this.c = 0L;
+        this.d = new Vector<>();
     }
 
-    public static void b(File file) {
+    public String a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, file) == null) {
-            c(file, true);
-        }
-    }
-
-    public static void c(File file, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, file, z) == null) && file != null && file.isDirectory()) {
-            File[] listFiles = file.listFiles();
-            if (listFiles != null && listFiles.length > 0) {
-                for (File file2 : listFiles) {
-                    if (file2.isDirectory()) {
-                        c(file2, z);
-                    } else {
-                        file2.delete();
-                    }
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            Vector<Integer> vector = this.a;
+            if (vector == null || vector.size() == 0) {
+                return "";
+            }
+            JSONArray jSONArray = new JSONArray();
+            float f = 0.0f;
+            int size = this.a.size();
+            for (int i = 0; i < size; i++) {
+                Integer num = this.a.get(i);
+                if (num != null) {
+                    f += num.intValue();
+                    jSONArray.put(num);
                 }
             }
             if (z) {
-                file.delete();
+                String jSONArray2 = jSONArray.toString();
+                return TextUtils.isEmpty(jSONArray2) ? "" : jSONArray2;
             }
+            return new DecimalFormat(".0").format(f / size);
         }
+        return (String) invokeZ.objValue;
     }
 
-    public static boolean d(File file) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            if (file != null && file.exists()) {
-                return file.delete();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Vector<Integer> vector = this.a;
+            if (vector == null || vector.size() == 0) {
+                return 0;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) {
-            if (file.isDirectory()) {
-                b(file);
-            } else {
-                d(file);
-            }
-        }
-    }
-
-    public static boolean f(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) ? file != null && file.exists() && file.isFile() : invokeL.booleanValue;
-    }
-
-    public static String g(Context context, String str) {
-        InterceptResult invokeLL;
-        InputStreamReader inputStreamReader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            BufferedReader bufferedReader = null;
-            try {
-                inputStreamReader = new InputStreamReader(context.getAssets().open(str));
-                try {
-                    try {
-                        BufferedReader bufferedReader2 = new BufferedReader(inputStreamReader);
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader2.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                sb.append(readLine);
-                            } catch (Exception e) {
-                                e = e;
-                                bufferedReader = bufferedReader2;
-                                e.printStackTrace();
-                                a(bufferedReader);
-                                a(inputStreamReader);
-                                return sb.toString();
-                            } catch (Throwable th) {
-                                th = th;
-                                bufferedReader = bufferedReader2;
-                                a(bufferedReader);
-                                a(inputStreamReader);
-                                throw th;
-                            }
-                        }
-                        a(bufferedReader2);
-                    } catch (Exception e2) {
-                        e = e2;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                inputStreamReader = null;
-            } catch (Throwable th3) {
-                th = th3;
-                inputStreamReader = null;
-            }
-            a(inputStreamReader);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
-    public static String h(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, file)) != null) {
-            return (String) invokeL.objValue;
-        }
-        ?? f = f(file);
-        FileInputStream fileInputStream2 = null;
-        try {
-            if (f != 0) {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                    try {
-                        String b = ae0.b(fileInputStream);
-                        ae0.a(fileInputStream);
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        return b;
-                    } catch (IOException e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        ae0.a(fileInputStream);
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                        return null;
-                    }
-                } catch (IOException e4) {
-                    e = e4;
-                    fileInputStream = null;
-                } catch (Throwable th) {
-                    th = th;
-                    ae0.a(fileInputStream2);
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
-                        }
-                    }
-                    throw th;
+            int size = this.a.size();
+            int i = 0;
+            for (int i2 = 0; i2 < size; i2++) {
+                Integer num = this.a.get(i2);
+                if (num != null) {
+                    i += num.intValue();
                 }
             }
-            return null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream2 = f;
+            float f = (i * 1.0f) / size;
+            if (f == 0.0f) {
+                return 0;
+            }
+            return Math.round(1000.0f / f);
+        }
+        return invokeV.intValue;
+    }
+
+    public String c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            Vector<Integer> vector = this.d;
+            if (vector == null || vector.size() == 0) {
+                return "";
+            }
+            JSONArray jSONArray = new JSONArray();
+            float f = 0.0f;
+            int size = this.d.size();
+            for (int i = 0; i < size; i++) {
+                Integer num = this.d.get(i);
+                if (num != null) {
+                    f += num.intValue();
+                    jSONArray.put(num);
+                }
+            }
+            if (z) {
+                String jSONArray2 = jSONArray.toString();
+                return TextUtils.isEmpty(jSONArray2) ? "" : jSONArray2;
+            }
+            return new DecimalFormat(".0").format(f / size);
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.b <= 0) {
+                this.b = System.currentTimeMillis();
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            int i = (int) (currentTimeMillis - this.b);
+            if (i < 0) {
+                return;
+            }
+            this.a.add(Integer.valueOf(i));
+            this.b = currentTimeMillis;
+        }
+    }
+
+    public void e() {
+        int currentTimeMillis;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.c <= 0 || (currentTimeMillis = (int) (System.currentTimeMillis() - this.c)) < 0) {
+            return;
+        }
+        this.d.add(Integer.valueOf(currentTimeMillis));
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c = System.currentTimeMillis();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = 0L;
+            this.c = 0L;
+            this.a.clear();
+            this.d.clear();
         }
     }
 }

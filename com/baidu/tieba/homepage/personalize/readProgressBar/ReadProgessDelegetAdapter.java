@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.an;
-import com.repackage.fx5;
+import com.repackage.cy5;
+import com.repackage.ez6;
+import com.repackage.fz6;
 import com.repackage.nn;
-import com.repackage.oy6;
-import com.repackage.py6;
 import com.repackage.xn;
 /* loaded from: classes3.dex */
-public class ReadProgessDelegetAdapter extends an<py6, ViewHolder> {
+public class ReadProgessDelegetAdapter extends an<fz6, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> i;
@@ -33,16 +33,16 @@ public class ReadProgessDelegetAdapter extends an<py6, ViewHolder> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public oy6 a;
+        public ez6 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ViewHolder(oy6 oy6Var) {
-            super(oy6Var.h());
+        public ViewHolder(ez6 ez6Var) {
+            super(ez6Var.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oy6Var};
+                Object[] objArr = {ez6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,7 +53,7 @@ public class ReadProgessDelegetAdapter extends an<py6, ViewHolder> {
                     return;
                 }
             }
-            this.a = oy6Var;
+            this.a = ez6Var;
         }
     }
 
@@ -119,18 +119,18 @@ public class ReadProgessDelegetAdapter extends an<py6, ViewHolder> {
     public ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ViewHolder(new oy6(this.i, viewGroup)) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ViewHolder(new ez6(this.i, viewGroup)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.an
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, py6 py6Var, ViewHolder viewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, fz6 fz6Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py6Var, viewHolder})) == null) {
-            fx5.b().a(new StatisticItem("c11272"));
-            viewHolder.a.i(py6Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fz6Var, viewHolder})) == null) {
+            cy5.b().a(new StatisticItem("c11272"));
+            viewHolder.a.i(fz6Var);
             return viewHolder.b();
         }
         return (View) invokeCommon.objValue;

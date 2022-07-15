@@ -2,12 +2,11 @@ package com.kwad.sdk.crash.model.message;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.sdk.SevenZipUtils;
 import com.kwad.sdk.core.b;
+import com.kwad.sdk.crash.utils.h;
 import com.kwad.sdk.crash.utils.i;
-import com.kwad.sdk.crash.utils.j;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -43,6 +42,20 @@ public abstract class ExceptionMessage implements b, Serializable {
     public String mSlowOperation = "";
     public String mBuildConfigInfo = "";
     public String mAbi = "Unknown";
+    public String mDumpsys = "";
+    public int mCrashSource = 0;
+
+    public static final String getSdkCrashVersionName(String str, int i) {
+        return str + "-" + i;
+    }
+
+    public static final String getSdkVersionNameSuffix(int i) {
+        return i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? "" : "-car" : "-pct" : "-ec" : "-ct" : "-ad";
+    }
+
+    public String getReportMsg() {
+        return "UUID=" + this.mLogUUID + ",crashTime=" + h.a(this.mCurrentTimeStamp) + ",customMsg=" + this.mCustomMsg;
+    }
 
     public final String getTypeCommon() {
         return getTypePrefix() + "COMMON";
@@ -96,99 +109,87 @@ public abstract class ExceptionMessage implements b, Serializable {
         this.mSlowOperation = jSONObject.optString("mSlowOperation");
         this.mBuildConfigInfo = jSONObject.optString("mBuildConfigInfo");
         this.mAbi = jSONObject.optString("mAbi");
+        this.mDumpsys = jSONObject.optString("mDumpsys");
+        this.mCrashSource = jSONObject.optInt("mCrashSource");
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "mCrashDetail", this.mCrashDetail);
-        t.a(jSONObject, "mMemoryInfo", this.mMemoryInfo);
-        t.a(jSONObject, "mDiskInfo", this.mDiskInfo);
-        t.a(jSONObject, "mProcessName", this.mProcessName);
-        t.a(jSONObject, "mCrashType", this.mCrashType);
-        t.a(jSONObject, "mThreadName", this.mThreadName);
-        t.a(jSONObject, "mIsAppOnForeground", this.mIsAppOnForeground);
-        t.a(jSONObject, "mLogUUID", this.mLogUUID);
-        t.a(jSONObject, "mVirtualApp", this.mVirtualApp);
-        t.a(jSONObject, "mCustomMsg", this.mCustomMsg);
-        t.a(jSONObject, "mThreadOverflow", this.mThreadOverflow);
-        t.a(jSONObject, "mFdOverflow", this.mFdOverflow);
-        t.a(jSONObject, "mTaskId", this.mTaskId);
-        t.a(jSONObject, "mErrorMessage", this.mErrorMessage);
-        t.a(jSONObject, "mCurrentTimeStamp", this.mCurrentTimeStamp);
-        t.a(jSONObject, "mUsageTimeMills", this.mUsageTimeMills);
-        t.a(jSONObject, "mPid", this.mPid);
-        t.a(jSONObject, "mTid", this.mTid);
-        t.a(jSONObject, "mVersionCode", this.mVersionCode);
-        t.a(jSONObject, "mVersionConflict", this.mVersionConflict);
-        t.a(jSONObject, "mAppVersionBeforeLastUpload", this.mAppVersionBeforeLastUpload);
-        t.a(jSONObject, "mJNIError", this.mJNIError);
-        t.a(jSONObject, "mGCInfo", this.mGCInfo);
-        t.a(jSONObject, "mLockInfo", this.mLockInfo);
-        t.a(jSONObject, "mMonitorInfo", this.mMonitorInfo);
-        t.a(jSONObject, "mSlowLooper", this.mSlowLooper);
-        t.a(jSONObject, "mSlowOperation", this.mSlowOperation);
-        t.a(jSONObject, "mBuildConfigInfo", this.mBuildConfigInfo);
-        t.a(jSONObject, "mAbi", this.mAbi);
+        r.a(jSONObject, "mCrashDetail", this.mCrashDetail);
+        r.a(jSONObject, "mMemoryInfo", this.mMemoryInfo);
+        r.a(jSONObject, "mDiskInfo", this.mDiskInfo);
+        r.a(jSONObject, "mProcessName", this.mProcessName);
+        r.a(jSONObject, "mCrashType", this.mCrashType);
+        r.a(jSONObject, "mThreadName", this.mThreadName);
+        r.a(jSONObject, "mIsAppOnForeground", this.mIsAppOnForeground);
+        r.a(jSONObject, "mLogUUID", this.mLogUUID);
+        r.a(jSONObject, "mVirtualApp", this.mVirtualApp);
+        r.a(jSONObject, "mCustomMsg", this.mCustomMsg);
+        r.a(jSONObject, "mThreadOverflow", this.mThreadOverflow);
+        r.a(jSONObject, "mFdOverflow", this.mFdOverflow);
+        r.a(jSONObject, "mTaskId", this.mTaskId);
+        r.a(jSONObject, "mErrorMessage", this.mErrorMessage);
+        r.a(jSONObject, "mCurrentTimeStamp", this.mCurrentTimeStamp);
+        r.a(jSONObject, "mUsageTimeMills", this.mUsageTimeMills);
+        r.a(jSONObject, "mPid", this.mPid);
+        r.a(jSONObject, "mTid", this.mTid);
+        r.a(jSONObject, "mVersionCode", this.mVersionCode);
+        r.a(jSONObject, "mVersionConflict", this.mVersionConflict);
+        r.a(jSONObject, "mAppVersionBeforeLastUpload", this.mAppVersionBeforeLastUpload);
+        r.a(jSONObject, "mJNIError", this.mJNIError);
+        r.a(jSONObject, "mGCInfo", this.mGCInfo);
+        r.a(jSONObject, "mLockInfo", this.mLockInfo);
+        r.a(jSONObject, "mMonitorInfo", this.mMonitorInfo);
+        r.a(jSONObject, "mSlowLooper", this.mSlowLooper);
+        r.a(jSONObject, "mSlowOperation", this.mSlowOperation);
+        r.a(jSONObject, "mBuildConfigInfo", this.mBuildConfigInfo);
+        r.a(jSONObject, "mAbi", this.mAbi);
+        r.a(jSONObject, "mDumpsys", this.mDumpsys);
+        r.a(jSONObject, "mCrashSource", this.mCrashSource);
         return jSONObject;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         try {
-            sb.append("异常状态汇总:\n");
-            sb.append("UUID: ");
+            sb.append("异常状态汇总:\nUUID: ");
             sb.append(this.mLogUUID);
-            sb.append("\n");
-            sb.append("CPU架构: ");
+            sb.append("\nCPU架构: ");
             sb.append(this.mAbi);
-            sb.append("\n");
-            sb.append("异常进程: ");
+            sb.append("\n异常进程: ");
             sb.append(this.mProcessName);
             sb.append(" (");
             sb.append(this.mPid);
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            sb.append("\n");
+            sb.append(")\n");
             sb.append("异常线程: ");
             sb.append(this.mThreadName);
             sb.append(" (");
             sb.append(this.mTid);
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            sb.append("\n");
+            sb.append(")\n");
             sb.append("异常类型: ");
             sb.append(this.mCrashType);
-            sb.append("\n");
-            sb.append("应用多开环境: ");
+            sb.append("\n应用多开环境: ");
             sb.append(this.mVirtualApp);
-            sb.append("\n");
-            sb.append("TaskId: ");
+            sb.append("\nTaskId: ");
             sb.append(this.mTaskId);
-            sb.append("\n");
-            sb.append("mTid: ");
+            sb.append("\nmTid: ");
             sb.append(this.mTid);
-            sb.append("\n");
-            sb.append("自定义信息: ");
+            sb.append("\n自定义信息: ");
             sb.append(this.mCustomMsg);
-            sb.append("\n");
-            sb.append("前后台状态: ");
+            sb.append("\n前后台状态: ");
             sb.append(this.mIsAppOnForeground);
-            sb.append("\n");
-            sb.append("异常发生时间: ");
-            sb.append(i.a(this.mCurrentTimeStamp));
-            sb.append("\n");
-            sb.append("版本号: ");
+            sb.append("\n异常发生时间: ");
+            sb.append(h.a(this.mCurrentTimeStamp));
+            sb.append("\n版本号: ");
             sb.append(this.mVersionCode);
-            sb.append("\n");
-            sb.append("升级前版本号: ");
+            sb.append("\n升级前版本号: ");
             sb.append(this.mAppVersionBeforeLastUpload);
-            sb.append("\n");
-            sb.append("使用时长: ");
-            sb.append(j.a(this.mUsageTimeMills));
-            sb.append("\n");
-            sb.append("异常详情: \n");
+            sb.append("\n使用时长: ");
+            sb.append(i.a(this.mUsageTimeMills));
+            sb.append("\n异常详情: \n");
             sb.append(this instanceof JavaExceptionMessage ? this.mCrashDetail.replace(SevenZipUtils.FILE_SEP, "\n\t").replace("#", "\n") : this.mCrashDetail);
-            sb.append("\n");
-            sb.append("磁盘详情: \n");
+            sb.append("\n磁盘详情: \n");
             sb.append(this.mDiskInfo);
             sb.append("\n");
             if (!TextUtils.isEmpty(this.mErrorMessage)) {
@@ -235,7 +236,7 @@ public abstract class ExceptionMessage implements b, Serializable {
             sb.append(this.mMemoryInfo);
             sb.append("\n");
         } catch (Throwable th) {
-            com.kwad.sdk.core.d.a.b(th);
+            com.kwad.sdk.core.d.b.b(th);
         }
         return sb.substring(0);
     }

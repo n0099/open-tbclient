@@ -1,26 +1,16 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.view.KeyEvent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class ed2 {
+/* loaded from: classes6.dex */
+public class ed2 implements fd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public long e;
-    public int f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
 
     public ed2() {
         Interceptable interceptable = $ic;
@@ -36,49 +26,62 @@ public class ed2 {
         }
     }
 
-    @NonNull
-    public static ed2 a(@NonNull pk2 pk2Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.fd2
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pk2Var)) == null) {
-            ed2 ed2Var = new ed2();
-            ed2Var.a = pk2Var.H();
-            ed2Var.c = pk2Var.K();
-            ed2Var.d = pk2Var.Q();
-            ed2Var.f = pk2Var.G();
-            ed2Var.i = pk2Var.T();
-            ed2Var.h = pk2Var.p1();
-            ed2Var.e = System.currentTimeMillis();
-            ed2Var.g = String.valueOf(pk2Var.getType());
-            ed2Var.b = pk2Var.I();
-            ed2Var.j = pk2Var.v1();
-            return ed2Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (ed2) invokeL.objValue;
     }
 
-    public static ed2 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.repackage.fd2
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            ed2 ed2Var = new ed2();
-            ed2Var.a = jSONObject.optString("bundle_id");
-            ed2Var.e = jSONObject.optLong("time");
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject != null) {
-                ed2Var.b = optJSONObject.optString("appkey");
-                ed2Var.g = optJSONObject.optString("pkg_type");
-                ed2Var.c = optJSONObject.optString("app_name");
-                ed2Var.d = optJSONObject.optString("app_icon");
-                ed2Var.j = optJSONObject.optString("version_code");
-                ed2Var.f = optJSONObject.optInt("frame_type");
-                ed2Var.h = optJSONObject.optInt("pay_protected");
-            }
-            return ed2Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return (ed2) invokeL.objValue;
+    }
+
+    @Override // com.repackage.fd2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.fd2
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.fd2
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.fd2
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.fd2
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.fd2
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, keyEvent)) == null) {
+            return false;
+        }
+        return invokeIL.booleanValue;
     }
 }

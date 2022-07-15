@@ -1,47 +1,43 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.webkit.ValueCallback;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i82 {
+public class i82 implements V8FileSystemDelegatePolicy {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755664658, "Lcom/repackage/i82;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755664658, "Lcom/repackage/i82;");
-                return;
+    public i82() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        boolean z = cg1.a;
-        a = b("swan_clean_pkg_opt", 0);
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
+    public void destroy() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.booleanValue;
-    }
-
-    public static boolean b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            zi2.g0().getSwitch(str, i);
-            sw1.k("CleanPkgSwitcher", str + " value from AB : " + i);
-            return i == 1;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return invokeLI.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
+    public void loadFileFromUrl(String str, ValueCallback<String> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
+            g82.e().g(str, valueCallback);
+        }
     }
 }

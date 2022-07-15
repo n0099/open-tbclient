@@ -1,274 +1,233 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l88;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class fj5 implements l88 {
+public class fj5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern d;
-    public static fj5 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<l88.a> a;
-    public final ConcurrentHashMap<String, l88.b> b;
-    public l88.c c;
+    public JSONArray a;
+    public String b;
+    public HttpMessageListener c;
+    public BdUniqueId d;
+    public BdUniqueId e;
+    public CustomMessageListener f;
+    public CustomMessageListener g;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l88.a a;
-        public final /* synthetic */ fj5 b;
+        public final /* synthetic */ fj5 a;
 
-        public a(fj5 fj5Var, l88.a aVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(fj5 fj5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fj5Var, aVar};
+                Object[] objArr = {fj5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = fj5Var;
-            this.a = aVar;
+            this.a = fj5Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.f(this.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003184 && httpResponsedMessage.getError() == 0) {
+                this.a.a = null;
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755705888, "Lcom/repackage/fj5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fj5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(fj5 fj5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fj5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755705888, "Lcom/repackage/fj5;");
-                return;
+            this.a = fj5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && ni.A() && this.a.a != null) {
+                fj5 fj5Var = this.a;
+                fj5Var.i(fj5Var.a, this.a.e);
             }
         }
-        d = Pattern.compile(UrlManager.patternText, 2);
-        e = new fj5();
     }
 
-    public fj5() {
+    /* loaded from: classes6.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fj5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(fj5 fj5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fj5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fj5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
+                this.a.f((JSONObject) customResponsedMessage.getData());
+            }
+        }
+    }
+
+    public fj5(TbPageContext tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedList();
-        this.b = new ConcurrentHashMap<>();
-        this.c = null;
-    }
-
-    public static fj5 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? e : (fj5) invokeV.objValue;
-    }
-
-    @Override // com.repackage.l88
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) && d.matcher(str).find() : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.l88
-    public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
-            h(context, strArr, false, null, z, bundle);
+        this.d = BdUniqueId.gen();
+        this.e = BdUniqueId.gen();
+        this.f = new b(this, 2000994);
+        this.g = new c(this, 2016488);
+        this.b = str;
+        if (this.c == null) {
+            this.c = new a(this, CmdConfigHttp.CMD_NEG_FEED_BACK);
         }
+        this.c.setTag(this.e);
+        MessageManager.getInstance().registerListener(this.c);
+        MessageManager.getInstance().registerListener(this.f);
+        this.g.setTag(tbPageContext.getUniqueId());
+        this.g.setSelfListener(true);
+        this.g.setPriority(Integer.MIN_VALUE);
+        MessageManager.getInstance().registerListener(this.g);
     }
 
-    @Override // com.repackage.l88
-    public boolean c(Context context, String[] strArr, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public final void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, strArr, bundle)) == null) ? h(context, strArr, false, null, false, bundle) : invokeLLL.booleanValue;
-    }
-
-    public void e(l88.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (pi.C()) {
-                f(aVar);
-            } else {
-                qg.a().post(new a(this, aVar));
-            }
-        }
-    }
-
-    public final void f(l88.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || this.a.contains(aVar)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a.add(aVar);
-    }
-
-    public boolean g(Context context, String str, String[] strArr, boolean z, l88.d dVar, boolean z2, Bundle bundle) {
-        InterceptResult invokeCommon;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{context, str, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
-            if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
-                return false;
-            }
-            String str2 = strArr[0];
-            l88.b bVar = this.b.get(m(str2));
-            if (bVar != null) {
-                bVar.a(context, j(k(str2)));
-                return true;
-            }
-            Iterator<l88.a> it = this.a.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z3 = false;
-                    break;
-                }
-                l88.a next = it.next();
-                if (next != null && next.a(context, strArr) != 3) {
-                    z3 = true;
-                    break;
-                }
-            }
-            if (!z3 && this.c != null) {
-                if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
-                    return true;
-                }
-                n(context, str, strArr[0], z, dVar, z2, bundle);
-            }
-            return z3;
+        if (ni.A()) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(jSONObject);
+            i(jSONArray, this.d);
+            return;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public boolean h(Context context, String[] strArr, boolean z, l88.d dVar, boolean z2, Bundle bundle) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) ? g(context, "", strArr, z, dVar, z2, bundle) : invokeCommon.booleanValue;
-    }
-
-    public int i(Context context, String[] strArr) {
-        InterceptResult invokeLL;
-        int a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (l88.a aVar : this.a) {
-                    if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
-                        return a2;
-                    }
-                }
-            }
-            return 3;
+        if (this.a == null) {
+            this.a = new JSONArray();
         }
-        return invokeLL.intValue;
+        if (this.a.length() <= 100) {
+            this.a.put(jSONObject);
+        }
     }
 
-    public final Map<String, String> j(String str) {
+    public final String g(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
+            String str = this.b;
+            try {
+                String optString = jSONArray.optJSONObject(0).optString("dislike_from");
+                return !TextUtils.isEmpty(optString) ? optString : str;
+            } catch (Exception unused) {
+                return str;
             }
-            HashMap hashMap = new HashMap();
-            String[] split = str.split("[&]");
-            if (split == null) {
-                hashMap.put(UrlManager.DEFAULT_PARAM, str);
-                return hashMap;
-            }
-            for (String str2 : split) {
-                String[] split2 = str2.split("[=]");
-                if (split2.length > 1) {
-                    hashMap.put(split2[0], split2[1]);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public final String k(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
-                return str.substring(lastIndexOf + 1);
-            }
-            return null;
         }
         return (String) invokeL.objValue;
     }
 
-    public final String m(String str) {
-        InterceptResult invokeL;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return str.contains(":") ? str.substring(0, str.lastIndexOf(":")) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void n(Context context, String str, String str2, boolean z, l88.d dVar, boolean z2, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && d.matcher(str2).find()) {
-            this.c.a(context, str, str2, z, dVar, z2, bundle);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.c);
+            MessageManager.getInstance().unRegisterListener(this.f);
+            MessageManager.getInstance().unRegisterListener(this.g);
+            this.a = null;
         }
     }
 
-    public void o(l88.c cVar) {
+    public final void i(JSONArray jSONArray, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.c = cVar;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, jSONArray, bdUniqueId) == null) || jSONArray == null) {
+            return;
         }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEG_FEED_BACK);
+        httpMessage.addParam("dislike", jSONArray.toString());
+        httpMessage.addParam("dislike_from", g(jSONArray));
+        httpMessage.setTag(bdUniqueId);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

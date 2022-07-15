@@ -1,40 +1,25 @@
 package com.repackage;
 
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdLoader;
-import com.repackage.wb9;
+import com.baidu.yunjiasu.tornadosdk.Pinger;
+/* compiled from: lambda */
 /* loaded from: classes7.dex */
-public class yb9 implements wb9.a {
+public final /* synthetic */ class yb9 implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ yb9 a = new yb9();
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ sb9 a;
 
-    public yb9(ac9 ac9Var, sb9 sb9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ac9Var, sb9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = sb9Var;
+    private /* synthetic */ yb9() {
     }
 
-    @Override // com.repackage.wb9.a
-    public FunAdLoader a(ih9 ih9Var) {
+    @Override // android.os.Handler.Callback
+    public final boolean handleMessage(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ih9Var)) == null) ? new eh9(this.a, ih9Var) : (FunAdLoader) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) ? Pinger.m71pingHandler$lambda0(message) : invokeL.booleanValue;
     }
 }

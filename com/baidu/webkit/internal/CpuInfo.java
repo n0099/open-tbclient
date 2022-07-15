@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
+import com.kuaishou.weapon.p0.C0294;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -61,7 +62,7 @@ public class CpuInfo implements INoProGuard {
     public static boolean checkCpuInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? checkSysInfo("/proc/cpuinfo", str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? checkSysInfo(C0294.f19, str) : invokeL.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:50:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -270,7 +271,7 @@ public class CpuInfo implements INoProGuard {
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             if (!sCheckedCpuInfo) {
                 sCheckedCpuInfo = true;
-                sCpuType = checkCpuType("/proc/cpuinfo");
+                sCpuType = checkCpuType(C0294.f19);
             }
             return sCpuType;
         }

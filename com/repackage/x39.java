@@ -1,176 +1,87 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public final class x39 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1000;
-    public static boolean b = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SQLiteDatabase a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755222381, "Lcom/repackage/x39;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public x39() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755222381, "Lcom/repackage/x39;");
-        }
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && b) {
-            c(2, "BaiDuAbSDK", str, null);
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && b) {
-            c(5, "BaiDuAbSDK", str, null);
-        }
-    }
-
-    public static void c(int i, String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
-            if (!TextUtils.isEmpty(str2)) {
-                int length = str2.length();
-                int i2 = a;
-                if (length >= i2) {
-                    if (i == 1) {
-                        Log.v(str, str2.substring(0, i2));
-                    } else if (i == 2) {
-                        Log.d(str, str2.substring(0, i2));
-                    } else if (i == 3) {
-                        Log.i(str, str2.substring(0, i2));
-                    } else if (i == 4) {
-                        Log.w(str, str2.substring(0, i2));
-                    } else if (i == 5) {
-                        Log.e(str, str2.substring(0, i2));
-                    }
-                } else if (i == 1) {
-                    Log.v(str, str2);
-                } else if (i == 2) {
-                    Log.d(str, str2);
-                } else if (i == 3) {
-                    Log.i(str, str2);
-                } else if (i == 4) {
-                    Log.w(str, str2);
-                } else if (i != 5) {
-                    Log.d(str, str2);
-                } else {
-                    Log.e(str, str2);
-                }
-            }
-            if (th != null) {
-                String f = f(th);
-                if (TextUtils.isEmpty(f)) {
-                    return;
-                }
-                if (i == 1) {
-                    Log.v(str, f);
-                } else if (i == 2) {
-                    Log.d(str, f);
-                } else if (i == 3) {
-                    Log.i(str, f);
-                } else if (i == 4) {
-                    Log.w(str, f);
-                } else if (i != 5) {
-                    Log.d(str, str2);
-                } else {
-                    Log.e(str, f);
-                }
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = s39.a().c();
     }
 
-    public static void d(Throwable th) {
+    public final void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && b) {
-            c(2, "BaiDuAbSDK", "", th);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
         }
     }
 
-    public static void e(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, th) == null) && b) {
-            c(4, "BaiDuAbSDK", "", th);
-        }
-    }
-
-    public static String f(Throwable th) {
+    public final boolean b(String str) {
         InterceptResult invokeL;
-        PrintWriter printWriter;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, th)) != null) {
-            return (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Cursor rawQuery = this.a.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
+            int count = rawQuery.getCount();
+            rawQuery.close();
+            return count > 0;
         }
-        StringWriter stringWriter = null;
-        try {
-            StringWriter stringWriter2 = new StringWriter();
-            try {
-                printWriter = new PrintWriter(stringWriter2);
-                try {
-                    th.printStackTrace(printWriter);
-                    printWriter.flush();
-                    stringWriter2.flush();
-                    String stringWriter3 = stringWriter2.toString();
-                    try {
-                        stringWriter2.close();
-                    } catch (Throwable th2) {
-                        th2.printStackTrace();
-                    }
-                    printWriter.close();
-                    return stringWriter3;
-                } catch (Throwable th3) {
-                    th = th3;
-                    stringWriter = stringWriter2;
-                    try {
-                        th.printStackTrace();
-                        return "";
-                    } finally {
-                        if (stringWriter != null) {
-                            try {
-                                stringWriter.close();
-                            } catch (Throwable th4) {
-                                th4.printStackTrace();
-                            }
-                        }
-                        if (printWriter != null) {
-                            printWriter.close();
-                        }
-                    }
-                }
-            } catch (Throwable th5) {
-                th = th5;
-                printWriter = null;
+        return invokeL.booleanValue;
+    }
+
+    public final List<com.baidu.ubs.analytics.a.n> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.n nVar = new com.baidu.ubs.analytics.a.n();
+                nVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                nVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
+                nVar.A(rawQuery.getString(rawQuery.getColumnIndex("_keepTime")));
+                nVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
+                arrayList.add(nVar);
             }
-        } catch (Throwable th6) {
-            th = th6;
-            printWriter = null;
+            rawQuery.close();
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void d(com.baidu.ubs.analytics.a.n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nVar) == null) {
+            this.a.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
         }
     }
 
-    public static void g(boolean z) {
+    public final void e(com.baidu.ubs.analytics.a.n nVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            b = z;
+        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
+            this.a.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
         }
     }
 }

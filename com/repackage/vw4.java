@@ -1,89 +1,169 @@
 package com.repackage;
 
-import android.net.Uri;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.Arrays;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ad7;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vw4 {
+public class vw4 implements ad7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
-    public static List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public int n;
+    public String o;
+    public ad7.a p;
+    public int q;
+    public String r;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755216770, "Lcom/repackage/vw4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755216770, "Lcom/repackage/vw4;");
-                return;
+    public vw4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        String q;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (oi.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (StringUtils.isNull(this.a) && StringUtils.isNull(this.j) && StringUtils.isNull(this.l)) {
+                return true;
             }
-            Uri parse = Uri.parse(str);
-            if (parse == null || !"file".equals(parse.getScheme()) || parse.getPath() == null || !parse.getPath().contains("bdtbNWCache")) {
-                if (b == null && (q = ht4.k().q("js_host_white_list", null)) != null) {
-                    b = b(q);
-                }
-                if (b == null) {
-                    b = a;
-                }
-                if (parse != null) {
-                    String host = parse.getHost();
-                    for (String str2 : b) {
-                        if (host.endsWith(str2)) {
-                            return true;
+            if (c()) {
+                return StringUtils.isNull(this.c) || StringUtils.isNull(this.d);
+            }
+            return StringUtils.isNull(this.b);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !"0".equals(this.r) : invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "dynamic".equals(this.e) : invokeV.booleanValue;
+    }
+
+    public final JSONArray d(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
+            try {
+                return jSONObject.optJSONArray(str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (JSONArray) invokeLL.objValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("url");
+        this.b = jSONObject.optString("icon_url");
+        this.c = jSONObject.optString("fold_lottie");
+        this.d = jSONObject.optString("unfold_lottie");
+        this.e = jSONObject.optString("float_type");
+        jSONObject.optString("fold_name");
+        jSONObject.optString("unfold_name");
+        this.h = jSONObject.optString("view_statistics_url");
+        this.i = jSONObject.optString("click_statistics_url");
+        this.j = jSONObject.optString("scheme");
+        this.k = jSONObject.optString("package_name");
+        this.l = jSONObject.optString("deeplink");
+        this.n = jSONObject.optInt("source", 1);
+        this.m = jSONObject.optString("ext_info");
+        this.o = jSONObject.optString(LegoListActivityConfig.AD_ID);
+        this.r = jSONObject.optString("display_ad_icon");
+        ad7.a aVar = new ad7.a();
+        this.p = aVar;
+        aVar.a = jSONObject.optString("parallel_charge_url");
+        this.p.c = f(d(jSONObject, "show_urls"));
+        this.p.d = f(d(jSONObject, "click_urls"));
+        String c = vi.c(TbadkApplication.getInst().getAndroidId());
+        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+        StringBuilder sb = new StringBuilder();
+        sb.append("&ANDROIDID=");
+        sb.append(c == null ? "" : c.toLowerCase());
+        sb.append("&OAID=");
+        sb.append(lastCachedOid != null ? lastCachedOid.toUpperCase() : "");
+        String sb2 = sb.toString();
+        if (!StringUtils.isNull(this.h)) {
+            this.h += sb2;
+        }
+        if (StringUtils.isNull(this.i)) {
+            return;
+        }
+        this.i += sb2;
+    }
+
+    public final ArrayList<String> f(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONArray)) == null) {
+            if (jSONArray != null && jSONArray.length() != 0) {
+                int length = jSONArray.length();
+                ArrayList<String> arrayList = new ArrayList<>(length);
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("url");
+                        if (!StringUtils.isNull(optString)) {
+                            arrayList.add(optString);
                         }
                     }
                 }
-                return false;
+                return arrayList;
             }
-            return true;
+            return new ArrayList<>();
         }
-        return invokeL.booleanValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    public static List<String> b(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ad7
+    public ad7.a getParallelCharge() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (oi.isEmpty(str)) {
-                return null;
-            }
-            return Arrays.asList(str.split(ParamableElem.DIVIDE_PARAM));
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            if (str == null) {
-                ht4.k().y("js_host_white_list", "");
-            } else {
-                ht4.k().y("js_host_white_list", str);
-            }
-            b = b(str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.p : (ad7.a) invokeV.objValue;
     }
 }

@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.event.base.TKBaseEvent;
 import com.tencent.open.SocialConstants;
 import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.api.MetricsWorker;
@@ -575,8 +574,8 @@ public class StatisAPINew implements IStatisApi {
                 statisContent2.put("apr", TrafficMonitor.instance.getApr());
                 statisContent2.put("aps", TrafficMonitor.instance.getAps());
                 statisContent2.put("cht", (ScreenMonitor.instance.getClick() < 4 ? 0 : 2) | (ScreenMonitor.instance.getSlide() < 3 ? 0 : 1));
-                statisContent2.put(TKBaseEvent.TK_PAN_EVENT_NAME, ScreenMonitor.instance.getSlide());
-                statisContent2.put(TKBaseEvent.TK_CLICK_EVENT_NAME, ScreenMonitor.instance.getClick());
+                statisContent2.put("pan", ScreenMonitor.instance.getSlide());
+                statisContent2.put("tap", ScreenMonitor.instance.getClick());
             } catch (Throwable th) {
                 L.debug(this, "reportLanuch exception=%s", th);
             }

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hu8;
+import com.repackage.ev8;
 /* loaded from: classes4.dex */
 public class RangeSlider extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
@@ -54,7 +54,7 @@ public class RangeSlider extends ViewGroup {
     public b v;
     public ValueAnimator w;
     public int x;
-    public hu8 y;
+    public ev8 y;
     public Paint z;
 
     /* loaded from: classes4.dex */
@@ -95,20 +95,20 @@ public class RangeSlider extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
             if (this.A == 1) {
-                hu8 hu8Var = this.y;
-                if (hu8Var != null) {
-                    hu8Var.setX(f);
+                ev8 ev8Var = this.y;
+                if (ev8Var != null) {
+                    ev8Var.setX(f);
                     return;
                 }
                 return;
             }
-            hu8 hu8Var2 = this.y;
-            if (hu8Var2 == null || (thumbView = this.f) == null) {
+            ev8 ev8Var2 = this.y;
+            if (ev8Var2 == null || (thumbView = this.f) == null) {
                 return;
             }
             float f2 = this.g;
             if (f <= f2) {
-                hu8Var2.setX(f2);
+                ev8Var2.setX(f2);
             } else if (f >= thumbView.getX()) {
                 this.y.setX(this.f.getX() - UtilHelper.getDimenPixelSize(R.dimen.tbds4));
             } else {
@@ -304,7 +304,7 @@ public class RangeSlider extends ViewGroup {
     }
 
     public void n(float f, float f2) {
-        hu8 hu8Var;
+        ev8 ev8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             ThumbView thumbView = this.e;
@@ -315,8 +315,8 @@ public class RangeSlider extends ViewGroup {
             if (thumbView2 != null) {
                 thumbView2.setX(f2);
             }
-            if (this.A == 1 && (hu8Var = this.y) != null) {
-                hu8Var.setX(f + this.p);
+            if (this.A == 1 && (ev8Var = this.y) != null) {
+                ev8Var.setX(f + this.p);
             }
             invalidate();
         }
@@ -480,8 +480,8 @@ public class RangeSlider extends ViewGroup {
             float f2 = this.n;
             this.j = (int) (f2 + (f * (this.o - f2)));
             invalidate();
-            hu8 hu8Var = this.y;
-            if (hu8Var == null || hu8Var.isPressed()) {
+            ev8 ev8Var = this.y;
+            if (ev8Var == null || ev8Var.isPressed()) {
                 return;
             }
             setVideoPointerViewPosition(this.j);
@@ -596,7 +596,7 @@ public class RangeSlider extends ViewGroup {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403dc, R.attr.obfuscated_res_0x7f0403dd, R.attr.obfuscated_res_0x7f0403e5, R.attr.obfuscated_res_0x7f0403e6, R.attr.obfuscated_res_0x7f040444, R.attr.obfuscated_res_0x7f040445, R.attr.obfuscated_res_0x7f040542, R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f0405ac, R.attr.obfuscated_res_0x7f040676, R.attr.obfuscated_res_0x7f04067b, R.attr.obfuscated_res_0x7f0406bb, R.attr.obfuscated_res_0x7f0406c4, R.attr.obfuscated_res_0x7f0406c5}, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403e4, R.attr.obfuscated_res_0x7f0403e5, R.attr.obfuscated_res_0x7f0403ed, R.attr.obfuscated_res_0x7f0403ee, R.attr.obfuscated_res_0x7f040448, R.attr.obfuscated_res_0x7f040449, R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f040544, R.attr.obfuscated_res_0x7f0405ad, R.attr.obfuscated_res_0x7f040677, R.attr.obfuscated_res_0x7f04067c, R.attr.obfuscated_res_0x7f0406bc, R.attr.obfuscated_res_0x7f0406c5, R.attr.obfuscated_res_0x7f0406c6}, 0, 0);
         this.p = obtainStyledAttributes.getDimensionPixelOffset(10, 7);
         this.q = obtainStyledAttributes.getDimensionPixelOffset(9, 70);
         this.a = obtainStyledAttributes.getDimensionPixelOffset(12, 2);
@@ -623,7 +623,7 @@ public class RangeSlider extends ViewGroup {
         Drawable drawable2 = obtainStyledAttributes.getDrawable(6);
         this.e = new ThumbView(context, this.p, this.q, drawable == null ? new ColorDrawable(-65456) : drawable);
         this.f = new ThumbView(context, this.p, this.q, drawable2 == null ? new ColorDrawable(-65456) : drawable2);
-        this.y = new hu8(context);
+        this.y = new ev8(context);
         this.y.setLayoutParams(new FrameLayout.LayoutParams(200, 200));
         obtainStyledAttributes.recycle();
         this.j = this.g;

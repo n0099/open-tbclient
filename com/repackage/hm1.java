@@ -1,102 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hm1 implements tl1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hm1 {
+    void a(@NonNull Object obj, String str, String str2);
 
-    public hm1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(@NonNull Object obj);
 
-    @Override // com.repackage.tl1
-    public bm1 a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new SwanWebModeWidget(context) : (bm1) invokeL.objValue;
-    }
+    Object beginFlow(String str);
 
-    @Override // com.repackage.tl1
-    public xl1 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new py1(context) : (xl1) invokeL.objValue;
-    }
+    void c(@NonNull Object obj);
 
-    @Override // com.repackage.tl1
-    public bm1 c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? new om1(context) : (bm1) invokeL.objValue;
-    }
+    void d(String str, Map<String, String> map);
 
-    @Override // com.repackage.tl1
-    public n12 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new n12() : (n12) invokeV.objValue;
-    }
+    boolean e();
 
-    @Override // com.repackage.tl1
-    public yl1 e(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, context, i)) == null) ? new SwanAppSlaveManager(context) : (yl1) invokeLI.objValue;
-    }
+    void f(String str, JSONObject jSONObject);
 
-    @Override // com.repackage.tl1
-    public bm1 f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? new hn1(context) : (bm1) invokeL.objValue;
-    }
+    void g(@NonNull Object obj, String str, String str2, long j);
 
-    @Override // com.repackage.tl1
-    public bm1 g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? new ln1(context) : (bm1) invokeL.objValue;
-    }
+    void h(@NonNull Object obj, String str);
 
-    @Override // com.repackage.tl1
-    public o12 h(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, context, i)) == null) ? new p12().a(context, i) : (o12) invokeLI.objValue;
-    }
-
-    @Override // com.repackage.tl1
-    public bm1 i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? new SwanAppSimpleH5Widget(context) : (bm1) invokeL.objValue;
-    }
-
-    @Override // com.repackage.tl1
-    public boolean j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i == 0 : invokeI.booleanValue;
-    }
+    void i(String str, String str2);
 }

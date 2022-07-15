@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.module.csj.f0;
+import com.fun.module.csj.g0;
 /* loaded from: classes4.dex */
-public final class CSJDrawVideoNativeView extends f0 {
+public final class CSJDrawVideoNativeView extends g0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout f;
@@ -82,7 +82,7 @@ public final class CSJDrawVideoNativeView extends f0 {
         }
     }
 
-    @Override // com.fun.module.csj.f0
+    @Override // com.fun.module.csj.g0
     public void a(TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tTNativeAd) == null) {
@@ -98,12 +98,12 @@ public final class CSJDrawVideoNativeView extends f0 {
         }
     }
 
-    @Override // com.fun.module.csj.f0, android.view.View
+    @Override // com.fun.module.csj.g0, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f3);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f4);
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qz1;
+import com.repackage.f02;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
 public final class SceneType {
@@ -44,8 +44,8 @@ public final class SceneType {
         SCENE_DOWNLOAD_PKG_TIMEOUT = new SceneType("SCENE_DOWNLOAD_PKG_TIMEOUT", 1, "pms_downloadPkg", "包下载进度更新间隔超2秒；");
         SCENE_SKELETON_TIMEOUT = new SceneType("SCENE_SKELETON_TIMEOUT", 2, "skeleton", "5秒内未触发骨架屏移除；");
         SCENE_WHITE_SCREEN_L1 = new SceneType("SCENE_WHITE_SCREEN_L1", 3, "whiteScreen_L1", "检测到纯白屏；");
-        SCENE_WHITE_SCREEN_L2 = new SceneType("SCENE_WHITE_SCREEN_L2", 4, "whiteScreen_L2", qz1.a);
-        SCENE_WHITE_SCREEN_L3 = new SceneType("SCENE_WHITE_SCREEN_L3", 5, "whiteScreen_L3", qz1.b);
+        SCENE_WHITE_SCREEN_L2 = new SceneType("SCENE_WHITE_SCREEN_L2", 4, "whiteScreen_L2", f02.a);
+        SCENE_WHITE_SCREEN_L3 = new SceneType("SCENE_WHITE_SCREEN_L3", 5, "whiteScreen_L3", f02.b);
         SCENE_INIT_DATA_ERROR = new SceneType("SCENE_INIT_DATA_ERROR", 6, "data_init", "业务数据初始化异常；");
         SceneType sceneType = new SceneType("SCENE_SKELETON_DEV_TIMEOUT", 7, "skeleton_dev", "开发者骨架屏异常；");
         SCENE_SKELETON_DEV_TIMEOUT = sceneType;

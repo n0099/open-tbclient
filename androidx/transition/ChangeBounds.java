@@ -24,6 +24,7 @@ import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -364,7 +365,7 @@ public class ChangeBounds extends Transition {
                 }
             }
         };
-        POSITION_PROPERTY = new Property<View, PointF>(PointF.class, "position") { // from class: androidx.transition.ChangeBounds.6
+        POSITION_PROPERTY = new Property<View, PointF>(PointF.class, CriusAttrConstants.POSITION) { // from class: androidx.transition.ChangeBounds.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -435,14 +436,14 @@ public class ChangeBounds extends Transition {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            View view2 = transitionValues.f1020view;
+            View view2 = transitionValues.f1747view;
             if (!ViewCompat.isLaidOut(view2) && view2.getWidth() == 0 && view2.getHeight() == 0) {
                 return;
             }
             transitionValues.values.put(PROPNAME_BOUNDS, new Rect(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom()));
-            transitionValues.values.put(PROPNAME_PARENT, transitionValues.f1020view.getParent());
+            transitionValues.values.put(PROPNAME_PARENT, transitionValues.f1747view.getParent());
             if (this.mReparent) {
-                transitionValues.f1020view.getLocationInWindow(this.mTempLocation);
+                transitionValues.f1747view.getLocationInWindow(this.mTempLocation);
                 transitionValues.values.put(PROPNAME_WINDOW_X, Integer.valueOf(this.mTempLocation[0]));
                 transitionValues.values.put(PROPNAME_WINDOW_Y, Integer.valueOf(this.mTempLocation[1]));
             }
@@ -462,7 +463,7 @@ public class ChangeBounds extends Transition {
                     if (view2 == view3) {
                         return true;
                     }
-                } else if (view3 == matchedTransitionValues.f1020view) {
+                } else if (view3 == matchedTransitionValues.f1747view) {
                     return true;
                 }
                 return false;
@@ -510,7 +511,7 @@ public class ChangeBounds extends Transition {
             if (viewGroup2 == null || viewGroup3 == null) {
                 return null;
             }
-            View view3 = transitionValues2.f1020view;
+            View view3 = transitionValues2.f1747view;
             if (parentMatches(viewGroup2, viewGroup3)) {
                 Rect rect2 = (Rect) transitionValues.values.get(PROPNAME_BOUNDS);
                 Rect rect3 = (Rect) transitionValues2.values.get(PROPNAME_BOUNDS);

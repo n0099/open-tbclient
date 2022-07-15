@@ -2,7 +2,6 @@ package com.baidu.tieba.route;
 
 import com.baidu.adp.framework.cmdRouter.ICmdRouter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,10 +55,10 @@ public final class HotTopicStaticAutoGenerateUrlCollectorImpl implements ICmdRou
             arrayList.add("HotTopicActivityConfig");
             arrayList.add("RelateTopicForumActivityConfig");
             arrayList.add("HotRanklistActivityConfig");
-            arrayList.add(UrlSchemaHelper.JUMP_TO_HOT_TOPIC);
-            arrayList.add(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW);
-            arrayList.add(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC);
-            arrayList.add(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC_NEW);
+            arrayList.add("https://tieba.baidu.com/mo/q/hotmessage?topic_id=");
+            arrayList.add("https://tieba.baidu.com/mo/q/newhotmessage?");
+            arrayList.add("https://tieba.baidu.com/mo/q/hotmessage?topic_id=");
+            arrayList.add("https://tieba.baidu.com/mo/q/newhotmessage?");
             hashMap.put("com.baidu.tieba.hottopic.controller.HotTopicStatic", arrayList);
             return hashMap;
         }

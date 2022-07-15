@@ -16,6 +16,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.face.platform.ConstPath;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -453,7 +454,7 @@ public final class WebvttCueParser {
                         parseLineAttribute(group2, builder);
                     } else if (ConstPath.KEY_ALIGN.equals(group)) {
                         builder.setTextAlignment(parseTextAlignment(group2));
-                    } else if ("position".equals(group)) {
+                    } else if (CriusAttrConstants.POSITION.equals(group)) {
                         parsePositionAttribute(group2, builder);
                     } else if ("size".equals(group)) {
                         builder.setWidth(WebvttParserUtil.parsePercentage(group2));

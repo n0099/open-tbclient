@@ -18,10 +18,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.kwad.v8.NodeJS;
 import com.repackage.a7;
 import com.repackage.t1;
-import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes6.dex */
 public class l4 extends t1<t1.a> {
     public static /* synthetic */ Interceptable $ic;
@@ -116,7 +114,7 @@ public class l4 extends t1<t1.a> {
                                     a5Var2.b = new Quaternion(m5.o(0), m5.o(i2), m5.o(i), m5.o(3));
                                     z4Var.c.a(a5Var2);
                                 }
-                                JsonValue m6 = jsonValue4.m(AnimationProperty.SCALE);
+                                JsonValue m6 = jsonValue4.m("scale");
                                 if (m6 != null && m6.j == 3) {
                                     if (z4Var.d == null) {
                                         z4Var.d = new a7<>();
@@ -415,7 +413,7 @@ public class l4 extends t1<t1.a> {
                     JsonValue m2 = jsonValue.m("rotation");
                     if (m2 == null || m2.j == 4) {
                         y4Var.c = m2 == null ? null : new Quaternion(m2.o(0), m2.o(1), m2.o(2), m2.o(3));
-                        JsonValue m3 = jsonValue.m(AnimationProperty.SCALE);
+                        JsonValue m3 = jsonValue.m("scale");
                         if (m3 == null || m3.j == 3) {
                             y4Var.d = m3 == null ? null : new Vector3(m3.o(0), m3.o(1), m3.o(2));
                             jsonValue.s("mesh", null);
@@ -436,7 +434,7 @@ public class l4 extends t1<t1.a> {
                                             b5Var.c = new b7<>(z, m5.j, String.class, Matrix4.class);
                                             JsonValue jsonValue3 = m5.f;
                                             while (jsonValue3 != null) {
-                                                String s4 = jsonValue3.s(NodeJS.NODE, null);
+                                                String s4 = jsonValue3.s("node", null);
                                                 if (s4 != null) {
                                                     Matrix4 matrix4 = new Matrix4();
                                                     JsonValue m6 = jsonValue3.m(str4);
@@ -455,7 +453,7 @@ public class l4 extends t1<t1.a> {
                                                         i = 3;
                                                         matrix4.rotate(l4Var.e.set(m7.o(0), m7.o(1), m7.o(2), m7.o(3)));
                                                     }
-                                                    JsonValue m8 = jsonValue3.m(AnimationProperty.SCALE);
+                                                    JsonValue m8 = jsonValue3.m("scale");
                                                     if (m8 != null && m8.j >= i) {
                                                         matrix4.scale(m8.o(0), m8.o(1), m8.o(2));
                                                     }

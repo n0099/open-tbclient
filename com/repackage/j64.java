@@ -1,48 +1,69 @@
 package com.repackage;
 
-import com.baidu.searchbox.http.AbstractHttpManager;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.menu.BaseMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w64;
 /* loaded from: classes6.dex */
-public class j64 extends w64.a {
+public class j64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j64(AbstractHttpManager abstractHttpManager) {
-        super(abstractHttpManager);
+    public static long a(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abstractHttpManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((AbstractHttpManager) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseMenuView)) == null) ? baseMenuView.a() ? 240L : 200L : invokeL.longValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.w64.a, com.baidu.searchbox.http.request.HttpRequestBuilder
-    /* renamed from: a */
-    public w64 build() {
-        InterceptResult invokeV;
+    public static ObjectAnimator b(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            i64.b().j(this.httpUrl.toString(), this);
-            requestFrom(6);
-            return super.build();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, "translationY", 0.0f);
+            ofFloat.setDuration(a(baseMenuView));
+            ofFloat.setInterpolator(new k64(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
         }
-        return (w64) invokeV.objValue;
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "alpha", 0.0f);
+            ofFloat.setDuration(160L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator d(View view2, BaseMenuView baseMenuView) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "alpha", 1.0f);
+            ofFloat.setDuration(a(baseMenuView));
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeLL.objValue;
+    }
+
+    public static ObjectAnimator e(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, "translationY", baseMenuView.getHeight());
+            ofFloat.setDuration(160L);
+            ofFloat.setInterpolator(new k64(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
     }
 }

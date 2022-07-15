@@ -1,7 +1,7 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface oa1 {
-    boolean d(String str);
+    void a(Throwable th);
 
-    void handleSchemeDispatchCallback(String str, String str2);
+    void b(za1 za1Var);
 }

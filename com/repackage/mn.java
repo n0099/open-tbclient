@@ -219,12 +219,12 @@ public class mn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (i > 0) {
-                nn C = this.a.C(i - this.a.getHeaderViewsCount());
-                if (C instanceof BaseCardInfo) {
-                    return ((BaseCardInfo) C).position;
+                nn B = this.a.B(i - this.a.getHeaderViewsCount());
+                if (B instanceof BaseCardInfo) {
+                    return ((BaseCardInfo) B).position;
                 }
-                if (C instanceof mo4) {
-                    return ((mo4) C).i();
+                if (B instanceof bp4) {
+                    return ((bp4) B).j();
                 }
             }
             return -1;
@@ -249,7 +249,7 @@ public class mn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             if (i > 0) {
-                return sb5.p(this.a.C(i - this.a.getHeaderViewsCount()));
+                return vc5.p(this.a.B(i - this.a.getHeaderViewsCount()));
             }
             return false;
         }

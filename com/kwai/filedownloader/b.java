@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.s;
 /* loaded from: classes5.dex */
-public class b implements s.a, s.b {
+public final class b implements s.a, s.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
@@ -36,7 +36,7 @@ public class b implements s.a, s.b {
     }
 
     @Override // com.kwai.filedownloader.s.b
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e = 0;
@@ -45,7 +45,7 @@ public class b implements s.a, s.b {
     }
 
     @Override // com.kwai.filedownloader.s.b
-    public void a(long j) {
+    public final void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             this.d = SystemClock.uptimeMillis();
@@ -54,14 +54,14 @@ public class b implements s.a, s.b {
     }
 
     @Override // com.kwai.filedownloader.s.a
-    public int b() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
     }
 
     @Override // com.kwai.filedownloader.s.b
-    public void b(long j) {
+    public final void b(long j) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeJ(1048579, this, j) == null) || this.d <= 0) {
             return;
@@ -76,7 +76,7 @@ public class b implements s.a, s.b {
     }
 
     @Override // com.kwai.filedownloader.s.b
-    public void c(long j) {
+    public final void c(long j) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeJ(1048580, this, j) == null) || this.f <= 0) {
             return;

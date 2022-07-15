@@ -15,7 +15,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class MutableMapWithDefaultImpl<K, V> implements MutableMapWithDefault<K, V> {
 
     /* renamed from: default  reason: not valid java name */
-    public final Function1<K, V> f1015default;
+    public final Function1<K, V> f1742default;
     public final Map<K, V> map;
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.jvm.functions.Function1<? super K, ? extends V> */
@@ -24,7 +24,7 @@ public final class MutableMapWithDefaultImpl<K, V> implements MutableMapWithDefa
         Intrinsics.checkNotNullParameter(map, "map");
         Intrinsics.checkNotNullParameter(function1, "default");
         this.map = map;
-        this.f1015default = function1;
+        this.f1742default = function1;
     }
 
     @Override // java.util.Map
@@ -74,7 +74,7 @@ public final class MutableMapWithDefaultImpl<K, V> implements MutableMapWithDefa
     public V getOrImplicitDefault(K k) {
         Map<K, V> map = getMap();
         V v = map.get(k);
-        return (v != null || map.containsKey(k)) ? v : this.f1015default.invoke(k);
+        return (v != null || map.containsKey(k)) ? v : this.f1742default.invoke(k);
     }
 
     public int getSize() {

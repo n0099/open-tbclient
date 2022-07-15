@@ -1,11 +1,15 @@
 package com.repackage;
 
+import android.content.ContentValues;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class si1 implements fl1 {
+public class si1 implements xk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,10 +27,14 @@ public class si1 implements fl1 {
         }
     }
 
-    @Override // com.repackage.fl1
-    public void a() {
+    @Override // com.repackage.xk1
+    @Nullable
+    public List<ContentValues> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
+        return (List) invokeV.objValue;
     }
 }

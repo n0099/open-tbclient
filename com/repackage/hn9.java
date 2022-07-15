@@ -1,47 +1,32 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.opensource.svgaplayer.proto.ShapeEntity;
 /* loaded from: classes6.dex */
-public final class hn9 implements Runnable {
+public final /* synthetic */ class hn9 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
+    public static final /* synthetic */ int[] $EnumSwitchMapping$2;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
 
-    public hn9(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                File file = new File(sl9.I(this.a));
-                if (file.exists() && file.isDirectory() && sl9.v(file) > 104857600) {
-                    sl9.q(file);
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
+    static {
+        int[] iArr = new int[ShapeEntity.ShapeType.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[ShapeEntity.ShapeType.SHAPE.ordinal()] = 1;
+        $EnumSwitchMapping$0[ShapeEntity.ShapeType.RECT.ordinal()] = 2;
+        $EnumSwitchMapping$0[ShapeEntity.ShapeType.ELLIPSE.ordinal()] = 3;
+        $EnumSwitchMapping$0[ShapeEntity.ShapeType.KEEP.ordinal()] = 4;
+        int[] iArr2 = new int[ShapeEntity.ShapeStyle.LineCap.values().length];
+        $EnumSwitchMapping$1 = iArr2;
+        iArr2[ShapeEntity.ShapeStyle.LineCap.LineCap_BUTT.ordinal()] = 1;
+        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_ROUND.ordinal()] = 2;
+        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_SQUARE.ordinal()] = 3;
+        int[] iArr3 = new int[ShapeEntity.ShapeStyle.LineJoin.values().length];
+        $EnumSwitchMapping$2 = iArr3;
+        iArr3[ShapeEntity.ShapeStyle.LineJoin.LineJoin_BEVEL.ordinal()] = 1;
+        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_MITER.ordinal()] = 2;
+        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_ROUND.ordinal()] = 3;
     }
 }

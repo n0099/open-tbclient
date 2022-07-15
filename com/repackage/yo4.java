@@ -8,6 +8,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class yo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
     public yo4() {
         Interceptable interceptable = $ic;

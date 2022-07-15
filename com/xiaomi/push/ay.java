@@ -15,13 +15,13 @@ public class ay implements au {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Class<?> f116a;
+    public Class<?> f843a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Object f117a;
+    public Object f844a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Method f118a;
+    public Method f845a;
     public Method b;
     public Method c;
     public Method d;
@@ -41,7 +41,7 @@ public class ay implements au {
                 return;
             }
         }
-        this.f118a = null;
+        this.f845a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -53,7 +53,7 @@ public class ay implements au {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, context, method)) == null) {
-            Object obj = this.f117a;
+            Object obj = this.f844a;
             if (obj == null || method == null) {
                 return null;
             }
@@ -76,12 +76,12 @@ public class ay implements au {
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             try {
                 Class<?> a = v.a(context, "com.android.id.impl.IdProviderImpl");
-                this.f116a = a;
-                this.f117a = a.newInstance();
-                this.f118a = this.f116a.getMethod("getUDID", Context.class);
-                this.b = this.f116a.getMethod("getOAID", Context.class);
-                this.c = this.f116a.getMethod("getVAID", Context.class);
-                this.d = this.f116a.getMethod("getAAID", Context.class);
+                this.f843a = a;
+                this.f844a = a.newInstance();
+                this.f845a = this.f843a.getMethod("getUDID", Context.class);
+                this.b = this.f843a.getMethod("getOAID", Context.class);
+                this.c = this.f843a.getMethod("getVAID", Context.class);
+                this.d = this.f843a.getMethod("getAAID", Context.class);
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e);
             }
@@ -99,6 +99,6 @@ public class ay implements au {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f116a == null || this.f117a == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f843a == null || this.f844a == null) ? false : true : invokeV.booleanValue;
     }
 }

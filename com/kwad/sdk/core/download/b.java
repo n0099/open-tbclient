@@ -1,63 +1,70 @@
 package com.kwad.sdk.core.download;
 
-import com.kwad.sdk.KsAdSDKImpl;
+import android.text.TextUtils;
+import com.ksad.download.DownloadTask;
+import com.kwad.sdk.utils.LruHashMap;
+import com.kwad.sdk.utils.z;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class b {
-    public static final boolean a = KsAdSDKImpl.get().isDebugLogEnable();
+public final class b extends com.ksad.download.c {
+    public static final Map<String, String> b = new LruHashMap(10);
 
-    public static void a(String str) {
-        if (a) {
-            com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadStart(), id=" + str);
+    public static String g(DownloadTask downloadTask) {
+        String url = downloadTask.getUrl();
+        String str = b.get(url);
+        if (TextUtils.isEmpty(str)) {
+            String a = z.a(downloadTask.getUrl());
+            b.put(url, a);
+            return a;
         }
-        DownloadStatusManager.a().a(str);
+        return str;
     }
 
-    public static void a(String str, int i, int i2, int i3) {
-        if (a) {
-            com.kwad.sdk.core.d.a.a("DownloadMonitor", "onProgressUpdate(), id=" + str + " progress=" + i + " soFarBytes=" + i2 + " totalBytes=" + i3);
-        }
-        DownloadStatusManager.a().a(str, i, i2, i3);
+    @Override // com.ksad.download.c
+    public final void a(DownloadTask downloadTask) {
+        c.a(g(downloadTask), downloadTask.getTargetFilePath());
     }
 
-    public static void a(String str, int i, String str2) {
-        if (a) {
-            com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadFail(), id=" + str + " errorCode=" + i + " errorMsg=" + str2);
-        }
-        DownloadStatusManager.a().a(str, i, str2);
+    @Override // com.ksad.download.c
+    public final void a(DownloadTask downloadTask, int i, int i2) {
+        c.a(g(downloadTask), i2 > 0 ? (int) ((i * 100.0f) / i2) : 0, i, i2);
     }
 
-    public static void a(String str, String str2) {
-        if (a) {
-            com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadFinished(), id=" + str + " filePath=" + str2);
+    @Override // com.ksad.download.c
+    public final void a(DownloadTask downloadTask, Throwable th) {
+        String str;
+        if (th == null || th.getStackTrace().length <= 0) {
+            str = "";
+        } else {
+            str = th.getMessage() + " @ " + th.getStackTrace()[0].getFileName() + th.getStackTrace()[0].getClassName() + th.getStackTrace()[0].getLineNumber();
         }
-        DownloadStatusManager.a().a(str, str2);
+        c.a(g(downloadTask), 0, str);
     }
 
-    public static void b(String str) {
-        if (a) {
-            com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadPaused(), id=" + str);
+    @Override // com.ksad.download.c
+    public final void b(DownloadTask downloadTask) {
+        if (downloadTask.getSmallFileSoFarBytes() == 0) {
+            c.a(g(downloadTask));
         }
-        DownloadStatusManager.a().b(str);
     }
 
-    public static void c(String str) {
-        if (a) {
-            com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadResumed(), id=" + str);
-        }
-        DownloadStatusManager.a().c(str);
+    @Override // com.ksad.download.c
+    public final void c(DownloadTask downloadTask) {
+        c.b(g(downloadTask));
     }
 
-    public static void d(String str) {
-        if (a) {
-            com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadCanceled(), id=" + str);
-        }
-        DownloadStatusManager.a().d(str);
+    @Override // com.ksad.download.c
+    public final void d(DownloadTask downloadTask) {
+        c.d(g(downloadTask));
     }
 
-    public static void e(String str) {
-        if (a) {
-            com.kwad.sdk.core.d.a.a("DownloadMonitor", "onLowStorage(), id=" + str);
-        }
-        DownloadStatusManager.a().e(str);
+    @Override // com.ksad.download.c
+    public final void e(DownloadTask downloadTask) {
+        c.c(g(downloadTask));
+    }
+
+    @Override // com.ksad.download.c
+    public final void f(DownloadTask downloadTask) {
+        c.e(g(downloadTask));
     }
 }

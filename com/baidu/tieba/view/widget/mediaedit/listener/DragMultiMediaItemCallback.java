@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zu8;
+import com.repackage.wv8;
 import java.util.Collections;
 /* loaded from: classes4.dex */
 public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
@@ -19,14 +19,14 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
     public int b;
     public boolean c;
     public MultiMediaAdapter d;
-    public zu8 e;
+    public wv8 e;
 
-    public DragMultiMediaItemCallback(String str, String str2, MultiMediaAdapter multiMediaAdapter, zu8 zu8Var) {
+    public DragMultiMediaItemCallback(String str, String str2, MultiMediaAdapter multiMediaAdapter, wv8 wv8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, multiMediaAdapter, zu8Var};
+            Object[] objArr = {str, str2, multiMediaAdapter, wv8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +38,7 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
         }
         this.c = false;
         this.d = multiMediaAdapter;
-        this.e = zu8Var;
+        this.e = wv8Var;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -71,9 +71,9 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
                     this.e.c(this.a, this.b);
                 }
             }
-            zu8 zu8Var = this.e;
-            if (zu8Var != null) {
-                zu8Var.setDragMode(-1, 0);
+            wv8 wv8Var = this.e;
+            if (wv8Var != null) {
+                wv8Var.setDragMode(-1, 0);
             }
         }
     }
@@ -127,9 +127,9 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
             viewHolder.itemView.getLocationOnScreen(iArr);
             viewHolder.itemView.getLocationInWindow(new int[2]);
             this.d.h(true);
-            zu8 zu8Var = this.e;
-            if (zu8Var != null) {
-                zu8Var.setDragMode(this.a, iArr[0]);
+            wv8 wv8Var = this.e;
+            if (wv8Var != null) {
+                wv8Var.setDragMode(this.a, iArr[0]);
             }
         }
     }

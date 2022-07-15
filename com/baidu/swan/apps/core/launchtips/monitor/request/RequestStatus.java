@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.ReturnKeyType;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
 public final class RequestStatus {
@@ -36,7 +35,7 @@ public final class RequestStatus {
                 return;
             }
         }
-        STATUS_SEND = new RequestStatus("STATUS_SEND", 0, ReturnKeyType.SEND);
+        STATUS_SEND = new RequestStatus("STATUS_SEND", 0, "send");
         STATUS_SUCCESS = new RequestStatus("STATUS_SUCCESS", 1, "ok");
         STATUS_FAILED = new RequestStatus("STATUS_FAILED", 2, "failRate");
         STATUS_UNKNOWN = new RequestStatus("STATUS_UNKNOWN", 3, "unknown");

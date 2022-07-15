@@ -1,55 +1,69 @@
 package com.repackage;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.minivideo.plugin.capture.report.ReportConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-/* loaded from: classes5.dex */
-public class f49 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public final class f49 {
     public static /* synthetic */ Interceptable $ic;
+    public static final f49 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public m49 a;
 
-    public static void a(String str, j49 j49Var, i49 i49Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755757658, "Lcom/repackage/f49;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755757658, "Lcom/repackage/f49;");
+                return;
+            }
+        }
+        b = new f49();
+    }
+
+    public f49() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, j49Var, i49Var) == null) {
-            if (x79.a) {
-                x79.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + i49Var.toString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            d49 g = a49.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (i49Var != null) {
-                    arrayList = new ArrayList();
-                    arrayList.add(new AbstractMap.SimpleEntry("sft", i49Var.a));
-                    arrayList.add(new AbstractMap.SimpleEntry("bft", i49Var.b));
-                    arrayList.add(new AbstractMap.SimpleEntry("mem", i49Var.f));
-                    arrayList.add(new AbstractMap.SimpleEntry("fc", i49Var.c));
-                    arrayList.add(new AbstractMap.SimpleEntry("time", i49Var.d + ""));
-                }
-                g.a("perf_record_arperf", str, j49Var.a, j49Var.b, j49Var.c, j49Var.d, j49Var.e, null, arrayList);
-            }
+        }
+        this.a = new m49();
+    }
+
+    public static f49 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (f49) invokeV.objValue;
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.a(str);
         }
     }
 
-    public static void b(String str, String str2) {
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (x79.a) {
-                x79.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
-            }
-            d49 g = a49.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (str2 != null) {
-                    arrayList = new ArrayList(3);
-                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", v79.a(a49.c().getContext())));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(v79.b(a49.c().getContext()))));
-                }
-                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a.b(str);
         }
     }
 }

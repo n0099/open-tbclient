@@ -1,6 +1,8 @@
 package com.repackage;
 
 import android.content.Context;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public interface w11 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "cookieManager");
+    public static final ServiceReference a = new ServiceReference("nad.core", "browserDownload");
     public static final w11 b = new a();
 
     /* loaded from: classes7.dex */
@@ -31,12 +33,35 @@ public interface w11 {
         }
 
         @Override // com.repackage.w11
-        public void a(Context context, String str) {
+        public void a(Object obj, b bVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
+            }
+        }
+
+        @Override // com.repackage.w11
+        public void b(Context context, RelativeLayout relativeLayout, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, relativeLayout, str) == null) {
+            }
+        }
+
+        @Override // com.repackage.w11
+        public void release() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
     }
 
-    void a(Context context, String str);
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(String str);
+    }
+
+    void a(Object obj, b bVar);
+
+    void b(Context context, RelativeLayout relativeLayout, String str);
+
+    void release();
 }

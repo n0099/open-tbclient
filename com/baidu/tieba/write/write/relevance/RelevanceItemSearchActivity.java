@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f95;
+import com.repackage.ia5;
 /* loaded from: classes4.dex */
 public class RelevanceItemSearchActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -35,19 +35,19 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void C0() {
+    public void B0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public RelevanceItemSearchView F0() {
+    public RelevanceItemSearchView E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (RelevanceItemSearchView) invokeV.objValue;
     }
 
-    public boolean G0(View view2, MotionEvent motionEvent) {
+    public boolean F0(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent)) == null) {
@@ -71,7 +71,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
                 View currentFocus = getCurrentFocus();
-                if (G0(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
+                if (F0(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
                     inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
                 }
                 return super.dispatchTouchEvent(motionEvent);
@@ -84,27 +84,27 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         return invokeL.booleanValue;
     }
 
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public ia5 o0(LinearLayout linearLayout, NavigationBar navigationBar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, linearLayout, navigationBar)) == null) {
+            RelevanceItemSearchView relevanceItemSearchView = new RelevanceItemSearchView(this, linearLayout, navigationBar);
+            this.k = relevanceItemSearchView;
+            return relevanceItemSearchView;
+        }
+        return (ia5) invokeLL.objValue;
+    }
+
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             RelevanceItemSearchView relevanceItemSearchView = this.k;
             if (relevanceItemSearchView != null) {
                 relevanceItemSearchView.onDestroy();
             }
         }
-    }
-
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public f95 r0(LinearLayout linearLayout, NavigationBar navigationBar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, linearLayout, navigationBar)) == null) {
-            RelevanceItemSearchView relevanceItemSearchView = new RelevanceItemSearchView(this, linearLayout, navigationBar);
-            this.k = relevanceItemSearchView;
-            return relevanceItemSearchView;
-        }
-        return (f95) invokeLL.objValue;
     }
 }

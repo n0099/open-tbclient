@@ -1,244 +1,279 @@
 package com.repackage;
 
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.util.Log;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.NewUrlSchemaHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.mutiprocess.event.GoodsEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import tbclient.LiveSquare.HotLiveWithCategory;
-import tbclient.ThreadInfo;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class mn5 {
+public final class mn5 implements zj1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<qn5> a(List<HotLiveWithCategory> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return new LinkedList();
-            }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (HotLiveWithCategory hotLiveWithCategory : list) {
-                if (hotLiveWithCategory != null) {
-                    arrayList.add(new qn5(hotLiveWithCategory));
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements BdUniDispatchSchemeController.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
 
-    public static List<nn> b(qn5 qn5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, qn5Var)) == null) {
-            List<ThreadInfo> list = qn5Var.e;
-            ArrayList arrayList = new ArrayList(list.size());
-            for (ThreadInfo threadInfo : list) {
-                if (threadInfo != null) {
-                    nn5 nn5Var = new nn5();
-                    nn5Var.a = qn5Var.a;
-                    nn5Var.b = qn5Var.b;
-                    nn5Var.c = qn5Var.c;
-                    nn5Var.parserProtobuf(threadInfo);
-                    arrayList.add(nn5Var);
+        public a(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return arrayList;
+            this.a = context;
         }
-        return (List) invokeL.objValue;
-    }
 
-    public static void c(List<qn5> list, List<qn5> list2, List<Long> list3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, list, list2, list3) == null) || ListUtils.isEmpty(list2)) {
-            return;
-        }
-        HashMap hashMap = new HashMap(list2.size());
-        for (qn5 qn5Var : list2) {
-            if (qn5Var != null) {
-                hashMap.put(e(qn5Var), qn5Var.e);
-            }
-        }
-        for (qn5 qn5Var2 : list) {
-            if (qn5Var2 != null && !ListUtils.isEmpty(qn5Var2.e)) {
-                ArrayList<Integer> arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                for (int i = 0; i < qn5Var2.e.size(); i++) {
-                    ThreadInfo threadInfo = qn5Var2.e.get(i);
-                    if (threadInfo != null) {
-                        if (list3.contains(threadInfo.ala_info.live_id)) {
-                            arrayList.add(Integer.valueOf(i));
-                        } else {
-                            arrayList2.add(threadInfo.ala_info.live_id);
-                        }
-                    }
-                }
-                if (!ListUtils.isEmpty(arrayList)) {
-                    List list4 = (List) hashMap.get(e(qn5Var2));
-                    if (!ListUtils.isEmpty(list4)) {
-                        ArrayList arrayList3 = new ArrayList();
-                        for (Integer num : arrayList) {
-                            int intValue = num.intValue();
-                            if (intValue < qn5Var2.e.size()) {
-                                ThreadInfo threadInfo2 = null;
-                                Iterator it = list4.iterator();
-                                while (true) {
-                                    if (!it.hasNext()) {
-                                        break;
-                                    }
-                                    ThreadInfo threadInfo3 = (ThreadInfo) it.next();
-                                    if (threadInfo3 != null && !list3.contains(threadInfo3.ala_info.live_id) && !arrayList2.contains(threadInfo3.ala_info.live_id) && !arrayList3.contains(threadInfo3.ala_info.live_id)) {
-                                        threadInfo2 = threadInfo3;
-                                        break;
-                                    }
-                                }
-                                if (threadInfo2 != null) {
-                                    arrayList3.add(threadInfo2.ala_info.live_id);
-                                    qn5Var2.e.set(intValue, threadInfo2);
-                                } else {
-                                    qn5Var2.e.remove(intValue);
-                                }
-                            }
-                        }
-                    }
-                }
+        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
+        public void a(HashMap<String, Object> hashMap) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(BdUniDispatchSchemeController.PARAM_URL) instanceof String)) {
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.a, null, (String) hashMap.get(BdUniDispatchSchemeController.PARAM_URL), true);
+                tbWebViewActivityConfig.setIsFromSchema(true);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
         }
     }
 
-    public static Pair<List<nn>, List<nn>> d(String str, List<qn5> list) {
-        InterceptResult invokeLL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755493507, "Lcom/repackage/mn5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755493507, "Lcom/repackage/mn5;");
+                return;
+            }
+        }
+        a = rg1.a;
+        b = NewUrlSchemaHelper.SCHEME;
+    }
+
+    public mn5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static String b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        String str5;
+        String str6;
+        Object opt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            LinkedList linkedList = new LinkedList();
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            for (qn5 qn5Var : list) {
-                if (qn5Var != null && !ListUtils.isEmpty(qn5Var.e)) {
-                    List<nn> b = b(qn5Var);
-                    String str2 = qn5Var.b;
-                    if (!ListUtils.isEmpty(b) && b.size() >= 2 && !TextUtils.isEmpty(str2)) {
-                        rn5 rn5Var = new rn5();
-                        rn5Var.a = qn5Var.a;
-                        rn5Var.b = str2;
-                        rn5Var.c = qn5Var.c;
-                        rn5Var.d = qn5Var.d;
-                        int i = qn5Var.f;
-                        rn5Var.e = qn5Var.g;
-                        linkedList.add(rn5Var);
-                        int size = b.size();
-                        if (size % 2 != 0) {
-                            size--;
-                        }
-                        int i2 = 0;
-                        qn5Var.e = qn5Var.e.subList(0, size);
-                        while (true) {
-                            int i3 = i2 + 1;
-                            if (i3 < size) {
-                                if ("1:1".equals(qn5Var.d)) {
-                                    gr5 gr5Var = new gr5();
-                                    nn5 nn5Var = (nn5) b.get(i2);
-                                    nn5 nn5Var2 = (nn5) b.get(i3);
-                                    gr5Var.a = nn5Var;
-                                    gr5Var.b = nn5Var2;
-                                    arrayList.add(nn5Var);
-                                    arrayList.add(nn5Var2);
-                                    linkedList.add(gr5Var);
-                                } else if ("16:9".equals(qn5Var.d)) {
-                                    fr5 fr5Var = new fr5();
-                                    nn5 nn5Var3 = (nn5) b.get(i2);
-                                    nn5 nn5Var4 = (nn5) b.get(i3);
-                                    fr5Var.a = nn5Var3;
-                                    fr5Var.b = nn5Var4;
-                                    arrayList.add(nn5Var3);
-                                    arrayList.add(nn5Var4);
-                                    linkedList.add(fr5Var);
-                                }
-                                i2 += 2;
-                            }
-                        }
-                    } else {
-                        arrayList2.add(qn5Var);
-                    }
-                } else {
-                    arrayList2.add(qn5Var);
-                }
-            }
-            list.removeAll(arrayList2);
-            return new Pair<>(linkedList, arrayList);
-        }
-        return (Pair) invokeLL.objValue;
-    }
-
-    public static String e(qn5 qn5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, qn5Var)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(qn5Var.a + "_");
-            sb.append(qn5Var.b + "_");
-            sb.append(qn5Var.c);
-            return sb.toString();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (TextUtils.isEmpty(next) || (opt = jSONObject.opt(next)) == null) {
+                    return null;
+                }
+                String obj = opt.toString();
+                sb.append(next + "=" + Uri.encode(obj) + "&");
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                str4 = "/" + str4;
+            }
+            if (TextUtils.equals(str3, "NA")) {
+                str5 = "";
+            } else {
+                str5 = "/" + str3;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str2 = str5 + str4;
+            }
+            String str7 = b;
+            if (TextUtils.isEmpty(str2)) {
+                if (!TextUtils.isEmpty(str)) {
+                    str7 = str7 + str;
+                }
+            } else {
+                String substring = str2.substring(1, str2.length());
+                if (TextUtils.isEmpty(str)) {
+                    str6 = str7 + substring;
+                } else {
+                    str6 = str7 + str + "/" + substring;
+                }
+                str7 = str6;
+            }
+            StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
+            String str8 = str7 + "?" + ((Object) sb2);
+            if (a) {
+                Log.i("DefaultInnerSkip", "encodeParams: " + ((Object) sb2));
+            }
+            return str8;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeLLLLL.objValue;
     }
 
-    public static boolean f(qn5 qn5Var, List<qn5> list) {
+    public static boolean d(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, qn5Var, list)) == null) {
-            if (qn5Var != null && !ListUtils.isEmpty(list)) {
-                for (qn5 qn5Var2 : list) {
-                    if (qn5Var.a == qn5Var2.a && qn5Var.b.equals(qn5Var2.b) && qn5Var.c.equals(qn5Var2.c)) {
-                        return true;
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (TextUtils.isEmpty(str) || context == null) {
+                return false;
+            }
+            if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
+                Uri parse = Uri.parse(str);
+                if (BdUniDispatchSchemeController.isUniScheme(parse)) {
+                    BdUniDispatchSchemeController.getInstance().parseWebViewScheme(str, parse, new a(context));
+                } else {
+                    TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context);
+                    tbWebViewActivityConfig.setUri(parse);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+                }
+                return true;
+            }
+            if (!TextUtils.isEmpty(str) && str.contains("com.baidu.tieba")) {
+                Uri parse2 = Uri.parse(str);
+                if ("miniapp".equals(parse2.getAuthority()) && "/goods".equals(parse2.getPath())) {
+                    r65.i(new GoodsEvent(parse2.getQueryParameter("goodsList")));
+                    return true;
                 }
             }
-            return false;
+            return UtilHelper.dealOneScheme(context, str);
         }
         return invokeLL.booleanValue;
     }
 
-    public static List<qn5> g(List<qn5> list, List<qn5> list2, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.repackage.zj1
+    public ac3 a(Context context, String str, String str2, String str3, String str4, String str5) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, list, list2, z)) == null) {
-            if (list == null || list.isEmpty()) {
-                return list2;
-            }
-            if (list2 == null || list2.isEmpty()) {
-                return list;
-            }
-            LinkedList linkedList = new LinkedList();
-            for (qn5 qn5Var : list2) {
-                if (qn5Var != null && !ListUtils.isEmpty(qn5Var.e) && !TextUtils.isEmpty(qn5Var.b)) {
-                    if (z) {
-                        if (!f(qn5Var, list)) {
-                            linkedList.add(qn5Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, str3, str4, str5})) == null) {
+            if (context == null) {
+                ac3 ac3Var = new ac3();
+                ac3Var.f("Context exception");
+                return ac3Var;
+            } else if (TextUtils.isEmpty(str5)) {
+                return c(str5);
+            } else {
+                if (TextUtils.isEmpty(str3)) {
+                    str3 = "NA";
+                }
+                if ("icashwebview".equals(str4) && !StringUtils.isNull(str5)) {
+                    try {
+                        String optString = new JSONObject(str5).optString("url");
+                        if (!StringUtils.isNull(optString)) {
+                            e(optString);
                         }
-                    } else {
-                        linkedList.add(qn5Var);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+                    ac3 ac3Var2 = new ac3();
+                    ac3Var2.f("invoke failed");
+                    return ac3Var2;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(str5);
+                    jSONObject.put("launchMode", "standard");
+                    String b2 = b(str, str2, str3, str4, jSONObject);
+                    boolean d = d(context, b2);
+                    if (a) {
+                        Log.i("DefaultInnerSkip", "result = " + d + "\n拼接后的uri is: " + b2);
+                    }
+                    if (d) {
+                        return null;
+                    }
+                    ac3 ac3Var3 = new ac3();
+                    ac3Var3.f("invoke failed");
+                    return ac3Var3;
+                } catch (JSONException e2) {
+                    if (a) {
+                        Log.i("DefaultInnerSkip", Log.getStackTraceString(e2));
+                    }
+                    return c(str5);
                 }
             }
-            if (z) {
-                linkedList.addAll(0, list);
-            }
-            return linkedList;
         }
-        return (List) invokeLLZ.objValue;
+        return (ac3) invokeCommon.objValue;
+    }
+
+    public final ac3 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            ac3 ac3Var = new ac3();
+            ac3Var.k(5L);
+            ac3Var.i(1L);
+            StringBuilder sb = new StringBuilder();
+            sb.append("Error in parameter parsing: from PageTransitionAction:\n called by");
+            sb.append(TextUtils.isEmpty(str) ? " empty" : "");
+            sb.append(" parameter:");
+            sb.append(str);
+            sb.append("\n");
+            sb.append(" appId:");
+            sb.append(g03.K().getAppId());
+            sb.append("\n");
+            sb.append(" curPage:");
+            sb.append(ul2.U().T());
+            sb.append("\n");
+            ac3Var.f(sb.toString());
+            return ac3Var;
+        }
+        return (ac3) invokeL.objValue;
+    }
+
+    public final void e(String str) {
+        h03 M;
+        cx2 y;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (M = h03.M()) == null || (y = M.y()) == null) {
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putString("key_param_url", str);
+        y.W(bundle, on5.class);
     }
 }

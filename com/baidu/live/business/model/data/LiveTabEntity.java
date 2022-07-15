@@ -37,7 +37,7 @@ public class LiveTabEntity implements Parcelable {
         public String type;
 
         /* loaded from: classes2.dex */
-        public class a implements Parcelable.Creator<TabLabelInfo> {
+        public static class a implements Parcelable.Creator<TabLabelInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -159,7 +159,7 @@ public class LiveTabEntity implements Parcelable {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements Parcelable.Creator<LiveTabEntity> {
+    public static class a implements Parcelable.Creator<LiveTabEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

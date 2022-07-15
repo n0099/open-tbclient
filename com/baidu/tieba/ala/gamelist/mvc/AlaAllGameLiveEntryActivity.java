@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.os5;
+import com.repackage.lt5;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
@@ -45,7 +45,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public NoScrollGridView f;
     public View g;
     public LinearLayout h;
-    public os5 i;
+    public lt5 i;
     public int j;
     public ArrayList<AlaSquareTabInfo> k;
     public IAlaSquareTabController l;
@@ -143,16 +143,16 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d00e2, null);
             this.a = linearLayout;
-            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f09238f);
+            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f092437);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01f9));
-            LinearLayout linearLayout2 = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091c06);
+            this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01fb));
+            LinearLayout linearLayout2 = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ca5);
             this.c = linearLayout2;
-            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091c2e);
+            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091ccf);
             this.d = textView;
             textView.setClickable(false);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091c18);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091cb7);
             this.c.setOnClickListener(new a(this));
             if (this.j == 1) {
                 this.c.setVisibility(0);
@@ -160,9 +160,9 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                 this.c.setVisibility(8);
             }
             this.h = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e4, (ViewGroup) null);
-            this.g = this.a.findViewById(R.id.obfuscated_res_0x7f091bf0);
-            this.i = new os5(getPageContext());
-            NoScrollGridView noScrollGridView = (NoScrollGridView) this.a.findViewById(R.id.obfuscated_res_0x7f0901e1);
+            this.g = this.a.findViewById(R.id.obfuscated_res_0x7f091c8f);
+            this.i = new lt5(getPageContext());
+            NoScrollGridView noScrollGridView = (NoScrollGridView) this.a.findViewById(R.id.obfuscated_res_0x7f0901e2);
             this.f = noScrollGridView;
             noScrollGridView.setOnItemClickListener(new b(this));
             this.f.setAdapter((ListAdapter) this.i);
@@ -195,7 +195,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            s0();
+            p0();
             initView();
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_SQUARE_TAB_CONTROLLER, IAlaSquareTabController.class);
             if (runTask == null || runTask.getData() == null) {
@@ -214,7 +214,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void s0() {
+    public final void p0() {
         Intent intent;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (intent = getIntent()) == null) {

@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b85;
-import com.repackage.e85;
+import com.repackage.d95;
+import com.repackage.g95;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class CurrencyJumpHelper {
@@ -86,10 +86,10 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void goYYPay(Context context, @Nullable b85 b85Var) {
+    public static void goYYPay(Context context, @Nullable d95 d95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, b85Var) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new e85(context, 0, null, null, b85Var));
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, d95Var) == null) {
+            MessageManager.getInstance().runTask(2921546, String.class, new g95(context, 0, null, null, d95Var));
         }
     }
 
@@ -107,27 +107,27 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void goYYPay(Context context, @Nullable b85 b85Var, String str, Long l, boolean z, int i) {
+    public static void goYYPay(Context context, @Nullable d95 d95Var, String str, Long l, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, b85Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            e85 e85Var = new e85(context, 0, str, l, b85Var);
-            e85Var.g = z;
-            e85Var.f = i;
-            MessageManager.getInstance().runTask(2921546, String.class, e85Var);
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, d95Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            g95 g95Var = new g95(context, 0, str, l, d95Var);
+            g95Var.g = z;
+            g95Var.f = i;
+            MessageManager.getInstance().runTask(2921546, String.class, g95Var);
         }
     }
 
-    public static void gotoBuyTBeanPage(Context context, float f, String str, String str2, @Nullable b85 b85Var) {
+    public static void gotoBuyTBeanPage(Context context, float f, String str, String str2, @Nullable d95 d95Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Float.valueOf(f), str, str2, b85Var}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
-            goYYPay(context, b85Var);
+        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Float.valueOf(f), str, str2, d95Var}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context, d95Var);
         }
     }
 
-    public static void buyGiftGotoBuyTBeanPage(Context context, b85 b85Var, String str, Long l, boolean z, int i) {
+    public static void buyGiftGotoBuyTBeanPage(Context context, d95 d95Var, String str, Long l, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, b85Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
-            goYYPay(context, b85Var, str, l, z, i);
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, d95Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context, d95Var, str, l, z, i);
         }
     }
 }

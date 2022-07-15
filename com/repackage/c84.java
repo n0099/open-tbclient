@@ -1,17 +1,20 @@
 package com.repackage;
 
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class c84 implements y74<p84> {
+public abstract class c84 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile c84 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c84() {
@@ -28,33 +31,73 @@ public class c84 implements y74<p84> {
         }
     }
 
-    @Override // com.repackage.y74
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
-        }
-    }
-
-    public final String b() {
+    public static c84 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT UNIQUE,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL,pkg_type INT DEFAULT 0," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0);";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (c84.class) {
+                    if (a == null) {
+                        a = new d84();
+                    }
+                }
+            }
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (c84) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "pkg_main" : (String) invokeV.objValue;
-    }
+    public abstract boolean a(e94 e94Var, PMSAppInfo pMSAppInfo);
 
-    @Override // com.repackage.y74
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-        }
-    }
+    public abstract boolean b(e94 e94Var, List<f94> list, c94 c94Var, a94 a94Var, PMSAppInfo pMSAppInfo);
+
+    public abstract void c(String str);
+
+    public abstract void d(String str, String str2);
+
+    public abstract <T extends d94> boolean e(Class<T> cls, String str);
+
+    public abstract boolean f(g94 g94Var);
+
+    public abstract boolean g(List<g94> list);
+
+    public abstract boolean h(String str);
+
+    @WorkerThread
+    public abstract int j(@NonNull String str);
+
+    @NonNull
+    @WorkerThread
+    public abstract List<f94> k(@NonNull String str, int i);
+
+    public abstract boolean l(PMSAppInfo pMSAppInfo);
+
+    public abstract <T extends d94> boolean m(T t);
+
+    public abstract boolean n(String str, String str2, String str3);
+
+    public abstract <T extends d94> T o(Class<T> cls, String str);
+
+    public abstract Map<String, e94> p();
+
+    public abstract g94 q(String str, long j, long j2);
+
+    public abstract List<g94> r(String str, String[] strArr);
+
+    public abstract List<g94> s(String str, long j, long j2);
+
+    @Nullable
+    public abstract h94 t(String str);
+
+    public abstract PMSAppInfo u(String str);
+
+    public abstract Map<String, PMSAppInfo> v();
+
+    public abstract List<g94> w(String str);
+
+    public abstract boolean x(g94 g94Var);
+
+    public abstract boolean y(PMSAppInfo pMSAppInfo);
+
+    public abstract boolean z(String str, int i);
 }

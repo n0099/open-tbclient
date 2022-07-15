@@ -1,107 +1,70 @@
 package com.repackage;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Stack;
-/* loaded from: classes5.dex */
-public final class f39 {
+import java.io.File;
+/* loaded from: classes6.dex */
+public class f39 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Stack<WeakReference<Activity>> a;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final f39 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-434578872, "Lcom/repackage/f39$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-434578872, "Lcom/repackage/f39$a;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755758619, "Lcom/repackage/f39;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new f39((byte) 0);
-        }
-    }
-
-    public /* synthetic */ f39(byte b) {
-        this();
-    }
-
-    public final Stack<WeakReference<Activity>> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Stack) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < this.a.size(); i++) {
-                Activity activity = this.a.get(i).get();
-                if (activity != null) {
-                    sb.append(activity.getClass().getSimpleName());
-                    sb.append("->");
-                }
-            }
-            return sb.length() > 0 ? sb.substring(0, sb.length() - 2) : "没有路径了";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void c(WeakReference<Activity> weakReference) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
-            this.a.add(weakReference);
-        }
-    }
-
-    public final void d(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (this.a != null) {
-                for (int i = 0; i < this.a.size(); i++) {
-                    if (this.a.get(i).get() == activity) {
-                        Stack<WeakReference<Activity>> stack = this.a;
-                        stack.remove(stack.get(i));
-                    }
-                }
-            }
-            b();
-        }
-    }
-
-    public f39() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755758619, "Lcom/repackage/f39;");
                 return;
             }
         }
-        this.a = new Stack<>();
+        a = d29.m();
+    }
+
+    public static boolean a(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (a) {
+                Log.d("UBCFileUtils", "delete file:" + file);
+            }
+            if (file == null) {
+                return false;
+            }
+            boolean z = true;
+            if (file.exists()) {
+                if (file.isFile()) {
+                    return true & file.delete();
+                }
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (File file2 : listFiles) {
+                            z &= a(file2);
+                        }
+                    }
+                    return z & file.delete();
+                } else if (a) {
+                    Log.d("UBCFileUtils", "a special file:" + file);
+                    return true;
+                } else {
+                    return true;
+                }
+            } else if (a) {
+                Log.d("UBCFileUtils", "not found the file to delete:" + file);
+                return true;
+            } else {
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

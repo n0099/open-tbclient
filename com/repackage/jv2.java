@@ -1,134 +1,147 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppBaseActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ao1;
-import com.repackage.b53;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class jv2 extends fv2 {
+public class jv2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements le3<v43<b53.d>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e12 a;
-        public final /* synthetic */ dv2 b;
-        public final /* synthetic */ e53 c;
-
-        public a(jv2 jv2Var, e12 e12Var, dv2 dv2Var, e53 e53Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755575285, "Lcom/repackage/jv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jv2Var, e12Var, dv2Var, e53Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = e12Var;
-            this.b = dv2Var;
-            this.c = e53Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.le3
-        /* renamed from: b */
-        public void a(v43<b53.d> v43Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v43Var) == null) {
-                if (v43Var != null && v43Var.c() && !TextUtils.isEmpty(v43Var.a.a)) {
-                    JSONObject jSONObject = this.c.g;
-                    if (jSONObject != null) {
-                        try {
-                            jSONObject.put("code", v43Var.a.a);
-                            this.b.d = true;
-                        } catch (JSONException e) {
-                            if (cg1.a) {
-                                kv2.b(Log.getStackTraceString(e));
-                            }
-                        }
-                        this.b.e = jSONObject.toString();
-                    }
-                    this.a.a(this.b);
-                    return;
-                }
-                kv2.b("login failure, can't get login code");
-                this.a.a(this.b);
-            }
-        }
-    }
-
-    public jv2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.gv2
-    public sr1 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            return null;
-        }
-        return (sr1) invokeL.objValue;
-    }
-
-    @Override // com.repackage.gv2
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "snsapi_userinfo" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.gv2
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginUserInfoFunPage" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fv2
-    public void p(SwanAppActivity swanAppActivity, String str, cv2 cv2Var, e53 e53Var, e12<dv2> e12Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, cv2Var, e53Var, e12Var) == null) {
-            dv2 dv2Var = new dv2(cv2Var.f);
-            dv2Var.a = cv2Var.e;
-            if (e53Var != null && e53Var.j.a() == 0) {
-                kv2.b("obtain user info detail, get login code");
-                ao1.d dVar = new ao1.d(cv2Var.g);
-                Bundle bundle = new Bundle();
-                bundle.putString("__plugin__", cv2Var.a);
-                rz2.K().r().e0().r(swanAppActivity, dVar, bundle, new a(this, e12Var, dv2Var, e53Var), "SwanPluginUserInfoFunPage");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755575285, "Lcom/repackage/jv2;");
                 return;
             }
-            kv2.b("open data result failure");
-            e12Var.a(dv2Var);
+        }
+        a = rg1.a;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean a(Context context, @NonNull kv2 kv2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, kv2Var)) == null) {
+            if (context instanceof SwanAppBaseActivity) {
+                return true;
+            }
+            kv2Var.b(2, "method should be called after setActivityRef");
+            if (a) {
+                throw new IllegalStateException("this method should be called after setActivityRef");
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(@NonNull Context context, @NonNull String str, @NonNull kv2 kv2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, kv2Var)) == null) {
+            if (bh4.a(context, str)) {
+                kv2Var.a("permission has already granted");
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean c(ArrayList<String> arrayList, @NonNull kv2 kv2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, kv2Var)) == null) {
+            if (arrayList == null || arrayList.isEmpty()) {
+                kv2Var.a("permission has already granted");
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @NonNull
+    public static ArrayList<String> d(@NonNull Context context, @NonNull String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (String str : strArr) {
+                if (!bh4.a(context, str)) {
+                    arrayList.add(str);
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    public static void e(@NonNull String str, @NonNull String[] strArr, int i, @NonNull Context context, @NonNull kv2 kv2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, strArr, Integer.valueOf(i), context, kv2Var}) == null) && a(context, kv2Var) && !b(context, str, kv2Var)) {
+            g(context, strArr, i, kv2Var);
+        }
+    }
+
+    @Deprecated
+    public static void f(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull kv2 kv2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLIL(65542, null, context, strArr, i, kv2Var) == null) && a(context, kv2Var)) {
+            ArrayList<String> d = d(context, strArr);
+            if (c(d, kv2Var)) {
+                return;
+            }
+            ((SwanAppBaseActivity) context).y(i, (String[]) d.toArray(new String[0]), new fv2(i, kv2Var));
+        }
+    }
+
+    public static void g(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull kv2 kv2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLIL(65543, null, context, strArr, i, kv2Var) == null) && a(context, kv2Var)) {
+            ArrayList<String> d = d(context, strArr);
+            if (c(d, kv2Var)) {
+                return;
+            }
+            ((SwanAppBaseActivity) context).y(i, (String[]) d.toArray(new String[0]), new gv2(context, i, kv2Var));
+        }
+    }
+
+    public static void h(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull kv2 kv2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLILL(65544, null, strArr, i, context, kv2Var) == null) && a(context, kv2Var)) {
+            ArrayList<String> d = d(context, strArr);
+            if (c(d, kv2Var)) {
+                return;
+            }
+            g(context, (String[]) d.toArray(new String[0]), i, kv2Var);
+        }
+    }
+
+    @Deprecated
+    public static void requestPermissions(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull kv2 kv2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLILL(65545, null, strArr, i, context, kv2Var) == null) && a(context, kv2Var)) {
+            ArrayList<String> d = d(context, strArr);
+            if (c(d, kv2Var)) {
+                return;
+            }
+            f(context, (String[]) d.toArray(new String[0]), i, kv2Var);
         }
     }
 }

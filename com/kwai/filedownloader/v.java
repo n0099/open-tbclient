@@ -3,9 +3,9 @@ package com.kwai.filedownloader;
 import com.kwai.filedownloader.a;
 /* loaded from: classes5.dex */
 public interface v {
-    boolean a(a.b bVar);
+    boolean a(a.InterfaceC0555a interfaceC0555a);
 
-    void b(a.b bVar);
+    void b(a.InterfaceC0555a interfaceC0555a);
 
-    boolean c(a.b bVar);
+    boolean c(a.InterfaceC0555a interfaceC0555a);
 }

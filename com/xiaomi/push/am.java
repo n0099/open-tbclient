@@ -14,10 +14,10 @@ public class am extends al.b {
     public final /* synthetic */ al a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f92a;
+    public final /* synthetic */ String f819a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ boolean f93a;
+    public final /* synthetic */ boolean f820a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public am(al alVar, al.a aVar, boolean z, String str) {
@@ -38,8 +38,8 @@ public class am extends al.b {
             }
         }
         this.a = alVar;
-        this.f93a = z;
-        this.f92a = str;
+        this.f820a = z;
+        this.f819a = str;
     }
 
     @Override // com.xiaomi.push.al.b
@@ -54,10 +54,10 @@ public class am extends al.b {
     public void b() {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f93a) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f820a) {
             return;
         }
-        sharedPreferences = this.a.f88a;
-        sharedPreferences.edit().putLong(this.f92a, System.currentTimeMillis()).commit();
+        sharedPreferences = this.a.f815a;
+        sharedPreferences.edit().putLong(this.f819a, System.currentTimeMillis()).commit();
     }
 }

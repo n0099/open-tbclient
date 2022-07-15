@@ -1,59 +1,31 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.searchbox.http.NetworkQuality;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fr2 extends ProviderDelegation {
+public abstract class fr2<K, V> implements hr2<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public K a;
 
-    public fr2() {
+    public fr2(@NonNull K k) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            hw2 c = fw2.c(fr2.class, null);
-            if (c.a()) {
-                return c.a.getInt("net_quality", -1);
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            if (SwanAppNetworkUtils.h()) {
-                bundle2.putInt("net_quality", NetworkQuality.getNetworkQuality());
-            } else {
-                bundle2.putInt("net_quality", 3);
-            }
-            return bundle2;
-        }
-        return (Bundle) invokeL.objValue;
+        this.a = k;
     }
 }

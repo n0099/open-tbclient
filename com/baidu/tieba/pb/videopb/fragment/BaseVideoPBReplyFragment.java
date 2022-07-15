@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.my7;
+import com.repackage.gz7;
 /* loaded from: classes3.dex */
 public abstract class BaseVideoPBReplyFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -34,5 +34,5 @@ public abstract class BaseVideoPBReplyFragment extends BaseFragment {
 
     public abstract AbsPbActivity N();
 
-    public abstract my7 r1();
+    public abstract gz7 s1();
 }

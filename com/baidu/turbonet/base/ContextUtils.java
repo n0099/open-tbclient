@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.JNINamespace;
-import com.repackage.oz8;
+import com.repackage.n09;
 @JNINamespace
 /* loaded from: classes4.dex */
 public class ContextUtils {
@@ -41,7 +41,7 @@ public class ContextUtils {
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             Context context2 = a;
             if (context2 != null && context2 != context) {
-                oz8.a(org.webrtc.ContextUtils.TAG, "Multiple contexts detected, ignoring new application context.");
+                n09.a(org.webrtc.ContextUtils.TAG, "Multiple contexts detected, ignoring new application context.");
             } else {
                 d(context);
             }

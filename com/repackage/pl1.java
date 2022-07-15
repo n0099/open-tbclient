@@ -1,13 +1,21 @@
 package com.repackage;
 
-import android.content.Context;
+import androidx.annotation.AnyThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.api.module.subscription.SubscribeHelper;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public interface pl1 {
-    void a(Context context, le3<Boolean> le3Var);
+    String a();
 
-    void b(boolean z, le3<String> le3Var);
+    @AnyThread
+    void b(@NonNull String str, @NonNull Set<String> set, @NonNull SubscribeHelper.i iVar);
 
-    void c(Context context, le3<String> le3Var);
+    void c(@NonNull String str, bd2 bd2Var);
 
-    void d(le3<Integer> le3Var);
+    void d(@NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, bd2 bd2Var);
+
+    void e(String str, dt2 dt2Var);
 }

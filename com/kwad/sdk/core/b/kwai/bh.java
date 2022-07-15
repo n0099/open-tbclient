@@ -1,36 +1,47 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.kwad.components.core.webview.jshandler.q;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bh implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.d> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(com.kwad.sdk.collector.kwai.d dVar, JSONObject jSONObject) {
+public final class bh implements com.kwad.sdk.core.d<q.a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(q.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        dVar.a = jSONObject.optInt("isRoot");
-        dVar.b = jSONObject.optInt("isXPosed");
-        dVar.c = jSONObject.optInt("isFrameworkHooked");
-        dVar.d = jSONObject.optInt("isVirtual");
-        dVar.e = jSONObject.optInt("isAdbEnabled");
-        dVar.f = jSONObject.optInt("isEmulator");
-        dVar.g = jSONObject.optInt("isGroupControl");
+        aVar.a = jSONObject.optBoolean("clickActionButton");
+        aVar.b = jSONObject.optString("adTemplate");
+        if (jSONObject.opt("adTemplate") == JSONObject.NULL) {
+            aVar.b = "";
+        }
+        aVar.c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
+        com.kwad.sdk.core.webview.a.a.c cVar = new com.kwad.sdk.core.webview.a.a.c();
+        aVar.d = cVar;
+        cVar.parseJson(jSONObject.optJSONObject("logParam"));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(com.kwad.sdk.collector.kwai.d dVar, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(q.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "isRoot", dVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "isXPosed", dVar.b);
-        com.kwad.sdk.utils.t.a(jSONObject, "isFrameworkHooked", dVar.c);
-        com.kwad.sdk.utils.t.a(jSONObject, "isVirtual", dVar.d);
-        com.kwad.sdk.utils.t.a(jSONObject, "isAdbEnabled", dVar.e);
-        com.kwad.sdk.utils.t.a(jSONObject, "isEmulator", dVar.f);
-        com.kwad.sdk.utils.t.a(jSONObject, "isGroupControl", dVar.g);
+        com.kwad.sdk.utils.r.a(jSONObject, "clickActionButton", aVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "adTemplate", aVar.b);
+        com.kwad.sdk.utils.r.a(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, aVar.c);
+        com.kwad.sdk.utils.r.a(jSONObject, "logParam", aVar.d);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(q.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(q.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

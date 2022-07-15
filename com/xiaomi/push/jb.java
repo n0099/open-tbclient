@@ -18,21 +18,21 @@ public class jb extends jf {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f795a;
+    public int f1522a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f796a;
+    public boolean f1523a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f797a;
+    public byte[] f1524a;
     public boolean b;
 
     /* renamed from: b  reason: collision with other field name */
-    public byte[] f798b;
+    public byte[] f1525b;
     public boolean c;
 
     /* renamed from: c  reason: collision with other field name */
-    public byte[] f799c;
+    public byte[] f1526c;
     public byte[] d;
     public byte[] e;
     public byte[] f;
@@ -46,7 +46,7 @@ public class jb extends jf {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f800a;
+        public boolean f1527a;
         public boolean b;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -104,9 +104,9 @@ public class jb extends jf {
                     return;
                 }
             }
-            this.f800a = false;
+            this.f1527a = false;
             this.b = true;
-            this.f800a = z;
+            this.f1527a = z;
             this.b = z2;
             this.a = i;
         }
@@ -116,7 +116,7 @@ public class jb extends jf {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jpVar)) == null) {
-                jb jbVar = new jb(jpVar, this.f800a, this.b);
+                jb jbVar = new jb(jpVar, this.f1527a, this.b);
                 int i = this.a;
                 if (i != 0) {
                     jbVar.b(i);
@@ -161,18 +161,18 @@ public class jb extends jf {
                 return;
             }
         }
-        this.f796a = false;
+        this.f1523a = false;
         this.b = true;
         this.c = false;
-        this.f797a = new byte[1];
-        this.f798b = new byte[2];
-        this.f799c = new byte[4];
+        this.f1524a = new byte[1];
+        this.f1525b = new byte[2];
+        this.f1526c = new byte[4];
         this.d = new byte[8];
         this.e = new byte[1];
         this.f = new byte[2];
         this.g = new byte[4];
         this.h = new byte[8];
-        this.f796a = z;
+        this.f1523a = z;
         this.b = z2;
     }
 
@@ -195,7 +195,7 @@ public class jb extends jf {
                 a(this.e, 0, 1);
                 return this.e[0];
             }
-            byte b = ((jf) this).a.m551a()[((jf) this).a.a()];
+            byte b = ((jf) this).a.m1494a()[((jf) this).a.a()];
             ((jf) this).a.a(1);
             return b;
         }
@@ -217,7 +217,7 @@ public class jb extends jf {
             byte[] bArr = this.g;
             int i = 0;
             if (((jf) this).a.b() >= 4) {
-                bArr = ((jf) this).a.m551a();
+                bArr = ((jf) this).a.m1494a();
                 i = ((jf) this).a.a();
                 ((jf) this).a.a(4);
             } else {
@@ -236,7 +236,7 @@ public class jb extends jf {
             byte[] bArr = this.h;
             int i = 0;
             if (((jf) this).a.b() >= 8) {
-                bArr = ((jf) this).a.m551a();
+                bArr = ((jf) this).a.m1494a();
                 i = ((jf) this).a.a();
                 ((jf) this).a.a(8);
             } else {
@@ -294,7 +294,7 @@ public class jb extends jf {
             int a2 = a();
             if (((jf) this).a.b() >= a2) {
                 try {
-                    String str = new String(((jf) this).a.m551a(), ((jf) this).a.a(), a2, "UTF-8");
+                    String str = new String(((jf) this).a.m1494a(), ((jf) this).a.a(), a2, "UTF-8");
                     ((jf) this).a.a(a2);
                     return str;
                 } catch (UnsupportedEncodingException unused) {
@@ -331,7 +331,7 @@ public class jb extends jf {
             int a2 = a();
             c(a2);
             if (((jf) this).a.b() >= a2) {
-                ByteBuffer wrap = ByteBuffer.wrap(((jf) this).a.m551a(), ((jf) this).a.a(), a2);
+                ByteBuffer wrap = ByteBuffer.wrap(((jf) this).a.m1494a(), ((jf) this).a.a(), a2);
                 ((jf) this).a.a(a2);
                 return wrap;
             }
@@ -350,7 +350,7 @@ public class jb extends jf {
             byte[] bArr = this.f;
             int i = 0;
             if (((jf) this).a.b() >= 2) {
-                bArr = ((jf) this).a.m551a();
+                bArr = ((jf) this).a.m1494a();
                 i = ((jf) this).a.a();
                 ((jf) this).a.a(2);
             } else {
@@ -372,9 +372,9 @@ public class jb extends jf {
     public void a(byte b) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeB(1048590, this, b) == null) {
-            byte[] bArr = this.f797a;
+            byte[] bArr = this.f1524a;
             bArr[0] = b;
-            ((jf) this).a.m550a(bArr, 0, 1);
+            ((jf) this).a.m1493a(bArr, 0, 1);
         }
     }
 
@@ -382,12 +382,12 @@ public class jb extends jf {
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            byte[] bArr = this.f799c;
+            byte[] bArr = this.f1526c;
             bArr[0] = (byte) ((i >> 24) & 255);
             bArr[1] = (byte) ((i >> 16) & 255);
             bArr[2] = (byte) ((i >> 8) & 255);
             bArr[3] = (byte) (i & 255);
-            ((jf) this).a.m550a(bArr, 0, 4);
+            ((jf) this).a.m1493a(bArr, 0, 4);
         }
     }
 
@@ -404,7 +404,7 @@ public class jb extends jf {
             bArr[5] = (byte) ((j >> 16) & 255);
             bArr[6] = (byte) ((j >> 8) & 255);
             bArr[7] = (byte) (j & 255);
-            ((jf) this).a.m550a(bArr, 0, 8);
+            ((jf) this).a.m1493a(bArr, 0, 8);
         }
     }
 
@@ -413,7 +413,7 @@ public class jb extends jf {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, jcVar) == null) {
             a(jcVar.a);
-            a(jcVar.f802a);
+            a(jcVar.f1529a);
         }
     }
 
@@ -422,7 +422,7 @@ public class jb extends jf {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, jdVar) == null) {
             a(jdVar.a);
-            a(jdVar.f803a);
+            a(jdVar.f1530a);
         }
     }
 
@@ -432,7 +432,7 @@ public class jb extends jf {
         if (interceptable == null || interceptable.invokeL(1048595, this, jeVar) == null) {
             a(jeVar.a);
             a(jeVar.b);
-            a(jeVar.f804a);
+            a(jeVar.f1531a);
         }
     }
 
@@ -450,7 +450,7 @@ public class jb extends jf {
             try {
                 byte[] bytes = str.getBytes("UTF-8");
                 a(bytes.length);
-                ((jf) this).a.m550a(bytes, 0, bytes.length);
+                ((jf) this).a.m1493a(bytes, 0, bytes.length);
             } catch (UnsupportedEncodingException unused) {
                 throw new iz("JVM DOES NOT SUPPORT UTF-8");
             }
@@ -463,7 +463,7 @@ public class jb extends jf {
         if (interceptable == null || interceptable.invokeL(1048598, this, byteBuffer) == null) {
             int limit = (byteBuffer.limit() - byteBuffer.position()) - byteBuffer.arrayOffset();
             a(limit);
-            ((jf) this).a.m550a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
+            ((jf) this).a.m1493a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
         }
     }
 
@@ -471,10 +471,10 @@ public class jb extends jf {
     public void a(short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Short.valueOf(s)}) == null) {
-            byte[] bArr = this.f798b;
+            byte[] bArr = this.f1525b;
             bArr[0] = (byte) ((s >> 8) & 255);
             bArr[1] = (byte) (s & 255);
-            ((jf) this).a.m550a(bArr, 0, 2);
+            ((jf) this).a.m1493a(bArr, 0, 2);
         }
     }
 
@@ -503,7 +503,7 @@ public class jb extends jf {
     public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            this.f795a = i;
+            this.f1522a = i;
             this.c = true;
         }
     }
@@ -522,8 +522,8 @@ public class jb extends jf {
             if (i < 0) {
                 throw new iz("Negative length: " + i);
             } else if (this.c) {
-                int i2 = this.f795a - i;
-                this.f795a = i2;
+                int i2 = this.f1522a - i;
+                this.f1522a = i2;
                 if (i2 >= 0) {
                     return;
                 }

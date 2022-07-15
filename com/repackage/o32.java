@@ -3,12 +3,11 @@ package com.repackage;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,213 +15,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rw2;
-import com.repackage.tw2;
+import com.repackage.l32;
+import java.io.File;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public final class o32 {
+public class o32<T extends l32> extends t74<f94> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static f b;
-    public static g c;
-    public static final boolean d;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-        public final /* synthetic */ PrefetchEvent b;
-        public final /* synthetic */ o32 c;
-
-        public a(o32 o32Var, e eVar, PrefetchEvent prefetchEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o32Var, eVar, prefetchEvent};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = o32Var;
-            this.a = eVar;
-            this.b = prefetchEvent;
-        }
-
-        @Override // com.repackage.o32.d
-        public void a(rw2 rw2Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, rw2Var) == null) || rw2Var == null) {
-                return;
-            }
-            if (o32.d || !rw2Var.E()) {
-                this.c.f(rw2Var, this.b, this.a);
-            } else {
-                this.a.a(rw2Var, null);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements rw2.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public b(o32 o32Var, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o32Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.repackage.rw2.b
-        public void a(rw2 rw2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, rw2Var) == null) {
-                this.a.a(rw2Var);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends hy1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rw2 b;
-        public final /* synthetic */ e c;
-
-        public c(o32 o32Var, rw2 rw2Var, e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o32Var, rw2Var, eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = rw2Var;
-            this.c = eVar;
-        }
-
-        @Override // com.repackage.hy1, com.repackage.iy1.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.a();
-                boolean z = o32.d && this.b.E();
-                if (this.b.S() || z) {
-                    this.c.a(this.b, null);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d {
-        void a(rw2 rw2Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a(@NonNull rw2 rw2Var, @Nullable PMSAppInfo pMSAppInfo);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class f implements tw2.c<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.tw2.c
-        /* renamed from: b */
-        public boolean a(String str, rw2 rw2Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, rw2Var)) == null) {
-                PrefetchEvent prefetchEvent = rw2Var.f;
-                if (prefetchEvent == null) {
-                    return false;
-                }
-                return TextUtils.equals(str, prefetchEvent.appId);
-            }
-            return invokeLL.booleanValue;
-        }
-
-        public /* synthetic */ f(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class g implements tw2.c<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.tw2.c
-        /* renamed from: b */
-        public boolean a(String str, rw2 rw2Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, rw2Var)) == null) ? rw2Var.E() && TextUtils.equals(str, rw2Var.c) : invokeLL.booleanValue;
-        }
-
-        public /* synthetic */ g(a aVar) {
-            this();
-        }
-    }
+    @NonNull
+    public final T a;
 
     static {
         InterceptResult invokeClinit;
@@ -237,90 +39,148 @@ public final class o32 {
                 return;
             }
         }
-        a = cg1.a;
-        b = new f(null);
-        c = new g(null);
-        d = s32.p();
+        b = rg1.a;
     }
 
-    public o32() {
+    public o32(@NonNull T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static rw2 c(@NonNull PrefetchEvent prefetchEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, prefetchEvent)) == null) ? tw2.k().p(prefetchEvent.appId, b) : (rw2) invokeL.objValue;
-    }
-
-    public static rw2 d(@NonNull PrefetchEvent prefetchEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, prefetchEvent)) == null) ? tw2.k().p(prefetchEvent.appId, c) : (rw2) invokeL.objValue;
-    }
-
-    public final void e(@NonNull rw2 rw2Var, @NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, rw2Var, prefetchEvent, eVar) == null) {
-            iy1.g(prefetchEvent.appId, "swan", prefetchEvent.scene, false, prefetchEvent.schema, new c(this, rw2Var, eVar));
-        }
-    }
-
-    public final void f(@NonNull rw2 rw2Var, @NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rw2Var, prefetchEvent, eVar) == null) {
-            e(rw2Var, prefetchEvent, eVar);
-        }
-    }
-
-    public void g(@NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, prefetchEvent, eVar) == null) {
-            h(prefetchEvent, new a(this, eVar, prefetchEvent));
-        }
-    }
-
-    @Nullable
-    public final void h(@NonNull PrefetchEvent prefetchEvent, @NonNull d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, prefetchEvent, dVar) == null) {
-            rw2 d2 = d(prefetchEvent);
-            if (d2 != null) {
-                dVar.a(d2);
                 return;
             }
-            rw2 c2 = c(prefetchEvent);
-            if (c2 != null && c2.S()) {
-                dVar.a(c2);
-                return;
+        }
+        this.a = t;
+    }
+
+    @Override // com.repackage.t74
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.g() : invokeV.intValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.y74
+    @NonNull
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bundle, set)) == null) {
+            Bundle bundle2 = new Bundle();
+            if (set.contains("event_performance_ubc")) {
+                this.a.n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+                set.remove("event_performance_ubc");
             }
-            rw2 e2 = tw2.k().e();
-            if (e2.E()) {
-                if (a) {
-                    Log.e("PrefetchEnv", "prepareEnv isSwanAppLoaded.");
-                }
-                dVar.a(null);
-            } else if (e2.S()) {
-                if (a) {
-                    Log.d("PrefetchEnv", "prepareEnv isPreloaded.");
-                }
-                dVar.a(e2);
+            return bundle2;
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.w74
+    /* renamed from: o */
+    public String d(f94 f94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, f94Var)) == null) {
+            if (TextUtils.isEmpty(f94Var.o)) {
+                f94Var.o = l();
+            }
+            int i = f94Var.h;
+            if (i == 0) {
+                return a42.b(f94Var.o, String.valueOf(f94Var.i));
+            }
+            if (i == 1) {
+                return a42.d(f94Var.o, String.valueOf(f94Var.i));
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @CallSuper
+    public void p(@NonNull f94 f94Var, @Nullable ac3 ac3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, f94Var, ac3Var) == null) {
+        }
+    }
+
+    @CallSuper
+    public void q(f94 f94Var, z84 z84Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, f94Var, z84Var) == null) {
+            super.e(f94Var, z84Var);
+            hx1.k("SwanPMSSubDownload", "PMSPkgSub#onDownloadError del:" + f94Var.a);
+            jg4.M(f94Var.a);
+            if (b) {
+                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadError " + f94Var + ", error=" + z84Var);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.t74, com.repackage.w74
+    /* renamed from: r */
+    public final void i(f94 f94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, f94Var) == null) {
+            super.i(f94Var);
+            p(f94Var, t(f94Var));
+            if (b) {
+                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadFinish " + f94Var);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.t74, com.repackage.w74
+    /* renamed from: s */
+    public void c(f94 f94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, f94Var) == null) {
+            super.c(f94Var);
+            if (b) {
+                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadStart " + f94Var);
+            }
+        }
+    }
+
+    public final ac3 t(f94 f94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, f94Var)) == null) {
+            if (!ud3.a(new File(f94Var.a), f94Var.m)) {
+                ac3 ac3Var = new ac3();
+                ac3Var.k(12L);
+                ac3Var.b(2300L);
+                ac3Var.d("分包签名校验失败");
+                return ac3Var;
+            } else if (a42.g(f94Var)) {
+                return null;
             } else {
-                e2.k0(new b(this, dVar));
-                Bundle bundle = new Bundle();
-                bundle.putString("bundle_key_preload_preload_scene", "8");
-                qw2.m(zi2.c(), e2, bundle);
+                ac3 ac3Var2 = new ac3();
+                ac3Var2.k(12L);
+                ac3Var2.b(2320L);
+                ac3Var2.d("分包解压失败");
+                return ac3Var2;
             }
         }
+        return (ac3) invokeL.objValue;
     }
 }

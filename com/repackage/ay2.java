@@ -1,9 +1,8 @@
 package com.repackage;
 
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,89 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import okhttp3.Response;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ay2 {
+public class ay2 implements jy2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a extends ResponseCallback<zx2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        public a(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(zx2 zx2Var, int i) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, zx2Var, i) == null) || (bVar = this.a) == null) {
-                return;
-            }
-            if (zx2Var == null) {
-                bVar.a(null);
-            } else {
-                bVar.a(zx2Var);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
-        public zx2 parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            JSONObject optJSONObject;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                if (response == null || response.body() == null || (optJSONObject = new JSONObject(response.body().string()).optJSONObject("data")) == null) {
-                    return null;
-                }
-                if (ay2.a) {
-                    Log.d("SwanAppRelatedSwanHelper", "parseResponse: RelateSwanData" + optJSONObject.toString());
-                }
-                return zx2.a(optJSONObject);
-            }
-            return (zx2) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (bVar = this.a) == null) {
-                return;
-            }
-            bVar.a(null);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(zx2 zx2Var);
-    }
+    public final View a;
+    public boolean b;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -108,34 +32,93 @@ public class ay2 {
                 return;
             }
         }
-        a = cg1.a;
+        d = rg1.a;
     }
 
-    public static String b() {
+    public ay2(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+        this.c = false;
+        this.a = view2;
+    }
+
+    public boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
+                this.b = false;
+            }
+            if (i == this.a.getVisibility()) {
+                return true;
+            }
+            return b() && i == 0;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            SwanCoreVersion M = fl2.U().M();
-            String i = y84.i(zi2.o().L());
-            HashMap hashMap = new HashMap(4);
-            hashMap.put("appkey", rz2.K().getAppId());
-            hashMap.put("swan_core_ver", x83.i(M, rz2.K().l()));
-            hashMap.put("swan_game_ver", x83.h(1));
-            hashMap.put("uid", zi2.h0().i(zi2.c()));
-            return kd3.b(i, hashMap);
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
-    public static void c(b bVar) {
+    public int[] c(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
-            t64 t64Var = new t64(b(), new a(bVar));
-            if (u64.g().c()) {
-                t64Var.f = true;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            if (this.b) {
+                this.a.setVisibility(8);
+                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i = makeMeasureSpec;
             }
-            t64Var.g = true;
-            u64.g().d(t64Var);
+            return new int[]{i, i2};
+        }
+        return (int[]) invokeII.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            iy2.g(this.a, i);
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    @Override // com.repackage.jy2
+    public void handleHide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = true;
+        }
+    }
+
+    @Override // com.repackage.jy2
+    @SuppressLint({"BDThrowableCheck"})
+    public void handleShow() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d) {
+            throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
         }
     }
 }

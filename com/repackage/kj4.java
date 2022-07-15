@@ -1,16 +1,28 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.tbadk.core.data.NewUserRedPackageData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
+import tbclient.ActiveConfig.DataRes;
+import tbclient.FloatStrategy;
+import tbclient.MissionInfo;
 /* loaded from: classes6.dex */
-public class kj4 extends jj4 {
+public class kj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public DataRes a;
+    public boolean b;
+    public String c;
+    public final ArrayList<ki4> d;
+    public final ArrayList<FloatStrategy> e;
+    public NewUserRedPackageData f;
+    public ActiveCenterData g;
 
     public kj4() {
         Interceptable interceptable = $ic;
@@ -22,32 +34,59 @@ public class kj4 extends jj4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.c = "";
+        this.d = new ArrayList<>();
+        this.e = new ArrayList<>();
     }
 
-    @Override // com.repackage.ij4
-    public String a(String[] strArr, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr == null || strArr.length == 0) {
-                return null;
-            }
-            String substring = strArr[0].substring(1);
-            StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/pb");
-            sb.append("?ori_ugc_tid=");
-            sb.append(substring);
-            c(strArr, sb, map, 1);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.ij4
-    public String b() {
+    public ArrayList<FloatStrategy> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "d" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<ki4> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
+    }
+
+    public void c(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) {
+            this.a = dataRes;
+            this.d.clear();
+            this.e.clear();
+            if (dataRes == null) {
+                return;
+            }
+            this.b = dataRes.is_new_user.intValue() == 1;
+            this.c = dataRes.active_url;
+            this.e.addAll(dataRes.float_list);
+            for (MissionInfo missionInfo : this.a.mission_list) {
+                if (missionInfo != null) {
+                    ki4 ki4Var = new ki4(missionInfo);
+                    if (missionInfo.tasktype.intValue() == 5) {
+                        vt4.e().g(missionInfo);
+                    } else if (missionInfo.tasktype.intValue() == 9) {
+                        yi4.c().f(ki4Var);
+                    } else if (ki4Var.L()) {
+                        this.d.add(ki4Var);
+                    }
+                }
+            }
+            NewUserRedPackageData newUserRedPackageData = new NewUserRedPackageData();
+            this.f = newUserRedPackageData;
+            newUserRedPackageData.parseProto(dataRes);
+            if (dataRes.active_center != null) {
+                ActiveCenterData activeCenterData = new ActiveCenterData();
+                this.g = activeCenterData;
+                activeCenterData.parseProto(dataRes);
+            }
+        }
     }
 }

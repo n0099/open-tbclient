@@ -1,146 +1,85 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tieba.R;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.GetVipInfo.VipThemeItem;
+import tbclient.GetVipInfo.VipThemeList;
 /* loaded from: classes7.dex */
-public class yi7 extends BaseAdapter {
+public class yi7 implements nn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<xi7> a;
-    public LayoutInflater b;
+    public ti7 a;
+    public List<zi7> b;
+    public List<zi7> c;
 
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-        public TextView b;
-
-        public a(yi7 yi7Var, View view2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755140758, "Lcom/repackage/yi7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yi7Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0913a8);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913a7);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755140758, "Lcom/repackage/yi7;");
+                return;
+            }
         }
+        d = BdUniqueId.gen();
     }
 
-    public yi7(Context context) {
+    public yi7(VipThemeList vipThemeList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vipThemeList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = LayoutInflater.from(context);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public xi7 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<xi7> list = this.a;
-            if (list == null) {
-                return null;
-            }
-            return list.get(i);
-        }
-        return (xi7) invokeI.objValue;
-    }
-
-    public final void b(xi7 xi7Var, a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xi7Var, aVar) == null) || xi7Var == null) {
+        if (vipThemeList == null) {
             return;
         }
-        aVar.b.setText(xi7Var.b);
-        SkinManager.setViewTextColor(aVar.b, (int) R.color.CAM_X0106);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(aVar.a, xi7Var.a, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
-    }
-
-    public void c(List<xi7> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
+        String str = vipThemeList.card_id;
+        ti7 ti7Var = new ti7();
+        this.a = ti7Var;
+        ti7Var.e(2);
+        this.a.d(vipThemeList.class_name);
+        this.a.f(vipThemeList.class_url_name);
+        this.a.g(vipThemeList.class_url);
+        if (vipThemeList.item != null) {
+            this.b = new ArrayList();
+            for (VipThemeItem vipThemeItem : vipThemeList.item) {
+                this.b.add(new zi7(vipThemeItem));
+            }
+        }
+        if (vipThemeList.item_card != null) {
+            this.c = new ArrayList();
+            for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
+                this.c.add(new zi7(vipThemeItem2));
+            }
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @Override // com.repackage.nn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<xi7> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (this.a == null) {
-                return 0L;
-            }
-            return i;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d0528, (ViewGroup) null);
-                view2.setTag(new a(this, view2));
-            }
-            b(getItem(i), (a) view2.getTag());
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
     }
 }

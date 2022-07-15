@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.tachikoma.core.utility.FileUtil;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -137,7 +136,7 @@ public class b3 extends m2 {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.g = this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
+            this.g = this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH);
             f3 c = ((n2) e1.d).c();
             this.f = c;
             AssetFileDescriptor a = c.a(v());

@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx7;
-import com.repackage.es7;
-import com.repackage.yw7;
+import com.repackage.sx7;
+import com.repackage.ws7;
+import com.repackage.wx7;
 /* loaded from: classes3.dex */
-public class SubPbReplyAdapter extends yw7<cx7, SubPbReplyViewHolder> {
+public class SubPbReplyAdapter extends sx7<wx7, SubPbReplyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean k;
@@ -51,8 +51,8 @@ public class SubPbReplyAdapter extends yw7<cx7, SubPbReplyViewHolder> {
                 }
             }
             this.c = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909ba);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0909bb);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909c1);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0909c2);
         }
 
         public void d() {
@@ -78,19 +78,19 @@ public class SubPbReplyAdapter extends yw7<cx7, SubPbReplyViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbReplyAdapter(es7 es7Var, BdUniqueId bdUniqueId) {
-        super(es7Var, bdUniqueId);
+    public SubPbReplyAdapter(ws7 ws7Var, BdUniqueId bdUniqueId) {
+        super(ws7Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {es7Var, bdUniqueId};
+            Object[] objArr = {ws7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((es7) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((ws7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -105,17 +105,17 @@ public class SubPbReplyAdapter extends yw7<cx7, SubPbReplyViewHolder> {
     public SubPbReplyViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0799, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07b7, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.yw7, com.repackage.an
+    @Override // com.repackage.sx7, com.repackage.an
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, cx7 cx7Var, SubPbReplyViewHolder subPbReplyViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, wx7 wx7Var, SubPbReplyViewHolder subPbReplyViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cx7Var, subPbReplyViewHolder})) == null) {
-            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1230), String.valueOf(cx7Var == null ? 0 : cx7Var.a()));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wx7Var, subPbReplyViewHolder})) == null) {
+            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1229), String.valueOf(wx7Var == null ? 0 : wx7Var.a()));
             subPbReplyViewHolder.e(this.k);
             ((SubPbReplyViewHolder) this.g).a.setText(format);
             ((SubPbReplyViewHolder) this.g).d();

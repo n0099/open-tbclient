@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ev9;
-import com.repackage.uz9;
+import com.repackage.bs9;
+import com.repackage.rw9;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SequentialSubscription extends AtomicReference<ev9> implements ev9 {
+public final class SequentialSubscription extends AtomicReference<bs9> implements bs9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 995205034283130269L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,56 +29,56 @@ public final class SequentialSubscription extends AtomicReference<ev9> implement
         }
     }
 
-    public ev9 current() {
+    public bs9 current() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ev9 ev9Var = (ev9) super.get();
-            return ev9Var == Unsubscribed.INSTANCE ? uz9.c() : ev9Var;
+            bs9 bs9Var = (bs9) super.get();
+            return bs9Var == Unsubscribed.INSTANCE ? rw9.c() : bs9Var;
         }
-        return (ev9) invokeV.objValue;
+        return (bs9) invokeV.objValue;
     }
 
-    @Override // com.repackage.ev9
+    @Override // com.repackage.bs9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == Unsubscribed.INSTANCE : invokeV.booleanValue;
     }
 
-    public boolean replace(ev9 ev9Var) {
-        ev9 ev9Var2;
+    public boolean replace(bs9 bs9Var) {
+        bs9 bs9Var2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ev9Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bs9Var)) == null) {
             do {
-                ev9Var2 = get();
-                if (ev9Var2 == Unsubscribed.INSTANCE) {
-                    if (ev9Var != null) {
-                        ev9Var.unsubscribe();
+                bs9Var2 = get();
+                if (bs9Var2 == Unsubscribed.INSTANCE) {
+                    if (bs9Var != null) {
+                        bs9Var.unsubscribe();
                         return false;
                     }
                     return false;
                 }
-            } while (!compareAndSet(ev9Var2, ev9Var));
+            } while (!compareAndSet(bs9Var2, bs9Var));
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public boolean replaceWeak(ev9 ev9Var) {
+    public boolean replaceWeak(bs9 bs9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ev9Var)) == null) {
-            ev9 ev9Var2 = get();
-            if (ev9Var2 == Unsubscribed.INSTANCE) {
-                if (ev9Var != null) {
-                    ev9Var.unsubscribe();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bs9Var)) == null) {
+            bs9 bs9Var2 = get();
+            if (bs9Var2 == Unsubscribed.INSTANCE) {
+                if (bs9Var != null) {
+                    bs9Var.unsubscribe();
                 }
                 return false;
-            } else if (!compareAndSet(ev9Var2, ev9Var) && get() == Unsubscribed.INSTANCE) {
-                if (ev9Var != null) {
-                    ev9Var.unsubscribe();
+            } else if (!compareAndSet(bs9Var2, bs9Var) && get() == Unsubscribed.INSTANCE) {
+                if (bs9Var != null) {
+                    bs9Var.unsubscribe();
                 }
                 return false;
             } else {
@@ -88,37 +88,37 @@ public final class SequentialSubscription extends AtomicReference<ev9> implement
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.ev9
+    @Override // com.repackage.bs9
     public void unsubscribe() {
-        ev9 andSet;
+        bs9 andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ev9 ev9Var = get();
+            bs9 bs9Var = get();
             Unsubscribed unsubscribed = Unsubscribed.INSTANCE;
-            if (ev9Var == unsubscribed || (andSet = getAndSet(unsubscribed)) == null || andSet == Unsubscribed.INSTANCE) {
+            if (bs9Var == unsubscribed || (andSet = getAndSet(unsubscribed)) == null || andSet == Unsubscribed.INSTANCE) {
                 return;
             }
             andSet.unsubscribe();
         }
     }
 
-    public boolean update(ev9 ev9Var) {
-        ev9 ev9Var2;
+    public boolean update(bs9 bs9Var) {
+        bs9 bs9Var2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ev9Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bs9Var)) == null) {
             do {
-                ev9Var2 = get();
-                if (ev9Var2 == Unsubscribed.INSTANCE) {
-                    if (ev9Var != null) {
-                        ev9Var.unsubscribe();
+                bs9Var2 = get();
+                if (bs9Var2 == Unsubscribed.INSTANCE) {
+                    if (bs9Var != null) {
+                        bs9Var.unsubscribe();
                         return false;
                     }
                     return false;
                 }
-            } while (!compareAndSet(ev9Var2, ev9Var));
-            if (ev9Var2 != null) {
-                ev9Var2.unsubscribe();
+            } while (!compareAndSet(bs9Var2, bs9Var));
+            if (bs9Var2 != null) {
+                bs9Var2.unsubscribe();
                 return true;
             }
             return true;
@@ -126,35 +126,35 @@ public final class SequentialSubscription extends AtomicReference<ev9> implement
         return invokeL.booleanValue;
     }
 
-    public boolean updateWeak(ev9 ev9Var) {
+    public boolean updateWeak(bs9 bs9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ev9Var)) == null) {
-            ev9 ev9Var2 = get();
-            if (ev9Var2 == Unsubscribed.INSTANCE) {
-                if (ev9Var != null) {
-                    ev9Var.unsubscribe();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bs9Var)) == null) {
+            bs9 bs9Var2 = get();
+            if (bs9Var2 == Unsubscribed.INSTANCE) {
+                if (bs9Var != null) {
+                    bs9Var.unsubscribe();
                 }
                 return false;
-            } else if (compareAndSet(ev9Var2, ev9Var)) {
+            } else if (compareAndSet(bs9Var2, bs9Var)) {
                 return true;
             } else {
-                ev9 ev9Var3 = get();
-                if (ev9Var != null) {
-                    ev9Var.unsubscribe();
+                bs9 bs9Var3 = get();
+                if (bs9Var != null) {
+                    bs9Var.unsubscribe();
                 }
-                return ev9Var3 == Unsubscribed.INSTANCE;
+                return bs9Var3 == Unsubscribed.INSTANCE;
             }
         }
         return invokeL.booleanValue;
     }
 
-    public SequentialSubscription(ev9 ev9Var) {
+    public SequentialSubscription(bs9 bs9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ev9Var};
+            Object[] objArr = {bs9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -164,6 +164,6 @@ public final class SequentialSubscription extends AtomicReference<ev9> implement
                 return;
             }
         }
-        lazySet(ev9Var);
+        lazySet(bs9Var);
     }
 }

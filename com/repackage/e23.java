@@ -1,54 +1,126 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wz2;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e23 extends c23 {
+public abstract class e23 extends i13<UnitedSchemeBaseDispatcher> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755789557, "Lcom/repackage/e23;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755789557, "Lcom/repackage/e23;");
+                return;
+            }
+        }
+        b = rg1.a;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e23(vz2 vz2Var) {
-        super(vz2Var);
+    public e23(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher, String str) {
+        super(unitedSchemeBaseDispatcher, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vz2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {unitedSchemeBaseDispatcher, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((vz2) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeAbsDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.repackage.c23
-    public void I(String str) {
+    @Nullable
+    public static JSONObject a(UnitedSchemeEntity unitedSchemeEntity, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            dw2 w = ew2.Q("swan_forbidden_kill_on_client").z("mAppId", str).w("ipc_forbidden_flag", this.b);
-            w.J(str);
-            w.call();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, unitedSchemeEntity, str)) == null) {
+            if (unitedSchemeEntity == null) {
+                return null;
+            }
+            String param = unitedSchemeEntity.getParam(str);
+            if (TextUtils.isEmpty(param)) {
+                return null;
+            }
+            try {
+                return new JSONObject(param);
+            } catch (JSONException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
         }
+        return (JSONObject) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.le3
-    /* renamed from: M */
-    public void a(wz2.a aVar) {
+    public h03 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && ew2.J(aVar.D(), "swan_forbidden_kill_on_server")) {
-            this.b = aVar.j("ipc_forbidden_flag", 1);
-            I(aVar.o("mAppId", rz2.K().getAppId()));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? h03.M() : (h03) invokeV.objValue;
+    }
+
+    public abstract boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var);
+
+    public boolean h(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str)) == null) {
+            try {
+                if (TextUtils.equals(this.a, str)) {
+                    return d(context, unitedSchemeEntity, callbackHandler, c());
+                }
+                return i(context, unitedSchemeEntity, callbackHandler, str, c());
+            } catch (Throwable th) {
+                if (b) {
+                    Log.e("SwanAppAction", Log.getStackTraceString(th));
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "execute with exception: " + Log.getStackTraceString(th));
+                return false;
+            }
         }
+        return invokeLLLL.booleanValue;
+    }
+
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, h03 h03Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, h03Var)) == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101, "not support such action ：" + unitedSchemeEntity.getUri().getPath());
+            return false;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

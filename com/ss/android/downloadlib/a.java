@@ -13,7 +13,6 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.kuaishou.weapon.un.w0;
 import com.ss.android.downloadlib.addownload.b.d;
 import com.ss.android.downloadlib.addownload.b.i;
 import com.ss.android.downloadlib.addownload.j;
@@ -35,7 +34,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0605a, ag {
+public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0811a, ag {
     public static String a = "a";
     public static volatile a d;
     public long b;
@@ -44,10 +43,10 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0605
     @WorkerThread
     /* renamed from: com.ss.android.downloadlib.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class RunnableC0588a implements Runnable {
+    public class RunnableC0794a implements Runnable {
         public final int b;
 
-        public RunnableC0588a(int i) {
+        public RunnableC0794a(int i) {
             this.b = i;
         }
 
@@ -439,13 +438,13 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0605
         com.ss.android.downloadlib.d.a.a().b("download_finish", a2, bVar);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0605a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0811a
     public void c() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppBackground()");
         a(6);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0605a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0811a
     public void b() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppForeground()");
         d();
@@ -722,7 +721,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0605
         if (currentTimeMillis - this.b < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
             return;
         }
-        d.a().a(new RunnableC0588a(i), this.b > 0 ? 2000L : 8000L);
+        d.a().a(new RunnableC0794a(i), this.b > 0 ? 2000L : 8000L);
         this.b = currentTimeMillis;
     }
 
@@ -733,11 +732,11 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0605
         long currentTimeMillis = System.currentTimeMillis();
         for (com.ss.android.downloadad.api.a.b bVar : concurrentHashMap.values()) {
             if (bVar.c.get()) {
-                if (currentTimeMillis - bVar.H() >= com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("start_event_expire_hours", w0.d0) * 60 * 60 * 1000) {
+                if (currentTimeMillis - bVar.H() >= com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("start_event_expire_hours", 168) * 60 * 60 * 1000) {
                     arrayList.add(Long.valueOf(bVar.b()));
                 }
             } else if (bVar.G() == 1) {
-                if (d(bVar) <= 0 && currentTimeMillis - bVar.H() >= com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("start_event_expire_hours", w0.d0) * 60 * 60 * 1000) {
+                if (d(bVar) <= 0 && currentTimeMillis - bVar.H() >= com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("start_event_expire_hours", 168) * 60 * 60 * 1000) {
                     arrayList.add(Long.valueOf(bVar.b()));
                 }
             } else if (bVar.G() == 2) {
@@ -749,7 +748,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0605
                         com.ss.android.downloadlib.d.a.a().a(a(bVar, bVar.e(), i), bVar);
                         arrayList.add(Long.valueOf(bVar.b()));
                         com.ss.android.downloadlib.addownload.c.d.a(bVar);
-                    } else if (currentTimeMillis - bVar.H() >= com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("finish_event_expire_hours", w0.d0) * 60 * 60 * 1000) {
+                    } else if (currentTimeMillis - bVar.H() >= com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("finish_event_expire_hours", 168) * 60 * 60 * 1000) {
                         arrayList.add(Long.valueOf(bVar.b()));
                     } else if (TextUtils.isEmpty(bVar.e())) {
                         arrayList.add(Long.valueOf(bVar.b()));

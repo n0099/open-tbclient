@@ -1,13 +1,11 @@
 package com.repackage;
 
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface ys9 {
-    String d(String str);
+public final class ys9<T, R> extends as9<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean e(String str);
-
-    Iterator<String> g();
-
-    byte[] getContent();
+    public abstract void g();
 }

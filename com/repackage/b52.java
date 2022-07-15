@@ -1,154 +1,125 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w42;
-import java.util.Set;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public class b52 {
+public final class b52 extends InputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final j52 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public InputStream a;
+    public z42 b;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
-
-        public a(String str, boolean z, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = z;
-            this.c = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = b52.a ? System.currentTimeMillis() : 0L;
-                Set<String> m = c52.k().m(this.a, true);
-                if (m == null || m.size() <= 0) {
-                    return;
-                }
-                if (b52.a) {
-                    Log.d("SwanPreLinkWhenPreload", "start prelink, swan is already launched - " + this.b);
-                }
-                for (String str : m) {
-                    boolean b = b52.b(this.c, this.a, str);
-                    v42 d = v42.d();
-                    String str2 = this.c;
-                    w42.b a = w42.a();
-                    a.h(RecordType.PREFETCH_PRELINK);
-                    a.f(str);
-                    a.g(b);
-                    d.f(str2, a.e());
-                    if (b) {
-                        c52.k().s(this.a, str);
-                        b52.d(this.a, str);
-                    }
-                }
-                if (b52.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPreLinkWhenPreload", " prelink - " + this.a + ", cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755876078, "Lcom/repackage/b52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755876078, "Lcom/repackage/b52;");
+    public b52(@NonNull InputStream inputStream, @NonNull z42 z42Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, z42Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = cg1.a;
-        b = l52.a();
+        this.a = inputStream;
+        this.b = z42Var;
     }
 
-    public static boolean b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    @Override // java.io.InputStream
+    public int available() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.available() : invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.close();
+            this.b.c(this.a);
+            this.b.a();
+            jg4.d(this.a);
+        }
+    }
+
+    @Override // java.io.InputStream
+    public void mark(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.mark(i);
+            this.a.mark(i);
+        }
+    }
+
+    @Override // java.io.InputStream
+    public boolean markSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.markSupported() : invokeV.booleanValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(@NonNull byte[] bArr) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
+            int read = this.a.read(bArr);
+            this.b.d(bArr, 0, read);
+            return read;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public synchronized void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                super.reset();
+                this.a.reset();
             }
-            return b.c(str, str2, str3);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            if (!b.b()) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload ab is off");
-                }
-            } else if (TextUtils.isEmpty(str2)) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload appId is empty");
-                }
-            } else {
-                sz2 r = rz2.K().r();
-                if (r == null) {
-                    if (a) {
-                        Log.d("SwanPreLinkWhenPreload", "prelink by preload swanApp is null");
-                    }
-                } else if (TextUtils.equals(r.b, str2)) {
-                    e(str, str2, r.I());
-                }
-            }
         }
     }
 
-    public static void d(String str, String str2) {
+    @Override // java.io.InputStream
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || b.a() == null) {
-            return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+            this.a.skip(j);
+            return super.skip(j);
         }
-        b.a().b(str, str2, true);
+        return invokeJ.longValue;
     }
 
-    public static void e(String str, @NonNull String str2, boolean z) {
+    @Override // java.io.InputStream
+    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
-            ExecutorUtilsExt.postOnSerial(new a(str2, z, str), "SwanPreLinkWhenPreload");
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
+            int read = this.a.read(bArr, i, i2);
+            this.b.d(bArr, i, read);
+            return read;
         }
+        return invokeLII.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.read() : invokeV.intValue;
     }
 }

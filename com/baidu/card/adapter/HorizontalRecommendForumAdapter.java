@@ -19,19 +19,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l65;
-import com.repackage.nn4;
-import com.repackage.np4;
+import com.repackage.co4;
+import com.repackage.cq4;
+import com.repackage.jm4;
+import com.repackage.n75;
 import com.repackage.pi;
-import com.repackage.ul4;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public ArrayList<l65> b;
-    public ul4<np4> c;
+    public ArrayList<n75> b;
+    public jm4<cq4> c;
 
     /* loaded from: classes.dex */
     public class a extends RecyclerView.ViewHolder {
@@ -100,24 +100,24 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
             }
             this.f = horizontalRecommendForumAdapter;
             this.a = view2;
-            TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4);
-            this.b = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a21);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091d65);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a37);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09074d);
+            TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7);
+            this.b = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a29);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091e09);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a3f);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090754);
             this.a.setOnClickListener(new View$OnClickListenerC0083a(this, horizontalRecommendForumAdapter));
         }
 
-        public void a(nn4 nn4Var) {
+        public void a(co4 co4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, nn4Var) == null) || nn4Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, co4Var) == null) || co4Var == null) {
                 return;
             }
             this.c.setVisibility(0);
             this.b.setVisibility(8);
             SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805fe, null);
-            this.d.setText(R.string.obfuscated_res_0x7f0f06ad);
-            this.e.setText(R.string.obfuscated_res_0x7f0f06aa);
+            this.d.setText(R.string.obfuscated_res_0x7f0f06b7);
+            this.e.setText(R.string.obfuscated_res_0x7f0f06b4);
             b();
         }
 
@@ -139,7 +139,7 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
         public ImageView c;
         public TextView d;
         public TextView e;
-        public np4 f;
+        public cq4 f;
         public String g;
         public final /* synthetic */ HorizontalRecommendForumAdapter h;
 
@@ -198,20 +198,20 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
             }
             this.h = horizontalRecommendForumAdapter;
             this.a = view2;
-            this.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4);
-            this.b = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a21);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091d65);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a37);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09074d);
+            this.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7);
+            this.b = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a29);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091e09);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a3f);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090754);
             this.a.setOnClickListener(new a(this, horizontalRecommendForumAdapter));
         }
 
-        public void b(np4 np4Var) {
+        public void b(cq4 cq4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, np4Var) == null) || np4Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, cq4Var) == null) || cq4Var == null) {
                 return;
             }
-            this.f = np4Var;
+            this.f = cq4Var;
             this.b.setShowOval(true);
             this.b.setShowOuterBorder(false);
             this.b.setShowInnerBorder(true);
@@ -219,13 +219,13 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
             this.b.setStrokeColorResId(R.color.CAM_X0401);
             this.c.setVisibility(8);
             this.b.setVisibility(0);
-            this.b.J(np4Var.h(), 10, false);
-            if (StringHelper.getChineseAndEnglishLength(np4Var.l()) <= 10) {
-                this.d.setText(np4Var.l());
+            this.b.J(cq4Var.g(), 10, false);
+            if (StringHelper.getChineseAndEnglishLength(cq4Var.k()) <= 10) {
+                this.d.setText(cq4Var.k());
             } else {
-                this.d.setText(StringHelper.cutChineseAndEnglishWithSuffix(np4Var.l(), 8, StringHelper.STRING_MORE));
+                this.d.setText(StringHelper.cutChineseAndEnglishWithSuffix(cq4Var.k(), 8, StringHelper.STRING_MORE));
             }
-            this.e.setText(this.g + " " + StringHelper.numFormatOverWanWithoutDecimals(np4Var.n()));
+            this.e.setText(this.g + " " + StringHelper.numFormatOverWanWithoutDecimals(cq4Var.m()));
             c();
         }
 
@@ -257,7 +257,7 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
         this.a = tbPageContext;
     }
 
-    public void e(ArrayList<? extends l65> arrayList) {
+    public void e(ArrayList<? extends n75> arrayList) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) || arrayList == null) {
             return;
@@ -273,10 +273,10 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
         }
     }
 
-    public void g(ul4<np4> ul4Var) {
+    public void g(jm4<cq4> jm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ul4Var) == null) {
-            this.c = ul4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jm4Var) == null) {
+            this.c = jm4Var;
         }
     }
 
@@ -285,7 +285,7 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<l65> arrayList = this.b;
+            ArrayList<n75> arrayList = this.b;
             if (arrayList == null) {
                 return 0;
             }
@@ -299,10 +299,10 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.b.get(i) instanceof np4) {
+            if (this.b.get(i) instanceof cq4) {
                 return 1;
             }
-            return this.b.get(i) instanceof nn4 ? 2 : 0;
+            return this.b.get(i) instanceof co4 ? 2 : 0;
         }
         return invokeI.intValue;
     }
@@ -315,20 +315,20 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        ArrayList<l65> arrayList;
+        ArrayList<n75> arrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) || (arrayList = this.b) == null || arrayList.size() <= 0) {
             return;
         }
-        l65 l65Var = this.b.get(i);
-        if ((viewHolder instanceof a) && (l65Var instanceof nn4)) {
-            ((a) viewHolder).a((nn4) l65Var);
-        } else if ((viewHolder instanceof b) && (l65Var instanceof np4)) {
-            np4 np4Var = (np4) l65Var;
-            ((b) viewHolder).b(np4Var);
-            ul4<np4> ul4Var = this.c;
-            if (ul4Var != null) {
-                ul4Var.d(viewHolder.itemView, np4Var, i, i);
+        n75 n75Var = this.b.get(i);
+        if ((viewHolder instanceof a) && (n75Var instanceof co4)) {
+            ((a) viewHolder).a((co4) n75Var);
+        } else if ((viewHolder instanceof b) && (n75Var instanceof cq4)) {
+            cq4 cq4Var = (cq4) n75Var;
+            ((b) viewHolder).b(cq4Var);
+            jm4<cq4> jm4Var = this.c;
+            if (jm4Var != null) {
+                jm4Var.d(viewHolder.itemView, cq4Var, i, i);
             }
         }
     }
@@ -339,7 +339,7 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
-            View inflate = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0705, (ViewGroup) null);
+            View inflate = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0722, (ViewGroup) null);
             if (i == 2) {
                 return new a(this, inflate);
             }

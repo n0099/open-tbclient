@@ -1,79 +1,94 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.util.SparseIntArray;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.person.holder.PersonInfoUserPicsHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sz7 extends uj5<uz7, PersonInfoUserPicsHolder> {
+public class sz7 {
     public static /* synthetic */ Interceptable $ic;
+    public static SparseIntArray a;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener i;
-    public TbPageContext j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sz7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755303167, "Lcom/repackage/sz7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755303167, "Lcom/repackage/sz7;");
                 return;
             }
         }
-        this.j = tbPageContext;
+        a = new SparseIntArray();
     }
 
-    @Override // com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        a0(i, view2, viewGroup, (uz7) obj, (PersonInfoUserPicsHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public PersonInfoUserPicsHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06ae, viewGroup, false), this.j);
-            personInfoUserPicsHolder.e.d(this.i);
-            return personInfoUserPicsHolder;
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || textView == null) {
+            return;
         }
-        return (PersonInfoUserPicsHolder) invokeL.objValue;
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
+        int b = b(R.dimen.obfuscated_res_0x7f070207);
+        if (z2 && z3) {
+            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070304), b, b(R.dimen.obfuscated_res_0x7f070262));
+        } else if (z) {
+            layoutParams.setMargins(0, b(R.dimen.obfuscated_res_0x7f070304), 0, 0);
+        } else if (!z2) {
+            layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f070234), b(R.dimen.obfuscated_res_0x7f070304), b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
+        } else {
+            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070304), b, b(R.dimen.obfuscated_res_0x7f0701b2));
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) "icon");
+        spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
+        Drawable drawable = SkinManager.getDrawable(R.drawable.icon_pb_tail);
+        drawable.setBounds(0, 0, b, b);
+        ze5 ze5Var = new ze5(drawable);
+        ze5Var.c(b(R.dimen.obfuscated_res_0x7f070224));
+        spannableStringBuilder.setSpan(ze5Var, 0, 4, 33);
+        textView.setLayoutParams(layoutParams);
+        textView.setText(spannableStringBuilder);
+        textView.setTextColor(smallTailInfo.showColorId);
+        textView.setVisibility(0);
     }
 
-    public View a0(int i, View view2, ViewGroup viewGroup, uz7 uz7Var, PersonInfoUserPicsHolder personInfoUserPicsHolder) {
-        InterceptResult invokeCommon;
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uz7Var, personInfoUserPicsHolder})) == null) {
-            if (uz7Var != null && personInfoUserPicsHolder != null) {
-                personInfoUserPicsHolder.d();
-                personInfoUserPicsHolder.c(uz7Var);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = a.get(i, -1);
+            if (i2 == -1) {
+                int f = pi.f(TbadkCoreApplication.getInst().getContext(), i);
+                a.put(i, f);
+                return f;
             }
-            return view2;
+            return i2;
         }
-        return (View) invokeCommon.objValue;
+        return invokeI.intValue;
+    }
+
+    public static void c(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
+        SpannableString spannableString;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || (spannableString = smallTailInfo.tailSpannable) == null || spannableString.length() == 0 || textView == null) {
+            return;
+        }
+        smallTailInfo.updateShowInfo();
+        a(smallTailInfo, textView, z, z2, z3);
     }
 }

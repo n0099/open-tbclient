@@ -66,7 +66,7 @@ public class PassportViewManager implements NoProguard {
                     return;
                 }
             }
-            DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(R.color.obfuscated_res_0x7f0609e1);
+            DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(R.color.obfuscated_res_0x7f0609d8);
         }
 
         public TitleViewModule() {
@@ -89,7 +89,7 @@ public class PassportViewManager implements NoProguard {
             this.leftBtnTextColor = DEFAULT_TEXT_COLOR;
             this.leftBtnText = null;
             this.leftBtnTextVisible = 4;
-            this.leftBtnTextSize = PassportViewManager.c.context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0705d3);
+            this.leftBtnTextSize = PassportViewManager.c.context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070635);
             this.leftBtnDrawableLeft = null;
             this.leftBtnDrawableTop = null;
             this.leftBtnDrawableRight = null;
@@ -97,7 +97,7 @@ public class PassportViewManager implements NoProguard {
             this.titleTextColor = DEFAULT_TEXT_COLOR;
             this.titleText = null;
             this.titleVisible = 0;
-            this.titleTextSize = PassportViewManager.c.context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0705d7);
+            this.titleTextSize = PassportViewManager.c.context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070639);
             this.titleTextBold = false;
             this.useWebviewTitle = true;
             this.titleDrawableLeft = null;
@@ -107,7 +107,7 @@ public class PassportViewManager implements NoProguard {
             this.rightBtnTextColor = DEFAULT_TEXT_COLOR;
             this.rightBtnText = null;
             this.rightBtnVisible = 4;
-            this.rightBtnTextSize = PassportViewManager.c.context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0705d6);
+            this.rightBtnTextSize = PassportViewManager.c.context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070638);
             this.dividerLineVisible = 0;
         }
     }
@@ -153,7 +153,7 @@ public class PassportViewManager implements NoProguard {
                 titleViewModule.bgColor = -1;
             }
             if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
-                titleViewModule.leftBtnImgResId = R.drawable.obfuscated_res_0x7f081019;
+                titleViewModule.leftBtnImgResId = R.drawable.obfuscated_res_0x7f080f99;
             }
         }
     }

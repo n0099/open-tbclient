@@ -63,6 +63,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
@@ -80,6 +81,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.quickWebView.SingleQuickWebViewBridge;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -88,35 +90,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl4;
-import com.repackage.dl4;
-import com.repackage.gi8;
-import com.repackage.hi8;
+import com.repackage.at4;
+import com.repackage.bt4;
+import com.repackage.cj8;
+import com.repackage.ct4;
+import com.repackage.dj8;
+import com.repackage.ej8;
+import com.repackage.er4;
+import com.repackage.et4;
+import com.repackage.gt4;
 import com.repackage.ht4;
-import com.repackage.ii8;
-import com.repackage.jl4;
-import com.repackage.js4;
-import com.repackage.kl4;
-import com.repackage.ks4;
-import com.repackage.ls4;
-import com.repackage.ms4;
-import com.repackage.nm8;
+import com.repackage.it4;
+import com.repackage.jn8;
+import com.repackage.mt4;
 import com.repackage.oi;
-import com.repackage.os4;
-import com.repackage.pd5;
+import com.repackage.p88;
 import com.repackage.pi;
-import com.repackage.pq4;
-import com.repackage.q55;
+import com.repackage.q88;
 import com.repackage.qg;
-import com.repackage.qs4;
-import com.repackage.rs4;
-import com.repackage.ss4;
-import com.repackage.tz4;
-import com.repackage.u78;
-import com.repackage.v78;
-import com.repackage.w78;
-import com.repackage.ws4;
-import com.repackage.x78;
+import com.repackage.r88;
+import com.repackage.rl4;
+import com.repackage.s65;
+import com.repackage.s88;
+import com.repackage.se5;
+import com.repackage.sl4;
+import com.repackage.u05;
+import com.repackage.xt4;
+import com.repackage.yl4;
+import com.repackage.zl4;
+import com.repackage.zs4;
 import java.io.File;
 import java.io.Serializable;
 import java.net.MalformedURLException;
@@ -142,12 +144,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public CustomMessageListener htmlLoadMessageListener;
     public boolean isDisableGoBack;
     public boolean isShowFullScreen;
-    public gi8 jsBridge;
-    public ii8 jsCallback;
+    public cj8 jsBridge;
+    public ej8 jsCallback;
     public boolean loadMyself;
     public String mBid;
     public CommonTbJsBridge mCommonTbJsBridge;
-    public js4 mHybridBridge;
+    public zs4 mHybridBridge;
     public String mModuleName;
     public int mOfflineErrorType;
     public s mOnDialogItemClickListener;
@@ -155,7 +157,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public String mPageTranslucent;
     public String mPageType;
     public PermissionJudgePolicy mPermissionJudgement;
-    public u78 mProxy;
+    public p88 mProxy;
     public final CustomMessageListener mSelfLoadJsListener;
     public final CustomMessageListener mSetShareInfoListener;
     public String mShareInfo;
@@ -164,8 +166,8 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public String mShareParams;
     public boolean mShowShareItem;
     public final CustomMessageListener mSpringFestivalTimerListener;
-    public q55 mTipsEventListener;
-    public q55 mTopToastEventListener;
+    public s65 mTipsEventListener;
+    public s65 mTopToastEventListener;
     public ValueCallback<Uri> mUploadMessage;
     public ValueCallback<Uri[]> mUploadMessageAboveL;
     public String mVersion;
@@ -174,7 +176,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @NonNull
     public final YYPayResultCallback4CallJs mYYyPayResultCallback4CallJs;
     public boolean needTextAutoSize;
-    public tz4 timerData;
+    public u05 timerData;
 
     /* loaded from: classes2.dex */
     public static class YYPayResultCallback4CallJs implements LifecycleObserver {
@@ -271,24 +273,24 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class a extends ls4 {
+    public class a extends bt4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbWebViewActivity c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(TbWebViewActivity tbWebViewActivity, js4 js4Var) {
-            super(js4Var);
+        public a(TbWebViewActivity tbWebViewActivity, zs4 zs4Var) {
+            super(zs4Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbWebViewActivity, js4Var};
+                Object[] objArr = {tbWebViewActivity, zs4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((js4) newInitContext.callArgs[0]);
+                    super((zs4) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -297,7 +299,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             this.c = tbWebViewActivity;
         }
 
-        @ms4(isAsync = false, value = "viewHideSwitch")
+        @ct4(isAsync = false, value = "viewHideSwitch")
         private void viewHideSwitch(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) || jSONObject == null) {
@@ -313,7 +315,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             tbWebViewActivity.mView.B(tbWebViewActivity.mShowShareItem);
         }
 
-        @Override // com.repackage.ls4
+        @Override // com.repackage.bt4
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -649,7 +651,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class j implements ii8 {
+    public class j implements ej8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbWebViewActivity a;
@@ -672,7 +674,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             this.a = tbWebViewActivity;
         }
 
-        @Override // com.repackage.ii8
+        @Override // com.repackage.ej8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -754,10 +756,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof tz4)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof u05)) {
                 return;
             }
-            this.a.timerData = (tz4) customResponsedMessage.getData();
+            this.a.timerData = (u05) customResponsedMessage.getData();
             if (this.a.timerData.c()) {
                 this.a.handlerWebViewResume();
             }
@@ -840,7 +842,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class o extends q55<TipEvent> {
+    public class o extends s65<TipEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbWebViewActivity c;
@@ -864,7 +866,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.j55
+        @Override // com.repackage.l65
         /* renamed from: a */
         public boolean onEvent(TipEvent tipEvent) {
             InterceptResult invokeL;
@@ -885,7 +887,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class p extends q55<TopToastEvent> {
+    public class p extends s65<TopToastEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbWebViewActivity c;
@@ -909,7 +911,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.j55
+        @Override // com.repackage.l65
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
@@ -923,24 +925,24 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class q extends ls4 {
+    public class q extends bt4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbWebViewActivity c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public q(TbWebViewActivity tbWebViewActivity, js4 js4Var) {
-            super(js4Var);
+        public q(TbWebViewActivity tbWebViewActivity, zs4 zs4Var) {
+            super(zs4Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbWebViewActivity, js4Var};
+                Object[] objArr = {tbWebViewActivity, zs4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((js4) newInitContext.callArgs[0]);
+                    super((zs4) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -949,14 +951,14 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             this.c = tbWebViewActivity;
         }
 
-        @ms4(isAsync = false, value = "trackFPS")
+        @ct4(isAsync = false, value = "trackFPS")
         private void trackFPS() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             }
         }
 
-        @Override // com.repackage.ls4
+        @Override // com.repackage.bt4
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -965,7 +967,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class r extends ls4 {
+    public class r extends bt4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbWebViewActivity c;
@@ -1006,18 +1008,18 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public r(TbWebViewActivity tbWebViewActivity, js4 js4Var) {
-            super(js4Var);
+        public r(TbWebViewActivity tbWebViewActivity, zs4 zs4Var) {
+            super(zs4Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbWebViewActivity, js4Var};
+                Object[] objArr = {tbWebViewActivity, zs4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((js4) newInitContext.callArgs[0]);
+                    super((zs4) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1026,7 +1028,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             this.c = tbWebViewActivity;
         }
 
-        @ms4(isAsync = false, value = "share")
+        @ct4(isAsync = false, value = "share")
         private void share(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) || jSONObject == null) {
@@ -1045,7 +1047,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             qg.a().post(new a(this, this.c.createShareContent(optString, optString4, optString2, optString3)));
         }
 
-        @Override // com.repackage.ls4
+        @Override // com.repackage.bt4
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1054,7 +1056,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class s implements pq4.c {
+    public class s implements er4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -1094,7 +1096,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             public void b(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f13b2);
+                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f13ab);
                 }
             }
         }
@@ -1119,10 +1121,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             this.c = new ArrayList();
         }
 
-        @Override // com.repackage.pq4.c
-        public void a(pq4 pq4Var, int i, View view2) {
+        @Override // com.repackage.er4.c
+        public void a(er4 er4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, pq4Var, i, view2) == null) || pq4Var != this.d.getListMenu() || i >= this.c.size() || i < 0) {
+            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, er4Var, i, view2) == null) || er4Var != this.d.getListMenu() || i >= this.c.size() || i < 0) {
                 return;
             }
             if (this.c.get(i).intValue() == 1) {
@@ -1136,7 +1138,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 }
                 new InsertGalleryAsyncTask(this.d.getActivity(), this.b, new a(this)).execute(new String[0]);
             }
-            pq4Var.e();
+            er4Var.e();
         }
 
         public String[] b() {
@@ -1145,7 +1147,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 this.c.clear();
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(this.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f10a2));
+                arrayList.add(this.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f1099));
                 this.c.add(Integer.valueOf(this.a));
                 return (String[]) arrayList.toArray(new String[0]);
             }
@@ -1253,9 +1255,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 this.b.hideProgressBar();
                 this.b.stopLoadTimer();
                 TbWebViewActivity tbWebViewActivity5 = this.b;
-                jl4 jl4Var = tbWebViewActivity5.mView;
-                if (jl4Var != null) {
-                    jl4Var.k(tbWebViewActivity5.mUrl);
+                yl4 yl4Var = tbWebViewActivity5.mView;
+                if (yl4Var != null) {
+                    yl4Var.k(tbWebViewActivity5.mUrl);
                 }
             }
         }
@@ -1297,7 +1299,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, renderProcessGoneDetail)) == null) {
-                kl4.a("TbWebViewActivity", webView);
+                zl4.a("TbWebViewActivity", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -1306,7 +1308,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
-            jl4 jl4Var;
+            yl4 yl4Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
                 if (TextUtils.isEmpty(str)) {
@@ -1343,8 +1345,8 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     this.b.hideCrashTip();
                     if (URLUtil.isNetworkUrl(this.b.mUrl)) {
                         this.b.showProgressBar();
-                        if (this.b.isShowFullScreen && (jl4Var = this.b.mView) != null) {
-                            jl4Var.t();
+                        if (this.b.isShowFullScreen && (yl4Var = this.b.mView) != null) {
+                            yl4Var.t();
                         }
                         return false;
                     }
@@ -1456,17 +1458,17 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         this.mSharePage = new g(this, 2921331);
     }
 
-    private hi8 buildGameDownloadJSPrompt() {
+    private dj8 buildGameDownloadJSPrompt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, hi8.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, dj8.class, getPageContext());
             if (runTask == null || runTask.getData() == null) {
                 return null;
             }
-            return (hi8) runTask.getData();
+            return (dj8) runTask.getData();
         }
-        return (hi8) invokeV.objValue;
+        return (dj8) invokeV.objValue;
     }
 
     private void checkH5PersonlizedSwitch() {
@@ -1532,10 +1534,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             String str5 = null;
             try {
                 URL url = new URL(str);
-                x78 c2 = w78.a().c(url.getPath());
+                s88 c2 = r88.a().c(url.getPath());
                 if (c2 == null) {
                     try {
-                        if (w78.a().b() != null) {
+                        if (r88.a().b() != null) {
                             this.mOfflineErrorType = 3;
                         }
                         return null;
@@ -1547,15 +1549,15 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     try {
                         if (!c2.e) {
                             this.mOfflineErrorType = 4;
-                            ws4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str, "hybridName", c2.b, "hybridVersion", this.mVersion, "hybridResult", "processing bundle");
+                            mt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str, "hybridName", c2.b, "hybridVersion", this.mVersion, "hybridResult", "processing bundle");
                             return null;
                         }
                         try {
-                            String s2 = v78.q().s(c2.b);
+                            String s2 = q88.q().s(c2.b);
                             if (!TextUtils.isEmpty(c2.b) && !TextUtils.isEmpty(c2.c) && !TextUtils.isEmpty(s2)) {
-                                this.mModuleName = v78.z(true, c2.b);
-                                this.mVersion = v78.z(false, s2);
-                                String str6 = v78.q().p() + "/" + c2.b + "/" + s2 + "/";
+                                this.mModuleName = q88.z(true, c2.b);
+                                this.mVersion = q88.z(false, s2);
+                                String str6 = q88.q().p() + "/" + c2.b + "/" + s2 + "/";
                                 String str7 = c2.c;
                                 if (!c2.c.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
                                     str7 = c2.c + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
@@ -1566,19 +1568,19 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                                 if (!str8.contains("/android_asset/")) {
                                     if (!file.exists()) {
                                         this.mOfflineErrorType = 2;
-                                        ws4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.mModuleName, "hybridVersion", this.mVersion, "hybridResult", "path not found");
+                                        mt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.mModuleName, "hybridVersion", this.mVersion, "hybridResult", "path not found");
                                         return null;
                                     } else if (ListUtils.isEmpty(arrayList)) {
                                         return null;
                                     } else {
                                         for (String str9 : arrayList) {
                                             if (StringUtils.isNull(str9)) {
-                                                ws4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.mModuleName, "hybridVersion", this.mVersion, "hybridResult", "static file path is null");
+                                                mt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.mModuleName, "hybridVersion", this.mVersion, "hybridResult", "static file path is null");
                                                 this.mOfflineErrorType = 1;
                                                 return null;
                                             } else if (!new File(str6, str9).exists()) {
                                                 this.mOfflineErrorType = 1;
-                                                ws4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str9, "hybridName", this.mModuleName, "hybridVersion", this.mVersion, "hybridResult", "bundle incomplete");
+                                                mt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str9, "hybridName", this.mModuleName, "hybridVersion", this.mVersion, "hybridResult", "bundle incomplete");
                                                 return null;
                                             }
                                         }
@@ -1733,10 +1735,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             hashMap.put("bid", this.mBid);
             hashMap.put("result", Boolean.valueOf(z));
             hashMap.put("channel", str);
-            ks4 j2 = ks4.j("TBJS_COMMON_Share", "onShareResult", hashMap, 0L, false);
-            js4 js4Var = this.mHybridBridge;
-            if (js4Var != null) {
-                js4Var.c(j2);
+            at4 j2 = at4.j("TBJS_COMMON_Share", "onShareResult", hashMap, 0L, false);
+            zs4 zs4Var = this.mHybridBridge;
+            if (zs4Var != null) {
+                zs4Var.c(j2);
             }
             if (StringUtils.isNull(this.mUrl) || !this.mUrl.contains("topicgroupcallback=1") || intent == null || intent.getIntExtra("extra_share_status", -1) != 1) {
                 return;
@@ -1771,7 +1773,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     }
                 }
                 hashMap.put(TbConfig.LOCAL_PIC_DIR, jSONArray);
-                ks4 j2 = ks4.j("TBJS_COMMON_Image", "onImageUploadFinish", hashMap, 0L, false);
+                at4 j2 = at4.j("TBJS_COMMON_Image", "onImageUploadFinish", hashMap, 0L, false);
                 if (this.mHybridBridge != null) {
                     this.mHybridBridge.c(j2);
                 }
@@ -1782,25 +1784,25 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     }
 
     private void handlerWebViewPause() {
-        tz4 tz4Var;
+        u05 u05Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65565, this) == null) && (tz4Var = this.timerData) != null && tz4Var.c()) {
+        if ((interceptable == null || interceptable.invokeV(65565, this) == null) && (u05Var = this.timerData) != null && u05Var.c()) {
             this.timerData.d();
-            ht4.k().x(ht4.o("key_spring_festival_timer"), System.currentTimeMillis());
+            xt4.k().x(xt4.o("key_spring_festival_timer"), System.currentTimeMillis());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handlerWebViewResume() {
-        tz4 tz4Var;
+        u05 u05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65566, this) == null) || (tz4Var = this.timerData) == null || !tz4Var.c() || this.timerData.b() || this.mCommonTbJsBridge == null) {
+        if (!(interceptable == null || interceptable.invokeV(65566, this) == null) || (u05Var = this.timerData) == null || !u05Var.c() || this.timerData.b() || this.mCommonTbJsBridge == null) {
             return;
         }
         try {
             this.timerData.e(true);
             long currentTimeMillis = System.currentTimeMillis();
-            long m2 = ht4.k().m(ht4.o("key_spring_festival_timer"), 0L);
+            long m2 = xt4.k().m(xt4.o("key_spring_festival_timer"), 0L);
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("enter_time", String.valueOf(currentTimeMillis));
             String valueOf = String.valueOf(m2);
@@ -1822,7 +1824,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         }
         try {
             long currentTimeMillis = System.currentTimeMillis();
-            long m2 = ht4.k().m(ht4.o("key_spring_festival_timer"), 0L);
+            long m2 = xt4.k().m(xt4.o("key_spring_festival_timer"), 0L);
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("enter_time", String.valueOf(currentTimeMillis));
             String valueOf = String.valueOf(m2);
@@ -1888,7 +1890,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         }
         try {
             boolean contains = stringExtra.contains("recClose=1");
-            this.mPageFrom = pd5.d(stringExtra, "page_from");
+            this.mPageFrom = se5.d(stringExtra, "page_from");
             if (contains) {
                 WebViewBroadcastReceiver webViewBroadcastReceiver = new WebViewBroadcastReceiver();
                 this.mWebViewCloseReceiver = webViewBroadcastReceiver;
@@ -1950,22 +1952,22 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     }
 
     private void showRightMoreIcon(int i2) {
-        jl4 jl4Var;
+        yl4 yl4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65574, this, i2) == null) || (jl4Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65574, this, i2) == null) || (yl4Var = this.mView) == null) {
             return;
         }
-        jl4Var.x(i2);
+        yl4Var.x(i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showRightShareIcon() {
-        jl4 jl4Var;
+        yl4 yl4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65575, this) == null) || (jl4Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65575, this) == null) || (yl4Var = this.mView) == null) {
             return;
         }
-        jl4Var.y();
+        yl4Var.y();
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
@@ -1978,12 +1980,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         bridgeWebView.addJavascriptInterface(obj, str);
     }
 
-    public void addJsPromptInterface(hi8 hi8Var) {
+    public void addJsPromptInterface(dj8 dj8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hi8Var) == null) || hi8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dj8Var) == null) || dj8Var == null) {
             return;
         }
-        this.jsBridge.a(hi8Var);
+        this.jsBridge.a(dj8Var);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -2036,22 +2038,22 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 TbWebChromeClient tbWebChromeClient = new TbWebChromeClient(this);
                 tbWebChromeClient.setOnJsPromptCallback(this.jsCallback);
                 this.mWebView.setWebChromeClient(tbWebChromeClient);
-                nm8.b().f(this, this.mWebView, tbWebChromeClient);
+                jn8.b().f(this, this.mWebView, tbWebChromeClient);
                 if (this.mEnableJs) {
                     addJavascriptInterface();
                 }
                 CompatibleUtile.getInstance().removeJavascriptInterface(this.mWebView);
                 boolean isHybridBridgeEnabled = TbadkCoreApplication.getInst().isHybridBridgeEnabled();
-                js4 n2 = os4.n(isHybridBridgeEnabled, this.mWebView, null);
+                zs4 n2 = et4.n(isHybridBridgeEnabled, this.mWebView, null);
                 this.mHybridBridge = n2;
                 if (isHybridBridgeEnabled) {
                     n2.d(new q(this, n2));
-                    n2.d(new qs4(n2));
-                    n2.d(new ss4(n2));
-                    n2.d(new rs4(n2));
+                    n2.d(new gt4(n2));
+                    n2.d(new it4(n2));
+                    n2.d(new ht4(n2));
                     n2.d(new r(this, n2));
                     n2.d(new a(this, n2));
-                    n2.d(new dl4(n2));
+                    n2.d(new sl4(n2));
                 }
                 this.mWebView.setOnLongClickListener(new b(this));
                 this.mWebView.setOnScrollChangeListener(new c(this));
@@ -2079,6 +2081,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.finish();
             sendDetailBroadcast(MissionEvent.MESSAGE_STOP);
+            if (TextUtils.isEmpty(this.mUrl) || !this.mUrl.contains(UrlSchemaHelper.VIRTUAL_IMAGE_MAIN_URL)) {
+                return;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921504, null));
         }
     }
 
@@ -2140,7 +2146,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public void initCookie() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            cl4.g(getApplicationContext());
+            rl4.g(getApplicationContext());
         }
     }
 
@@ -2178,12 +2184,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     */
     public void loadUrl(String str) {
         boolean z;
-        jl4 jl4Var;
+        yl4 yl4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             String str2 = str;
-            if (this.isShowFullScreen && (jl4Var = this.mView) != null) {
-                jl4Var.t();
+            if (this.isShowFullScreen && (yl4Var = this.mView) != null) {
+                yl4Var.t();
             }
             if (StringUtils.isNull(str)) {
                 return;
@@ -2206,29 +2212,29 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 }
             }
             if (!str2.contains("javascript:")) {
-                ws4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "start", "url", str2);
+                mt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "start", "url", str2);
                 String substring = str2.length() > 100 ? str2.substring(0, 100) : str2;
                 if (QuickWebViewSwitch.getInOn()) {
                     String localUrlByUrl = getLocalUrlByUrl(str2);
                     if (!TextUtils.isEmpty(localUrlByUrl)) {
-                        ws4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "end", "url", localUrlByUrl, "hybridName", this.mModuleName, "hybridVersion", this.mVersion, "hybridResult", "success");
+                        mt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "end", "url", localUrlByUrl, "hybridName", this.mModuleName, "hybridVersion", this.mVersion, "hybridResult", "success");
                         str2 = localUrlByUrl;
                         z = true;
-                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL).param("obj_locate", !z ? "1" : "2").param("obj_source", substring).param("obj_type", this.mOfflineErrorType).param("obj_name", v78.h).param("obj_param1", this.mModuleName).param("obj_id", this.mVersion));
+                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL).param("obj_locate", !z ? "1" : "2").param("obj_source", substring).param("obj_type", this.mOfflineErrorType).param("obj_name", q88.h).param("obj_param1", this.mModuleName).param("obj_id", this.mVersion));
                         this.mOfflineErrorType = 0;
                         this.mModuleName = "none";
                         this.mVersion = "0.0.0.0";
-                        ws4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, "switch", Boolean.valueOf(QuickWebViewSwitch.getInOn()));
+                        mt4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
                     }
                 } else {
                     this.mOfflineErrorType = 5;
                 }
                 z = false;
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL).param("obj_locate", !z ? "1" : "2").param("obj_source", substring).param("obj_type", this.mOfflineErrorType).param("obj_name", v78.h).param("obj_param1", this.mModuleName).param("obj_id", this.mVersion));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL).param("obj_locate", !z ? "1" : "2").param("obj_source", substring).param("obj_type", this.mOfflineErrorType).param("obj_name", q88.h).param("obj_param1", this.mModuleName).param("obj_id", this.mVersion));
                 this.mOfflineErrorType = 0;
                 this.mModuleName = "none";
                 this.mVersion = "0.0.0.0";
-                ws4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, "switch", Boolean.valueOf(QuickWebViewSwitch.getInOn()));
+                mt4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
             }
             if (this.mWebView != null) {
                 if (this.mCommonTbJsBridge != null) {
@@ -2329,10 +2335,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 HashMap hashMap = new HashMap(4);
                 hashMap.put("errNo", "0");
                 hashMap.put(StatConstants.KEY_EXT_ERR_MSG, "success");
-                ks4 j2 = ks4.j("TBJS_COMMON_Game_Comment", "onGameCommentSuccess", hashMap, 0L, false);
-                js4 js4Var = this.mHybridBridge;
-                if (js4Var != null) {
-                    js4Var.c(j2);
+                at4 j2 = at4.j("TBJS_COMMON_Game_Comment", "onGameCommentSuccess", hashMap, 0L, false);
+                zs4 zs4Var = this.mHybridBridge;
+                if (zs4Var != null) {
+                    zs4Var.c(j2);
                 }
             } else if (i2 == 24007) {
                 handleShareResult(intent, i3);
@@ -2403,16 +2409,16 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             setIsAddSwipeBackLayout(!isTranslucent());
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2001308, (Class) null);
-            this.jsBridge = new gi8();
+            this.jsBridge = new cj8();
             this.mCommonTbJsBridge = new CommonTbJsBridge(getPageContext().getPageActivity(), this.mWebView);
             this.jsBridge.a(new XiubaTbJsBridge(getPageContext()));
             this.jsBridge.a(this.mCommonTbJsBridge);
             this.jsBridge.a(new UegTbJsBridge(getPageContext()));
             this.jsBridge.a(buildGameDownloadJSPrompt());
             this.mCommonTbJsBridge.setJsPromptBridge(this.jsBridge);
-            u78 u78Var = new u78(this.mWebView);
-            this.mProxy = u78Var;
-            u78Var.l(this.jsBridge);
+            p88 p88Var = new p88(this.mWebView);
+            this.mProxy = p88Var;
+            p88Var.l(this.jsBridge);
             this.jsBridge.a(new SingleQuickWebViewBridge(this, this.mProxy));
             if (this.mNeedCookie) {
                 initCookie();
@@ -2434,9 +2440,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onDestroy();
-            u78 u78Var = this.mProxy;
-            if (u78Var != null) {
-                u78Var.h();
+            p88 p88Var = this.mProxy;
+            if (p88Var != null) {
+                p88Var.h();
                 this.mProxy = null;
             }
             checkH5PersonlizedSwitch();
@@ -2480,9 +2486,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             handlerWebViewPause();
             callHiddenWebViewMethod(MissionEvent.MESSAGE_PAUSE);
             MessageManager.getInstance().unRegisterTask(2016568);
-            gi8 gi8Var = this.jsBridge;
-            if (gi8Var != null) {
-                gi8Var.i(this.mWebView, CommonTbJsBridge.RE_HIDE, null);
+            cj8 cj8Var = this.jsBridge;
+            if (cj8Var != null) {
+                cj8Var.i(this.mWebView, CommonTbJsBridge.RE_HIDE, null);
             }
         }
     }
@@ -2523,9 +2529,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             handlerWebViewResumeByNew();
             callHiddenWebViewMethod("onResume");
             registerGetShareContentTask();
-            gi8 gi8Var = this.jsBridge;
-            if (gi8Var != null) {
-                gi8Var.i(this.mWebView, CommonTbJsBridge.RE_SHOW, null);
+            cj8 cj8Var = this.jsBridge;
+            if (cj8Var != null) {
+                cj8Var.i(this.mWebView, CommonTbJsBridge.RE_SHOW, null);
                 if (CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.WEB && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NONE && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NATIVE_WEB && !this.firstEnter) {
                     this.jsBridge.i(this.mWebView, CommonTbJsBridge.GO_BACK_FROM_NATIVE, null);
                 }
@@ -2564,7 +2570,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     }
 
     public void refreshTitle(String str) {
-        jl4 jl4Var;
+        yl4 yl4Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048605, this, str) == null) || this.mFixTitle) {
             return;
@@ -2572,18 +2578,18 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         if (!StringUtils.isNull(str)) {
             this.mUrlTitle = str;
         }
-        if (this.isShowFullScreen || (jl4Var = this.mView) == null) {
+        if (this.isShowFullScreen || (yl4Var = this.mView) == null) {
             return;
         }
-        jl4Var.z(this.mUrlTitle);
+        yl4Var.z(this.mUrlTitle);
     }
 
-    public void removePromptInterface(hi8 hi8Var) {
+    public void removePromptInterface(dj8 dj8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048606, this, hi8Var) == null) || hi8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048606, this, dj8Var) == null) || dj8Var == null) {
             return;
         }
-        this.jsBridge.h(hi8Var);
+        this.jsBridge.h(dj8Var);
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
@@ -2648,9 +2654,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public void webViewDestory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            gi8 gi8Var = this.jsBridge;
-            if (gi8Var != null) {
-                gi8Var.g();
+            cj8 cj8Var = this.jsBridge;
+            if (cj8Var != null) {
+                cj8Var.g();
             }
             BridgeWebView bridgeWebView = this.mWebView;
             if (bridgeWebView != null) {

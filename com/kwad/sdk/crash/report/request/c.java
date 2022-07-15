@@ -8,7 +8,7 @@ import com.kwad.sdk.crash.utils.d;
 import java.util.Calendar;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c {
+public final class c {
     public static ReportEvent a(@NonNull ExceptionMessage exceptionMessage) {
         ReportEvent reportEvent = new ReportEvent();
         reportEvent.clientIncrementId = d.a();
@@ -32,7 +32,7 @@ public class c {
                     return optString;
                 }
             } catch (Exception e) {
-                com.kwad.sdk.core.d.a.b(e);
+                com.kwad.sdk.core.d.b.b(e);
             }
         }
         return "Unknown";

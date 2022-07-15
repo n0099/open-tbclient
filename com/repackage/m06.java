@@ -1,54 +1,111 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class m06 extends i06 {
+public final class m06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
+    public Canvas a;
+    public Bitmap b;
+    public int c;
+    public int d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m06(boolean z) {
-        super(64);
+    public m06() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = z;
+        this.a = new Canvas();
+        this.b = x16.b();
     }
 
-    @Override // com.repackage.i06
-    public boolean b(rz5 item, u16 timer, lz5 config) {
-        InterceptResult invokeLLL;
-        Long o;
+    public final void a(int i, int i2, int i3, boolean z, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            return this.b && (o = item.e().o()) != null && o.longValue() == 0;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)}) == null) {
+            boolean z2 = !z ? i > this.c || i2 > this.d : !(i == this.c && i2 == this.d);
+            if (!Intrinsics.areEqual(this.b, x16.b()) && !this.b.isRecycled() && z2) {
+                this.b.eraseColor(0);
+                this.a.setBitmap(this.b);
+                return;
+            }
+            this.c = Math.max(1, i);
+            this.d = Math.max(1, i2);
+            try {
+                Bitmap createBitmap = Bitmap.createBitmap(this.c, this.d, i4 == 32 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.ARGB_4444);
+                if (i3 > 0) {
+                    createBitmap.setDensity(i3);
+                }
+                d().setBitmap(createBitmap);
+                d().setDensity(i3);
+                Unit unit = Unit.INSTANCE;
+                Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(width, heig…y = density\n            }");
+                this.b = createBitmap;
+            } catch (Exception unused) {
+                this.b = x16.b();
+                this.a.setBitmap(null);
+                this.c = 0;
+                this.d = 0;
+            }
         }
-        return invokeLLL.booleanValue;
     }
 
-    public /* synthetic */ m06(boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? false : z);
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b.isRecycled()) {
+            return;
+        }
+        this.b.eraseColor(0);
+    }
+
+    public final Bitmap c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (Bitmap) invokeV.objValue;
+    }
+
+    public final Canvas d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (Canvas) invokeV.objValue;
+    }
+
+    public final int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || Intrinsics.areEqual(this.b, x16.b())) {
+            return;
+        }
+        this.a.setBitmap(null);
+        this.b = x16.b();
+        this.c = 0;
+        this.d = 0;
     }
 }

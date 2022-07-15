@@ -15,8 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.md3;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.repackage.be3;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -69,7 +68,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                md3.b0(this.a.e, 2000L);
+                be3.b0(this.a.e, 2000L);
             }
         }
 
@@ -210,7 +209,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
             this.a = null;
             Runnable runnable = this.e;
             if (runnable != null) {
-                md3.d0(runnable);
+                be3.d0(runnable);
             }
             ObjectAnimator objectAnimator = this.c;
             if (objectAnimator != null) {
@@ -241,7 +240,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             View.inflate(context, R.layout.obfuscated_res_0x7f0d00ab, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09018e);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09018f);
         }
     }
 
@@ -266,7 +265,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
                     objectAnimator2.cancel();
                 }
             }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 0.0f, 1.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 1.0f);
             this.c = ofFloat;
             if (ofFloat != null) {
                 ofFloat.setDuration(500L);
@@ -299,7 +298,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
                     objectAnimator2.cancel();
                 }
             }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 1.0f, 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f);
             this.d = ofFloat;
             if (ofFloat != null) {
                 ofFloat.setDuration(500L);

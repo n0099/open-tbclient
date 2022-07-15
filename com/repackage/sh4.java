@@ -1,7 +1,11 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,121 +13,49 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
-import com.repackage.pc4;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes7.dex */
-public final class sh4 implements pc4 {
+public final class sh4 extends GestureDetector.SimpleOnGestureListener {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean c;
-    public static final Set<pc4.a> d;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public final Context a;
+    public final GestureDetector b;
+    public th4 c;
+    public MediaGestureMode d;
+    public int e;
 
     /* loaded from: classes7.dex */
-    public class a implements WebKitFactory.WebkitInstallListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ sh4 c;
 
-        /* renamed from: com.repackage.sh4$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0524a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0524a(a aVar) {
-                Interceptable interceptable = $ic;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-13602251, "Lcom/repackage/sh4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
+                    $ic = interceptable;
                 }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    sh4 sh4Var = this.a.c;
-                    sh4Var.j(sh4Var.b);
-                }
-            }
-        }
-
-        public a(sh4 sh4Var, String str, File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sh4Var, str, file};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-13602251, "Lcom/repackage/sh4$a;");
                     return;
                 }
             }
-            this.c = sh4Var;
-            this.a = str;
-            this.b = file;
-        }
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-        public void onInstallFinish(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                boolean z = true;
-                if (uf4.B(this.a, str)) {
-                    synchronized (sh4.d) {
-                        this.c.i(true);
-                    }
-                    return;
-                }
-                if (sh4.e(this.c) <= 2) {
-                    if (8 == i) {
-                        this.c.b = this.a;
-                    } else {
-                        sh4 sh4Var = this.c;
-                        sh4Var.b = this.a + File.pathSeparator + this.c.a;
-                        if (uf4.f(this.b, new File(this.c.b)) != this.b.length()) {
-                            z = false;
-                        }
-                    }
-                    if (z && rz2.M().postDelayed(new RunnableC0524a(this), 1000L)) {
-                        return;
-                    }
-                }
-                if (8 == i) {
-                    uf4.k(this.a);
-                }
-                synchronized (sh4.d) {
-                    this.c.i(false);
-                }
+            int[] iArr = new int[MediaGestureMode.values().length];
+            a = iArr;
+            try {
+                iArr[MediaGestureMode.VOLUME.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-        }
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-        public void onInstallStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                a[MediaGestureMode.BRIGHTNESS.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[MediaGestureMode.FAST_FORWARD.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
         }
     }
@@ -141,13 +73,15 @@ public final class sh4 implements pc4 {
                 return;
             }
         }
-        d = new HashSet();
+        f = rg1.a;
     }
 
-    public sh4() {
+    public sh4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -157,63 +91,142 @@ public final class sh4 implements pc4 {
                 return;
             }
         }
-        this.a = 0;
+        this.d = MediaGestureMode.INTI;
+        this.a = context;
+        this.b = new GestureDetector(context, this);
     }
 
-    public static /* synthetic */ int e(sh4 sh4Var) {
-        int i = sh4Var.a + 1;
-        sh4Var.a = i;
-        return i;
-    }
-
-    @Override // com.repackage.pc4
-    public void a(String str, pc4.a aVar) {
+    public boolean a(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        th4 th4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            synchronized (d) {
-                d.add(aVar);
-                if (c) {
-                    return;
-                }
-                c = true;
-                j(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 1 && (th4Var = this.c) != null) {
+                th4Var.b(motionEvent, this.d);
             }
+            return this.b.onTouchEvent(motionEvent);
         }
+        return invokeL.booleanValue;
     }
 
-    public final void i(boolean z) {
+    public final MediaGestureMode b(MediaGestureMode mediaGestureMode, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            synchronized (d) {
-                for (pc4.a aVar : d) {
-                    if (aVar != null) {
-                        aVar.a(z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mediaGestureMode, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            if (mediaGestureMode == MediaGestureMode.INTI) {
+                if (Math.abs(f3) - Math.abs(f4) > 3.0f) {
+                    mediaGestureMode = MediaGestureMode.FAST_FORWARD;
+                    if (f) {
+                        Log.d("MediaGestureDetector", "horizontal slide");
+                    }
+                } else if (f2 <= this.e / 2) {
+                    mediaGestureMode = MediaGestureMode.BRIGHTNESS;
+                    if (f) {
+                        Log.d("MediaGestureDetector", "brightness slide");
+                    }
+                } else {
+                    mediaGestureMode = MediaGestureMode.VOLUME;
+                    if (f) {
+                        Log.d("MediaGestureDetector", "volume slide");
                     }
                 }
-                d.clear();
-                c = false;
-                this.a = 0;
             }
+            return mediaGestureMode;
+        }
+        return (MediaGestureMode) invokeCommon.objValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.e = i;
         }
     }
 
-    public final void j(String str) {
+    public void d(th4 th4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                synchronized (d) {
-                    i(false);
-                }
-                return;
-            }
-            File file = new File(str);
-            if (!file.isFile()) {
-                synchronized (d) {
-                    i(false);
-                }
-                return;
-            }
-            WebKitFactory.installAsync("file://" + str, new a(this, str, file));
+        if (interceptable == null || interceptable.invokeL(1048579, this, th4Var) == null) {
+            this.c = th4Var;
         }
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+    public boolean onDoubleTap(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onDoubleTap:" + motionEvent);
+            }
+            th4 th4Var = this.c;
+            if (th4Var != null) {
+                return th4Var.onDoubleTap(motionEvent);
+            }
+            return super.onDoubleTap(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onDown(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onDown:" + motionEvent);
+            }
+            this.d = MediaGestureMode.INTI;
+            th4 th4Var = this.c;
+            if (th4Var != null) {
+                return th4Var.onDown(motionEvent);
+            }
+            return super.onDown(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onScroll:" + motionEvent + " e2:" + motionEvent2 + " distanceX:" + f2 + " distanceY:" + f3);
+            }
+            if (this.c == null) {
+                return super.onScroll(motionEvent, motionEvent2, f2, f3);
+            }
+            MediaGestureMode b = b(this.d, motionEvent.getX(), f2, f3);
+            this.d = b;
+            int i = a.a[b.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return false;
+                    }
+                    return this.c.d(motionEvent, motionEvent2, f2, f3);
+                }
+                return this.c.e(motionEvent, motionEvent2, f2, f3);
+            }
+            return this.c.c(motionEvent, motionEvent2, f2, f3);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onSingleTapUp:" + motionEvent);
+            }
+            th4 th4Var = this.c;
+            if (th4Var != null) {
+                return th4Var.a(motionEvent);
+            }
+            return super.onSingleTapUp(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

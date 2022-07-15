@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bi9;
-/* loaded from: classes4.dex */
-public class TrackableBase implements bi9 {
+import com.repackage.bm9;
+/* loaded from: classes5.dex */
+public class TrackableBase implements bm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;

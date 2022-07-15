@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
 import com.repackage.d9;
-import com.repackage.j95;
-import com.repackage.nx4;
+import com.repackage.ly4;
+import com.repackage.ma5;
+import com.repackage.wh8;
 import com.repackage.za;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
@@ -92,8 +92,8 @@ public class LiveRemindModel extends BdBaseModel {
                     hashMap.put("view_top_params_key_yyext", yyExtData);
                     hashMap.put("view_top_params_key_type", 2);
                     hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
-                    nx4.b(null, this.a.a, hashMap, 0L, 4000L);
-                    nx4.a();
+                    ly4.b(null, this.a.a, hashMap, 0L, 4000L);
+                    ly4.a();
                     TbSingleton.getInstance().setIsNeedRemindLiveRoom(false);
                 }
             }
@@ -122,19 +122,19 @@ public class LiveRemindModel extends BdBaseModel {
         this.a = tbPageContext;
         setUniqueId(bdUniqueId);
         this.b = bdUniqueId;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_LIVE_REMIND_INFO, bh8.a(TbConfig.GET_LIVE_ROOM_REMIND_DATA, 309728));
-        j95 j95Var = new j95(309728);
-        j95Var.setResponsedClass(GetLiveRemindSocketMessage.class);
-        j95Var.g(true);
-        j95Var.h(false);
-        MessageManager.getInstance().registerTask(j95Var);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_LIVE_REMIND_INFO, wh8.a(TbConfig.GET_LIVE_ROOM_REMIND_DATA, 309728));
+        ma5 ma5Var = new ma5(309728);
+        ma5Var.setResponsedClass(GetLiveRemindSocketMessage.class);
+        ma5Var.g(true);
+        ma5Var.h(false);
+        MessageManager.getInstance().registerTask(ma5Var);
         tbHttpMessageTask.setResponsedClass(GetLiveRemindHttpResMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         registerListener(this.c);
     }
 
-    public void A() {
+    public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             GetLiveRemindReqMessage getLiveRemindReqMessage = new GetLiveRemindReqMessage();

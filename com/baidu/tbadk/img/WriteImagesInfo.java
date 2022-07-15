@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.v35;
+import com.repackage.x45;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -393,7 +393,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         while (descendingIterator.hasNext()) {
             ImageFileInfo next = descendingIterator.next();
             if (next != null && !next.isHasAddPostQualityAction()) {
-                next.addPersistAction(v35.g(TbImageHelper.getInstance().getPostImageSize(), TbImageHelper.getInstance().getPostImageHeightLimit()));
+                next.addPersistAction(x45.g(TbImageHelper.getInstance().getPostImageSize(), TbImageHelper.getInstance().getPostImageHeightLimit()));
                 next.setHasAddPostQualityAction(true);
             }
         }

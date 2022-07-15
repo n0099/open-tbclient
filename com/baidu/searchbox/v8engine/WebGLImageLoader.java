@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pd1;
+import com.repackage.ee1;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -455,7 +455,7 @@ public class WebGLImageLoader {
             ImageBitmapBean imageBitmapBean = null;
             if (obj instanceof String) {
                 String str2 = (String) obj;
-                if (pd1.b(str2)) {
+                if (ee1.b(str2)) {
                     decodeStream = BitmapFactory.decodeFile(str2, options);
                     if (decodeStream == null) {
                         decodeStream = BitmapFactory.decodeFile(str2);

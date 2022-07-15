@@ -9,48 +9,49 @@ import java.io.File;
 /* loaded from: classes5.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-    public static Context a;
-    public static File b;
-    public static a c;
+    public static boolean a;
+    public static Context b;
+    public static File c;
+    public static a d;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b : (Context) invokeV.objValue;
     }
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            a = context.getApplicationContext();
+            b = context.getApplicationContext();
+        }
+    }
+
+    public static void a(DownloadTask downloadTask, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, downloadTask, str) == null) {
+            d.a(downloadTask, str);
         }
     }
 
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            c = aVar;
+        if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
+            d = aVar;
         }
     }
 
     public static void a(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
-            b = file;
-        }
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            c.installApp(a(), str);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) {
+            c = file;
         }
     }
 
     public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? b : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c : (File) invokeV.objValue;
     }
 }

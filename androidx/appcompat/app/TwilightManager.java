@@ -93,14 +93,14 @@ public class TwilightManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            Location lastKnownLocationForProvider = PermissionChecker.checkSelfPermission(this.mContext, "android.permission.ACCESS_COARSE_LOCATION") == 0 ? getLastKnownLocationForProvider("network") : null;
-            Location lastKnownLocationForProvider2 = PermissionChecker.checkSelfPermission(this.mContext, "android.permission.ACCESS_FINE_LOCATION") == 0 ? getLastKnownLocationForProvider("gps") : null;
+            Location lastKnownLocationForProvider = PermissionChecker.checkSelfPermission(this.mContext, com.baidu.sofire.utility.PermissionChecker.ACCESS_COARSE_LOCATION) == 0 ? getLastKnownLocationForProvider("network") : null;
+            Location lastKnownLocationForProvider2 = PermissionChecker.checkSelfPermission(this.mContext, com.baidu.sofire.utility.PermissionChecker.ACCESS_FINE_LOCATION) == 0 ? getLastKnownLocationForProvider("gps") : null;
             return (lastKnownLocationForProvider2 == null || lastKnownLocationForProvider == null) ? lastKnownLocationForProvider2 != null ? lastKnownLocationForProvider2 : lastKnownLocationForProvider : lastKnownLocationForProvider2.getTime() > lastKnownLocationForProvider.getTime() ? lastKnownLocationForProvider2 : lastKnownLocationForProvider;
         }
         return (Location) invokeV.objValue;
     }
 
-    @RequiresPermission(anyOf = {"android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_FINE_LOCATION"})
+    @RequiresPermission(anyOf = {com.baidu.sofire.utility.PermissionChecker.ACCESS_COARSE_LOCATION, com.baidu.sofire.utility.PermissionChecker.ACCESS_FINE_LOCATION})
     private Location getLastKnownLocationForProvider(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

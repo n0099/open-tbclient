@@ -2,7 +2,7 @@ package com.kwad.sdk.pngencrypt;
 
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 /* loaded from: classes5.dex */
-public class k {
+public final class k {
     public final int a;
     public final int b;
     public final int c;
@@ -53,10 +53,10 @@ public class k {
                 throw new PngjException("indexed can't have bitdepth=" + this.c);
             }
         }
-        if (i < 1 || i > 16777216) {
+        if (i <= 0 || i > 16777216) {
             throw new PngjException("invalid cols=" + i + " ???");
-        } else if (i2 >= 1 && i2 <= 16777216) {
-            if (this.l < 1) {
+        } else if (i2 > 0 && i2 <= 16777216) {
+            if (this.l <= 0) {
                 throw new PngjException("invalid image parameters (overflow?)");
             }
         } else {
@@ -64,7 +64,7 @@ public class k {
         }
     }
 
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -75,11 +75,11 @@ public class k {
         return false;
     }
 
-    public int hashCode() {
+    public final int hashCode() {
         return (((((((((((this.e ? 1231 : 1237) + 31) * 31) + this.c) * 31) + this.a) * 31) + (this.f ? 1231 : 1237)) * 31) + (this.g ? 1231 : 1237)) * 31) + this.b;
     }
 
-    public String toString() {
+    public final String toString() {
         return "ImageInfo [cols=" + this.a + ", rows=" + this.b + ", bitDepth=" + this.c + ", channels=" + this.d + ", alpha=" + this.e + ", greyscale=" + this.f + ", indexed=" + this.g + PreferencesUtil.RIGHT_MOUNT;
     }
 }

@@ -1,24 +1,58 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.ContentObserver;
+import android.view.View;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public final class ex9<T> {
+import java.util.HashMap;
+import java.util.Map;
+import tv.athena.revenue.payui.activity.immersion.BarHide;
+/* loaded from: classes6.dex */
+public class ex9 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
+    public ContentObserver A;
+    @ColorInt
+    public int a;
+    @ColorInt
     public int b;
-    public int c;
-    public int d;
-    public T[] e;
+    @FloatRange(from = 0.0d, to = 1.0d)
+    public float c;
+    @FloatRange(from = 0.0d, to = 1.0d)
+    public float d;
+    public boolean e;
+    public boolean f;
+    public BarHide g;
+    public boolean h;
+    public boolean i;
+    @ColorInt
+    public int j;
+    @ColorInt
+    public int k;
+    public Map<View, Map<Integer, Integer>> l;
+    @FloatRange(from = 0.0d, to = 1.0d)
+    public float m;
+    public boolean n;
+    public View o;
+    public View p;
+    public View q;
+    @ColorInt
+    public int r;
+    public boolean s;
+    public boolean t;
+    public int u;
+    public boolean v;
+    public boolean w;
+    public boolean x;
+    public hx9 y;
+    public jx9 z;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ex9() {
-        this(16, 0.75f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,190 +60,46 @@ public final class ex9<T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Integer) objArr[0]).intValue(), ((Float) objArr[1]).floatValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 0;
+        this.b = -16777216;
+        this.c = 0.0f;
+        this.d = 0.0f;
+        this.e = false;
+        this.f = false;
+        this.g = BarHide.FLAG_SHOW_BAR;
+        this.h = false;
+        this.i = true;
+        this.j = -16777216;
+        this.k = -16777216;
+        this.l = new HashMap();
+        this.m = 0.0f;
+        this.n = false;
+        this.s = false;
+        this.t = false;
+        this.u = 18;
+        this.v = true;
+        this.w = true;
+        this.x = false;
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = i * (-1640531527);
-            return i2 ^ (i2 >>> 16);
-        }
-        return invokeI.intValue;
-    }
-
-    public boolean a(T t) {
-        InterceptResult invokeL;
-        T t2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            T[] tArr = this.e;
-            int i = this.b;
-            int c = c(t.hashCode()) & i;
-            T t3 = tArr[c];
-            if (t3 != null) {
-                if (t3.equals(t)) {
-                    return false;
-                }
-                do {
-                    c = (c + 1) & i;
-                    t2 = tArr[c];
-                    if (t2 == null) {
-                    }
-                } while (!t2.equals(t));
-                return false;
-            }
-            tArr[c] = t;
-            int i2 = this.c + 1;
-            this.c = i2;
-            if (i2 >= this.d) {
-                d();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public ex9 clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c == 0 : invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-            return;
-        }
-        T[] tArr = this.e;
-        int length = tArr.length;
-        int i = length << 1;
-        int i2 = i - 1;
-        T[] tArr2 = (T[]) new Object[i];
-        int i3 = this.c;
-        while (true) {
-            int i4 = i3 - 1;
-            if (i3 != 0) {
-                do {
-                    length--;
-                } while (tArr[length] == null);
-                int c = c(tArr[length].hashCode()) & i2;
-                if (tArr2[c] != null) {
-                    do {
-                        c = (c + 1) & i2;
-                    } while (tArr2[c] != null);
-                }
-                tArr2[c] = tArr[length];
-                i3 = i4;
-            } else {
-                this.b = i2;
-                this.d = (int) (i * this.a);
-                this.e = tArr2;
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return (ex9) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                return null;
             }
         }
-    }
-
-    public boolean e(T t) {
-        InterceptResult invokeL;
-        T t2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
-            T[] tArr = this.e;
-            int i = this.b;
-            int c = c(t.hashCode()) & i;
-            T t3 = tArr[c];
-            if (t3 == null) {
-                return false;
-            }
-            if (t3.equals(t)) {
-                return f(c, tArr, i);
-            }
-            do {
-                c = (c + 1) & i;
-                t2 = tArr[c];
-                if (t2 == null) {
-                    return false;
-                }
-            } while (!t2.equals(t));
-            return f(c, tArr, i);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean f(int i, T[] tArr, int i2) {
-        InterceptResult invokeCommon;
-        int i3;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), tArr, Integer.valueOf(i2)})) != null) {
-            return invokeCommon.booleanValue;
-        }
-        this.c--;
-        while (true) {
-            int i4 = i + 1;
-            while (true) {
-                i3 = i4 & i2;
-                t = tArr[i3];
-                if (t == null) {
-                    tArr[i] = null;
-                    return true;
-                }
-                int c = c(t.hashCode()) & i2;
-                if (i > i3) {
-                    if (i >= c && c > i3) {
-                        break;
-                    }
-                    i4 = i3 + 1;
-                } else if (i < c && c <= i3) {
-                    i4 = i3 + 1;
-                }
-            }
-            tArr[i] = t;
-            i = i3;
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = 0;
-            this.e = (T[]) new Object[0];
-        }
-    }
-
-    public T[] h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (T[]) ((Object[]) invokeV.objValue);
-    }
-
-    public ex9(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = f;
-        int b = xx9.b(i);
-        this.b = b - 1;
-        this.d = (int) (f * b);
-        this.e = (T[]) new Object[b];
+        return (ex9) invokeV.objValue;
     }
 }

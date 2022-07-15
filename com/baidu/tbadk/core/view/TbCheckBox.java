@@ -101,7 +101,7 @@ public class TbCheckBox extends ImageView {
                 } else {
                     SkinManager.setImageResource(this, this.a);
                 }
-                setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f03a1));
+                setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f03a8));
                 return;
             }
             if (this.c) {
@@ -109,7 +109,7 @@ public class TbCheckBox extends ImageView {
             } else {
                 SkinManager.setImageResource(this, this.b);
             }
-            setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f03a2));
+            setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f03a9));
         }
     }
 

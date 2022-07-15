@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
 import com.repackage.d9;
-import com.repackage.ol4;
+import com.repackage.dm4;
+import com.repackage.wh8;
 import com.repackage.za;
 import tbclient.RelateRecThread.DataRes;
 /* loaded from: classes3.dex */
@@ -31,7 +31,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public RelateRecThreadRequestMessage b;
-    public ol4 c;
+    public dm4 c;
     public za d;
 
     /* loaded from: classes3.dex */
@@ -87,7 +87,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
                 }
                 Log.e("RecThreadList", "errno=" + error + ",errmsg=" + errorString);
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.D(R.string.obfuscated_res_0x7f0f05a0);
+                    errorString = this.a.E(R.string.obfuscated_res_0x7f0f05aa);
                 }
                 if (this.a.c != null) {
                     this.a.c.onError(error, errorString);
@@ -117,27 +117,27 @@ public class RelateRecThreadListModel extends BdBaseModel {
         this.a = false;
         this.d = new a(this, CmdConfigHttp.CMD_RELATE_REC_THREAD, 309701);
         setUniqueId(bdUniqueId);
-        E();
+        F();
     }
 
-    public final String D(int i) {
+    public final String E(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TbadkCoreApplication.getInst().getString(i) : (String) invokeI.objValue;
     }
 
-    public void E() {
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bh8.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            bh8.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            wh8.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
+            wh8.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
             this.d.getSocketMessageListener().setSelfListener(true);
             registerListener(this.d);
         }
     }
 
-    public boolean F(long j, long j2, int i, int i2, String str) {
+    public boolean G(long j, long j2, int i, int i2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
@@ -159,10 +159,10 @@ public class RelateRecThreadListModel extends BdBaseModel {
         return invokeCommon.booleanValue;
     }
 
-    public void G(ol4 ol4Var) {
+    public void H(dm4 dm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ol4Var) == null) {
-            this.c = ol4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dm4Var) == null) {
+            this.c = dm4Var;
         }
     }
 

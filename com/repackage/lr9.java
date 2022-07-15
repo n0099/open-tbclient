@@ -1,30 +1,28 @@
 package com.repackage;
 
-import android.content.Context;
+import android.media.MediaRecorder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.open.deviceidentifiertest.VirtualDevice;
+import org.webrtc.CameraVideoCapturer;
+/* compiled from: CameraVideoCapturer.java */
 /* loaded from: classes6.dex */
-public final class lr9 {
+public final /* synthetic */ class lr9 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    @Deprecated
+    public static void $default$addMediaRecorderToCamera(CameraVideoCapturer cameraVideoCapturer, MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                if (a == null) {
-                    a = new VirtualDevice().getDeviceID(context);
-                }
-                return a;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, cameraVideoCapturer, mediaRecorder, mediaRecorderHandler) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static void $default$removeMediaRecorderFromCamera(CameraVideoCapturer cameraVideoCapturer, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, cameraVideoCapturer, mediaRecorderHandler) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
+        }
     }
 }

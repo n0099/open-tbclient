@@ -6,15 +6,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ksad.download.DownloadTask;
 import com.kwad.sdk.api.proxy.app.DownloadService;
+import com.kwad.sdk.core.d.b;
 /* loaded from: classes5.dex */
-public class a {
+public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
-            com.kwad.sdk.core.d.a.a("DownloadClient", "pauseDownload");
+            b.a("DownloadClient", "pauseDownload");
             try {
                 Intent intent = new Intent(context, DownloadService.class);
                 intent.putExtra("download_service_type_tag", 2);
@@ -43,7 +44,7 @@ public class a {
     public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            com.kwad.sdk.core.d.a.a("DownloadClient", "cancelDownload");
+            b.a("DownloadClient", "cancelDownload");
             try {
                 Intent intent = new Intent(context, DownloadService.class);
                 intent.putExtra("download_service_type_tag", 4);

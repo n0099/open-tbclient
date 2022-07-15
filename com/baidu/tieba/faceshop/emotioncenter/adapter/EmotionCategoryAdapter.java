@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.an;
-import com.repackage.t86;
+import com.repackage.q96;
 /* loaded from: classes3.dex */
-public class EmotionCategoryAdapter extends an<t86, EmotionCategoryViewHolder> {
+public class EmotionCategoryAdapter extends an<q96, EmotionCategoryViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,13 +63,13 @@ public class EmotionCategoryAdapter extends an<t86, EmotionCategoryViewHolder> {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.a) == null) {
                 return;
             }
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090884);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090845);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090854);
-            this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f0530));
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09088b);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09084c);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09085b);
+            this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f053a));
             this.c.setVisibility(8);
             this.d.setVisibility(8);
-            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f090581);
+            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f090583);
         }
 
         public void d(int i) {
@@ -119,9 +119,9 @@ public class EmotionCategoryAdapter extends an<t86, EmotionCategoryViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.an
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, t86 t86Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, q96 q96Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t86Var, emotionCategoryViewHolder})) == null) ? emotionCategoryViewHolder.b() : (View) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, q96Var, emotionCategoryViewHolder})) == null) ? emotionCategoryViewHolder.b() : (View) invokeCommon.objValue;
     }
 }

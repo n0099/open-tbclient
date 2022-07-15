@@ -1,27 +1,47 @@
 package com.repackage;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class jj2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ij2 a;
+    public static final int a;
+    public static final int b;
+    public static final ThreadPoolExecutor c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ij2 a() {
-        InterceptResult invokeV;
-        ij2 ij2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (jj2.class) {
-                if (a == null) {
-                    a = new ij2();
-                }
-                ij2Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755586817, "Lcom/repackage/jj2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return ij2Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755586817, "Lcom/repackage/jj2;");
+                return;
+            }
         }
-        return (ij2) invokeV.objValue;
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        a = availableProcessors;
+        b = (availableProcessors * 2) + 1;
+        int i = b;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 10000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        c = threadPoolExecutor;
+        threadPoolExecutor.allowCoreThreadTimeOut(true);
+    }
+
+    public static void a(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
+            c.execute(runnable);
+        }
     }
 }

@@ -35,6 +35,7 @@ public class NativeConstants {
     public static final String COMPONENT_CLOSE_BTN = "close";
     public static final String COMPONENT_DOWNLOAD = "download";
     public static final String COMPONENT_HEAD = "head";
+    public static final String COMPONENT_PRAISE = "praise";
     public static final String COMPONENT_SYNC_TEXT_VIEW = "sync";
     public static final String COMPONENT_TIME = "time";
     public static final String COMPONENT_VIEWBTN = "viewbtn";
@@ -114,6 +115,7 @@ public class NativeConstants {
     public static final String TOP = "top";
     public static final String TYPE = "type";
     public static final String TYPE_GIF = "gif";
+    public static final String TYPE_HSCROLL = "hscroll";
     public static final String TYPE_IMAGE = "image";
     public static final String TYPE_INDICATOR = "indicator";
     public static final String TYPE_SWIPER = "swiper";

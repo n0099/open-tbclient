@@ -39,16 +39,16 @@ public class cp extends fx {
 
     @Override // com.xiaomi.push.fx
     /* renamed from: a */
-    public byte[] mo356a() {
+    public byte[] mo1299a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 dx.b bVar = new dx.b();
-                bVar.a(bv.a().m646a());
-                return bVar.m298a();
+                bVar.a(bv.a().m1589a());
+                return bVar.m1241a();
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("getOBBString err: " + e.toString());
+                com.xiaomi.channel.commonutils.logger.b.m1027a("getOBBString err: " + e.toString());
                 return null;
             }
         }

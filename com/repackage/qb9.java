@@ -1,369 +1,304 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public final class qb9 extends wg9 {
+/* loaded from: classes7.dex */
+public class qb9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<b> b;
-    public final int c;
+    public rb9 a;
+    public JSONObject b;
+    public JSONObject c;
 
-    /* loaded from: classes6.dex */
-    public static final class a extends wg9 implements ib9 {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final int b;
-        public final Ssp.Pid c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map, b bVar) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput, map, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            long readLong = objectInput.readLong();
-            this.a = readLong;
-            this.b = objectInput.readInt();
-            this.c = map.get(Long.valueOf(readLong));
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(JSONObject jSONObject, Map<Long, Ssp.Pid> map, b bVar) {
-            super(0);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, map, bVar};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            long adjustLong = NumberUtils.adjustLong(jSONObject.getLong("id"), 0L);
-            this.a = adjustLong;
-            this.b = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
-            this.c = map.get(Long.valueOf(adjustLong));
-        }
-
-        @Override // com.repackage.ib9
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.repackage.ib9
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || a.class != obj.getClass()) {
-                    return false;
-                }
-                a aVar = (a) obj;
-                return this.a == aVar.a && this.b == aVar.b && Objects.equals(this.c, aVar.c);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Long.valueOf(this.a), Integer.valueOf(this.b), this.c) : invokeV.intValue;
-        }
-
-        @Override // com.repackage.wg9
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, objectOutput) == null) {
-                objectOutput.writeLong(this.a);
-                objectOutput.writeInt(this.b);
-            }
-        }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b extends wg9 {
+    /* loaded from: classes7.dex */
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final qb9 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final List<a> b;
 
-        /* loaded from: classes6.dex */
-        public class a implements Comparator<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-76252693, "Lcom/repackage/qb9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
+                    $ic = interceptable;
                 }
-            }
-
-            @Override // java.util.Comparator
-            public int compare(Object obj, Object obj2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? -Integer.compare(((a) obj).b, ((a) obj2).b) : invokeLL.intValue;
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput, map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-76252693, "Lcom/repackage/qb9$b;");
                     return;
                 }
             }
-            this.a = objectInput.readLong();
-            int readInt = objectInput.readInt();
-            HashSet hashSet = new HashSet();
-            for (int i4 = 0; i4 < readInt; i4++) {
-                hashSet.add(new a(objectInput.readInt(), objectInput, map, this));
-            }
-            ArrayList arrayList = new ArrayList(hashSet);
-            a(arrayList);
-            this.b = Collections.unmodifiableList(arrayList);
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
-            super(0);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, map};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = NumberUtils.adjustLong(jSONObject.optLong("tmout", 5000L), 100L, 30000L);
-            HashSet hashSet = new HashSet();
-            JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
-            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                hashSet.add(new a(jSONArray.getJSONObject(i3), map, this));
-            }
-            ArrayList arrayList = new ArrayList(hashSet);
-            a(arrayList);
-            this.b = Collections.unmodifiableList(arrayList);
-        }
-
-        public final <T extends a> List<T> a(List<T> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                Collections.sort(list, new a(this));
-                return list;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || b.class != obj.getClass()) {
-                    return false;
-                }
-                b bVar = (b) obj;
-                return this.a == bVar.a && Objects.equals(this.b, bVar.b);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(Long.valueOf(this.a), this.b) : invokeV.intValue;
-        }
-
-        @Override // com.repackage.wg9
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, objectOutput) == null) {
-                objectOutput.writeLong(this.a);
-                objectOutput.writeInt(this.b.size());
-                for (a aVar : this.b) {
-                    aVar.srzable(objectOutput);
-                }
-            }
+            a = new qb9(null);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qb9(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput, map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755385751, "Lcom/repackage/qb9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755385751, "Lcom/repackage/qb9;");
                 return;
             }
         }
-        this.a = objectInput.readUTF();
-        int readInt = objectInput.readInt();
-        ArrayList arrayList = new ArrayList();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            arrayList.add(new b(objectInput.readInt(), objectInput, map));
-        }
-        this.b = Collections.unmodifiableList(arrayList);
-        if (i >= 1) {
-            this.c = objectInput.readInt();
-        } else {
-            this.c = 0;
+        d = AppConfig.isDebug();
+        e = AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + "yalog/";
+    }
+
+    public /* synthetic */ qb9(a aVar) {
+        this();
+    }
+
+    public static qb9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (qb9) invokeV.objValue;
+    }
+
+    public Map<String, sb9> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.c() : (Map) invokeV.objValue;
+    }
+
+    public float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.d() : invokeV.floatValue;
+    }
+
+    public float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.e() : invokeV.floatValue;
+    }
+
+    public List<tb9> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.f() : (List) invokeV.objValue;
+    }
+
+    public float f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.g() : invokeV.floatValue;
+    }
+
+    public float g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.h() : invokeV.floatValue;
+    }
+
+    public float h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.i() : invokeV.floatValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.a == null) {
+                this.a = new rb9();
+            }
+            j();
+            k();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qb9(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
-        super(1);
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (!new File(e).exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "dir not exists.");
+                    return;
+                }
+                return;
+            }
+            File file = new File(e, "yalog_cloud.txt");
+            if (!file.exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "yalog_cloud.txt not exists, use default value.");
+                }
+                this.a.l();
+                return;
+            }
+            String a2 = xb9.a(file);
+            if (d) {
+                Log.d("YaLogConfigManager", "read from local: " + a2);
+            }
+            if (TextUtils.isEmpty(a2)) {
+                this.a.l();
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(a2);
+                this.b = jSONObject;
+                this.a.p(jSONObject.optString(TbConfig.SW_APID));
+                this.a.m(this.b.optString("cl"));
+                this.a.w((float) this.b.optDouble("tosize"));
+                this.a.s((float) this.b.optDouble("sisize"));
+                this.a.u((float) this.b.optDouble("spsize"));
+                this.a.v((float) this.b.optDouble("sptime"));
+                this.a.r((float) this.b.optDouble("idsize"));
+                if (this.b.has("spdelist")) {
+                    List<String> asList = Arrays.asList(this.b.optString("spdelist"));
+                    if (asList.size() > 0) {
+                        this.a.o(asList);
+                    }
+                }
+                if (this.b.has("splist")) {
+                    JSONObject optJSONObject = this.b.optJSONObject("splist");
+                    ArrayList arrayList = new ArrayList();
+                    if (optJSONObject != null && optJSONObject.length() > 0) {
+                        Iterator<String> keys = optJSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                            if (optJSONObject2 != null) {
+                                arrayList.add(new tb9(next, !TextUtils.equals("0", optJSONObject2.optString(TbConfig.SW_APID)), (float) optJSONObject2.optDouble("size"), (float) optJSONObject2.optDouble("time")));
+                            }
+                        }
+                    }
+                    if (arrayList.size() > 0) {
+                        this.a.t(arrayList);
+                    }
+                }
+            } catch (JSONException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void k() {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (!new File(e).exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "dir not exists.");
+                    return;
+                }
+                return;
+            }
+            File file = new File(e, "yalog_id_cloud.txt");
+            if (!file.exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "yalog_id_cloud.txt not exists.");
+                    return;
+                }
+                return;
+            }
+            String a2 = xb9.a(file);
+            if (d) {
+                Log.d("YaLogConfigManager", "read from local: " + a2);
+            }
+            if (TextUtils.isEmpty(a2)) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(a2);
+                this.c = jSONObject;
+                if (jSONObject.has("iddemap") && (optJSONObject = this.c.optJSONObject("iddemap")) != null && optJSONObject.length() > 0) {
+                    HashMap hashMap = new HashMap();
+                    Iterator<String> keys = optJSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        hashMap.put(next, optJSONObject.optString(next));
+                    }
+                    if (hashMap.size() > 0) {
+                        this.a.n(hashMap);
+                    }
+                }
+                if (this.c.has("idlist")) {
+                    JSONObject optJSONObject2 = this.c.optJSONObject("idlist");
+                    HashMap hashMap2 = new HashMap();
+                    if (optJSONObject2 != null && optJSONObject2.length() > 0) {
+                        Iterator<String> keys2 = optJSONObject2.keys();
+                        while (keys2.hasNext()) {
+                            String next2 = keys2.next();
+                            JSONObject optJSONObject3 = optJSONObject2.optJSONObject(next2);
+                            if (optJSONObject3 != null) {
+                                hashMap2.put(next2, new sb9(next2, optJSONObject3.optLong("v"), !TextUtils.equals("0", optJSONObject3.optString(TbConfig.SW_APID)), (float) optJSONObject3.optDouble("size")));
+                            }
+                        }
+                    }
+                    if (hashMap2.size() > 0) {
+                        this.a.q(hashMap2);
+                    }
+                }
+            } catch (JSONException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.j() : invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a.k() : invokeV.booleanValue;
+    }
+
+    public qb9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, map};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = jSONObject.getString("sid");
-        JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
-        ArrayList arrayList = new ArrayList();
-        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-            arrayList.add(new b(jSONArray.getJSONObject(i3), map));
-        }
-        this.b = Collections.unmodifiableList(arrayList);
-        this.c = jSONObject.optInt("ver", 0);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || qb9.class != obj.getClass()) {
-                return false;
-            }
-            qb9 qb9Var = (qb9) obj;
-            return Objects.equals(this.a, qb9Var.a) && Objects.equals(this.b, qb9Var.b) && this.c == qb9Var.c;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b, Integer.valueOf(this.c)) : invokeV.intValue;
-    }
-
-    @Override // com.repackage.wg9
-    public void srzableInternal(ObjectOutput objectOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
-            objectOutput.writeUTF(this.a);
-            objectOutput.writeInt(this.b.size());
-            for (b bVar : this.b) {
-                bVar.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.c);
-        }
+        i();
     }
 }

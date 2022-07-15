@@ -55,9 +55,8 @@ import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.repackage.c;
-import com.repackage.pu9;
-import com.repackage.r00;
-import com.tachikoma.core.component.input.ReturnKeyType;
+import com.repackage.mr9;
+import com.repackage.t00;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.math.BigInteger;
@@ -147,7 +146,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     public RTCVideoView mLocalRender;
     public long mLoginSuccessTime;
     public RTCAudioSamples.RTCMixedSamplesReadyCallback mMixedSamplesCallback;
-    public r00 mOnMixedFrameUpdateListener;
+    public t00 mOnMixedFrameUpdateListener;
     public RtcParameterSettings mParamSettings;
     public IdentityHashMap<Long, RTCVideoExternalRender> mPendingRemoveRendererMap;
     public BigInteger mPublisherHandle;
@@ -727,7 +726,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                 }
             }
         };
-        this.mOnMixedFrameUpdateListener = new r00(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.6
+        this.mOnMixedFrameUpdateListener = new t00(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BaiduRtcRoomImp this$0;
@@ -750,7 +749,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                 this.this$0 = this;
             }
 
-            @Override // com.repackage.r00
+            @Override // com.repackage.t00
             public void onFilteredFrameUpdate(byte[] bArr, MediaCodec.BufferInfo bufferInfo) {
                 BaiduRtcRoomImp baiduRtcRoomImp;
                 RTCAudioSamples.RTCMixedSamplesReadyCallback rTCMixedSamplesReadyCallback;
@@ -807,7 +806,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         this.mWebSocketChannel.setSDK(Constraints.sdkVersion());
         this.mAppId = str;
         this.mWebSocketChannel.setDelegate(this);
-        this.rootEglBase = pu9.a();
+        this.rootEglBase = mr9.a();
         int i3 = 0;
         while (true) {
             boolean[] zArr = this.mHasVideoView;
@@ -1168,7 +1167,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         }
         for (StatsReport statsReport : statsReportArr) {
             if (bigInteger == this.mPublisherHandle) {
-                if (statsReport.type.equals("ssrc") && statsReport.id.contains("ssrc") && statsReport.id.contains(ReturnKeyType.SEND)) {
+                if (statsReport.type.equals("ssrc") && statsReport.id.contains("ssrc") && statsReport.id.contains("send")) {
                     for (StatsReport.Value value : statsReport.values) {
                         if (value.name.contains("audioInputLevel")) {
                             try {

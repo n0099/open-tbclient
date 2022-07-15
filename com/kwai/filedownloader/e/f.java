@@ -4,10 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Build;
 import android.os.Environment;
-import android.os.Process;
-import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -18,6 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.components.offline.api.BuildConfig;
+import com.kwad.sdk.utils.ak;
 import com.kwai.filedownloader.exception.FileDownloadGiveUpRetryException;
 import com.kwai.filedownloader.services.FileDownloadServiceProxy;
 import java.io.File;
@@ -25,8 +24,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -71,16 +68,16 @@ public class f {
         }
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public static int a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : invokeV.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? com.kwai.filedownloader.download.b.a().b().b(str, str2, false) : invokeLL.intValue;
     }
 
     public static int a(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, str2, z)) == null) ? com.kwai.filedownloader.download.b.a().b().a(str, str2, z) : invokeLLZ.intValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, str2, z)) == null) ? com.kwai.filedownloader.download.b.a().b().b(str, str2, z) : invokeLLZ.intValue;
     }
 
     public static String a(int i, com.kwai.filedownloader.kwai.b bVar) {
@@ -103,28 +100,19 @@ public class f {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bVar, str)) == null) {
-            String g = g(bVar.a("Content-Disposition"));
-            if (TextUtils.isEmpty(g)) {
-                g = c(str);
+            String d2 = d(bVar.a("Content-Disposition"));
+            if (TextUtils.isEmpty(d2)) {
+                d2 = j(str);
             }
-            return g.replaceAll("\\/", "_");
+            return d2.replaceAll("\\/", "_");
         }
         return (String) invokeLL.objValue;
     }
 
-    public static String a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            if (str2 != null) {
-                if (str != null) {
-                    return a("%s%s%s", str, File.separator, str2);
-                }
-                throw new IllegalStateException("can't generate real path, the directory is null");
-            }
-            throw new IllegalStateException("can't generate real path, the file name is null");
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? c(e(), j(str)) : (String) invokeL.objValue;
     }
 
     public static String a(String str, boolean z, String str2) {
@@ -138,7 +126,7 @@ public class f {
                 if (str2 == null) {
                     return null;
                 }
-                return a(str, str2);
+                return c(str, str2);
             }
             return str;
         }
@@ -171,16 +159,31 @@ public class f {
         }
     }
 
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) c.a().getSystemService("connectivity");
+            if (connectivityManager == null) {
+                d.d(f.class, "failed to get connectivity manager!", new Object[0]);
+                return true;
+            }
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            return activeNetworkInfo == null || activeNetworkInfo.getType() != 1;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static boolean a(int i, com.kwai.filedownloader.c.c cVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65547, null, i, cVar)) == null) ? a(i, cVar, (Boolean) null) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65548, null, i, cVar)) == null) ? a(i, cVar, (Boolean) null) : invokeIL.booleanValue;
     }
 
     public static boolean a(int i, com.kwai.filedownloader.c.c cVar, Boolean bool) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65548, null, i, cVar, bool)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65549, null, i, cVar, bool)) == null) {
             if (cVar == null) {
                 if (d.a) {
                     d.c(f.class, "can't continue %d model == null", Integer.valueOf(i));
@@ -192,7 +195,7 @@ public class f {
                 }
                 return false;
             } else {
-                return a(i, cVar, cVar.e(), bool);
+                return a(i, cVar, cVar.e(), null);
             }
         }
         return invokeILL.booleanValue;
@@ -201,7 +204,7 @@ public class f {
     public static boolean a(int i, com.kwai.filedownloader.c.c cVar, String str, Boolean bool) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), cVar, str, bool})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i), cVar, str, bool})) == null) {
             if (str == null) {
                 if (d.a) {
                     d.c(f.class, "can't continue %d path = null", Integer.valueOf(i));
@@ -221,7 +224,7 @@ public class f {
             }
             long length = file.length();
             long g = cVar.g();
-            if (cVar.n() <= 1 && g == 0) {
+            if (cVar.m() <= 1 && g == 0) {
                 if (d.a) {
                     d.c(f.class, "can't continue %d the downloaded-record is zero.", Integer.valueOf(i));
                     return false;
@@ -251,78 +254,37 @@ public class f {
     public static boolean a(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j > ((long) a()) && j2 > b() : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j > ((long) c()) && j2 > d() : invokeCommon.booleanValue;
     }
 
     public static boolean a(Context context) {
         InterceptResult invokeL;
+        boolean endsWith;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
             Boolean bool = d;
             if (bool != null) {
                 return bool.booleanValue();
             }
-            boolean z = false;
-            if (!e.a().d) {
-                int myPid = Process.myPid();
-                ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-                if (activityManager != null) {
-                    List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
-                    if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {
-                        Iterator<ActivityManager.RunningAppProcessInfo> it = runningAppProcesses.iterator();
-                        while (true) {
-                            if (!it.hasNext()) {
-                                break;
-                            }
-                            ActivityManager.RunningAppProcessInfo next = it.next();
-                            if (next.pid == myPid) {
-                                z = next.processName.endsWith(":filedownloader");
-                                break;
-                            }
-                        }
-                    } else {
-                        d.d(f.class, "The running app process info list from ActivityManager is null or empty, maybe current App is not running.", new Object[0]);
-                        return false;
-                    }
-                } else {
-                    d.d(f.class, "fail to get the activity manager!", new Object[0]);
-                    return false;
-                }
+            if (e.a().d) {
+                endsWith = true;
+            } else if (((ActivityManager) context.getSystemService("activity")) == null) {
+                d.d(f.class, "fail to get the activity manager!", new Object[0]);
+                return false;
             } else {
-                z = true;
+                endsWith = ak.a(context).endsWith(":filedownloader");
             }
-            Boolean valueOf = Boolean.valueOf(z);
+            Boolean valueOf = Boolean.valueOf(endsWith);
             d = valueOf;
             return valueOf.booleanValue();
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, str, str2)) == null) ? com.kwai.filedownloader.download.b.a().b().a(str, str2, false) : invokeLL.intValue;
-    }
-
-    public static long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? b : invokeV.longValue;
-    }
-
     public static long b(int i, com.kwai.filedownloader.kwai.b bVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65555, null, i, bVar)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65553, null, i, bVar)) == null) {
             long k = k(bVar.a("Content-Length"));
             String a2 = bVar.a("Transfer-Encoding");
             if (k < 0) {
@@ -341,15 +303,21 @@ public class f {
         return invokeIL.longValue;
     }
 
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? a("FileDownloader/%s", BuildConfig.VERSION_NAME) : (String) invokeV.objValue;
+    }
+
     public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) ? a(c(), c(str)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) ? a("%s.temp", str) : (String) invokeL.objValue;
     }
 
     public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65556, null, context) == null) {
             File c2 = c(context);
             try {
                 c2.getParentFile().mkdirs();
@@ -360,72 +328,33 @@ public class f {
         }
     }
 
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65557, null, str, str2) == null) {
+            l(str2);
+            i(str);
+        }
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? a : invokeV.intValue;
+    }
+
     public static File c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
             return new File(context.getFilesDir().getAbsolutePath() + File.separator + FileDownloadServiceProxy.TAG, ".old_file_converted");
         }
         return (File) invokeL.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            if (TextUtils.isEmpty(c)) {
-                return (c.a().getExternalCacheDir() == null ? Environment.getDownloadCacheDirectory() : c.a().getExternalCacheDir()).getAbsolutePath();
-            }
-            return c;
-        }
-        return (String) invokeV.objValue;
-    }
-
     public static String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) ? e(str) : (String) invokeL.objValue;
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65561, null, str, str2) == null) {
-            m(str2);
-            n(str);
-        }
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) ? a("%s.temp", str) : (String) invokeL.objValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) c.a().getSystemService("connectivity");
-            if (connectivityManager == null) {
-                d.d(f.class, "failed to get connectivity manager!", new Object[0]);
-                return true;
-            }
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            return activeNetworkInfo == null || activeNetworkInfo.getType() != 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) ? a("FileDownloader/%s", "3.3.17.4") : (String) invokeV.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
             try {
                 byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
                 StringBuilder sb = new StringBuilder(digest.length * 2);
@@ -446,20 +375,31 @@ public class f {
         return (String) invokeL.objValue;
     }
 
-    public static long f(String str) {
-        InterceptResult invokeL;
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
-            StatFs statFs = new StatFs(str);
-            return Build.VERSION.SDK_INT >= 18 ? statFs.getAvailableBytes() : statFs.getAvailableBlocks() * statFs.getBlockSize();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, str2)) == null) {
+            if (str2 != null) {
+                if (str != null) {
+                    return a("%s%s%s", str, File.separator, str2);
+                }
+                throw new IllegalStateException("can't generate real path, the directory is null");
+            }
+            throw new IllegalStateException("can't generate real path, the file name is null");
         }
-        return invokeL.longValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static String g(String str) {
+    public static long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? b : invokeV.longValue;
+    }
+
+    public static String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, str)) == null) {
             if (str == null) {
                 return null;
             }
@@ -475,10 +415,22 @@ public class f {
         return (String) invokeL.objValue;
     }
 
-    public static String h(String str) {
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
+            if (TextUtils.isEmpty(c)) {
+                return (c.a().getExternalCacheDir() == null ? Environment.getDownloadCacheDirectory() : c.a().getExternalCacheDir()).getAbsolutePath();
+            }
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
             int length = str.length();
             int i = 2;
             int i2 = (File.separatorChar == '\\' && length > 2 && str.charAt(1) == ':') ? 2 : 0;
@@ -499,19 +451,58 @@ public class f {
         return (String) invokeL.objValue;
     }
 
-    public static String i(String str) {
+    public static String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
             return "FileDownloader-" + str;
         }
         return (String) invokeL.objValue;
     }
 
-    public static boolean j(String str) {
+    public static boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65570, null, str)) == null) ? c.a().checkCallingOrSelfPermission(str) == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65567, null, str)) == null) ? c.a().checkCallingOrSelfPermission(str) == 0 : invokeL.booleanValue;
+    }
+
+    public static com.kwai.filedownloader.d.a h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                throw new RuntimeException("found invalid internal destination path, empty");
+            }
+            File file = new File(str);
+            if (file.exists() && file.isDirectory()) {
+                file.delete();
+                if (!file.createNewFile()) {
+                    throw new RuntimeException(a("found invalid internal destination path[%s], & path is directory[%B]", str, Boolean.valueOf(file.isDirectory())));
+                }
+            }
+            if (file.exists() || file.createNewFile()) {
+                return com.kwai.filedownloader.download.b.a().a(file);
+            }
+            throw new IOException(a("create new file error  %s", file.getAbsolutePath()));
+        }
+        return (com.kwai.filedownloader.d.a) invokeL.objValue;
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65569, null, str) == null) || str == null) {
+            return;
+        }
+        File file = new File(str);
+        if (file.exists()) {
+            file.delete();
+        }
+    }
+
+    public static String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65570, null, str)) == null) ? c(str) : (String) invokeL.objValue;
     }
 
     public static long k(String str) {
@@ -530,45 +521,9 @@ public class f {
         return invokeL.longValue;
     }
 
-    public static com.kwai.filedownloader.d.a l(String str) {
-        InterceptResult invokeL;
+    public static void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new RuntimeException("found invalid internal destination path, empty");
-            }
-            if (a(str)) {
-                File file = new File(str);
-                if (file.exists() && file.isDirectory()) {
-                    file.delete();
-                    if (!file.createNewFile()) {
-                        throw new RuntimeException(a("found invalid internal destination path[%s], & path is directory[%B]", str, Boolean.valueOf(file.isDirectory())));
-                    }
-                }
-                if (file.exists() || file.createNewFile()) {
-                    return com.kwai.filedownloader.download.b.a().a(file);
-                }
-                throw new IOException(a("create new file error  %s", file.getAbsolutePath()));
-            }
-            throw new RuntimeException(a("found invalid internal destination filename %s", str));
-        }
-        return (com.kwai.filedownloader.d.a) invokeL.objValue;
-    }
-
-    public static void m(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65573, null, str) == null) || str == null) {
-            return;
-        }
-        File file = new File(str);
-        if (file.exists()) {
-            file.delete();
-        }
-    }
-
-    public static void n(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65574, null, str) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(65572, null, str) == null) || str == null) {
             return;
         }
         File file = new File(str);

@@ -20,7 +20,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.e70;
+import com.repackage.f70;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
@@ -146,7 +146,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                LcmPb$LcmNotify lcmPb$LcmNotify = new LcmPb$LcmNotify(this, (e70) null);
+                LcmPb$LcmNotify lcmPb$LcmNotify = new LcmPb$LcmNotify(this, (f70) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 lcmPb$LcmNotify.logId_ = this.b;
@@ -323,7 +323,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         lcmPb$LcmNotify.initFields();
     }
 
-    public /* synthetic */ LcmPb$LcmNotify(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, e70 e70Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$LcmNotify(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, f70 f70Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -449,7 +449,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         }
     }
 
-    public /* synthetic */ LcmPb$LcmNotify(GeneratedMessageLite.Builder builder, e70 e70Var) {
+    public /* synthetic */ LcmPb$LcmNotify(GeneratedMessageLite.Builder builder, f70 f70Var) {
         this(builder);
     }
 

@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l78;
+import com.repackage.g88;
 import java.io.IOException;
 import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
 /* loaded from: classes3.dex */
 public class PushDialogSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l78 mData;
+    public g88 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushDialogSocketResMsg(int i) {
@@ -49,9 +49,9 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {
-                    l78 l78Var = new l78();
-                    this.mData = l78Var;
-                    l78Var.e(getLockWindowMsgResIdl.data);
+                    g88 g88Var = new g88();
+                    this.mData = g88Var;
+                    g88Var.e(getLockWindowMsgResIdl.data);
                 }
                 return getLockWindowMsgResIdl;
             } catch (IOException unused) {
@@ -61,9 +61,9 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public l78 getData() {
+    public g88 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (l78) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (g88) invokeV.objValue;
     }
 }

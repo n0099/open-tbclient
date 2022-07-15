@@ -82,13 +82,9 @@ public class RemoteViewBuilder {
             this.downloadTaskId = 0;
             this.mContext = context;
             this.downloadTaskId = i;
-            if (context instanceof ResContext) {
-                this.mOriginContext = ((ResContext) context).getDelegatedContext();
-            } else {
-                this.mOriginContext = context;
-            }
+            this.mOriginContext = context instanceof ResContext ? ((ResContext) context).getDelegatedContext() : context;
             this.mRemoteViews = new RemoteViews(this.mOriginContext.getPackageName(), ResUtil.getLayoutId(this.mOriginContext, z ? "ksad_notification_download_progress_with_control" : "ksad_notification_download_progress_without_control"));
-            this.btnControlId = ResUtil.getId(context, "ksad_download_control_btn");
+            this.btnControlId = ResUtil.getId(this.mOriginContext, "ksad_download_control_btn");
             initViews();
             setControlBtnPaused(false);
         }
@@ -114,13 +110,13 @@ public class RemoteViewBuilder {
             this.mRemoteViews.setTextViewText(this.btnControlId, z ? "继续" : "暂停");
             this.mRemoteViews.setTextColor(this.btnControlId, z ? this.btnTextColorChecked : this.btnTextColorUnchecked);
             if (z) {
-                context = this.mContext;
+                context = this.mOriginContext;
                 str = "ksad_notification_control_btn_bg_checked";
             } else {
-                context = this.mContext;
+                context = this.mOriginContext;
                 str = "ksad_notification_control_btn_bg_unchecked";
             }
-            this.mRemoteViews.setImageViewResource(ResUtil.getId(this.mContext, "ksad_download_control_bg_image"), ResUtil.getDrawableId(context, str));
+            this.mRemoteViews.setImageViewResource(ResUtil.getId(this.mOriginContext, "ksad_download_control_bg_image"), ResUtil.getDrawableId(context, str));
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView

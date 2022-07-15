@@ -1,40 +1,71 @@
 package com.repackage;
 
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.frs.headercomponent.HeaderComponentMultiView;
-import com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.entelechy.adapter.FrsUserRecommendAdapter;
+import com.baidu.tieba.frs.gamerecommend.adapter.GameCompetitionAdapter;
+import com.baidu.tieba.frs.gamerecommend.adapter.GameRecommendGameAdapter;
+import com.baidu.tieba.frs.gamerecommend.adapter.GameSpecialTopicAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes7.dex */
-public class zj6 implements ak6 {
+public class zj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TbPageContext b;
-    public List<LiveFuseForumData> c;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<an> c;
     public String d;
+    public String e;
+    public jy5 f;
 
-    public zj6(TbPageContext tbPageContext) {
+    /* loaded from: classes7.dex */
+    public class a extends jy5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zj6 b;
+
+        public a(zj6 zj6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zj6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zj6Var;
+        }
+
+        @Override // com.repackage.jy5
+        public void a(View view2, BaseCardInfo baseCardInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) {
+                super.a(view2, baseCardInfo);
+                this.b.b();
+            }
+        }
+    }
+
+    public zj6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdTypeListView, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,133 +75,60 @@ public class zj6 implements ak6 {
                 return;
             }
         }
-        this.b = tbPageContext;
+        this.f = new a(this);
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        this.d = str;
+        this.e = str2;
+        this.c = new ArrayList();
+        a();
     }
 
-    @Override // com.repackage.ak6
-    public void a(int i, LiveFuseForumData liveFuseForumData) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, liveFuseForumData) == null) {
-            TiebaStatic.log(new StatisticItem("c14701").param("obj_type", f(i, liveFuseForumData)).param("fid", this.d));
-            String str = liveFuseForumData.schema;
-            if (str == null || !str.startsWith("bdtiebalive")) {
-                return;
-            }
-            k("c14708", liveFuseForumData.yyext);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ak6 ak6Var = new ak6(this.a, this.d, this.e);
+            ak6Var.e0(this.f);
+            this.c.add(ak6Var);
+            bk6 bk6Var = new bk6(this.a, this.d);
+            bk6Var.e0(this.f);
+            this.c.add(bk6Var);
+            this.c.add(new ek6(this.a, this.d));
+            this.c.add(new dk6(this.a, this.d));
+            List<an> list = this.c;
+            TbPageContext tbPageContext = this.a;
+            list.add(new GameSpecialTopicAdapter(tbPageContext, f36.b, tbPageContext.getUniqueId(), this.d));
+            ck6 ck6Var = new ck6(this.a, this.d);
+            ck6Var.c0(this.f);
+            this.c.add(ck6Var);
+            List<an> list2 = this.c;
+            TbPageContext tbPageContext2 = this.a;
+            list2.add(new GameCompetitionAdapter(tbPageContext2, a36.b, tbPageContext2.getUniqueId(), this.d));
+            List<an> list3 = this.c;
+            TbPageContext tbPageContext3 = this.a;
+            list3.add(new GameRecommendGameAdapter(tbPageContext3, d36.b, tbPageContext3.getUniqueId(), this.d));
+            TbPageContext tbPageContext4 = this.a;
+            FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(tbPageContext4, od6.e, tbPageContext4.getUniqueId());
+            frsUserRecommendAdapter.p0();
+            frsUserRecommendAdapter.o0(this.d);
+            this.c.add(frsUserRecommendAdapter);
+            this.b.a(this.c);
         }
     }
 
-    @Override // com.repackage.ak6
-    public void b(int i, LiveFuseForumData liveFuseForumData, int i2) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), liveFuseForumData, Integer.valueOf(i2)}) == null) {
-            UrlManager.getInstance().dealOneLink(this.b, new String[]{liveFuseForumData.schema});
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof en)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
     }
 
-    @Override // com.repackage.ak6
-    public void c(int i, LiveFuseForumData liveFuseForumData) {
+    public void c(List<nn> list) {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, liveFuseForumData) == null) || liveFuseForumData == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.b) == null) {
             return;
         }
-        UrlManager.getInstance().dealOneLink(this.b, new String[]{liveFuseForumData.schema});
-        TiebaStatic.log(new StatisticItem("c14702").param("obj_type", f(i, liveFuseForumData)).param("fid", this.d));
-        String str = liveFuseForumData.schema;
-        if (str == null || !str.startsWith("bdtiebalive")) {
-            return;
-        }
-        k("c14709", liveFuseForumData.yyext);
-    }
-
-    public void d() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (view2 = this.a) == null) {
-            return;
-        }
-        ((bk6) view2).b(this.c, this);
-    }
-
-    public void e(List<LiveFuseForumData> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.c = list;
-        if (list.size() == 1) {
-            this.a = new HeaderComponentSingleView(this.b.getPageActivity());
-        } else {
-            this.a = new HeaderComponentMultiView(this.b.getPageActivity());
-        }
-    }
-
-    public final int f(int i, LiveFuseForumData liveFuseForumData) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, liveFuseForumData)) == null) {
-            if (i == 1) {
-                if (liveFuseForumData.type.intValue() == 1) {
-                    return 1;
-                }
-                if (liveFuseForumData.type.intValue() == 2) {
-                    return 3;
-                }
-            } else if (i == 2) {
-                if (liveFuseForumData.type.intValue() == 1) {
-                    return 2;
-                }
-                if (liveFuseForumData.type.intValue() == 2) {
-                    return 4;
-                }
-            }
-            return 0;
-        }
-        return invokeIL.intValue;
-    }
-
-    public View g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (View) invokeV.objValue;
-    }
-
-    public final JSONObject h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            try {
-                return new JSONObject(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void i() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (view2 = this.a) == null) {
-            return;
-        }
-        ((bk6) view2).a();
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public final void k(String str, String str2) {
-        JSONObject h;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) || (h = h(str2)) == null) {
-            return;
-        }
-        TiebaStatic.log(new StatisticItem(str).param("fid", this.d).param("liveid", h.optString("liveid")).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, h.optString(TiebaStatic.YYParams.YYSID)).param(TiebaStatic.YYParams.YYSSID, h.optString(TiebaStatic.YYParams.YYSSID)).param(TiebaStatic.YYParams.YYUID, h.optString(TiebaStatic.YYParams.YYUID)).param("template_id", h.optString("template_id")).param(TiebaStatic.YYParams.YYLIVEID, h.optString(TiebaStatic.YYParams.YYLIVEID)).param(TiebaStatic.Params.VID, h.optString(TiebaStatic.Params.VID)));
+        bdTypeListView.setData(list);
     }
 }

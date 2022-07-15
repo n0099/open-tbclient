@@ -1,93 +1,55 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Build;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wy2;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class pw1 {
+public final class pw1 extends tv1 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int D;
+    public String E;
 
-    /* loaded from: classes6.dex */
-    public static class a implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sz2 a;
-
-        public a(sz2 sz2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sz2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sz2Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                SwanAppActivity x = this.a.x();
-                if (x != null && Build.VERSION.SDK_INT >= 21) {
-                    x.finishAndRemoveTask();
-                }
-                System.exit(0);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pw1() {
+        super("coverView", "viewId");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.E = "";
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.tv1, com.repackage.vv1, com.repackage.xv1, com.repackage.gq2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : invokeV.booleanValue;
-    }
-
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void c(Context context, boolean z) {
-        sz2 M;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) || (M = sz2.M()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        qw1.c(z);
-        int i = z ? R.string.obfuscated_res_0x7f0f019c : R.string.obfuscated_res_0x7f0f0110;
-        wy2.a aVar = new wy2.a(context);
-        aVar.V(context.getString(R.string.obfuscated_res_0x7f0f014c));
-        aVar.x(context.getString(i));
-        aVar.n(new af3());
-        aVar.m(false);
-        aVar.O(R.string.obfuscated_res_0x7f0f0113, new a(M));
-        aVar.X();
-    }
-
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            c(context, !a());
+        super.a(jSONObject);
+        this.D = jSONObject.optInt("scrollTop");
+        JSONObject jSONObject3 = this.j;
+        if (jSONObject3 != null) {
+            this.E = jSONObject3.optString("overflowY");
         }
+        nq2 nq2Var = this.h;
+        if (nq2Var == null || (jSONObject2 = this.j) == null) {
+            return;
+        }
+        nq2Var.i(jSONObject2.optBoolean("fixed", false));
     }
 }

@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ed7;
-import com.repackage.gd7;
-import com.repackage.lb7;
-import com.repackage.lj8;
-import com.repackage.mb7;
-import com.repackage.pb7;
+import com.repackage.dc7;
+import com.repackage.ec7;
+import com.repackage.hc7;
+import com.repackage.hk8;
+import com.repackage.wd7;
+import com.repackage.yd7;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -35,13 +35,13 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     public BdUniqueId b;
     public int c;
     public int d;
-    public ArrayList<ed7> e;
+    public ArrayList<wd7> e;
     public ArrayList<LegoListView> f;
     public LegoHotPageView g;
-    public pb7 h;
+    public hc7 h;
 
     /* loaded from: classes3.dex */
-    public class a implements pb7 {
+    public class a implements hc7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ScrollFragmentAdapter a;
@@ -64,29 +64,29 @@ public class ScrollFragmentAdapter extends PagerAdapter {
             this.a = scrollFragmentAdapter;
         }
 
-        @Override // com.repackage.pb7
-        public void a(gd7 gd7Var, int i) {
+        @Override // com.repackage.hc7
+        public void a(yd7 yd7Var, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, gd7Var, i) == null) || i < 0 || this.a.e == null || this.a.e.size() <= 0) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, yd7Var, i) == null) || i < 0 || this.a.e == null || this.a.e.size() <= 0) {
                 return;
             }
             Iterator it = this.a.e.iterator();
             while (it.hasNext()) {
-                ed7 ed7Var = (ed7) it.next();
-                if (ed7Var != null && ed7Var.h() != null && gd7Var == ed7Var.h()) {
-                    ed7Var.p(i);
+                wd7 wd7Var = (wd7) it.next();
+                if (wd7Var != null && wd7Var.i() != null && yd7Var == wd7Var.i()) {
+                    wd7Var.q(i);
                     return;
                 }
             }
         }
     }
 
-    public ScrollFragmentAdapter(Context context, mb7 mb7Var, lb7 lb7Var, BdUniqueId bdUniqueId) {
+    public ScrollFragmentAdapter(Context context, ec7 ec7Var, dc7 dc7Var, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, mb7Var, lb7Var, bdUniqueId};
+            Object[] objArr = {context, ec7Var, dc7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -104,13 +104,13 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         this.e = new ArrayList<>();
         ArrayList<LegoListView> arrayList = new ArrayList<>();
         this.f = arrayList;
-        arrayList.add(d(mb7Var));
-        this.f.add(d(mb7Var));
-        this.f.add(d(mb7Var));
+        arrayList.add(d(ec7Var));
+        this.f.add(d(ec7Var));
+        this.f.add(d(ec7Var));
         LegoHotPageView legoHotPageView = new LegoHotPageView(context);
         this.g = legoHotPageView;
         legoHotPageView.setPageUniqueId(bdUniqueId);
-        this.g.setCallback(lb7Var);
+        this.g.setCallback(dc7Var);
     }
 
     public final View c() {
@@ -126,13 +126,13 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         return (View) invokeV.objValue;
     }
 
-    public final LegoListView d(mb7 mb7Var) {
+    public final LegoListView d(ec7 ec7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mb7Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ec7Var)) == null) {
             LegoListView legoListView = new LegoListView(this.a);
             legoListView.v(this.b);
-            legoListView.setCallback(mb7Var);
+            legoListView.setCallback(ec7Var);
             legoListView.setScrollCallback(this.h);
             return legoListView;
         }
@@ -188,7 +188,7 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ArrayList<ed7> arrayList = this.e;
+            ArrayList<wd7> arrayList = this.e;
             if (arrayList == null) {
                 return 0;
             }
@@ -200,14 +200,14 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
         InterceptResult invokeI;
-        ArrayList<ed7> arrayList;
+        ArrayList<wd7> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             int count = getCount();
-            if (i < 0 || i >= count || (arrayList = this.e) == null || arrayList.get(i) == null || this.e.get(i).h() == null) {
+            if (i < 0 || i >= count || (arrayList = this.e) == null || arrayList.get(i) == null || this.e.get(i).i() == null) {
                 return null;
             }
-            return this.e.get(i).h().c;
+            return this.e.get(i).i().c;
         }
         return (CharSequence) invokeI.objValue;
     }
@@ -252,9 +252,9 @@ public class ScrollFragmentAdapter extends PagerAdapter {
                 if (this.g.getParent() != null) {
                     viewGroup.removeView(this.g);
                 }
-                ed7 ed7Var = (ed7) ListUtils.getItem(this.e, i);
-                if (ed7Var != null) {
-                    this.g.setTagInfo(ed7Var.h());
+                wd7 wd7Var = (wd7) ListUtils.getItem(this.e, i);
+                if (wd7Var != null) {
+                    this.g.setTagInfo(wd7Var.i());
                 }
                 viewGroup.addView(this.g);
                 return this.g;
@@ -285,13 +285,13 @@ public class ScrollFragmentAdapter extends PagerAdapter {
                 if (legoHotPageView != null) {
                     legoHotPageView.A(dataRes, z);
                 }
-            } else if (j == 0 && ((ed7) ListUtils.getItem(this.e, this.d)) != null) {
+            } else if (j == 0 && ((wd7) ListUtils.getItem(this.e, this.d)) != null) {
                 this.g.A(dataRes, z);
             } else {
-                Iterator<ed7> it = this.e.iterator();
+                Iterator<wd7> it = this.e.iterator();
                 while (it.hasNext()) {
-                    ed7 next = it.next();
-                    if (next != null && next.h() != null && j == next.h().a && TextUtils.equals(str, next.h().b)) {
+                    wd7 next = it.next();
+                    if (next != null && next.i() != null && j == next.i().a && TextUtils.equals(str, next.i().b)) {
                         this.g.A(dataRes, z);
                         return;
                     }
@@ -301,16 +301,16 @@ public class ScrollFragmentAdapter extends PagerAdapter {
     }
 
     public void k(boolean z, long j, String str, DataRes dataRes, boolean z2, int i) {
-        ArrayList<ed7> arrayList;
+        ArrayList<wd7> arrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), str, dataRes, Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || (arrayList = this.e) == null || arrayList.isEmpty()) {
             return;
         }
-        Iterator<ed7> it = this.e.iterator();
+        Iterator<wd7> it = this.e.iterator();
         while (it.hasNext()) {
-            ed7 next = it.next();
-            if (next != null && next.h() != null && j == next.h().a && TextUtils.equals(str, next.h().b)) {
-                next.c(z, dataRes, z2, i);
+            wd7 next = it.next();
+            if (next != null && next.i() != null && j == next.i().a && TextUtils.equals(str, next.i().b)) {
+                next.d(z, dataRes, z2, i);
                 notifyDataSetChanged();
                 m(j, str, next);
                 return;
@@ -318,7 +318,7 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         }
     }
 
-    public void l(List<ed7> list) {
+    public void l(List<wd7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             if (this.e == null) {
@@ -332,17 +332,17 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         }
     }
 
-    public final void m(long j, String str, ed7 ed7Var) {
+    public final void m(long j, String str, wd7 wd7Var) {
         ArrayList<LegoListView> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), str, ed7Var}) == null) || (arrayList = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), str, wd7Var}) == null) || (arrayList = this.f) == null) {
             return;
         }
         Iterator<LegoListView> it = arrayList.iterator();
         while (it.hasNext()) {
             LegoListView next = it.next();
             if (next != null && next.p(j, str)) {
-                next.u(ed7Var, false);
+                next.u(wd7Var, false);
                 return;
             }
         }
@@ -356,7 +356,7 @@ public class ScrollFragmentAdapter extends PagerAdapter {
             if (this.c != i) {
                 f();
                 this.c = i;
-                VoiceManager a2 = lj8.a(this.a);
+                VoiceManager a2 = hk8.a(this.a);
                 if (a2 != null) {
                     a2.stopPlay();
                 }

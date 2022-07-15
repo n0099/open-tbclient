@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class d {
+public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -20,7 +20,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
             if ((i == 3 || i == 5 || i != i2) && !a(i)) {
-                if (i < 1 || i > 6 || i2 < 10 || i2 > 11) {
+                if (i <= 0 || i > 6 || i2 < 10 || i2 > 11) {
                     if (i == 1) {
                         return i2 != 0;
                     } else if (i == 2) {

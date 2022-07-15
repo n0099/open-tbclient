@@ -1,37 +1,94 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.text.SpannableString;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qw;
 /* loaded from: classes7.dex */
-public class xw7 {
+public class xw7 extends uw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout f;
+    public TextView g;
 
-    public static void a(String str, String str2, String str3) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xw7(TbPageContext tbPageContext, int i) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14349");
-            statisticItem.param("tid", str);
-            statisticItem.param("uid", str2);
-            statisticItem.param("post_id", str3);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void b(String str, String str2, String str3, String str4, long j, String str5) {
+    @Override // com.repackage.uw7
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, Long.valueOf(j), str5}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14348");
-            statisticItem.param("tid", str2);
-            statisticItem.param("uid", str3);
-            statisticItem.param("post_id", str4);
-            statisticItem.param("pid", str4);
-            statisticItem.param("fname", str5);
-            statisticItem.param("fid", j);
-            statisticItem.param("obj_locate", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d020c, (ViewGroup) null);
+            this.f = linearLayout;
+            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fa9);
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.uw7
+    public void b(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
+            return;
+        }
+        this.e = i;
+        SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+    }
+
+    @Override // com.repackage.uw7
+    public void c(OriginalThreadInfo originalThreadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
+            this.g.setText(new SpannableString(this.a.getString(R.string.obfuscated_res_0x7f0f0cfb)));
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+        }
+    }
+
+    @Override // com.repackage.uw7
+    public void d(qw.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            super.d(aVar);
+        }
+    }
+
+    @Override // com.repackage.uw7
+    public void e(jy5 jy5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jy5Var) == null) {
+            super.e(jy5Var);
         }
     }
 }

@@ -26,13 +26,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m07;
+import com.repackage.c17;
+import com.repackage.ej4;
+import com.repackage.g17;
 import com.repackage.ng;
 import com.repackage.ni;
 import com.repackage.nn;
 import com.repackage.oi;
-import com.repackage.pi4;
-import com.repackage.q07;
 import com.repackage.z8;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -43,7 +43,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements m07 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicDetailModel a;
@@ -116,7 +116,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                pi4.b(statisticItem, paramPair);
+                ej4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));
@@ -149,11 +149,11 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             long j2 = this.c + 1;
             this.c = j2;
             this.d = j;
-            this.a.F(this.e, j2, j);
+            this.a.G(this.e, j2, j);
         }
     }
 
-    @Override // com.repackage.m07
+    @Override // com.repackage.c17
     public void N0(int i, boolean z, List<nn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
@@ -161,7 +161,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.repackage.m07
+    @Override // com.repackage.c17
     public void a() {
         int i;
         String substring;
@@ -213,7 +213,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (topicDetailView != null && topicDetailView.getEditor() != null) {
                     this.b.getEditor().I(this.e);
                 }
-                this.a.E(this.e);
+                this.a.F(this.e);
             }
         }
     }
@@ -241,7 +241,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.t75
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -281,7 +281,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             setContentView(topicDetailView);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            this.a.G(this);
+            this.a.H(this);
             a();
             if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !z8.g().i("MainTabActivity")) {
                 this.f = true;
@@ -315,14 +315,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.repackage.m07
-    public void u(int i, q07 q07Var) {
+    @Override // com.repackage.c17
+    public void u(int i, g17 g17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, q07Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i, g17Var) == null) {
             this.b.r();
-            if (i == 0 && q07Var != null && !ListUtils.isEmpty(q07Var.f)) {
+            if (i == 0 && g17Var != null && !ListUtils.isEmpty(g17Var.f)) {
                 this.b.s();
-                this.b.setData(q07Var);
+                this.b.setData(g17Var);
                 return;
             }
             this.b.B(true);

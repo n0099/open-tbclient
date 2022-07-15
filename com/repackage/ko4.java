@@ -1,75 +1,139 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
+import com.baidu.tbadk.data.CardLinkInfoData;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.BannerImage;
 /* loaded from: classes6.dex */
-public class ko4 extends BaseCardInfo implements nn {
+public class ko4 implements Comparable<ko4> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ln4> a;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public boolean n;
+    public int o;
+    public CardLinkInfoData p;
+    public int q;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755552159, "Lcom/repackage/ko4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755552159, "Lcom/repackage/ko4;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public ko4() {
+    public ko4(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = i;
+        this.b = i2;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static ko4 b(TbLinkSpanGroup tbLinkSpanGroup, cs6 cs6Var) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, cs6Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
+            }
+            ko4 ko4Var = new ko4(tbLinkSpanGroup.e(), 2);
+            if (cs6Var == null) {
+                return ko4Var;
+            }
+            if (TextUtils.isEmpty(cs6Var.f())) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f159d);
+            } else {
+                str = cs6Var.f() + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0409);
+            }
+            ko4Var.d = str;
+            ko4Var.c = cs6Var.c();
+            ko4Var.m = cs6Var.a();
+            if (!ListUtils.isEmpty(cs6Var.b()) && cs6Var.b().get(0) != null) {
+                ko4Var.e = cs6Var.b().get(0).a();
+            }
+            ko4Var.l = cs6Var.f();
+            ko4Var.f = cs6Var.d();
+            if (cs6Var.e() != null) {
+                ko4Var.j = cs6Var.e().a();
+                ko4Var.k = cs6Var.e().b();
+            }
+            tbLinkSpanGroup.y(ko4Var);
+            return ko4Var;
+        }
+        return (ko4) invokeLL.objValue;
     }
 
-    public void parserProtobuf(List<BannerImage> list) {
+    public static ko4 c(TbLinkSpanGroup tbLinkSpanGroup, vv4 vv4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbLinkSpanGroup, vv4Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
+            }
+            ko4 ko4Var = new ko4(tbLinkSpanGroup.e(), 1);
+            if (vv4Var == null) {
+                return ko4Var;
+            }
+            int i = vv4Var.b;
+            if (i == 4) {
+                CardLinkInfoData cardLinkInfoData = vv4Var.j;
+                if (cardLinkInfoData != null) {
+                    ko4Var.p = cardLinkInfoData;
+                    ko4Var.c = cardLinkInfoData.title;
+                    ko4Var.e = cardLinkInfoData.imageUrl;
+                    ko4Var.l = cardLinkInfoData.tagText;
+                    ko4Var.g = cardLinkInfoData.url;
+                    ko4Var.i = false;
+                    ko4Var.o = i;
+                }
+            } else {
+                ko4Var.c = vv4Var.e;
+                ko4Var.e = vv4Var.d;
+                ko4Var.l = vv4Var.f;
+                ko4Var.f = vv4Var.g;
+                ko4Var.g = vv4Var.c;
+                ko4Var.n = vv4Var.h;
+                String str = vv4Var.i;
+                ko4Var.i = i == 1;
+                ko4Var.o = vv4Var.b;
+            }
+            tbLinkSpanGroup.y(ko4Var);
+            return ko4Var;
         }
-        this.a.clear();
-        int min = Math.min(list.size(), 10);
-        for (int i = 0; i < min; i++) {
-            ln4 ln4Var = new ln4();
-            ln4Var.f(list.get(i));
-            this.a.add(ln4Var);
-        }
+        return (ko4) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(@NonNull ko4 ko4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ko4Var)) == null) ? this.q - ko4Var.q : invokeL.intValue;
     }
 }

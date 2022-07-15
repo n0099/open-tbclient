@@ -54,7 +54,7 @@ import com.google.android.material.transition.platform.TransitionUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @RequiresApi(21)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MaterialContainerTransform extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProgressThresholdsGroup DEFAULT_ENTER_THRESHOLDS;
@@ -118,17 +118,17 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface FadeMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface FitMode {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ProgressThresholds {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ProgressThresholdsGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,11 +208,11 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface TransitionDirection {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class TransitionDrawable extends Drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COMPAT_SHADOW_COLOR = -7829368;
@@ -704,9 +704,9 @@ public final class MaterialContainerTransform extends Transition {
                 transitionValues.view = TransitionUtils.findDescendantOrAncestorById(transitionValues.view, i);
             } else if (view2 != null) {
                 transitionValues.view = view2;
-            } else if (transitionValues.view.getTag(R.id.obfuscated_res_0x7f091432) instanceof View) {
-                transitionValues.view.setTag(R.id.obfuscated_res_0x7f091432, null);
-                transitionValues.view = (View) transitionValues.view.getTag(R.id.obfuscated_res_0x7f091432);
+            } else if (transitionValues.view.getTag(R.id.obfuscated_res_0x7f0914da) instanceof View) {
+                transitionValues.view.setTag(R.id.obfuscated_res_0x7f0914da, null);
+                transitionValues.view = (View) transitionValues.view.getTag(R.id.obfuscated_res_0x7f0914da);
             }
             View view3 = transitionValues.view;
             if (!ViewCompat.isLaidOut(view3) && view3.getWidth() == 0 && view3.getHeight() == 0) {
@@ -731,8 +731,8 @@ public final class MaterialContainerTransform extends Transition {
             if (shapeAppearanceModel != null) {
                 return shapeAppearanceModel;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f091432) instanceof ShapeAppearanceModel) {
-                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091432);
+            if (view2.getTag(R.id.obfuscated_res_0x7f0914da) instanceof ShapeAppearanceModel) {
+                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f0914da);
             }
             Context context = view2.getContext();
             int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);
@@ -764,7 +764,7 @@ public final class MaterialContainerTransform extends Transition {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0406af});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0406b0});
             int resourceId = obtainStyledAttributes.getResourceId(0, -1);
             obtainStyledAttributes.recycle();
             return resourceId;

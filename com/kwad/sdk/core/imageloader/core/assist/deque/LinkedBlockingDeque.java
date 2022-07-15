@@ -343,6 +343,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         try {
             for (Node<E> node = this.first; node != null; node = node.next) {
                 if (obj.equals(node.item)) {
+                    reentrantLock.unlock();
                     return true;
                 }
             }
@@ -439,28 +440,25 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
     public boolean offerFirst(E e, long j, TimeUnit timeUnit) {
-        boolean z;
         if (e != null) {
             Node<E> node = new Node<>(e);
             long nanos = timeUnit.toNanos(j);
             ReentrantLock reentrantLock = this.lock;
             reentrantLock.lockInterruptibly();
-            while (true) {
+            while (!linkFirst(node)) {
                 try {
-                    if (linkFirst(node)) {
-                        z = true;
-                        break;
-                    } else if (nanos <= 0) {
-                        z = false;
-                        break;
-                    } else {
-                        nanos = this.notFull.awaitNanos(nanos);
+                    if (nanos <= 0) {
+                        reentrantLock.unlock();
+                        return false;
                     }
-                } finally {
+                    nanos = this.notFull.awaitNanos(nanos);
+                } catch (Throwable th) {
                     reentrantLock.unlock();
+                    throw th;
                 }
             }
-            return z;
+            reentrantLock.unlock();
+            return true;
         }
         throw null;
     }
@@ -482,28 +480,25 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
     public boolean offerLast(E e, long j, TimeUnit timeUnit) {
-        boolean z;
         if (e != null) {
             Node<E> node = new Node<>(e);
             long nanos = timeUnit.toNanos(j);
             ReentrantLock reentrantLock = this.lock;
             reentrantLock.lockInterruptibly();
-            while (true) {
+            while (!linkLast(node)) {
                 try {
-                    if (linkLast(node)) {
-                        z = true;
-                        break;
-                    } else if (nanos <= 0) {
-                        z = false;
-                        break;
-                    } else {
-                        nanos = this.notFull.awaitNanos(nanos);
+                    if (nanos <= 0) {
+                        reentrantLock.unlock();
+                        return false;
                     }
-                } finally {
+                    nanos = this.notFull.awaitNanos(nanos);
+                } catch (Throwable th) {
                     reentrantLock.unlock();
+                    throw th;
                 }
             }
-            return z;
+            reentrantLock.unlock();
+            return true;
         }
         throw null;
     }
@@ -568,6 +563,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
                     return unlinkFirst;
                 }
                 if (nanos <= 0) {
+                    reentrantLock.unlock();
                     return null;
                 }
                 nanos = this.notEmpty.awaitNanos(nanos);
@@ -600,6 +596,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
                     return unlinkLast;
                 }
                 if (nanos <= 0) {
+                    reentrantLock.unlock();
                     return null;
                 }
                 nanos = this.notEmpty.awaitNanos(nanos);
@@ -699,6 +696,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
             for (Node<E> node = this.first; node != null; node = node.next) {
                 if (obj.equals(node.item)) {
                     unlink(node);
+                    reentrantLock.unlock();
                     return true;
                 }
             }
@@ -728,6 +726,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
             for (Node<E> node = this.last; node != null; node = node.prev) {
                 if (obj.equals(node.item)) {
                     unlink(node);
+                    reentrantLock.unlock();
                     return true;
                 }
             }

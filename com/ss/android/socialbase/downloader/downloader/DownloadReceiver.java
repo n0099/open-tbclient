@@ -11,6 +11,47 @@ import com.ss.android.socialbase.downloader.notification.DownloadNotificationSer
 public class DownloadReceiver extends BroadcastReceiver {
     public static final String a = DownloadReceiver.class.getSimpleName();
 
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0000, code lost:
+        continue;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0026  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String DownloadReceiver1654612903256dc(String str) {
+        while (true) {
+            char c = 'I';
+            char c2 = '`';
+            while (true) {
+                switch (c) {
+                    case 'H':
+                        c = 'J';
+                        c2 = '7';
+                    case 'I':
+                        switch (c2) {
+                            case '_':
+                            case '`':
+                                c = 'J';
+                                c2 = '7';
+                        }
+                        break;
+                    case 'J':
+                        break;
+                    default:
+                        c = 'H';
+                }
+                switch (c2) {
+                    case '7':
+                        char[] charArray = str.toCharArray();
+                        for (int i = 0; i < charArray.length; i++) {
+                            charArray[i] = (char) (charArray[i] ^ i);
+                        }
+                        return new String(charArray);
+                }
+            }
+        }
+    }
+
     private void a(final Context context, final String str) {
         if (c.G()) {
             new Handler(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.downloader.DownloadReceiver.1

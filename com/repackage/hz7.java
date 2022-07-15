@@ -1,249 +1,164 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pbextra.praise.PraiseListActivity;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import tbclient.AlaLiveInfo;
+import tbclient.AlaUserInfo;
+import tbclient.Promotion;
 /* loaded from: classes6.dex */
-public class hz7 extends b9<PraiseListActivity> {
+public class hz7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId n;
     public transient /* synthetic */ FieldHolder $fh;
-    public fz7 a;
-    public PraiseListActivity b;
-    public View c;
-    public NavigationBar d;
-    public View e;
-    public NoDataView f;
-    public View g;
-    public TextView h;
-    public BdListView i;
-    public View j;
-    public TextView k;
-    public TextView l;
-    public ProgressBar m;
-    public ProgressBar n;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public Long f;
+    public boolean g;
+    public boolean h;
+    public String i;
+    public String j;
+    public long k;
+    public boolean l;
+    public YyExtData m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hz7(PraiseListActivity praiseListActivity, String str) {
-        super(praiseListActivity.getPageContext());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {praiseListActivity, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755630868, "Lcom/repackage/hz7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755630868, "Lcom/repackage/hz7;");
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.b = praiseListActivity;
-        praiseListActivity.setContentView(R.layout.obfuscated_res_0x7f0d08c8);
-        this.c = praiseListActivity.findViewById(R.id.obfuscated_res_0x7f0924a0);
-        this.d = (NavigationBar) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f09249f);
-        this.e = praiseListActivity.findViewById(R.id.obfuscated_res_0x7f09249d);
-        this.f = NoDataViewFactory.a(this.b.getPageContext().getContext(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.b.getActivity(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0ed6), null);
-        this.i = (BdListView) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f09249e);
-        TextView textView = new TextView(this.b.getActivity());
-        textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.i.x(textView, 0);
-        this.m = (ProgressBar) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f0924a1);
-        fz7 fz7Var = new fz7(praiseListActivity);
-        this.a = fz7Var;
-        this.i.setAdapter((ListAdapter) fz7Var);
-        this.i.setOnScrollListener(this.a);
-        this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText("");
-        View inflate = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d08ca, (ViewGroup) null);
-        this.g = inflate;
-        inflate.setOnClickListener(praiseListActivity);
-        TextView textView2 = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092498);
-        this.h = textView2;
-        textView2.setText(str);
-        this.g.setVisibility(8);
-        this.i.addHeaderView(this.g);
-        View inflate2 = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c9, (ViewGroup) null);
-        this.j = inflate2;
-        this.k = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f092496);
-        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f092497);
-        this.n = (ProgressBar) this.j.findViewById(R.id.obfuscated_res_0x7f092495);
-        this.j.setVisibility(8);
-        this.k.setOnClickListener(praiseListActivity);
-        this.i.addFooterView(this.j);
-        this.i.setOnItemClickListener(praiseListActivity);
+        n = BdUniqueId.gen();
     }
 
-    public void a(cm4 cm4Var, int i) {
+    public hz7() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, cm4Var, i) == null) || cm4Var == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        cm4Var.k(i == 1);
-        cm4Var.j(this.c);
-        cm4Var.j(this.g);
-        cm4Var.j(this.j);
-        this.d.onChangeSkinType(this.b.getPageContext(), i);
-        SkinManager.setBackgroundResource(this.j, R.drawable.bg_pack);
-        NoDataView noDataView = this.f;
-        if (noDataView != null) {
-            noDataView.f(this.b.getPageContext(), i);
-        }
+        this.g = false;
+        this.l = false;
     }
 
-    public View h() {
+    public Long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (Long) invokeV.objValue;
     }
 
-    public View j() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public boolean k() {
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m.getVisibility() == 0 || this.n.getVisibility() == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public void l() {
-        fz7 fz7Var;
+    public String getTitle() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (fz7Var = this.a) == null) {
-            return;
-        }
-        fz7Var.notifyDataSetChanged();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public void m(String str, int i) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            this.m.setVisibility(8);
-            this.n.setVisibility(8);
-            this.e.setVisibility(8);
-            this.f.setVisibility(0);
-            if (!StringUtils.isNull(str)) {
-                this.f.setTextOption(NoDataViewFactory.e.c(str));
-            } else if (1 == i) {
-                this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f07dc));
-            } else {
-                this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0ed6));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? n : (BdUniqueId) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public void o(@NonNull AlaLiveInfo alaLiveInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, alaLiveInfo) == null) {
+            this.a = alaLiveInfo.first_headline;
+            this.b = alaLiveInfo.second_headline;
+            String str = alaLiveInfo.cover_wide;
+            this.c = str;
+            if (str == null || TextUtils.isEmpty(str)) {
+                this.c = alaLiveInfo.cover;
             }
+            alaLiveInfo.live_id.longValue();
+            YyExtData yyExtData = new YyExtData();
+            this.m = yyExtData;
+            yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
+            AlaUserInfo alaUserInfo = alaLiveInfo.user_info;
+            this.k = alaUserInfo != null ? alaUserInfo.user_id.longValue() : 0L;
+            this.h = alaLiveInfo.live_from.intValue() == 1;
+            this.i = alaLiveInfo.third_live_type;
+            this.j = alaLiveInfo.third_room_id;
+            String str2 = alaLiveInfo.router_type;
+            this.d = "";
+            this.e = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0da9);
+            this.f = 1L;
+            this.g = true;
+            this.l = false;
         }
     }
 
-    public void n(boolean z) {
+    public void s(Promotion promotion) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                this.n.setVisibility(0);
-            } else {
-                this.m.setVisibility(0);
-            }
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.m.setVisibility(8);
-            this.n.setVisibility(8);
-        }
-    }
-
-    public void p(int i, List<dz7> list, int i2, int i3) {
-        String format;
-        String format2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), list, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            this.m.setVisibility(8);
-            this.n.setVisibility(8);
-            this.g.setVisibility(0);
-            if (i > 0) {
-                PraiseListActivity praiseListActivity = this.b;
-                if (praiseListActivity.a != 1) {
-                    format2 = String.format(praiseListActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0ed7), StringHelper.numFormatOverWan(i));
-                } else {
-                    format2 = String.format(praiseListActivity.getResources().getString(R.string.obfuscated_res_0x7f0f07dd), StringHelper.numFormatOverWan(i));
-                }
-                this.d.setTitleText(format2);
-            } else {
-                this.d.setTitleText("");
-            }
-            if (list != null && list.size() >= 1) {
-                this.e.setVisibility(0);
-                this.f.setVisibility(8);
-                this.a.c(list);
-                this.a.notifyDataSetChanged();
-                switch (i2) {
-                    case 1001:
-                        this.j.setVisibility(0);
-                        this.k.setVisibility(0);
-                        this.l.setVisibility(8);
-                        return;
-                    case 1002:
-                        this.j.setVisibility(8);
-                        return;
-                    case 1003:
-                        this.j.setVisibility(0);
-                        SkinManager.setBackgroundResource(this.j, R.drawable.bg_pack);
-                        this.k.setVisibility(8);
-                        this.l.setVisibility(0);
-                        PraiseListActivity praiseListActivity2 = this.b;
-                        if (praiseListActivity2.a != 1) {
-                            format = String.format(praiseListActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0ed5), StringHelper.numFormatOverWan(i));
-                        } else {
-                            format = String.format(praiseListActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f07dd), StringHelper.numFormatOverWan(i));
-                        }
-                        this.l.setText(format);
-                        return;
-                    default:
-                        this.j.setVisibility(8);
-                        return;
-                }
-            }
-            m(null, this.b.a);
+        if (interceptable == null || interceptable.invokeL(1048585, this, promotion) == null) {
+            this.a = promotion.title;
+            this.b = promotion.sub_title;
+            this.c = promotion.image;
+            this.d = promotion.link;
+            this.e = promotion.link_text;
+            this.f = promotion.appear_time;
+            this.g = false;
+            this.l = false;
         }
     }
 }

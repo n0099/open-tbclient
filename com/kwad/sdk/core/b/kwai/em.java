@@ -1,88 +1,71 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.heytap.mcssdk.PushManager;
-import com.kwad.sdk.core.webview.jshandler.h;
+import com.kwad.sdk.core.scene.URLPackage;
+import com.kwad.sdk.internal.api.SceneImpl;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class em implements com.kwad.sdk.core.d<h.a> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(h.a aVar, JSONObject jSONObject) {
+public final class em implements com.kwad.sdk.core.d<SceneImpl> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(SceneImpl sceneImpl, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        aVar.a = jSONObject.optInt("type");
-        aVar.b = jSONObject.optString("appName");
-        if (jSONObject.opt("appName") == JSONObject.NULL) {
-            aVar.b = "";
+        URLPackage uRLPackage = new URLPackage();
+        sceneImpl.urlPackage = uRLPackage;
+        uRLPackage.parseJson(jSONObject.optJSONObject("urlPackage"));
+        sceneImpl.posId = jSONObject.optLong("posId");
+        sceneImpl.entryScene = jSONObject.optLong("entryScene");
+        sceneImpl.adNum = jSONObject.optInt("adNum");
+        sceneImpl.action = jSONObject.optInt("action");
+        sceneImpl.width = jSONObject.optInt("width");
+        sceneImpl.height = jSONObject.optInt("height");
+        sceneImpl.adStyle = jSONObject.optInt("adStyle");
+        sceneImpl.screenOrientation = jSONObject.optInt("screenOrientation");
+        sceneImpl.needShowMiniWindow = jSONObject.optBoolean("needShowMiniWindow");
+        sceneImpl.backUrl = jSONObject.optString("backUrl");
+        if (jSONObject.opt("backUrl") == JSONObject.NULL) {
+            sceneImpl.backUrl = "";
         }
-        aVar.c = jSONObject.optString("pkgName");
-        if (jSONObject.opt("pkgName") == JSONObject.NULL) {
-            aVar.c = "";
+        sceneImpl.bidResponse = jSONObject.optString("bidResponse");
+        if (jSONObject.opt("bidResponse") == JSONObject.NULL) {
+            sceneImpl.bidResponse = "";
         }
-        aVar.d = jSONObject.optString("version");
-        if (jSONObject.opt("version") == JSONObject.NULL) {
-            aVar.d = "";
+        sceneImpl.bidResponseV2 = jSONObject.optString("bidResponseV2");
+        if (jSONObject.opt("bidResponseV2") == JSONObject.NULL) {
+            sceneImpl.bidResponseV2 = "";
         }
-        aVar.e = jSONObject.optInt(PushManager.APP_VERSION_CODE);
-        aVar.f = jSONObject.optInt("appSize");
-        aVar.g = jSONObject.optString(PackageTable.MD5);
-        if (jSONObject.opt(PackageTable.MD5) == JSONObject.NULL) {
-            aVar.g = "";
-        }
-        aVar.h = jSONObject.optString("url");
-        if (jSONObject.opt("url") == JSONObject.NULL) {
-            aVar.h = "";
-        }
-        aVar.i = jSONObject.optString("appLink");
-        if (jSONObject.opt("appLink") == JSONObject.NULL) {
-            aVar.i = "";
-        }
-        aVar.j = jSONObject.optString("icon");
-        if (jSONObject.opt("icon") == JSONObject.NULL) {
-            aVar.j = "";
-        }
-        aVar.k = jSONObject.optString("desc");
-        if (jSONObject.opt("desc") == JSONObject.NULL) {
-            aVar.k = "";
-        }
-        aVar.l = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-        if (jSONObject.opt(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID) == JSONObject.NULL) {
-            aVar.l = "";
-        }
-        aVar.m = jSONObject.optString("marketUri");
-        if (jSONObject.opt("marketUri") == JSONObject.NULL) {
-            aVar.m = "";
-        }
-        aVar.n = jSONObject.optBoolean("disableLandingPageDeepLink");
-        aVar.o = jSONObject.optBoolean("isLandscapeSupported");
-        aVar.p = jSONObject.optBoolean("isFromLive");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(h.a aVar, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(SceneImpl sceneImpl, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "type", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "appName", aVar.b);
-        com.kwad.sdk.utils.t.a(jSONObject, "pkgName", aVar.c);
-        com.kwad.sdk.utils.t.a(jSONObject, "version", aVar.d);
-        com.kwad.sdk.utils.t.a(jSONObject, PushManager.APP_VERSION_CODE, aVar.e);
-        com.kwad.sdk.utils.t.a(jSONObject, "appSize", aVar.f);
-        com.kwad.sdk.utils.t.a(jSONObject, PackageTable.MD5, aVar.g);
-        com.kwad.sdk.utils.t.a(jSONObject, "url", aVar.h);
-        com.kwad.sdk.utils.t.a(jSONObject, "appLink", aVar.i);
-        com.kwad.sdk.utils.t.a(jSONObject, "icon", aVar.j);
-        com.kwad.sdk.utils.t.a(jSONObject, "desc", aVar.k);
-        com.kwad.sdk.utils.t.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, aVar.l);
-        com.kwad.sdk.utils.t.a(jSONObject, "marketUri", aVar.m);
-        com.kwad.sdk.utils.t.a(jSONObject, "disableLandingPageDeepLink", aVar.n);
-        com.kwad.sdk.utils.t.a(jSONObject, "isLandscapeSupported", aVar.o);
-        com.kwad.sdk.utils.t.a(jSONObject, "isFromLive", aVar.p);
+        com.kwad.sdk.utils.r.a(jSONObject, "urlPackage", sceneImpl.urlPackage);
+        com.kwad.sdk.utils.r.a(jSONObject, "posId", sceneImpl.posId);
+        com.kwad.sdk.utils.r.a(jSONObject, "entryScene", sceneImpl.entryScene);
+        com.kwad.sdk.utils.r.a(jSONObject, "adNum", sceneImpl.adNum);
+        com.kwad.sdk.utils.r.a(jSONObject, "action", sceneImpl.action);
+        com.kwad.sdk.utils.r.a(jSONObject, "width", sceneImpl.width);
+        com.kwad.sdk.utils.r.a(jSONObject, "height", sceneImpl.height);
+        com.kwad.sdk.utils.r.a(jSONObject, "adStyle", sceneImpl.adStyle);
+        com.kwad.sdk.utils.r.a(jSONObject, "screenOrientation", sceneImpl.screenOrientation);
+        com.kwad.sdk.utils.r.a(jSONObject, "needShowMiniWindow", sceneImpl.needShowMiniWindow);
+        com.kwad.sdk.utils.r.a(jSONObject, "backUrl", sceneImpl.backUrl);
+        com.kwad.sdk.utils.r.a(jSONObject, "bidResponse", sceneImpl.bidResponse);
+        com.kwad.sdk.utils.r.a(jSONObject, "bidResponseV2", sceneImpl.bidResponseV2);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(SceneImpl sceneImpl, JSONObject jSONObject) {
+        a2(sceneImpl, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(SceneImpl sceneImpl, JSONObject jSONObject) {
+        return b2(sceneImpl, jSONObject);
     }
 }

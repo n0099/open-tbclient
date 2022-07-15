@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ya8;
+import com.repackage.tb8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetMoreMsg.DataRes;
 import tbclient.GetMoreMsg.GetMoreMsgResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ya8 loadMoreData;
+    public tb8 loadMoreData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScreenLockLoadMoreSocketResponseMessage() {
@@ -54,18 +54,18 @@ public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMess
             }
             DataRes dataRes = getMoreMsgResIdl.data;
             if (dataRes != null && dataRes != null) {
-                ya8 ya8Var = new ya8();
-                this.loadMoreData = ya8Var;
-                ya8Var.c(getMoreMsgResIdl.data);
+                tb8 tb8Var = new tb8();
+                this.loadMoreData = tb8Var;
+                tb8Var.c(getMoreMsgResIdl.data);
             }
             return getMoreMsgResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public ya8 getData() {
+    public tb8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.loadMoreData : (ya8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.loadMoreData : (tb8) invokeV.objValue;
     }
 }

@@ -1,116 +1,118 @@
 package com.repackage;
 
-import android.graphics.Color;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.FloatRange;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-import com.repackage.dn0;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yf0 {
+public final class yf0 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
+    public static yf0 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public zf0 a;
 
-    public static boolean a(dn0 dn0Var) {
-        InterceptResult invokeL;
-        dn0.b bVar;
-        dn0.a aVar;
+    public yf0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dn0Var)) == null) {
-            if (dn0Var == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return (TextUtils.isEmpty(dn0Var.f) && TextUtils.isEmpty(dn0Var.d) && ((bVar = dn0Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = dn0Var.h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
         }
-        return invokeL.booleanValue;
     }
 
-    public static String b(String str, String str2, float f, TextPaint textPaint, float f2) {
-        InterceptResult invokeCommon;
+    public static yf0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint, Float.valueOf(f2)})) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - (textPaint.measureText(GlideException.IndentedAppendable.INDENT) + f2), TextUtils.TruncateAt.END);
-            if (ellipsize != null) {
-                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
-            }
-            return str2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static int c(float f, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (i != i2 && f > 0.0f) {
-                if (f >= 1.0f) {
-                    return i2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (yf0.class) {
+                    if (b == null) {
+                        b = new yf0();
+                    }
                 }
-                int red = Color.red(i);
-                int blue = Color.blue(i);
-                int green = Color.green(i);
-                int alpha = Color.alpha(i);
-                return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
             }
-            return i;
+            return b;
         }
-        return invokeCommon.intValue;
+        return (yf0) invokeV.objValue;
     }
 
-    public static String d(@FloatRange(from = 0.0d, to = 1.0d) float f, String str) {
-        InterceptResult invokeCommon;
+    public void b(zf0 zf0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), str})) == null) {
-            String hexString = Integer.toHexString(Math.round(f * 255.0f));
-            if (hexString.length() < 2) {
-                hexString = "0" + hexString;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zf0Var) == null) {
+            synchronized (zf0.class) {
+                if (this.a != null) {
+                    return;
+                }
+                this.a = zf0Var;
             }
-            if (hexString.length() != 2) {
-                return "";
-            }
-            return "#" + hexString + str;
         }
-        return (String) invokeCommon.objValue;
     }
 
-    public static int e(String str, int i) {
-        InterceptResult invokeLI;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return ContextCompat.getColor(bh0.b(), i);
-            }
-            try {
-                return Color.parseColor(str);
-            } catch (IllegalArgumentException unused) {
-                return ContextCompat.getColor(bh0.b(), i);
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) {
+            this.a.onActivityCreated(activity, bundle);
         }
-        return invokeLI.intValue;
     }
 
-    public static void f(View view2) {
-        ViewGroup viewGroup;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, view2) == null) || view2 == null || (viewGroup = (ViewGroup) view2.getParent()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            this.a.onActivityDestroyed(activity);
         }
-        viewGroup.removeView(view2);
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            this.a.onActivityPaused(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+            this.a.onActivityResumed(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, bundle) == null) {
+            this.a.onActivitySaveInstanceState(activity, bundle);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            this.a.onActivityStarted(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+            this.a.onActivityStopped(activity);
+        }
     }
 }

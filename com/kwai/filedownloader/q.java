@@ -12,7 +12,7 @@ import com.kwai.filedownloader.x;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes5.dex */
-public class q {
+public final class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final b a;
@@ -73,14 +73,14 @@ public class q {
             }
         }
 
-        public void a(x.b bVar) {
+        public final void a(x.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 this.a.execute(new c(bVar));
             }
         }
 
-        public void b(x.b bVar) {
+        public final void b(x.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
                 this.b.remove(bVar);
@@ -114,19 +114,19 @@ public class q {
             this.b = false;
         }
 
-        public boolean equals(Object obj) {
+        public final boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? super.equals(obj) || obj == this.a : invokeL.booleanValue;
         }
 
         @Override // java.lang.Runnable
-        public void run() {
+        public final void run() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b) {
                 return;
             }
-            this.a.p();
+            this.a.o();
         }
     }
 
@@ -152,7 +152,7 @@ public class q {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (q) invokeV.objValue;
     }
 
-    public synchronized void a(x.b bVar) {
+    public final synchronized void a(x.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             synchronized (this) {
@@ -161,7 +161,7 @@ public class q {
         }
     }
 
-    public synchronized void b(x.b bVar) {
+    public final synchronized void b(x.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             synchronized (this) {

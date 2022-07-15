@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.GetLockWindowTid.DataReq;
 import tbclient.GetLockWindowTid.GetLockWindowTidReqIdl;
 /* loaded from: classes3.dex */
@@ -43,7 +43,7 @@ public class PullTidReqNetMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                qc5.c(builder, true, true, true);
+                td5.c(builder, true, true, true);
                 GetLockWindowTidReqIdl.Builder builder2 = new GetLockWindowTidReqIdl.Builder();
                 builder2.data = builder.build(true);
                 return builder2.build(true);

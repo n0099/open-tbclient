@@ -1,11 +1,9 @@
 package com.repackage;
 
-import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface ah1 {
-    File a(String str, String str2);
+    void a(int i);
 
-    File b();
-
-    String c();
+    void b(JSONObject jSONObject);
 }

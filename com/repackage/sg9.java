@@ -8,8 +8,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import com.kwad.sdk.core.response.model.AdInfo;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class sg9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
@@ -38,13 +40,36 @@ public class sg9 extends BaseAdRipper {
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
     public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        Object findField;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            Object findField = ReflectionUtils.findField("com.kwad.sdk.core.response.model.AdInfo", obj);
-            if (findField == null) {
+            if (obj == null) {
                 return null;
             }
-            return xf9.a((AdInfo) findField);
+            try {
+                Field declaredField = obj.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null) {
+                    return null;
+                }
+                Field declaredField2 = obj2.getClass().getDeclaredField("b");
+                declaredField2.setAccessible(true);
+                Object obj3 = declaredField2.get(obj2);
+                if (obj3 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.model.RewardADData", obj3)) == null) {
+                    return null;
+                }
+                Field declaredField3 = findField.getClass().getSuperclass().getDeclaredField("L");
+                declaredField3.setAccessible(true);
+                JSONObject jSONObject = (JSONObject) declaredField3.get(findField);
+                if (jSONObject == null) {
+                    return null;
+                }
+                return rf9.a(jSONObject);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
+            }
         }
         return (RippedAd) invokeL.objValue;
     }

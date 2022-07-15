@@ -1,16 +1,17 @@
 package com.repackage;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+@Service
 /* loaded from: classes7.dex */
-public class y82 {
+public class y82 extends v82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ArrayList<String> b;
 
     public y82() {
         Interceptable interceptable = $ic;
@@ -22,10 +23,14 @@ public class y82 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
-        this.b = new ArrayList<>();
+    }
+
+    @Override // com.repackage.gm2
+    public LifecycleProcessType b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LifecycleProcessType.MAIN : (LifecycleProcessType) invokeV.objValue;
     }
 }

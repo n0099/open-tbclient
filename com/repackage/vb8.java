@@ -1,44 +1,82 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.searchrecforum.message.SearchRecForumRequestMessage;
+import com.baidu.tieba.searchrecforum.message.SearchRecForumResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 /* loaded from: classes7.dex */
-public class vb8 extends Thread {
+public class vb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final String b;
-    public Process c;
-    public BufferedReader d;
-    public FileOutputStream e;
-    public a f;
+    public final BdUniqueId a;
+    public boolean b;
+    public boolean c;
+    public HttpResponsedMessage d;
+    public b e;
+    public final HttpMessageListener f;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void a();
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vb8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vb8 vb8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vb8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vb8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (this.a.c) {
+                    this.a.d = httpResponsedMessage;
+                } else {
+                    this.a.f(httpResponsedMessage);
+                }
+            }
+        }
     }
 
-    public vb8(String str, String str2, boolean z) {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(yb8 yb8Var);
+
+        void onFail();
+    }
+
+    public vb8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,93 +86,69 @@ public class vb8 extends Thread {
                 return;
             }
         }
-        this.a = true;
-        this.d = null;
-        this.e = null;
-        try {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
-            this.e = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
-        } catch (FileNotFoundException e) {
-            BdLog.e(Log.getStackTraceString(e));
-        }
-        if (z) {
-            this.b = "logcat -v threadtime *:v -d";
-        } else {
-            this.b = "logcat -v threadtime *:v";
+        this.a = BdUniqueId.gen();
+        this.b = false;
+        this.c = false;
+        this.f = new a(this, CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM, TbConfig.SERVER_ADDRESS + "c/f/excellent/getRecomForum");
+        tbHttpMessageTask.setResponsedClass(SearchRecForumResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.f);
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c) {
+            f(this.d);
+            this.c = false;
+            this.d = null;
         }
     }
 
-    public final void a() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Process process = this.c;
-            if (process != null) {
-                process.destroy();
-                this.c = null;
-            }
-            BufferedReader bufferedReader = this.d;
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                    this.d = null;
-                } catch (IOException e) {
-                    BdLog.e(Log.getStackTraceString(e));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = true;
+        }
+    }
+
+    public final void f(HttpResponsedMessage httpResponsedMessage) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpResponsedMessage) == null) {
+            this.b = false;
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003526 && (httpResponsedMessage instanceof SearchRecForumResponsedMessage)) {
+                if (httpResponsedMessage.getError() != 0 && (bVar = this.e) != null) {
+                    bVar.onFail();
+                    return;
+                }
+                ub8.d().i(false);
+                b bVar2 = this.e;
+                if (bVar2 != null) {
+                    bVar2.a(((SearchRecForumResponsedMessage) httpResponsedMessage).data);
                 }
             }
-            FileOutputStream fileOutputStream = this.e;
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e2) {
-                    BdLog.e(Log.getStackTraceString(e2));
-                }
-                this.e = null;
-            }
-            a aVar = this.f;
-            if (aVar != null) {
-                aVar.a();
-            }
         }
     }
 
-    public void b(a aVar) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f = aVar;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = false;
-            a();
-            interrupt();
-        }
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        String readLine;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                try {
-                    this.c = Runtime.getRuntime().exec(this.b);
-                    this.d = new BufferedReader(new InputStreamReader(this.c.getInputStream()), 1024);
-                    while (this.a && (readLine = this.d.readLine()) != null && this.a) {
-                        if (readLine.length() != 0 && this.e != null) {
-                            FileOutputStream fileOutputStream = this.e;
-                            fileOutputStream.write((readLine + "\n").getBytes());
-                        }
-                    }
-                    BdLog.d("collector complete.");
-                } catch (IOException e) {
-                    BdLog.e(Log.getStackTraceString(e));
-                }
-            } finally {
-                a();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ub8.d().e()) {
+            if (this.b) {
+                MessageManager.getInstance().removeHttpMessage(this.a);
             }
+            this.b = true;
+            SearchRecForumRequestMessage searchRecForumRequestMessage = new SearchRecForumRequestMessage();
+            searchRecForumRequestMessage.setParams(ub8.d().c());
+            searchRecForumRequestMessage.setTag(this.a);
+            MessageManager.getInstance().sendMessage(searchRecForumRequestMessage);
+        }
+    }
+
+    public void h(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.e = bVar;
         }
     }
 }

@@ -135,7 +135,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         this.b = new ArrayList<>();
     }
 
-    public void C(String str) {
+    public void D(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a == null) {
             b bVar = new b(this, null);
@@ -145,13 +145,13 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         }
     }
 
-    public int D() {
+    public int E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public ArrayList<ThreadData> E() {
+    public ArrayList<ThreadData> F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (ArrayList) invokeV.objValue;

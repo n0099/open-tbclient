@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k96;
-import com.repackage.zo4;
+import com.repackage.ha6;
+import com.repackage.op4;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,8 +16,8 @@ import org.json.JSONObject;
 public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<k96> fansList;
-    public zo4 pageData;
+    public ArrayList<ha6> fansList;
+    public op4 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetForbiddenFansResponse(int i) {
@@ -52,29 +52,29 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
                     int length = optJSONArray.length();
                     this.fansList = new ArrayList<>();
                     for (int i2 = 0; i2 < length; i2++) {
-                        k96 k96Var = new k96();
-                        k96Var.a(optJSONArray.getJSONObject(i2));
-                        if (k96Var.a != 0) {
-                            this.fansList.add(k96Var);
+                        ha6 ha6Var = new ha6();
+                        ha6Var.a(optJSONArray.getJSONObject(i2));
+                        if (ha6Var.a != 0) {
+                            this.fansList.add(ha6Var);
                         }
                     }
                 }
-                zo4 zo4Var = new zo4();
-                this.pageData = zo4Var;
-                zo4Var.i(jSONObject.optJSONObject("page"));
+                op4 op4Var = new op4();
+                this.pageData = op4Var;
+                op4Var.i(jSONObject.optJSONObject("page"));
             }
         }
     }
 
-    public ArrayList<k96> getFansList() {
+    public ArrayList<ha6> getFansList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fansList : (ArrayList) invokeV.objValue;
     }
 
-    public zo4 getPageData() {
+    public op4 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (zo4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (op4) invokeV.objValue;
     }
 }

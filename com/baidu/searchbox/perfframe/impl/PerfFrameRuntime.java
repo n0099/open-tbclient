@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab1;
-import com.repackage.cb1;
+import com.repackage.pb1;
+import com.repackage.rb1;
 /* loaded from: classes2.dex */
 public class PerfFrameRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static PerfFrameRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public cb1<IPerfFrameRegister> mIPerfFrameMonitorList;
+    public rb1<IPerfFrameRegister> mIPerfFrameMonitorList;
 
     public PerfFrameRuntime() {
         Interceptable interceptable = $ic;
@@ -51,16 +51,16 @@ public class PerfFrameRuntime {
         return (PerfFrameRuntime) invokeV.objValue;
     }
 
-    public cb1<IPerfFrameRegister> getPerfFrameRegister() {
+    public rb1<IPerfFrameRegister> getPerfFrameRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIPerfFrameMonitorList : (cb1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIPerfFrameMonitorList : (rb1) invokeV.objValue;
     }
 
     public void initmIPerfFrameMonitorList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ab1 b = ab1.b();
+            pb1 b = pb1.b();
             this.mIPerfFrameMonitorList = b;
             b.a(new IPerfFrameRegister_PerfFrameRuntime_ListProvider());
         }

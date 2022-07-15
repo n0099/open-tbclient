@@ -137,10 +137,10 @@ public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
                 }
                 List<Map.Entry<String, Object>> encodeInBackGround = this.a.encodeInBackGround();
                 long currentTimeMillis = System.currentTimeMillis();
-                this.c.b().v(this.b.getUrl());
-                this.c.b().t(this.b.getMethod());
-                this.c.b().r(this.a.getHeaders());
-                this.c.b().u(encodeInBackGround);
+                this.c.b().s(this.b.getUrl());
+                this.c.b().q(this.b.getMethod());
+                this.c.b().p(this.a.getHeaders());
+                this.c.b().r(encodeInBackGround);
                 int a = this.b.getTimeOut().a();
                 int a2 = this.b.getConnectTimeOut().a();
                 int retry = this.b.getRetry();
@@ -257,7 +257,7 @@ public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
                             j2 = j8;
                             j4 = j;
                             newInstance.setError(-1003);
-                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05a0));
+                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05aa));
                             BdLog.detailException(e);
                             if (this.a.getExtra() instanceof NetMessage) {
                             }
@@ -284,7 +284,7 @@ public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
                     } catch (Exception e8) {
                         e = e8;
                         newInstance.setError(-1003);
-                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05a0));
+                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05aa));
                         BdLog.detailException(e);
                         if (this.a.getExtra() instanceof NetMessage) {
                         }

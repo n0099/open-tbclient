@@ -1,33 +1,14 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.webview.kwai.h;
-import org.json.JSONObject;
+import com.ksad.annotation.invoker.InvokeBy;
+import com.kwad.components.ad.reward.m;
+import com.kwad.components.ad.reward.monitor.RewardMonitorInfo;
 /* loaded from: classes5.dex */
-public class ba implements com.kwad.sdk.core.d<h.a> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(h.a aVar, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        aVar.a = jSONObject.optString("url");
-        if (jSONObject.opt("url") == JSONObject.NULL) {
-            aVar.a = "";
-        }
-        aVar.b = jSONObject.optString("packageName");
-        if (jSONObject.opt("packageName") == JSONObject.NULL) {
-            aVar.b = "";
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(h.a aVar, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            jSONObject = new JSONObject();
-        }
-        com.kwad.sdk.utils.t.a(jSONObject, "url", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "packageName", aVar.b);
-        return jSONObject;
+public final class ba {
+    @InvokeBy(invokerClass = cz.class, methodId = "registerHolder")
+    public static void a() {
+        cz.a().put(RewardMonitorInfo.class, new ei());
+        cz.a().put(com.kwad.components.ad.reward.model.b.class, new al());
+        cz.a().put(m.c.class, new av());
     }
 }

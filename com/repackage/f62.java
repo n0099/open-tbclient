@@ -1,75 +1,135 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.os.Environment;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.channels.Channels;
 /* loaded from: classes6.dex */
-public class f62 {
+public class f62 extends c62 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public UbcFlowEvent b;
-    public boolean c;
+    public File b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755755953, "Lcom/repackage/f62;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755755953, "Lcom/repackage/f62;");
+                return;
+            }
+        }
+        c = rg1.a;
+    }
 
     public f62() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = o();
     }
 
-    public UbcFlowEvent a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.c62
+    public boolean e(d62 d62Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (UbcFlowEvent) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public void d(@NonNull UbcFlowEvent ubcFlowEvent, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, ubcFlowEvent, z) == null) {
-            if (this.b == null || z) {
-                this.b = ubcFlowEvent;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d62Var)) == null) {
+            if (d62Var != null && this.b.exists()) {
+                File file = this.b;
+                File file2 = new File(file, d62Var.g + File.separator + d62Var.q);
+                if (file2.exists()) {
+                    try {
+                        if (!d(Channels.newChannel(new FileInputStream(file2)), d62Var.m)) {
+                            if (c) {
+                                Log.e("SdCardPresetController", "校验签名失败");
+                            }
+                            return false;
+                        }
+                        File j = j(d62Var.h, d62Var.g, d62Var.i);
+                        if (j == null) {
+                            if (c) {
+                                Log.e("SdCardPresetController", "获取解压路径失败");
+                            }
+                            return false;
+                        }
+                        return n(new BufferedInputStream(new FileInputStream(file2)), j);
+                    } catch (IOException e) {
+                        if (c) {
+                            e.printStackTrace();
+                        }
+                        return false;
+                    }
+                }
+                return false;
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void e(boolean z) {
+    @Override // com.repackage.c62
+    public String f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void f(@NonNull String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
-            if (this.a == null || z) {
-                this.a = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.b.exists()) {
+                File file = this.b;
+                File file2 = new File(file, str + File.separator + "app_info.json");
+                if (file2.exists()) {
+                    return jg4.E(file2);
+                }
+                return null;
             }
+            return null;
         }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.c62
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b.exists()) {
+                File file = new File(this.b, "preset_list.json");
+                if (file.exists()) {
+                    return jg4.E(file);
+                }
+                return null;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final File o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/") : (File) invokeV.objValue;
     }
 }

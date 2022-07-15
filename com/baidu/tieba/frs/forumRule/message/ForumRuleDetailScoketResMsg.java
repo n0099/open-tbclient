@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xh6;
+import com.repackage.ui6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
@@ -16,7 +16,7 @@ import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
 public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xh6 mForumRuleDetailData;
+    public ui6 mForumRuleDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumRuleDetailScoketResMsg() {
@@ -53,9 +53,9 @@ public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
                     setErrorString(forumRuleDetailResIdl.error.usermsg);
                 }
                 if (forumRuleDetailResIdl.data != null) {
-                    xh6 xh6Var = new xh6();
-                    this.mForumRuleDetailData = xh6Var;
-                    xh6Var.q(forumRuleDetailResIdl.data);
+                    ui6 ui6Var = new ui6();
+                    this.mForumRuleDetailData = ui6Var;
+                    ui6Var.p(forumRuleDetailResIdl.data);
                 }
             }
             return forumRuleDetailResIdl;
@@ -63,9 +63,9 @@ public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public xh6 getmForumRuleDetailData() {
+    public ui6 getmForumRuleDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumRuleDetailData : (xh6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumRuleDetailData : (ui6) invokeV.objValue;
     }
 }

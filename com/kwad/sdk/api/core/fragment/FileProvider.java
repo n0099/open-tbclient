@@ -73,7 +73,7 @@ public class FileProvider extends ContentProvider {
             try {
                 this.mRoots.put(str, file.getCanonicalFile());
             } catch (IOException e) {
-                throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e);
+                throw new IllegalArgumentException("Failed to resolve canonical path for ".concat(String.valueOf(file)), e);
             }
         }
 
@@ -86,19 +86,19 @@ public class FileProvider extends ContentProvider {
             String decode = Uri.decode(encodedPath.substring(1, indexOf));
             String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
             File file = this.mRoots.get(decode);
-            if (file == null) {
-                throw new IllegalArgumentException("Unable to find configured root for " + uri);
-            }
-            File file2 = new File(file, decode2);
-            try {
-                File canonicalFile = file2.getCanonicalFile();
-                if (canonicalFile.getPath().startsWith(file.getPath())) {
-                    return canonicalFile;
+            if (file != null) {
+                File file2 = new File(file, decode2);
+                try {
+                    File canonicalFile = file2.getCanonicalFile();
+                    if (canonicalFile.getPath().startsWith(file.getPath())) {
+                        return canonicalFile;
+                    }
+                    throw new SecurityException("Resolved path jumped beyond configured root");
+                } catch (IOException unused) {
+                    throw new IllegalArgumentException("Failed to resolve canonical path for ".concat(String.valueOf(file2)));
                 }
-                throw new SecurityException("Resolved path jumped beyond configured root");
-            } catch (IOException unused) {
-                throw new IllegalArgumentException("Failed to resolve canonical path for " + file2);
             }
+            throw new IllegalArgumentException("Unable to find configured root for ".concat(String.valueOf(uri)));
         }
 
         @Override // com.kwad.sdk.api.core.fragment.FileProvider.PathStrategy
@@ -114,19 +114,19 @@ public class FileProvider extends ContentProvider {
                         entry = entry2;
                     }
                 }
-                if (entry == null) {
-                    throw new IllegalArgumentException("Failed to find configured root that contains " + canonicalPath);
+                if (entry != null) {
+                    String path2 = entry.getValue().getPath();
+                    boolean endsWith = path2.endsWith("/");
+                    int length = path2.length();
+                    if (!endsWith) {
+                        length++;
+                    }
+                    String substring = canonicalPath.substring(length);
+                    return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
                 }
-                String path2 = entry.getValue().getPath();
-                boolean endsWith = path2.endsWith("/");
-                int length = path2.length();
-                if (!endsWith) {
-                    length++;
-                }
-                String substring = canonicalPath.substring(length);
-                return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
+                throw new IllegalArgumentException("Failed to find configured root that contains ".concat(String.valueOf(canonicalPath)));
             } catch (IOException unused) {
-                throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
+                throw new IllegalArgumentException("Failed to resolve canonical path for ".concat(String.valueOf(file)));
             }
         }
     }
@@ -192,7 +192,7 @@ public class FileProvider extends ContentProvider {
         if ("rwt".equals(str)) {
             return 1006632960;
         }
-        throw new IllegalArgumentException("Invalid mode: " + str);
+        throw new IllegalArgumentException("Invalid mode: ".concat(String.valueOf(str)));
     }
 
     public static PathStrategy parsePathStrategy(Context context, String str) {

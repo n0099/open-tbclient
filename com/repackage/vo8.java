@@ -1,212 +1,247 @@
 package com.repackage;
 
-import android.animation.ValueAnimator;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BlockPopInfoData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.ueg.UEGCancelModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cr4;
 /* loaded from: classes7.dex */
 public class vo8 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public UEGCancelModel a;
+    public UEGCancelModel.b b;
+    public int c;
 
     /* loaded from: classes7.dex */
-    public static class a implements ValueAnimator.AnimatorUpdateListener {
+    public class a implements UEGCancelModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ int e;
+        public final /* synthetic */ vo8 a;
 
-        public a(View view2, int i, int i2, int i3, int i4) {
+        public a(vo8 vo8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {vo8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = view2;
-            this.b = i;
-            this.c = i2;
-            this.d = i3;
-            this.e = i4;
+            this.a = vo8Var;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // com.baidu.tieba.ueg.UEGCancelModel.b
+        public void a(BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                int i = this.b;
-                layoutParams.width = i - ((int) ((i - this.c) * animatedFraction));
-                int i2 = this.d;
-                layoutParams.height = i2 - ((int) ((i2 - this.e) * animatedFraction));
-                this.a.requestLayout();
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, blockPopInfoData) == null) || blockPopInfoData == null || vo8.d) {
+                return;
             }
+            this.a.d(blockPopInfoData);
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements ValueAnimator.AnimatorUpdateListener {
+    public class b implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ int e;
+        public final /* synthetic */ BlockPopInfoData a;
+        public final /* synthetic */ vo8 b;
 
-        public b(View view2, int i, int i2, int i3, int i4) {
+        public b(vo8 vo8Var, BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {vo8Var, blockPopInfoData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = view2;
-            this.b = i;
-            this.c = i2;
-            this.d = i3;
-            this.e = i4;
+            this.b = vo8Var;
+            this.a = blockPopInfoData;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                int i = this.b;
-                layoutParams.width = i - ((int) ((i - this.c) * animatedFraction));
-                int i2 = this.d;
-                layoutParams.height = i2 - ((int) ((i2 - this.e) * animatedFraction));
-                this.a.requestLayout();
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", this.b.c).param("obj_type", this.a.win_type));
             }
         }
     }
 
-    public static Bundle a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            Bundle bundle = new Bundle();
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            bundle.putInt("enter_anim_values_top", iArr[1]);
-            bundle.putInt("enter_anim_values_width", view2.getWidth());
-            bundle.putInt("enter_anim_values_height", view2.getHeight());
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public class c implements cr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BlockPopInfoData a;
+        public final /* synthetic */ vo8 b;
 
-    public static float b(Bundle bundle, Bundle bundle2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bundle, bundle2)) == null) ? e(bundle) - e(bundle2) : invokeLL.floatValue;
-    }
-
-    public static void c(Intent intent, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, intent, view2) == null) {
-            Bundle d = d(intent);
-            Bundle a2 = a(view2);
-            int g = g(d);
-            int g2 = g(a2);
-            int e = e(d);
-            int e2 = e(a2);
-            view2.setTranslationY(b(d, a2) - UtilHelper.getStatusBarHeight());
-            view2.animate().setDuration(300L).translationY(f(a2)).setUpdateListener(new b(view2, g, g2, e, e2)).start();
-        }
-    }
-
-    public static Bundle d(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, intent)) == null) {
-            if (intent == null) {
-                return null;
+        public c(vo8 vo8Var, BlockPopInfoData blockPopInfoData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vo8Var, blockPopInfoData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return intent.getBundleExtra("enter_anim_values");
+            this.b = vo8Var;
+            this.a = blockPopInfoData;
         }
-        return (Bundle) invokeL.objValue;
-    }
 
-    public static int e(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
-            if (bundle == null) {
-                return 0;
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                this.b.e(this.a);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", this.b.c).param("obj_type", this.a.win_type));
             }
-            return bundle.getInt("enter_anim_values_height");
         }
-        return invokeL.intValue;
     }
 
-    public static int f(Bundle bundle) {
-        InterceptResult invokeL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755224334, "Lcom/repackage/vo8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755224334, "Lcom/repackage/vo8;");
+        }
+    }
+
+    public vo8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
-            if (bundle == null) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return bundle.getInt("enter_anim_values_top");
         }
-        return invokeL.intValue;
+        this.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_COLD_BOOT;
+        this.a = new UEGCancelModel();
+        if (this.b == null) {
+            this.b = new a(this);
+        }
+        this.a.C(this.b);
     }
 
-    public static int g(Bundle bundle) {
-        InterceptResult invokeL;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bundle)) == null) {
-            if (bundle == null) {
-                return 0;
-            }
-            return bundle.getInt("enter_anim_values_width");
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.c = i;
+            this.a.B();
         }
-        return invokeL.intValue;
     }
 
-    public static void h(Intent intent, View view2) {
+    public final void d(BlockPopInfoData blockPopInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, intent, view2) == null) {
-            view2.setVisibility(4);
-            Bundle d = d(intent);
-            Bundle a2 = a(view2);
-            int g = g(d);
-            int g2 = g(a2);
-            int e = e(d);
-            int e2 = e(a2);
-            view2.setTranslationY(b(d, a2) - UtilHelper.getStatusBarHeight());
-            view2.setVisibility(0);
-            view2.animate().setDuration(350L).translationY(f(a2)).setUpdateListener(new a(view2, g, g2, e, e2)).start();
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, blockPopInfoData) == null) || blockPopInfoData == null || z8.g().b() == null) {
+            return;
         }
+        String str = blockPopInfoData.block_id_code;
+        int i = blockPopInfoData.win_type;
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        String str2 = blockPopInfoData.ahead_url;
+        String str3 = blockPopInfoData.ok_info;
+        String str4 = blockPopInfoData.ahead_info;
+        String str5 = blockPopInfoData.block_info;
+        if ((i != 1 && i != 2 && i != 3 && i != 4) || oi.isEmpty(currentAccount) || oi.isEmpty(str)) {
+            return;
+        }
+        xt4 k = xt4.k();
+        boolean z = false;
+        boolean h = k.h(str + i + currentAccount, false);
+        if ((!oi.isEmpty(str2) || i == 4) && !oi.isEmpty(str3) && ((!oi.isEmpty(str4) || i == 4) && !oi.isEmpty(str5))) {
+            z = true;
+        }
+        if (h || !z) {
+            return;
+        }
+        xt4 k2 = xt4.k();
+        k2.u(str + i + currentAccount, true);
+        h(blockPopInfoData);
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.c).param("obj_type", i));
+    }
+
+    public final void e(BlockPopInfoData blockPopInfoData) {
+        Activity b2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, blockPopInfoData) == null) || blockPopInfoData == null || (b2 = z8.g().b()) == null) {
+            return;
+        }
+        AntiHelper.p(b2, blockPopInfoData.ahead_url);
+    }
+
+    public void f() {
+        UEGCancelModel uEGCancelModel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (uEGCancelModel = this.a) == null) {
+            return;
+        }
+        uEGCancelModel.onDestroy();
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            d = z;
+        }
+    }
+
+    public final void h(BlockPopInfoData blockPopInfoData) {
+        Activity b2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, blockPopInfoData) == null) || blockPopInfoData == null || (b2 = z8.g().b()) == null) {
+            return;
+        }
+        cr4 cr4Var = new cr4(b2);
+        cr4Var.setMessage(blockPopInfoData.block_info);
+        cr4Var.setNegativeButton(blockPopInfoData.ok_info, new b(this, blockPopInfoData));
+        cr4Var.setPositiveButton(blockPopInfoData.ahead_info, new c(this, blockPopInfoData));
+        cr4Var.create(((e9) b2).getPageContext());
+        cr4Var.show();
     }
 }

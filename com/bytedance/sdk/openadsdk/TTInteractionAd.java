@@ -4,7 +4,7 @@ import android.app.Activity;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public interface TTInteractionAd {
+public interface TTInteractionAd extends TTClientBidding {
 
     /* loaded from: classes4.dex */
     public interface AdInteractionListener {

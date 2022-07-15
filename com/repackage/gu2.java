@@ -1,73 +1,99 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import androidx.annotation.AnyThread;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gu2 implements ku2 {
-    public static /* synthetic */ Interceptable $ic;
+public class gu2 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
 
-    public gu2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            h03 b0;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (b0 = h03.b0()) == null) {
                 return;
             }
-        }
-        this.a = -1L;
-        this.b = -1L;
-    }
-
-    @Override // com.repackage.ku2
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j = this.a;
-            if (j >= 0) {
-                long j2 = this.b;
-                if (j2 < 0) {
-                    return -1L;
-                }
-                return j2 - j;
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("appKey", b0.getAppId());
+            contentValues.put("launch_type", Integer.valueOf(z63.c()));
+            contentValues.put("source", b0.W().T());
+            contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
+            ContentResolver contentResolver = oj2.c().getContentResolver();
+            if (contentResolver != null) {
+                contentResolver.insert(i72.b(), contentValues);
             }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.repackage.ku2
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.b = j;
         }
     }
 
-    @Override // com.repackage.ku2
-    public void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.a = j;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755665619, "Lcom/repackage/gu2;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755665619, "Lcom/repackage/gu2;");
         }
     }
 
-    @Override // com.repackage.ku2
-    public String getType() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageInitRender" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int i = a;
+            if (i != -1) {
+                return i;
+            }
+            oj2.g0().getSwitch("swan_backstage_policy", 0);
+            a = 300;
+            if (300 < 60) {
+                a = 60;
+            } else if (300 > 3600) {
+                a = 3600;
+            }
+            return a;
+        }
+        return invokeV.intValue;
+    }
+
+    @AnyThread
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            bd3.k(new a(), "SwanLaunchBehavior");
+        }
     }
 }

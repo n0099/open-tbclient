@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.SevenZipUtils;
-import com.repackage.ki7;
-import com.repackage.mq4;
+import com.repackage.br4;
+import com.repackage.cj7;
 import com.repackage.te;
 import com.squareup.wire.Wire;
 import tbclient.Error;
@@ -21,7 +21,7 @@ import tbclient.GetVipInfo.GetVipInfoResIdl;
 public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ki7 mMembercenter;
+    public cj7 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MembercenterSocketResponseMessage() {
@@ -58,12 +58,12 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
             }
             DataRes dataRes = getVipInfoResIdl.data;
             if (dataRes != null) {
-                this.mMembercenter = new ki7(dataRes);
+                this.mMembercenter = new cj7(dataRes);
             }
             if (getError() == 0) {
                 String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
-                mq4.f();
-                te<byte[]> e = mq4.e("tb_member_center", currentAccount);
+                br4.f();
+                te<byte[]> e = br4.e("tb_member_center", currentAccount);
                 if (e != null && bArr != null) {
                     e.g("member_center_cache_key", bArr);
                 }
@@ -73,9 +73,9 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public ki7 getMembercenterData() {
+    public cj7 getMembercenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMembercenter : (ki7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMembercenter : (cj7) invokeV.objValue;
     }
 }

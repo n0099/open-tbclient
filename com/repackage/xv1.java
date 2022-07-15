@@ -1,182 +1,280 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.drawable.Animatable;
+import android.text.TextUtils;
+import android.widget.FrameLayout;
+import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.ImageInfo;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class xv1 extends av1<SimpleDraweeView, yv1> {
+public abstract class xv1 implements zv1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wv1 i;
-    public SwanAppComponentContainerView j;
-    public SimpleDraweeView k;
+    @NonNull
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public boolean f;
+    public boolean g;
+    @Nullable
+    public nq2 h;
+    public String i;
 
-    /* loaded from: classes7.dex */
-    public class a extends BaseControllerListener<ImageInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ SimpleDraweeView b;
-        public final /* synthetic */ xv1 c;
-
-        public a(xv1 xv1Var, boolean z, SimpleDraweeView simpleDraweeView) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755158242, "Lcom/repackage/xv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xv1Var, Boolean.valueOf(z), simpleDraweeView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = xv1Var;
-            this.a = z;
-            this.b = simpleDraweeView;
-        }
-
-        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
-        public void onFailure(String str, Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, th) == null) {
-                super.onFailure(str, th);
-                if (!this.a || this.c.i == null) {
-                    return;
-                }
-                this.c.i.a(0, this.b, null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755158242, "Lcom/repackage/xv1;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
-        public void onFinalImageSet(String str, ImageInfo imageInfo, Animatable animatable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageInfo, animatable) == null) {
-                super.onFinalImageSet(str, (String) imageInfo, animatable);
-                if (!this.a || this.c.i == null) {
-                    return;
-                }
-                this.c.i.a(1, this.b, null);
-            }
-        }
+        boolean z = rg1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xv1(@NonNull Context context, @NonNull yv1 yv1Var) {
-        super(context, yv1Var);
+    public xv1(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, yv1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (bv1) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        g(4);
-        this.j = new SwanAppComponentContainerView(context);
-        this.k = new SimpleDraweeView(context);
+        this.a = "unknown";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = "";
+        this.f = false;
+        this.g = false;
+        this.i = "id";
+        if (!TextUtils.isEmpty(str)) {
+            this.a = str;
+        } else {
+            ax1.a("Component-Model-Base", "component type is empty");
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            this.i = str2;
+        } else {
+            ax1.a("Component-Model-Base", "component id key is empty");
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.av1, com.repackage.fv1, com.repackage.hv1
-    @NonNull
-    /* renamed from: Y */
-    public kw1 k(@NonNull yv1 yv1Var, @NonNull yv1 yv1Var2) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.gq2
+    @CallSuper
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, yv1Var, yv1Var2)) == null) {
-            kw1 k = super.k(yv1Var, yv1Var2);
-            if (yv1Var.u != yv1Var2.u) {
-                k.b(9);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        if (!TextUtils.equals(this.i, "ARCameraId")) {
+            String optString = jSONObject.optString("componentId");
+            this.b = optString;
+            if (TextUtils.isEmpty(optString)) {
+                this.b = jSONObject.optString(this.i);
             }
-            return k;
+        } else {
+            String optString2 = jSONObject.optString(this.i);
+            this.b = optString2;
+            if (TextUtils.isEmpty(optString2)) {
+                this.b = jSONObject.optString("componentId");
+            }
         }
-        return (kw1) invokeLL.objValue;
+        if (TextUtils.isEmpty(this.b)) {
+            hx1.c("Component-Model-Base", this.a + " component componentId is empty");
+        }
+        String optString3 = jSONObject.optString("slaveId");
+        this.c = optString3;
+        if (TextUtils.isEmpty(optString3)) {
+            hx1.c("Component-Model-Base", this.a + " component slaveId is empty");
+        }
+        this.d = jSONObject.optString("parentId");
+        this.e = jSONObject.optString("cb");
+        this.f = jSONObject.optBoolean("hide", false);
+        this.g = TextUtils.equals(jSONObject.optString("gesture"), "1");
+        f(jSONObject);
     }
 
-    public final BaseControllerListener<ImageInfo> Z(@NonNull SimpleDraweeView simpleDraweeView, @NonNull yv1 yv1Var) {
-        InterceptResult invokeLL;
+    public final FrameLayout.LayoutParams b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, simpleDraweeView, yv1Var)) == null) ? new a(this, yv1Var.u, simpleDraweeView) : (BaseControllerListener) invokeLL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            nq2 nq2Var = this.h;
+            int f = nq2Var != null ? nq2Var.f() : -1;
+            nq2 nq2Var2 = this.h;
+            int c = nq2Var2 != null ? nq2Var2.c() : -1;
+            nq2 nq2Var3 = this.h;
+            int d = nq2Var3 != null ? nq2Var3.d() : 0;
+            nq2 nq2Var4 = this.h;
+            int e = nq2Var4 != null ? nq2Var4.e() : 0;
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, c);
+            layoutParams.setMargins(d, e, 0, 0);
+            return layoutParams;
+        }
+        return (FrameLayout.LayoutParams) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hv1
+    public final float c(JSONObject jSONObject, String str, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) ? jSONObject == null ? f : (float) jSONObject.optDouble(str, f) : invokeCommon.floatValue;
+    }
+
+    @CallSuper
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            xv1 xv1Var = (xv1) super.clone();
+            nq2 nq2Var = this.h;
+            if (nq2Var != null) {
+                xv1Var.h = (nq2) nq2Var.clone();
+            } else {
+                xv1Var.h = null;
+            }
+            return xv1Var;
+        }
+        return invokeV.objValue;
+    }
+
     @NonNull
-    /* renamed from: a0 */
-    public SimpleDraweeView v(@NonNull Context context) {
-        InterceptResult invokeL;
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? this.k : (SimpleDraweeView) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("【");
+            sb.append(this.a);
+            sb.append("#");
+            sb.append(TextUtils.isEmpty(this.b) ? "" : this.b);
+            sb.append("】");
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hv1
-    /* renamed from: b0 */
-    public void A(@NonNull SimpleDraweeView simpleDraweeView) {
+    public final void e(JSONObject jSONObject, @NonNull xv1 xv1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, simpleDraweeView) == null) {
-            super.A(simpleDraweeView);
-            simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, xv1Var) == null) || jSONObject == null) {
+            return;
+        }
+        if (!TextUtils.equals(this.i, "ARCameraId")) {
+            String optString = jSONObject.optString("componentId");
+            this.b = optString;
+            if (TextUtils.isEmpty(optString)) {
+                this.b = jSONObject.optString(this.i, xv1Var.b);
+            }
+        } else {
+            String optString2 = jSONObject.optString(this.i);
+            this.b = optString2;
+            if (TextUtils.isEmpty(optString2)) {
+                this.b = jSONObject.optString("componentId", xv1Var.b);
+            }
+        }
+        if (TextUtils.isEmpty(this.b)) {
+            hx1.c("Component-Model-Base", this.a + " component componentId is empty");
+        }
+        String optString3 = jSONObject.optString("slaveId", xv1Var.c);
+        this.c = optString3;
+        if (TextUtils.isEmpty(optString3)) {
+            hx1.c("Component-Model-Base", this.a + " component slaveId is empty");
+        }
+        this.d = jSONObject.optString("parentId", xv1Var.d);
+        this.e = jSONObject.optString("cb", xv1Var.e);
+        this.f = jSONObject.optBoolean("hide", xv1Var.f);
+        this.g = TextUtils.equals(jSONObject.optString("gesture", xv1Var.g ? "1" : "0"), "1");
+        nq2 nq2Var = xv1Var.h;
+        this.h = nq2Var;
+        if (nq2Var == null) {
+            this.h = new nq2();
+        }
+        f(jSONObject);
+    }
+
+    public final void f(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject(CriusAttrConstants.POSITION)) == null) {
+            return;
+        }
+        nq2 nq2Var = new nq2();
+        this.h = nq2Var;
+        nq2Var.l(yd3.g(c(optJSONObject, "left", 0.0f)));
+        this.h.m(yd3.g(c(optJSONObject, "top", 0.0f)));
+        this.h.n(yd3.g(c(optJSONObject, "width", 0.0f)));
+        this.h.j(yd3.g(c(optJSONObject, "height", 0.0f)));
+    }
+
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
+            if (!TextUtils.equals(this.i, "ARCameraId")) {
+                String optString = jSONObject.optString("componentId");
+                this.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    this.b = jSONObject.optString(this.i, this.b);
+                }
+            } else {
+                String optString2 = jSONObject.optString(this.i);
+                this.b = optString2;
+                if (TextUtils.isEmpty(optString2)) {
+                    this.b = jSONObject.optString("componentId", this.b);
+                }
+            }
+            if (TextUtils.isEmpty(this.b)) {
+                hx1.c("Component-Model-Base", this.a + " component componentId is empty");
+            }
+            String optString3 = jSONObject.optString("slaveId", this.c);
+            this.c = optString3;
+            if (TextUtils.isEmpty(optString3)) {
+                hx1.c("Component-Model-Base", this.a + " component slaveId is empty");
+            }
+            this.d = jSONObject.optString("parentId", this.d);
+            this.e = jSONObject.optString("cb", this.e);
+            this.f = jSONObject.optBoolean("hide", this.f);
+            this.g = TextUtils.equals(jSONObject.optString("gesture", this.g ? "1" : "0"), "1");
+            f(jSONObject);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.av1
-    /* renamed from: c0 */
-    public void T(@NonNull SimpleDraweeView simpleDraweeView, @NonNull yv1 yv1Var, @NonNull kw1 kw1Var) {
+    @Override // com.repackage.gq2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        nq2 nq2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, simpleDraweeView, yv1Var, kw1Var) == null) {
-            super.O(simpleDraweeView, yv1Var, kw1Var);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || (nq2Var = this.h) == null || !nq2Var.h()) ? false : true : invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.av1
-    /* renamed from: d0 */
-    public void U(@NonNull SimpleDraweeView simpleDraweeView, @NonNull yv1 yv1Var) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, simpleDraweeView, yv1Var) == null) {
-            super.V(simpleDraweeView, yv1Var, Z(simpleDraweeView, yv1Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "SwanAppBaseComponentModel{componentType='" + this.a + "', componentId='" + this.b + "', slaveId='" + this.c + "', parentId='" + this.d + "', callback='" + this.e + "', hidden=" + this.f + ", gesture=" + this.g + ", position=" + this.h + ", mComponentIdKey='" + this.i + "'}";
         }
-    }
-
-    public void e0(wv1 wv1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, wv1Var) == null) {
-            this.i = wv1Var;
-        }
-    }
-
-    @Override // com.repackage.hv1
-    @NonNull
-    public SwanAppComponentContainerView u(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) ? this.j : (SwanAppComponentContainerView) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

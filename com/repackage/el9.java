@@ -1,72 +1,66 @@
 package com.repackage;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.os.IBinder;
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.activitys.H5OpenActivity;
-import com.win.opensdk.core.Info;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-public class el9 extends WebViewClient {
+import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
+import com.google.android.gms.common.zzn;
+/* loaded from: classes6.dex */
+public final class el9 implements Parcelable.Creator<zzn> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ H5OpenActivity a;
 
-    public el9(H5OpenActivity h5OpenActivity) {
+    public el9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {h5OpenActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = h5OpenActivity;
     }
 
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-            Context applicationContext = this.a.getApplicationContext();
-            Uri parse = Uri.parse(str);
-            String scheme = parse.getScheme();
-            if ((TextUtils.isEmpty(scheme) || scheme.equals("http") || scheme.equals("https")) ? false : true) {
-                try {
-                    un9 a = yn9.a(applicationContext);
-                    a.i(new co9(this.a.d), parse.toString(), 0);
-                    a.m();
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("__SCHEME__", parse.toString());
-                    Info info = this.a.d;
-                    if (info != null) {
-                        sl9.K(sl9.i((String) info.getEvents().get(600, ""), "", info.isHo_c_sw(), hashMap));
-                    }
-                    zn9.b(applicationContext, parse);
-                    return true;
-                } catch (Exception e) {
-                    un9 a2 = yn9.a(applicationContext);
-                    a2.i(new co9(this.a.d), e.getMessage(), 2);
-                    a2.m();
-                    e.printStackTrace();
-                }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* bridge */ /* synthetic */ zzn createFromParcel(Parcel parcel) {
+        int q = SafeParcelReader.q(parcel);
+        String str = null;
+        IBinder iBinder = null;
+        boolean z = false;
+        boolean z2 = false;
+        boolean z3 = false;
+        while (parcel.dataPosition() < q) {
+            int k = SafeParcelReader.k(parcel);
+            int h = SafeParcelReader.h(k);
+            if (h == 1) {
+                str = SafeParcelReader.d(parcel, k);
+            } else if (h == 2) {
+                z = SafeParcelReader.i(parcel, k);
+            } else if (h == 3) {
+                z2 = SafeParcelReader.i(parcel, k);
+            } else if (h == 4) {
+                iBinder = SafeParcelReader.l(parcel, k);
+            } else if (h != 5) {
+                SafeParcelReader.p(parcel, k);
+            } else {
+                z3 = SafeParcelReader.i(parcel, k);
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        SafeParcelReader.g(parcel, q);
+        return new zzn(str, z, z2, iBinder, z3);
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ zzn[] newArray(int i) {
+        return new zzn[i];
     }
 }

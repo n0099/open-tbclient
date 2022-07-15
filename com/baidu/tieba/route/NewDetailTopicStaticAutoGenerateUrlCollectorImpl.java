@@ -52,8 +52,8 @@ public final class NewDetailTopicStaticAutoGenerateUrlCollectorImpl implements I
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
             arrayList.add("TopicDetailActivityConfig");
-            arrayList.add(UrlSchemaHelper.HTTP_JUMP_TOPIC_DETAIL);
-            arrayList.add(UrlSchemaHelper.HTTPS_JUMP_TOPIC_DETAIL);
+            arrayList.add("https://tieba.baidu.com/mo/q/newtopic/detail");
+            arrayList.add("https://tieba.baidu.com/mo/q/newtopic/detail");
             arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC);
             hashMap.put("com.baidu.tieba.newdetail.NewDetailTopicStatic", arrayList);
             return hashMap;

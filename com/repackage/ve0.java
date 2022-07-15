@@ -1,75 +1,60 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class ve0 extends ob1<hl0> {
+public class ve0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements hl0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(ve0 ve0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ve0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.hl0
-        public void b(String str, gl0 gl0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, gl0Var) == null) {
-                w21.a().b(str, gl0Var);
-            }
-        }
-
-        @Override // com.repackage.hl0
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                w21.a().c(str);
-            }
-        }
-    }
-
-    public ve0() {
+    public static MediaOneAEffect a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
+            MediaOneAEffect mediaOneAEffect = new MediaOneAEffect();
+            mediaOneAEffect.start = 0L;
+            mediaOneAEffect.end = j;
+            ArrayList arrayList = new ArrayList();
+            mediaOneAEffect.aParams = arrayList;
+            arrayList.add(c());
+            return mediaOneAEffect;
         }
+        return (MediaOneAEffect) invokeJ.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ob1
-    /* renamed from: a */
-    public hl0 createService() throws ServiceNotFoundException {
+    public static MediaAEffect b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            MediaAEffect mediaAEffect = new MediaAEffect();
+            mediaAEffect.name = "defaultScene";
+            mediaAEffect.duration = j;
+            mediaAEffect.repeatMode = MediaAEffect.AE_ANIM_ONCE;
+            mediaAEffect.effectType = "scene";
+            mediaAEffect.shaderConfigKey = we0.b;
+            ArrayList arrayList = new ArrayList();
+            mediaAEffect.mediaOneAEffects = arrayList;
+            arrayList.add(a(j));
+            return mediaAEffect;
+        }
+        return (MediaAEffect) invokeJ.objValue;
+    }
+
+    public static ShaderParams c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (hl0) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ShaderParams shaderParams = new ShaderParams();
+            shaderParams.name = "scale";
+            shaderParams.type = ShaderParams.VALUE_TYPE_ANIMATOR;
+            shaderParams.values = new float[]{1.0f, 1.2f};
+            return shaderParams;
+        }
+        return (ShaderParams) invokeV.objValue;
     }
 }

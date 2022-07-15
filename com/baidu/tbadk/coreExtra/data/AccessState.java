@@ -88,25 +88,26 @@ public class AccessState implements Serializable {
             return;
         }
         try {
-            JSONObject optJSONObject = new JSONObject(str).optJSONObject("info");
-            if (optJSONObject == null) {
-                return;
-            }
-            parserJson(optJSONObject.optJSONObject(AccountAccessActivityConfig.KEY_ACCESS_STATE));
+            parserJson(new JSONObject(str));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            this.type = jSONObject.optString("type");
-            this.token = jSONObject.optString("token");
-            JSONObject jSONObject2 = jSONObject.getJSONObject(TableDefine.DB_TABLE_USERINFO);
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("info");
+            if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject(AccountAccessActivityConfig.KEY_ACCESS_STATE)) == null) {
+                return;
+            }
+            this.type = optJSONObject.optString("type");
+            this.token = optJSONObject.optString("token");
+            JSONObject jSONObject2 = optJSONObject.getJSONObject(TableDefine.DB_TABLE_USERINFO);
             if (jSONObject2 == null) {
                 return;
             }

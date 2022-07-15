@@ -396,7 +396,7 @@ public class CardView extends FrameLayout {
                 }
             }
         };
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CardView, i, R$style.obfuscated_res_0x7f1000fa);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CardView, i, R$style.obfuscated_res_0x7f1000fb);
         if (obtainStyledAttributes.hasValue(R$styleable.CardView_cardBackgroundColor)) {
             valueOf = obtainStyledAttributes.getColorStateList(R$styleable.CardView_cardBackgroundColor);
         } else {

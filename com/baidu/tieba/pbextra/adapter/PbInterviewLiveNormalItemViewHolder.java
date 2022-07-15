@@ -44,18 +44,18 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
                 return;
             }
         }
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090efa);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f0b);
         this.a = tbImageView;
         tbImageView.setSupportNoImage(true);
         this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.a.setOnClickListener(this);
         this.a.setInterceptOnClick(true);
         this.a.setDefaultResource(R.drawable.icon_click);
-        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091a6f);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f0916a9);
-        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f0916aa);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916a8);
-        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090c55);
+        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091b17);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091752);
+        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f091753);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091751);
+        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090c5e);
         this.b.getLayoutStrategy().t();
         this.b.getLayoutStrategy().k(true);
         int min = Math.min(((((pi.k(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.b.getPaddingLeft()) - this.b.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
@@ -63,7 +63,7 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
         this.b.getLayoutStrategy().p((int) (min * 1.618f));
         this.b.setTextSize(TbConfig.getContentSize());
         this.b.setDisplayImage(z2, false);
-        this.b.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d088e);
+        this.b.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d08ae);
     }
 
     @Override // android.view.View.OnClickListener

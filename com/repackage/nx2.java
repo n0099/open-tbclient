@@ -1,109 +1,148 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.apps.publisher.ReplyEditorParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class nx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static nx2 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public WeakReference<mx2> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755454199, "Lcom/repackage/nx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<h03> a;
+        public WeakReference<pz1> b;
+        public String c;
+        public MediaModel d;
+
+        public b(nx2 nx2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nx2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755454199, "Lcom/repackage/nx2;");
+        }
+
+        public /* synthetic */ b(nx2 nx2Var, a aVar) {
+            this(nx2Var);
+        }
+    }
+
+    public nx2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static nx2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (nx2.class) {
+                    if (c == null) {
+                        c = new nx2();
+                    }
+                }
+            }
+            return c;
+        }
+        return (nx2) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            mx2 mx2Var = this.b.get();
+            if (mx2Var != null) {
+                mx2Var.C1();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(String str, MediaModel mediaModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, mediaModel) == null) {
+            h03 M = h03.M();
+            pz1 H = ul2.U().H();
+            if (M != null && H != null) {
+                b bVar = new b(this, null);
+                this.a = bVar;
+                bVar.a = new WeakReference<>(M);
+                this.a.b = new WeakReference<>(H);
+                b bVar2 = this.a;
+                bVar2.c = str;
+                bVar2.d = mediaModel;
                 return;
             }
+            this.a = null;
         }
-        a = cg1.a;
     }
 
-    public static JSONObject a(List<String> list, float f) {
-        InterceptResult invokeLF;
+    public void e(h03 h03Var, ReplyEditorParams replyEditorParams, jx2 jx2Var) {
+        pz1 H;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, list, f)) == null) {
-            if (a) {
-                Log.d("PublisherCompress", "start compress");
-            }
-            ArrayList arrayList = new ArrayList();
-            sz2 M = sz2.M();
-            if (M == null) {
-                return null;
-            }
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    File file = new File(str);
-                    File k = qc3.k(file.getName());
-                    if (qc3.b(file, k, (int) (100.0f * f))) {
-                        arrayList.add(k);
-                    }
-                }
-            }
-            return b(arrayList, M);
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, h03Var, replyEditorParams, jx2Var) == null) || (H = ul2.U().H()) == null || h03Var == null) {
+            return;
         }
-        return (JSONObject) invokeLF.objValue;
-    }
-
-    public static JSONObject b(ArrayList<File> arrayList, sz2 sz2Var) {
-        InterceptResult invokeLL;
-        String J;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, sz2Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            boolean w0 = sz2Var.w0();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONArray jSONArray2 = new JSONArray();
-                Iterator<File> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    File next = it.next();
-                    if (next != null) {
-                        if (w0) {
-                            J = cc2.Z(next.getAbsolutePath());
-                        } else {
-                            J = a73.J(next.getAbsolutePath(), sz2Var.b);
-                        }
-                        if (a) {
-                            Log.d("PublisherCompress", "isSwanGame: " + w0 + "; path: " + J);
-                        }
-                        jSONArray.put(J);
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("path", J);
-                        jSONObject2.put("size", next.length());
-                        jSONArray2.put(jSONObject2);
-                    }
-                }
-                jSONObject.put("tempFilePaths", jSONArray);
-                jSONObject.put("tempFiles", jSONArray2);
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("PublisherCompress", "wrapParams failed");
-                    e.printStackTrace();
-                }
-            }
-            if (a) {
-                Log.e("PublisherCompress", jSONObject.toString());
-            }
-            return jSONObject;
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("params", replyEditorParams);
+        b bVar = this.a;
+        if (bVar != null && h03Var == bVar.a.get() && H == this.a.b.get()) {
+            bundle.putBoolean(MediaTrackConfig.AE_IMPORT_DRAFT, true);
+            bundle.putString("content", this.a.c);
+            bundle.putParcelable("image", this.a.d);
         }
-        return (JSONObject) invokeLL.objValue;
+        mx2 mx2Var = new mx2();
+        mx2Var.j1(bundle);
+        mx2Var.P1(jx2Var);
+        mx2Var.t1(H.v(), "ReplyEditor");
+        this.b = new WeakReference<>(mx2Var);
     }
 }

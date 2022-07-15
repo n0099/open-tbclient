@@ -1,12 +1,12 @@
 package com.kwad.sdk.core.network.kwai;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.kwad.sdk.core.network.c;
 import com.kwad.sdk.core.network.f;
-import com.kwad.sdk.core.network.k;
-import com.kwad.sdk.core.network.m;
-import java.io.ByteArrayOutputStream;
+import com.kwad.sdk.core.network.n;
+import com.kwad.sdk.core.network.p;
+import com.kwad.sdk.crash.utils.g;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -18,18 +18,14 @@ import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a {
-    public static c a(String str, Map<String, String> map) {
+public final class a {
+    public static com.kwad.sdk.core.network.c a(String str, Map<String, String> map) {
         return a(str, map, true);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00a9  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static c a(String str, Map<String, String> map, String str2, boolean z) {
+    public static com.kwad.sdk.core.network.c a(String str, Map<String, String> map, String str2, boolean z) {
         OutputStream outputStream;
-        c cVar = new c();
+        com.kwad.sdk.core.network.c cVar = new com.kwad.sdk.core.network.c();
         HttpURLConnection httpURLConnection = null;
         r1 = null;
         r1 = null;
@@ -38,14 +34,14 @@ public class a {
         try {
             HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
             try {
-                m.a(httpURLConnection2);
+                p.a(httpURLConnection2);
                 httpURLConnection2.setDoInput(true);
                 httpURLConnection2.setDoOutput(true);
                 httpURLConnection2.setRequestMethod("POST");
                 httpURLConnection2.setRequestProperty("Content-Type", z ? "application/json" : "application/x-www-form-urlencoded");
-                httpURLConnection2.setRequestProperty("User-Agent", k.c());
-                httpURLConnection2.setRequestProperty("BrowserUa", k.d());
-                httpURLConnection2.setRequestProperty("SystemUa", k.a());
+                httpURLConnection2.setRequestProperty("User-Agent", n.c());
+                httpURLConnection2.setRequestProperty("BrowserUa", n.d());
+                httpURLConnection2.setRequestProperty("SystemUa", n.a());
                 a(httpURLConnection2, map);
                 httpURLConnection2.setConnectTimeout(5000);
                 httpURLConnection2.setReadTimeout(5000);
@@ -58,12 +54,11 @@ public class a {
                 }
                 int responseCode = httpURLConnection2.getResponseCode();
                 cVar.a = responseCode;
+                cVar.b = responseCode;
                 if (responseCode == 200) {
-                    cVar.b = a(httpURLConnection2.getInputStream());
+                    cVar.d = a(httpURLConnection2.getInputStream());
                 }
-                if (httpURLConnection2 != null) {
-                    httpURLConnection2.disconnect();
-                }
+                com.kwad.sdk.crash.utils.b.a(httpURLConnection2);
                 com.kwad.sdk.crash.utils.b.a(outputStream2);
             } catch (Exception e) {
                 e = e;
@@ -72,16 +67,12 @@ public class a {
                 outputStream = outputStream3;
                 try {
                     a(cVar, e);
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
+                    com.kwad.sdk.crash.utils.b.a(httpURLConnection);
                     com.kwad.sdk.crash.utils.b.a(outputStream);
                     return cVar;
                 } catch (Throwable th) {
                     th = th;
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
+                    com.kwad.sdk.crash.utils.b.a(httpURLConnection);
                     com.kwad.sdk.crash.utils.b.a(outputStream);
                     throw th;
                 }
@@ -90,8 +81,7 @@ public class a {
                 OutputStream outputStream4 = outputStream2;
                 httpURLConnection = httpURLConnection2;
                 outputStream = outputStream4;
-                if (httpURLConnection != null) {
-                }
+                com.kwad.sdk.crash.utils.b.a(httpURLConnection);
                 com.kwad.sdk.crash.utils.b.a(outputStream);
                 throw th;
             }
@@ -105,7 +95,7 @@ public class a {
         return cVar;
     }
 
-    public static c a(String str, Map<String, String> map, Map<String, String> map2) {
+    public static com.kwad.sdk.core.network.c a(String str, Map<String, String> map, Map<String, String> map2) {
         String str2;
         if (map2 != null) {
             StringBuilder sb = new StringBuilder();
@@ -123,18 +113,14 @@ public class a {
         return a(str, map, str2, false);
     }
 
-    public static c a(String str, Map<String, String> map, JSONObject jSONObject) {
+    public static com.kwad.sdk.core.network.c a(String str, Map<String, String> map, JSONObject jSONObject) {
         return a(str, map, jSONObject != null ? jSONObject.toString() : null, true);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0091  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static c a(String str, Map<String, String> map, boolean z) {
+    public static com.kwad.sdk.core.network.c a(String str, Map<String, String> map, boolean z) {
         InputStream inputStream;
         HttpURLConnection httpURLConnection;
-        c cVar = new c();
+        com.kwad.sdk.core.network.c cVar = new com.kwad.sdk.core.network.c();
         HttpURLConnection httpURLConnection2 = null;
         r1 = null;
         r1 = null;
@@ -150,14 +136,16 @@ public class a {
             inputStream = null;
         }
         try {
-            m.a(httpURLConnection);
+            p.a(httpURLConnection);
             a(httpURLConnection, map);
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setRequestProperty("Accept", "application/json");
-            httpURLConnection.setRequestProperty("User-Agent", k.c());
-            httpURLConnection.setRequestProperty("BrowserUa", k.d());
-            httpURLConnection.setRequestProperty("SystemUa", k.a());
-            cVar.a = httpURLConnection.getResponseCode();
+            httpURLConnection.setRequestProperty("User-Agent", n.c());
+            httpURLConnection.setRequestProperty("BrowserUa", n.d());
+            httpURLConnection.setRequestProperty("SystemUa", n.a());
+            int responseCode = httpURLConnection.getResponseCode();
+            cVar.a = responseCode;
+            cVar.b = responseCode;
             StringBuilder sb = new StringBuilder();
             if (z) {
                 inputStream2 = httpURLConnection.getInputStream();
@@ -170,10 +158,8 @@ public class a {
                     sb.append(new String(bArr, 0, read));
                 }
             }
-            cVar.b = sb.toString();
-            if (httpURLConnection != null) {
-                httpURLConnection.disconnect();
-            }
+            cVar.d = sb.toString();
+            com.kwad.sdk.crash.utils.b.a(httpURLConnection);
             com.kwad.sdk.crash.utils.b.a(inputStream2);
         } catch (Exception e2) {
             e = e2;
@@ -182,16 +168,12 @@ public class a {
             inputStream = inputStream3;
             try {
                 a(cVar, e);
-                if (httpURLConnection2 != null) {
-                    httpURLConnection2.disconnect();
-                }
+                com.kwad.sdk.crash.utils.b.a(httpURLConnection2);
                 com.kwad.sdk.crash.utils.b.a(inputStream);
                 return cVar;
             } catch (Throwable th2) {
                 th = th2;
-                if (httpURLConnection2 != null) {
-                    httpURLConnection2.disconnect();
-                }
+                com.kwad.sdk.crash.utils.b.a(httpURLConnection2);
                 com.kwad.sdk.crash.utils.b.a(inputStream);
                 throw th;
             }
@@ -200,96 +182,24 @@ public class a {
             InputStream inputStream4 = inputStream2;
             httpURLConnection2 = httpURLConnection;
             inputStream = inputStream4;
-            if (httpURLConnection2 != null) {
-            }
+            com.kwad.sdk.crash.utils.b.a(httpURLConnection2);
             com.kwad.sdk.crash.utils.b.a(inputStream);
             throw th;
         }
         return cVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0056 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0060 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static String a(InputStream inputStream) {
-        Throwable th;
-        ByteArrayOutputStream byteArrayOutputStream;
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
         try {
             try {
-                byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        byteArrayOutputStream.write(bArr, 0, read);
-                    }
-                    String str = new String(byteArrayOutputStream.toByteArray());
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (IOException e) {
-                            com.kwad.sdk.core.d.a.b(e);
-                        }
-                    }
-                    try {
-                        byteArrayOutputStream.close();
-                    } catch (IOException e2) {
-                        com.kwad.sdk.core.d.a.b(e2);
-                    }
-                    return str;
-                } catch (IOException e3) {
-                    e = e3;
-                    com.kwad.sdk.core.d.a.b(e);
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (IOException e4) {
-                            com.kwad.sdk.core.d.a.b(e4);
-                        }
-                    }
-                    if (byteArrayOutputStream != null) {
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (IOException e5) {
-                            com.kwad.sdk.core.d.a.b(e5);
-                        }
-                    }
-                    return null;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e6) {
-                        com.kwad.sdk.core.d.a.b(e6);
-                    }
-                }
-                if (0 != 0) {
-                    try {
-                        byteArrayOutputStream2.close();
-                    } catch (IOException e7) {
-                        com.kwad.sdk.core.d.a.b(e7);
-                    }
-                }
-                throw th;
+                return g.a(inputStream);
+            } catch (IOException e) {
+                com.kwad.sdk.core.d.b.b(e);
+                com.kwad.sdk.crash.utils.b.a(inputStream);
+                return null;
             }
-        } catch (IOException e8) {
-            e = e8;
-            byteArrayOutputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            if (inputStream != null) {
-            }
-            if (0 != 0) {
-            }
-            throw th;
+        } finally {
+            com.kwad.sdk.crash.utils.b.a(inputStream);
         }
     }
 
@@ -300,17 +210,31 @@ public class a {
         try {
             return URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e) {
-            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.b.a(e);
             return "";
         }
     }
 
-    public static void a(@NonNull c cVar, Exception exc) {
-        f fVar = exc instanceof SocketTimeoutException ? f.a : f.b;
-        cVar.a = fVar.n;
-        cVar.b = fVar.o;
-        if (com.kwad.sdk.b.c.booleanValue()) {
-            com.kwad.sdk.core.d.a.b(exc);
+    public static void a(@NonNull com.kwad.sdk.core.network.c cVar, Exception exc) {
+        int i = cVar.a;
+        if (i == 0) {
+            i = -1;
+        }
+        cVar.b = i;
+        cVar.c = exc;
+        if (exc instanceof SocketTimeoutException) {
+            f fVar = f.a;
+            cVar.a = fVar.p;
+            cVar.d = fVar.q;
+        } else {
+            cVar.a = f.b.p;
+            try {
+                cVar.d = f.b.q + "/n" + Log.getStackTraceString(exc);
+            } catch (Exception unused) {
+            }
+        }
+        if (com.kwad.b.kwai.a.b.booleanValue()) {
+            com.kwad.sdk.core.d.b.b(exc);
         }
     }
 

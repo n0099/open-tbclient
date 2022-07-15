@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.io.File;
 /* loaded from: classes5.dex */
-public class a {
+public final class a {
     public static Context a;
     public static String b;
 
@@ -21,13 +21,16 @@ public class a {
     }
 
     public static File a(Context context) {
-        File dataDir = Build.VERSION.SDK_INT >= 24 ? context.getDataDir() : null;
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 29) {
+            return new File(context.getExternalFilesDir(null).getAbsolutePath());
+        }
+        File dataDir = i >= 24 ? context.getDataDir() : null;
         if (dataDir == null) {
-            File file = new File(Environment.getDataDirectory().getPath() + "/data/" + context.getPackageName());
-            if (file.exists()) {
-                return file;
+            dataDir = new File(Environment.getDataDirectory().getPath() + "/data/" + context.getPackageName());
+            if (!dataDir.exists()) {
+                return new File("/data/data/" + context.getPackageName());
             }
-            return new File("/data/data/" + context.getPackageName());
         }
         return dataDir;
     }
@@ -37,7 +40,22 @@ public class a {
         b = str;
     }
 
+    public static boolean a(File file) {
+        if (file == null) {
+            return false;
+        }
+        return file.exists() || file.mkdirs();
+    }
+
     public static File b() {
         return new File(a(), "java_crash/dump");
+    }
+
+    public static File c() {
+        return new File(a(), "anr_log/dump");
+    }
+
+    public static File d() {
+        return new File(a(), "native_crash_log/dump");
     }
 }

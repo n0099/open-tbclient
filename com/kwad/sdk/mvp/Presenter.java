@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
 import com.kwad.sdk.api.core.ResContext;
-import com.kwad.sdk.core.kwai.a;
+import com.kwad.sdk.core.d.b;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -23,57 +23,57 @@ public class Presenter {
     public enum PresenterState {
         INIT(0) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.1
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
-            public void performCallState(Presenter presenter) {
+            public final void performCallState(Presenter presenter) {
             }
         },
         CREATE(1) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.2
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
-            public void performCallState(Presenter presenter) {
+            public final void performCallState(Presenter presenter) {
                 for (Presenter presenter2 : presenter.a) {
                     try {
                         presenter2.c(presenter.b);
                     } catch (Exception e) {
-                        a.a(e);
-                        com.kwad.sdk.core.d.a.a(e);
+                        com.kwad.sdk.service.a.a(e);
+                        b.a(e);
                     }
                 }
             }
         },
         BIND(2) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.3
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
-            public void performCallState(Presenter presenter) {
+            public final void performCallState(Presenter presenter) {
                 for (Presenter presenter2 : presenter.a) {
                     try {
                         presenter2.a(presenter.c);
                     } catch (Exception e) {
-                        a.a(e);
-                        com.kwad.sdk.core.d.a.a(e);
+                        com.kwad.sdk.service.a.a(e);
+                        b.a(e);
                     }
                 }
             }
         },
         UNBIND(3) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.4
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
-            public void performCallState(Presenter presenter) {
+            public final void performCallState(Presenter presenter) {
                 for (Presenter presenter2 : presenter.a) {
                     try {
-                        presenter2.j();
+                        presenter2.o();
                     } catch (Exception e) {
-                        a.a(e);
-                        com.kwad.sdk.core.d.a.a(e);
+                        com.kwad.sdk.service.a.a(e);
+                        b.a(e);
                     }
                 }
             }
         },
         DESTROY(4) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.5
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
-            public void performCallState(Presenter presenter) {
+            public final void performCallState(Presenter presenter) {
                 for (Presenter presenter2 : presenter.a) {
                     try {
-                        presenter2.k();
+                        presenter2.p();
                     } catch (Exception e) {
-                        a.a(e);
-                        com.kwad.sdk.core.d.a.a(e);
+                        com.kwad.sdk.service.a.a(e);
+                        b.a(e);
                     }
                 }
             }
@@ -92,8 +92,8 @@ public class Presenter {
         public abstract void performCallState(Presenter presenter);
     }
 
-    public final <T extends View> T a(int i) {
-        return (T) this.b.findViewById(i);
+    private boolean d() {
+        return this.d.index() >= PresenterState.CREATE.index();
     }
 
     public void a() {
@@ -101,7 +101,7 @@ public class Presenter {
 
     public final void a(Presenter presenter) {
         this.a.add(presenter);
-        if (!l() || presenter.l()) {
+        if (!d() || presenter.d()) {
             return;
         }
         c(this.b);
@@ -113,7 +113,7 @@ public class Presenter {
             PresenterState presenterState = PresenterState.DESTROY;
         }
         if (this.d == PresenterState.BIND) {
-            j();
+            o();
         }
         this.d = PresenterState.BIND;
         this.c = obj;
@@ -121,81 +121,81 @@ public class Presenter {
         this.d.performCallState(this);
     }
 
-    public void c() {
+    public final <T extends View> T b(int i) {
+        return (T) this.b.findViewById(i);
     }
 
     @UiThread
     public final void c(View view2) {
         this.d = PresenterState.CREATE;
         this.b = view2;
-        c_();
+        i_();
         this.d.performCallState(this);
     }
 
-    public void c_() {
+    public void e_() {
     }
 
-    public void d_() {
+    public void i_() {
+    }
+
+    public void k_() {
     }
 
     @UiThread
-    public final void j() {
+    public final void o() {
         this.d = PresenterState.UNBIND;
-        c();
+        k_();
         this.d.performCallState(this);
     }
 
     @UiThread
-    public final void k() {
+    public final void p() {
         if (this.d == PresenterState.BIND) {
-            j();
+            o();
         }
         this.d = PresenterState.DESTROY;
-        d_();
+        e_();
         this.d.performCallState(this);
     }
 
-    public final boolean l() {
-        return this.d.index() >= PresenterState.CREATE.index();
-    }
-
-    public View m() {
+    public final View q() {
         return this.b;
     }
 
-    public List<Presenter> n() {
+    public final List<Presenter> r() {
         return this.a;
     }
 
     @Nullable
     @UiThread
-    public Activity o() {
-        Context q = q();
+    public final Activity s() {
+        Context u = u();
         HashSet hashSet = new HashSet();
         do {
-            hashSet.add(q);
-            if (!(q instanceof ContextWrapper)) {
+            hashSet.add(u);
+            if (!(u instanceof ContextWrapper)) {
                 return null;
             }
-            if (q instanceof Activity) {
-                return (Activity) q;
+            if (u instanceof Activity) {
+                return (Activity) u;
             }
-            if (q instanceof ResContext) {
-                Context delegatedContext = ((ResContext) q).getDelegatedContext();
+            if (u instanceof ResContext) {
+                Context delegatedContext = ((ResContext) u).getDelegatedContext();
                 if (delegatedContext instanceof Activity) {
                     return (Activity) delegatedContext;
                 }
             }
-            q = ((ContextWrapper) q).getBaseContext();
-        } while (!hashSet.contains(q));
+            u = ((ContextWrapper) u).getBaseContext();
+        } while (!hashSet.contains(u));
         return null;
     }
 
-    public Object p() {
+    public final Object t() {
         return this.c;
     }
 
-    public final Context q() {
+    public final Context u() {
         View view2 = this.b;
         if (view2 == null) {
             return null;

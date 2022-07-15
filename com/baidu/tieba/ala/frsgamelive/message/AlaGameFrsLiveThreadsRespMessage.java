@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ds5;
+import com.repackage.at5;
 import com.repackage.nn;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,11 +62,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        ds5 ds5Var = new ds5();
+                        at5 at5Var = new at5();
                         ThreadData threadData = new ThreadData();
                         threadData.parserJson(optJSONObject2);
-                        ds5Var.a = threadData;
-                        this.liveList.add(ds5Var);
+                        at5Var.a = threadData;
+                        this.liveList.add(at5Var);
                     }
                 }
             }
@@ -76,11 +76,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        ds5 ds5Var2 = new ds5();
+                        at5 at5Var2 = new at5();
                         ThreadData threadData2 = new ThreadData();
                         threadData2.parserJson(optJSONObject3);
-                        ds5Var2.a = threadData2;
-                        this.recommandList.add(ds5Var2);
+                        at5Var2.a = threadData2;
+                        this.recommandList.add(at5Var2);
                     }
                 }
             }

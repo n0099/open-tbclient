@@ -5,8 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.g;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
@@ -41,15 +39,9 @@ public class a {
         return (a) invokeV.objValue;
     }
 
-    public static void a(String str, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, str, jSONObject, jSONObject2, jSONObject3) == null) {
-            if (!g.a().b.isCloseDefaultReport()) {
-                ZeusLogger.d("Zeus/DefaultReporterImpl", "report by defaultImpl");
-                com.bytedance.pangle.helper.d.a().monitorStatusAndEvent(str, 0, jSONObject, jSONObject2, jSONObject3);
-                com.bytedance.pangle.helper.d.a().flushBuffer(new b("report result : "));
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             ZeusLogger.d("Zeus/DefaultReporterImpl", "skip default report");
         }
     }

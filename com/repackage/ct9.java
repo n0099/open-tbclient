@@ -1,11 +1,11 @@
 package com.repackage;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface ct9 {
-    ct9 a();
+public final class ct9<T> extends as9<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(String str);
-
-    String c();
-
-    String toString();
+    public abstract void g(long j);
 }

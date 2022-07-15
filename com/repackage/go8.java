@@ -1,366 +1,50 @@
 package com.repackage;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.repackage.fu4;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONObject;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
 public class go8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<String> b;
-    public List<String> c;
+    public BubbleListActivity a;
+    public View b;
+    public NavigationBar c;
+    public MemberRecommendView d;
+    public BdListView e;
+    public gu4 f;
+    public fo8 g;
+    public int h;
 
-    /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(go8 go8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {go8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                pk7.a(ok7.b);
-                pk7.a(ok7.c);
-                pk7.a(ok7.d);
-                pk7.a(ok7.f);
-                pk7.a(ok7.g);
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ go8 a;
-
-        public b(go8 go8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {go8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = go8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                List j = go8.j(ok7.e);
-                if (j == null) {
-                    return null;
-                }
-                int size = j.size();
-                for (int i = 0; i < size; i++) {
-                    this.a.n((fo8) j.get(i));
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends BdAsyncTask<String, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ go8 a;
-
-        public c(go8 go8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {go8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = go8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                if (strArr != null && strArr.length == 2 && !StringUtils.isNull(strArr[0]) && !StringUtils.isNull(strArr[1])) {
-                    this.a.f(strArr[0], strArr[1]);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d extends BdAsyncTask<fo8, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ go8 a;
-
-        public d(go8 go8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {go8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = go8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(fo8... fo8VarArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fo8VarArr)) == null) {
-                if (fo8VarArr != null && fo8VarArr.length == 1 && fo8VarArr[0] != null) {
-                    this.a.g(fo8VarArr[0]);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public static final go8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-350568128, "Lcom/repackage/go8$e;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-350568128, "Lcom/repackage/go8$e;");
-                    return;
-                }
-            }
-            a = new go8(null);
-        }
-    }
-
-    public /* synthetic */ go8(a aVar) {
-        this();
-    }
-
-    public static go8 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? e.a : (go8) invokeV.objValue;
-    }
-
-    public static List<fo8> j(String str) {
-        InterceptResult invokeL;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            File file = new File(str);
-            if (file.exists() && (listFiles = file.listFiles()) != null) {
-                int length = listFiles.length;
-                ArrayList arrayList = new ArrayList(length);
-                for (int i = 0; i < length; i++) {
-                    arrayList.add(new fo8(m(pk7.e(listFiles[i])), listFiles[i].getAbsolutePath()));
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static List<String> m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            String[] split = str.split("\n");
-            int length = split.length;
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < length; i++) {
-                if (!StringUtils.isNull(split[i])) {
-                    arrayList.add(split[i]);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new a(this).execute(new Void[0]);
-        }
-    }
-
-    public final synchronized boolean f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            synchronized (this) {
-                if (this.c.contains(str)) {
-                    return false;
-                }
-                File file = new File(str);
-                return pk7.f(file, str2 + "\n");
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final synchronized void g(fo8 fo8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fo8Var) == null) {
-            synchronized (this) {
-                try {
-                    byte[] a2 = eo8.a(fo8Var.a);
-                    if (eo8.c(a2, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(fo8Var.b)) {
-                        FileHelper.deleteFile(new File(fo8Var.b));
-                        this.c.add(fo8Var.b);
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.a)) {
-                if (!ji.c()) {
-                    return null;
-                }
-                this.a = String.valueOf(System.currentTimeMillis());
-            }
-            return ok7.e + this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public synchronized void k(JSONObject jSONObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, jSONObject, z) == null) {
-            synchronized (this) {
-                if (jSONObject == null) {
-                    return;
-                }
-                this.b.add(jSONObject.toString());
-                String i = i();
-                if (ji.c()) {
-                    l(jSONObject, i);
-                }
-                if (this.b.size() >= by4.a() || z) {
-                    n(new fo8(this.b, i));
-                    this.b.clear();
-                    this.a = null;
-                }
-            }
-        }
-    }
-
-    public final void l(JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, str) == null) && !StringUtils.isNull(str) && ji.c()) {
-            new c(this).execute(str, jSONObject.toString());
-        }
-    }
-
-    public final void n(fo8 fo8Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, fo8Var) == null) || fo8Var == null) {
-            return;
-        }
-        new d(this).execute(fo8Var);
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && ji.c()) {
-            new b(this).execute(new Void[0]);
-        }
-    }
-
-    public go8() {
+    public go8(BubbleListActivity bubbleListActivity, bo8 bo8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bubbleListActivity, bo8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -370,10 +54,157 @@ public class go8 {
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        if (ji.c()) {
-            e();
+        this.f = null;
+        this.h = 0;
+        this.a = bubbleListActivity;
+        this.h = pi.f(bubbleListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023e);
+        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0164, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092437);
+        this.c = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.c.setTitleText(R.string.obfuscated_res_0x7f0f0346);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f092436);
+        this.d = memberRecommendView;
+        memberRecommendView.setFromType(7);
+        this.e = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f0912e1);
+        gu4 gu4Var = new gu4(this.a.getPageContext());
+        this.f = gu4Var;
+        this.e.setPullRefresh(gu4Var);
+        TextView textView = new TextView(this.a.getActivity());
+        textView.setHeight(pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0701d5));
+        this.e.addFooterView(textView);
+        fo8 fo8Var = new fo8(this.a.getPageContext(), bo8Var);
+        this.g = fo8Var;
+        this.e.setAdapter((ListAdapter) fo8Var);
+    }
+
+    public final List<List<DressItemData>> a(List<DressItemData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            for (int i = 0; i < size; i = i + 1 + 1) {
+                ArrayList arrayList2 = new ArrayList();
+                for (int i2 = 0; i2 < 2; i2++) {
+                    int i3 = i + i2;
+                    if (i3 < size) {
+                        arrayList2.add(list.get(i3));
+                    }
+                }
+                arrayList.add(arrayList2);
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            this.a.hideNetRefreshView(this.b);
+            this.d.setVisibility(0);
+            this.e.setVisibility(0);
+            this.b.setVisibility(0);
+        }
+    }
+
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public void d() {
+        fo8 fo8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ga5.a(this.a.getPageContext(), this.b);
+            NavigationBar navigationBar = this.c;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            BdListView bdListView = this.e;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (fo8Var = this.g) != null) {
+                fo8Var.notifyDataSetChanged();
+            }
+            gu4 gu4Var = this.f;
+            if (gu4Var != null) {
+                gu4Var.H(TbadkApplication.getInst().getSkinType());
+            }
+            this.d.d();
+        }
+    }
+
+    public final void e(List<List<DressItemData>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.e.setVisibility(0);
+                this.g.b(list);
+                this.g.notifyDataSetChanged();
+                return;
+            }
+            this.e.setVisibility(8);
+        }
+    }
+
+    public final boolean f(po8 po8Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, po8Var)) == null) {
+            if (po8Var != null && !StringUtils.isNull(po8Var.c())) {
+                this.d.setVisibility(0);
+                this.d.e(po8Var);
+                return true;
+            }
+            this.d.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(BdListView.p pVar, fu4.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
+            this.e.setOnSrollToBottomListener(pVar);
+            this.f.f(gVar);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.d.setVisibility(8);
+            this.e.setVisibility(8);
+            this.b.setVisibility(8);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
+            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c45);
+            this.a.setNetRefreshViewTopMargin(this.h);
+            this.a.showNetRefreshView(this.b, string, false);
+        }
+    }
+
+    public void i(po8 po8Var, List<DressItemData> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, po8Var, list, z) == null) {
+            if (list != null && list.size() > 0) {
+                b();
+                f(po8Var);
+                e(a(list));
+                return;
+            }
+            h();
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.e.A(0L);
         }
     }
 }

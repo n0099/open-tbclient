@@ -1,140 +1,156 @@
 package com.repackage;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Process;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
 public class x79 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile boolean a;
+    public j89 b;
+    public b c;
+    public o89 d;
+    public boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755218537, "Lcom/repackage/x79;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x79 a;
+
+        public b(x79 x79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x79Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x79Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+
+        public /* synthetic */ b(x79 x79Var, a aVar) {
+            this(x79Var);
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Process.setThreadPriority(-19);
+                try {
+                    try {
+                        this.a.b = new j89(-100);
+                        if (this.a.b.d() != null) {
+                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(j89.d);
+                            this.a.b.c();
+                            if (this.a.b.e() != 3) {
+                                return;
+                            }
+                            while (!this.a.a) {
+                                allocateDirect.clear();
+                                int a = this.a.b.a(allocateDirect, j89.d);
+                                if (a > 0) {
+                                    double a2 = q89.a(allocateDirect, a);
+                                    if (this.a.d != null && a2 > 0.0d) {
+                                        this.a.d.a(a2);
+                                    }
+                                }
+                            }
+                        } else if (this.a.d != null) {
+                            this.a.d.a("failed to initialize AudioRecord", true);
+                        }
+                    } catch (Exception unused) {
+                        if (this.a.d != null) {
+                            this.a.d.a("failed to initialize AudioRecord", true);
+                        }
+                    }
+                } finally {
+                    this.a.i();
+                }
+            }
+        }
+    }
+
+    public x79() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755218537, "Lcom/repackage/x79;");
-        }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            String fileName = stackTrace[4].getFileName();
-            String methodName = stackTrace[4].getMethodName();
-            return String.format(Locale.US, "[%d] %s: %s", Long.valueOf(Thread.currentThread().getId()), "[ (" + fileName + ":" + stackTrace[4].getLineNumber() + ")#" + (methodName.substring(0, 1).toUpperCase() + methodName.substring(1)) + " ] ", str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && a) {
-            String[] h = h(str);
-            if (h != null && h.length == 2) {
-                Log.d(h[0], h[1]);
-            } else {
-                Log.d("BdLog", str);
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
     }
 
-    public static void c(String str, String str2) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && a) {
-            Log.d(str, a(str2));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = true;
+            this.a = false;
+            b bVar = new b(this, null);
+            this.c = bVar;
+            bVar.start();
         }
     }
 
-    public static void d(String str) {
+    public void d(o89 o89Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
-            String[] h = h(str);
-            if (h != null && h.length == 2) {
-                Log.e(h[0], h[1]);
-            } else {
-                Log.e("BdLog", str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o89Var) == null) {
+            this.d = o89Var;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = true;
+            this.e = false;
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = false;
+            this.e = false;
+            j89 j89Var = this.b;
+            if (j89Var != null) {
+                j89Var.b();
             }
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && a) {
-            Log.e(str, a(str2));
-        }
-    }
-
-    public static void f(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65542, null, str, str2, th) == null) && a) {
-            Log.e(str, a(str2), th);
-        }
-    }
-
-    public static void g(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, th) == null) && a && th != null) {
-            th.printStackTrace();
-        }
-    }
-
-    public static String[] h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            String fileName = stackTrace[4].getFileName();
-            String methodName = stackTrace[4].getMethodName();
-            return new String[]{fileName, String.format(Locale.US, "[%d] %s: %s", Long.valueOf(Thread.currentThread().getId()), "[ (" + fileName + ":" + stackTrace[4].getLineNumber() + ")#" + (methodName.substring(0, 1).toUpperCase() + methodName.substring(1)) + " ] ", str)};
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static void i(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && a) {
-            String[] h = h(str);
-            if (h != null && h.length == 2) {
-                Log.i(h[0], h[1]);
-            } else {
-                Log.i("BdLog", str);
+            if (this.c != null) {
+                this.c = null;
             }
-        }
-    }
-
-    public static void j(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && a) {
-            Log.i(str, a(str2));
-        }
-    }
-
-    public static void k(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && a) {
-            Log.v(str, a(str2));
-        }
-    }
-
-    public static void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && a) {
-            Log.w(str, a(str2));
         }
     }
 }

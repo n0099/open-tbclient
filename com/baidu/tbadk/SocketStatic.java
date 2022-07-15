@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a45;
+import com.repackage.c55;
 import com.repackage.ni;
 import com.repackage.qb;
 /* loaded from: classes2.dex */
@@ -93,7 +93,7 @@ public class SocketStatic {
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && ni.z() && BdSocketLinkService.isClose()) {
-                                a45.b(0, 0, 0, 1, 6);
+                                c55.b(0, 0, 0, 1, 6);
                                 BdSocketLinkService.setAvailable(true);
                                 BdSocketLinkService.startService(false, "net succ");
                             }

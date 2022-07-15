@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a {
+public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;
@@ -35,7 +35,7 @@ public class a {
         this.d = j4;
     }
 
-    public String toString() {
+    public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwai.filedownloader.e.f.a("range[%d, %d) current offset[%d]", Long.valueOf(this.a), Long.valueOf(this.c), Long.valueOf(this.b)) : (String) invokeV.objValue;

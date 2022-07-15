@@ -1,41 +1,28 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.content.Context;
-import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.PopupWindow;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.sapi2.shell.listener.WebAuthListener;
+import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
+import com.google.gson.Gson;
 /* loaded from: classes7.dex */
-public class vp7 {
+public class vp7 extends qp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public final Context e;
-    public int f;
-    public FrameLayout g;
-    public TBLottieAnimationView h;
-    public PopupWindow i;
-    public Animator.AnimatorListener j;
+    public ShareStorage.StorageModel i;
 
     /* loaded from: classes7.dex */
-    public class a implements Animator.AnimatorListener {
+    public class a extends WebAuthListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vp7 a;
@@ -58,257 +45,74 @@ public class vp7 {
             this.a = vp7Var;
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
+                BaseActivity baseActivity = this.a.b;
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f1150), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
             }
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.i.dismiss();
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
+                this.a.f();
+                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_SHARE, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements f05 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ vp7 d;
-
-        public b(vp7 vp7Var, View view2, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vp7Var, view2, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = vp7Var;
-            this.a = view2;
-            this.b = i;
-            this.c = i2;
-        }
-
-        @Override // com.repackage.f05
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                this.d.h.setAnimation(i);
-                if (!TextUtils.isEmpty(str)) {
-                    this.d.h.setImageAssetsFolder(str);
-                }
-                this.d.g(this.a, this.b, this.c);
-            }
-        }
-
-        @Override // com.repackage.f05
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.d.h.setAnimationDir(str);
-                this.d.g(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements f05 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ vp7 d;
-
-        public c(vp7 vp7Var, View view2, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vp7Var, view2, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = vp7Var;
-            this.a = view2;
-            this.b = i;
-            this.c = i2;
-        }
-
-        @Override // com.repackage.f05
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    this.d.h.setAlpha(0.8f);
-                } else {
-                    this.d.h.setAlpha(1.0f);
-                }
-                this.d.h.setAnimation(i);
-                this.d.h.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                this.d.h.setImageAssetsFolder(str);
-                this.d.g(this.a, this.b, this.c);
-            }
-        }
-
-        @Override // com.repackage.f05
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    this.d.h.setAlpha(0.8f);
-                } else {
-                    this.d.h.setAlpha(1.0f);
-                }
-                this.d.h.setAnimationDir(str);
-                this.d.h.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
-                this.d.g(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    public vp7(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vp7(TbPageContext tbPageContext, rp7 rp7Var) {
+        super(tbPageContext, rp7Var, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, rp7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (rp7) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds312);
-        this.b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds484);
-        this.f = 0;
-        this.e = context;
-        e();
-        d();
-        f();
     }
 
-    public final void d() {
+    @Override // com.repackage.qp7
+    public void j(sp7 sp7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.e);
-            this.g = frameLayout;
-            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.h = new TBLottieAnimationView(this.e);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.b, this.a);
-            this.h.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            this.h.setLayoutParams(layoutParams);
-            this.h.addAnimatorListener(this.j);
-            this.g.addView(this.h);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.j = new a(this);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            PopupWindow popupWindow = new PopupWindow();
-            this.i = popupWindow;
-            popupWindow.setContentView(this.g);
-            this.i.setHeight(-2);
-            this.i.setWidth(-2);
-        }
-    }
-
-    public final void g(View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, view2, i, i2) == null) && sg.m(this.i, view2, this.f, i - this.c, i2 - this.d)) {
-            this.h.playAnimation();
-        }
-    }
-
-    public void h(boolean z) {
-        PopupWindow popupWindow;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (popupWindow = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, sp7Var) == null) || sp7Var == null) {
             return;
         }
-        popupWindow.setClippingEnabled(z);
+        this.e = sp7Var;
+        this.i = (ShareStorage.StorageModel) new Gson().fromJson(sp7Var.d, (Class<Object>) ShareStorage.StorageModel.class);
     }
 
-    public void i(ViewGroup.MarginLayoutParams marginLayoutParams) {
-        TBLottieAnimationView tBLottieAnimationView;
+    @Override // com.repackage.qp7
+    public void n(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, marginLayoutParams) == null) || (tBLottieAnimationView = this.h) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.n(view2);
+            if (view2.getId() == R.id.obfuscated_res_0x7f091399) {
+                r();
+            }
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.i == null) {
             return;
         }
-        tBLottieAnimationView.setLayoutParams(marginLayoutParams);
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void k(View view2, int i, int i2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            this.c = this.b / 2;
-            this.d = this.a / 2;
-            g05.g().b(str, str2, new b(this, view2, i, i2));
-        }
-    }
-
-    public void l(boolean z, View view2, int i, int i2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), view2, Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            this.c = 0;
-            this.d = this.a;
-            g05.g().e(new Random().nextBoolean() ? "/duang1" : "/duang2", str, str2, z, new c(this, view2, i, i2));
-        }
+        PassportSDK.getInstance().invokeV2ShareLogin(this.b, new a(this), this.i);
     }
 }

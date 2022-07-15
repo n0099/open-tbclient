@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.v8.debug.mirror.Frame;
 /* loaded from: classes6.dex */
 public class gg {
     public static /* synthetic */ Interceptable $ic;
@@ -150,7 +149,7 @@ public class gg {
             statsItem.b("memoryCount", String.valueOf(lgVar.a));
             statsItem.b("memorySucCount", String.valueOf(lgVar.b));
             statsItem.b("memoryTime", String.valueOf(lgVar.c));
-            statsItem.b(Frame.LOCAL_COUNT, String.valueOf(lgVar.d));
+            statsItem.b("localCount", String.valueOf(lgVar.d));
             statsItem.b("localSucCount", String.valueOf(lgVar.e));
             statsItem.b("localTime", String.valueOf(lgVar.f));
             statsItem.b("netCount", String.valueOf(lgVar.g));

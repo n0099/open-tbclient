@@ -1049,7 +1049,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         this.b.setXfermode(r);
         t();
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04008a, R.attr.obfuscated_res_0x7f0400a6, R.attr.obfuscated_res_0x7f0400c2, R.attr.obfuscated_res_0x7f04020e, R.attr.obfuscated_res_0x7f040210, R.attr.obfuscated_res_0x7f04028f, R.attr.obfuscated_res_0x7f040290, R.attr.obfuscated_res_0x7f040308, R.attr.obfuscated_res_0x7f040531, R.attr.obfuscated_res_0x7f040532, R.attr.obfuscated_res_0x7f040535, R.attr.obfuscated_res_0x7f040536, R.attr.obfuscated_res_0x7f040537, R.attr.obfuscated_res_0x7f040595, R.attr.obfuscated_res_0x7f040684}, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04008a, R.attr.obfuscated_res_0x7f0400a6, R.attr.obfuscated_res_0x7f0400c2, R.attr.obfuscated_res_0x7f04020e, R.attr.obfuscated_res_0x7f040210, R.attr.obfuscated_res_0x7f04028f, R.attr.obfuscated_res_0x7f040290, R.attr.obfuscated_res_0x7f040306, R.attr.obfuscated_res_0x7f040532, R.attr.obfuscated_res_0x7f040533, R.attr.obfuscated_res_0x7f040536, R.attr.obfuscated_res_0x7f040537, R.attr.obfuscated_res_0x7f040538, R.attr.obfuscated_res_0x7f040596, R.attr.obfuscated_res_0x7f040685}, 0, 0);
             try {
                 if (obtainStyledAttributes.hasValue(1)) {
                     setAutoStart(obtainStyledAttributes.getBoolean(1, false));

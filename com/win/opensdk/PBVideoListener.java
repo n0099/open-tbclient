@@ -1,0 +1,11 @@
+package com.win.opensdk;
+/* loaded from: classes8.dex */
+public interface PBVideoListener extends PBListener {
+    void onRewardedAdClosed();
+
+    void onRewardedAdOpened();
+
+    void onRewardedShowFail(String str);
+
+    void onUserEarnedReward(boolean z, long j);
+}

@@ -1,7 +1,8 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,81 +10,68 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetTails.ColorInfo;
-import tbclient.GetTails.ResData;
-import tbclient.GetTails.TailInfo;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes5.dex */
-public class dj7 {
+public class dj7 implements nn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<TailData> a;
-    public List<String> b;
+    public ti7 a;
+    public List<ej7> b;
 
-    public dj7() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755765408, "Lcom/repackage/dj7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755765408, "Lcom/repackage/dj7;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    public dj7(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipSpecialList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-    }
-
-    public List<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public List<TailData> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void c(ResData resData) {
-        List<TailInfo> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resData) == null) || resData == null || (list = resData.tailList) == null) {
+        if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
             return;
         }
-        for (TailInfo tailInfo : list) {
-            if (e(tailInfo)) {
-                TailData tailData = new TailData();
-                tailData.setContent(tailInfo.tailContent);
-                tailData.setFontColor(tailInfo.fontColor);
-                tailData.setFontType(tailInfo.fontKeyName);
-                tailData.setId(tailInfo.tailId.intValue());
-                tailData.setSelected(tailInfo.is_selected.intValue() == 1);
-                b().add(tailData);
-            }
-        }
-        d(resData.default_color);
-        for (ColorInfo colorInfo : resData.colorList) {
-            a().add(colorInfo.fontColor);
+        String str = vipSpecialList.card_id;
+        ti7 ti7Var = new ti7();
+        this.a = ti7Var;
+        ti7Var.e(1);
+        this.a.d(vipSpecialList.class_name);
+        this.a.f(vipSpecialList.class_url_name);
+        this.a.g(vipSpecialList.class_url);
+        this.b = new ArrayList();
+        for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
+            this.b.add(new ej7(vipSpecialItem));
         }
     }
 
-    public void d(String str) {
+    @Override // com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public final boolean e(TailInfo tailInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tailInfo)) == null) {
-            Integer num = tailInfo.tailId;
-            return (num == null || num.intValue() == 0 || tailInfo.fontColor == null) ? false : true;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

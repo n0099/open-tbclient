@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.Search.DataReq;
 import tbclient.Search.SearchReqIdl;
 /* loaded from: classes3.dex */
@@ -46,7 +46,7 @@ public class CandidateSearchReqMsg extends NetMessage {
             builder.apply_id = Integer.valueOf(this.applyId);
             builder.fid = Long.valueOf(this.fid);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qc5.a(builder, true);
+                td5.a(builder, true);
             }
             SearchReqIdl.Builder builder2 = new SearchReqIdl.Builder();
             builder2.data = builder.build(false);

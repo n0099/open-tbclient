@@ -1,136 +1,81 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import com.baidu.prologue.business.data.SplashStyleRecorder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.repackage.qc1;
 /* loaded from: classes7.dex */
-public class va1 extends sa1 {
+public class va1 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, String> a;
-    public static HashMap<String, sa1> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final va1 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(65731213, "Lcom/repackage/va1$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(65731213, "Lcom/repackage/va1$b;");
-                    return;
-                }
-            }
-            a = new va1(null);
+    @NonNull
+    public static qc1 a(@NonNull za1 za1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, za1Var)) == null) {
+            qc1.b bVar = new qc1.b(za1Var.e(), za1Var.g);
+            bVar.t("rsplash");
+            bVar.i(za1Var.f == 1);
+            bVar.f(b());
+            bVar.m(c());
+            bVar.o(za1Var.f == 1);
+            bVar.n(d(za1Var.m));
+            bVar.B(za1Var.n * 1000);
+            bVar.z(1);
+            bVar.E(SplashStyleRecorder.a());
+            bVar.g(5);
+            bVar.x(false);
+            bVar.c(za1Var.l);
+            bVar.e(25);
+            bVar.d(13);
+            bVar.A(72);
+            bVar.y(30);
+            bVar.D(68);
+            bVar.C(30);
+            bVar.h(17);
+            bVar.q(za1Var.z);
+            bVar.w(za1Var.A == 1);
+            bVar.b(za1Var.B);
+            bVar.p(za1Var.d());
+            bVar.r("跳转详情页或第三方应用");
+            bVar.s(za1Var.g() ? 47 : b() + 39);
+            bVar.j(za1Var.H);
+            bVar.l(za1Var.G);
+            bVar.k(za1Var.I);
+            bVar.v(za1Var.M);
+            bVar.u(za1Var.N);
+            return bVar.a();
         }
+        return (qc1) invokeL.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755238005, "Lcom/repackage/va1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755238005, "Lcom/repackage/va1;");
-                return;
-            }
-        }
-        a = new HashMap<>();
-        b = new HashMap<>();
-    }
-
-    public /* synthetic */ va1(a aVar) {
-        this();
-    }
-
-    public static va1 e() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (va1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? la1.a().b() : invokeV.intValue;
     }
 
-    @Override // com.repackage.sa1
-    public boolean b(Context context, ua1 ua1Var, oa1 oa1Var) {
-        InterceptResult invokeLLL;
-        sa1 sa1Var;
+    @IdRes
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, ua1Var, oa1Var)) == null) {
-            String b2 = ua1Var.b();
-            if (a.get(b2) != null) {
-                ua1Var.f(b2, a.get(b2));
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? la1.a().c() : invokeV.intValue;
+    }
+
+    @IdRes
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i == 1) {
+                return la1.a().h();
             }
-            String d = ua1Var.d(true);
-            if (TextUtils.isEmpty(d) || (sa1Var = b.get(d)) == null) {
-                return false;
-            }
-            return sa1Var.b(context, ua1Var, oa1Var);
+            return la1.a().g();
         }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.repackage.sa1
-    public boolean c(Context context, ua1 ua1Var, oa1 oa1Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ua1Var, oa1Var)) == null) {
-            ua1Var.i = xa1.h(302);
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public void f(String str, sa1 sa1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, sa1Var) == null) || TextUtils.isEmpty(str) || sa1Var == null) {
-            return;
-        }
-        b.put(str, sa1Var);
-    }
-
-    public void g(sa1 sa1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, sa1Var) == null) || sa1Var == null) {
-            return;
-        }
-        sa1Var.a(a);
-    }
-
-    public va1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
+        return invokeI.intValue;
     }
 }

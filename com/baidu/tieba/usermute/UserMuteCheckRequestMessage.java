@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.UserMuteCheck.DataReq;
 import tbclient.UserMuteCheck.UserMuteCheckReqIdl;
 /* loaded from: classes4.dex */
@@ -49,7 +49,7 @@ public class UserMuteCheckRequestMessage extends NetMessage {
             builder.user_id_f = Long.valueOf(this.userIdF);
             builder.user_id_t = Long.valueOf(this.userIdT);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qc5.a(builder, true);
+                td5.a(builder, true);
             }
             UserMuteCheckReqIdl.Builder builder2 = new UserMuteCheckReqIdl.Builder();
             builder2.data = builder.build(false);

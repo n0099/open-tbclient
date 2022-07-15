@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ep4;
-import com.repackage.fa8;
-import com.repackage.ia8;
+import com.repackage.ab8;
+import com.repackage.db8;
 import com.repackage.ng;
 import com.repackage.ni;
 import com.repackage.pi;
-import com.repackage.qc5;
-import com.repackage.vb5;
+import com.repackage.td5;
+import com.repackage.tp4;
+import com.repackage.yc5;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
 /* loaded from: classes3.dex */
@@ -67,7 +67,7 @@ public class RecPersonalizeRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            qc5.c(builder, true, false, true);
+            td5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -84,10 +84,10 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = ia8.f().d("HOME");
-            builder.app_pos = fa8.e().c();
+            builder.ad_context_list = db8.f().d("HOME");
+            builder.app_pos = ab8.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
-                ep4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+                tp4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
                 builder.from_tid = Long.valueOf(ng.g(pbToHomeUpdateData.a, 0L));
                 builder.query_eqid = pbToHomeUpdateData.b;
                 builder.first_dir = pbToHomeUpdateData.c;
@@ -97,7 +97,7 @@ public class RecPersonalizeRequest extends NetMessage {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = vb5.b();
+            builder.app_transmit_data = yc5.b();
             PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

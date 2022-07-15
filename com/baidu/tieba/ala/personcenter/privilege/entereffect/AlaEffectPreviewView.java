@@ -32,8 +32,8 @@ import com.repackage.hi;
 import com.repackage.ig;
 import com.repackage.jg;
 import com.repackage.pi;
+import com.repackage.vv5;
 import com.repackage.ym;
-import com.repackage.yu5;
 /* loaded from: classes3.dex */
 public class AlaEffectPreviewView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -43,7 +43,7 @@ public class AlaEffectPreviewView extends LinearLayout {
     public View c;
     public ImageView d;
     public TextView e;
-    public yu5.c f;
+    public vv5.c f;
     public ObjectAnimator g;
     public LinearLayout h;
     public ImageView i;
@@ -280,10 +280,10 @@ public class AlaEffectPreviewView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00ec, this);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901dc);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901db);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901c2);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901dd);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901dd);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901dc);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901c3);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901de);
         }
     }
 
@@ -317,7 +317,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
     }
 
-    public void setAnimCompleteCallback(yu5.c cVar) {
+    public void setAnimCompleteCallback(vv5.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.f = cVar;
@@ -339,7 +339,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         if (StringUtils.isNull(str) && StringUtils.isNull(str2)) {
             spannableStringBuilder.append((CharSequence) currentAccountNameShow);
-            spannableStringBuilder.append((CharSequence) SpannableString.valueOf(getResources().getString(R.string.obfuscated_res_0x7f0f0202)));
+            spannableStringBuilder.append((CharSequence) SpannableString.valueOf(getResources().getString(R.string.obfuscated_res_0x7f0f0204)));
         } else {
             if (!StringUtils.isNull(str)) {
                 spannableStringBuilder.append((CharSequence) SpannableString.valueOf(str + " "));

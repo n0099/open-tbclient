@@ -1,141 +1,96 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.TextureMapView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b54 extends hv1<TextureMapView, em2> {
+public class b54 extends s44<vm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String i;
-    public String j;
-    public boolean k;
-    @NonNull
-    public TextureMapView l;
-    public Context m;
-    public List<a54> n;
-    public List<z44> o;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b54(@NonNull Context context, @NonNull em2 em2Var) {
-        super(context, em2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, em2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (iv1) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755876016, "Lcom/repackage/b54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755876016, "Lcom/repackage/b54;");
                 return;
             }
         }
-        this.n = new ArrayList();
-        this.o = new ArrayList();
-        this.i = em2Var.c;
-        this.j = em2Var.b;
-        String str = em2Var.d;
-        this.m = context;
-        this.l = new TextureMapView(context);
-        this.k = em2Var.r;
+        boolean z = rg1.a;
     }
 
-    public static b54 K(Context context, em2 em2Var) {
-        InterceptResult invokeLL;
+    public b54() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, em2Var)) == null) {
-            if (context == null || em2Var == null || !em2Var.isValid()) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return new b54(context, em2Var);
-        }
-        return (b54) invokeLL.objValue;
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (a54 a54Var : this.n) {
-                this.l.removeView(a54Var.e);
-            }
-            this.n.clear();
-            for (z44 z44Var : this.o) {
-                this.l.removeView(z44Var.b);
-            }
-            this.o.clear();
-            this.l.getMap().clear();
         }
     }
 
-    public z44 G(View view2) {
-        InterceptResult invokeL;
+    public static b54 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            for (z44 z44Var : this.o) {
-                if (z44Var.b == view2) {
-                    return z44Var;
-                }
-            }
-            return null;
-        }
-        return (z44) invokeL.objValue;
-    }
-
-    @Nullable
-    public a54 H(Marker marker) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, marker)) == null) {
-            for (a54 a54Var : this.n) {
-                if (marker == a54Var.b) {
-                    return a54Var;
-                }
-            }
-            return null;
-        }
-        return (a54) invokeL.objValue;
-    }
-
-    public List<a54> I(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            ArrayList arrayList = new ArrayList(1);
-            for (a54 a54Var : this.n) {
-                mm2 mm2Var = a54Var.a;
-                if (mm2Var != null && TextUtils.equals(str, mm2Var.a)) {
-                    arrayList.add(a54Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new b54() : (b54) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hv1
-    @NonNull
-    /* renamed from: J */
-    public TextureMapView v(@NonNull Context context) {
+    @Override // com.repackage.s44
+    /* renamed from: d */
+    public boolean b(Context context, vm2 vm2Var, qm2 qm2Var, h03 h03Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vm2Var, qm2Var, h03Var, jSONObject)) == null) ? g(context, vm2Var, qm2Var, h03Var) : invokeLLLLL.booleanValue;
+    }
+
+    public final Bundle f(vm2 vm2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? this.l : (TextureMapView) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vm2Var)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("slaveId", vm2Var.c);
+            bundle.putDouble("latitude", vm2Var.j.a);
+            bundle.putDouble("longitude", vm2Var.j.b);
+            bundle.putDouble("scale", vm2Var.k);
+            bundle.putString("name", vm2Var.z);
+            bundle.putString("address", vm2Var.A);
+            bundle.putStringArrayList("ignoredApps", vm2Var.B);
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    public final boolean g(Context context, vm2 vm2Var, qm2 qm2Var, h03 h03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, vm2Var, qm2Var, h03Var)) == null) {
+            hx1.i("map", "OpenLocationAction start");
+            if (!vm2Var.isValid()) {
+                hx1.c("map", "model is invalid");
+                return false;
+            }
+            n54.r3(f(vm2Var)).v3();
+            hx1.i("map", "OpenLocationAction end");
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

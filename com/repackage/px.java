@@ -3,9 +3,8 @@ package com.repackage;
 import android.content.Context;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.MutiImgTextLayout;
+import com.baidu.card.view.MutiImgSingleVerticalLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -14,18 +13,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.my;
+import com.repackage.ny;
 /* loaded from: classes6.dex */
-public class px extends qw<ym4> {
+public class px extends qw<nn4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MutiImgTextLayout f;
-    public ym4 g;
+    public MutiImgSingleVerticalLayout f;
+    public nn4 g;
     public int h;
     public String i;
 
     /* loaded from: classes6.dex */
-    public class a implements my.b {
+    public class a implements ny.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ px a;
@@ -48,15 +47,17 @@ public class px extends qw<ym4> {
             this.a = pxVar;
         }
 
-        @Override // com.repackage.my.b
-        public boolean a(my.a aVar) {
+        @Override // com.repackage.ny.b
+        public boolean a(ny.a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    xw5.a(this.a.g.getThreadData().getId());
-                    xw5.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    xw5.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    ux5.a(this.a.g.getThreadData().getId());
+                    px pxVar = this.a;
+                    ux5.l(pxVar.f.a, pxVar.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    px pxVar2 = this.a;
+                    ux5.l(pxVar2.f.b, pxVar2.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -83,38 +84,39 @@ public class px extends qw<ym4> {
             }
         }
         this.h = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().g instanceof MutiImgTextLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().g.getParent() == null) {
-            this.f = (MutiImgTextLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().g;
-        } else {
-            this.f = new MutiImgTextLayout(context);
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().h instanceof MutiImgSingleVerticalLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().h.getParent() == null) {
+            MutiImgSingleVerticalLayout mutiImgSingleVerticalLayout = (MutiImgSingleVerticalLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().h;
+            this.f = mutiImgSingleVerticalLayout;
+            mutiImgSingleVerticalLayout.setRealContext(context);
+            return;
         }
-        this.f.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+        this.f = new MutiImgSingleVerticalLayout(context);
     }
 
     @Override // com.repackage.qw
-    public View g() {
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
     @Override // com.repackage.qw
-    public void h() {
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            i(1, new a(this));
+            j(1, new a(this));
         }
     }
 
     @Override // com.repackage.qw
-    public void l(mx5<ym4> mx5Var) {
+    public void m(jy5<nn4> jy5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mx5Var) == null) {
-            this.f.setSubClickListener(mx5Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, jy5Var) == null) {
+            this.f.setSubClickListener(jy5Var);
         }
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
@@ -123,14 +125,14 @@ public class px extends qw<ym4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fx
+    @Override // com.repackage.gx
     /* renamed from: q */
-    public void a(ym4 ym4Var) {
+    public void a(nn4 nn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ym4Var) == null) {
-            this.g = ym4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nn4Var) == null) {
+            this.g = nn4Var;
             this.f.setFrom(this.i);
-            this.f.a(ym4Var);
+            this.f.a(nn4Var);
         }
     }
 

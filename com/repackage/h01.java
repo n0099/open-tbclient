@@ -1,27 +1,30 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.IBinder;
-import android.view.inputmethod.InputMethodManager;
+import com.baidu.nadcore.download.proxy.IAdDownloader;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class h01 {
+public final class h01 {
     public static /* synthetic */ Interceptable $ic;
+    public static final IAdDownloader a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized void a(Context context, IBinder iBinder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, iBinder) == null) {
-            synchronized (h01.class) {
-                InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService("input_method");
-                if (inputMethodManager != null) {
-                    try {
-                        inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
-                    } catch (Exception unused) {
-                    }
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755702168, "Lcom/repackage/h01;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755702168, "Lcom/repackage/h01;");
+                return;
             }
         }
+        a = new oj0();
     }
 }

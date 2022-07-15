@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -333,7 +332,7 @@ public final class WireInput {
                 i2 |= (readRawByte2 & ByteCompanionObject.MAX_VALUE) << 7;
                 byte readRawByte3 = readRawByte();
                 if (readRawByte3 >= 0) {
-                    i = readRawByte3 << YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX;
+                    i = readRawByte3 << 14;
                 } else {
                     i2 |= (readRawByte3 & ByteCompanionObject.MAX_VALUE) << 14;
                     byte readRawByte4 = readRawByte();

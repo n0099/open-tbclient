@@ -1,6 +1,7 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,21 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbPage.PbSortType;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class er7 implements nn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
-    public static final BdUniqueId i;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public BdUniqueId b;
-    public int c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public List<PbSortType> g;
+    public fr7 a;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -37,35 +30,34 @@ public class er7 implements nn {
                 return;
             }
         }
-        h = BdUniqueId.gen();
-        i = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
-    public er7(BdUniqueId bdUniqueId) {
+    public er7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = i;
-        this.c = 0;
-        this.d = false;
-        this.b = bdUniqueId;
+    }
+
+    public void a(fr7 fr7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, fr7Var) == null) {
+            this.a = fr7Var;
+        }
     }
 
     @Override // com.repackage.nn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

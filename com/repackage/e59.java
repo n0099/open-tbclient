@@ -1,242 +1,55 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class e59 implements a59 {
+public class e59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k69 a;
-    public ExecutorService b;
-    public s69 c;
-    public boolean d;
-    public int e;
-    public int f;
-    public String g;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ byte[] a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ e59 d;
-
-        public a(e59 e59Var, byte[] bArr, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e59Var, bArr, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void a(String str, i59 i59Var, h59 h59Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, i59Var, h59Var) == null) {
+            if (w89.a) {
+                w89.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + h59Var.toString());
+            }
+            c59 g = z49.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (h59Var != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", h59Var.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", h59Var.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", h59Var.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", h59Var.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", h59Var.d + ""));
                 }
+                g.a("perf_record_arperf", str, i59Var.a, i59Var.b, i59Var.c, i59Var.d, i59Var.e, null, arrayList);
             }
-            this.d = e59Var;
-            this.a = bArr;
-            this.b = i;
-            this.c = i2;
         }
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.d.a.c(this.a, this.b, this.c);
-                } catch (Exception e) {
-                    if (this.d.c == null || this.d.d) {
-                        return;
-                    }
-                    this.d.c.onExceptionThrown(h89.g(e));
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (w89.a) {
+                w89.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
+            }
+            c59 g = z49.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", u89.a(z49.c().getContext())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(u89.b(z49.c().getContext()))));
                 }
+                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e59 a;
-
-        public b(e59 e59Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e59Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e59Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.a.a();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    if (this.a.c == null || this.a.d) {
-                        return;
-                    }
-                    this.a.c.onFinishedWriting(false);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends s69 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e59 a;
-
-        public c(e59 e59Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e59Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e59Var;
-        }
-
-        @Override // com.repackage.s69
-        public void onFinishedWriting(boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.c == null || this.a.d) {
-                return;
-            }
-            this.a.c.onFinishedWriting(z);
-        }
-    }
-
-    public e59(String str, int i, int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = i;
-        this.f = i2;
-        this.b = Executors.newSingleThreadExecutor();
-        this.d = false;
-    }
-
-    public void b() throws Exception {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.isShutdown()) {
-            return;
-        }
-        this.b.submit(new b(this));
-        this.b.shutdown();
-    }
-
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.e = i;
-            this.f = i2;
-            try {
-                q69 q69Var = new q69(i, i2);
-                this.a = q69Var;
-                q69Var.b(this.g);
-                this.a.d(new c(this));
-            } catch (Exception e) {
-                e.printStackTrace();
-                s69 s69Var = this.c;
-                if (s69Var != null) {
-                    s69Var.onExceptionThrown(h89.g(e));
-                }
-            }
-        }
-    }
-
-    @Override // com.repackage.a59
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void d(s69 s69Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, s69Var) == null) {
-            this.c = s69Var;
-        }
-    }
-
-    public void e(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = true;
-            try {
-                this.b.shutdownNow();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.repackage.a59
-    public int write(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
-            byte[] copyOf = Arrays.copyOf(bArr, bArr.length);
-            if (!this.b.isShutdown()) {
-                this.b.submit(new a(this, copyOf, i, i2));
-            }
-            return i2 - i;
-        }
-        return invokeLII.intValue;
     }
 }

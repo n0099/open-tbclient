@@ -14,7 +14,7 @@ import com.kwai.filedownloader.exception.FileDownloadGiveUpRetryException;
 import java.io.IOException;
 import java.net.SocketException;
 /* loaded from: classes5.dex */
-public class c implements Runnable {
+public final class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -25,13 +25,6 @@ public class c implements Runnable {
     public e f;
     public volatile boolean g;
     public final int h;
-
-    /* renamed from: com.kwai.filedownloader.download.c$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     /* loaded from: classes5.dex */
     public static class a {
@@ -59,7 +52,7 @@ public class c implements Runnable {
             this.a = new ConnectTask.a();
         }
 
-        public a a(int i) {
+        public final a a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -69,7 +62,7 @@ public class c implements Runnable {
             return (a) invokeI.objValue;
         }
 
-        public a a(com.kwai.filedownloader.c.b bVar) {
+        public final a a(com.kwai.filedownloader.c.b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
@@ -79,7 +72,7 @@ public class c implements Runnable {
             return (a) invokeL.objValue;
         }
 
-        public a a(com.kwai.filedownloader.download.a aVar) {
+        public final a a(com.kwai.filedownloader.download.a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
@@ -89,7 +82,7 @@ public class c implements Runnable {
             return (a) invokeL.objValue;
         }
 
-        public a a(f fVar) {
+        public final a a(f fVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fVar)) == null) {
@@ -99,7 +92,7 @@ public class c implements Runnable {
             return (a) invokeL.objValue;
         }
 
-        public a a(Integer num) {
+        public final a a(Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, num)) == null) {
@@ -109,7 +102,7 @@ public class c implements Runnable {
             return (a) invokeL.objValue;
         }
 
-        public a a(String str) {
+        public final a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -119,7 +112,7 @@ public class c implements Runnable {
             return (a) invokeL.objValue;
         }
 
-        public a a(boolean z) {
+        public final a a(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
@@ -129,7 +122,7 @@ public class c implements Runnable {
             return (a) invokeZ.objValue;
         }
 
-        public c a() {
+        public final c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -137,12 +130,12 @@ public class c implements Runnable {
                     throw new IllegalArgumentException(com.kwai.filedownloader.e.f.a("%s %s %B", this.b, this.c, this.d));
                 }
                 ConnectTask a = this.a.a();
-                return new c(a.a, this.e.intValue(), a, this.b, this.d.booleanValue(), this.c, null);
+                return new c(a.a, this.e.intValue(), a, this.b, this.d.booleanValue(), this.c, (byte) 0);
             }
             return (c) invokeV.objValue;
         }
 
-        public a b(String str) {
+        public final a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
@@ -152,7 +145,7 @@ public class c implements Runnable {
             return (a) invokeL.objValue;
         }
 
-        public a c(String str) {
+        public final a c(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
@@ -187,11 +180,11 @@ public class c implements Runnable {
         this.e = z;
     }
 
-    public /* synthetic */ c(int i, int i2, ConnectTask connectTask, f fVar, boolean z, String str, AnonymousClass1 anonymousClass1) {
+    public /* synthetic */ c(int i, int i2, ConnectTask connectTask, f fVar, boolean z, String str, byte b) {
         this(i, i2, connectTask, fVar, z, str);
     }
 
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.g = true;
@@ -202,7 +195,7 @@ public class c implements Runnable {
         }
     }
 
-    public void b() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a();
@@ -211,10 +204,9 @@ public class c implements Runnable {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         boolean z;
         Exception e;
-        e.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Process.setThreadPriority(10);
@@ -242,57 +234,59 @@ public class c implements Runnable {
                     e = e4;
                 }
                 try {
-                    aVar = new e.a();
+                    e.a aVar = new e.a();
+                    if (this.g) {
+                        if (bVar != null) {
+                            bVar.f();
+                            return;
+                        }
+                        return;
+                    }
+                    e a2 = aVar.b(this.h).a(this.a).a(this.c).a(this).a(this.e).a(bVar).a(this.b.e()).a(this.d).a();
+                    this.f = a2;
+                    a2.b();
+                    if (this.g) {
+                        this.f.a();
+                    }
+                    if (bVar != null) {
+                        return;
+                    }
+                    return;
                 } catch (FileDownloadGiveUpRetryException | IOException | IllegalAccessException | IllegalArgumentException e5) {
                     e = e5;
                     z = true;
                     try {
-                        if (this.c.a(e)) {
-                            if (!z) {
-                                this.c.a(e, 0L);
-                            } else if (this.f != null) {
-                                this.c.a(e, this.f.a - j);
-                            } else {
-                                com.kwai.filedownloader.e.d.d(this, "it is valid to retry and connection is valid but create fetch-data-task failed, so give up directly with %s", e);
-                                this.c.b(e);
-                                if (bVar == null) {
-                                    return;
-                                }
-                            }
+                        if (!this.c.a(e)) {
+                            this.c.b(e);
                             if (bVar != null) {
                                 bVar.f();
-                            }
-                            z2 = z;
-                        } else {
-                            this.c.b(e);
-                            if (bVar == null) {
                                 return;
                             }
+                            return;
                         }
-                        return;
+                        if (!z) {
+                            this.c.a(e, 0L);
+                        } else if (this.f == null) {
+                            com.kwai.filedownloader.e.d.d(this, "it is valid to retry and connection is valid but create fetch-data-task failed, so give up directly with %s", e);
+                            this.c.b(e);
+                            if (bVar != null) {
+                                bVar.f();
+                                return;
+                            }
+                            return;
+                        } else {
+                            this.c.a(e, this.f.a - j);
+                        }
+                        if (bVar != null) {
+                            bVar.f();
+                        }
+                        z2 = z;
                     } finally {
                         if (bVar != null) {
                             bVar.f();
                         }
                     }
                 }
-                if (this.g) {
-                    if (bVar != null) {
-                        bVar.f();
-                        return;
-                    }
-                    return;
-                }
-                e a2 = aVar.b(this.h).a(this.a).a(this.c).a(this).a(this.e).a(bVar).a(this.b.e()).a(this.d).a();
-                this.f = a2;
-                a2.b();
-                if (this.g) {
-                    this.f.a();
-                }
-                if (bVar == null) {
-                    return;
-                }
-                return;
             }
             if (bVar != null) {
                 bVar.f();

@@ -1,91 +1,22 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedWriter;
+import com.repackage.dj2;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ox1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public int b;
-    public Map<String, Object> c;
-    public b d;
-    public BufferedWriter e;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes6.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ox1 a;
-
-        public b(ox1 ox1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ox1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ox1Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.a.c == null) {
-                return;
-            }
-            this.a.c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry entry : this.a.c.entrySet()) {
-                try {
-                    jSONObject.putOpt((String) entry.getKey(), entry.getValue());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            this.a.e(jSONObject.toString());
-            sw1.i("PropertyLogcat", jSONObject.toString());
-            if (this.a.d != null) {
-                this.a.d.sendEmptyMessageDelayed(100, this.a.b);
-            }
-        }
-
-        public /* synthetic */ b(ox1 ox1Var, a aVar) {
-            this(ox1Var);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -100,94 +31,83 @@ public class ox1 {
                 return;
             }
         }
-        boolean z = cg1.a;
+        a = "__localDebug__" + File.separator + "master.js";
+        b = "__localDebug__" + File.separator + "main.js";
+        c = "__localDebug__" + File.separator + "slave.js";
     }
 
-    public ox1() {
+    public static dj2.g a(el2 el2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, el2Var)) == null) {
+            File d = d();
+            qx1.e().f("unzipstart");
+            dj2.M(b(), d, el2Var);
+            qx1.e().f("unzipend");
+            dj2.g gVar = new dj2.g();
+            File file = new File(d, "app.json");
+            SwanAppConfigData b2 = t03.b(d.getAbsolutePath());
+            gVar.a = d.getPath() + File.separator;
+            gVar.b = b2;
+            hx1.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
-        this.a = "performance_" + System.currentTimeMillis();
-        this.b = 3000;
+        return (dj2.g) invokeL.objValue;
     }
 
-    public final void e(String str) {
-        BufferedWriter bufferedWriter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bufferedWriter = this.e) == null) {
-            return;
-        }
-        try {
-            bufferedWriter.write(str);
-            this.e.write(10);
-            sw1.i("PropertyLogcat", "Export logcat success");
-        } catch (IOException e) {
-            sw1.d("PropertyLogcat", "Logcat write fail", e);
-        }
-    }
-
-    public final String f() {
+    public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a73.n(sz2.g0(), this.a, TbConfig.TMP_LOG_DIR_NAME) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new File(c(), "local_debug.swan") : (File) invokeV.objValue;
     }
 
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i < 1000) {
-            return;
-        }
-        this.b = i;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.c == null) {
-                this.c = px1.g().h();
-                sw1.i("PropertyLogcat", "Start monitor logcat");
-            }
-            if (this.d == null) {
-                this.d = new b(this, null);
-            }
-            if (this.e == null) {
-                File file = new File(f());
-                try {
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    this.e = new BufferedWriter(new FileWriter(file, true));
-                } catch (IOException e) {
-                    sw1.d("PropertyLogcat", "Create log file fail", e);
-                }
-            }
-            this.d.removeMessages(100);
-            this.d.sendEmptyMessage(100);
-        }
-    }
-
-    public String i() {
+    public static File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c != null) {
-                px1.g().i();
-                this.c = null;
-                sw1.i("PropertyLogcat", "Stop monitor logcat");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug_zip");
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            uf4.d(this.e);
-            this.e = null;
-            return a73.I(f(), sz2.g0());
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static File d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return d() + File.separator + a;
         }
         return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d() + File.separator + c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists() : invokeV.booleanValue;
     }
 }

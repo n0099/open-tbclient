@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a25;
-import com.repackage.b25;
-import com.repackage.h25;
+import com.repackage.b35;
+import com.repackage.c35;
+import com.repackage.i35;
 /* loaded from: classes3.dex */
-public class KPSwitchFSPanelFrameLayout extends FrameLayout implements a25 {
+public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b25 a;
+    public c35 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchFSPanelFrameLayout(Context context) {
@@ -38,7 +38,7 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements a25 {
         b();
     }
 
-    @Override // com.repackage.a25
+    @Override // com.repackage.b35
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -49,15 +49,15 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements a25 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new b25(this);
+            this.a = new c35(this);
         }
     }
 
-    @Override // com.repackage.a25
+    @Override // com.repackage.b35
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            h25.d(this, i);
+            i35.d(this, i);
         }
     }
 

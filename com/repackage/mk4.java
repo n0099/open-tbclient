@@ -1,10 +1,9 @@
 package com.repackage;
 
-import com.baidu.tbadk.img.ImageFileInfo;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public interface mk4 {
-    void a(List<jk4> list, List<ImageFileInfo> list2, String str);
+    void a(Object obj, HashMap<String, String> hashMap, String str, c9 c9Var);
 
-    void onPreLoad();
+    ok4 b(Object obj, HashMap<String, String> hashMap, String str);
 }

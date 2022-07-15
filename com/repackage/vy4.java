@@ -1,89 +1,45 @@
 package com.repackage;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class vy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<String> b;
-    public c c;
-    public boolean d;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public static class a extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public NetWork a;
+        public final String b;
+        public final String c;
+        public final String d;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a();
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends BdAsyncTask<Object, Integer, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public b a;
-        public volatile NetWork b;
-        public final /* synthetic */ vy4 c;
-
-        /* loaded from: classes7.dex */
-        public class a implements Comparator<Map.Entry<String, Integer>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Comparator
-            /* renamed from: a */
-            public int compare(Map.Entry<String, Integer> entry, Map.Entry<String, Integer> entry2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) ? (int) (ng.e(String.valueOf(entry.getValue()), 0) - ng.e(String.valueOf(entry2.getValue()), 0)) : invokeLL.intValue;
-            }
-        }
-
-        public c(vy4 vy4Var, b bVar) {
+        public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vy4Var, bVar};
+                Object[] objArr = {str, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,250 +49,49 @@ public class vy4 {
                     return;
                 }
             }
-            this.c = vy4Var;
             this.a = null;
-            this.b = null;
-            this.a = bVar;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public Void doInBackground(Object... objArr) {
+        public Boolean doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                Boolean bool = Boolean.FALSE;
                 try {
-                    this.b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_IP_LIST);
-                    String postNetData = this.b.postNetData();
-                    if (!this.b.getNetContext().getResponse().isRequestSuccess() || postNetData == null) {
-                        return null;
+                    NetWork netWork = new NetWork(this.b);
+                    this.a = netWork;
+                    bool = Boolean.valueOf(netWork.downloadFile(this.c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                    if (bool != null && bool.booleanValue()) {
+                        if (!StringUtils.isNull(FileHelper.renameTo(null, this.c + ".tmp", null, this.c)) && !TextUtils.isEmpty(this.b) && !this.b.equals(this.d)) {
+                            FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.d));
+                        }
+                    } else {
+                        FileHelper.DelFile(this.c + ".tmp");
                     }
-                    JSONObject jSONObject = new JSONObject(postNetData);
-                    if (jSONObject.optInt("error_code") == 0) {
-                        String optString = jSONObject.optString("urls");
-                        this.c.b = this.c.j(optString);
-                        if (this.c.b == null || this.c.b.size() <= 0) {
-                            return null;
-                        }
-                        HashMap hashMap = new HashMap();
-                        int i = 0;
-                        for (int i2 = 0; i2 < this.c.b.size(); i2++) {
-                            String str = (String) this.c.b.get(i2);
-                            az4 az4Var = new az4();
-                            az4Var.a(str);
-                            if (az4Var.d()) {
-                                hashMap.put(str, Integer.valueOf(az4Var.b()));
-                            }
-                        }
-                        if (hashMap.size() > 0) {
-                            this.c.b = new ArrayList();
-                            ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
-                            Collections.sort(arrayList, new a(this));
-                            StringBuilder sb = new StringBuilder(50);
-                            for (Map.Entry entry : arrayList) {
-                                this.c.b.add(entry.getKey());
-                                if (i != 0) {
-                                    sb.append(",");
-                                }
-                                i++;
-                                sb.append((String) entry.getKey());
-                            }
-                            optString = sb.toString();
-                        }
-                        ht4.k().x("KeyOfSharedPrefListGetTime", System.currentTimeMillis());
-                        ht4.k().y("KeyOfSharedPrefIpList", optString);
-                        return null;
-                    }
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
+                } catch (Exception unused) {
                 }
+                return bool;
             }
-            return (Void) invokeL.objValue;
+            return (Boolean) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onCancelled(Void r5) {
+        public void onPostExecute(Boolean bool) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5) == null) {
-                this.c.c = null;
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.b != null) {
-                    this.b.cancelNetConnect();
-                    this.b = null;
-                }
-                this.c.c = null;
-                super.cancel(true);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
-        public void onPostExecute(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
-                this.c.c = null;
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.c.c = null;
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static vy4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(87985152, "Lcom/repackage/vy4$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(87985152, "Lcom/repackage/vy4$d;");
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
+                super.onPostExecute((a) bool);
+                if (bool == null || !bool.booleanValue()) {
                     return;
                 }
+                new vy4().g();
             }
-            a = new vy4(null);
-        }
-    }
-
-    public /* synthetic */ vy4(a aVar) {
-        this();
-    }
-
-    public static vy4 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? d.a : (vy4) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ht4.k().l("KeyOfSharedPrefImCount", 0) : invokeV.intValue;
-    }
-
-    public List<String> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                if (System.currentTimeMillis() - ht4.k().m("KeyOfSharedPrefListGetTime", 0L) > 86400000) {
-                    ht4.k().y("KeyOfSharedPrefIpList", "");
-                    return null;
-                }
-                this.b = j(ht4.k().q("KeyOfSharedPrefIpList", null));
-            }
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int e = e();
-            if (e >= 10) {
-                ht4.k().w("KeyOfSharedPrefImCount", 0);
-                ht4.k().y("KeyOfSharedPrefValidIp", "");
-                this.a = null;
-                return null;
-            }
-            if (this.a == null) {
-                this.a = ht4.k().q("KeyOfSharedPrefValidIp", null);
-            }
-            if (!oi.isEmpty(this.a)) {
-                ht4.k().w("KeyOfSharedPrefImCount", e + 1);
-            } else {
-                this.a = null;
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public final List<String> j(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str == null || str.length() <= 0 || (split = str.split(",")) == null || split.length <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(3);
-            for (String str2 : split) {
-                arrayList.add(str2);
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = false;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TiebaIMConfig.defaultUrl.equals(str)) {
-            return;
-        }
-        this.a = str;
-        ht4.k().y("KeyOfSharedPrefValidIp", str);
-    }
-
-    public void m(b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && this.c == null) {
-            this.d = true;
-            c cVar = new c(this, bVar);
-            this.c = cVar;
-            cVar.setSelfExecute(true);
-            this.c.execute(new Object[0]);
         }
     }
 
@@ -350,14 +105,107 @@ public class vy4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = false;
-        this.d = false;
-        this.b = null;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbadkSettings.getInst().loadString("launch_config_local_url", "") : (String) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        JSONArray jSONArray;
+        JSONObject optJSONObject;
+        String str;
+        String str2;
+        JSONObject optJSONObject2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            jSONArray = jSONObject.getJSONArray("APP_INDEX_START");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            jSONArray = null;
+        }
+        TbadkSettings inst = TbadkSettings.getInst();
+        if (jSONArray == null || jSONArray.length() == 0 || (optJSONObject = jSONArray.optJSONObject(0)) == null) {
+            return;
+        }
+        int optInt = optJSONObject.optInt("url_type");
+        String optString = optJSONObject.optString("url");
+        String optString2 = optJSONObject.optString("apk_url");
+        String optString3 = optJSONObject.optString("apk_name");
+        String optString4 = optJSONObject.optString("app_name");
+        inst.saveString("url", optString);
+        inst.saveInt("url_type", optInt);
+        inst.saveString("apk_url", optString2);
+        inst.saveString("apk_name", optString3);
+        inst.saveString("app_name", optString4);
+        JSONArray optJSONArray = optJSONObject.optJSONArray("goods_info");
+        if (optJSONArray == null || optJSONArray.length() == 0 || (optJSONObject2 = optJSONArray.optJSONObject(0)) == null) {
+            str = null;
+            str2 = null;
+        } else {
+            str = optJSONObject2.optString("thread_pic");
+            str2 = optJSONObject2.optString("thread_pic_md5");
+            inst.saveString("apk_size", optJSONObject2.optString("apk_size"));
+        }
+        if (StringUtils.isNull(str2) || StringUtils.isNull(str)) {
+            return;
+        }
+        String loadString = inst.loadString("launch_config_md5", null);
+        if (StringUtils.isNull(loadString)) {
+            inst.saveString("launch_config_md5", str2);
+            inst.saveString("launch_config_remote_url", str);
+            d(str);
+        } else if (TextUtils.equals(loadString, str2)) {
+        } else {
+            inst.saveString("launch_config_md5", str2);
+            inst.saveString("launch_config_remote_url", str);
+            d(str);
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            String b = b();
+            if (TextUtils.equals(b, str) && e(b)) {
+                return;
+            }
+            f(str, b);
+        }
+    }
+
+    public final boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            File GetFile = FileHelper.GetFile(TbMd5.getNameMd5FromUrl(str));
+            return GetFile != null && GetFile.exists() && GetFile.isFile();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && ni.H()) {
+            new a(str, TbMd5.getNameMd5FromUrl(str), str2).execute(new String[0]);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
+            if (StringUtils.isNull(loadString)) {
+                return;
+            }
+            TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
+        }
     }
 }

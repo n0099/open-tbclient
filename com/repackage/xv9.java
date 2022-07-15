@@ -1,52 +1,80 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xu9;
 /* loaded from: classes7.dex */
-public final class xv9<T, R> implements xu9.a<R> {
+public class xv9<T> extends as9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xu9.a<T> a;
-    public final xu9.b<? extends R, ? super T> b;
+    public final vr9<T> e;
 
-    public xv9(xu9.a<T> aVar, xu9.b<? extends R, ? super T> bVar) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public xv9(as9<? super T> as9Var) {
+        this(as9Var, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
+            Object[] objArr = {as9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((as9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
     }
 
-    @Override // com.repackage.xu9.a, com.repackage.lv9
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((dv9) ((dv9) obj));
-    }
-
-    public void call(dv9<? super R> dv9Var) {
+    @Override // com.repackage.vr9
+    public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dv9Var) == null) {
-            try {
-                dv9 dv9Var2 = (dv9) ez9.n(this.b).call(dv9Var);
-                dv9Var2.d();
-                this.a.call(dv9Var2);
-            } catch (Throwable th) {
-                jv9.e(th);
-                dv9Var.onError(th);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.onCompleted();
+        }
+    }
+
+    @Override // com.repackage.vr9
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.e.onError(th);
+        }
+    }
+
+    @Override // com.repackage.vr9
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.e.onNext(t);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xv9(as9<? super T> as9Var, boolean z) {
+        super(as9Var, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {as9Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((as9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.e = new wv9(as9Var);
     }
 }

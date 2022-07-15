@@ -6,6 +6,7 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.C0294;
 import com.yy.hiidostatis.api.HiidoSDK;
 import java.io.BufferedReader;
 import java.io.File;
@@ -283,7 +285,7 @@ public class FindEmulator {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, "android.permission.READ_PHONE_STATE")) {
+            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, PermissionChecker.READ_PHONE_STATE)) {
                 String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                 for (String str : known_device_ids) {
                     if (str.equalsIgnoreCase(deviceId)) {
@@ -300,7 +302,7 @@ public class FindEmulator {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, "android.permission.READ_PHONE_STATE")) {
+            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, PermissionChecker.READ_PHONE_STATE)) {
                 String subscriberId = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
                 for (String str : known_imsi_ids) {
                     if (str.equalsIgnoreCase(subscriberId)) {
@@ -336,7 +338,7 @@ public class FindEmulator {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            File[] fileArr = {new File("/proc/tty/drivers"), new File("/proc/cpuinfo")};
+            File[] fileArr = {new File("/proc/tty/drivers"), new File(C0294.f19)};
             for (int i = 0; i < 2; i++) {
                 File file = fileArr[i];
                 if (file.exists() && file.canRead()) {

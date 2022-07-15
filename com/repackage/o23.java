@@ -1,104 +1,123 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zy2;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes6.dex */
-public class o23 extends p13 {
+public class o23 extends l23 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String e;
+    public static final String f;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755491647, "Lcom/repackage/o23;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755491647, "Lcom/repackage/o23;");
+                return;
+            }
+        }
+        e = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+        f = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o23(p03 p03Var) {
-        super(p03Var, "/swanAPI/showLoading");
+    public o23(e13 e13Var) {
+        super(e13Var, "/swanAPI/getFavor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((e13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.l23
+    public boolean j(h03 h03Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (p13.b) {
-                Log.d("ShowLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            if (sz2Var != null && sz2Var.n0()) {
-                if (p13.b) {
-                    Log.d("ShowLoadingAction", "ShowLoadingAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                return false;
-            } else if (!(context instanceof SwanAppActivity)) {
-                sw1.c("showLoading", "context not support");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    sw1.c("showLoading", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                sw1.i("showLoading", "handleShowLoading : joParams = \n" + optParamsAsJo);
-                String optString = optParamsAsJo.optString("title");
-                if (TextUtils.isEmpty(optString)) {
-                    sw1.c("showLoading", "none title");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
-                bz1 X = ((SwanAppActivity) context).X();
-                if (X == null) {
-                    sw1.c("showLoading", "none fragment");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragment");
-                    return false;
-                }
-                yy1 m = X.m();
-                if (!(m instanceof zy2.a)) {
-                    sw1.c("showLoading", "fragment not support");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
-                    return false;
-                }
-                zy2 c = ((zy2.a) m).c();
-                if (c == null) {
-                    sw1.c("showLoading", "can't get floatLayer");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");
-                    return false;
-                }
-                az2.f(c, context, optString, optBoolean);
-                sw1.i("showLoading", "show loading success");
-                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, h03Var, unitedSchemeEntity)) == null) {
+            return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.l23
+    public void k(h03 h03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h03Var, unitedSchemeEntity, callbackHandler, str) == null) {
+            JSONArray jSONArray = new JSONArray();
+            List<SwanFavorItemData> i = SwanFavorDataManager.h().i();
+            if (i.size() > 0) {
+                for (SwanFavorItemData swanFavorItemData : i) {
+                    jSONArray.put(p(swanFavorItemData));
+                }
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("favors", jSONArray);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+        }
+    }
+
+    public final JSONObject p(SwanFavorItemData swanFavorItemData) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanFavorItemData)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("appid", swanFavorItemData.getAppKey());
+                jSONObject.put("type", swanFavorItemData.getAppType());
+                jSONObject.put("iconUrl", swanFavorItemData.getIconUrl());
+                jSONObject.put("title", swanFavorItemData.getAppName());
+                jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
+                jSONObject.put("payProtected", swanFavorItemData.getPayProtected());
+                if (swanFavorItemData.getAppFrameType() == 1) {
+                    str = String.format(f, swanFavorItemData.getAppKey());
+                } else {
+                    str = e + swanFavorItemData.getAppKey() + "\"}";
+                }
+                jSONObject.put("scheme", str);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hg;
-import com.repackage.j35;
-import com.repackage.kc5;
 import com.repackage.kg;
-import com.repackage.km4;
+import com.repackage.l45;
+import com.repackage.nd5;
 import com.repackage.ni;
 import com.repackage.pi;
 import com.repackage.ub;
 import com.repackage.yb;
 import com.repackage.ym;
+import com.repackage.zm4;
 /* loaded from: classes3.dex */
 public class MemeLoaderProc2 implements kg<ym> {
     public static /* synthetic */ Interceptable $ic;
@@ -106,7 +106,7 @@ public class MemeLoaderProc2 implements kg<ym> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? km4.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? zm4.c().g() : invokeV.booleanValue;
     }
 
     public void setIsShare(boolean z) {
@@ -158,7 +158,7 @@ public class MemeLoaderProc2 implements kg<ym> {
             if (ymVar.u()) {
                 ymVar.A(i);
                 ymVar.z(i2);
-                j35.k().d(str, ymVar);
+                l45.k().d(str, ymVar);
             }
         }
     }
@@ -208,7 +208,7 @@ public class MemeLoaderProc2 implements kg<ym> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            ym checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, j35.k().m(str), i, i2);
+            ym checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, l45.k().m(str), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
@@ -231,13 +231,13 @@ public class MemeLoaderProc2 implements kg<ym> {
             int d = i == 0 ? pi.d(TbadkCoreApplication.getInst().getApp(), 105.0f) : i;
             int d2 = i2 == 0 ? pi.d(TbadkCoreApplication.getInst().getApp(), 105.0f) : i2;
             if (!this.isShare) {
-                kc5.e(this.isFromCDN, str, str);
-                Pair<Boolean, String> d3 = kc5.d(str);
+                nd5.e(this.isFromCDN, str, str);
+                Pair<Boolean, String> d3 = nd5.d(str);
                 if (((Boolean) d3.first).booleanValue()) {
                     str3 = (String) d3.second;
                 }
             } else {
-                kc5.g(MemeLoaderProc2.class.getSimpleName(), str);
+                nd5.g(MemeLoaderProc2.class.getSimpleName(), str);
             }
             String str4 = str3;
             WebClient webClient = new WebClient();
@@ -248,7 +248,7 @@ public class MemeLoaderProc2 implements kg<ym> {
             boolean needCache = webClient.needCache();
             if (downloadImageBytes != null || webClient.getResponse().a) {
                 boolean z = false;
-                j35.k().i(TbConfig.getPbImageSize() + (downloadImageBytes != null ? downloadImageBytes.length : 0));
+                l45.k().i(TbConfig.getPbImageSize() + (downloadImageBytes != null ? downloadImageBytes.length : 0));
                 return storeBitmap(str4, str2, hgVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), d, d2), (webClient.isGif || pi.B(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
             }
             return null;

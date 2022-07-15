@@ -1,157 +1,61 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.by;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jz6 extends an<sp4, ThreadCardViewHolder<sp4>> implements zi5 {
+public class jz6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<String> a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId i;
-    public TbPageContext<?> j;
-    public tn k;
-    public String l;
-    public String m;
-    public ul4 n;
 
-    /* loaded from: classes6.dex */
-    public class a implements ul4<MetaData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jz6 a;
-
-        public a(jz6 jz6Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755571317, "Lcom/repackage/jz6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jz6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755571317, "Lcom/repackage/jz6;");
+                return;
+            }
+        }
+        a = new ArrayList();
+        b = false;
+    }
+
+    public static synchronized void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            synchronized (jz6.class) {
+                if (b) {
                     return;
                 }
+                a.add(str);
             }
-            this.a = jz6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ul4
-        /* renamed from: a */
-        public void d(View view2, MetaData metaData, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, metaData, Integer.valueOf(i), Long.valueOf(j)}) == null) || metaData == null) {
-                return;
-            }
-            ez6.b("c13758", metaData, i + 1, this.a.m);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ul4
-        /* renamed from: b */
-        public void c(View view2, MetaData metaData, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, metaData, Integer.valueOf(i), Long.valueOf(j)}) == null) || metaData == null) {
-                return;
-            }
-            ez6.a("c13758", metaData, i + 1, this.a.m);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jz6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public static synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (jz6.class) {
+                if (b) {
+                    return;
+                }
+                b = true;
+                TiebaStatic.log(new StatisticItem("HomePageDataInspect").param("obj_param1", TextUtils.join("_", a)));
             }
-        }
-        this.n = new a(this);
-        this.j = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public ThreadCardViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            by.b bVar = new by.b(this.j.getPageActivity(), false);
-            st6 st6Var = new st6(this.j, this.i);
-            st6Var.q(this.n);
-            bVar.n(st6Var);
-            bVar.l().c(0);
-            bVar.l().f(0);
-            bVar.l().e(0);
-            bVar.l().h(0);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.k));
-            threadCardViewHolder.k(this.i);
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: b0 */
-    public View S(int i, View view2, ViewGroup viewGroup, sp4 sp4Var, ThreadCardViewHolder<sp4> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sp4Var, threadCardViewHolder})) == null) {
-            if (sp4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
-                return null;
-            }
-            threadCardViewHolder.c().q(i);
-            if (threadCardViewHolder.c() instanceof yi5) {
-                threadCardViewHolder.c().b(this.l);
-            }
-            threadCardViewHolder.g(sp4Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void c0(tn tnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tnVar) == null) {
-            this.k = tnVar;
-        }
-    }
-
-    @Override // com.repackage.zi5
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.l = str;
         }
     }
 }

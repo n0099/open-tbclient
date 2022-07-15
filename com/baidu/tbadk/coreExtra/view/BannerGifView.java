@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.gm4;
 import com.repackage.h9;
-import com.repackage.rl4;
-import com.repackage.sl4;
+import com.repackage.hm4;
 /* loaded from: classes3.dex */
 public class BannerGifView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -33,13 +33,13 @@ public class BannerGifView extends RelativeLayout {
     public String e;
     public String f;
     public boolean g;
-    public rl4 h;
-    public sl4 i;
-    public final sl4 j;
+    public gm4 h;
+    public hm4 i;
+    public final hm4 j;
     public final View.OnClickListener k;
 
     /* loaded from: classes3.dex */
-    public class a implements sl4 {
+    public class a implements hm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerGifView a;
@@ -62,7 +62,7 @@ public class BannerGifView extends RelativeLayout {
             this.a = bannerGifView;
         }
 
-        @Override // com.repackage.sl4
+        @Override // com.repackage.hm4
         public boolean a(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -164,10 +164,10 @@ public class BannerGifView extends RelativeLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0373, this);
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090407);
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090e34);
-            GifView gifView = (GifView) inflate.findViewById(R.id.obfuscated_res_0x7f090e2e);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0375, this);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090409);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090e42);
+            GifView gifView = (GifView) inflate.findViewById(R.id.obfuscated_res_0x7f090e3c);
             this.a = gifView;
             gifView.setShowStaticDrawable(false);
             this.a.setSupportNoImage(false);
@@ -248,10 +248,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(rl4 rl4Var) {
+    public void setIWindowChangedListener(gm4 gm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, rl4Var) == null) {
-            this.h = rl4Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, gm4Var) == null) {
+            this.h = gm4Var;
         }
     }
 
@@ -263,10 +263,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setOnClickEventListener(sl4 sl4Var) {
+    public void setOnClickEventListener(hm4 hm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, sl4Var) == null) {
-            this.i = sl4Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, hm4Var) == null) {
+            this.i = hm4Var;
         }
     }
 

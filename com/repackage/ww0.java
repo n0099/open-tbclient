@@ -1,52 +1,35 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import kotlin.jvm.JvmName;
-@JvmName(name = "LayerUtils")
 /* loaded from: classes7.dex */
-public final class ww0 {
+public class ww0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755187103, "Lcom/repackage/ww0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755187103, "Lcom/repackage/ww0;");
-                return;
-            }
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void a(@Nullable Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(65536, null, activity, z) == null) || activity == null) {
+            return;
         }
-        c11.a(253.0f);
-        c11.a(9.0f);
+        if (z) {
+            activity.setRequestedOrientation(8);
+        } else {
+            activity.setRequestedOrientation(0);
+        }
+        activity.getWindow().setFlags(1024, 1024);
     }
 
-    public static final zt0 a(ArrayList<vt0> arrayList) {
-        InterceptResult invokeL;
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void b(@Nullable Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, arrayList)) == null) {
-            if (arrayList != null) {
-                Iterator<vt0> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    vt0 next = it.next();
-                    if (next instanceof zt0) {
-                        return (zt0) next;
-                    }
-                }
-                return null;
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, activity) == null) || activity == null) {
+            return;
         }
-        return (zt0) invokeL.objValue;
+        activity.setRequestedOrientation(1);
     }
 }

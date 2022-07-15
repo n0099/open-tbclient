@@ -12,7 +12,7 @@ public class bd {
     public static long a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f915a = "";
+    public static String f1642a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,11 +34,11 @@ public class bd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(f915a)) {
-                f915a = com.xiaomi.push.bp.a(4);
+            if (TextUtils.isEmpty(f1642a)) {
+                f1642a = com.xiaomi.push.bp.a(4);
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(f915a);
+            sb.append(f1642a);
             long j = a;
             a = 1 + j;
             sb.append(j);

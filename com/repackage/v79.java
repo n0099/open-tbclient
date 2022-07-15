@@ -1,66 +1,9 @@
 package com.repackage;
-
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class v79 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
-    public static String b = "";
-    public transient /* synthetic */ FieldHolder $fh;
+public interface v79 {
+    void a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755278119, "Lcom/repackage/v79;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755278119, "Lcom/repackage/v79;");
-        }
-    }
+    void b(long j);
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!TextUtils.isEmpty(b)) {
-                return b;
-            }
-            try {
-                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int i = a;
-            if (i >= 0) {
-                return i;
-            }
-            try {
-                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return a;
-        }
-        return invokeL.intValue;
-    }
+    void c(int i);
 }

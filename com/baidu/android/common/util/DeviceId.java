@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e00;
-import com.repackage.h00;
-import com.repackage.qy;
+import com.repackage.g00;
+import com.repackage.j00;
 import com.repackage.sy;
-import com.repackage.ty;
 import com.repackage.uy;
+import com.repackage.vy;
+import com.repackage.wy;
 import java.io.File;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -27,15 +27,15 @@ public final class DeviceId {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String f = "DeviceId";
     public static final boolean g = false;
-    public static uy.a h = null;
+    public static wy.a h = null;
     public static volatile DeviceId i = null;
     public static CuidChangeCallback j = null;
     public static boolean sDataCuidInfoShable = true;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-    public uy b;
-    public ty c;
-    public qy d;
+    public wy b;
+    public vy c;
+    public sy d;
     public Executor e;
 
     /* loaded from: classes.dex */
@@ -52,7 +52,7 @@ public final class DeviceId {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uy.a a;
+        public final /* synthetic */ wy.a a;
         public final /* synthetic */ DeviceId b;
 
         /* renamed from: com.baidu.android.common.util.DeviceId$a$a  reason: collision with other inner class name */
@@ -90,7 +90,7 @@ public final class DeviceId {
             }
         }
 
-        public a(DeviceId deviceId, uy.a aVar) {
+        public a(DeviceId deviceId, wy.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,7 +115,7 @@ public final class DeviceId {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || DeviceId.j == null) {
                 return;
             }
-            uy.a aVar = this.a;
+            wy.a aVar = this.a;
             if (aVar == null || aVar.w() || TextUtils.isEmpty(this.a.t())) {
                 CuidChangeCallback unused = DeviceId.j = null;
             } else {
@@ -128,10 +128,10 @@ public final class DeviceId {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uy.a a;
+        public final /* synthetic */ wy.a a;
         public final /* synthetic */ DeviceId b;
 
-        public b(DeviceId deviceId, uy.a aVar) {
+        public b(DeviceId deviceId, wy.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,7 +154,7 @@ public final class DeviceId {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (sy.class) {
+                synchronized (uy.class) {
                     if (DeviceId.j == null) {
                         return;
                     }
@@ -172,10 +172,10 @@ public final class DeviceId {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uy.a a;
+        public final /* synthetic */ wy.a a;
         public final /* synthetic */ DeviceId b;
 
-        public c(DeviceId deviceId, uy.a aVar) {
+        public c(DeviceId deviceId, wy.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -239,9 +239,9 @@ public final class DeviceId {
         }
         this.e = new ThreadPoolExecutor(0, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         this.a = context.getApplicationContext();
-        this.d = new qy();
-        this.b = new uy(this.a, new e00(this.a), this.d);
-        this.c = new ty(this.a, this.d);
+        this.d = new sy();
+        this.b = new wy(this.a, new g00(this.a), this.d);
+        this.c = new vy(this.a, this.d);
     }
 
     public static DeviceId a(Context context) {
@@ -249,7 +249,7 @@ public final class DeviceId {
         DeviceId deviceId;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            synchronized (sy.class) {
+            synchronized (uy.class) {
                 if (i == null) {
                     i = new DeviceId(context);
                 }
@@ -260,38 +260,38 @@ public final class DeviceId {
         return (DeviceId) invokeL.objValue;
     }
 
-    private uy.a a(String str) {
+    private wy.a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) ? this.b.m(str) : (uy.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) ? this.b.m(str) : (wy.a) invokeL.objValue;
     }
 
-    private uy.a a(String str, String str2) {
+    private wy.a a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, str2)) == null) {
-            sy g2 = this.c.g(str);
+            uy g2 = this.c.g(str);
             if (g2 == null || TextUtils.equals(str2, g2.a)) {
                 return null;
             }
             return this.b.a(g2);
         }
-        return (uy.a) invokeLL.objValue;
+        return (wy.a) invokeLL.objValue;
     }
 
-    private Runnable a(uy.a aVar) {
+    private Runnable a(wy.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, this, aVar)) == null) ? new c(this, aVar) : (Runnable) invokeL.objValue;
     }
 
-    private uy.a b() {
+    private wy.a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             this.b.i();
             try {
-                uy.a e = e();
+                wy.a e = e();
                 if (!b(e)) {
                     if (e == null) {
                         e = b((String) null, (String) null);
@@ -302,7 +302,7 @@ public final class DeviceId {
                     e(e);
                     return e;
                 }
-                uy.a b2 = b((String) null, e.n());
+                wy.a b2 = b((String) null, e.n());
                 if (b2 == null) {
                     b2 = a((String) null);
                 }
@@ -315,15 +315,15 @@ public final class DeviceId {
                 throw th;
             }
         }
-        return (uy.a) invokeV.objValue;
+        return (wy.a) invokeV.objValue;
     }
 
-    public static uy.a b(Context context) {
+    public static wy.a b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             if (h == null) {
-                synchronized (sy.class) {
+                synchronized (uy.class) {
                     if (h == null) {
                         SystemClock.uptimeMillis();
                         h = a(context).b();
@@ -334,33 +334,33 @@ public final class DeviceId {
             a(context).d();
             return h;
         }
-        return (uy.a) invokeL.objValue;
+        return (wy.a) invokeL.objValue;
     }
 
-    private uy.a b(String str, String str2) {
+    private wy.a b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, str, str2)) == null) {
-            uy.a o = this.b.o(str2);
+            wy.a o = this.b.o(str2);
             return o == null ? a(str, str2) : o;
         }
-        return (uy.a) invokeLL.objValue;
+        return (wy.a) invokeLL.objValue;
     }
 
-    private boolean b(uy.a aVar) {
+    private boolean b(wy.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, this, aVar)) == null) ? (aVar == null || !aVar.m() || TextUtils.isEmpty(aVar.u()) || TextUtils.equals(aVar.u(), uy.n())) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, this, aVar)) == null) ? (aVar == null || !aVar.m() || TextUtils.isEmpty(aVar.u()) || TextUtils.equals(aVar.u(), wy.n())) ? false : true : invokeL.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(uy.a aVar) {
+    public void c(wy.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, this, aVar) == null) {
             if (aVar == null) {
                 throw new NullPointerException("cuidV270Info should not be null");
             }
-            sy y = aVar.y();
+            uy y = aVar.y();
             if (!aVar.m() || TextUtils.isEmpty(aVar.u())) {
                 aVar.e();
             }
@@ -373,7 +373,7 @@ public final class DeviceId {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            uy.a aVar = h;
+            wy.a aVar = h;
             if (j == null) {
                 return;
             }
@@ -386,24 +386,24 @@ public final class DeviceId {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(uy.a aVar) {
+    public void d(wy.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, this, aVar) == null) {
             this.e.execute(new b(this, aVar));
         }
     }
 
-    private uy.a e() {
+    private wy.a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            uy.a g2 = g();
+            wy.a g2 = g();
             return g2 == null ? f() : g2;
         }
-        return (uy.a) invokeV.objValue;
+        return (wy.a) invokeV.objValue;
     }
 
-    private synchronized void e(uy.a aVar) {
+    private synchronized void e(wy.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, this, aVar) == null) {
             synchronized (this) {
@@ -412,24 +412,24 @@ public final class DeviceId {
         }
     }
 
-    private uy.a f() {
+    private wy.a f() {
         InterceptResult invokeV;
-        sy a2;
+        uy a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
             File file = new File(this.a.getFilesDir(), "libcuid.so");
-            if (!file.exists() || (a2 = sy.a(h00.a(file))) == null) {
+            if (!file.exists() || (a2 = uy.a(j00.a(file))) == null) {
                 return null;
             }
             return this.b.a(a2);
         }
-        return (uy.a) invokeV.objValue;
+        return (wy.a) invokeV.objValue;
     }
 
-    private uy.a g() {
+    private wy.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) ? this.b.k() : (uy.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) ? this.b.k() : (wy.a) invokeV.objValue;
     }
 
     public static String getCUID(Context context) {
@@ -471,9 +471,9 @@ public final class DeviceId {
         }
     }
 
-    public uy c() {
+    public wy c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (uy) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (wy) invokeV.objValue;
     }
 }

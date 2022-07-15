@@ -1,60 +1,55 @@
 package com.repackage;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sso.p.a;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tf1 implements ServiceConnection {
-    public static /* synthetic */ Interceptable $ic;
+public final class tf1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public rf1 a;
 
-    public tf1(rf1 rf1Var) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rf1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+            } catch (Throwable th) {
+                sf1.d(th);
             }
+            if (!TextUtils.isEmpty(a)) {
+                return a;
+            }
+            a = he1.f(context).J();
+            return a;
         }
-        this.a = rf1Var;
+        return (String) invokeL.objValue;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.a.a = a.AbstractBinderC0155a.a(iBinder);
-            of1 of1Var = this.a.e;
-            if (of1Var != null) {
-                of1Var.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                ke1 ke1Var = new ke1(context);
+                String c = ke1Var.c();
+                if (!TextUtils.isEmpty(c)) {
+                    return new String(qf1.b("30212102dicudiab".getBytes(), Base64.decode(c, 10), true), "UTF-8");
+                }
+                String a2 = ke1Var.a();
+                if (TextUtils.isEmpty(a2)) {
+                    return "";
+                }
+                ke1Var.b(new String(Base64.encode(qf1.a("30212102dicudiab".getBytes(), a2.getBytes("UTF-8")), 10), "UTF-8"));
+                return a2;
+            } catch (Throwable th) {
+                sf1.d(th);
+                return "";
             }
         }
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            rf1 rf1Var = this.a;
-            rf1Var.a = null;
-            of1 of1Var = rf1Var.e;
-            if (of1Var != null) {
-                of1Var.a();
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

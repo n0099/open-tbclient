@@ -3,6 +3,7 @@ package com.google.android.exoplayer2.util;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
-import com.kuaishou.weapon.un.w0;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public final class CodecSpecificDataUtil {
@@ -42,7 +42,7 @@ public final class CodecSpecificDataUtil {
             }
         }
         NAL_START_CODE = new byte[]{0, 0, 0, 1};
-        AUDIO_SPECIFIC_CONFIG_SAMPLING_RATE_TABLE = new int[]{96000, 88200, 64000, 48000, 44100, 32000, 24000, 22050, 16000, w0.X3, 11025, 8000, 7350};
+        AUDIO_SPECIFIC_CONFIG_SAMPLING_RATE_TABLE = new int[]{96000, 88200, 64000, 48000, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
         AUDIO_SPECIFIC_CONFIG_CHANNEL_COUNT_TABLE = new int[]{0, 1, 2, 3, 4, 5, 6, 8, -1, -1, -1, 7, 8, -1, 8, -1};
     }
 
@@ -63,7 +63,7 @@ public final class CodecSpecificDataUtil {
     public static byte[] buildAacAudioSpecificConfig(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) ? new byte[]{(byte) (((i << 3) & 248) | ((i2 >> 1) & 7)), (byte) (((i2 << 7) & 128) | ((i3 << 3) & 120))} : (byte[]) invokeIII.objValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) ? new byte[]{(byte) (((i << 3) & GDiffPatcher.DATA_INT) | ((i2 >> 1) & 7)), (byte) (((i2 << 7) & 128) | ((i3 << 3) & 120))} : (byte[]) invokeIII.objValue;
     }
 
     public static byte[] buildAacLcAudioSpecificConfig(int i, int i2) {

@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 /* loaded from: classes3.dex */
 public class MotuVideoConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -62,7 +61,7 @@ public class MotuVideoConfig extends IntentConfig {
         getIntent().putExtra("forum_name", str2);
         getIntent().putExtra("video_title", str3);
         getIntent().putExtra(LOCAL_VIDEO_OPEN, z);
-        setRequestCode(w0.A6);
+        setRequestCode(13010);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

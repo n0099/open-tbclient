@@ -1,175 +1,89 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import android.widget.MediaController;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
-import com.baidu.tieba.video.VideoItemData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.play.OnStatusChangedListener;
+import com.baidu.tieba.play.TbVideoViewContainer;
+import com.baidu.tieba.play.cyberPlayer.TbVideoViewSet;
 /* loaded from: classes5.dex */
-public class e68 extends f68 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public VideoItemData N0;
-    public VideoSerializeVideoThreadInfo O0;
-    public ThreadData P0;
+public interface e68 extends MediaController.MediaPlayerControl {
+    void a(long j, long j2, long j3);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e68(Context context, View view2) {
-        super(context, view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        m0(false);
-        setStageType(null);
-    }
+    void b(TbVideoViewSet.b bVar);
 
-    @Override // com.repackage.f68
-    public void O() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i = this.p;
-            if (i == this.e || i == this.n) {
-                y0();
-            }
-        }
-    }
+    void changeRenderViewMode(int i);
 
-    @Override // com.repackage.f68
-    public void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f = 32;
-        }
-    }
+    int getCurrentPositionSync();
 
-    @Override // com.repackage.f68
-    public void Q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
+    f68 getMediaProgressObserver();
 
-    @Override // com.repackage.f68
-    public void d0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.d0();
-            this.Q.setOnTouchListener(null);
-            this.Q.setOnClickListener(this);
-        }
-    }
+    String getOriginUrl();
 
-    @Override // com.repackage.f68, com.repackage.c68
-    public boolean onBackPress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    int getPcdnState();
 
-    @Override // com.repackage.f68, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
-            return;
-        }
-        if (view2.getId() == R.id.obfuscated_res_0x7f092312) {
-            W();
-        } else if (!ni.z()) {
-            pi.N(this.O, R.string.obfuscated_res_0x7f0f0c70);
-        } else if (this.T) {
-            VideoItemData videoItemData = this.N0;
-            if (videoItemData != null) {
-                x0(videoItemData.forum_id, videoItemData.thread_id);
-            }
-        } else {
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.O0;
-            if (videoSerializeVideoThreadInfo != null) {
-                x0(videoSerializeVideoThreadInfo.forumId, videoSerializeVideoThreadInfo.threadId);
-            }
-        }
-    }
+    d68 getPlayer();
 
-    @Override // com.repackage.f68, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-    public void onCompletion() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            startPlay();
-        }
-    }
+    int getPlayerHeight();
 
-    @Override // com.repackage.f68, com.repackage.c68
-    public void setData(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, threadData) == null) {
-            super.setData(threadData);
-            this.P0 = threadData;
-            if (this.T) {
-                VideoItemData videoItemData = new VideoItemData();
-                this.N0 = videoItemData;
-                videoItemData.buildWithThreadData(threadData);
-                return;
-            }
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
-            this.O0 = videoSerializeVideoThreadInfo;
-            videoSerializeVideoThreadInfo.copyFromThreadInfo(threadData);
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.O0;
-            videoSerializeVideoThreadInfo2.source = threadData.mRecomSource;
-            videoSerializeVideoThreadInfo2.extra = threadData.mRecomExtra;
-            videoSerializeVideoThreadInfo2.ab_tag = threadData.mRecomAbTag;
-            videoSerializeVideoThreadInfo2.weight = threadData.mRecomWeight;
-        }
-    }
+    int getPlayerWidth();
 
-    public final void x0(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.O);
-            pbActivityConfig.createNormalCfg(str2, null, null);
-            pbActivityConfig.setForumId(String.valueOf(str));
-            pbActivityConfig.setThreadData(this.P0);
-            pbActivityConfig.setVideoOriginArea(ThreadCardUtils.computeViewArea(this.Q));
-            pbActivityConfig.setNeedPreLoad(true);
-            gc6.update(this.P0);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
-            View.OnClickListener onClickListener = this.A0;
-            if (onClickListener != null) {
-                onClickListener.onClick(getMainView());
-            }
-        }
-    }
+    OnStatusChangedListener.VideoStatus getVideoStatus();
 
-    public void y0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o0(this.f);
-        }
-    }
+    void j();
+
+    void k();
+
+    boolean l();
+
+    void m();
+
+    boolean n();
+
+    void o();
+
+    void p(TbVideoViewSet.b bVar);
+
+    void q();
+
+    void setCanShowPause(boolean z);
+
+    void setContinuePlayEnable(boolean z);
+
+    void setIsVolume0(boolean z);
+
+    void setLocateSource(String str);
+
+    void setLooping(boolean z);
+
+    void setNoBussinessStats();
+
+    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
+
+    void setOperableVideoContainer(x68 x68Var);
+
+    void setPlayMode(String str);
+
+    void setStageType(String str);
+
+    void setThreadDataForStatistic(ThreadData threadData);
+
+    void setTryUseViewInSet(boolean z);
+
+    void setVideoModel(q68 q68Var);
+
+    void setVideoPath(String str);
+
+    void setVideoPath(String str, String str2);
+
+    void setVideoScalingMode(int i);
+
+    void setVideoStatData(s68 s68Var);
+
+    void setVideoStatusChangeListener(OnStatusChangedListener onStatusChangedListener);
+
+    void setVolume(float f, float f2);
+
+    void stop();
+
+    void stopPlayback();
 }

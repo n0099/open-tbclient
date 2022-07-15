@@ -1,122 +1,68 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.tbadkCore.location.LocationSocketRequestMessage;
-import com.baidu.tieba.tbadkCore.location.LocationSocketResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import android.content.Context;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a65 implements j55<LocationEvent> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public bb a;
+public interface a65 {
+    public static final a a = a.a;
 
     /* loaded from: classes5.dex */
-    public class a extends bb {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
+        public static final ServiceReference b;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(a65 a65Var, int i, boolean z) {
-            super(i, z);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-575073228, "Lcom/repackage/a65$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-575073228, "Lcom/repackage/a65$a;");
+                    return;
+                }
+            }
+            a = new a();
+            b = new ServiceReference("Frs", "FrsService");
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a65Var, Integer.valueOf(i), Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            LocationData locationData;
+        public final ServiceReference a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) || socketResponsedMessage == null) {
-                return;
-            }
-            LocationEvent locationEvent = new LocationEvent();
-            locationEvent.setType(1);
-            locationEvent.eventType = 1;
-            locationEvent.errorCode = socketResponsedMessage.getError();
-            locationEvent.errorMsg = socketResponsedMessage.getErrorString();
-            if (socketResponsedMessage instanceof LocationSocketResponsedMessage) {
-                locationEvent.locationData = ((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData();
-            }
-            if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
-                LocationModel.D(locationData);
-                ri8.a().g(System.currentTimeMillis());
-                ri8.a().e(locationEvent.locationData);
-            }
-            p55.i(locationEvent);
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (ServiceReference) invokeV.objValue;
         }
     }
 
-    public a65() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new a(this, 303017, true);
-    }
+    void a(TbPageContext<?> tbPageContext, long j);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.j55
-    /* renamed from: a */
-    public boolean onEvent(LocationEvent locationEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, locationEvent)) == null) {
-            if (locationEvent == null) {
-                return false;
-            }
-            if (locationEvent.getType() == 3) {
-                MessageManager.getInstance().unRegisterListener(this.a);
-                MessageManager.getInstance().registerListener(this.a);
-                LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
-                locationSocketRequestMessage.setLat(locationEvent.lat);
-                locationSocketRequestMessage.setLng(locationEvent.lng);
-                MessageManager.getInstance().sendMessage(locationSocketRequestMessage);
-            } else if (locationEvent.eventType == 1) {
-                LocationSocketResponsedMessage locationSocketResponsedMessage = new LocationSocketResponsedMessage();
-                locationSocketResponsedMessage.setError(locationEvent.errorCode);
-                locationSocketResponsedMessage.setErrorString(locationEvent.errorMsg);
-                locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
-                MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
-            } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                ri8.a().e(locationEvent.locationData);
-            } else {
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    void b(Context context, Frs$From frs$From, Long l, String str);
+
+    void c(Long l, String str);
 }

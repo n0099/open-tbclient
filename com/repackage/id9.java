@@ -1,33 +1,128 @@
 package com.repackage;
 
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.repackage.fd9;
+import com.repackage.hd9;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class id9 implements TTNativeExpressAd.ExpressAdInteractionListener {
+public class id9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ ExpressAdListenerWrapper c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ TTNativeExpressAd e;
-    public final /* synthetic */ hd9 f;
+    public final HashMap<String, Deque<c>> a;
 
-    public id9(hd9 hd9Var, ExpressAdListenerWrapper expressAdListenerWrapper, String str, TTNativeExpressAd tTNativeExpressAd) {
+    /* loaded from: classes6.dex */
+    public static class a implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final hd9 a;
+        public final HashSet<Ssp.Pid> b;
+
+        public a(hd9 hd9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hd9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hd9Var;
+            this.b = new HashSet<>();
+            for (hd9.c cVar : hd9Var.e) {
+                for (hd9.b bVar : cVar.b) {
+                    this.b.add(bVar.c);
+                }
+            }
+        }
+
+        @Override // com.repackage.id9.c
+        public Set<Ssp.Pid> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
+        }
+
+        @Override // com.repackage.id9.c
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.d : invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final fd9 a;
+        public final HashSet<Ssp.Pid> b;
+
+        public b(fd9 fd9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fd9Var;
+            this.b = new HashSet<>();
+            for (fd9.b bVar : fd9Var.b) {
+                for (fd9.a aVar : bVar.b) {
+                    this.b.add(aVar.c);
+                }
+            }
+        }
+
+        @Override // com.repackage.id9.c
+        public Set<Ssp.Pid> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
+        }
+
+        @Override // com.repackage.id9.c
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c : invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        Set<Ssp.Pid> a();
+
+        int b();
+    }
+
+    public id9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hd9Var, expressAdListenerWrapper, str, tTNativeExpressAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,68 +132,23 @@ public class id9 implements TTNativeExpressAd.ExpressAdInteractionListener {
                 return;
             }
         }
-        this.f = hd9Var;
-        this.c = expressAdListenerWrapper;
-        this.d = str;
-        this.e = tTNativeExpressAd;
+        this.a = new HashMap<>();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdClicked(View view2, int i) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    public final Deque<c> a(String str) {
+        InterceptResult invokeL;
+        Deque<c> deque;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-            LogPrinter.e("CSJNativeExpressAd onAdClicked type: " + i, new Object[0]);
-            this.f.onAdClicked(this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.d;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this.a) {
+                deque = this.a.get(str);
+                if (deque == null) {
+                    deque = new ArrayDeque<>();
+                    this.a.put(str, deque);
+                }
             }
+            return deque;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdShow(View view2, int i) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-            LogPrinter.e("CSJNativeExpressAd onAdShow type: " + i, new Object[0]);
-            this.f.onAdShow(this.e, this.a, new String[0]);
-            this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.d;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderFail(View view2, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
-            LogPrinter.e("CSJNativeExpressAd onRenderFail message: " + str + ", code:" + i, new Object[0]);
-            this.f.onError(i, str);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderSuccess(View view2, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            LogPrinter.e("CSJNativeExpressAd onRenderSuccess width: " + f + ", height:" + f2, new Object[0]);
-            this.f.j.put(this.e, this.c);
-            this.f.onAdLoaded((hd9) this.e);
-        }
+        return (Deque) invokeL.objValue;
     }
 }

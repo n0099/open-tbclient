@@ -25,7 +25,7 @@ public class LiveStatInfo implements Parcelable {
     public String yyuid;
 
     /* loaded from: classes2.dex */
-    public class a implements Parcelable.Creator<LiveStatInfo> {
+    public static class a implements Parcelable.Creator<LiveStatInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

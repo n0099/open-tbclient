@@ -27,14 +27,14 @@ public abstract class AbstractDoubleTimeSource implements TimeSource {
 
         @Override // kotlin.time.TimeMark
         /* renamed from: elapsedNow-UwyO8pc  reason: not valid java name */
-        public long mo1968elapsedNowUwyO8pc() {
-            return Duration.m2013minusLRDsOJo(DurationKt.toDuration(this.timeSource.read() - this.startedAt, this.timeSource.getUnit()), this.offset);
+        public long mo2911elapsedNowUwyO8pc() {
+            return Duration.m2956minusLRDsOJo(DurationKt.toDuration(this.timeSource.read() - this.startedAt, this.timeSource.getUnit()), this.offset);
         }
 
         @Override // kotlin.time.TimeMark
         /* renamed from: plus-LRDsOJo  reason: not valid java name */
-        public TimeMark mo1969plusLRDsOJo(long j) {
-            return new DoubleTimeMark(this.startedAt, this.timeSource, Duration.m2014plusLRDsOJo(this.offset, j));
+        public TimeMark mo2912plusLRDsOJo(long j) {
+            return new DoubleTimeMark(this.startedAt, this.timeSource, Duration.m2957plusLRDsOJo(this.offset, j));
         }
 
         public /* synthetic */ DoubleTimeMark(double d, AbstractDoubleTimeSource abstractDoubleTimeSource, long j, DefaultConstructorMarker defaultConstructorMarker) {
@@ -53,7 +53,7 @@ public abstract class AbstractDoubleTimeSource implements TimeSource {
 
     @Override // kotlin.time.TimeSource
     public TimeMark markNow() {
-        return new DoubleTimeMark(read(), this, Duration.Companion.m2038getZEROUwyO8pc(), null);
+        return new DoubleTimeMark(read(), this, Duration.Companion.m2981getZEROUwyO8pc(), null);
     }
 
     public abstract double read();

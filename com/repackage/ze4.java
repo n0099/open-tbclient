@@ -1,78 +1,32 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Paint;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ze4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public long d;
-    public int e;
 
-    public ze4(String str, int i, int i2) {
+    public static int a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = i;
-        this.c = i2;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) ? view2.getLayerType() : invokeL.intValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void b(View view2, int i, Paint paint) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLIL(65537, null, view2, i, paint) == null) {
+            view2.setLayerType(i, paint);
+        }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void c(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b != 0 && this.c != 0) {
-                long currentTimeMillis = System.currentTimeMillis();
-                long j = this.d;
-                if (j != 0 && (currentTimeMillis - j) / 1000 <= this.b && this.e >= this.c) {
-                    return true;
-                }
-                long j2 = this.d;
-                if (j2 == 0) {
-                    this.d = currentTimeMillis;
-                } else if ((currentTimeMillis - j2) / 1000 > this.b) {
-                    this.d = currentTimeMillis;
-                    this.e = 0;
-                }
-                this.e++;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLZ(65538, null, view2, z) == null) {
+            view2.setSaveFromParentEnabled(z);
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = this.e;
-            return i != 0 && i == this.c;
-        }
-        return invokeV.booleanValue;
     }
 }

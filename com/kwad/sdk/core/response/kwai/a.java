@@ -2,24 +2,42 @@ package com.kwad.sdk.core.response.kwai;
 
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.core.b.kwai.cf;
+import com.kwad.sdk.core.b.kwai.cz;
 import com.kwad.sdk.core.d;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class a implements b {
+    public static final List<String> WHITE_LIST;
     public List<d<a>> mHolders;
+
+    static {
+        ArrayList arrayList = new ArrayList();
+        WHITE_LIST = arrayList;
+        arrayList.add("com.kwad.sdk.core.report.BaseReportAction");
+    }
+
+    private d<a> getHolder(Class<? extends a> cls) {
+        if (a.class.equals(cls) || WHITE_LIST.contains(cls.getName())) {
+            return null;
+        }
+        return cz.a(cls);
+    }
 
     private List<d<a>> getHolders() {
         if (this.mHolders == null) {
             this.mHolders = new ArrayList();
             for (Class<?> cls = getClass(); cls != null && a.class.isAssignableFrom(cls); cls = cls.getSuperclass()) {
-                d<a> a = cf.a(cls);
-                if (a != null) {
-                    this.mHolders.add(0, a);
+                d<a> holder = getHolder(cls);
+                if (holder != null) {
+                    this.mHolders.add(0, holder);
                 }
             }
+        }
+        List<d<a>> list = this.mHolders;
+        if (list == null || list.isEmpty()) {
+            com.kwad.sdk.core.d.b.a(new IllegalStateException("no holders for class: " + getClass()));
         }
         return this.mHolders;
     }
@@ -28,6 +46,9 @@ public class a implements b {
     }
 
     public void afterToJson(JSONObject jSONObject) {
+    }
+
+    public void beforeToJson(JSONObject jSONObject) {
     }
 
     @Override // com.kwad.sdk.core.b
@@ -43,10 +64,18 @@ public class a implements b {
     public JSONObject toJson() {
         List<d<a>> holders = getHolders();
         JSONObject jSONObject = new JSONObject();
+        beforeToJson(jSONObject);
         for (int size = holders.size() - 1; size >= 0; size--) {
-            holders.get(size).b(this, jSONObject);
+            d<a> dVar = holders.get(size);
+            if (dVar != null) {
+                dVar.b(this, jSONObject);
+            }
         }
         afterToJson(jSONObject);
         return jSONObject;
+    }
+
+    public String toString() {
+        return super.toString();
     }
 }

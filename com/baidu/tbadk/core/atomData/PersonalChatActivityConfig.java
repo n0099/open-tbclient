@@ -26,6 +26,7 @@ public class PersonalChatActivityConfig extends IntentConfig {
     public static final int FROM_STRANGER = 4;
     public static final int IS_FRIEND = 1;
     public static final int IS_NOT_FRIEND = 0;
+    public static final String KEY_DEFAULT_DRAFT = "key_default_draft";
     public static final String KEY_FROM = "key_from";
     public static final String KEY_FROM_REPORT_SELECT = "key_from_report_select";
     public static final String KEY_HAS_SELECT_MSG_LIST = "key_has_select_msg_list";
@@ -135,14 +136,14 @@ public class PersonalChatActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Long) objArr2[1]).longValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue(), ((Integer) objArr2[6]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
@@ -157,20 +158,42 @@ public class PersonalChatActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r5;
             Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i), str4, str5};
-            interceptable.invokeUnInit(65543, newInitContext);
+            interceptable.invokeUnInit(65544, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Long) objArr2[1]).longValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65543, newInitContext);
+                interceptable.invokeInitBody(65544, newInitContext);
                 return;
             }
         }
         Intent intent = getIntent();
         intent.putExtra(KEY_LEAVE_MSG, str4);
         intent.putExtra(KEY_SHARE_MSG, str5);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3) {
+        this(context, j, "", str, str2, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r5;
+            Object[] objArr = {context, Long.valueOf(j), str, str2, str3};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Long) objArr2[1]).longValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra(KEY_DEFAULT_DRAFT, str3);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -181,14 +204,14 @@ public class PersonalChatActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65539, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Long) objArr2[1]).longValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue(), ((Integer) objArr2[6]).intValue(), (String) objArr2[7]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
@@ -202,14 +225,14 @@ public class PersonalChatActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
             Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
                 int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Long) objArr2[1]).longValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue(), ((Integer) objArr2[6]).intValue(), (String) objArr2[7], ((Integer) objArr2[8]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
@@ -223,13 +246,13 @@ public class PersonalChatActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), str4};
-            interceptable.invokeUnInit(65541, newInitContext);
+            interceptable.invokeUnInit(65542, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
+                interceptable.invokeInitBody(65542, newInitContext);
                 return;
             }
         }
@@ -257,13 +280,13 @@ public class PersonalChatActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), str4, Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65542, newInitContext);
+            interceptable.invokeUnInit(65543, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
                 int i5 = i4 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65542, newInitContext);
+                interceptable.invokeInitBody(65543, newInitContext);
                 return;
             }
         }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sr7;
+import com.repackage.ks7;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class TextSizeSeekBar extends View {
@@ -65,8 +65,8 @@ public class TextSizeSeekBar extends View {
         }
         this.j = 1;
         this.p = new ArrayList<>(4);
-        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029b);
-        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e);
+        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029a);
+        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023d);
         this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
         d(context);
     }
@@ -127,7 +127,7 @@ public class TextSizeSeekBar extends View {
             this.d = dimensionPixelSize;
             this.e = dimensionPixelSize;
             this.h = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.T_X09);
-            this.k = new String[]{context.getString(R.string.obfuscated_res_0x7f0f0636), context.getString(R.string.obfuscated_res_0x7f0f0635), context.getString(R.string.obfuscated_res_0x7f0f0634), context.getString(R.string.obfuscated_res_0x7f0f0637)};
+            this.k = new String[]{context.getString(R.string.obfuscated_res_0x7f0f0640), context.getString(R.string.obfuscated_res_0x7f0f063f), context.getString(R.string.obfuscated_res_0x7f0f063e), context.getString(R.string.obfuscated_res_0x7f0f0641)};
             this.l = SkinManager.getColor(R.color.CAM_X0105);
             this.m = SkinManager.getColor(R.color.CAM_X0109);
             this.n = SkinManager.getColor(R.color.CAM_X0111);
@@ -192,7 +192,7 @@ public class TextSizeSeekBar extends View {
             super.onMeasure(i, i2);
             if (this.a == 0 || this.b == 0) {
                 this.a = View.MeasureSpec.getSize(i);
-                int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070260);
+                int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025f);
                 this.b = dimensionPixelSize;
                 this.c = (this.a - this.d) / 3;
                 this.f = dimensionPixelSize / 2;
@@ -220,7 +220,7 @@ public class TextSizeSeekBar extends View {
                         break;
                     } else if (this.p.get(i).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                         this.j = i;
-                        sr7.a(Math.abs(i - 3));
+                        ks7.a(Math.abs(i - 3));
                         invalidate();
                         break;
                     } else {
@@ -254,8 +254,8 @@ public class TextSizeSeekBar extends View {
         }
         this.j = 1;
         this.p = new ArrayList<>(4);
-        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029b);
-        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e);
+        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029a);
+        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023d);
         this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
         d(context);
     }
@@ -281,8 +281,8 @@ public class TextSizeSeekBar extends View {
         }
         this.j = 1;
         this.p = new ArrayList<>(4);
-        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029b);
-        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e);
+        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029a);
+        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023d);
         this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
         d(context);
     }

@@ -53,7 +53,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
             if (z) {
                 this.e.setText("new");
-                this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003eb : R.style.obfuscated_res_0x7f1003ea);
+                this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ee : R.style.obfuscated_res_0x7f1003ed);
                 SkinManager.setBackgroundResource(this.e, R.drawable.icon_news_text_prompt);
                 return;
             }
@@ -63,7 +63,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
             this.e.setText(version);
             this.e.setBackgroundDrawable(null);
-            this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ed : R.style.obfuscated_res_0x7f1003ec);
+            this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003f1 : R.style.obfuscated_res_0x7f1003ef);
         }
     }
 }

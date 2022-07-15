@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cg;
 import com.repackage.hg;
-import com.repackage.j35;
-import com.repackage.kc5;
+import com.repackage.l45;
 import com.repackage.mg;
+import com.repackage.nd5;
 import com.repackage.ni;
 import com.repackage.pi;
 import com.repackage.ub;
@@ -218,8 +218,8 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             }
             boolean isFromCDN = isFromCDN();
             String urlbyClientServerAddr = isFromCDN ? str : getUrlbyClientServerAddr(str, suggestWidth, suggestHeight);
-            kc5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = kc5.d(urlbyClientServerAddr);
+            nd5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = nd5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 urlbyClientServerAddr = (String) d.second;
                 z = true;
@@ -247,7 +247,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     c2 = 1;
                 }
                 try {
-                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080b92, new TypedValue());
+                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080b9c, new TypedValue());
                     byte[] d2 = cg.d(openRawResource);
                     try {
                         if (!webClient2.isGif && !pi.B(d2)) {
@@ -309,7 +309,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr2 = bArr;
-            j35.k().i(TbConfig.getPbImageSize() + bArr2.length);
+            l45.k().i(TbConfig.getPbImageSize() + bArr2.length);
             boolean z5 = webClient.isGif || pi.B(bArr2);
             ym ymVar3 = new ym((Bitmap) null, z5, str, bArr2);
             ymVar3.y(z2);

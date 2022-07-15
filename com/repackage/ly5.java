@@ -1,37 +1,43 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.card.ala.AlaVideoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ky5;
+import com.repackage.f68;
 /* loaded from: classes6.dex */
-public class ly5 {
+public class ly5 implements c68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AlaVideoContainer a;
+    public ThreadData b;
+    public AlaInfoData c;
+    public boolean d;
+    public f68 e;
+    public f68.b f;
 
     /* loaded from: classes6.dex */
-    public static class a implements my5 {
+    public class a implements f68.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ky5.a a;
+        public final /* synthetic */ ly5 a;
 
-        public a(ky5.a aVar) {
+        public a(ly5 ly5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
+                Object[] objArr = {ly5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,194 +47,170 @@ public class ly5 {
                     return;
                 }
             }
-            this.a = aVar;
+            this.a = ly5Var;
         }
 
-        @Override // com.repackage.my5
-        public void onFailed(int i) {
+        @Override // com.repackage.f68.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.a(2, i);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements my5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ky5.a a;
-
-        public b(ky5.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        @Override // com.repackage.my5
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.a(2, i);
-            }
-        }
-    }
-
-    public static boolean a(Context context, Uri uri, Bundle bundle, boolean z) {
-        InterceptResult invokeCommon;
+    public ly5(AlaVideoContainer alaVideoContainer) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, uri, bundle, Boolean.valueOf(z)})) == null) ? b(context, uri, null, bundle, z) : invokeCommon.booleanValue;
-    }
-
-    public static boolean b(Context context, Uri uri, ky5 ky5Var, Bundle bundle, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, uri, ky5Var, bundle, Boolean.valueOf(z)})) == null) {
-            ky5.a aVar = new ky5.a();
-            if (uri == null) {
-                if (ky5Var != null) {
-                    ky5Var.b(1, "Uri is empty.", aVar);
-                }
-                return false;
-            } else if (!"deeplink".equals(uri.getHost())) {
-                if (ky5Var != null) {
-                    ky5Var.b(2, "Uri host is not deeplink.", aVar);
-                }
-                return false;
-            } else {
-                String queryParameter = uri.getQueryParameter(DeepLinkItem.DEEPLINK_APPURL_KEY);
-                String queryParameter2 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_MARKETURL_KEY);
-                String queryParameter3 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_WEBURL_KEY);
-                String queryParameter4 = uri.getQueryParameter("pkgName");
-                String queryParameter5 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_MARKET_PKGNAME_KEY);
-                boolean booleanQueryParameter = uri.getBooleanQueryParameter(DeepLinkItem.DEEPLINK_IS_DESIGNATE_PKG, true);
-                if (e(context, queryParameter, queryParameter4, ky5Var, booleanQueryParameter, aVar) || f(context, queryParameter2, queryParameter5, ky5Var, booleanQueryParameter, aVar)) {
-                    return true;
-                }
-                return g(context, queryParameter3, bundle, ky5Var, aVar, z);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {alaVideoContainer};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeCommon.booleanValue;
+        this.d = false;
+        this.f = new a(this);
+        this.a = alaVideoContainer;
+        if (alaVideoContainer != null) {
+            f68 f68Var = new f68();
+            this.e = f68Var;
+            f68Var.l(this.a.getVideoView());
+            this.e.i(this.f);
+        }
     }
 
-    public static boolean c(Context context, String str, String str2, boolean z, my5 my5Var) {
-        InterceptResult invokeCommon;
+    public final void b() {
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Boolean.valueOf(z), my5Var})) == null) {
-            try {
-                Intent b2 = ny5.b(context, str, str2, z, my5Var);
-                if (b2 == null) {
-                    return false;
-                }
-                context.startActivity(b2);
-                return true;
-            } catch (Exception unused) {
-                if (my5Var != null) {
-                    my5Var.onFailed(-101);
-                }
-                return false;
-            }
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (threadData = this.b) == null || threadData.getThreadVideoInfo() == null) {
         }
-        return invokeCommon.booleanValue;
     }
 
-    public static boolean d(Context context, String str, Bundle bundle, boolean z) {
-        InterceptResult invokeCommon;
-        TbPageContext<?> tbPageContext;
+    public void c() {
+        AlaVideoContainer alaVideoContainer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, bundle, Boolean.valueOf(z)})) == null) {
-            String[] strArr = {str};
-            UrlManager urlManager = UrlManager.getInstance();
-            if (urlManager == null || (tbPageContext = (TbPageContext) h9.a(context)) == null) {
-                return false;
-            }
-            if (urlManager.UrlValidated(str)) {
-                urlManager.dealOneLink(tbPageContext, strArr, true);
-                return true;
-            }
-            return urlManager.dealOneLink(tbPageContext, strArr);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (alaVideoContainer = this.a) == null) {
+            return;
         }
-        return invokeCommon.booleanValue;
+        alaVideoContainer.q();
     }
 
-    public static boolean e(Context context, String str, String str2, ky5 ky5Var, boolean z, ky5.a aVar) {
-        InterceptResult invokeCommon;
+    public void d(ThreadData threadData, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, ky5Var, Boolean.valueOf(z), aVar})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                aVar.a(1, -4);
-                return false;
-            } else if (c(context, str, str2, z, new a(aVar))) {
-                aVar.b(1);
-                if (ky5Var != null) {
-                    ky5Var.a(1, aVar);
-                }
-                return true;
-            } else {
-                return false;
-            }
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{threadData, str, str2, Boolean.valueOf(z)}) == null) || threadData == null) {
+            return;
         }
-        return invokeCommon.booleanValue;
+        this.b = threadData;
+        if (this.a == null || threadData.getThreadAlaInfo() == null) {
+            return;
+        }
+        AlaInfoData threadAlaInfo = this.b.getThreadAlaInfo();
+        this.c = threadAlaInfo;
+        this.a.setVideoThumbnail(threadAlaInfo.cover);
+        if (z) {
+            this.a.setTitle(this.b.getTitle());
+        } else {
+            this.a.setTitle("");
+        }
+        this.a.setPlayCount(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f01fd), StringHelper.numFormatOverWan(this.b.getThreadAlaInfo().audience_count)));
     }
 
-    public static boolean f(Context context, String str, String str2, ky5 ky5Var, boolean z, ky5.a aVar) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.c68
+    public int getCurrentPosition() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, ky5Var, Boolean.valueOf(z), aVar})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                aVar.a(2, -5);
-                return false;
-            } else if (c(context, str, str2, z, new b(aVar))) {
-                aVar.b(2);
-                if (ky5Var != null) {
-                    ky5Var.a(2, aVar);
-                    return true;
-                }
-                return true;
-            } else {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AlaVideoContainer alaVideoContainer = this.a;
+            if (alaVideoContainer == null || alaVideoContainer.getVideoView() == null) {
+                return 0;
             }
+            return this.a.getVideoView().getCurrentPositionSync();
         }
-        return invokeCommon.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static boolean g(Context context, String str, Bundle bundle, ky5 ky5Var, ky5.a aVar, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.c68
+    public String getPlayUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, bundle, ky5Var, aVar, Boolean.valueOf(z)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                aVar.a(3, -6);
-                if (ky5Var != null) {
-                    ky5Var.b(-6, "Uri web url is empty", aVar);
-                }
-                return false;
-            } else if (d(context, str, bundle, z)) {
-                aVar.b(3);
-                if (ky5Var != null) {
-                    ky5Var.a(3, aVar);
-                    return true;
-                }
-                return true;
-            } else {
-                aVar.a(3, -7);
-                if (ky5Var != null) {
-                    ky5Var.b(-7, "Uri web url open failed", aVar);
-                }
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ThreadData threadData = this.b;
+            if (threadData == null || threadData.getThreadVideoInfo() == null) {
+                return null;
             }
+            return this.b.getThreadVideoInfo().video_url;
         }
-        return invokeCommon.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.c68
+    public View getVideoContainer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            AlaVideoContainer alaVideoContainer = this.a;
+            if (alaVideoContainer != null) {
+                return alaVideoContainer.getView();
+            }
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.c68
+    public boolean isFullScreen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.c68
+    public boolean isPlayStarted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.c68
+    public boolean isPlaying() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.c68
+    public void startPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.c68
+    public void stopPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            AlaVideoContainer alaVideoContainer = this.a;
+            if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
+                this.a.getVideoView().stopPlayback();
+                this.a.p();
+                f68 f68Var = this.e;
+                if (f68Var != null) {
+                    f68Var.n();
+                }
+            }
+            this.d = false;
+        }
     }
 }

@@ -3,6 +3,9 @@ package com.baidu.searchbox.crius.ui;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.crius.CriusNode;
 import com.baidu.searchbox.crius.CriusRuntime;
@@ -39,6 +42,21 @@ public abstract class CriusUI<T extends View> implements RenderImplInterface {
         this.mView = createView(context);
     }
 
+    private void setHScrollChildLp() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            int layoutWidth = (int) this.renderObject.criusNode.getLayoutWidth();
+            int layoutHeight = (int) this.renderObject.criusNode.getLayoutHeight();
+            ViewGroup.LayoutParams layoutParams = this.mView.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.width = layoutWidth;
+                layoutParams.height = layoutHeight;
+                return;
+            }
+            this.mView.setLayoutParams(new RecyclerView.LayoutParams(layoutWidth, layoutHeight));
+        }
+    }
+
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -48,23 +66,37 @@ public abstract class CriusUI<T extends View> implements RenderImplInterface {
 
     public abstract T createView(Context context);
 
+    @Nullable
+    public View getChildAt(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            T t = this.mView;
+            if (t instanceof ViewGroup) {
+                return ((ViewGroup) t).getChildAt(i);
+            }
+            return null;
+        }
+        return (View) invokeI.objValue;
+    }
+
     public T getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mView : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mView : (T) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.crius.ui.RenderImplInterface
     public void insertChild(CriusData criusData, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, criusData, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, criusData, i) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.crius.ui.RenderImplInterface
     public void layout(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             CriusData criusData = this.renderObject.parent;
             if (criusData != null && criusData.isSwiper()) {
                 if (CriusRuntime.DEBUG) {
@@ -73,9 +105,17 @@ public abstract class CriusUI<T extends View> implements RenderImplInterface {
                 }
                 return;
             }
+            CriusData criusData2 = this.renderObject.parent;
+            if (criusData2 != null && criusData2.isHScroll()) {
+                if (CriusRuntime.DEBUG) {
+                    Log.d(TAG, "#layoutExp#, parent is RecyclerView, layout nothing...");
+                    return;
+                }
+                return;
+            }
             CriusNode criusNode = this.renderObject.criusNode;
             View view2 = (View) criusNode.getData();
-            if (view2.getVisibility() == 8) {
+            if (view2 == null || view2.getVisibility() == 8) {
                 return;
             }
             int round = Math.round(f + criusNode.getLayoutX());
@@ -91,7 +131,17 @@ public abstract class CriusUI<T extends View> implements RenderImplInterface {
     @Override // com.baidu.searchbox.crius.ui.RenderImplInterface
     public void removeChild(CriusData criusData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, criusData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, criusData) == null) {
         }
+    }
+
+    public void setViewLp() {
+        CriusData criusData;
+        CriusData criusData2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (criusData = this.renderObject) == null || (criusData2 = criusData.parent) == null || !criusData2.isHScroll()) {
+            return;
+        }
+        setHScrollChildLp();
     }
 }

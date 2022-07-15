@@ -1,12 +1,13 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mi1 implements xk1 {
+public class mi1 implements qk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,11 +25,20 @@ public class mi1 implements xk1 {
         }
     }
 
-    @Override // com.repackage.xk1
-    public void b(sz2 sz2Var, JSONObject jSONObject) {
+    @Override // com.repackage.qk1
+    public float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, sz2Var, jSONObject) == null) {
-            bs2.e().b(sz2Var, jSONObject);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0.0f;
         }
+        return invokeV.floatValue;
+    }
+
+    @Override // com.repackage.qk1
+    public String processUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? dx1.w(str, true) : (String) invokeL.objValue;
     }
 }

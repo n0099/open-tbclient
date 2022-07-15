@@ -1,255 +1,110 @@
 package com.repackage;
 
-import android.os.Looper;
-import android.os.MessageQueue;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j60;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.Personalized.DataRes;
+import tbclient.Personalized.CardForum;
+import tbclient.Personalized.PersonalForum;
 /* loaded from: classes6.dex */
-public class ny6 {
+public class ny6 extends ty5 implements cz5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ny6 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile DataRes a;
-    public volatile boolean b;
-
-    /* loaded from: classes6.dex */
-    public class a implements j60.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Runnable a;
-
-        public a(ny6 ny6Var, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny6Var, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-        }
-
-        @Override // com.repackage.j60.b
-        public void a(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                RecPersonalizePageModel.g().n(responsedMessage);
-            }
-        }
-
-        @Override // com.repackage.j60.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                qg.a().post(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Runnable a;
-
-        public b(ny6 ny6Var, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny6Var, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    this.a.run();
-                    return false;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755453114, "Lcom/repackage/ny6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755453114, "Lcom/repackage/ny6;");
-                return;
-            }
-        }
-        c = new ny6();
-    }
+    public CardForum e;
 
     public ny6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = false;
     }
 
-    public static synchronized ny6 c() {
-        InterceptResult invokeV;
-        ny6 ny6Var;
+    public static boolean m(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (ny6.class) {
-                ny6Var = c;
-            }
-            return ny6Var;
-        }
-        return (ny6) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 1 : invokeI.booleanValue;
     }
 
-    public synchronized DataRes a() {
-        InterceptResult invokeV;
-        DataRes dataRes;
+    @Override // com.repackage.cz5
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    e();
-                }
-                this.b = true;
-                dataRes = this.a;
-            }
-            return dataRes;
-        }
-        return (DataRes) invokeV.objValue;
-    }
-
-    public synchronized void b(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            synchronized (this) {
-                j60.d(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, new a(this, runnable));
-            }
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.showTopDivider = z;
         }
     }
 
-    public synchronized boolean d() {
+    @Override // com.repackage.cz5
+    public int getPosition() {
         InterceptResult invokeV;
-        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            CardForum cardForum = this.e;
+            if (cardForum != null) {
+                return cardForum.position.intValue();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.cz5
+    public boolean n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                long m = ht4.k().m("recommend_frs_cache_time", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT) * 1000;
-                ht4 k = ht4.k();
-                long m2 = k.m("recommend_frs_refresh_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
-                if (m2 != 0) {
-                    z = Math.abs(System.currentTimeMillis() - m2) > m;
-                }
-            }
-            return z;
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public final void e() {
-        te<byte[]> e;
-        byte[] bArr;
+    public boolean o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (TbadkCoreApplication.getCurrentAccount() == null) {
-                mm4.t().A();
-            }
-            if ((et4.q().u() && et4.q().o() >= et4.q().p()) || (e = mq4.e("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount())) == null || (bArr = e.get("0")) == null || bArr.length == 0) {
-                return;
-            }
-            try {
-                DataRes dataRes = (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                if (dataRes != null && dataRes.thread_list != null && dataRes.thread_list.size() > 0) {
-                    this.a = dataRes;
-                }
-            } catch (IOException e2) {
-                BdLog.e(e2);
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921687, null));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(getDataList()) > 0 : invokeV.booleanValue;
     }
 
-    public synchronized void f() {
+    public void s(CardForum cardForum) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (PermissionUtil.isAgreePrivacyPolicy()) {
-                    e();
-                    if (this.a == null || d()) {
-                        tb5 tb5Var = new tb5();
-                        tb5Var.b = "";
-                        tb5Var.a = 0;
-                        RecPersonalizePageModel.g().o(1, 0, tb5Var, 1, 0);
-                    }
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, cardForum) == null) || cardForum == null) {
+            return;
+        }
+        this.e = cardForum;
+        this.mGroupTitle = cardForum.card_title;
+        if (cardForum.position != null) {
+            k(g() + cardForum.position.intValue());
+        } else {
+            k(g() + 0);
+        }
+        if (ListUtils.getCount(cardForum.forum_list) > 0) {
+            for (PersonalForum personalForum : cardForum.forum_list) {
+                if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
+                    sy5 sy5Var = new sy5();
+                    sy5Var.b = personalForum.avatar;
+                    sy5Var.c = personalForum.forum_name;
+                    sy5Var.d = ng.e("" + personalForum.forum_id, -1);
+                    sy5Var.e = personalForum.is_like.intValue() == 1;
+                    c(sy5Var);
                 }
             }
         }
     }
 
-    public synchronized void g(Runnable runnable) {
+    @Override // com.repackage.cz5
+    public void v(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
-            synchronized (this) {
-                if (d()) {
-                    Looper.myQueue().addIdleHandler(new b(this, runnable));
-                }
-            }
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.showBottomDivider = z;
         }
     }
 }

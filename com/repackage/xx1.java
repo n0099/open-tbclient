@@ -1,10 +1,10 @@
 package com.repackage;
 
-import android.net.LocalServerSocket;
-import android.net.LocalSocket;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,69 +12,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.repackage.tx1;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TimeZone;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xx1 implements tx1.c {
+public abstract class xx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean a;
+    public static volatile xx1 b;
+    public static n63 c;
+    public static Timer d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public tx1.b a;
-    public LocalServerSocket b;
-    public vx1 c;
-    public String d;
-    public boolean e;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, String> a;
-        public String b;
-        public String c;
-        public String d;
-        public boolean e;
+        public final /* synthetic */ xx1 a;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new HashMap();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static abstract class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public a a;
-
-        public b(a aVar) {
+        public a(xx1 xx1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
+                Object[] objArr = {xx1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,45 +48,174 @@ public class xx1 implements tx1.c {
                     return;
                 }
             }
-            this.a = aVar;
+            this.a = xx1Var;
         }
 
-        public String a() {
-            InterceptResult invokeV;
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        public abstract Map<String, String> b();
-
-        public abstract String c();
-
-        public final void d(PrintWriter printWriter, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, printWriter, str, str2) == null) {
-                printWriter.append((CharSequence) str).append(": ").append((CharSequence) str2).append("\r\n");
-            }
-        }
-
-        public void e(OutputStream outputStream) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, outputStream) == null) {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
-                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-                PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
-                printWriter.append("HTTP/1.1").append(WebvttCueParser.CHAR_SPACE).append((CharSequence) c()).append(" \r\n");
-                d(printWriter, "Date", simpleDateFormat.format(new Date()));
-                printWriter.print("Content-Length: " + a().getBytes().length + "\r\n");
-                Map<String, String> b = b();
-                if (b != null && b.size() > 0) {
-                    for (Map.Entry<String, String> entry : b.entrySet()) {
-                        d(printWriter, entry.getKey(), entry.getValue());
-                    }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (xx1.a) {
+                    Log.d("RemoteDebugStatistic", "timer: send remote debug ubc flow");
                 }
-                printWriter.append("\r\n");
-                printWriter.append((CharSequence) a());
-                printWriter.flush();
+                this.a.e();
+                this.a.n();
             }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends xx1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.xx1
+        public void h(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
+                return;
+            }
+            if (xx1.a) {
+                Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 50335962) {
+                if (hashCode != 1109597094) {
+                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
+                        c = 1;
+                    }
+                } else if (str.equals("downloadfail")) {
+                    c = 2;
+                }
+            } else if (str.equals("downloadstart")) {
+                c = 0;
+            }
+            if (c == 0) {
+                p(true);
+                o63.d(xx1.c, str, f());
+            } else if (c == 1) {
+                n63 n63Var = xx1.c;
+                if (n63Var != null) {
+                    o63.b(n63Var);
+                }
+                n();
+            } else if (c != 2) {
+                n63 n63Var2 = xx1.c;
+                if (n63Var2 != null) {
+                    o63.d(n63Var2, str, f());
+                }
+            } else {
+                e();
+                n();
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends xx1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.xx1
+        public void h(String str) {
+            SwanAppActivity w;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str) || yx1.c()) {
+                return;
+            }
+            if (xx1.a) {
+                Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            boolean z = true;
+            if (hashCode != 511060680) {
+                if (hashCode == 900970612 && str.equals("pageready")) {
+                    c = 1;
+                }
+            } else if (str.equals("loadmaster")) {
+                c = 0;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    n63 n63Var = xx1.c;
+                    if (n63Var != null) {
+                        o63.d(n63Var, str, f());
+                        return;
+                    }
+                    return;
+                }
+                n63 n63Var2 = xx1.c;
+                if (n63Var2 != null) {
+                    o63.d(n63Var2, str, f());
+                    e();
+                    n();
+                    return;
+                }
+                return;
+            }
+            if (h03.b0() != null && (w = h03.b0().w()) != null && !w.isFinishing()) {
+                z = false;
+            }
+            p(z);
+            if (!z) {
+                if (xx1.e) {
+                    n63 n63Var3 = xx1.c;
+                    o63.d(n63Var3, str + "-preload", f());
+                    boolean unused = xx1.e = false;
+                    return;
+                }
+                o63.d(xx1.c, str, f());
+                return;
+            }
+            n63 n63Var4 = xx1.c;
+            o63.d(n63Var4, str + "-destroy", f());
+            boolean unused2 = xx1.e = false;
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
         }
     }
 
@@ -139,77 +232,202 @@ public class xx1 implements tx1.c {
                 return;
             }
         }
-        f = cg1.a;
+        a = rg1.a;
     }
 
-    public xx1(String str, tx1.b bVar) {
+    public /* synthetic */ xx1(a aVar) {
+        this();
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            k73 k73Var = new k73();
+            k73Var.a = "swan";
+            k73Var.b = "launch";
+            k73Var.c = "remote-debug";
+            k73Var.e = "appready";
+            a73.onEvent(k73Var);
+        }
+    }
+
+    public static xx1 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (b == null) {
+                synchronized (ul2.class) {
+                    if (b == null) {
+                        if (sb1.g()) {
+                            b = new b(null);
+                        } else {
+                            b = new c(null);
+                        }
+                    }
+                }
+            }
+            return b;
+        }
+        return (xx1) invokeV.objValue;
+    }
+
+    public static void i(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65544, null, jSONArray) == null) || jSONArray == null || jSONArray.length() <= 0) {
+            return;
+        }
+        JSONObject optJSONObject = jSONArray.optJSONObject(0);
+        String optString = optJSONObject != null ? optJSONObject.optString("actionId") : "";
+        if (TextUtils.isEmpty(optString) || b == null) {
+            return;
+        }
+        b.h(optString);
+    }
+
+    public static void j(fl2 fl2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, fl2Var) == null) {
+            fl2Var.s0().putString("aiapp_extra_need_download", "1");
+            fl2Var.s0().putString("aiapp_extra_pkg_downloading", "0");
+            fl2Var.s0().putLong("launch_flag_for_statistic", System.currentTimeMillis());
+            k73 k73Var = new k73();
+            k73Var.a = a73.n(fl2Var.G());
+            k73Var.j(fl2Var);
+            k73Var.b = "launch";
+            k73Var.o = "1";
+            k73Var.c = "remote-debug";
+            JSONObject k = a73.k(fl2Var.W());
+            k73Var.d(fl2Var.s0().getString(UBCCloudControlProcessor.UBC_KEY));
+            k73Var.b(k);
+            a73.onEvent(k73Var);
+        }
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            k73 k73Var = new k73();
+            k73Var.a = "swan";
+            k73Var.b = "launch";
+            k73Var.c = "remote-debug";
+            k73Var.e = "loadmaster";
+            a73.onEvent(k73Var);
+        }
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            k73 k73Var = new k73();
+            k73Var.a = "swan";
+            k73Var.b = "launch";
+            k73Var.c = "remote-debug";
+            k73Var.e = "downloadstart";
+            a73.onEvent(k73Var);
+        }
+    }
+
+    public static void m(fl2 fl2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, fl2Var) == null) {
+            k73 k73Var = new k73();
+            k73Var.j(fl2Var);
+            k73Var.a = a73.n(fl2Var.G());
+            k73Var.b = "launch";
+            k73Var.c = "remote-debug";
+            k73Var.e = "downloadsuccess";
+            a73.onEvent(k73Var);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            h03 b0 = h03.b0();
+            jSONObject2.putOpt("appid", b0 == null ? "" : b0.O());
+            jSONObject2.putOpt("from", "remote-debug");
+            z63.a(jSONObject2);
+            jSONObject.putOpt("from", "swan");
+            jSONObject.putOpt("ext", jSONObject2);
+        } catch (JSONException unused) {
+            if (a) {
+                Log.d("RemoteDebugStatistic", "page ready statistic value is invalid ");
+            }
+        }
+        o63.f(c, jSONObject.toString());
+        o63.c(c);
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+            } catch (JSONException e2) {
+                if (a) {
+                    Log.d("RemoteDebugStatistic", "add event content fail", e2);
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public abstract void h(String str);
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Timer timer = d;
+            if (timer != null) {
+                timer.cancel();
+                d = null;
+            }
+            b = null;
+            c = null;
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            e = true;
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && c == null) {
+            n63 c2 = a73.c("1153");
+            c = c2;
+            if (!z) {
+                o63.d(c2, "downloadstart", f());
+                o63.d(c, "downloadsuccess", f());
+            }
+            Timer timer = new Timer();
+            d = timer;
+            timer.schedule(new a(this), 40000L);
+        }
+    }
+
+    public xx1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, bVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        this.d = str;
-        this.a = bVar;
-    }
-
-    @Override // com.repackage.tx1.c
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e) {
-            return;
-        }
-        try {
-            this.b = new LocalServerSocket(this.d);
-            this.e = true;
-            int i = 0;
-            while (this.e) {
-                LocalSocket accept = this.b.accept();
-                vx1 vx1Var = new vx1(accept.getInputStream(), accept.getOutputStream());
-                this.c = vx1Var;
-                vx1Var.o(this.a);
-                ExecutorUtilsExt.postOnSerial(this.c, "V8InspectorServer");
-                if (rv2.H() && (i = i + 1) > 10) {
-                    if (f) {
-                        Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
-                        return;
-                    }
-                    return;
-                }
-            }
-        } catch (IOException e) {
-            sw1.d("V8InspectorServer", "launch local server fail", e);
-        }
-    }
-
-    @Override // com.repackage.tx1.c
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = false;
-            LocalServerSocket localServerSocket = this.b;
-            if (localServerSocket != null) {
-                try {
-                    localServerSocket.close();
-                } catch (IOException e) {
-                    sw1.d("V8InspectorServer", "stop local server fail", e);
-                }
-                this.b = null;
-            }
-            vx1 vx1Var = this.c;
-            if (vx1Var != null) {
-                vx1Var.l();
-                this.c = null;
-            }
-            this.a = null;
         }
     }
 }

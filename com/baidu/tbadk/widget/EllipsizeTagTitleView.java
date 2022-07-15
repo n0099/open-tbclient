@@ -25,14 +25,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gx;
+import com.repackage.hx;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
-public class EllipsizeTagTitleView extends View implements gx {
+public class EllipsizeTagTitleView extends View implements hx {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: A */
-    public static final int CAM_X0301 = 2131099742;
+    public static final int CAM_X0301 = 2131099745;
     public static final int B;
     public static final int C;
     public static final int D;
@@ -306,7 +306,7 @@ public class EllipsizeTagTitleView extends View implements gx {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04060d, R.attr.obfuscated_res_0x7f04060e, R.attr.obfuscated_res_0x7f04060f, R.attr.obfuscated_res_0x7f040610, R.attr.obfuscated_res_0x7f040611, R.attr.obfuscated_res_0x7f040612, R.attr.obfuscated_res_0x7f040613, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040616, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f040618});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04060e, R.attr.obfuscated_res_0x7f04060f, R.attr.obfuscated_res_0x7f040610, R.attr.obfuscated_res_0x7f040611, R.attr.obfuscated_res_0x7f040612, R.attr.obfuscated_res_0x7f040613, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040616, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f040618, R.attr.obfuscated_res_0x7f040619});
             this.c = obtainStyledAttributes.getInt(9, CAM_X0105);
             this.b = obtainStyledAttributes.getInt(11, 0);
             this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);
@@ -345,7 +345,7 @@ public class EllipsizeTagTitleView extends View implements gx {
         }
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {

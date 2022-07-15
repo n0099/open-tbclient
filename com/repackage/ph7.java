@@ -1,46 +1,37 @@
 package com.repackage;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.os.Environment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
-import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.wallet.YYPayManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelpay.PayReq;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.io.File;
 import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ph7 implements ThirdPartWxRechargeService {
+public class ph7 {
     public static /* synthetic */ Interceptable $ic;
-    public static BroadcastReceiver b;
+    public static ph7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public IWXAPI a;
+    public boolean a;
+    public int b;
 
     /* loaded from: classes6.dex */
-    public class a extends BroadcastReceiver {
+    public class a implements CyberPlayerManager.InstallListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ph7 this$0;
-        public final /* synthetic */ ThirdPartWxRechargeService.WxPayType val$wxPayType;
+        public final /* synthetic */ CyberPlayerManager.InstallListener a;
+        public final /* synthetic */ ph7 b;
 
-        public a(ph7 ph7Var, ThirdPartWxRechargeService.WxPayType wxPayType) {
+        public a(ph7 ph7Var, CyberPlayerManager.InstallListener installListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ph7Var, wxPayType};
+                Object[] objArr = {ph7Var, installListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,36 +41,111 @@ public class ph7 implements ThirdPartWxRechargeService {
                     return;
                 }
             }
-            this.this$0 = ph7Var;
-            this.val$wxPayType = wxPayType;
+            this.b = ph7Var;
+            this.a = installListener;
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                intent.getExtras();
-                String str = this.val$wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive ? "wx_pay_result" : "yy_wx_pay_result";
-                HashMap hashMap = new HashMap();
-                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, Integer.valueOf(intent.getExtras().getInt("errorCode", -1)));
-                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, intent.getExtras().getString("errorMsg"));
-                LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str, hashMap);
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                if (this.b.b >= 3) {
+                    this.b.b = 0;
+                    CyberPlayerManager.InstallListener installListener = this.a;
+                    if (installListener != null) {
+                        installListener.onInstallError(i, i2, str);
+                        return;
+                    }
+                    return;
+                }
+                ph7.c(this.b);
+                this.b.g(this.a);
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+                this.b.b = 0;
+                this.b.a = true;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallSuccess(i, str);
+                }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755409838, "Lcom/repackage/ph7;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class b implements CyberPlayerManager.InstallListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CyberPlayerManager.InstallListener a;
+        public final /* synthetic */ ph7 b;
+
+        public b(ph7 ph7Var, CyberPlayerManager.InstallListener installListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ph7Var, installListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ph7Var;
+            this.a = installListener;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                if (this.b.b >= 3) {
+                    this.b.b = 0;
+                    CyberPlayerManager.InstallListener installListener = this.a;
+                    if (installListener != null) {
+                        installListener.onInstallError(i, i2, str);
+                        return;
+                    }
+                    return;
+                }
+                ph7.c(this.b);
+                this.b.g(this.a);
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755409838, "Lcom/repackage/ph7;");
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+                this.b.b = 0;
+                this.b.a = true;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallSuccess(i, str);
+                }
+            }
         }
     }
 
@@ -87,82 +153,101 @@ public class ph7 implements ThirdPartWxRechargeService {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = true;
     }
 
-    public final PayReq a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            PayReq payReq = new PayReq();
-            payReq.appId = jSONObject.optString("appid");
-            payReq.partnerId = jSONObject.optString("partnerid");
-            payReq.prepayId = jSONObject.optString("prepayid");
-            payReq.packageValue = jSONObject.optString("package");
-            payReq.nonceStr = jSONObject.optString("noncestr");
-            payReq.timeStamp = jSONObject.optString("timestamp");
-            payReq.sign = jSONObject.optString("sign");
-            payReq.extData = "YY";
-            return payReq;
-        }
-        return (PayReq) invokeL.objValue;
+    public static /* synthetic */ int c(ph7 ph7Var) {
+        int i = ph7Var.b;
+        ph7Var.b = i + 1;
+        return i;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public void initWx() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public boolean isWxInstalled() {
+    public static ph7 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == null) {
-                this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == null) {
+                i();
             }
-            return this.a.isWXAppInstalled();
+            return c;
+        }
+        return (ph7) invokeV.objValue;
+    }
+
+    public static synchronized void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            synchronized (ph7.class) {
+                if (c == null) {
+                    c = new ph7();
+                }
+            }
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            boolean isCoreLoaded = CyberPlayerManager.isCoreLoaded(3);
+            if (isCoreLoaded && !this.a) {
+                this.a = true;
+            }
+            return isCoreLoaded;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public void wxRecharge(String str, ThirdPartWxRechargeService.WxPayType wxPayType) {
+    public void g(CyberPlayerManager.InstallListener installListener) {
+        String absolutePath;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, wxPayType) == null) {
-            try {
-                if (this.a == null) {
-                    this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-                }
-                PayReq a2 = a(new JSONObject(str));
-                this.a.registerApp(a2.appId);
-                if (!this.a.sendReq(a2)) {
-                    String str2 = wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive ? "wx_pay_result" : "yy_wx_pay_result";
-                    HashMap hashMap = new HashMap();
-                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, 6);
-                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, "wx_start_failed");
-                    LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
-                }
-                if (b != null) {
-                    TbadkCoreApplication.getInst().unregisterReceiver(b);
-                }
-                b = new a(this, wxPayType);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("WXPayResult");
-                TbadkCoreApplication.getInst().registerReceiver(b, intentFilter);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, installListener) == null) || CyberPlayerManager.isCoreLoaded(3)) {
+            return;
+        }
+        this.a = false;
+        String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+        File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+        if (cacheDir != null) {
+            absolutePath = cacheDir.getAbsolutePath();
+        } else {
+            absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
+        }
+        HashMap hashMap = new HashMap();
+        hashMap.put("cache-path", absolutePath);
+        try {
+            CyberPlayerManager.install(TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, 3, (Class<?>) null, hashMap, new a(this, installListener));
+        } catch (Exception unused) {
+        }
+    }
+
+    public void h(CyberPlayerManager.InstallListener installListener, int i) {
+        String absolutePath;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, installListener, i) == null) || CyberPlayerManager.isCoreLoaded(i)) {
+            return;
+        }
+        this.a = false;
+        String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+        File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+        if (cacheDir != null) {
+            absolutePath = cacheDir.getAbsolutePath();
+        } else {
+            absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
+        }
+        HashMap hashMap = new HashMap();
+        hashMap.put("cache-path", absolutePath);
+        try {
+            CyberPlayerManager.install(TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, i, (Class<?>) null, hashMap, new b(this, installListener));
+        } catch (Exception unused) {
         }
     }
 }

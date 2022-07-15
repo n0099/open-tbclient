@@ -187,21 +187,21 @@ public class nk extends Handler {
                     return;
                 }
                 jj jjVar = message.obj instanceof zj ? ((zj) message.obj).a : null;
-                this.f.a();
+                this.f.c();
                 if (!h(message.obj)) {
                     f(new ek(jjVar));
                     return;
                 }
-                this.f.e();
+                this.f.g();
                 if (jjVar != null) {
                     f(new ik(jjVar));
                 }
-                while (this.f.g() > 0) {
+                while (this.f.k() > 0) {
                     if (this.d == null) {
                         f(new uj(new SocketException("write socket = null")));
                         return;
                     }
-                    int write = this.d.write(this.f.f());
+                    int write = this.d.write(this.f.j());
                     if (write > 0) {
                         synchronized (nk.class) {
                             g += write;
@@ -251,51 +251,51 @@ public class nk extends Handler {
     public final void k(sj sjVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, sjVar) == null) {
-            this.f.h("GET " + (sjVar.c != null ? sjVar.b + "?" + sjVar.c : sjVar.b) + " HTTP/1.1");
-            this.f.c();
-            this.f.h("Host: " + sjVar.a);
-            this.f.c();
-            this.f.h("Upgrade: WebSocket");
-            this.f.c();
-            this.f.h("Connection: Upgrade");
-            this.f.c();
-            this.f.h("Sec-WebSocket-Key: " + e());
-            this.f.c();
+            this.f.l("GET " + (sjVar.c != null ? sjVar.b + "?" + sjVar.c : sjVar.b) + " HTTP/1.1");
+            this.f.e();
+            this.f.l("Host: " + sjVar.a);
+            this.f.e();
+            this.f.l("Upgrade: WebSocket");
+            this.f.e();
+            this.f.l("Connection: Upgrade");
+            this.f.e();
+            this.f.l("Sec-WebSocket-Key: " + e());
+            this.f.e();
             kk kkVar = this.e;
             if (kkVar != null && kkVar.i() != null && this.e.i().length() > 0) {
-                this.f.h("Sec-WebSocket-Extensions: " + this.e.i());
-                this.f.c();
+                this.f.l("Sec-WebSocket-Extensions: " + this.e.i());
+                this.f.e();
             }
             String str = sjVar.d;
             if (str != null && !str.equals("")) {
-                this.f.h("Origin: " + sjVar.d);
-                this.f.c();
+                this.f.l("Origin: " + sjVar.d);
+                this.f.e();
             }
             String[] strArr = sjVar.e;
             if (strArr != null && strArr.length > 0) {
-                this.f.h("Sec-WebSocket-Protocol: ");
+                this.f.l("Sec-WebSocket-Protocol: ");
                 int i = 0;
                 while (true) {
                     String[] strArr2 = sjVar.e;
                     if (i >= strArr2.length) {
                         break;
                     }
-                    this.f.h(strArr2[i]);
-                    this.f.h(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    this.f.l(strArr2[i]);
+                    this.f.l(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                     i++;
                 }
-                this.f.c();
+                this.f.e();
             }
-            this.f.h("Sec-WebSocket-Version: 13");
-            this.f.c();
+            this.f.l("Sec-WebSocket-Version: 13");
+            this.f.e();
             List<BasicNameValuePair> list = sjVar.f;
             if (list != null) {
                 for (BasicNameValuePair basicNameValuePair : list) {
-                    this.f.h(basicNameValuePair.getName() + ":" + basicNameValuePair.getValue());
-                    this.f.c();
+                    this.f.l(basicNameValuePair.getName() + ":" + basicNameValuePair.getValue());
+                    this.f.e();
                 }
             }
-            this.f.c();
+            this.f.e();
         }
     }
 

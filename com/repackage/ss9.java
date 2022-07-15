@@ -1,42 +1,77 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
+import rx.internal.operators.NotificationLite;
+import rx.internal.operators.OnSubscribeCombineLatest$LatestCoordinator;
 /* loaded from: classes7.dex */
-public class ss9 extends os9 {
+public final class ss9<T, R> extends as9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> e;
+    public final int f;
+    public boolean g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ss9() {
-        super(Framedata.Opcode.TEXT);
+    public ss9(OnSubscribeCombineLatest$LatestCoordinator<T, R> onSubscribeCombineLatest$LatestCoordinator, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {onSubscribeCombineLatest$LatestCoordinator, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = onSubscribeCombineLatest$LatestCoordinator;
+        this.f = i;
+        e(onSubscribeCombineLatest$LatestCoordinator.bufferSize);
     }
 
-    @Override // com.repackage.os9, com.repackage.ps9
-    public void h() throws InvalidDataException {
+    public void g(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.h();
-            if (!gt9.b(a())) {
-                throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
-            }
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            e(j);
         }
+    }
+
+    @Override // com.repackage.vr9
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.g) {
+            return;
+        }
+        this.g = true;
+        this.e.combine(null, this.f);
+    }
+
+    @Override // com.repackage.vr9
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            if (this.g) {
+                bw9.j(th);
+                return;
+            }
+            this.e.onError(th);
+            this.g = true;
+            this.e.combine(null, this.f);
+        }
+    }
+
+    @Override // com.repackage.vr9
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.g) {
+            return;
+        }
+        this.e.combine(NotificationLite.h(t), this.f);
     }
 }

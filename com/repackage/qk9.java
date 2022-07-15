@@ -1,58 +1,76 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qk9 extends Handler {
+import com.google.android.gms.common.internal.ConnectionTelemetryConfiguration;
+import com.google.android.gms.common.internal.RootTelemetryConfiguration;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
+/* loaded from: classes7.dex */
+public final class qk9 implements Parcelable.Creator<ConnectionTelemetryConfiguration> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ tl9 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qk9(tl9 tl9Var, Looper looper) {
-        super(looper);
+    public qk9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tl9Var, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tl9Var;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            super.handleMessage(message);
-            if (message.what != 1101) {
-                return;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* bridge */ /* synthetic */ ConnectionTelemetryConfiguration createFromParcel(Parcel parcel) {
+        int q = SafeParcelReader.q(parcel);
+        RootTelemetryConfiguration rootTelemetryConfiguration = null;
+        int[] iArr = null;
+        int[] iArr2 = null;
+        boolean z = false;
+        boolean z2 = false;
+        int i = 0;
+        while (parcel.dataPosition() < q) {
+            int k = SafeParcelReader.k(parcel);
+            switch (SafeParcelReader.h(k)) {
+                case 1:
+                    rootTelemetryConfiguration = (RootTelemetryConfiguration) SafeParcelReader.c(parcel, k, RootTelemetryConfiguration.CREATOR);
+                    break;
+                case 2:
+                    z = SafeParcelReader.i(parcel, k);
+                    break;
+                case 3:
+                    z2 = SafeParcelReader.i(parcel, k);
+                    break;
+                case 4:
+                    iArr = SafeParcelReader.b(parcel, k);
+                    break;
+                case 5:
+                    i = SafeParcelReader.m(parcel, k);
+                    break;
+                case 6:
+                    iArr2 = SafeParcelReader.b(parcel, k);
+                    break;
+                default:
+                    SafeParcelReader.p(parcel, k);
+                    break;
             }
-            this.a.e.removeMessages(1101);
-            tl9 tl9Var = this.a;
-            if (!tl9Var.b && tl9Var.b(tl9Var.a)) {
-                ql9 ql9Var = this.a.c;
-                if (ql9Var != null) {
-                    ql9Var.a();
-                }
-                this.a.b = true;
-                return;
-            }
-            this.a.e.sendEmptyMessageDelayed(1101, 300L);
         }
+        SafeParcelReader.g(parcel, q);
+        return new ConnectionTelemetryConfiguration(rootTelemetryConfiguration, z, z2, iArr, i, iArr2);
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ ConnectionTelemetryConfiguration[] newArray(int i) {
+        return new ConnectionTelemetryConfiguration[i];
     }
 }

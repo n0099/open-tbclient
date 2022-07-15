@@ -1,24 +1,21 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.annotation.SuppressLint;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.print.PrintHelper;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tbadk.core.hybrid.BridgeWebView;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,40 +23,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.io.File;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicLong;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.sina.weibo.sdk.constant.WBConstants;
+import java.io.InputStream;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class et4 {
+/* loaded from: classes6.dex */
+public class et4 extends zs4 implements ws4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] k;
+    public static final int[] l;
+    public static final int[] m;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
-    public int d;
-    public boolean e;
-    public int f;
-    public volatile boolean g;
-    public volatile boolean h;
-    public AtomicLong i;
-    public ScheduledExecutorService j;
-    public e k;
-    public boolean l;
-    public CustomMessageListener m;
+    public final ts4 c;
+    public final qs4 d;
+    public final d e;
+    public final HashMap<String, vs4> f;
+    public final HashMap<String, at4> g;
+    public String h;
+    public int i;
+    public int j;
 
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    /* loaded from: classes6.dex */
+    public class a implements ys4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ et4 a;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ et4 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(et4 et4Var, int i) {
-            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,154 +63,101 @@ public class et4 {
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = et4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                this.a.g();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ et4 b;
-
-        public b(et4 et4Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {et4Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.b = et4Var;
-            this.a = activity;
+            this.a = i;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
+        @Override // com.repackage.ys4
+        public void a(at4 at4Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                this.b.B("cancel");
-                this.b.l();
-                dialogInterface.dismiss();
-                this.a.finish();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, at4Var, jSONObject) == null) {
+                this.b.t(at4Var, this.a);
+            }
+        }
+
+        @Override // com.repackage.ys4
+        public void b(int i, Throwable th) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, th) == null) && i == 1) {
+                if (this.a < et4.m.length) {
+                    this.b.u();
+                }
+                int i2 = this.a;
+                if (i2 >= 0 && i2 < et4.m.length) {
+                    this.b.x(String.valueOf(et4.m[this.a]), "");
+                    return;
+                }
+                BdLog.e("pingIndex " + this.a + " out of bounds.");
+                String s = this.b.s();
+                ss4.b(s, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY, "ping timeout for index " + this.a);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements DialogInterface.OnClickListener {
+    /* loaded from: classes6.dex */
+    public static final class b extends zs4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ et4 b;
 
-        /* loaded from: classes5.dex */
-        public class a extends ad5<Object> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
+        public /* synthetic */ b(WebView webView, a aVar) {
+            this(webView);
+        }
 
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            @Override // com.repackage.ad5
-            public Object doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.a.b.k();
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        this.a.a.deleteSharedPreferences("settings");
-                    } else {
-                        ht4.k().d();
-                    }
-                    ht4.k().u("key_is_jump_splash_ad", true);
-                    ht4.k().H();
-                    return null;
-                }
-                return invokeV.objValue;
+        @Override // com.repackage.zs4
+        public void c(at4 at4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, at4Var) == null) {
+                at4Var.g(4, null);
             }
         }
 
-        /* loaded from: classes5.dex */
-        public class b implements gc5<Object> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public b(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            @Override // com.repackage.gc5
-            public void onReturnDataInUI(Object obj) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                    c cVar = this.a;
-                    cVar.b.t(cVar.a);
-                    pi.H(this.a.a);
-                }
+        @Override // com.repackage.zs4
+        public void e(String str, rs4 rs4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, rs4Var) == null) {
             }
         }
 
-        public c(et4 et4Var, Activity activity) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(WebView webView) {
+            super(webView, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {et4Var, activity};
+                Object[] objArr = {webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((WebView) objArr2[0], (ps4) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c implements vs4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final zs4 a;
+        public final String b;
+
+        public c(zs4 zs4Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zs4Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -226,89 +167,39 @@ public class et4 {
                     return;
                 }
             }
-            this.b = et4Var;
-            this.a = activity;
+            this.a = zs4Var;
+            this.b = str;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
+        @Override // com.repackage.vs4
+        public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                this.b.B("fix");
-                this.b.z(this.a);
-                ed5.b(new a(this), new b(this));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final et4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-403328020, "Lcom/repackage/et4$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-403328020, "Lcom/repackage/et4$d;");
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
+                String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
+                if (TextUtils.isEmpty(optString)) {
+                    ss4.a("scope " + this.b + " not found!");
                     return;
                 }
+                HashMap hashMap = new HashMap(4);
+                hashMap.put("errNo", TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP);
+                hashMap.put(StatConstants.KEY_EXT_ERR_MSG, "cmd " + this.b + " not found");
+                this.a.c(at4.k(optString, hashMap));
             }
-            a = new et4(null);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class e implements Runnable {
+    /* loaded from: classes6.dex */
+    public static final class d extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ et4 a;
+        public final WeakReference<ws4> a;
 
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public a(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g();
-                }
-            }
-        }
-
-        public e(et4 et4Var) {
+        public d(ws4 ws4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {et4Var};
+                Object[] objArr = {ws4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -318,309 +209,398 @@ public class et4 {
                     return;
                 }
             }
-            this.a = et4Var;
+            this.a = new WeakReference<>(ws4Var);
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i.incrementAndGet();
-                if (this.a.i.get() >= 10) {
-                    qg.a().post(new a(this));
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                ws4 ws4Var = this.a.get();
+                if (ws4Var == null) {
+                    ss4.a("TimeHandler got null bridge reference.");
+                    return;
                 }
-            }
-        }
-
-        public /* synthetic */ e(et4 et4Var, a aVar) {
-            this(et4Var);
-        }
-    }
-
-    public /* synthetic */ et4(a aVar) {
-        this();
-    }
-
-    public static final et4 q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? d.a : (et4) invokeV.objValue;
-    }
-
-    public void A() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || !this.a || this.g || this.h) {
-            return;
-        }
-        this.g = true;
-        ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
-        this.j = newSingleThreadScheduledExecutor;
-        newSingleThreadScheduledExecutor.scheduleWithFixedDelay(this.k, 0L, 1L, TimeUnit.SECONDS);
-    }
-
-    public final void B(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", str);
-                uBCManager.onEvent("5087", jSONObject);
-            } catch (Exception e2) {
-                BdLog.e(e2);
-            }
-        }
-    }
-
-    public final void C(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", i == 1 ? "first_level" : i == 2 ? "second_level" : "");
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("crash_times", i2);
-                jSONObject.put("ext", jSONObject2);
-                uBCManager.onEvent("5081", jSONObject);
-            } catch (Exception e2) {
-                BdLog.e(e2);
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a && !this.h && this.g) {
-            this.h = true;
-            ScheduledExecutorService scheduledExecutorService = this.j;
-            if (scheduledExecutorService != null && !scheduledExecutorService.isShutdown()) {
-                this.j.shutdownNow();
-            }
-            if (this.i.get() <= 5) {
-                return;
-            }
-            l();
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a && !this.h) {
-            this.d++;
-            ht4.k().w("key_continupus_crash_times", this.d);
-            ht4.k().H();
-        }
-    }
-
-    public int i(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, activity)) == null) {
-            if (this.a && !this.e) {
-                this.e = true;
-                this.f = 0;
-                int i = this.d;
-                if (i >= this.c) {
-                    if (activity == null) {
-                        return 0;
-                    }
-                    y(activity);
-                    this.f = 2;
-                    C(2, this.d);
-                    return this.f;
-                } else if (i >= this.b) {
-                    j();
-                    this.f = 1;
-                    C(1, this.d);
-                    return this.f;
+                int i = message.what;
+                if (i == 1) {
+                    ws4Var.b();
+                } else if (i == 2) {
+                    ws4Var.a((String) message.obj);
                 } else {
-                    return 0;
+                    throw new IllegalArgumentException("Invalid message.");
                 }
             }
-            return 0;
         }
-        return invokeL.intValue;
     }
 
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            n(new File(FileHelper.getCacheDir()));
-            n(TbadkCoreApplication.getInst().getCacheDir());
-            n(TbadkCoreApplication.getInst().getExternalCacheDir());
-            mq4.f();
-            try {
-                mq4.e("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).g("0", null);
-            } catch (Exception e2) {
-                BdLog.e(e2);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755726100, "Lcom/repackage/et4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            j();
-            n(new File("/data/data/" + TbadkCoreApplication.getInst().getPackageName() + "/databases"));
-            n(new File("/data/data/" + TbadkCoreApplication.getInst().getPackageName() + "/shared_prefs"));
-            n(new File("/data/data/" + TbadkCoreApplication.getInst().getPackageName() + "/files"));
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.d <= 0) {
-            return;
-        }
-        this.d = 0;
-        ht4.k().w("key_continupus_crash_times", this.d);
-        ht4.k().H();
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.d = 0;
-            ht4.k().w("key_continupus_crash_times", this.d);
-            ht4.k().u("key_is_jump_splash_ad", false);
-        }
-    }
-
-    public final void n(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, file) == null) {
-            FileHelper.deleteFileOrDir(file);
-        }
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public final void t(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, activity) == null) {
-            if (activity instanceof BaseActivity) {
-                ((BaseActivity) activity).hideLoadingView(activity.getWindow().findViewById(16908290));
-            } else if (activity instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) activity).hideLoadingView(activity.getWindow().findViewById(16908290));
-            }
-        }
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public boolean v(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, activity)) == null) ? q().u() && activity != null && TbadkCoreApplication.getInst().isMainProcess(false) && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba") && this.l && q().o() >= q().r() && !activity.getClass().getSimpleName().equals("MainTabActivity") : invokeL.booleanValue;
-    }
-
-    public void w(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, activity) == null) && q().u() && activity != null && TbadkCoreApplication.getInst().isMainProcess(false) && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba")) {
-            if (this.l && q().o() >= q().r() && !activity.getClass().getSimpleName().equals("MainTabActivity")) {
-                this.l = false;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(activity).createNormalCfg(2)));
-                activity.finish();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755726100, "Lcom/repackage/et4;");
                 return;
             }
-            q().A();
         }
+        k = new int[]{1500, 2000, PrintHelper.MAX_PRINT_SIZE, 4600, 6000, 8000};
+        l = new int[]{201, 202, 203};
+        m = new int[]{501, 502, 503};
     }
 
-    public void x(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, activity) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && z8.g().h() == 1) {
-            q().g();
-        }
-    }
-
-    public final void y(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, activity) == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f1003d1);
-            builder.setMessage(R.string.obfuscated_res_0x7f0f03a0);
-            builder.setCancelable(false);
-            builder.setPositiveButton(R.string.obfuscated_res_0x7f0f05b6, new b(this, activity));
-            builder.setNegativeButton(R.string.obfuscated_res_0x7f0f061f, new c(this, activity));
-            builder.show();
-        }
-    }
-
-    public final void z(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, activity) == null) {
-            if (activity instanceof BaseActivity) {
-                BaseActivity baseActivity = (BaseActivity) activity;
-                baseActivity.showLoadingView(activity.getWindow().findViewById(16908290), true);
-                h45 loadingView = baseActivity.getLoadingView();
-                if (loadingView != null) {
-                    loadingView.q(R.string.obfuscated_res_0x7f0f0471);
-                }
-            } else if (activity instanceof BaseFragmentActivity) {
-                BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) activity;
-                baseFragmentActivity.showLoadingView(activity.getWindow().findViewById(16908290), true);
-                h45 loadingView2 = baseFragmentActivity.getLoadingView();
-                if (loadingView2 != null) {
-                    loadingView2.q(R.string.obfuscated_res_0x7f0f0471);
-                }
-            }
-        }
-    }
-
-    public et4() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public et4(WebView webView, ps4 ps4Var) {
+        this(webView, new ts4(), new qs4(), ps4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView, ps4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((WebView) objArr2[0], (ts4) objArr2[1], (qs4) objArr2[2], (ps4) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = false;
-        this.i = new AtomicLong(0L);
-        this.k = new e(this, null);
-        this.l = true;
-        this.m = new a(this, 2001011);
-        if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            boolean z = ht4.k().l("key_is_start_safe_mode", 0) == 1;
-            this.a = z;
-            if (z) {
-                this.b = ht4.k().l("key_first_level_safe_mode_continuous_crash_time", 3);
-                this.c = ht4.k().l("key_second_level_safe_mode_continuous_crash_time", 6);
-                this.d = ht4.k().l("key_continupus_crash_times", 0);
-                MessageManager.getInstance().registerListener(this.m);
+    }
+
+    public static zs4 m(boolean z, WebView webView, WebViewClient webViewClient, WebChromeClient webChromeClient, ps4 ps4Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), webView, webViewClient, webChromeClient, ps4Var})) == null) {
+            if (!z) {
+                return new b(webView, null);
+            }
+            et4 et4Var = new et4(webView, ps4Var);
+            et4Var.c.b(webViewClient);
+            et4Var.d.d(webChromeClient);
+            return et4Var;
+        }
+        return (zs4) invokeCommon.objValue;
+    }
+
+    public static zs4 n(boolean z, BridgeWebView bridgeWebView, ps4 ps4Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), bridgeWebView, ps4Var})) == null) {
+            if (!z) {
+                return new b(bridgeWebView, null);
+            }
+            WebViewClient webViewClient = bridgeWebView.webViewClient;
+            WebChromeClient webChromeClient = bridgeWebView.chromeClient;
+            et4 et4Var = new et4(bridgeWebView, ps4Var);
+            et4Var.c.b(webViewClient);
+            et4Var.d.d(webChromeClient);
+            return et4Var;
+        }
+        return (zs4) invokeCommon.objValue;
+    }
+
+    @Override // com.repackage.ws4
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                ss4.a("invalid callbackId.");
+                return;
+            }
+            at4 remove = this.g.remove(str);
+            if (remove != null) {
+                ss4.a("(" + remove.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + remove.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + ") timeout.");
+                remove.g(1, null);
             }
         }
+    }
+
+    @Override // com.repackage.ws4
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.j + 1;
+            this.j = i;
+            HashMap hashMap = new HashMap();
+            hashMap.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "android");
+            hashMap.put("version", "1.0");
+            hashMap.put("logid", s());
+            int[] iArr = k;
+            l(at4.i(hashMap, iArr[this.j % iArr.length], new a(this, i)), true);
+            x("100", "");
+        }
+    }
+
+    @Override // com.repackage.zs4
+    public void c(at4 at4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, at4Var) == null) {
+            l(at4Var, at4Var.e == 3);
+        }
+    }
+
+    @Override // com.repackage.zs4
+    public void e(String str, rs4 rs4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, rs4Var) == null) || this.f.put(str, rs4Var) == null) {
+            return;
+        }
+        throw new IllegalArgumentException("handler " + str + " exists.");
+    }
+
+    public final StringBuilder k() throws JSONException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder("window.HYBRID_INITIAL_DATA=");
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "android");
+            jSONObject.put("version", "1.0");
+            jSONObject.put("logid", s());
+            sb.append(jSONObject.toString());
+            sb.append(WebvttCueParser.CHAR_SEMI_COLON);
+            return sb;
+        }
+        return (StringBuilder) invokeV.objValue;
+    }
+
+    public final void l(at4 at4Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, at4Var, z) == null) {
+            if (!z) {
+                if (this.i != 0) {
+                    String s = s();
+                    ss4.b(s, "101", "(" + at4Var.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + at4Var.b + ") is called before bridge ready");
+                }
+                if (TextUtils.isEmpty(at4Var.a) || TextUtils.isEmpty(at4Var.b)) {
+                    ss4.b(s(), "102", "the alias class or method is empty");
+                    at4Var.g(3, new IllegalArgumentException("cmd or method is illegal."));
+                    return;
+                }
+            }
+            if (!TextUtils.isEmpty(at4Var.f)) {
+                if (at4Var.e != 3) {
+                    this.g.put(at4Var.f, at4Var);
+                    if (at4Var.g > 0) {
+                        d dVar = this.e;
+                        dVar.sendMessageDelayed(Message.obtain(dVar, 2, at4Var.f), at4Var.g);
+                    } else if (at4Var.a != null || at4Var.b != null) {
+                        ss4.a("ignore timeout check for method call (" + at4Var.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + at4Var.b + ").");
+                    }
+                } else {
+                    ss4.a("ignore timeout check for response method, callbackId " + at4Var.f);
+                }
+            }
+            try {
+                String b2 = at4Var.b();
+                if (Build.VERSION.SDK_INT >= 19) {
+                    this.a.evaluateJavascript(b2, null);
+                } else {
+                    this.a.loadUrl(b2);
+                }
+                ss4.a(b2);
+            } catch (NullPointerException e) {
+                x("500", e.getMessage());
+            } catch (JSONException e2) {
+                if (z) {
+                    x("102", e2.getMessage());
+                } else {
+                    ss4.a(e2.getMessage());
+                }
+                at4Var.g(2, e2);
+            }
+        }
+    }
+
+    public String o(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
+            ss4.a("got js prompt in url:" + str + " with content:" + str2);
+            try {
+                JSONObject jSONObject = new JSONObject(str2);
+                String optString = jSONObject.optString("messageType");
+                if ("ping".equals(optString)) {
+                    v(jSONObject.optString(WBConstants.SHARE_CALLBACK_ID), jSONObject.optJSONObject("outputData"));
+                } else if ("request".equals(optString)) {
+                    w(jSONObject.optString("cmd"), jSONObject.optString("method"), jSONObject.optJSONObject("inputData"), jSONObject);
+                } else if ("response".equals(optString)) {
+                    v(jSONObject.optString(WBConstants.SHARE_CALLBACK_ID), jSONObject.optJSONObject("outputData"));
+                } else {
+                    String s = s();
+                    ss4.b(s, TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, "invalid message type " + optString);
+                }
+                return null;
+            } catch (JSONException e) {
+                ss4.b(s(), TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP, e.getMessage());
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.j = -1;
+            int i = this.i;
+            if (i != 2 && i != 1) {
+                ss4.a("current status " + this.i + ", broken because url changed to " + str);
+                this.i = 2;
+            }
+            if (dt4.b(str) && dt4.a(str)) {
+                ss4.a("current status " + this.i + ", constructing bridge for " + str);
+                ps4 ps4Var = this.b;
+                if (ps4Var != null) {
+                    ps4Var.b();
+                }
+                r(this.a);
+                ps4 ps4Var2 = this.b;
+                if (ps4Var2 != null) {
+                    ps4Var2.a();
+                }
+            }
+        }
+    }
+
+    @SuppressLint({"SetJavaScriptEnabled"})
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (this.i == -1) {
+                this.a.getSettings().setJavaScriptEnabled(true);
+                this.a.setWebViewClient(this.c);
+                this.a.setWebChromeClient(this.d);
+                this.a.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.i = 1;
+                return;
+            }
+            throw new IllegalStateException("Can't init bridge more than once.");
+        }
+    }
+
+    public final void r(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, webView) == null) {
+            this.h = String.valueOf(System.currentTimeMillis());
+            try {
+                InputStream open = webView.getContext().getAssets().open("bridge.dist.min.js");
+                byte[] bArr = new byte[open.available()];
+                open.read(bArr);
+                open.close();
+                StringBuilder k2 = k();
+                k2.append(new String(bArr));
+                webView.loadUrl("javascript:" + k2.toString());
+                this.e.sendEmptyMessageDelayed(1, 0L);
+            } catch (Throwable th) {
+                x("102", th.getMessage());
+                ss4.a(th.toString());
+            }
+        }
+    }
+
+    public final String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public final void t(at4 at4Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048587, this, at4Var, i) == null) {
+            this.i = 0;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (i >= 0) {
+                int[] iArr = l;
+                if (i < iArr.length) {
+                    x(String.valueOf(iArr[i]), String.valueOf(currentTimeMillis - at4Var.h));
+                    return;
+                }
+            }
+            BdLog.e("pingIndex " + i + " out of bounds.");
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            ss4.a("reInject for pingIndex " + this.j);
+            r(this.a);
+        }
+    }
+
+    public final void v(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, str, jSONObject) == null) {
+            if (TextUtils.isEmpty(str)) {
+                ss4.a("invalid callbackId.");
+                return;
+            }
+            this.e.removeMessages(2, str);
+            at4 remove = this.g.remove(str);
+            if (remove != null) {
+                remove.h(jSONObject);
+            }
+        }
+    }
+
+    public final void w(String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, jSONObject, jSONObject2) == null) {
+            if (this.i != 0) {
+                ss4.b(s(), TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT, "bridge is not ready");
+            }
+            vs4 vs4Var = this.f.get(str);
+            if (vs4Var == null) {
+                vs4Var = new c(this, str);
+                String s = s();
+                ss4.b(s, TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP, "cmd " + str + " not found");
+            }
+            vs4Var.a(str2, jSONObject, jSONObject2);
+        }
+    }
+
+    public final void x(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
+            ss4.c(s(), str, str2);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public et4(WebView webView, ts4 ts4Var, qs4 qs4Var, ps4 ps4Var) {
+        super(webView, ps4Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView, ts4Var, qs4Var, ps4Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((WebView) objArr2[0], (ps4) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.h = String.valueOf(System.currentTimeMillis());
+        this.i = -1;
+        this.j = -1;
+        this.c = ts4Var;
+        this.d = qs4Var;
+        qs4Var.c(this);
+        this.c.a(this);
+        this.e = new d(this);
+        this.f = new HashMap<>(16);
+        this.g = new HashMap<>(8);
+        q();
     }
 }

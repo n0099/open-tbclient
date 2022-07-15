@@ -48,20 +48,20 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d01e2);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09069b);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906a0);
             if (isUseStyleImmersiveSticky()) {
                 ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = pi.s(getPageContext().getPageActivity());
             }
             String stringExtra = getIntent().getStringExtra("url");
             this.c = stringExtra;
             if (TextUtils.isEmpty(stringExtra)) {
-                this.c = "http://tieba.baidu.com/n/interact/emoticoncenter";
+                this.c = "https://tieba.baidu.com/n/interact/emoticoncenter";
             }
             this.b = new CommonEmotionCenterFragment();
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.c);
             this.b.setArguments(bundle2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09069b, this.b).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906a0, this.b).commit();
         }
     }
 

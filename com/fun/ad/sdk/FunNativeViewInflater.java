@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
 /* loaded from: classes4.dex */
 public abstract class FunNativeViewInflater extends CustomInflater {
     public static /* synthetic */ Interceptable $ic;
@@ -33,26 +32,12 @@ public abstract class FunNativeViewInflater extends CustomInflater {
         }
     }
 
-    @Override // com.fun.ad.sdk.CustomInflater
-    public final NativeAdContainer getGdtNativeAdContainer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FunNativeView funNativeView = this.b;
-            if (funNativeView != null) {
-                return funNativeView.a;
-            }
-            throw new IllegalStateException("Please call setFunNativeView(FunNativeView) with a valid FunNativeView");
-        }
-        return (NativeAdContainer) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.fun.ad.sdk.NativeInflater
     public final FunNativeView inflate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             FunNativeView funNativeView = this.b;
             if (funNativeView != null) {
                 return funNativeView;
@@ -64,7 +49,7 @@ public abstract class FunNativeViewInflater extends CustomInflater {
 
     public void setFunNativeView(FunNativeView funNativeView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, funNativeView) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, funNativeView) == null) {
             this.b = funNativeView;
         }
     }

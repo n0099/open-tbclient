@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.af;
-import com.repackage.ht4;
+import com.repackage.xt4;
 /* loaded from: classes3.dex */
 public class FunAdServerRecordSwitch extends af {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,7 +33,7 @@ public class FunAdServerRecordSwitch extends af {
     public static boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ht4.k().l("pref_key_fun_ad_server_record_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? xt4.k().l("pref_key_fun_ad_server_record_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     @Override // com.repackage.af

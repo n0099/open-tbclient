@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td5;
+import com.repackage.we5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SelectRuleRowItem extends AdapterLinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public td5 c;
+    public we5 c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SelectRuleRowItem(Context context) {
@@ -45,9 +45,9 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
             setOrientation(0);
             setGravity(16);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            td5 td5Var = new td5(getContext());
-            this.c = td5Var;
-            setAdapter(td5Var);
+            we5 we5Var = new we5(getContext());
+            this.c = we5Var;
+            setAdapter(we5Var);
         }
     }
 

@@ -1,8 +1,12 @@
 package com.repackage;
 
 import android.view.View;
-import androidx.annotation.NonNull;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes6.dex */
 public interface hn6 {
-    void a(@NonNull View view2, @NonNull View.OnClickListener onClickListener);
+    void a(th8 th8Var, FrsViewData frsViewData);
+
+    View getView();
+
+    void onChangeSkinType(int i);
 }

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import com.opensource.svgaplayer.proto.MovieEntity;
-import com.repackage.aj9;
+import com.repackage.an9;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -639,7 +639,7 @@ public final class SVGAParser {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, inputStream, str) == null) {
-            i = aj9.a;
+            i = an9.a;
             synchronized (Integer.valueOf(i)) {
                 File j = j(str);
                 j.mkdirs();

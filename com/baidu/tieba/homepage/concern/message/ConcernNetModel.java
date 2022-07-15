@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
 import com.repackage.d9;
-import com.repackage.j95;
+import com.repackage.ma5;
 import com.repackage.oi;
-import com.repackage.tb5;
+import com.repackage.wc5;
+import com.repackage.wh8;
 import com.repackage.za;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes3.dex */
@@ -178,12 +178,12 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         this.e = new b(this, CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476);
         setUniqueId(bdUniqueId);
         registerHttpTask();
-        E();
+        F();
         registerListener(this.d);
         registerListener(this.e);
     }
 
-    public void C(boolean z) {
+    public void D(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             CheckRedNotifyReqMessage checkRedNotifyReqMessage = new CheckRedNotifyReqMessage();
@@ -193,41 +193,41 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void D(String str, tb5 tb5Var) {
+    public void E(String str, wc5 wc5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, tb5Var) == null) || this.c) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, wc5Var) == null) || this.c) {
             return;
         }
         this.c = true;
         ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
         concernPageRequestMessage.setPageTag(str);
         concernPageRequestMessage.setTag(getUniqueId());
-        concernPageRequestMessage.setAdInfo(tb5Var);
+        concernPageRequestMessage.setAdInfo(wc5Var);
         sendMessage(concernPageRequestMessage);
     }
 
-    public final void E() {
+    public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j95 j95Var = new j95(309474);
-            j95Var.setResponsedClass(ConcernPageSocketResMessage.class);
-            j95Var.g(true);
-            MessageManager.getInstance().registerTask(j95Var);
-            j95 j95Var2 = new j95(309476);
-            j95Var2.setResponsedClass(CheckRedNotifySocketResMessage.class);
-            j95Var2.g(true);
-            MessageManager.getInstance().registerTask(j95Var2);
+            ma5 ma5Var = new ma5(309474);
+            ma5Var.setResponsedClass(ConcernPageSocketResMessage.class);
+            ma5Var.g(true);
+            MessageManager.getInstance().registerTask(ma5Var);
+            ma5 ma5Var2 = new ma5(309476);
+            ma5Var2.setResponsedClass(CheckRedNotifySocketResMessage.class);
+            ma5Var2.g(true);
+            MessageManager.getInstance().registerTask(ma5Var2);
         }
     }
 
-    public void F(c cVar) {
+    public void G(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.b = cVar;
         }
     }
 
-    public void G(d dVar) {
+    public void H(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
             this.a = dVar;
@@ -264,11 +264,11 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, bh8.a(TbConfig.URL_CONCERN_PAGE, 309474));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, wh8.a(TbConfig.URL_CONCERN_PAGE, 309474));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, bh8.a(TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, 309476));
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, wh8.a(TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, 309476));
             tbHttpMessageTask2.setIsNeedAddCommenParam(true);
             tbHttpMessageTask2.setResponsedClass(CheckRedNotifyHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask2);

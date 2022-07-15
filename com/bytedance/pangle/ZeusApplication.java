@@ -45,7 +45,6 @@ public class ZeusApplication extends PluginContext {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             super.attachBaseContext(context);
-            com.bytedance.pangle.c.b.a((PluginContext) this);
         }
     }
 

@@ -1,115 +1,124 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mb;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 /* loaded from: classes7.dex */
 public class tn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public TextView c;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Integer a;
-        public final /* synthetic */ tn7 b;
-
-        public a(tn7 tn7Var, Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tn7Var, num};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Bitmap bitmap = null;
+            try {
+                File file = new File(str);
+                if (file.exists()) {
+                    if (c(file)) {
+                        ym ymVar = mb.a.b().get(str);
+                        if (ymVar != null) {
+                            bitmap = ymVar.p();
+                        }
+                    } else {
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inJustDecodeBounds = true;
+                        BitmapFactory.decodeFile(str, options);
+                        bitmap = BitmapHelper.loadResizedBitmap(str, options.outWidth, options.outHeight);
+                    }
                 }
+            } catch (OutOfMemoryError unused) {
             }
-            this.b = tn7Var;
-            this.a = num;
+            return bitmap;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Integer num;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (num = this.a) == null || num.intValue() == 0) {
-                return;
-            }
-            this.b.a.setVisibility(0);
-        }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public tn7(TbPageContext tbPageContext) {
+    public static Bitmap b(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        Bitmap f;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
+            o45 o45Var = new o45();
+            ym c = o45Var.c(imageFileInfo, true);
+            if (c != null) {
+                f = c.p();
+            } else {
+                f = o45Var.f(imageFileInfo, true);
             }
+            return f == null ? a(imageFileInfo.getFilePath()) : f;
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d025d, (ViewGroup) null);
-        this.b = inflate;
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090866);
-        this.a = findViewById;
-        findViewById.setVisibility(8);
-        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09086c);
+        return (Bitmap) invokeL.objValue;
     }
 
-    public View b() {
-        InterceptResult invokeV;
+    public static boolean c(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            View view2 = this.b;
-            if (view2 != null) {
-                SkinManager.setBackgroundColor(view2, R.color.cp_bg_line_d_alpha90, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileInputStream fileInputStream2 = null;
+            try {
+                try {
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                } catch (FileNotFoundException e) {
+                    e = e;
+                } catch (IOException e2) {
+                    e = e2;
+                }
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
-            View view3 = this.a;
-            if (view3 != null) {
-                SkinManager.setBackgroundColor(view3, R.color.CAM_X0204, i);
+            try {
+                byte[] bArr = new byte[7];
+                r1 = fileInputStream.read(bArr, 0, 6) == 6 ? pi.B(bArr) : false;
+                fileInputStream.close();
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+                return r1;
+            } catch (IOException e5) {
+                e = e5;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+                return r1;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
+                    }
+                }
+                throw th;
             }
-            TextView textView = this.c;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i);
+            if (0 != 0) {
+                fileInputStream2.close();
             }
+            return r1;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    public void update(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
-            qg.a().post(new a(this, num));
-        }
+        return invokeL.booleanValue;
     }
 }

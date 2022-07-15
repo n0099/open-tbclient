@@ -64,7 +64,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
             HashMap hashMap = new HashMap();
             hashMap.put("supportGuestAccount", "1");
             hashMap.put("id_token", str);
-            a(ParamsUtil.addExtras(urlBind, hashMap), getString(R.string.obfuscated_res_0x7f0f1059));
+            a(ParamsUtil.addExtras(urlBind, hashMap), getString(R.string.obfuscated_res_0x7f0f1050));
         }
     }
 
@@ -112,7 +112,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1087);
+            setTitleText(R.string.obfuscated_res_0x7f0f107e);
             try {
                 d();
             } catch (Exception e) {

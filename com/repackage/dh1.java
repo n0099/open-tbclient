@@ -1,20 +1,11 @@
 package com.repackage;
 
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface dh1 {
-    JSONObject a();
+    void a(JSONObject jSONObject);
 
-    void b(String str);
+    void b();
 
-    void c(CallbackHandler callbackHandler, String str);
-
-    void d(CallbackHandler callbackHandler, String str);
-
-    void e(String str);
-
-    void f(CallbackHandler callbackHandler, String str);
-
-    void g(CallbackHandler callbackHandler, String str);
+    void c(JSONObject jSONObject);
 }

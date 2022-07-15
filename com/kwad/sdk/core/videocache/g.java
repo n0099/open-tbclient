@@ -3,6 +3,7 @@ package com.kwad.sdk.core.videocache;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import com.kwad.sdk.utils.aj;
 import java.io.File;
 import java.net.Socket;
 import java.util.List;
@@ -29,7 +30,7 @@ public final class g {
         }
 
         @Override // com.kwad.sdk.core.videocache.b
-        public void a(File file, String str, int i) {
+        public final void a(File file, int i) {
             Message obtainMessage = obtainMessage();
             obtainMessage.arg1 = i;
             obtainMessage.obj = file;
@@ -37,16 +38,16 @@ public final class g {
         }
 
         @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        public final void handleMessage(Message message) {
             for (b bVar : this.b) {
-                bVar.a((File) message.obj, this.a, message.arg1);
+                bVar.a((File) message.obj, message.arg1);
             }
         }
     }
 
     public g(String str, c cVar) {
-        this.b = (String) j.a(str);
-        this.f = (c) j.a(cVar);
+        this.b = aj.a(str);
+        this.f = (c) aj.a(cVar);
         this.e = new a(str, this.d);
     }
 
@@ -69,17 +70,18 @@ public final class g {
         return eVar;
     }
 
-    public void a() {
+    public final void a() {
         this.d.clear();
-        if (this.c != null) {
-            this.c.a((b) null);
-            this.c.a();
-            this.c = null;
+        e eVar = this.c;
+        if (eVar != null) {
+            eVar.a((b) null);
+            eVar.a();
         }
+        this.c = null;
         this.a.set(0);
     }
 
-    public void a(d dVar, Socket socket) {
+    public final void a(d dVar, Socket socket) {
         c();
         try {
             this.a.incrementAndGet();
@@ -89,7 +91,7 @@ public final class g {
         }
     }
 
-    public int b() {
+    public final int b() {
         return this.a.get();
     }
 }

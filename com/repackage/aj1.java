@@ -1,12 +1,13 @@
 package com.repackage;
 
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class aj1 implements rl1 {
+public class aj1 implements hl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,10 +25,13 @@ public class aj1 implements rl1 {
         }
     }
 
-    @Override // com.repackage.rl1
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    @Override // com.repackage.hl1
+    public boolean a(Message message) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

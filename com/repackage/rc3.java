@@ -1,189 +1,122 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.android.IntentUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.content.Context;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class rc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755355185, "Lcom/repackage/rc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755355185, "Lcom/repackage/rc3;");
+            this.a = view2;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setTranslationX(0.0f);
+            }
+        }
+    }
+
+    public static void a(qz1 qz1Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, qz1Var, context) == null) {
+            b(qz1Var, context, 2);
+        }
+    }
+
+    public static void b(qz1 qz1Var, Context context, int i) {
+        View U;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(65537, null, qz1Var, context, i) == null) || qz1Var == null || qz1Var.k() < i) {
+            return;
+        }
+        nz1 j = qz1Var.j(qz1Var.k() - i);
+        nz1 m = qz1Var.m();
+        if (m == null || !m.D0) {
+            float o = yd3.o(context) >> 2;
+            if (j == null || (U = j.U()) == null) {
                 return;
             }
+            ObjectAnimator.ofFloat(U, "translationX", -o, 0.0f).setDuration(300L).start();
         }
-        a = cg1.a;
     }
 
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
+    public static void c(qz1 qz1Var, Context context) {
+        View U;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity == null || !b(activity.getIntent())) {
-                return false;
-            }
-            try {
-                bc3.j(activity);
-            } catch (Exception unused) {
-            }
-            return true;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, qz1Var, context) == null) || qz1Var == null || qz1Var.k() < 2) {
+            return;
         }
-        return invokeL.booleanValue;
+        nz1 j = qz1Var.j(qz1Var.k() - 2);
+        float o = yd3.o(context) >> 2;
+        if (j == null || (U = j.U()) == null) {
+            return;
+        }
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(U, "translationX", 0.0f, -o);
+        ofFloat.setDuration(300L).start();
+        ofFloat.addListener(new a(U));
     }
 
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
+    public static void d(@NonNull de4 de4Var, String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
-            if (intent != null) {
-                try {
-                    Bundle extras = intent.getExtras();
-                    if (extras != null) {
-                        extras.isEmpty();
-                        return false;
-                    }
-                    return false;
-                } catch (Throwable unused) {
-                    return true;
+        if (!(interceptable == null || interceptable.invokeLLII(65539, null, de4Var, str, i, i2) == null) || de4Var == null) {
+            return;
+        }
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1876181062) {
+            if (hashCode != -983638536) {
+                if (hashCode == 1528366175 && str.equals("showModalPage")) {
+                    c = 1;
                 }
+            } else if (str.equals("navigateBack")) {
+                c = 0;
             }
-            return false;
+        } else if (str.equals("hideModalPage")) {
+            c = 2;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Bundle bundle, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bundle, str, z)) == null) {
-            try {
-                return bundle.getBoolean(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getBoolean failed on bundle " + bundle);
-                }
-                return z;
+        if (c != 0) {
+            if (c == 1 || c == 2) {
+                return;
             }
+            de4Var.i(i, i2);
+            return;
         }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static Bundle d(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, str)) == null) {
-            try {
-                return bundle.getBundle(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getBundle failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
+        qz1 V = ul2.U().V();
+        nz1 j = V.j(V.k() - 1);
+        if (j == null || !j.D0) {
+            de4Var.i(i, i2);
         }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public static Bundle e(Intent intent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, intent, str)) == null) {
-            try {
-                return intent.getBundleExtra(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getBundleExtra failed on intent " + intent);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public static int f(Bundle bundle, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, bundle, str, i)) == null) {
-            try {
-                return bundle.getInt(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getInt failed on bundle " + bundle);
-                }
-                return i;
-            }
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static String g(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bundle, str)) == null) {
-            try {
-                return bundle.getString(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getString failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String h(Intent intent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, intent, str)) == null) {
-            try {
-                return intent.getStringExtra(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getStringExtra failed on intent " + intent);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String i(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bundle, str)) == null) {
-            try {
-                return bundle.getString(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getStringExtra failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
     }
 }

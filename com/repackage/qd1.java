@@ -1,118 +1,30 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.smartcolor.utils.Tri;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.q01;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class qd1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Deprecated
-    public int a;
-    @Deprecated
-    public int b;
-    @Deprecated
-    public int c;
-    public String d;
-    public String e;
-    public Tri f;
-    public Tri g;
-    public Tri h;
-    public Tri i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public boolean n;
-    public int o;
-    public int p;
+    public Context a;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final qd1 a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new qd1();
-        }
-
-        public qd1 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (qd1) invokeV.objValue;
-        }
-
-        public a b(Tri tri) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tri)) == null) {
-                this.a.g = tri;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(Tri tri) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tri)) == null) {
-                this.a.f = tri;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a d(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-                if (i > 0 && i2 <= 100 && i2 >= i) {
-                    this.a.j = i;
-                    this.a.k = i2;
-                    return this;
-                }
-                throw new IllegalArgumentException("argument out of valid range!");
-            }
-            return (a) invokeII.objValue;
-        }
-
-        public a e(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
-                if (i >= 10 && i2 <= 100 && i2 >= i && i % 10 == 0 && i2 % 10 == 0) {
-                    this.a.l = i;
-                    this.a.m = i2;
-                    return this;
-                }
-                throw new IllegalArgumentException("argument out of valid range!");
-            }
-            return (a) invokeII.objValue;
-        }
-    }
-
-    public qd1() {
+    public qd1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -122,113 +34,83 @@ public class qd1 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = 32;
-        Tri tri = Tri.UNDEFINED;
-        this.f = tri;
-        this.g = tri;
-        this.h = tri;
-        this.i = tri;
-        this.n = true;
-        this.o = 800;
-        this.p = 800;
+        this.a = context;
     }
 
-    public Tri g() {
-        InterceptResult invokeV;
+    public final void a(RelativeLayout.LayoutParams layoutParams, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : (Tri) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeLIII(1048576, this, layoutParams, i, i2, i3) == null) && (i & i2) == i2) {
+            layoutParams.addRule(i3);
+        }
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public final int b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.n : invokeV.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? jSONObject.optInt("l_gravity") : invokeL.intValue;
     }
 
-    public Tri i() {
-        InterceptResult invokeV;
+    public final int[] c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (Tri) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            int[] iArr = {0, 0, 0, 0};
+            String optString = jSONObject.optString(CriusAttrConstants.MARGIN);
+            boolean z = jSONObject.optInt("is_equal_bottom_logo", 0) == 1;
+            if (!TextUtils.isEmpty(optString)) {
+                String[] split = optString.split("_");
+                if (split.length == 4) {
+                    for (int i = 0; i < 4; i++) {
+                        try {
+                            iArr[i] = Integer.parseInt(split[i]);
+                        } catch (Exception unused) {
+                            iArr[i] = 0;
+                        }
+                        if (i == 3 && z) {
+                            iArr[i] = iArr[i] + va1.b();
+                        }
+                    }
+                }
+            }
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
     }
 
-    public int j() {
-        InterceptResult invokeV;
+    public final void d(RelativeLayout.LayoutParams layoutParams, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, layoutParams, i) == null) || i <= 0) {
+            return;
+        }
+        a(layoutParams, i, 1, 10);
+        a(layoutParams, i, 2, 12);
+        a(layoutParams, i, 4, 9);
+        a(layoutParams, i, 8, 11);
+        a(layoutParams, i, 16, 14);
+        a(layoutParams, i, 32, 15);
     }
 
-    public int k() {
-        InterceptResult invokeV;
+    public final void e(ViewGroup.MarginLayoutParams marginLayoutParams, int[] iArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, marginLayoutParams, iArr) == null) && iArr != null && iArr.length == 4) {
+            marginLayoutParams.setMargins(q01.c.a(this.a, iArr[0]), q01.c.a(this.a, iArr[1]), q01.c.a(this.a, iArr[2]), q01.c.a(this.a, iArr[3]));
+        }
     }
 
-    public String l() {
-        InterceptResult invokeV;
+    public final void f(RelativeLayout.LayoutParams layoutParams, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, layoutParams, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        d(layoutParams, b(jSONObject));
+        e(layoutParams, c(jSONObject));
     }
 
-    public Tri m() {
-        InterceptResult invokeV;
+    public void g(ViewGroup.LayoutParams layoutParams, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (Tri) invokeV.objValue;
-    }
-
-    public Tri n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (Tri) invokeV.objValue;
-    }
-
-    @Deprecated
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.p : invokeV.intValue;
-    }
-
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.m : invokeV.intValue;
-    }
-
-    public int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.o : invokeV.intValue;
-    }
-
-    public int t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public int u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.l : invokeV.intValue;
-    }
-
-    public String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.d : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, layoutParams, jSONObject) == null) || layoutParams == null || jSONObject == null || !(layoutParams instanceof RelativeLayout.LayoutParams)) {
+            return;
+        }
+        f((RelativeLayout.LayoutParams) layoutParams, jSONObject);
     }
 }

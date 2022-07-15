@@ -1,52 +1,132 @@
 package com.repackage;
 
-import android.util.Log;
-import android.webkit.ValueCallback;
+import android.content.DialogInterface;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.V8NetFunctionTable;
-import com.baidu.searchbox.v8engine.net.NetRequest;
-import com.baidu.searchbox.v8engine.net.NetRequestSettings;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a63;
-import com.repackage.d03;
+import com.repackage.ko1;
+import com.repackage.lz2;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cp1 {
+public class cp1 extends ap1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements ValueCallback<Long> {
+    public class a implements ko1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ V8Engine a;
+        public final /* synthetic */ cp1 a;
 
         /* renamed from: com.repackage.cp1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0406a implements Runnable {
+        public class RunnableC0607a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
+            public final /* synthetic */ h03 a;
+            public final /* synthetic */ JSONObject b;
+            public final /* synthetic */ String c;
+            public final /* synthetic */ String d;
+            public final /* synthetic */ a e;
 
-            public RunnableC0406a(a aVar) {
+            /* renamed from: com.repackage.cp1$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes5.dex */
+            public class DialogInterface$OnClickListenerC0608a implements DialogInterface.OnClickListener {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ RunnableC0607a a;
+
+                public DialogInterface$OnClickListenerC0608a(RunnableC0607a runnableC0607a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {runnableC0607a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = runnableC0607a;
+                }
+
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("type", "cancel");
+                            RunnableC0607a runnableC0607a = this.a;
+                            runnableC0607a.e.a.d(runnableC0607a.c, new hs1(0, jSONObject));
+                        } catch (JSONException unused) {
+                            RunnableC0607a runnableC0607a2 = this.a;
+                            runnableC0607a2.e.a.d(runnableC0607a2.c, new hs1(201));
+                        }
+                    }
+                }
+            }
+
+            /* renamed from: com.repackage.cp1$a$a$b */
+            /* loaded from: classes5.dex */
+            public class b implements DialogInterface.OnClickListener {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ RunnableC0607a a;
+
+                public b(RunnableC0607a runnableC0607a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {runnableC0607a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = runnableC0607a;
+                }
+
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("type", "confirm");
+                            RunnableC0607a runnableC0607a = this.a;
+                            runnableC0607a.e.a.d(runnableC0607a.c, new hs1(0, jSONObject));
+                        } catch (JSONException unused) {
+                            RunnableC0607a runnableC0607a2 = this.a;
+                            runnableC0607a2.e.a.d(runnableC0607a2.c, new hs1(201));
+                        }
+                    }
+                }
+            }
+
+            public RunnableC0607a(a aVar, h03 h03Var, JSONObject jSONObject, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
+                    Object[] objArr = {aVar, h03Var, jSONObject, str, str2};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -56,40 +136,44 @@ public class cp1 {
                         return;
                     }
                 }
-                this.a = aVar;
+                this.e = aVar;
+                this.a = h03Var;
+                this.b = jSONObject;
+                this.c = str;
+                this.d = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    NetRequest netRequest = new NetRequest();
-                    NetRequestSettings netRequestSettings = new NetRequestSettings();
-                    netRequestSettings.mTimeout = 60000;
-                    netRequestSettings.mShouldNeverClearReferer = true;
-                    netRequestSettings.mLoadDoNotSendCookies = true;
-                    netRequest.setRequestInterceptor(new bp1());
-                    netRequest.setRedirectInterceptor(new ip1());
-                    netRequest.addObserver(new dp1());
-                    netRequest.setNetRequestSettings(netRequestSettings);
-                    int javaNetRequest = this.a.a.setJavaNetRequest(netRequest);
-                    boolean unused = cp1.c = javaNetRequest == 0;
-                    if (cp1.c) {
-                        return;
-                    }
-                    int unused2 = cp1.b = 0;
-                    cp1.g(javaNetRequest);
-                    sw1.c("ChromeNetManager", "setJavaNetRequest fail, code=" + javaNetRequest);
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.w() == null || this.a.w().isFinishing() || this.a.w().isDestroyed()) {
+                    return;
                 }
+                lz2.a aVar = new lz2.a(this.e.a.getContext());
+                aVar.V(this.b.optString("title"));
+                aVar.x(this.b.optString("content"));
+                aVar.n(new pf3());
+                aVar.m(false);
+                if (this.b.optBoolean("showCancel", true)) {
+                    aVar.E(this.b.optString("cancelColor"), R.color.obfuscated_res_0x7f0603c9);
+                    String optString = this.b.optString("cancelText");
+                    if (TextUtils.isEmpty(optString)) {
+                        optString = this.e.a.getContext().getString(R.string.obfuscated_res_0x7f0f010d);
+                    }
+                    aVar.C(optString, new DialogInterface$OnClickListenerC0608a(this));
+                }
+                aVar.R(this.b.optString("confirmColor"), R.color.obfuscated_res_0x7f0603ca);
+                aVar.P(this.d, new b(this));
+                aVar.X();
             }
         }
 
-        public a(V8Engine v8Engine) {
+        public a(cp1 cp1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v8Engine};
+                Object[] objArr = {cp1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -99,141 +183,59 @@ public class cp1 {
                     return;
                 }
             }
-            this.a = v8Engine;
+            this.a = cp1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.webkit.ValueCallback
-        /* renamed from: a */
-        public void onReceiveValue(Long l) {
+        @Override // com.repackage.ko1.a
+        public hs1 a(h03 h03Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
-                this.a.runOnJSThread(new RunnableC0406a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-
-        public b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, h03Var, jSONObject, str)) == null) {
+                String optString = jSONObject.optString("confirmText");
+                if (TextUtils.isEmpty(optString)) {
+                    optString = this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0115);
                 }
+                be3.e0(new RunnableC0607a(this, h03Var, jSONObject, str, optString));
+                return hs1.f();
             }
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a63.b bVar = new a63.b(SessionCommand.COMMAND_CODE_PLAYER_GET_CURRENT_MEDIA_ITEM);
-                bVar.l(String.valueOf(this.a));
-                bVar.h(rz2.K().getAppId());
-                bVar.m();
-            }
+            return (hs1) invokeLLL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755789619, "Lcom/repackage/cp1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755789619, "Lcom/repackage/cp1;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cp1(@NonNull io1 io1Var) {
+        super(io1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {io1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((io1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = cg1.a;
-        b = -1;
-        c = false;
     }
 
-    public static boolean d() {
+    public hs1 A(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#showModal", false);
+            return l(str, true, new a(this));
+        }
+        return (hs1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ko1
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? fc3.e() && h() : invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? zi2.g0().z() == 2 : invokeV.booleanValue;
-    }
-
-    public static void f(@NonNull V8Engine v8Engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, v8Engine) == null) {
-            if (!d()) {
-                sw1.k("ChromeNetManager", "Not Used ChromeNet");
-            } else {
-                V8NetFunctionTable.addOnCronetThreadInitializedListener(new a(v8Engine));
-            }
-        }
-    }
-
-    public static void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            mc3.f().execute(new b(i));
-        }
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (b == -1) {
-                b = (!j() || hd3.f("3.300.0")) ? 0 : 1;
-            }
-            return b == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? c : invokeV.booleanValue;
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? zi2.g0().z() >= 1 : invokeV.booleanValue;
-    }
-
-    public static void k(@Nullable SwanAppConfigData swanAppConfigData) {
-        d03.a aVar;
-        int i;
-        o12 W;
-        NetRequest p0;
-        NetRequestSettings netRequestSettings;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, swanAppConfigData) == null) || !d() || swanAppConfigData == null || (aVar = swanAppConfigData.h) == null || (i = aVar.b) <= 0 || (W = m62.U().W()) == null || !(W.h() instanceof a72) || (p0 = ((a72) W.h()).p0()) == null || (netRequestSettings = p0.getNetRequestSettings()) == null) {
-            return;
-        }
-        netRequestSettings.mTimeout = i;
-        if (a) {
-            Log.d("ChromeNetManager", "settings.mTimeout=" + i);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ModalApi" : (String) invokeV.objValue;
     }
 }

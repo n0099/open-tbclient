@@ -219,7 +219,7 @@ public class GDiffPatcher {
                         readUnsignedByte5 = dataInputStream.readUnsignedByte();
                         a(j, readUnsignedByte5, dVar, dataOutputStream);
                         j2 = this.totalLength + readUnsignedByte5;
-                    case 245:
+                    case COPY_UBYTE_USHORT /* 245 */:
                         if (this.c) {
                             readUnsignedByte2 = dataInputStream.readByte() + this.d;
                             this.d = readUnsignedByte2;
@@ -244,7 +244,7 @@ public class GDiffPatcher {
                     case DATA_USHORT /* 247 */:
                         readUnsignedByte5 = dataInputStream.readUnsignedShort();
                         break;
-                    case 248:
+                    case DATA_INT /* 248 */:
                         readUnsignedByte5 = dataInputStream.readInt();
                         break;
                     case 249:
@@ -280,7 +280,7 @@ public class GDiffPatcher {
                         readUnsignedByte5 = dataInputStream.readInt();
                         a(j, readUnsignedByte5, dVar, dataOutputStream);
                         j2 = this.totalLength + readUnsignedByte5;
-                    case 252:
+                    case COPY_INT_UBYTE /* 252 */:
                         readUnsignedByte = dataInputStream.readInt();
                         if (this.c) {
                             readUnsignedByte += this.d;

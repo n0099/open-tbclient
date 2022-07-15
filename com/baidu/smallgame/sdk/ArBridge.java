@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kd1;
-import com.repackage.ld1;
-import com.repackage.md1;
-import com.repackage.od1;
-import com.repackage.wb0;
-import com.repackage.xb0;
+import com.repackage.ae1;
+import com.repackage.bc0;
+import com.repackage.be1;
+import com.repackage.cc0;
+import com.repackage.de1;
+import com.repackage.zd1;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -37,13 +37,13 @@ public class ArBridge {
     public static final String TAG = "EngineLogger";
     public transient /* synthetic */ FieldHolder $fh;
     public long mCurrentGLThreadID;
-    public ld1 mDataStore;
+    public ae1 mDataStore;
     public AtomicBoolean mDestroyed;
     public int mDeviceOrientation;
     public EGLContext mEglContext;
     public boolean mFirstFrameFinished;
     public FirstFrameListener mFirstFrameListener;
-    public wb0 mGameRecorder;
+    public bc0 mGameRecorder;
     public boolean mHasResumeByUser;
     public int mImuType;
     public boolean mIsInitNative;
@@ -54,7 +54,7 @@ public class ArBridge {
     public int mScreenHeight;
     public int mScreenTextureId;
     public int mScreenWidth;
-    public od1 mStuckScreenHandler;
+    public de1 mStuckScreenHandler;
     public TouchOrientation mTouchOrientation;
     public b mVideoCallback;
 
@@ -165,10 +165,10 @@ public class ArBridge {
         this.mHasResumeByUser = false;
         this.mImuType = 0;
         this.mPerformanceJsonBean = new PerformanceJsonBean();
-        this.mGameRecorder = new wb0(V8Engine.getAppContext());
+        this.mGameRecorder = new bc0(V8Engine.getAppContext());
         this.mNativeARBridge = nativeInitializeAR();
         Log.e(TAG, "initialize ar bridge. nativePtr: " + this.mNativeARBridge);
-        this.mStuckScreenHandler = new kd1();
+        this.mStuckScreenHandler = new zd1();
     }
 
     public static void exceptionCallback(String str) {
@@ -196,9 +196,9 @@ public class ArBridge {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             Log.i(TAG, "onFirstFrameFinished");
-            wb0 wb0Var = this.mGameRecorder;
-            if (wb0Var != null && this.mEglContext != null) {
-                wb0Var.t(nativeIsFlipYNeeded(), this.mEglContext, this.mScreenWidth, this.mScreenHeight, V8Engine.getAppContext());
+            bc0 bc0Var = this.mGameRecorder;
+            if (bc0Var != null && this.mEglContext != null) {
+                bc0Var.t(nativeIsFlipYNeeded(), this.mEglContext, this.mScreenWidth, this.mScreenHeight, V8Engine.getAppContext());
             }
             FirstFrameListener firstFrameListener = this.mFirstFrameListener;
             if (firstFrameListener != null) {
@@ -210,12 +210,12 @@ public class ArBridge {
     }
 
     public void clearARMemory() {
-        ld1 ld1Var;
+        ae1 ae1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ld1Var = this.mDataStore) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ae1Var = this.mDataStore) == null) {
             return;
         }
-        ld1Var.a();
+        ae1Var.a();
     }
 
     public void finalize() {
@@ -235,10 +235,10 @@ public class ArBridge {
 
     public native int getCaseId();
 
-    public wb0 getGameRecorder() {
+    public bc0 getGameRecorder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mGameRecorder : (wb0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mGameRecorder : (bc0) invokeV.objValue;
     }
 
     public int getImuType() {
@@ -267,19 +267,19 @@ public class ArBridge {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mScreenTextureId : invokeV.intValue;
     }
 
-    public od1 getStuckScreenHandler() {
+    public de1 getStuckScreenHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mStuckScreenHandler : (od1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mStuckScreenHandler : (de1) invokeV.objValue;
     }
 
     public String getValue(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, str)) == null) {
-            ld1 ld1Var = this.mDataStore;
-            if (ld1Var != null) {
-                return ld1Var.b(i, str);
+            ae1 ae1Var = this.mDataStore;
+            if (ae1Var != null) {
+                return ae1Var.b(i, str);
             }
             Log.e("ArBridge", "get value error!");
             return "";
@@ -290,9 +290,9 @@ public class ArBridge {
     public void initDataStore(SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, sharedPreferences) == null) && this.mDataStore == null) {
-            ld1 ld1Var = new ld1();
-            this.mDataStore = ld1Var;
-            ld1Var.c(sharedPreferences);
+            ae1 ae1Var = new ae1();
+            this.mDataStore = ae1Var;
+            ae1Var.c(sharedPreferences);
         }
     }
 
@@ -373,12 +373,12 @@ public class ArBridge {
     public native void nativeUpdateSLAMMatrix(float[] fArr);
 
     public void notifyFrameUpdated() {
-        wb0 wb0Var;
+        bc0 bc0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048620, this) == null) || (wb0Var = this.mGameRecorder) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048620, this) == null) || (bc0Var = this.mGameRecorder) == null) {
             return;
         }
-        wb0Var.u(getScreenTextureId());
+        bc0Var.u(getScreenTextureId());
     }
 
     public native void onTouchEventNative(int i, int i2, float f, float f2, float f3, float f4, int i3, float f5, float f6, float f7, float f8, long j, int i4);
@@ -439,13 +439,13 @@ public class ArBridge {
         }
     }
 
-    public void setGameRecordCallback(xb0 xb0Var) {
-        wb0 wb0Var;
+    public void setGameRecordCallback(cc0 cc0Var) {
+        bc0 bc0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048630, this, xb0Var) == null) || (wb0Var = this.mGameRecorder) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048630, this, cc0Var) == null) || (bc0Var = this.mGameRecorder) == null) {
             return;
         }
-        wb0Var.C(xb0Var);
+        bc0Var.C(cc0Var);
     }
 
     public void setImuType(int i) {
@@ -455,10 +455,10 @@ public class ArBridge {
         }
     }
 
-    public void setOnStuckScreenListener(md1 md1Var) {
+    public void setOnStuckScreenListener(be1 be1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, md1Var) == null) {
-            this.mStuckScreenHandler.b(md1Var);
+        if (interceptable == null || interceptable.invokeL(1048632, this, be1Var) == null) {
+            this.mStuckScreenHandler.b(be1Var);
         }
     }
 
@@ -499,9 +499,9 @@ public class ArBridge {
     public void setValue(int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048638, this, i, str, str2) == null) {
-            ld1 ld1Var = this.mDataStore;
-            if (ld1Var != null) {
-                ld1Var.d(i, str, str2);
+            ae1 ae1Var = this.mDataStore;
+            if (ae1Var != null) {
+                ae1Var.d(i, str, str2);
             } else {
                 Log.e("ArBridge", "set value error!");
             }

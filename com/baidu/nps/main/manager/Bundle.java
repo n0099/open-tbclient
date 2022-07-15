@@ -20,10 +20,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d61;
-import com.repackage.f61;
-import com.repackage.i51;
-import com.repackage.u51;
+import com.repackage.i61;
+import com.repackage.r61;
+import com.repackage.t61;
+import com.repackage.w51;
 /* loaded from: classes2.dex */
 public class Bundle {
     public static /* synthetic */ Interceptable $ic = null;
@@ -36,7 +36,7 @@ public class Bundle {
     public transient /* synthetic */ FieldHolder $fh;
     public BundleInfo mBundleInfo;
     public IInvoker mInvoker;
-    public u51 mRuntime;
+    public i61 mRuntime;
 
     public Bundle(BundleInfo bundleInfo) {
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class Bundle {
                 }
                 return true;
             } catch (Exception e) {
-                i51.a().b().recordException(3, e.toString(), packageInfo.packageName);
+                w51.a().b().recordException(3, e.toString(), packageInfo.packageName);
                 return true;
             }
         }
@@ -114,13 +114,13 @@ public class Bundle {
                 if (this.mRuntime != null) {
                     return true;
                 }
-                u51 b = u51.b(this.mBundleInfo);
+                i61 b = i61.b(this.mBundleInfo);
                 this.mRuntime = b;
                 if (b == null) {
                     return false;
                 }
                 Application applicationContext = ContextHolder.getApplicationContext();
-                PackageInfo a = f61.a(d61.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
+                PackageInfo a = t61.a(r61.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
                 initBundle(a);
                 bindProviders(a);
                 return true;
@@ -204,13 +204,13 @@ public class Bundle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, cls)) == null) {
             initIfNeed();
-            u51 u51Var = this.mRuntime;
-            if (u51Var != null) {
+            i61 i61Var = this.mRuntime;
+            if (i61Var != null) {
                 try {
                     if (cls == null) {
-                        return u51Var.c().loadClass(str);
+                        return i61Var.c().loadClass(str);
                     }
-                    return u51Var.c().loadClass(str).asSubclass(cls);
+                    return i61Var.c().loadClass(str).asSubclass(cls);
                 } catch (ClassNotFoundException e) {
                     throw new InvokeException(18, Log.getStackTraceString(e));
                 }

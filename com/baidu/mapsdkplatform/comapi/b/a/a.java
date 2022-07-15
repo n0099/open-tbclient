@@ -26,7 +26,7 @@ public class a implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0107a {
+    public static class C0109a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0107a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0109a.a : (a) invokeV.objValue;
     }
 
     private void a(Throwable th) {

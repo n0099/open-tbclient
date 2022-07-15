@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ht4;
 import com.repackage.ki;
 import com.repackage.qi;
+import com.repackage.xt4;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -32,7 +32,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FatalErrorService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_TYPE_KEY = "errortype";
@@ -42,7 +42,7 @@ public class FatalErrorService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public a mTask;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -436,10 +436,10 @@ public class FatalErrorService extends BdBaseService {
                     e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                     e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
                     f();
-                    if (TbConfig.getVersion().equals(ht4.k().q("native_crash_dump_version", ""))) {
+                    if (TbConfig.getVersion().equals(xt4.k().q("native_crash_dump_version", ""))) {
                         z = true;
                     } else {
-                        ht4.k().y("native_crash_dump_version", TbConfig.getVersion());
+                        xt4.k().y("native_crash_dump_version", TbConfig.getVersion());
                         z = false;
                     }
                     File GetFile = FileHelper.GetFile(TbConfig.FATAL_ERROR_NATIVE_DIR);

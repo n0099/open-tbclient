@@ -1,71 +1,22 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.swan.pms.model.PMSPkgStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.Set;
+import com.baidu.webkit.internal.ETAG;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class yc4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yc4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<a> a;
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public o84 a;
-        public PMSPkgStatus b;
-
-        public a(o84 o84Var, PMSPkgStatus pMSPkgStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o84Var, pMSPkgStatus};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o84Var;
-            this.b = pMSPkgStatus;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (super.equals(obj)) {
-                    return true;
-                }
-                if (obj != null && (obj instanceof a)) {
-                    return this.a.equals(((a) obj).a);
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a) : invokeV.intValue;
-        }
-    }
 
     public yc4() {
         Interceptable interceptable = $ic;
@@ -77,217 +28,164 @@ public class yc4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = Collections.synchronizedSet(new HashSet());
     }
 
-    public void a(o84 o84Var, PMSPkgStatus pMSPkgStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, o84Var, pMSPkgStatus) == null) {
-            this.a.add(new a(o84Var, pMSPkgStatus));
-        }
-    }
-
-    public boolean b() {
+    public static yc4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            for (a aVar : this.a) {
-                if (aVar != null && (aVar.a instanceof r84)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                for (a aVar : this.a) {
-                    if (aVar != null && (aVar.a instanceof r84) && aVar.b == PMSPkgStatus.WAIT) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            for (a aVar : this.a) {
-                if (aVar != null && (aVar.a instanceof l84)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            for (a aVar : this.a) {
-                if (aVar != null && (aVar.a instanceof n84)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            for (a aVar : this.a) {
-                if (aVar != null && (aVar.a instanceof p84)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            for (a aVar : this.a) {
-                if (aVar != null && (aVar.a instanceof s84)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            for (a aVar : this.a) {
-                if (aVar != null && (aVar.a instanceof q84)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            synchronized (this) {
-                for (a aVar : this.a) {
-                    if (aVar != null && (aVar.a instanceof q84) && aVar.b == PMSPkgStatus.WAIT) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized Set<o84> j() {
-        InterceptResult invokeV;
-        HashSet hashSet;
-        a[] aVarArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            synchronized (this) {
-                hashSet = new HashSet();
-                for (a aVar : (a[]) this.a.toArray(new a[0])) {
-                    if (aVar != null && aVar.a != null) {
-                        hashSet.add(aVar.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (yc4.class) {
+                    if (a == null) {
+                        a = new yc4();
                     }
                 }
             }
-            return hashSet;
+            return a;
         }
-        return (Set) invokeV.objValue;
+        return (yc4) invokeV.objValue;
     }
 
-    public boolean k() {
-        InterceptResult invokeV;
+    public static void b(d94 d94Var, nd4 nd4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.isEmpty() : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, d94Var, nd4Var) == null) || d94Var == null) {
+            return;
+        }
+        nd4Var.a(d94Var, PMSPkgStatus.WAIT);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
-        r1.b = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized void l(o84 o84Var) {
+    public void c(JSONArray jSONArray, a84 a84Var, a84 a84Var2, a84 a84Var3) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, o84Var) == null) {
-            synchronized (this) {
-                if (o84Var == null) {
-                    return;
-                }
-                Iterator<a> it = this.a.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, a84Var, a84Var2, a84Var3) == null) || jSONArray == null || jSONArray.length() == 0) {
+            return;
+        }
+        xc4 xc4Var = new xc4();
+        xc4 xc4Var2 = new xc4();
+        xc4 xc4Var3 = new xc4();
+        nd4 nd4Var = new nd4();
+        nd4 nd4Var2 = new nd4();
+        nd4 nd4Var3 = new nd4();
+        zc4 w = a84Var3 != null ? a84Var3.w("so") : null;
+        for (int i = 0; i < jSONArray.length(); i++) {
+            try {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                String string = jSONObject.getString("type");
+                if (!TextUtils.isEmpty(string)) {
+                    JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+                    if (!TextUtils.isEmpty(jSONObject2.getString("version_name"))) {
+                        switch (string.hashCode()) {
+                            case -612557761:
+                                if (string.equals(ETAG.KEY_EXTENSION)) {
+                                    c = 2;
+                                    break;
+                                }
+                                c = 65535;
+                                break;
+                            case 3676:
+                                if (string.equals("so")) {
+                                    c = 4;
+                                    break;
+                                }
+                                c = 65535;
+                                break;
+                            case 99308:
+                                if (string.equals("ddl")) {
+                                    c = 5;
+                                    break;
+                                }
+                                c = 65535;
+                                break;
+                            case 54573042:
+                                if (string.equals("extension_game")) {
+                                    c = 3;
+                                    break;
+                                }
+                                c = 65535;
+                                break;
+                            case 714512640:
+                                if (string.equals("bbasp_core")) {
+                                    c = 0;
+                                    break;
+                                }
+                                c = 65535;
+                                break;
+                            case 714618195:
+                                if (string.equals("bbasp_game")) {
+                                    c = 1;
+                                    break;
+                                }
+                                c = 65535;
+                                break;
+                            default:
+                                c = 65535;
+                                break;
+                        }
+                        if (c == 0) {
+                            c94 c94Var = (c94) md4.j(jSONObject2, new c94());
+                            if (c94Var != null) {
+                                b(c94Var, nd4Var);
+                                xc4Var.b = c94Var;
+                            }
+                        } else if (c == 1) {
+                            c94 c94Var2 = (c94) md4.j(jSONObject2, new c94());
+                            if (c94Var2 != null) {
+                                b(c94Var2, nd4Var2);
+                                xc4Var2.a = c94Var2;
+                            }
+                        } else if (c == 2) {
+                            a94 a94Var = (a94) md4.j(jSONObject2, new a94());
+                            if (a94Var != null) {
+                                b(a94Var, nd4Var);
+                                xc4Var.c = a94Var;
+                            }
+                        } else if (c == 3) {
+                            a94 a94Var2 = (a94) md4.j(jSONObject2, new a94());
+                            if (a94Var2 != null) {
+                                b(a94Var2, nd4Var2);
+                                xc4Var2.c = a94Var2;
+                            }
+                        } else if (c != 4) {
+                            if (c == 5) {
+                                if (xc4Var3.e == null) {
+                                    xc4Var3.e = new ArrayList();
+                                }
+                                g94 g94Var = (g94) md4.j(jSONObject2, new g94());
+                                b(g94Var, nd4Var3);
+                                xc4Var3.e.add(g94Var);
+                            }
+                        } else if (w != null) {
+                            w.l(jSONObject2);
+                        }
                     }
-                    a next = it.next();
-                    if (next != null && next.a.equals(o84Var)) {
-                        break;
-                    }
                 }
+            } catch (JSONException unused) {
             }
         }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
-        r1.b = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized void m(o84 o84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, o84Var) == null) {
-            synchronized (this) {
-                if (o84Var == null) {
-                    return;
-                }
-                Iterator<a> it = this.a.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    a next = it.next();
-                    if (next != null && next.a.equals(o84Var)) {
-                        break;
-                    }
-                }
+        if (a84Var != null) {
+            if (nd4Var.n() == 0) {
+                a84Var.F();
+            } else {
+                a84Var.G(nd4Var);
+                q94.e(xc4Var, a84Var);
             }
         }
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a.size() : invokeV.intValue;
+        if (a84Var2 != null) {
+            if (nd4Var2.n() == 0) {
+                a84Var2.F();
+            } else {
+                a84Var2.G(nd4Var2);
+                q94.e(xc4Var2, a84Var2);
+            }
+        }
+        if (w != null) {
+            w.o();
+        }
+        if (nd4Var3.n() <= 0 || q74.b() == null) {
+            return;
+        }
+        q74.b().t(xc4Var3, nd4Var3);
     }
 }

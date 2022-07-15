@@ -1,50 +1,143 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileDescriptor;
 /* loaded from: classes5.dex */
-public class a81 {
+public final class a81 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            int i5 = 1;
-            if (i3 > i2 || i4 > i) {
-                int i6 = i3 / 2;
-                int i7 = i4 / 2;
-                while (i6 / i5 >= i2 && i7 / i5 >= i) {
-                    i5 *= 2;
-                }
-            }
-            return i5;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return h() + "/cps/user/recordBatch/sapp";
         }
-        return invokeLII.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static Bitmap b(FileDescriptor fileDescriptor, int i, int i2) {
-        InterceptResult invokeLII;
+    public static final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, fileDescriptor, i, i2)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
-            int a = a(options, i, i2);
-            options.inSampleSize = a;
-            options.inJustDecodeBounds = false;
-            if (a <= 1) {
-                return BitmapFactory.decodeFileDescriptor(fileDescriptor);
-            }
-            return BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return h() + "/cashier/calcMoney";
         }
-        return (Bitmap) invokeLII.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return h() + "/cashier/channelAllInfo";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (x71.a() != 2) {
+                return h() + "/cashier/innerChannelAllInfo";
+            }
+            return h() + "/cashier/innerChannelAllInfo";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return h() + "/cashier/order/orderInfo";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return h() + "/cps/user/record/sapp";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return h() + "/cashier/drmb/drmbPay";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? x71.a() != 1 ? "https://trade.baidu-int.com/sandbox/tradegateway" : "https://etrade-api.baidu.com" : (String) invokeV.objValue;
+    }
+
+    public static final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (x71.a() != 1) {
+                return h() + "/cashier/agreement/judgeGuideSign";
+            }
+            return h() + "/cashier/agreement/judgeGuideSign";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return h() + "/cashier/launchpayment";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (x71.a() != 1) {
+                return h() + "/cashier/agreement/guideApplySign";
+            }
+            return h() + "/cashier/agreement/guideApplySign";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return h() + "/cashier/pay";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return h() + "/cashier/sdkAdaptH5QueryPay";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return h() + "/cashier/drmb/reqCode";
+        }
+        return (String) invokeV.objValue;
     }
 }

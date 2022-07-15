@@ -1,15 +1,15 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes6.dex */
-public class l82 extends g82 {
+public abstract class l82 implements m82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,10 +27,28 @@ public class l82 extends g82 {
         }
     }
 
-    @Override // com.repackage.rl2
-    public LifecycleProcessType b() {
+    @Override // com.repackage.m82
+    @Nullable
+    public V8EngineConfiguration.CodeCacheSetting b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LifecycleProcessType.SWAN : (LifecycleProcessType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
+    }
+
+    @Override // com.repackage.m82
+    public void c(p72 p72Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p72Var) == null) {
+        }
+    }
+
+    @Override // com.repackage.m82
+    public void d(p72 p72Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p72Var) == null) {
+        }
     }
 }

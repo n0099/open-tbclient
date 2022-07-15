@@ -1,83 +1,13 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import android.view.View;
 /* loaded from: classes6.dex */
-public class hd1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile hd1 c;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-    public ScheduledThreadPoolExecutor b;
+public interface hd1 {
+    void a(id1 id1Var);
 
-    public hd1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b();
-    }
+    void c(gd1 gd1Var);
 
-    public static hd1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (hd1.class) {
-                    if (c == null) {
-                        c = new hd1();
-                    }
-                }
-            }
-            return c;
-        }
-        return (hd1) invokeV.objValue;
-    }
+    View getAdView();
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = id1.g(5, 15);
-            this.b = id1.f(3);
-        }
-    }
-
-    public void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) || runnable == null) {
-            return;
-        }
-        try {
-            this.a.submit(runnable);
-        } catch (Throwable unused) {
-        }
-    }
-
-    public void d(gd1 gd1Var, long j, long j2, TimeUnit timeUnit) {
-        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{gd1Var, Long.valueOf(j), Long.valueOf(j2), timeUnit}) == null) || gd1Var == null || (scheduledThreadPoolExecutor = this.b) == null || scheduledThreadPoolExecutor.isShutdown()) {
-            return;
-        }
-        try {
-            gd1Var.i(System.currentTimeMillis());
-            gd1Var.h(this.b.scheduleAtFixedRate(gd1Var, j, j2, timeUnit));
-        } catch (Throwable unused) {
-        }
-    }
+    void load();
 }

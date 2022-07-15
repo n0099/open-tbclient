@@ -1,39 +1,30 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class li3 implements pj2 {
+public class li3 extends hw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements DelegateListener {
+    public class a implements af3<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lg1 a;
+        public final /* synthetic */ li3 a;
 
-        public a(li3 li3Var, lg1 lg1Var) {
+        public a(li3 li3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {li3Var, lg1Var};
+                Object[] objArr = {li3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,24 +34,59 @@ public class li3 implements pj2 {
                     return;
                 }
             }
-            this.a = lg1Var;
+            this.a = li3Var;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                Bundle bundle = delegateResult.mResult;
-                if (bundle == null) {
-                    this.a.a(0);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                if (bundle != null) {
+                    this.a.d.putParcelable("quick_login_info", bundle.getParcelable("quick_login_info_result"));
+                }
+                this.a.c();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements mi3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ af3 a;
+        public final /* synthetic */ li3 b;
+
+        public b(li3 li3Var, af3 af3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {li3Var, af3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                String string = bundle.getString("invoiceInfo");
-                if (TextUtils.isEmpty(string)) {
-                    this.a.a(0);
-                } else {
-                    this.a.b(sc3.d(string));
+            }
+            this.b = li3Var;
+            this.a = af3Var;
+        }
+
+        @Override // com.repackage.mi3
+        public void a(QuickLoginInfo quickLoginInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
+                if (quickLoginInfo == null) {
+                    this.a.a(null);
+                    return;
                 }
+                this.b.d.putParcelable("quick_login_info_result", quickLoginInfo);
+                this.a.a(this.b.d);
             }
         }
     }
@@ -79,12 +105,18 @@ public class li3 implements pj2 {
         }
     }
 
-    @Override // com.repackage.pj2
-    public void a(Context context, String str, String str2, lg1 lg1Var) {
+    @Override // com.repackage.hw2
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, lg1Var) == null) || context == null || lg1Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            e(new a(this));
         }
-        DelegateUtils.callOnMainWithActivity((Activity) context, MainProcessDelegateActivity.class, ki3.class, new a(this, lg1Var));
+    }
+
+    public void e(af3<Bundle> af3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, af3Var) == null) {
+            pi3.a(new b(this, af3Var));
+        }
     }
 }

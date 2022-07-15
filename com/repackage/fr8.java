@@ -1,387 +1,192 @@
 package com.repackage;
 
-import android.app.Activity;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.annotation.StringRes;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.TbCheckBox;
-import com.baidu.tieba.R;
+import android.view.Surface;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nq4;
+import com.repackage.gr8;
+import com.repackage.kr8;
+import java.io.FileOutputStream;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class fr8 extends nq4 implements View.OnClickListener {
+public class fr8 extends gr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public ImageView b;
-    public TextView c;
-    public ViewGroup d;
-    public TbCheckBox e;
-    public TextView f;
-    public Button g;
-    public Button h;
-    public ImageView i;
-    public String j;
-    public String k;
-    public String l;
-    public nq4.e m;
-    public String n;
-    public nq4.e o;
-    public String p;
-    public CompoundButton.OnCheckedChangeListener q;
-    public boolean r;
-    public TbCheckBox.b s;
-    public final ig<ym> t;
-
-    /* loaded from: classes6.dex */
-    public class a implements TbCheckBox.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fr8 a;
-
-        public a(fr8 fr8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fr8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fr8Var;
-        }
-
-        @Override // com.baidu.tbadk.core.view.TbCheckBox.b
-        public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbCheckBox, Boolean.valueOf(z), obj}) == null) || this.a.q == null) {
-                return;
-            }
-            this.a.q.onCheckedChanged(null, z);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends ig<ym> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fr8 a;
-
-        public b(fr8 fr8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fr8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fr8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ig
-        public void onLoaded(ym ymVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) {
-                super.onLoaded((b) ymVar, str, i);
-                if (ymVar == null || !ymVar.w()) {
-                    this.a.b.setImageResource(R.drawable.obfuscated_res_0x7f08057f);
-                    return;
-                }
-                this.a.b.setBackgroundResource(0);
-                this.a.b.setImageDrawable(null);
-                ymVar.h(this.a.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements TbCheckBox.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-
-        public c(fr8 fr8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fr8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-        }
-
-        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
-        public boolean isChecked() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
-        public void setChecked(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.a = z;
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fr8(Activity activity) {
-        super(activity);
+    public fr8(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.r = false;
-        this.s = new a(this);
-        this.t = new b(this);
-        c();
-        setContentViewSize(1);
-        setCanceledOnTouchOutside(false);
-        setCancelable(false);
     }
 
-    public final void c() {
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00f9 A[Catch: all -> 0x020d, TryCatch #0 {all -> 0x020d, blocks: (B:24:0x00ac, B:26:0x00b2, B:28:0x00ba, B:31:0x00f3, B:33:0x00f9, B:35:0x00ff, B:36:0x0109, B:38:0x010d, B:40:0x0125, B:42:0x012b, B:44:0x0139, B:46:0x013f, B:50:0x014c, B:57:0x015c, B:59:0x0163, B:60:0x016d, B:61:0x0189, B:63:0x0192, B:66:0x019d, B:69:0x01ac, B:29:0x00d8, B:71:0x01cb, B:73:0x01d1, B:74:0x01d9), top: B:86:0x00ac }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x019a  */
+    @TargetApi(16)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public gr8.b a(String str, boolean z, kr8.a aVar, kr8.a aVar2) throws Exception {
+        InterceptResult invokeCommon;
+        MediaFormat mediaFormat;
+        double d;
+        int dequeueOutputBuffer;
+        byte[] bArr;
+        byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0239, (ViewGroup) null);
-            this.a = viewGroup;
-            this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090768);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0913c2);
-            Button button = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0914fe);
-            this.h = button;
-            button.setOnClickListener(this);
-            Button button2 = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0918a0);
-            this.g = button2;
-            button2.setOnClickListener(this);
-            ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090625);
-            this.i = imageView;
-            imageView.setOnClickListener(this);
-            this.d = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0905e2);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0905e4);
-            TbCheckBox tbCheckBox = (TbCheckBox) this.a.findViewById(R.id.obfuscated_res_0x7f0905e0);
-            this.e = tbCheckBox;
-            tbCheckBox.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f080708, R.drawable.obfuscated_res_0x7f080709);
-            this.e.setStatedChangedListener(this.s);
-            this.e.setTagData(new c(this));
-            this.d.setClickable(true);
-            this.d.setOnClickListener(this);
-            setContentView(this.a);
-        }
-    }
-
-    @Override // com.repackage.nq4
-    public nq4 create(d9<?> d9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d9Var)) == null) {
-            if (this.r) {
-                return this;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), aVar, aVar2})) == null) {
+            if (TextUtils.isEmpty(str) || aVar == null || aVar2 == null) {
+                return null;
             }
-            this.r = true;
-            super.create(d9Var);
-            if (!oi.isEmpty(this.k)) {
-                this.c.setText(this.k);
+            long currentTimeMillis = System.currentTimeMillis();
+            String str2 = this.a;
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            mediaExtractor.setDataSource(str2);
+            boolean z2 = false;
+            int i = 0;
+            while (true) {
+                if (i >= mediaExtractor.getTrackCount()) {
+                    mediaFormat = null;
+                    break;
+                }
+                mediaFormat = mediaExtractor.getTrackFormat(i);
+                if (mediaFormat.getString("mime").startsWith("audio/")) {
+                    mediaExtractor.selectTrack(i);
+                    break;
+                }
+                i++;
             }
-            if (!oi.isEmpty(this.p)) {
-                this.f.setText(this.p);
-            } else {
-                this.d.setVisibility(4);
+            if (mediaFormat == null) {
+                BdLog.e("not a valid file with audio track..");
+                mediaExtractor.release();
+                return null;
             }
-            if (!oi.isEmpty(this.n)) {
-                this.h.setText(this.n);
+            BdLog.e("mediaFormat " + mediaFormat);
+            gr8.b bVar = new gr8.b();
+            int i2 = aVar2.b;
+            int i3 = aVar2.a;
+            int i4 = aVar2.c;
+            bVar.a = str;
+            FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
+            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
+            createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
+            createDecoderByType.start();
+            ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
+            ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
+            double d2 = mediaFormat.getLong("durationUs");
+            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+            ByteBuffer[] byteBufferArr = outputBuffers;
+            boolean z3 = false;
+            boolean z4 = false;
+            while (!z3) {
+                long j = currentTimeMillis;
+                if (!z4) {
+                    try {
+                        int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
+                        if (dequeueInputBuffer >= 0) {
+                            int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], z2 ? 1 : 0);
+                            if (readSampleData < 0) {
+                                BdLog.i("saw input EOS.");
+                                d = d2;
+                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                z4 = true;
+                            } else {
+                                d = d2;
+                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
+                                mediaExtractor.advance();
+                            }
+                            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
+                            if (dequeueOutputBuffer < 0) {
+                                if ((bufferInfo.flags & 2) != 0) {
+                                    BdLog.i("audio encoder: codec config buffer");
+                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
+                                } else {
+                                    if (bufferInfo.size != 0) {
+                                        ByteBuffer byteBuffer = byteBufferArr[dequeueOutputBuffer];
+                                        byteBuffer.position(bufferInfo.offset);
+                                        byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
+                                        byte[] bArr3 = new byte[bufferInfo.size];
+                                        byteBuffer.get(bArr3);
+                                        if (z) {
+                                            bArr = null;
+                                            bArr2 = null;
+                                        } else {
+                                            bArr2 = aVar2.a() ? kr8.b(aVar2.c / 8, aVar.c / 8, bArr3) : null;
+                                            if (aVar2.b()) {
+                                                bArr = kr8.c(aVar2.b, aVar.b, aVar.c / 8, bArr2 == null ? bArr3 : bArr2);
+                                            } else {
+                                                bArr = null;
+                                            }
+                                        }
+                                        if (bArr == null) {
+                                            bArr = bArr2 == null ? bArr3 : bArr2;
+                                        }
+                                        fileOutputStream.write(bArr);
+                                        if (this.b != null) {
+                                            this.b.a(bArr3, bufferInfo.presentationTimeUs / d);
+                                        }
+                                        BdLog.i(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                        z2 = false;
+                                    }
+                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
+                                    if ((bufferInfo.flags & 4) != 0) {
+                                        BdLog.i("saw output EOS.");
+                                        z3 = true;
+                                    }
+                                }
+                            } else if (dequeueOutputBuffer == -3) {
+                                ByteBuffer[] outputBuffers2 = createDecoderByType.getOutputBuffers();
+                                BdLog.i("output buffers have changed.");
+                                byteBufferArr = outputBuffers2;
+                            } else if (dequeueOutputBuffer == -2) {
+                                BdLog.e("output format has changed to " + createDecoderByType.getOutputFormat());
+                            }
+                            currentTimeMillis = j;
+                            d2 = d;
+                        }
+                    } finally {
+                        fileOutputStream.close();
+                        createDecoderByType.stop();
+                        createDecoderByType.release();
+                        mediaExtractor.release();
+                    }
+                }
+                d = d2;
+                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
+                if (dequeueOutputBuffer < 0) {
+                }
+                currentTimeMillis = j;
+                d2 = d;
             }
-            if (!oi.isEmpty(this.l)) {
-                this.g.setText(this.l);
+            long j2 = currentTimeMillis;
+            if (this.b != null) {
+                this.b.a(null, 1.0d);
             }
-            if (!TextUtils.isEmpty(this.j)) {
-                jg.h().m(this.j, 10, this.t, d9Var.getUniqueId());
-            } else {
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f08057f);
-            }
-            getRealView().setBackgroundDrawable(null);
-            return this;
+            BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - j2) + " milliseconds !");
+            return bVar;
         }
-        return (nq4) invokeL.objValue;
-    }
-
-    public fr8 d(@StringRes int i, CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, onCheckedChangeListener)) == null) {
-            Activity activity = this.mActivity;
-            if (activity != null) {
-                this.p = activity.getResources().getString(i);
-                this.q = onCheckedChangeListener;
-            }
-            return this;
-        }
-        return (fr8) invokeIL.objValue;
-    }
-
-    public fr8 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.j = str;
-            return this;
-        }
-        return (fr8) invokeL.objValue;
-    }
-
-    public fr8 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.k = str;
-            return this;
-        }
-        return (fr8) invokeL.objValue;
-    }
-
-    public fr8 g(@StringRes int i, nq4.e eVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, eVar)) == null) {
-            Activity activity = this.mActivity;
-            if (activity != null) {
-                this.n = activity.getResources().getString(i);
-                this.o = eVar;
-            }
-            return this;
-        }
-        return (fr8) invokeIL.objValue;
-    }
-
-    public fr8 h(int i, nq4.e eVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, eVar)) == null) {
-            Activity activity = this.mActivity;
-            if (activity != null) {
-                this.l = activity.getResources().getString(i);
-                this.m = eVar;
-            }
-            return this;
-        }
-        return (fr8) invokeIL.objValue;
-    }
-
-    public fr8 i(String str, nq4.e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, eVar)) == null) {
-            this.l = str;
-            this.m = eVar;
-            return this;
-        }
-        return (fr8) invokeLL.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) || view2 == null) {
-            return;
-        }
-        int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f0918a0) {
-            nq4.e eVar = this.m;
-            if (eVar != null) {
-                eVar.onClick(this);
-            }
-        } else if (id == R.id.obfuscated_res_0x7f0914fe) {
-            nq4.e eVar2 = this.o;
-            if (eVar2 != null) {
-                eVar2.onClick(this);
-            }
-        } else if (id == R.id.obfuscated_res_0x7f090625) {
-            dismiss();
-        } else if (id == R.id.obfuscated_res_0x7f0905e2) {
-            TbCheckBox tbCheckBox = this.e;
-            tbCheckBox.setChecked(!tbCheckBox.d());
-        }
-    }
-
-    @Override // com.repackage.nq4
-    public /* bridge */ /* synthetic */ nq4 setMessage(String str) {
-        f(str);
-        return this;
-    }
-
-    @Override // com.repackage.nq4
-    public /* bridge */ /* synthetic */ nq4 setNegativeButton(@StringRes int i, nq4.e eVar) {
-        g(i, eVar);
-        return this;
-    }
-
-    @Override // com.repackage.nq4
-    public /* bridge */ /* synthetic */ nq4 setPositiveButton(int i, nq4.e eVar) {
-        h(i, eVar);
-        return this;
-    }
-
-    @Override // com.repackage.nq4
-    public nq4 setNegativeButton(String str, nq4.e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, eVar)) == null) {
-            this.n = str;
-            this.o = eVar;
-            return this;
-        }
-        return (nq4) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.nq4
-    public /* bridge */ /* synthetic */ nq4 setPositiveButton(String str, nq4.e eVar) {
-        i(str, eVar);
-        return this;
+        return (gr8.b) invokeCommon.objValue;
     }
 }

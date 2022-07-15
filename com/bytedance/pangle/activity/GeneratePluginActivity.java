@@ -60,6 +60,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.plugin.Plugin;
+import com.bytedance.pangle.transform.ZeusTransformUtils;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.List;
@@ -1013,7 +1014,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     public void onRestoreInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048708, this, bundle) == null) {
-            this.mProxyActivity.zeusSuperOnRestoreInstanceState(bundle);
+            try {
+                this.mProxyActivity.zeusSuperOnRestoreInstanceState(bundle);
+            } catch (Throwable unused) {
+            }
         }
     }
 
@@ -1254,7 +1258,9 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     public void setContentView(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048743, this, i) == null) {
+            ZeusTransformUtils.clearConstructorCache();
             this.mProxyActivity.zeusSuperSetContentView(i);
+            ZeusTransformUtils.clearConstructorCache();
             c.a(this, findViewById(16908290));
         }
     }
@@ -1689,7 +1695,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     public void onRestoreInstanceState(Bundle bundle, PersistableBundle persistableBundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048709, this, bundle, persistableBundle) == null) {
-            this.mProxyActivity.zeusSuperOnRestoreInstanceState(bundle, persistableBundle);
+            try {
+                this.mProxyActivity.zeusSuperOnRestoreInstanceState(bundle, persistableBundle);
+            } catch (Throwable unused) {
+            }
         }
     }
 
@@ -1809,18 +1818,18 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048744, this, view2) == null) {
-            this.mProxyActivity.zeusSuperSetContentView(view2);
-        }
-    }
-
-    @Override // android.app.Activity
     public void onCreate(Bundle bundle, PersistableBundle persistableBundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048655, this, bundle, persistableBundle) == null) {
             this.mProxyActivity.zeusSuperOnCreate(bundle, persistableBundle);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void setContentView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048744, this, view2) == null) {
+            this.mProxyActivity.zeusSuperSetContentView(view2);
         }
     }
 

@@ -7,6 +7,7 @@ import com.baidu.adp.ApsConstants;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.tbadk.core.util.TbEnum;
@@ -17,14 +18,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ay0;
-import com.repackage.by0;
-import com.repackage.lx0;
+import com.repackage.a01;
+import com.repackage.b01;
+import com.repackage.c01;
+import com.repackage.e01;
+import com.repackage.nh0;
+import com.repackage.ny0;
+import com.repackage.oy0;
+import com.repackage.yx0;
+import com.repackage.zz0;
 import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClogBuilder extends ay0 {
+public class ClogBuilder extends ny0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final JSONObject c;
@@ -35,20 +42,25 @@ public class ClogBuilder extends ay0 {
         public static final /* synthetic */ Area[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Area AD_CALL;
+        public static final Area AD_DIALOG_SHOW;
         public static final Area AD_NOTIFICATION_BTN_CLICK;
         public static final Area AD_NOTIFICATION_ITEM_CLICK;
         public static final Area AD_NOTIFICATION_NOTIFY;
         public static final Area AD_NOTIFICATION_REMOVE;
         public static final Area AD_NOTIFICATION_SHOW;
+        public static final Area APP_NOTIFICATION;
         public static final Area APP_PERMISSION;
         public static final Area APP_PRIVACY;
         public static final Area AUTO_HIDE;
+        public static final Area BTN_NAGITIVE;
+        public static final Area BTN_POSITIVE;
         public static final Area BUTTON;
         public static final Area CLOSE_BTN;
         public static final Area DIALOG;
         public static final Area DIALOG_KEYBACK;
         public static final Area DIALOG_NEGATIVE;
         public static final Area DIALOG_POSITIVE;
+        public static final Area DOWNLOAD_BUTTON;
         public static final Area FLOATING;
         public static final Area HOTAREA;
         public static final Area ICON;
@@ -57,6 +69,8 @@ public class ClogBuilder extends ay0 {
         public static final Area INSTALL_NOW_BUTTON;
         public static final Area INVALID;
         public static final Area NAME;
+        public static final Area OPEN_BUTTON;
+        public static final Area SLIDING_TAG;
         public transient /* synthetic */ FieldHolder $fh;
         public final String type;
 
@@ -76,28 +90,35 @@ public class ClogBuilder extends ay0 {
             ICON = new Area("ICON", 0, "icon");
             NAME = new Area("NAME", 1, "name");
             BUTTON = new Area("BUTTON", 2, NativeConstants.ID_BUTTON);
-            INSTALL_NOW_BUTTON = new Area("INSTALL_NOW_BUTTON", 3, "install_now_button");
-            INSTALL_LATER_BUTTON = new Area("INSTALL_LATER_BUTTON", 4, "install_later_button");
-            HOTAREA = new Area("HOTAREA", 5, "hotarea");
-            AD_NOTIFICATION_ITEM_CLICK = new Area("AD_NOTIFICATION_ITEM_CLICK", 6, "ad_notification_item_click");
-            AD_NOTIFICATION_BTN_CLICK = new Area("AD_NOTIFICATION_BTN_CLICK", 7, "ad_notification_btn_click");
-            AD_NOTIFICATION_SHOW = new Area("AD_NOTIFICATION_SHOW", 8, "ad_notification_show");
-            AD_NOTIFICATION_NOTIFY = new Area("AD_NOTIFICATION_NOTIFY", 9, "ad_notification_notify");
-            AD_NOTIFICATION_REMOVE = new Area("AD_NOTIFICATION_REMOVE", 10, "ad_notification_remove");
-            DIALOG = new Area("DIALOG", 11, "popup");
-            DIALOG_POSITIVE = new Area("DIALOG_POSITIVE", 12, "popup_select");
-            DIALOG_NEGATIVE = new Area("DIALOG_NEGATIVE", 13, "popup_cancel");
-            DIALOG_KEYBACK = new Area("DIALOG_KEYBACK", 14, "popup_back");
-            AD_CALL = new Area("AD_CALL", 15, "CALL");
-            APP_PRIVACY = new Area("APP_PRIVACY", 16, "app_privacy");
-            APP_PERMISSION = new Area("APP_PERMISSION", 17, "app_permission");
-            FLOATING = new Area("FLOATING", 18, "floating_btn");
-            IMAGE = new Area("IMAGE", 19, "image");
-            CLOSE_BTN = new Area("CLOSE_BTN", 20, "close_btn");
-            AUTO_HIDE = new Area("AUTO_HIDE", 21, "auto_hide");
-            Area area = new Area("INVALID", 22, "INVALID");
+            OPEN_BUTTON = new Area("OPEN_BUTTON", 3, "openbtn");
+            DOWNLOAD_BUTTON = new Area("DOWNLOAD_BUTTON", 4, "downloadbtn");
+            INSTALL_NOW_BUTTON = new Area("INSTALL_NOW_BUTTON", 5, "install_now_button");
+            INSTALL_LATER_BUTTON = new Area("INSTALL_LATER_BUTTON", 6, "install_later_button");
+            HOTAREA = new Area("HOTAREA", 7, "hotarea");
+            AD_NOTIFICATION_ITEM_CLICK = new Area("AD_NOTIFICATION_ITEM_CLICK", 8, "ad_notification_item_click");
+            AD_NOTIFICATION_BTN_CLICK = new Area("AD_NOTIFICATION_BTN_CLICK", 9, "ad_notification_btn_click");
+            AD_NOTIFICATION_SHOW = new Area("AD_NOTIFICATION_SHOW", 10, "ad_notification_show");
+            AD_NOTIFICATION_NOTIFY = new Area("AD_NOTIFICATION_NOTIFY", 11, "ad_notification_notify");
+            AD_NOTIFICATION_REMOVE = new Area("AD_NOTIFICATION_REMOVE", 12, "ad_notification_remove");
+            DIALOG = new Area("DIALOG", 13, "popup");
+            DIALOG_POSITIVE = new Area("DIALOG_POSITIVE", 14, "popup_select");
+            DIALOG_NEGATIVE = new Area("DIALOG_NEGATIVE", 15, "popup_cancel");
+            DIALOG_KEYBACK = new Area("DIALOG_KEYBACK", 16, "popup_back");
+            AD_CALL = new Area("AD_CALL", 17, "CALL");
+            APP_PRIVACY = new Area("APP_PRIVACY", 18, "app_privacy");
+            APP_PERMISSION = new Area("APP_PERMISSION", 19, "app_permission");
+            FLOATING = new Area("FLOATING", 20, "floating_btn");
+            IMAGE = new Area("IMAGE", 21, "image");
+            CLOSE_BTN = new Area("CLOSE_BTN", 22, "close_btn");
+            AUTO_HIDE = new Area("AUTO_HIDE", 23, "auto_hide");
+            AD_DIALOG_SHOW = new Area("AD_DIALOG_SHOW", 24, "ad_dialog_show");
+            BTN_POSITIVE = new Area("BTN_POSITIVE", 25, "btn_positive");
+            BTN_NAGITIVE = new Area("BTN_NAGITIVE", 26, "btn_nagitive");
+            APP_NOTIFICATION = new Area("APP_NOTIFICATION", 27, "APP_NOTIFICATION");
+            SLIDING_TAG = new Area("SLIDING_TAG", 28, "sliding_tag");
+            Area area = new Area("INVALID", 29, "INVALID");
             INVALID = area;
-            $VALUES = new Area[]{ICON, NAME, BUTTON, INSTALL_NOW_BUTTON, INSTALL_LATER_BUTTON, HOTAREA, AD_NOTIFICATION_ITEM_CLICK, AD_NOTIFICATION_BTN_CLICK, AD_NOTIFICATION_SHOW, AD_NOTIFICATION_NOTIFY, AD_NOTIFICATION_REMOVE, DIALOG, DIALOG_POSITIVE, DIALOG_NEGATIVE, DIALOG_KEYBACK, AD_CALL, APP_PRIVACY, APP_PERMISSION, FLOATING, IMAGE, CLOSE_BTN, AUTO_HIDE, area};
+            $VALUES = new Area[]{ICON, NAME, BUTTON, OPEN_BUTTON, DOWNLOAD_BUTTON, INSTALL_NOW_BUTTON, INSTALL_LATER_BUTTON, HOTAREA, AD_NOTIFICATION_ITEM_CLICK, AD_NOTIFICATION_BTN_CLICK, AD_NOTIFICATION_SHOW, AD_NOTIFICATION_NOTIFY, AD_NOTIFICATION_REMOVE, DIALOG, DIALOG_POSITIVE, DIALOG_NEGATIVE, DIALOG_KEYBACK, AD_CALL, APP_PRIVACY, APP_PERMISSION, FLOATING, IMAGE, CLOSE_BTN, AUTO_HIDE, AD_DIALOG_SHOW, BTN_POSITIVE, BTN_NAGITIVE, APP_NOTIFICATION, SLIDING_TAG, area};
         }
 
         public Area(String str, int i, String str2) {
@@ -335,6 +356,7 @@ public class ClogBuilder extends ay0 {
         public static final /* synthetic */ Page[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Page AD_CALL;
+        public static final Page AD_DIALOG;
         public static final Page AD_INSTALL_TIPS;
         public static final Page AD_NOTIFICATION;
         public static final Page AD_START_INSTALL_TIPS;
@@ -391,9 +413,10 @@ public class ClogBuilder extends ay0 {
             WELFARETAIL = new Page("WELFARETAIL", 17, "WELFARETAIL");
             PAGE_VIDEO_IMMERSIVE_LP = new Page("PAGE_VIDEO_IMMERSIVE_LP", 18, "IMMERSIVE_VIDEOADDETAIL");
             NAVIDEO_POP = new Page("NAVIDEO_POP", 19, "NAVIDEO_POP");
-            Page page = new Page("INVALID", 20, "INVALID");
+            AD_DIALOG = new Page("AD_DIALOG", 20, "AD_DIALOG");
+            Page page = new Page("INVALID", 21, "INVALID");
             INVALID = page;
-            $VALUES = new Page[]{AD_CALL, AD_NOTIFICATION, RETARGET, AD_START_INSTALL_TIPS, AD_INSTALL_TIPS, POPUP, PAGE_NA, PAGE_SEARCHBOX, AD_TAIL, PAGE_VIDEO_LANDING, PAGE_VIDEO_TAIL, REWARD_VIDEO, NA_SPLASH, DOWNLOAD_RECTIFY, VIDEO_LIST, WELFAREPANEL, WELFAREMAXLP, WELFARETAIL, PAGE_VIDEO_IMMERSIVE_LP, NAVIDEO_POP, page};
+            $VALUES = new Page[]{AD_CALL, AD_NOTIFICATION, RETARGET, AD_START_INSTALL_TIPS, AD_INSTALL_TIPS, POPUP, PAGE_NA, PAGE_SEARCHBOX, AD_TAIL, PAGE_VIDEO_LANDING, PAGE_VIDEO_TAIL, REWARD_VIDEO, NA_SPLASH, DOWNLOAD_RECTIFY, VIDEO_LIST, WELFAREPANEL, WELFAREMAXLP, WELFARETAIL, PAGE_VIDEO_IMMERSIVE_LP, NAVIDEO_POP, AD_DIALOG, page};
         }
 
         public Page(String str, int i, String str2) {
@@ -443,77 +466,97 @@ public class ClogBuilder extends ay0 {
                 return;
             }
         }
-        this.c = lx0.c(null);
-        c("origin_time", String.valueOf(System.currentTimeMillis()));
+        this.c = yx0.c(null);
+        d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // com.repackage.yx0, com.repackage.by0
-    public <T extends by0> T a(String str, String str2) {
+    public ClogBuilder A(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            d("video_pos", str);
+            return this;
+        }
+        return (ClogBuilder) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ly0, com.repackage.oy0
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            g();
+            nh0 nh0Var = (nh0) ServiceManager.getService(nh0.a);
+            if (nh0Var != null) {
+                A(nh0Var.a(this.c.optString("extra_param")));
+            }
+        }
+    }
+
+    @Override // com.repackage.ly0, com.repackage.oy0
+    public <T extends oy0> T b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            c(str, str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            d(str, str2);
             return this;
         }
         return (T) invokeLL.objValue;
     }
 
-    @Override // com.repackage.yx0
-    public <T extends by0> T c(String str, Object obj) {
+    @Override // com.repackage.ly0
+    public <T extends oy0> T d(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            lx0.f(this.c, str, obj);
+            yx0.f(this.c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
     }
 
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && a01.a) {
+            b01 b01Var = (b01) zz0.a().a(b01.class);
+            if (b01Var != null) {
+                b01Var.a(h());
+            }
+            c01 c01Var = (c01) zz0.a().a(c01.class);
+            if (c01Var != null) {
+                c01Var.a(h());
+            }
+            e01 e01Var = (e01) zz0.a().a(e01.class);
+            if (e01Var != null) {
+                e01Var.a(h());
+            }
+        }
+    }
+
     @NonNull
-    public JSONObject f() {
+    public JSONObject h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (JSONObject) invokeV.objValue;
     }
 
-    public ClogBuilder g(Area area) {
+    public ClogBuilder i(Area area) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, area)) == null) {
-            c("da_area", area.type);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, area)) == null) {
+            d("da_area", area.type);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            c("da_area", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            c("da_ext1", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ay0, com.repackage.by0
+    @Override // com.repackage.ny0, com.repackage.oy0
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (TextUtils.isEmpty(this.c.optString("da_type"))) {
                 return false;
             }
@@ -525,8 +568,8 @@ public class ClogBuilder extends ay0 {
     public ClogBuilder j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            c("da_ext2", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            d("da_area", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -535,8 +578,8 @@ public class ClogBuilder extends ay0 {
     public ClogBuilder k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            c("da_ext3", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            d("da_ext1", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -545,8 +588,8 @@ public class ClogBuilder extends ay0 {
     public ClogBuilder l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            c("da_ext4", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            d("da_ext2", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -555,8 +598,8 @@ public class ClogBuilder extends ay0 {
     public ClogBuilder m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            c("da_ext5", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            d("da_ext3", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -565,8 +608,8 @@ public class ClogBuilder extends ay0 {
     public ClogBuilder n(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            c("extra_param", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            d("da_ext4", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -575,8 +618,8 @@ public class ClogBuilder extends ay0 {
     public ClogBuilder o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            c("da_locate", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            d("da_ext5", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -585,59 +628,59 @@ public class ClogBuilder extends ay0 {
     public ClogBuilder p(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            c("da_menu1", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder q(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            c("da_menu2", str);
+            d("extra_param", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder r(@NonNull String str) {
+    public ClogBuilder q(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            c("da_menu3", str);
+            d("da_locate", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder s(Page page) {
+    public ClogBuilder r(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, page)) == null) {
-            c(BdVideoAd.AD_VIDEO_DAPAGE, page.type);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            d("da_menu1", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder t(String str) {
+    public ClogBuilder s(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            c(BdVideoAd.AD_VIDEO_DAPAGE, str);
+            d("da_menu2", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.repackage.ay0, com.repackage.yx0, com.repackage.by0
+    public ClogBuilder t(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            d("da_menu3", str);
+            return this;
+        }
+        return (ClogBuilder) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ny0, com.repackage.ly0, com.repackage.oy0
     @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             super.toString();
             if (this.a.toString().contains(LaunchStatsUtils.AD)) {
                 return this.a.toString();
@@ -661,11 +704,11 @@ public class ClogBuilder extends ay0 {
         return (String) invokeV.objValue;
     }
 
-    public ClogBuilder u(String str) {
+    public ClogBuilder u(Page page) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            c("da_page_num", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, page)) == null) {
+            d(BdVideoAd.AD_VIDEO_DAPAGE, page.type);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -674,18 +717,18 @@ public class ClogBuilder extends ay0 {
     public ClogBuilder v(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-            c("place_id", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
+            d(BdVideoAd.AD_VIDEO_DAPAGE, str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder w(LogType logType) {
+    public ClogBuilder w(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, logType)) == null) {
-            c("da_type", logType.type);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+            d("da_page_num", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
@@ -694,18 +737,28 @@ public class ClogBuilder extends ay0 {
     public ClogBuilder x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            c("da_type", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+            d("place_id", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder y(String str) {
+    public ClogBuilder y(LogType logType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            c("video_pos", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, logType)) == null) {
+            d("da_type", logType.type);
+            return this;
+        }
+        return (ClogBuilder) invokeL.objValue;
+    }
+
+    public ClogBuilder z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+            d("da_type", str);
             return this;
         }
         return (ClogBuilder) invokeL.objValue;

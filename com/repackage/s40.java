@@ -1,163 +1,152 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Call;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.support.okhttp.converters.ResponseConverter;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Response;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import kotlin.UShort;
 /* loaded from: classes7.dex */
-public class s40 implements Call {
+public abstract class s40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public Request a;
-    @NonNull
-    public okhttp3.Request b;
-    @NonNull
-    public OkHttpClient c;
-    @NonNull
-    public okhttp3.Call d;
 
-    /* loaded from: classes7.dex */
-    public class a implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ com.baidu.searchbox.network.outback.core.Callback a;
-        public final /* synthetic */ s40 b;
+    public static int a(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) ? byteBuffer.getShort(i) & UShort.MAX_VALUE : invokeLI.intValue;
+    }
 
-        public a(s40 s40Var, com.baidu.searchbox.network.outback.core.Callback callback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s40Var, callback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static Pair<ByteBuffer, Long> b(RandomAccessFile randomAccessFile) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, randomAccessFile)) == null) {
+            if (randomAccessFile.length() < 22) {
+                return null;
             }
-            this.b = s40Var;
-            this.a = callback;
+            Pair<ByteBuffer, Long> c = c(randomAccessFile, 0);
+            return c != null ? c : c(randomAccessFile, 65535);
         }
+        return (Pair) invokeL.objValue;
+    }
 
-        @Override // okhttp3.Callback
-        public void onFailure(okhttp3.Call call, IOException iOException) {
-            com.baidu.searchbox.network.outback.core.Callback callback;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) || (callback = this.a) == null) {
+    public static Pair<ByteBuffer, Long> c(RandomAccessFile randomAccessFile, int i) throws IOException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, randomAccessFile, i)) == null) {
+            if (i < 0 || i > 65535) {
+                throw new IllegalArgumentException("maxCommentSize: " + i);
+            }
+            long length = randomAccessFile.length();
+            if (length < 22) {
+                return null;
+            }
+            ByteBuffer allocate = ByteBuffer.allocate(((int) Math.min(i, length - 22)) + 22);
+            allocate.order(ByteOrder.LITTLE_ENDIAN);
+            long capacity = length - allocate.capacity();
+            randomAccessFile.seek(capacity);
+            randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
+            int h = h(allocate);
+            if (h == -1) {
+                return null;
+            }
+            allocate.position(h);
+            ByteBuffer slice = allocate.slice();
+            slice.order(ByteOrder.LITTLE_ENDIAN);
+            return Pair.create(slice, Long.valueOf(capacity + h));
+        }
+        return (Pair) invokeLI.objValue;
+    }
+
+    public static void d(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, byteBuffer) == null) && byteBuffer.order() != ByteOrder.LITTLE_ENDIAN) {
+            throw new IllegalArgumentException("ByteBuffer byte order must be little endian");
+        }
+    }
+
+    public static void e(ByteBuffer byteBuffer, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (j >= 0 && j <= 4294967295L) {
+                byteBuffer.putInt(byteBuffer.position() + i, (int) j);
                 return;
             }
-            callback.onFailure(this.b, iOException);
+            throw new IllegalArgumentException("uint32 value of out range: " + j);
         }
+    }
 
-        @Override // okhttp3.Callback
-        public void onResponse(okhttp3.Call call, Response response) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                com.baidu.searchbox.network.outback.core.Response fromOks = ResponseConverter.fromOks(this.b.a, response);
-                if (fromOks.getStatRecord() != null) {
-                    fromOks.getStatRecord().finishTs = System.currentTimeMillis();
+    public static void f(ByteBuffer byteBuffer, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65541, null, byteBuffer, j) == null) {
+            d(byteBuffer);
+            e(byteBuffer, byteBuffer.position() + 16, j);
+        }
+    }
+
+    public static final boolean g(RandomAccessFile randomAccessFile, long j) throws IOException {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, randomAccessFile, j)) == null) {
+            long j2 = j - 20;
+            if (j2 < 0) {
+                return false;
+            }
+            randomAccessFile.seek(j2);
+            return randomAccessFile.readInt() == 1347094023;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static int h(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) {
+            d(byteBuffer);
+            int capacity = byteBuffer.capacity();
+            if (capacity < 22) {
+                return -1;
+            }
+            int i = capacity - 22;
+            int min = Math.min(i, 65535);
+            for (int i2 = 0; i2 < min; i2++) {
+                int i3 = i - i2;
+                if (byteBuffer.getInt(i3) == 101010256 && a(byteBuffer, i3 + 20) == i2) {
+                    return i3;
                 }
-                com.baidu.searchbox.network.outback.core.Callback callback = this.a;
-                if (callback != null) {
-                    callback.onResponse(this.b, fromOks);
-                }
             }
+            return -1;
         }
+        return invokeL.intValue;
     }
 
-    public s40(@NonNull Request request, @NonNull okhttp3.Request request2, @NonNull OkHttpClient okHttpClient) {
+    public static long i(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {request, request2, okHttpClient};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, byteBuffer, i)) == null) ? byteBuffer.getInt(i) & 4294967295L : invokeLI.longValue;
+    }
+
+    public static long j(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, byteBuffer)) == null) {
+            d(byteBuffer);
+            return i(byteBuffer, byteBuffer.position() + 16);
         }
-        this.a = request;
-        this.b = request2;
-        this.c = okHttpClient;
-        this.d = okHttpClient.newCall(request2);
+        return invokeL.longValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public void cancel() {
+    public static long k(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.cancel();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, byteBuffer)) == null) {
+            d(byteBuffer);
+            return i(byteBuffer, byteBuffer.position() + 12);
         }
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public void enqueue(com.baidu.searchbox.network.outback.core.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, callback) == null) {
-            this.a.getNetworkStatRecord().startTs = System.currentTimeMillis();
-            this.d.enqueue(new a(this, callback));
-        }
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public com.baidu.searchbox.network.outback.core.Response execute() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.a.getNetworkStatRecord().startTs = System.currentTimeMillis();
-            com.baidu.searchbox.network.outback.core.Response fromOks = ResponseConverter.fromOks(this.a, this.d.execute());
-            if (fromOks.getStatRecord() != null) {
-                fromOks.getStatRecord().finishTs = System.currentTimeMillis();
-            }
-            return fromOks;
-        }
-        return (com.baidu.searchbox.network.outback.core.Response) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public boolean isCanceled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d.isCanceled() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public boolean isExecuted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d.isExecuted() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public Request request() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (Request) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public Call clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new s40(this.a, this.b, this.c) : (Call) invokeV.objValue;
+        return invokeL.longValue;
     }
 }

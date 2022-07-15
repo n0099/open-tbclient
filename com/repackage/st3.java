@@ -1,44 +1,38 @@
 package com.repackage;
 
-import android.util.Log;
+import android.app.Activity;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
-import okhttp3.Response;
+import com.repackage.lz2;
 /* loaded from: classes7.dex */
 public class st3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public yx3 a;
-    public String b;
-    public String c;
-    public qt3 d;
+    public lz2 a;
 
     /* loaded from: classes7.dex */
-    public class a implements Callback {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ st3 a;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ boolean d;
+        public final /* synthetic */ DialogInterface.OnClickListener e;
+        public final /* synthetic */ st3 f;
 
-        public a(st3 st3Var) {
+        public a(st3 st3Var, Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {st3Var};
+                Object[] objArr = {st3Var, activity, str, str2, Boolean.valueOf(z), onClickListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,177 +42,78 @@ public class st3 {
                     return;
                 }
             }
-            this.a = st3Var;
+            this.f = st3Var;
+            this.a = activity;
+            this.b = str;
+            this.c = str2;
+            this.d = z;
+            this.e = onClickListener;
         }
 
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (st3.e) {
-                    Log.e("AudioDownloader", this.a.b + " load failed");
-                    iOException.printStackTrace();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.f.a != null && this.f.a.isShowing()) {
+                    this.f.a.dismiss();
                 }
-                if (this.a.d != null) {
-                    this.a.d.fail(-1, this.a.b);
+                Activity activity = this.a;
+                if (activity == null || activity.isFinishing()) {
+                    return;
                 }
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) {
-            FileOutputStream fileOutputStream;
-            File file;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                byte[] bArr = new byte[2048];
-                InputStream inputStream = null;
-                try {
-                    InputStream byteStream = response.body().byteStream();
-                    try {
-                        try {
-                            String d = nt3.d(this.a.b);
-                            String str = this.a.c + d.substring(0, d.lastIndexOf("/"));
-                            File file2 = new File(str);
-                            if (!file2.exists() || !file2.isDirectory()) {
-                                file2.mkdirs();
-                            }
-                            String substring = d.substring(d.lastIndexOf("/") + 1);
-                            file = new File(str, substring + ".bddownload");
-                            try {
-                                fileOutputStream = new FileOutputStream(file);
-                                while (true) {
-                                    try {
-                                        int read = byteStream.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        fileOutputStream.write(bArr, 0, read);
-                                    } catch (Exception e) {
-                                        e = e;
-                                        inputStream = byteStream;
-                                        try {
-                                            if (st3.e) {
-                                                Log.e("AudioDownloader", this.a.b + " load failed", e);
-                                            }
-                                            if (file != null) {
-                                                file.delete();
-                                            }
-                                            if (this.a.d != null) {
-                                                this.a.d.fail(-1, this.a.b);
-                                            }
-                                            uf4.d(inputStream);
-                                            uf4.d(fileOutputStream);
-                                            uf4.d(response);
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            uf4.d(inputStream);
-                                            uf4.d(fileOutputStream);
-                                            uf4.d(response);
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        inputStream = byteStream;
-                                        uf4.d(inputStream);
-                                        uf4.d(fileOutputStream);
-                                        uf4.d(response);
-                                        throw th;
-                                    }
-                                }
-                                fileOutputStream.flush();
-                                File file3 = new File(str, substring);
-                                if (file3.exists() && !file3.isDirectory()) {
-                                    file3.delete();
-                                }
-                                String absolutePath = file3.getAbsolutePath();
-                                if (file.renameTo(file3)) {
-                                    if (st3.e) {
-                                        Log.e("AudioDownloader", this.a.b + " load rename success path = " + absolutePath);
-                                    }
-                                    if (this.a.d != null) {
-                                        this.a.d.a(this.a.b, absolutePath);
-                                    }
-                                } else {
-                                    if (st3.e) {
-                                        Log.e("AudioDownloader", this.a.b + " load rename error path = " + absolutePath);
-                                    }
-                                    file.delete();
-                                    if (this.a.d != null) {
-                                        this.a.d.fail(-1, absolutePath);
-                                    }
-                                }
-                                uf4.d(byteStream);
-                            } catch (Exception e2) {
-                                e = e2;
-                                fileOutputStream = null;
-                            }
-                        } catch (Exception e3) {
-                            e = e3;
-                            file = null;
-                            fileOutputStream = null;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        fileOutputStream = null;
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    file = null;
-                    fileOutputStream = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    fileOutputStream = null;
-                }
-                uf4.d(fileOutputStream);
-                uf4.d(response);
+                lz2.a d = this.f.d(this.a, this.b, this.c, this.d, this.e);
+                this.f.a = d.X();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755309057, "Lcom/repackage/st3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755309057, "Lcom/repackage/st3;");
-                return;
-            }
-        }
-        e = cg1.a;
-    }
-
-    public st3(yx3 yx3Var, String str, String str2, qt3 qt3Var) {
+    public st3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yx3Var, str, str2, qt3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = "";
-        this.c = "";
-        this.a = yx3Var;
-        this.c = str;
-        this.b = str2;
-        this.d = qt3Var;
+    }
+
+    public final lz2.a d(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener})) == null) {
+            lz2.a aVar = new lz2.a(activity);
+            aVar.x(str);
+            aVar.a();
+            aVar.n(new pf3());
+            aVar.m(z);
+            aVar.Q(R.color.obfuscated_res_0x7f060a57);
+            aVar.f(true);
+            aVar.P(str2, onClickListener);
+            return aVar;
+        }
+        return (lz2.a) invokeCommon.objValue;
     }
 
     public void e() {
+        lz2 lz2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.call(new Request.Builder().url(this.b).build(), new a(this));
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (lz2Var = this.a) == null) {
+            return;
+        }
+        if (lz2Var.isShowing()) {
+            this.a.dismiss();
+        }
+        this.a = null;
+    }
+
+    public void f(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener}) == null) {
+            be3.a0(new a(this, activity, str, str2, z, onClickListener));
         }
     }
 }

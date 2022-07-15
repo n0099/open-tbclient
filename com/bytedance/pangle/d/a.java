@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.helper.e;
+import com.bytedance.pangle.c.e;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.util.f;
 import java.io.BufferedReader;

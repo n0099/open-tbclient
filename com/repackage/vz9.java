@@ -1,28 +1,65 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.data.DataSenderConfig;
-import com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import java.util.ArrayList;
-import tv.athena.revenue.http.HttpDataSenderAdapter;
+import java.util.List;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes7.dex */
-public class vz9 implements IDataSenderAdapter {
+public class vz9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IDataSenderAdapter a;
-    public IDataSenderAdapter b;
+    public Context a;
+    public int b;
+    public List<ty9> c;
+    public PayUIKitConfig d;
 
-    public vz9(IDataSenderAdapter iDataSenderAdapter) {
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public ImageView b;
+        public ImageView c;
+        public TextView d;
+
+        public a(vz9 vz9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vz9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public vz9(Context context, PayUIKitConfig payUIKitConfig, List<ty9> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iDataSenderAdapter};
+            Object[] objArr = {context, payUIKitConfig, list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,58 +69,95 @@ public class vz9 implements IDataSenderAdapter {
                 return;
             }
         }
-        RLog.debug("DataSenderAdapter", "create DataSenderAdapter");
-        this.a = iDataSenderAdapter;
+        this.c = new ArrayList();
+        this.a = context;
+        this.c = list;
+        this.d = payUIKitConfig;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
-    public void cancelAllRequest(int i, int i2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ty9 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            RLog.info("DataSenderAdapter", "cancelAllRequest appId:" + i + " useChannel:" + i2);
-            IDataSenderAdapter iDataSenderAdapter = this.a;
-            if (iDataSenderAdapter != null) {
-                iDataSenderAdapter.cancelAllRequest(i, i2);
-                return;
-            }
-            IDataSenderAdapter iDataSenderAdapter2 = this.b;
-            if (iDataSenderAdapter2 != null) {
-                iDataSenderAdapter2.cancelAllRequest(i, i2);
-            }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.c.get(i) : (ty9) invokeI.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter
-    public void init(DataSenderConfig dataSenderConfig) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSenderConfig) == null) {
-            RLog.debug("DataSenderAdapter", "DataSenderAdapter init");
-            IDataSenderAdapter iDataSenderAdapter = this.a;
-            if (iDataSenderAdapter == null) {
-                HttpDataSenderAdapter httpDataSenderAdapter = new HttpDataSenderAdapter();
-                this.b = httpDataSenderAdapter;
-                httpDataSenderAdapter.init(dataSenderConfig);
-                return;
-            }
-            iDataSenderAdapter.init(dataSenderConfig);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.size() : invokeV.intValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
-    public void sendData(int i, int i2, String str, ArrayList<Integer> arrayList, byte[] bArr) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, arrayList, bArr}) == null) {
-            IDataSenderAdapter iDataSenderAdapter = this.a;
-            if (iDataSenderAdapter != null) {
-                iDataSenderAdapter.sendData(i, i2, str, arrayList, bArr);
-                return;
-            }
-            IDataSenderAdapter iDataSenderAdapter2 = this.b;
-            if (iDataSenderAdapter2 != null) {
-                iDataSenderAdapter2.sendData(i, i2, str, arrayList, bArr);
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0663, viewGroup, false);
+                aVar = new a(this);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c4);
+                aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea4);
+                aVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a7c);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a0);
+                view2.setTag(aVar);
             } else {
-                RLog.error("DataSenderAdapter", "sendData senderAdapter is null ", new Object[0]);
+                aVar = (a) view2.getTag();
             }
+            ty9 item = getItem(i);
+            aVar.a.setText(item.a());
+            PayType payType = item.a;
+            if (PayType.ALI_PAY.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e3c);
+            } else if (PayType.WECHAT_PAY.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e3b);
+            } else if (PayType.DXM_PAY.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e37);
+            } else if (PayType.DXM_PAY_KJ.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e38);
+            } else if (PayType.UNION_PAY.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e3a);
+            } else if (PayType.QQ_PAY.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e39);
+            }
+            aVar.a.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608b1));
+            if (this.b == i) {
+                aVar.c.setBackgroundResource(nz9.a.b(this.d) ? R.drawable.obfuscated_res_0x7f080e44 : R.drawable.obfuscated_res_0x7f080e45);
+            } else {
+                aVar.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e46);
+            }
+            if (TextUtils.isEmpty(item.c)) {
+                aVar.d.setVisibility(8);
+            } else {
+                aVar.d.setVisibility(0);
+                aVar.d.setText(item.c);
+            }
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

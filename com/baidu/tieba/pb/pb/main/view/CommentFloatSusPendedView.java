@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f95;
-import com.repackage.ir7;
+import com.repackage.as7;
+import com.repackage.ia5;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class CommentFloatSusPendedView extends LinearLayout {
@@ -36,7 +36,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public ViewGroup c;
-    public f95 d;
+    public ia5 d;
     public float e;
     public float f;
     public boolean g;
@@ -167,16 +167,16 @@ public class CommentFloatSusPendedView extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ir7 ir7Var;
+            as7 as7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ir7) || (ir7Var = (ir7) customResponsedMessage.getData()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof as7) || (as7Var = (as7) customResponsedMessage.getData()) == null) {
                 return;
             }
-            this.a.m = ir7Var.d;
-            this.a.e = ir7Var.b;
-            this.a.f = ir7Var.a;
-            this.a.k = ir7Var.c;
-            this.a.h = ir7Var.e;
+            this.a.m = as7Var.d;
+            this.a.e = as7Var.b;
+            this.a.f = as7Var.a;
+            this.a.k = as7Var.c;
+            this.a.h = as7Var.e;
             CommentFloatSusPendedView commentFloatSusPendedView = this.a;
             commentFloatSusPendedView.t((commentFloatSusPendedView.f - this.a.e) / pi.i(this.a.getContext()));
             boolean z = this.a.f > this.a.e;
@@ -312,11 +312,11 @@ public class CommentFloatSusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            f95 f95Var = this.d;
-            if (f95Var == null) {
+            ia5 ia5Var = this.d;
+            if (ia5Var == null) {
                 return false;
             }
-            return f95Var.s();
+            return ia5Var.s();
         }
         return invokeV.booleanValue;
     }
@@ -412,10 +412,10 @@ public class CommentFloatSusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(f95 f95Var) {
+    public void setContentViewTop(ia5 ia5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, f95Var) == null) {
-            this.d = f95Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, ia5Var) == null) {
+            this.d = ia5Var;
         }
     }
 

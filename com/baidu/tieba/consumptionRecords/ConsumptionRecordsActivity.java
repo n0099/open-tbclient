@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o45;
+import com.repackage.q55;
 /* loaded from: classes3.dex */
 public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -42,14 +42,14 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void o0(o45 o45Var, FragmentTabIndicator fragmentTabIndicator, String str) {
+    public final void n0(q55 q55Var, FragmentTabIndicator fragmentTabIndicator, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, o45Var, fragmentTabIndicator, str) == null) || o45Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, q55Var, fragmentTabIndicator, str) == null) || q55Var == null) {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        bVar.c = o45Var.a;
-        fragmentTabIndicator.setText(o45Var.b);
+        bVar.c = q55Var.a;
+        fragmentTabIndicator.setText(q55Var.b);
         if (!TextUtils.isEmpty(str)) {
             fragmentTabIndicator.setText(str);
         }
@@ -59,35 +59,10 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         this.b.c(bVar);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.onChangeSkinType(getPageContext(), i);
-            this.b.setNeedShowThemeStyle(false);
-            this.b.getFragmentTabWidget().setBackGroundDrawableResId(R.color.CAM_X0201);
-            this.b.s(i);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01f3);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914e4);
-            this.a = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f042d));
-            t0();
-        }
-    }
-
-    public final int r0(int i) {
+    public final int o0(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             if (i == 1) {
                 return 0;
             }
@@ -99,42 +74,67 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         return invokeI.intValue;
     }
 
-    public final FragmentTabIndicator s0(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e4, (ViewGroup) null) : (FragmentTabIndicator) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a.onChangeSkinType(getPageContext(), i);
+            this.b.setNeedShowThemeStyle(false);
+            this.b.getFragmentTabWidget().setBackGroundDrawableResId(R.color.CAM_X0201);
+            this.b.s(i);
+        }
     }
 
-    public final void t0() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d01f3);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09158d);
+            this.a = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.a.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0435));
+            s0();
+        }
+    }
+
+    public final FragmentTabIndicator p0(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e6, (ViewGroup) null) : (FragmentTabIndicator) invokeL.objValue;
+    }
+
+    public final void s0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091a0e);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091ab6);
             this.b = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.b.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
             SigleRecordsFragment sigleRecordsFragment = new SigleRecordsFragment();
             this.c = sigleRecordsFragment;
-            sigleRecordsFragment.J1(1);
-            o45 o45Var = new o45();
-            o45Var.a = this.c;
-            o45Var.b = R.string.obfuscated_res_0x7f0f05c5;
-            o0(o45Var, s0(getPageContext().getPageActivity()), null);
+            sigleRecordsFragment.K1(1);
+            q55 q55Var = new q55();
+            q55Var.a = this.c;
+            q55Var.b = R.string.obfuscated_res_0x7f0f05cf;
+            n0(q55Var, p0(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment2 = new SigleRecordsFragment();
             this.d = sigleRecordsFragment2;
-            sigleRecordsFragment2.J1(2);
-            o45 o45Var2 = new o45();
-            o45Var2.a = this.d;
-            o45Var2.b = R.string.obfuscated_res_0x7f0f08d7;
-            o0(o45Var2, s0(getPageContext().getPageActivity()), null);
+            sigleRecordsFragment2.K1(2);
+            q55 q55Var2 = new q55();
+            q55Var2.a = this.d;
+            q55Var2.b = R.string.obfuscated_res_0x7f0f08e2;
+            n0(q55Var2, p0(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
             this.e = sigleRecordsFragment3;
-            sigleRecordsFragment3.J1(3);
-            o45 o45Var3 = new o45();
-            o45Var3.a = this.e;
-            o45Var3.b = R.string.obfuscated_res_0x7f0f0f72;
-            o0(o45Var3, s0(getPageContext().getPageActivity()), null);
+            sigleRecordsFragment3.K1(3);
+            q55 q55Var3 = new q55();
+            q55Var3.a = this.e;
+            q55Var3.b = R.string.obfuscated_res_0x7f0f0f6d;
+            n0(q55Var3, p0(getPageContext().getPageActivity()), null);
             this.b.n(3);
-            this.b.setCurrentTab(r0(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
+            this.b.setCurrentTab(o0(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
         }
     }
 }

@@ -13,7 +13,7 @@ public final class y implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Intent f82a;
+    public final /* synthetic */ Intent f809a;
 
     public y(Context context, Intent intent) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class y implements Runnable {
             }
         }
         this.a = context;
-        this.f82a = intent;
+        this.f809a = intent;
     }
 
     @Override // java.lang.Runnable
@@ -39,9 +39,9 @@ public final class y implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.a.startService(this.f82a);
+                this.a.startService(this.f809a);
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m84a(e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m1027a(e.getMessage());
             }
         }
     }

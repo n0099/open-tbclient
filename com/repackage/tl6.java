@@ -1,48 +1,149 @@
 package com.repackage;
 
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.mc.FrsModelController;
+import android.content.res.Resources;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import tbclient.ApkDetail;
+import tbclient.ItemInfo;
 /* loaded from: classes7.dex */
-public class tl6 {
+public class tl6 extends nn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lc6 a;
-    public final FrsFragment b;
-    public final sp6 c;
-    public final mp6 d;
-    public final FrsModelController e;
-    public final qd6 f;
-    public final ml6 g;
+    public ArrayList<yl6> a;
 
-    public tl6(FrsFragment frsFragment) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755286861, "Lcom/repackage/tl6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755286861, "Lcom/repackage/tl6;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
+
+    public tl6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (frsFragment != null) {
-            this.b = frsFragment;
-            this.d = frsFragment.o0();
-            this.a = this.b.k1();
-            this.c = this.b.A3();
-            this.e = this.b.K0();
-            this.f = this.b.x3();
-            this.g = this.b.a1();
-            return;
+        setSupportType(BaseCardInfo.SupportType.FULL);
+    }
+
+    public ArrayList<yl6> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !ListUtils.isEmpty(this.a) : invokeV.booleanValue;
+    }
+
+    public void g(ItemInfo itemInfo) {
+        ApkDetail apkDetail;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) {
+            if (this.a == null) {
+                this.a = new ArrayList<>();
+            }
+            this.a.clear();
+            if (itemInfo == null || (apkDetail = itemInfo.apk_detail) == null) {
+                return;
+            }
+            if (!oi.isEmpty(apkDetail.developer)) {
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04de), itemInfo.apk_detail.developer, null));
+            }
+            if (!oi.isEmpty(itemInfo.apk_detail.publisher)) {
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0f25), itemInfo.apk_detail.publisher, null));
+            }
+            if (!oi.isEmpty(itemInfo.apk_detail.version)) {
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0473), itemInfo.apk_detail.version, null));
+            }
+            if (!oi.isEmpty(itemInfo.apk_detail.update_time)) {
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14d8), itemInfo.apk_detail.update_time, null));
+            }
+            if (ng.g(itemInfo.apk_detail.size, 0L) > 0) {
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f060a), StringHelper.getFormatSize(ng.g(itemInfo.apk_detail.size, 0L)), null));
+            }
+            int intValue = itemInfo.apk_detail.need_network.intValue();
+            int i = R.string.obfuscated_res_0x7f0f0528;
+            if (intValue > 0) {
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f097c), TbadkCoreApplication.getInst().getResources().getString(itemInfo.apk_detail.need_network.intValue() == 1 ? R.string.obfuscated_res_0x7f0f0528 : R.string.obfuscated_res_0x7f0f0527), null));
+            }
+            if (itemInfo.apk_detail.need_inner_buy.intValue() > 0) {
+                ArrayList<yl6> arrayList = this.a;
+                String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0822);
+                Resources resources = TbadkCoreApplication.getInst().getResources();
+                if (itemInfo.apk_detail.need_inner_buy.intValue() != 1) {
+                    i = R.string.obfuscated_res_0x7f0f0527;
+                }
+                arrayList.add(new yl6(string, resources.getString(i), null));
+            }
+            if (!oi.isEmpty(itemInfo.apk_detail.authority_url)) {
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0df6), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f097f), itemInfo.apk_detail.authority_url));
+            }
+            if (oi.isEmpty(itemInfo.apk_detail.privacy_url)) {
+                return;
+            }
+            this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ee0), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f097f), itemInfo.apk_detail.privacy_url));
         }
-        throw new NullPointerException("FrsActivity is NullPointerException");
+    }
+
+    @Override // com.repackage.nn4
+    public kp4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (kp4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.nn4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

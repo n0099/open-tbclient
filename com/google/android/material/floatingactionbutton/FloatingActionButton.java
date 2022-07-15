@@ -1438,9 +1438,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             Resources resources = getResources();
             if (i != -1) {
                 if (i != 1) {
-                    return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020a);
+                    return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070209);
                 }
-                return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070209);
+                return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070208);
             } else if (Math.max(resources.getConfiguration().screenWidthDp, resources.getConfiguration().screenHeightDp) < 470) {
                 return getSizeDimension(1);
             } else {
@@ -1495,7 +1495,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         this.shadowPadding = new Rect();
         this.touchArea = new Rect();
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842766, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f0400e3, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f040271, R.attr.obfuscated_res_0x7f040272, R.attr.obfuscated_res_0x7f0402c8, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f040463, R.attr.obfuscated_res_0x7f0404e8, R.attr.obfuscated_res_0x7f040547, R.attr.obfuscated_res_0x7f04058f, R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f04059a, R.attr.obfuscated_res_0x7f0406b6}, i, obfuscated_res_0x7f100327, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842766, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f0400e3, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f040271, R.attr.obfuscated_res_0x7f040272, R.attr.obfuscated_res_0x7f0402c4, R.attr.obfuscated_res_0x7f0402ed, R.attr.obfuscated_res_0x7f040467, R.attr.obfuscated_res_0x7f0404ec, R.attr.obfuscated_res_0x7f040548, R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040593, R.attr.obfuscated_res_0x7f04059b, R.attr.obfuscated_res_0x7f0406b7}, i, obfuscated_res_0x7f100327, new int[0]);
         this.backgroundTint = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 1);
         this.backgroundTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(2, -1), null);
         this.rippleColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 12);
@@ -1506,7 +1506,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         float dimension2 = obtainStyledAttributes.getDimension(9, 0.0f);
         float dimension3 = obtainStyledAttributes.getDimension(11, 0.0f);
         this.compatPadding = obtainStyledAttributes.getBoolean(16, false);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07044e);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07049d);
         this.maxImageSize = obtainStyledAttributes.getDimensionPixelSize(10, 0);
         MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 15);
         MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 8);

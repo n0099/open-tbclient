@@ -1,22 +1,21 @@
 package com.repackage;
 
-import android.provider.Settings;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b40;
-import com.repackage.e40;
+import com.repackage.d40;
+import com.repackage.g40;
+import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k40 extends e40 {
+public class k40 extends g40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b40.a d;
+    public d40.a d;
     public a e;
 
     /* loaded from: classes6.dex */
@@ -25,7 +24,7 @@ public class k40 extends e40 {
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
         public boolean b;
-        public y30 c;
+        public a40 c;
         public String d;
         public String e;
         public final /* synthetic */ k40 f;
@@ -47,46 +46,19 @@ public class k40 extends e40 {
             }
             this.f = k40Var;
             this.b = true;
-            this.c = new y30();
+            this.c = new a40();
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
         }
 
         public void b(String str) {
             String str2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (str2 = this.e) == str) {
-                return;
-            }
-            if (str == null || !str.equals(str2)) {
-                this.e = str;
-                this.b = true;
-            }
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-        }
-
-        public void d(long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048579, this, j) == null) || this.a == j) {
-                return;
-            }
-            this.a = j;
-            this.b = true;
-        }
-
-        public void e(String str) {
-            String str2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (str2 = this.d) == str) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (str2 = this.d) == str) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
@@ -95,10 +67,31 @@ public class k40 extends e40 {
             }
         }
 
-        public boolean f() {
+        public void c(long j) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || this.a == j) {
+                return;
+            }
+            this.a = j;
+            this.b = true;
+        }
+
+        public void d(String str) {
+            String str2;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (str2 = this.e) == str) {
+                return;
+            }
+            if (str == null || !str.equals(str2)) {
+                this.e = str;
+                this.b = true;
+            }
+        }
+
+        public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 if (this.b) {
                     try {
                         JSONObject jSONObject = new JSONObject();
@@ -106,7 +99,7 @@ public class k40 extends e40 {
                         jSONObject.put("lst_fe_ts", this.a);
                         jSONObject.put("c_form_ver", 1);
                         jSONObject.put("flags", this.c.d());
-                        jSONObject.put("ssaid", this.e);
+                        jSONObject.put("uuid", this.e);
                         this.f.d.i("cache.dat", jSONObject.toString(), true);
                         this.b = false;
                         return true;
@@ -118,10 +111,10 @@ public class k40 extends e40 {
             return invokeV.booleanValue;
         }
 
-        public boolean g() {
+        public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 String g = this.f.d.g("cache.dat", true);
                 if (TextUtils.isEmpty(g)) {
                     return false;
@@ -131,7 +124,7 @@ public class k40 extends e40 {
                     this.d = jSONObject.optString("form_id");
                     this.a = jSONObject.getLong("lst_fe_ts");
                     jSONObject.getInt("c_form_ver");
-                    this.e = jSONObject.getString("ssaid");
+                    this.e = jSONObject.getString("uuid");
                     this.c.b(jSONObject.getLong("flags"));
                     return true;
                 } catch (Exception unused) {
@@ -144,7 +137,7 @@ public class k40 extends e40 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k40() {
-        super("ssaid");
+        super("iid");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,32 +154,29 @@ public class k40 extends e40 {
         this.e = new a(this);
     }
 
-    @Override // com.repackage.e40
+    @Override // com.repackage.g40
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.c() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.a() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.e40
-    public void f(e40.b bVar) {
+    @Override // com.repackage.g40
+    public void f(g40.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.d = this.a.f(e());
-            String string = Settings.Secure.getString(this.b.a.getContentResolver(), HttpRequest.ANDROID_ID);
-            if (string == null) {
-                string = "0";
-            }
-            this.e.g();
-            if (TextUtils.isEmpty(this.e.c()) || !TextUtils.equals(string, this.e.a())) {
-                this.e.b(string);
+            this.e.f();
+            if (TextUtils.isEmpty(this.e.a())) {
+                String uuid = UUID.randomUUID().toString();
+                this.e.d(uuid);
                 try {
-                    this.e.e(e40.b("A30", new v30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(string.getBytes("UTF-8"))));
+                    this.e.b(g40.b("A50", new x30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(uuid.getBytes("UTF-8"))));
                 } catch (Exception unused) {
                 }
-                this.e.d(System.currentTimeMillis());
+                this.e.c(System.currentTimeMillis());
             }
-            this.e.f();
+            this.e.e();
         }
     }
 }

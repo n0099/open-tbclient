@@ -1,56 +1,88 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
-import java.util.zip.GZIPOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.service.IPCService;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class h29 {
+public class h29 implements t29 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public v29 a;
+    public IPCService b;
+    public w29 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755699998, "Lcom/repackage/h29;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755699998, "Lcom/repackage/h29;");
-                return;
+    public h29() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = e19.m();
     }
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.repackage.t29
+    public q29 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            byte[] bArr2 = null;
-            try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-                gZIPOutputStream.write(bArr);
-                gZIPOutputStream.finish();
-                gZIPOutputStream.close();
-                bArr2 = byteArrayOutputStream.toByteArray();
-                byteArrayOutputStream.close();
-                return bArr2;
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                    return bArr2;
-                }
-                return bArr2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                this.a = new v29();
             }
+            return this.a;
         }
-        return (byte[]) invokeL.objValue;
+        return (q29) invokeV.objValue;
+    }
+
+    @Override // com.repackage.t29
+    public s29 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = new IPCService();
+            }
+            return this.b;
+        }
+        return (s29) invokeV.objValue;
+    }
+
+    @Override // com.repackage.t29
+    public s19 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? o29.b() : (s19) invokeV.objValue;
+    }
+
+    @Override // com.repackage.t29
+    public w19 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? o29.c() : (w19) invokeV.objValue;
+    }
+
+    @Override // com.repackage.t29
+    public r29 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c == null) {
+                this.c = new w29();
+            }
+            return this.c;
+        }
+        return (r29) invokeV.objValue;
     }
 }

@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cg1;
-import com.repackage.ey2;
-import com.repackage.zi2;
+import com.repackage.oj2;
+import com.repackage.rg1;
+import com.repackage.ty2;
 /* loaded from: classes2.dex */
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public int r;
     public Scroller s;
     public int t;
-    public ey2<T> u;
+    public ty2<T> u;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -424,17 +424,17 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                 return;
             }
         }
-        v = cg1.a;
+        v = rg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBase(Context context, ey2<T> ey2Var, HEADERTYPE headertype) {
+    public PullToRefreshBase(Context context, ty2<T> ty2Var, HEADERTYPE headertype) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, ey2Var, headertype};
+            Object[] objArr = {context, ty2Var, headertype};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -457,7 +457,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         this.o = iLoadingLayout$State;
         this.r = -1;
         this.t = -1;
-        this.u = ey2Var;
+        this.u = ty2Var;
         this.a = headertype;
         m(context, null);
     }
@@ -466,7 +466,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            zi2.g0().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
+            oj2.g0().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
             return false;
         }
         return invokeV.booleanValue;
@@ -724,10 +724,10 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.d : (LoadingLayout) invokeV.objValue;
     }
 
-    public ey2<T> getRefreshableFactory() {
+    public ty2<T> getRefreshableFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.u : (ey2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.u : (ty2) invokeV.objValue;
     }
 
     public T getRefreshableView() {

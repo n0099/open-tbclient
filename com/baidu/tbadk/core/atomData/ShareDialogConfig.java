@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yq4;
+import com.repackage.nr4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -28,10 +28,10 @@ public class ShareDialogConfig extends IntentConfig {
     public View.OnClickListener closeAdListener;
     public View.OnClickListener copyLinkListener;
     public int copyTitleId;
-    public yq4.d dialogAddToExpressionListener;
-    public yq4.d dialogDownloadOriginListener;
-    public yq4.d dialogRecognizePicListener;
-    public yq4.d dialogSaveToDiskListener;
+    public nr4.d dialogAddToExpressionListener;
+    public nr4.d dialogDownloadOriginListener;
+    public nr4.d dialogRecognizePicListener;
+    public nr4.d dialogSaveToDiskListener;
     public View.OnClickListener disLikeListener;
     public String experimentId;
     public boolean hasSpecialItem;
@@ -73,7 +73,7 @@ public class ShareDialogConfig extends IntentConfig {
     public DialogInterface.OnDismissListener onDismissListener;
     public View.OnClickListener onWeChatEmotionShareListener;
     public String originImgText;
-    public yq4.d qrCodeClickListener;
+    public nr4.d qrCodeClickListener;
     public ShareItem shareItem;
     public boolean showAddEmotion;
     public boolean showDisLike;

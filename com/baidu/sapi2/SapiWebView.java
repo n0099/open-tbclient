@@ -77,6 +77,7 @@ import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -87,7 +88,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.tachikoma.core.component.input.InputType;
 import com.yy.hiidostatis.defs.controller.SensorController;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
@@ -2287,7 +2287,7 @@ public class SapiWebView extends WebView {
             return (String) invokeV.objValue;
         }
         TelephonyManager telephonyManager = (TelephonyManager) getContext().getSystemService("phone");
-        if (SapiUtils.checkRequestPermission("android.permission.READ_PHONE_STATE", getContext())) {
+        if (SapiUtils.checkRequestPermission(PermissionChecker.READ_PHONE_STATE, getContext())) {
             try {
                 line1Number = telephonyManager.getLine1Number();
             } catch (Exception unused) {
@@ -3180,7 +3180,7 @@ public class SapiWebView extends WebView {
                                     } else {
                                         continue;
                                     }
-                                } else if (InputType.PASSWORD.equals(nextText3)) {
+                                } else if ("password".equals(nextText3)) {
                                     SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.PWD.getName());
                                     continue;
                                 } else {
@@ -4137,7 +4137,7 @@ public class SapiWebView extends WebView {
                                         SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(this, cookieBduss, cookiePtoken) { // from class: com.baidu.sapi2.SapiWebView.2.2.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ RunnableC01272 this$2;
+                                            public final /* synthetic */ RunnableC01292 this$2;
                                             public final /* synthetic */ String val$bduss;
                                             public final /* synthetic */ String val$ptoken;
 
@@ -4419,7 +4419,7 @@ public class SapiWebView extends WebView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
                 if (str != null) {
-                    if (!str.startsWith(LoginConstants.SMS_LOGIN) && !str.startsWith(InputType.TEL) && !str.startsWith("bdscenter")) {
+                    if (!str.startsWith(LoginConstants.SMS_LOGIN) && !str.startsWith("tel") && !str.startsWith("bdscenter")) {
                         if (str.startsWith("wtloginmqq")) {
                             return true;
                         }

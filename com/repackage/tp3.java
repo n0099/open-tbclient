@@ -1,355 +1,142 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Singleton
-@Service
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class tp3 implements ax3 {
+public class tp3 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public static final /* synthetic */ int[] b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(22385277, "Lcom/repackage/tp3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(22385277, "Lcom/repackage/tp3$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[Download.DownloadState.values().length];
-            b = iArr;
-            try {
-                iArr[Download.DownloadState.WAITING.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                b[Download.DownloadState.DOWNLOADING.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                b[Download.DownloadState.PAUSE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                b[Download.DownloadState.FAILED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                b[Download.DownloadState.CANCEL.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                b[Download.DownloadState.FINISH.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            int[] iArr2 = new int[SwanAppDownloadAction.SwanAppDownloadType.values().length];
-            a = iArr2;
-            try {
-                iArr2[SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS.ordinal()] = 1;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
-            } catch (NoSuchFieldError unused8) {
-            }
-            try {
-                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
-            } catch (NoSuchFieldError unused9) {
-            }
-            try {
-                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
-            } catch (NoSuchFieldError unused10) {
-            }
-            try {
-                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_STOP_SERVICE.ordinal()] = 5;
-            } catch (NoSuchFieldError unused11) {
-            }
-            try {
-                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 6;
-            } catch (NoSuchFieldError unused12) {
-            }
-            try {
-                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 7;
-            } catch (NoSuchFieldError unused13) {
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends zv2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public sn3 c;
-
-        public b(sn3 sn3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755283110, "Lcom/repackage/tp3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sn3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = sn3Var;
-        }
-
-        @Override // com.repackage.xv2
-        public long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.repackage.xv2
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.zv2, com.repackage.xv2
-        public void onEvent(@NonNull vv2 vv2Var) {
-            Bundle a;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vv2Var) == null) || (a = vv2Var.a()) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755283110, "Lcom/repackage/tp3;");
                 return;
             }
-            tp3.g(a, this.c);
         }
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put("100000", "请求格式错误");
+        a.put("101000", "请求ID信息缺失");
+        a.put("101001", "请求ID不符合约定格式");
+        a.put("101002", "请求的trftp信息缺失");
+        a.put("101003", "请求的sdk版本信息有误");
+        a.put("101004", "请求的referer信息有误");
+        a.put("101005", "请求的appid不合法");
+        a.put("103000", "应用信息缺失");
+        a.put("103010", "应用ID信息缺失");
+        a.put("103011", "应用ID信息错误，MSSP未收录");
+        a.put("103012", "应用ID无效，MSSP上未生效");
+        a.put("103020", "应用ID无效，渠道ID信息错误");
+        a.put("103030", "应用版本信息缺失");
+        a.put("103040", "应用主版本信息缺失");
+        a.put("103050", "应用操作系统信息缺失");
+        a.put("103060", "应用包名信息错误，请保证注册包名和实际请求包名一致");
+        a.put("104000", "设备信息缺失");
+        a.put("104010", "设备类型信息缺失");
+        a.put("104011", "设备类型信息错误");
+        a.put("104020", "操作系统信息缺失");
+        a.put("104021", "操作系统信息错误");
+        a.put("104030", "操作系统版本信息缺失");
+        a.put("104040", "操作系统主版本信息缺失");
+        a.put("104050", "厂商信息缺失");
+        a.put("104060", "设备型号信息缺失");
+        a.put("104070", "设备唯一标识符缺失");
+        a.put("104071", "设备唯一标识符错误");
+        a.put("104080", "android id 缺失");
+        a.put("104081", "android id 格式错误");
+        a.put("104090", "设备屏幕尺寸信息缺失");
+        a.put("104100", "设备屏幕尺寸宽度缺失");
+        a.put("104110", "设备屏幕尺寸高度缺失");
+        a.put("105000", "网络环境信息缺失");
+        a.put("105010", "网络地址信息缺失");
+        a.put("105011", "网络地址信息格式错误");
+        a.put("105020", "网络连接类型缺失");
+        a.put("105021", "网络连接类型错误");
+        a.put("105030", "网络运营商类型缺失");
+        a.put("105031", "网络运营商类型错误");
+        a.put("105040", "Wi-Fi热点地址信息缺失");
+        a.put("105041", "Wi-Fi热点地址信息格式错误");
+        a.put("105050", "Wi-Fi热点信号强度信息缺失");
+        a.put("105060", "Wi-Fi热点名称缺失");
+        a.put("105070", "Wi-Fi连接状态信息缺失");
+        a.put("106000", "坐标类型信息缺失");
+        a.put("106001", "坐标类型信息错误");
+        a.put("106010", "经度信息缺失");
+        a.put("106020", "纬度信息缺失");
+        a.put("106030", "定位时间戳信息缺失");
+        a.put("107000", "广告位ID缺失");
+        a.put("107001", "广告位ID未收录");
+        a.put("107002", "广告位ID未启用");
+        a.put("107003", "广告位ID与应用ID不匹配");
+        a.put("107010", "广告位尺寸信息缺失");
+        a.put("107020", "广告位尺寸宽度缺失");
+        a.put("107030", "广告位尺寸高度缺失");
+        a.put("107040", "广告位信息缺失");
+        a.put("107050", "视频广告的网络条件无法满足");
+        a.put("107051", "视频标题名称过长");
+        a.put("107052", "SDK传递的广告位比例与MSSP的广告位比例不一致");
+        a.put("200000", "无广告返回");
+        a.put("201000", "无广告数据");
+        a.put("201010", "广告无签名");
+        a.put("201020", "广告创意类型信息缺失");
+        a.put("201021", "广告创意类型信息无法识别");
+        a.put("201030", "广告动作类型信息缺失");
+        a.put("201031", "广告动作类型信息无法识别");
+        a.put("201040", "曝光汇报地址丢失");
+        a.put("201050", "点击响应地址丢失");
+        a.put("201060", "推广标题丢失");
+        a.put("201070", "推广描述丢失");
+        a.put("201080", "推广应用包名丢失");
+        a.put("201090", "推广应用包大小丢失");
+        a.put("201100", "推广图标丢失");
+        a.put("201110", "推广图片丢失");
+        a.put("3010000", "广告组件挂载失败");
+        a.put("3010001", "播放器内部错误");
+        a.put("3010002", "广告请求失败");
+        a.put("3010003", "网络连接错误");
+        a.put("3010004", "没有可以展示的广告");
+        a.put("3010005", "广告正在拉取中，不能重复请求");
+        a.put("3010006", "广告正在展示中，不能请求广告");
+        a.put("3010007", "gameId、appsid、adUnitid其中一个为空，不能请求广告");
+        a.put("4010000", "广告组件准备完成");
+        a.put("3010008", "播放地址为空");
+        a.put("3010009", "激励视频重复调用create错误");
+        a.put("3010010", "没有可以show的banner广告");
+        a.put("3010011", "广告关闭生效中，本次请求被拒绝");
+        a.put("3010012", "小游戏启动前%d秒不允许展示banner广告");
+        a.put("3010013", "banner广告展示频控限制，%d秒内不允许重复展示banner广告");
     }
 
-    public tp3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void g(@NonNull Bundle bundle, sn3 sn3Var) {
-        String string;
-        char c;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, bundle, sn3Var) == null) || (string = bundle.getString("functionType")) == null || sn3Var == null) {
-            return;
-        }
-        String string2 = bundle.getString("resultData", "");
-        int hashCode = string.hashCode();
-        if (hashCode != -1013362275) {
-            if (hashCode == -530890460 && string.equals("onSuccess")) {
-                c = 0;
-            }
-            c = 65535;
-        } else {
-            if (string.equals("onFail")) {
-                c = 1;
-            }
-            c = 65535;
-        }
-        if (c != 0) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(string2);
-            int optInt = jSONObject.optInt("progress", -1);
-            if (optInt > -1 && optInt <= 100) {
-                sn3Var.a(optInt);
-            }
-            if (jSONObject.optBoolean("installed")) {
-                sn3Var.c(DownloadState.INSTALLED, optInt);
-                return;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                return;
-            }
-            switch (a.b[Download.DownloadState.getState(optJSONObject.optInt("status", -1)).ordinal()]) {
-                case 1:
-                    sn3Var.c(DownloadState.WAIT, optInt);
-                    return;
-                case 2:
-                    sn3Var.c(DownloadState.DOWNLOADING, optInt);
-                    return;
-                case 3:
-                    sn3Var.c(DownloadState.DOWNLOAD_PAUSED, optInt);
-                    return;
-                case 4:
-                    sn3Var.c(DownloadState.DOWNLOAD_FAILED, optInt);
-                    return;
-                case 5:
-                    sn3Var.c(DownloadState.DELETED, optInt);
-                    return;
-                case 6:
-                    sn3Var.c(DownloadState.DOWNLOADED, optInt);
-                    return;
-                default:
-                    sn3Var.c(DownloadState.NOT_START, optInt);
-                    return;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // com.repackage.ax3
-    public boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull sn3 sn3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, swanAppDownloadType, sn3Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("key_download_package_name", getPackageName());
-                jSONObject.put("key_download_url", f());
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(GameGuideConfigInfo.KEY_CONFIG_NAME, qp3.o.z() == null ? "" : qp3.o.z().configName);
-                jSONObject.put("download_params", jSONObject2.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            String e2 = e(swanAppDownloadType);
-            Bundle bundle = new Bundle();
-            bundle.putString("operation", e2);
-            bundle.putString("ubc_params", new mq3().a());
-            bundle.putString("data", jSONObject.toString());
-            nw2 z = rz2.K().z();
-            if (z != null) {
-                z.X(bundle, eq3.class, new b(sn3Var));
-                return false;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.repackage.ax3
-    public boolean b(Context context, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(vp3.b, str2);
-                jSONObject.put("key_download_url", str);
-                jSONObject.put(vp3.c, str3);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("operation", "startDownloadFile");
-            bundle.putString("ubc_params", new mq3().a());
-            bundle.putString("data", jSONObject.toString());
-            nw2 z = rz2.K().z();
-            if (z != null) {
-                z.W(bundle, eq3.class);
-                return false;
-            }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.ax3
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (TextUtils.isEmpty(f()) || TextUtils.isEmpty(getPackageName())) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final String e(SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, swanAppDownloadType)) == null) {
-            switch (a.a[swanAppDownloadType.ordinal()]) {
-                case 1:
-                    return "queryStatus";
-                case 2:
-                    return "startDownload";
-                case 3:
-                    return "pauseDownload";
-                case 4:
-                case 5:
-                    return "deleteDownload";
-                case 6:
-                    return "resumeDownload";
-                case 7:
-                    return "installApp";
-                default:
-                    return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String str2 = a.get(str);
+            if (str2 == null) {
+                str2 = "";
             }
+            return b(str, str2);
         }
         return (String) invokeL.objValue;
     }
 
-    public final String f() {
-        InterceptResult invokeV;
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? qp3.o.H() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ax3
-    public String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? qp3.o.I() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ax3
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            qp3.o.w();
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? TextUtils.equals("3010012", str) ? String.format(str2, Long.valueOf(yo3.a().h() / 1000)) : TextUtils.equals("3010013", str) ? String.format(str2, Long.valueOf(yo3.a().f() / 1000)) : str2 : (String) invokeLL.objValue;
     }
 }

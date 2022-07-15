@@ -18,7 +18,7 @@ import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
-import com.repackage.rg9;
+import com.repackage.bi9;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -138,7 +138,7 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
             }
             this.j.setText(ksNativeAd.getAppName());
             this.k.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new rg9(ksNativeAd.getActionDescription(), this.k));
+            ksNativeAd.setDownloadListener(new bi9(ksNativeAd.getActionDescription(), this.k));
         }
     }
 
@@ -148,11 +148,11 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09009c);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900ab);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a8);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900aa);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900cf);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900ac);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900aa);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ab);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d0);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090083);
             this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090081);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090084);

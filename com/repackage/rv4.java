@@ -1,106 +1,100 @@
 package com.repackage;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.Selection;
+import android.text.SpanWatcher;
+import android.text.Spannable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes7.dex */
-public class rv4 {
+public class rv4 implements SpanWatcher {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile rv4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public SpanGroupManager a;
     public int b;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755336895, "Lcom/repackage/rv4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755336895, "Lcom/repackage/rv4;");
-        }
-    }
-
-    public rv4() {
+    public rv4(@NonNull SpanGroupManager spanGroupManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spanGroupManager};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = 0;
-        try {
-            zb zbVar = new zb("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
-            zbVar.setSdCard(true);
-            zbVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (zbVar.call()) {
-                String a = zbVar.a();
-                if (a != null) {
-                    this.b = Integer.parseInt(a);
+        this.a = spanGroupManager;
+    }
+
+    @Override // android.text.SpanWatcher
+    public void onSpanAdded(Spannable spannable, Object obj, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i, i2) == null) {
+        }
+    }
+
+    @Override // android.text.SpanWatcher
+    public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
+        SpanGroupManager spanGroupManager;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (spanGroupManager = this.a) == null) {
+            return;
+        }
+        if (obj == Selection.SELECTION_END && this.c != i3) {
+            this.c = i3;
+            pv4 B = spanGroupManager.B(i3);
+            if (B != null) {
+                int f = B.f();
+                int c = B.c();
+                if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
+                    f = c;
                 }
-                if (this.b == 1 || this.b == 2) {
-                    this.a = true;
+                int selectionStart = Selection.getSelectionStart(spannable);
+                if (selectionStart > spannable.length()) {
+                    selectionStart = spannable.length();
                 }
+                if (f > spannable.length()) {
+                    f = spannable.length();
+                }
+                Selection.setSelection(spannable, selectionStart, f);
             }
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
         }
-    }
-
-    public static rv4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (rv4.class) {
-                    if (c == null) {
-                        c = new rv4();
-                    }
-                }
+        if (obj != Selection.SELECTION_START || this.b == i3) {
+            return;
+        }
+        this.b = i3;
+        pv4 B2 = this.a.B(i3);
+        if (B2 != null) {
+            int f2 = B2.f();
+            int c2 = B2.c();
+            if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
+                f2 = c2;
             }
-            return c;
+            int selectionEnd = Selection.getSelectionEnd(spannable);
+            if (selectionEnd > spannable.length()) {
+                selectionEnd = spannable.length();
+            }
+            if (f2 > spannable.length()) {
+                f2 = spannable.length();
+            }
+            Selection.setSelection(spannable, f2, selectionEnd);
         }
-        return (rv4) invokeV.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // android.text.SpanWatcher
+    public void onSpanRemoved(Spannable spannable, Object obj, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a ? "pub_env=" + this.b + ParamableElem.DIVIDE_PARAM : "";
+        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i, i2) == null) {
         }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

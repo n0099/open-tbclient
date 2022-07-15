@@ -1,7 +1,13 @@
 package com.repackage;
+
+import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes7.dex */
 public interface u42 {
-    static {
-        boolean z = cg1.a;
-    }
+    void a(ImageRequest imageRequest);
+
+    void b(ImageRequest imageRequest);
+
+    void c(ImageRequest imageRequest, Throwable th);
+
+    void onCancel(String str);
 }

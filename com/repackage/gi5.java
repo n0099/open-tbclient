@@ -1,45 +1,216 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
+import android.app.Application;
+import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.LoginActivity;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DeleteThreadInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.model.ForumManageModel;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.LogoActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ii5;
-import com.repackage.li5;
-import java.util.List;
-import org.json.JSONArray;
+import com.repackage.hi5;
+import java.io.PrintStream;
 /* loaded from: classes6.dex */
 public class gi5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile gi5 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public boolean b;
+    public pl4 c;
+    public CustomMessageListener d;
+    public CustomMessageListener e;
+    public CustomMessageListener f;
+    public CustomMessageListener g;
 
     /* loaded from: classes6.dex */
-    public static class a implements li5.h {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ ji5 b;
-        public final /* synthetic */ boolean c;
 
-        public a(TbPageContext tbPageContext, ji5 ji5Var, boolean z) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gi5 gi5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, ji5Var, Boolean.valueOf(z)};
+                Object[] objArr = {gi5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016522 || s98.l().i() == null) {
+                return;
+            }
+            s98.l().i().b();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gi5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(gi5 gi5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gi5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gi5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016521) {
+                if (customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof LogoActivity)) {
+                    this.a.e();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gi5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(gi5 gi5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gi5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gi5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016520 || this.a.a == 0) {
+                return;
+            }
+            Object data = customResponsedMessage.getData();
+            if (data.getClass().getSimpleName().equals(LoginActivity.E) || (data instanceof LogoActivity)) {
+                return;
+            }
+            this.a.f(data);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gi5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(gi5 gi5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gi5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gi5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016523) {
+                Object data = customResponsedMessage.getData();
+                if (data instanceof Boolean) {
+                    long currentTimeMillis = System.currentTimeMillis() / 1000;
+                    if (((Boolean) data).booleanValue()) {
+                        gi5 gi5Var = this.a;
+                        gi5Var.b = currentTimeMillis - gi5Var.a <= 1;
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements hi5.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gi5 a;
+
+        public e(gi5 gi5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gi5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,187 +220,186 @@ public class gi5 {
                     return;
                 }
             }
-            this.a = tbPageContext;
-            this.b = ji5Var;
-            this.c = z;
+            this.a = gi5Var;
         }
 
-        @Override // com.repackage.li5.h
-        public void a(JSONArray jSONArray) {
+        @Override // com.repackage.hi5.c
+        public void a(Application application) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-                if (ni.A()) {
-                    gi5.e(jSONArray, this.b.a(), this.b.b(), this.c);
-                } else {
-                    pi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c37);
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, application) == null) && UbsABTestHelper.isFixHotSplashRule()) {
+                this.a.e();
+            }
+        }
+
+        @Override // com.repackage.hi5.c
+        public void b(Application application) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) && UbsABTestHelper.isFixHotSplashRule()) {
+                this.a.f(application);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements ii5.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ ji5 b;
-        public final /* synthetic */ boolean c;
-
-        public b(TbPageContext tbPageContext, ji5 ji5Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, ji5Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = ji5Var;
-            this.c = z;
-        }
-
-        @Override // com.repackage.ii5.g
-        public void a(JSONArray jSONArray) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-                if (ni.A()) {
-                    gi5.e(jSONArray, this.b.a(), this.b.b(), this.c);
-                } else {
-                    pi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c37);
-                }
-            }
-        }
-    }
-
-    public static void b(TbPageContext tbPageContext, ji5 ji5Var) {
+    public gi5() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, tbPageContext, ji5Var) == null) || tbPageContext == null || tbPageContext.getPageActivity() == null || tbPageContext.getPageActivity().getWindow() == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = new a(this, 2016522);
+        this.e = new b(this, 2016521);
+        this.f = new c(this, 2016520);
+        this.g = new d(this, 2016523);
+        this.b = false;
+        MessageManager.getInstance().registerListener(this.e);
+        MessageManager.getInstance().registerListener(this.f);
+        MessageManager.getInstance().registerListener(this.d);
+        MessageManager.getInstance().registerListener(this.g);
+        if (s98.l().i() != null) {
+            s98.l().i().c();
+        }
+        hi5.b().c(new e(this));
+    }
+
+    public static gi5 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (h == null) {
+                synchronized (gi5.class) {
+                    if (h == null) {
+                        h = new gi5();
+                    }
+                }
+            }
+            return h;
+        }
+        return (gi5) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = System.currentTimeMillis() / 1000;
+        }
+    }
+
+    public final void f(Object obj) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
             return;
         }
-        boolean z = ji5Var.getType() == 3;
-        ii5 ii5Var = new ii5(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView());
-        if (ji5Var != null) {
-            ii5Var.w(z);
-        }
-        AntiData c = wb6.f().c();
-        SparseArray<String> sparseArray = new SparseArray<>();
-        if (c != null && c.getDelThreadInfoList() != null) {
-            List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
-            for (int i = 0; i < delThreadInfoList.size(); i++) {
-                if (!TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                    sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                }
+        boolean g = g();
+        long currentTimeMillis = System.currentTimeMillis() / 1000;
+        if (currentTimeMillis - this.a > 5) {
+            new StatisticItem(TbadkCoreStatisticKey.HOT_SPLASH_APP_START).param("obj_param1", g ? 1 : 0).param(TiebaStatic.Params.OBJ_PARAM2, currentTimeMillis - this.a).param(TiebaStatic.Params.OBJ_PARAM3, is4.b ? 1 : 0).eventStat();
+            if (is4.b) {
+                is4.b = false;
             }
         }
-        JSONArray jSONArray = new JSONArray();
-        JSONArray jSONArray2 = new JSONArray();
-        List<ThreadData> g = wb6.f().g();
-        for (int i2 = 0; i2 < g.size(); i2++) {
-            if (g.get(i2) != null) {
-                jSONArray.put(g.get(i2).getTid());
-                if (z) {
-                    jSONArray2.put("1");
-                } else if (!g.get(i2).isScoreThread() && !g.get(i2).isWorksInfo()) {
-                    jSONArray2.put("0");
-                } else {
-                    jSONArray2.put("1");
-                }
+        if (g) {
+            TbSingleton.getInstance().isCanShowHotSplash = true;
+            if (obj instanceof BaseActivity) {
+                BaseActivity baseActivity = (BaseActivity) obj;
+                Intent intent = new Intent(baseActivity.getActivity(), LogoActivity.class);
+                intent.putExtra(SpeedStatsUtils.UBC_VALUE_SPLASH, true);
+                intent.setFlags(65536);
+                baseActivity.startActivity(intent);
+            } else if (obj instanceof BaseFragmentActivity) {
+                BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) obj;
+                Intent intent2 = new Intent(baseFragmentActivity.getActivity(), LogoActivity.class);
+                intent2.putExtra(SpeedStatsUtils.UBC_VALUE_SPLASH, true);
+                intent2.setFlags(65536);
+                baseFragmentActivity.getActivity().startActivity(intent2);
+            } else if (obj instanceof Application) {
+                Application application = (Application) obj;
+                Intent intent3 = new Intent(application, LogoActivity.class);
+                intent3.putExtra(SpeedStatsUtils.UBC_VALUE_SPLASH, true);
+                intent3.setFlags(268500992);
+                application.startActivity(intent3);
             }
-        }
-        vo4 vo4Var = new vo4();
-        vo4Var.j(sparseArray);
-        if (ji5Var != null) {
-            vo4Var.i(ji5Var.getType());
-        }
-        vo4Var.p(jSONArray);
-        vo4Var.m(jSONArray2);
-        vo4Var.l(wb6.f().d());
-        ii5Var.x(vo4Var);
-        ii5Var.y(new String[]{TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04aa), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ab), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ac), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ad), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ae)});
-        ii5Var.A("1");
-        ii5Var.z(new b(tbPageContext, ji5Var, z));
-    }
-
-    public static void c(TbPageContext tbPageContext, ji5 ji5Var, ki5 ki5Var, UserData userData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65538, null, tbPageContext, ji5Var, ki5Var, userData) == null) || tbPageContext == null || tbPageContext.getPageActivity() == null || tbPageContext.getPageActivity().getWindow() == null) {
+            TbadkCoreApplication.getInst().setCanShowHotSplash(2);
             return;
         }
-        boolean z = ji5Var.getType() == 3;
-        li5 li5Var = new li5(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView(), ki5Var, userData);
-        if (ji5Var != null) {
-            li5Var.C(z);
-        }
-        AntiData c = wb6.f().c();
-        SparseArray<String> sparseArray = new SparseArray<>();
-        if (c != null && c.getDelThreadInfoList() != null) {
-            List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
-            for (int i = 0; i < delThreadInfoList.size(); i++) {
-                if (!TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                    sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                }
-            }
-        }
-        JSONArray jSONArray = new JSONArray();
-        JSONArray jSONArray2 = new JSONArray();
-        List<ThreadData> g = wb6.f().g();
-        for (int i2 = 0; i2 < g.size(); i2++) {
-            if (g.get(i2) != null) {
-                jSONArray.put(g.get(i2).getTid());
-                if (z) {
-                    jSONArray2.put("1");
-                } else if (!g.get(i2).isScoreThread() && !g.get(i2).isWorksInfo()) {
-                    jSONArray2.put("0");
-                } else {
-                    jSONArray2.put("1");
-                }
-            }
-        }
-        vo4 vo4Var = new vo4();
-        vo4Var.j(sparseArray);
-        if (ji5Var != null) {
-            vo4Var.i(ji5Var.getType());
-        }
-        vo4Var.p(jSONArray);
-        vo4Var.m(jSONArray2);
-        vo4Var.l(wb6.f().d());
-        li5Var.D(vo4Var);
-        li5Var.E(new String[]{TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a5), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a6), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a7), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a8), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a9)});
-        li5Var.G("1");
-        li5Var.F(new a(tbPageContext, ji5Var, z));
+        TbadkCoreApplication.getInst().setCanShowHotSplash(1);
     }
 
-    public static void d(int i, TbPageContext tbPageContext, ji5 ji5Var, ki5 ki5Var, UserData userData) {
+    public final boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), tbPageContext, ji5Var, ki5Var, userData}) == null) {
-            if (1 == i) {
-                c(tbPageContext, ji5Var, ki5Var, userData);
-            } else {
-                b(tbPageContext, ji5Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = i();
+            int j = j();
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (this.b) {
+                this.b = false;
+                return false;
             }
+            long j2 = this.a;
+            if (currentTimeMillis - j2 > 2 && currentTimeMillis - j2 > i) {
+                n98 i2 = s98.l().i();
+                int a2 = i2 != null ? i2.a() : j;
+                PrintStream printStream = System.out;
+                printStream.println("TestTest => hotSplashMaxTime: " + j + " currentTime: " + a2 + " interval: " + i);
+                return a2 < j;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public static void e(JSONArray jSONArray, ForumManageModel forumManageModel, ThreadData threadData, boolean z) {
+    public final int i() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONArray, forumManageModel, threadData, Boolean.valueOf(z)}) == null) || forumManageModel == null || threadData == null || threadData.getAuthor() == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (vc5.a()) {
+                return 3;
+            }
+            if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921564, pl4.class)) != null) {
+                this.c = (pl4) runTask.getData();
+            }
+            pl4 pl4Var = this.c;
+            if (pl4Var != null) {
+                return (int) (pl4Var.a() * 60.0f);
+            }
+            sw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+            if (adAdSense != null) {
+                int b2 = adAdSense.b();
+                if (b2 <= 0) {
+                    return 86400;
+                }
+                return b2;
+            }
+            return 300;
         }
-        String userId = threadData.getAuthor().getUserId();
-        String id = threadData.getId();
-        String forum_name = threadData.getForum_name();
-        String valueOf = String.valueOf(threadData.getFid());
-        boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
-        if (jSONArray != null) {
-            forumManageModel.U(StringHelper.JsonArrayToString(jSONArray));
+        return invokeV.intValue;
+    }
+
+    public final int j() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (vc5.a()) {
+                return 1000000;
+            }
+            if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921564, pl4.class)) != null) {
+                this.c = (pl4) runTask.getData();
+            }
+            pl4 pl4Var = this.c;
+            if (pl4Var != null) {
+                return pl4Var.b();
+            }
+            return 3;
         }
-        forumManageModel.V(valueOf, forum_name, id, null, 0, 1, isCurrentAccount, threadData.getBaijiahaoData(), z);
+        return invokeV.intValue;
     }
 }

@@ -1,69 +1,31 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wv2 {
+public class wv2 extends uv2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile wv2 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, xv2<vv2>> a;
-    public ConcurrentHashMap<String, Runnable> b;
-    public a c;
 
     /* loaded from: classes7.dex */
-    public static class a extends Handler {
+    public class a implements xg1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sv2 a;
+        public final /* synthetic */ t12 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
+        public a(wv2 wv2Var, sv2 sv2Var, t12 t12Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<wv2> a;
-        public String b;
-
-        public b(wv2 wv2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wv2Var, str};
+                Object[] objArr = {wv2Var, sv2Var, t12Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,186 +35,85 @@ public class wv2 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(wv2Var);
-            this.b = str;
+            this.a = sv2Var;
+            this.b = t12Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            wv2 wv2Var;
+        @Override // com.repackage.xg1
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (wv2Var = this.a.get()) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                zv2.b("obtain address failure, errCode = " + i);
+                this.b.a(this.a);
             }
-            if (wv2.d) {
-                Log.d("MDelegate-Observe", "run: observer timeout " + this.b);
-            }
-            vv2 vv2Var = new vv2(this.b);
-            vv2Var.setResult(null);
-            wv2Var.c(vv2Var);
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755188002, "Lcom/repackage/wv2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755188002, "Lcom/repackage/wv2;");
-                return;
+        @Override // com.repackage.xg1
+        public void b(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                zv2.b("obtain address success");
+                sv2 sv2Var = this.a;
+                sv2Var.d = true;
+                if (jSONObject != null) {
+                    sv2Var.e = jSONObject.toString();
+                }
+                this.b.a(this.a);
             }
         }
-        d = cg1.a;
     }
 
     public wv2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new ConcurrentHashMap<>();
-        this.b = new ConcurrentHashMap<>();
-        this.c = new a(Looper.getMainLooper());
     }
 
-    public static wv2 b() {
+    @Override // com.repackage.vv2
+    public hs1 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            return null;
+        }
+        return (hs1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.vv2
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (e == null) {
-                synchronized (wv2.class) {
-                    if (e == null) {
-                        e = new wv2();
-                    }
-                }
-            }
-            return e;
-        }
-        return (wv2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "mapp_choose_address" : (String) invokeV.objValue;
     }
 
-    public void c(@NonNull vv2 vv2Var) {
+    @Override // com.repackage.vv2
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vv2Var) == null) {
-            xv2<vv2> xv2Var = this.a.get(vv2Var.b());
-            if (xv2Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "notify a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = xv2Var.b();
-            if (d) {
-                Log.d("MDelegate-Observe", "notify observer: " + b2);
-            }
-            xv2Var.onEvent(vv2Var);
-            if (this.b.containsKey(b2)) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "remove observer: " + b2 + " timeout runnable");
-                }
-                this.c.removeCallbacks(this.b.get(b2));
-                this.b.remove(b2);
-            }
-            if (xv2Var.c()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "auto unregister disposable observer: " + b2);
-                }
-                f(xv2Var);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginAddressFunPage" : (String) invokeV.objValue;
     }
 
-    public void d() {
+    @Override // com.repackage.uv2
+    public void p(SwanAppActivity swanAppActivity, String str, rv2 rv2Var, t53 t53Var, t12<sv2> t12Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (d) {
-                Log.d("MDelegate-Observe", "release observable");
-            }
-            if (e == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, rv2Var, t53Var, t12Var) == null) {
+            sv2 sv2Var = new sv2(rv2Var.f);
+            sv2Var.a = rv2Var.e;
+            if (t53Var != null && t53Var.j.a() != 10003) {
+                zv2.b("obtain address detail");
+                oj2.j0().a(swanAppActivity, str, str, new a(this, sv2Var, t12Var));
                 return;
             }
-            this.a.clear();
-            for (Map.Entry<String, Runnable> entry : this.b.entrySet()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "remove observer: " + entry.getKey() + " timeout runnable");
-                }
-                this.c.removeCallbacks(entry.getValue());
-            }
-            this.b.clear();
-            e = null;
-        }
-    }
-
-    public void e(xv2<vv2> xv2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xv2Var) == null) {
-            if (xv2Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "register a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = xv2Var.b();
-            if (this.a.containsKey(b2)) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "multiple register observer：" + b2);
-                    return;
-                }
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "register observer: " + b2);
-            }
-            this.a.put(b2, xv2Var);
-            long a2 = xv2Var.a();
-            if (a2 <= 0 || !xv2Var.c()) {
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "post observer: " + b2 + " " + a2 + "ms timeout runnable");
-            }
-            b bVar = new b(this, b2);
-            this.b.put(b2, bVar);
-            this.c.postDelayed(bVar, a2);
-        }
-    }
-
-    public void f(xv2<vv2> xv2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xv2Var) == null) {
-            if (xv2Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "unregister a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = xv2Var.b();
-            if (!this.a.containsKey(b2)) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "unregister a nonexistent observer");
-                    return;
-                }
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "unregister observer: " + b2);
-            }
-            this.a.remove(b2);
+            zv2.b("user denied");
+            t12Var.a(sv2Var);
         }
     }
 }

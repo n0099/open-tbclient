@@ -1,53 +1,56 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import android.text.SpannableString;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.text.style.AbsoluteSizeSpan;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.ChannelListView;
+import com.baidu.poly.widget.PopupWindow;
+import com.baidu.poly.widget.toast.ToastLoadingView;
+import com.baidu.sofire.d.D;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n91;
-import java.text.DecimalFormat;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class o91 extends BaseAdapter {
+public class o91 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile o91 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<n91.a> a;
-    public Context b;
+    public long a;
+    public ToastLoadingView b;
+    public PopupWindow c;
+    public PopupWindow d;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a extends q71<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-        public TextView d;
-        public ImageView e;
-        public LinearLayout f;
-        public LinearLayout g;
-        public TextView h;
-        public ImageView i;
+        public final /* synthetic */ ChannelListView a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ Bundle d;
+        public final /* synthetic */ o91 e;
 
-        public a(View view2) {
+        public a(o91 o91Var, ChannelListView channelListView, boolean z, Context context, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
+                Object[] objArr = {o91Var, channelListView, Boolean.valueOf(z), context, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,127 +60,319 @@ public class o91 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906d7);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906d6);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c55);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090575);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906d8);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906d4);
-            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906d1);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906d5);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c5f);
+            this.e = o91Var;
+            this.a = channelListView;
+            this.b = z;
+            this.c = context;
+            this.d = bundle;
+        }
+
+        @Override // com.repackage.q71
+        public void b(Throwable th, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
+                this.e.f("2", str);
+                this.a.S(this.c.getString(R.string.obfuscated_res_0x7f0f15ff), null);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.q71
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+                int optInt = jSONObject.optInt("payStatus", 3);
+                this.e.f("1", String.valueOf(optInt));
+                if (optInt == 2) {
+                    this.a.b0(0, f91.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")), "0");
+                } else if (this.b) {
+                    this.e.j(this.c, this.d, this.a);
+                } else {
+                    this.e.k(this.c, this.a);
+                }
+            }
         }
     }
 
-    public o91(Context context) {
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChannelListView a;
+        public final /* synthetic */ o91 b;
+
+        public b(o91 o91Var, ChannelListView channelListView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o91Var, channelListView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = o91Var;
+            this.a = channelListView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.c.n();
+                w81 w81Var = new w81(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
+                w81Var.b("1");
+                z81.e(w81Var);
+                this.a.b0(3, "pay failed , click choose window", "0");
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ Bundle b;
+        public final /* synthetic */ ChannelListView c;
+        public final /* synthetic */ o91 d;
+
+        public c(o91 o91Var, Context context, Bundle bundle, ChannelListView channelListView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o91Var, context, bundle, channelListView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = o91Var;
+            this.a = context;
+            this.b = bundle;
+            this.c = channelListView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.d.c.n();
+                w81 w81Var = new w81(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
+                w81Var.b("2");
+                z81.e(w81Var);
+                this.d.i(this.a, this.b, this.c, false);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o91 a;
+
+        public d(o91 o91Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o91Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o91Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null && this.a.d.r()) {
+                this.a.d.n();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements PopupWindow.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChannelListView a;
+
+        public e(o91 o91Var, ChannelListView channelListView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o91Var, channelListView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = channelListView;
+        }
+
+        @Override // com.baidu.poly.widget.PopupWindow.b
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b0(3, "pay failed , click error window", "0");
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755484982, "Lcom/repackage/o91;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755484982, "Lcom/repackage/o91;");
+        }
+    }
+
+    public o91() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = context;
     }
 
-    public final String a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? new DecimalFormat("0").format((j * 1.0d) / 100.0d) : (String) invokeJ.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public n91.a getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return (n91.a) invokeI.objValue;
-    }
-
-    public void c(List<n91.a> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static o91 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<n91.a> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            n91.a item = getItem(i);
-            if (item == null) {
-                return view2;
-            }
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01f8, (ViewGroup) null, false);
-                view2.setTag(new a(view2));
-            }
-            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
-                a aVar = (a) view2.getTag();
-                if (item.a == -1) {
-                    aVar.g.setVisibility(8);
-                    aVar.f.setVisibility(0);
-                    aVar.h.setText(item.d);
-                    aVar.i.setSelected(item.h == 1);
-                } else {
-                    aVar.g.setVisibility(0);
-                    aVar.f.setVisibility(8);
-                    aVar.a.setText(item.d);
-                    if (TextUtils.isEmpty(item.e)) {
-                        aVar.b.setVisibility(8);
-                    } else {
-                        aVar.b.setVisibility(0);
-                        aVar.b.setText(item.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (e == null) {
+                synchronized (o91.class) {
+                    if (e == null) {
+                        e = new o91();
                     }
-                    aVar.c.setSelected(item.h == 1);
-                    SpannableString spannableString = new SpannableString("￥" + a(item.g.longValue()));
-                    spannableString.setSpan(new AbsoluteSizeSpan(p81.a(this.b, 14.0f)), 0, 1, 33);
-                    aVar.d.setText(spannableString);
                 }
             }
-            return view2;
+            return e;
         }
-        return (View) invokeILL.objValue;
+        return (o91) invokeV.objValue;
+    }
+
+    public final void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            fa1.b(this.b);
+            try {
+                if (this.a == 0) {
+                    return;
+                }
+                JSONObject jSONObject = new JSONObject();
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("rt", str);
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("msg", str2);
+                }
+                Long valueOf = Long.valueOf(System.currentTimeMillis() - this.a);
+                if (valueOf.longValue() >= 0) {
+                    jSONObject.put(D.COLUMU_PLUGIN_DURATION, String.valueOf(valueOf));
+                }
+                w81 w81Var = new w81(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN);
+                w81Var.c(jSONObject);
+                z81.e(w81Var);
+            } catch (JSONException e2) {
+                if (i91.d) {
+                    e2.printStackTrace();
+                }
+            } finally {
+                this.a = 0L;
+            }
+        }
+    }
+
+    public final View g(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            if (activity == null || activity.getWindow() == null) {
+                return null;
+            }
+            return activity.getWindow().getDecorView().findViewById(16908290);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void i(Context context, Bundle bundle, ChannelListView channelListView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, bundle, channelListView, Boolean.valueOf(z)}) == null) || context == null || bundle == null || channelListView == null) {
+            return;
+        }
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+        layoutParams.gravity = 17;
+        this.b = fa1.c((ViewGroup) g((Activity) context), layoutParams, null, -1L);
+        this.a = System.currentTimeMillis();
+        y71.j().m(bundle, new a(this, channelListView, z, context, bundle));
+    }
+
+    public final void j(Context context, Bundle bundle, ChannelListView channelListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, bundle, channelListView) == null) {
+            View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d0657, null);
+            PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
+            this.c = popupWindow;
+            popupWindow.w(false);
+            this.c.B(false);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903ef)).setOnClickListener(new b(this, channelListView));
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903ee)).setOnClickListener(new c(this, context, bundle, channelListView));
+            this.c.D(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+            z81.e(new w81("102"));
+        }
+    }
+
+    public final void k(Context context, ChannelListView channelListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, channelListView) == null) {
+            View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d0209, null);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091942)).setText(R.string.obfuscated_res_0x7f0f0d5c);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091941)).setText(R.string.obfuscated_res_0x7f0f0d5d);
+            PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
+            this.d = popupWindow;
+            popupWindow.w(false);
+            this.d.B(false);
+            this.d.v(new ColorDrawable(0));
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09193c)).setOnClickListener(new d(this));
+            this.d.A(new e(this, channelListView));
+            this.d.D(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+        }
     }
 }

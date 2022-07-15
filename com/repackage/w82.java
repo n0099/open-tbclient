@@ -1,20 +1,25 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class w82 extends ProviderDelegation {
+public class w82 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final Map<String, Integer> b;
+    public static final Object c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,52 +35,113 @@ public class w82 extends ProviderDelegation {
                 return;
             }
         }
-        a = cg1.a;
+        a = rg1.a;
+        b = new HashMap();
+        c = new Object();
+        d = x82.a();
     }
 
-    public w82() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return x82.b().c(i);
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt("level", i);
-            hw2 c = fw2.c(w82.class, bundle);
-            int i2 = c.a() ? c.a.getInt("count", 0) : 0;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && d) {
             if (a) {
-                Log.d("RecoveryCountDelegation", "GetRecoveryCount level=" + i + ";count=" + i2);
+                Log.d("ExcludeRecorder", "remove all exclude appIds");
             }
-            return i2;
+            synchronized (c) {
+                b.clear();
+            }
         }
-        return invokeI.intValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    @NonNull
+    public static Set<String> b() {
+        InterceptResult invokeV;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt("level", -1);
-            Bundle bundle2 = new Bundle();
-            bundle2.putInt("count", x82.b().c(i));
-            return bundle2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!d) {
+                return Collections.emptySet();
+            }
+            synchronized (c) {
+                strArr = (String[]) b.keySet().toArray(new String[0]);
+            }
+            return le3.a(strArr);
         }
-        return (Bundle) invokeL.objValue;
+        return (Set) invokeV.objValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (d && !TextUtils.isEmpty(str)) {
+                synchronized (c) {
+                    containsKey = b.containsKey(str);
+                }
+                if (a) {
+                    Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
+                }
+                return containsKey;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && d) {
+            if (a) {
+                Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            synchronized (c) {
+                Integer num = b.get(str);
+                if (num == null) {
+                    b.put(str, 1);
+                } else {
+                    b.put(str, Integer.valueOf(num.intValue() + 1));
+                }
+            }
+        }
+    }
+
+    public static void e(nd4 nd4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, nd4Var) == null) && d && nd4Var != null) {
+            for (d94 d94Var : nd4Var.j()) {
+                if (d94Var instanceof e94) {
+                    d(d94Var.g);
+                } else if (d94Var instanceof f94) {
+                    d(((f94) d94Var).o);
+                }
+            }
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && d) {
+            if (a) {
+                Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            synchronized (c) {
+                Integer num = b.get(str);
+                if (num != null) {
+                    int intValue = num.intValue() - 1;
+                    if (intValue <= 0) {
+                        b.remove(str);
+                    } else {
+                        b.put(str, Integer.valueOf(intValue));
+                    }
+                }
+            }
+        }
     }
 }

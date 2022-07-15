@@ -1,201 +1,89 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.res.ui.FloatButton;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class i23 {
+public class i23 extends e23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile i23 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public FloatButton b;
-    public String c;
-    public JSONObject d;
-    public String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755670393, "Lcom/repackage/i23;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755670393, "Lcom/repackage/i23;");
-                return;
-            }
-        }
-        f = cg1.a;
-    }
-
-    public i23() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i23(e13 e13Var) {
+        super(e13Var, "/swanAPI/setBackgroundColor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = "";
     }
 
-    public static i23 d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (i23.class) {
-                    if (g == null) {
-                        g = new i23();
-                    }
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                hx1.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             }
-            return g;
-        }
-        return (i23) invokeV.objValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || g == null) {
-            return;
-        }
-        g = null;
-    }
-
-    public final FloatButton a(Context context, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, viewGroup)) == null) {
-            if (context == null || viewGroup == null) {
-                return null;
+            if (e23.b) {
+                Log.d(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, optParamsAsJo.toString());
             }
-            FloatButton e = e(context);
-            viewGroup.addView(e);
-            return e;
-        }
-        return (FloatButton) invokeLL.objValue;
-    }
-
-    public void b(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) || intent == null || this.b == null) {
-            return;
-        }
-        String dataString = intent.getDataString();
-        if (TextUtils.isEmpty(dataString)) {
-            return;
-        }
-        String substring = dataString.substring(8);
-        if (TextUtils.isEmpty(substring) || !substring.equals(this.e)) {
-            return;
-        }
-        if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-            this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f01dc);
-        } else if (TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction())) {
-            this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1256);
-        }
-        this.b.setFloatButtonText(this.c);
-    }
-
-    public FloatButton c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (FloatButton) invokeV.objValue;
-    }
-
-    public final FloatButton e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (context == null) {
-                return null;
+            qz1 V = ul2.U().V();
+            if (V == null) {
+                hx1.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             }
-            return (FloatButton) LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d07a1, (ViewGroup) null);
-        }
-        return (FloatButton) invokeL.objValue;
-    }
-
-    public FloatButton f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Activity activity = this.a;
-            if (activity instanceof SwanAppActivity) {
-                if (this.b == null) {
-                    this.b = a(activity, (ViewGroup) activity.findViewById(16908290));
-                }
-                this.b.setFloatButtonText(this.c);
-                this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081134));
-                this.b.setFloatButtonDefaultPosition();
-                this.b.setFloatButtonStyle(this.d);
-                this.b.setVisibility(0);
-                return this.b;
+            String optString = optParamsAsJo.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
+            if (TextUtils.isEmpty(optString) && (!TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorTop")) || !TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorBottom")))) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101);
+                return false;
             }
-            return null;
+            pz1 o = V.o();
+            if (o == null) {
+                hx1.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "slave container is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (TextUtils.equals("7", o.N1().l())) {
+                hx1.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "this page is from showModalPage api");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
+                return false;
+            } else if (!o.L2(o.x3(), SwanAppConfigData.t(optString), true)) {
+                hx1.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "set window background fail");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
         }
-        return (FloatButton) invokeV.objValue;
-    }
-
-    public void g(Activity activity, JSONObject jSONObject) {
-        String string;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, activity, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        if (f) {
-            Log.i("FloatButtonGuideManager", jSONObject.toString());
-        }
-        this.a = activity;
-        String optString = jSONObject.optString("name");
-        this.e = optString;
-        if (md3.F(activity, optString)) {
-            string = activity.getString(R.string.obfuscated_res_0x7f0f01dc);
-        } else {
-            string = activity.getString(R.string.obfuscated_res_0x7f0f1256);
-        }
-        this.c = string;
-        this.d = jSONObject.optJSONObject("style");
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void j(FloatButton floatButton) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, floatButton) == null) {
-            this.b = floatButton;
-        }
+        return invokeLLLL.booleanValue;
     }
 }

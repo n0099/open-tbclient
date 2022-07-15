@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a75;
-import com.repackage.b75;
+import com.repackage.c85;
+import com.repackage.d85;
 import com.repackage.d9;
-import com.repackage.i95;
-import com.repackage.n65;
-import com.repackage.o65;
+import com.repackage.la5;
+import com.repackage.p75;
+import com.repackage.q75;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class CacheModel<T extends n65, ActivityType> extends BdBaseModel<ActivityType> {
+public abstract class CacheModel<T extends p75, ActivityType> extends BdBaseModel<ActivityType> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageListener<CustomResponsedMessage<?>> a;
@@ -79,7 +79,7 @@ public abstract class CacheModel<T extends n65, ActivityType> extends BdBaseMode
                     readCacheMessage = (ReadCacheMessage) readCacheRespMsg.getOrginalMessage();
                 }
                 if (this.a.c != null) {
-                    this.a.c.h(readCacheRespMsg, readCacheMessage);
+                    this.a.c.i(readCacheRespMsg, readCacheMessage);
                 }
             }
         }
@@ -127,7 +127,7 @@ public abstract class CacheModel<T extends n65, ActivityType> extends BdBaseMode
                     writeCacheMessage = (WriteCacheMessage) writeCacheRespMsg.getOrginalMessage();
                 }
                 if (this.a.c != null) {
-                    this.a.c.f(writeCacheRespMsg, writeCacheMessage);
+                    this.a.c.g(writeCacheRespMsg, writeCacheMessage);
                 }
             }
         }
@@ -135,9 +135,9 @@ public abstract class CacheModel<T extends n65, ActivityType> extends BdBaseMode
 
     /* loaded from: classes3.dex */
     public interface c<T> {
-        void f(WriteCacheRespMsg<List<T>> writeCacheRespMsg, WriteCacheMessage<T> writeCacheMessage);
+        void g(WriteCacheRespMsg<List<T>> writeCacheRespMsg, WriteCacheMessage<T> writeCacheMessage);
 
-        void h(ReadCacheRespMsg<List<T>> readCacheRespMsg, ReadCacheMessage<T> readCacheMessage);
+        void i(ReadCacheRespMsg<List<T>> readCacheRespMsg, ReadCacheMessage<T> readCacheMessage);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -164,31 +164,31 @@ public abstract class CacheModel<T extends n65, ActivityType> extends BdBaseMode
         this.g = false;
     }
 
-    public final void C(T t) {
+    public final void D(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-            WriteCacheMessage writeCacheMessage = new WriteCacheMessage(M());
+            WriteCacheMessage writeCacheMessage = new WriteCacheMessage(N());
             writeCacheMessage.setTag(getUniqueId());
             writeCacheMessage.setData(t);
-            H();
+            I();
             sendMessage(writeCacheMessage);
         }
     }
 
-    public final void D(T t) {
+    public final void E(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            C(t);
+            D(t);
         }
     }
 
-    public final void E() {
+    public final void F() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f) {
             return;
         }
         if (this.a == null) {
-            a aVar = new a(this, L());
+            a aVar = new a(this, M());
             this.a = aVar;
             aVar.setSelfListener(true);
             this.a.setTag(this.unique_id);
@@ -197,21 +197,21 @@ public abstract class CacheModel<T extends n65, ActivityType> extends BdBaseMode
         this.f = true;
     }
 
-    public final void F() {
+    public final void G() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.d && MessageManager.getInstance().findTask(L()) == null) {
-            MessageManager.getInstance().registerTask(new i95(L(), new a75(L(), y(), K())));
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.d && MessageManager.getInstance().findTask(M()) == null) {
+            MessageManager.getInstance().registerTask(new la5(M(), new c85(M(), z(), L())));
             this.d = true;
         }
     }
 
-    public final void G() {
+    public final void H() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.g) {
             return;
         }
         if (this.b == null) {
-            b bVar = new b(this, M());
+            b bVar = new b(this, N());
             this.b = bVar;
             bVar.setSelfListener(true);
             this.b.setTag(this.unique_id);
@@ -220,40 +220,40 @@ public abstract class CacheModel<T extends n65, ActivityType> extends BdBaseMode
         this.g = true;
     }
 
-    public final void H() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.e && MessageManager.getInstance().findTask(M()) == null) {
-            MessageManager.getInstance().registerTask(new i95(M(), new b75(M(), y(), K())));
-            this.e = true;
-        }
-    }
-
     public final void I() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            G();
-            J();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.e && MessageManager.getInstance().findTask(N()) == null) {
+            MessageManager.getInstance().registerTask(new la5(N(), new d85(N(), z(), L())));
+            this.e = true;
         }
     }
 
     public final void J() {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            H();
+            K();
+        }
+    }
+
+    public final void K() {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            WriteCacheMessage writeCacheMessage = new WriteCacheMessage(M());
+            WriteCacheMessage writeCacheMessage = new WriteCacheMessage(N());
             writeCacheMessage.setClear(true);
             writeCacheMessage.setTag(getUniqueId());
-            H();
+            I();
             sendMessage(writeCacheMessage);
         }
     }
 
-    public abstract Class<T> K();
-
-    public abstract int L();
+    public abstract Class<T> L();
 
     public abstract int M();
 
-    public boolean N() {
+    public abstract int N();
+
+    public boolean O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -262,40 +262,40 @@ public abstract class CacheModel<T extends n65, ActivityType> extends BdBaseMode
         return invokeV.booleanValue;
     }
 
-    public final void O() {
+    public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            E();
-            ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(L());
-            readCacheMessage.setTag(getUniqueId());
-            readCacheMessage.setNeedUid(N());
-            Q(readCacheMessage);
             F();
+            ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(M());
+            readCacheMessage.setTag(getUniqueId());
+            readCacheMessage.setNeedUid(O());
+            R(readCacheMessage);
+            G();
             sendMessage(readCacheMessage);
         }
     }
 
-    public final void P(o65 o65Var) {
+    public final void Q(q75 q75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, o65Var) == null) {
-            E();
-            ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(L());
-            readCacheMessage.setTag(getUniqueId());
-            readCacheMessage.setRequestData(o65Var);
-            readCacheMessage.setNeedUid(N());
-            Q(readCacheMessage);
+        if (interceptable == null || interceptable.invokeL(1048589, this, q75Var) == null) {
             F();
+            ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(M());
+            readCacheMessage.setTag(getUniqueId());
+            readCacheMessage.setRequestData(q75Var);
+            readCacheMessage.setNeedUid(O());
+            R(readCacheMessage);
+            G();
             sendMessage(readCacheMessage);
         }
     }
 
-    public void Q(ReadCacheMessage<T> readCacheMessage) {
+    public void R(ReadCacheMessage<T> readCacheMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, readCacheMessage) == null) {
         }
     }
 
-    public void R(c<T> cVar) {
+    public void S(c<T> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, cVar) == null) {
             this.c = cVar;
@@ -324,5 +324,5 @@ public abstract class CacheModel<T extends n65, ActivityType> extends BdBaseMode
         return invokeV.booleanValue;
     }
 
-    public abstract String y();
+    public abstract String z();
 }

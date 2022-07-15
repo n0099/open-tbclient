@@ -1,14 +1,11 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Dialog;
-import android.content.Context;
-import android.view.MotionEvent;
+import android.graphics.Rect;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,93 +13,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class l34 extends Dialog {
+public class l34 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int g;
+    public static volatile l34 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public int a;
+    public int b;
+    public int c;
+    public boolean d;
+    public int e;
+    public ViewTreeObserver.OnGlobalLayoutListener f;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a();
-
-        void b();
-
-        void c();
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-262952890, "Lcom/repackage/l34$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-262952890, "Lcom/repackage/l34$b;");
-                    return;
-                }
-            }
-            a = new b();
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public final boolean onTouch(View v, MotionEvent event) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, v, event)) == null) {
-                Intrinsics.checkNotNullExpressionValue(event, "event");
-                int action = event.getAction();
-                if (action == 0) {
-                    Intrinsics.checkNotNullExpressionValue(v, "v");
-                    v.setAlpha(0.2f);
-                    return false;
-                } else if (action == 1 || action == 3) {
-                    Intrinsics.checkNotNullExpressionValue(v, "v");
-                    v.setAlpha(1.0f);
-                    return false;
-                } else {
-                    return false;
-                }
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class c implements View.OnClickListener {
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l34 a;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ k34 b;
+        public final /* synthetic */ l34 c;
 
-        public c(l34 l34Var) {
+        public a(l34 l34Var, View view2, k34 k34Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l34Var};
+                Object[] objArr = {l34Var, view2, k34Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -112,147 +49,204 @@ public final class l34 extends Dialog {
                     return;
                 }
             }
-            this.a = l34Var;
+            this.c = l34Var;
+            this.a = view2;
+            this.b = k34Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
-            a aVar;
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.a.a) == null) {
-                return;
-            }
-            aVar.c();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l34 a;
-
-        public d(l34 l34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Rect rect = new Rect();
+                View view2 = this.a;
+                if (view2 == null) {
                     return;
                 }
-            }
-            this.a = l34Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
-            a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.a.a) == null) {
-                return;
-            }
-            aVar.b();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l34 a;
-
-        public e(l34 l34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                view2.getWindowVisibleDisplayFrame(rect);
+                int i = rect.bottom - rect.top;
+                int n = yd3.n(AppRuntime.getAppContext());
+                int t = yd3.t();
+                if (!this.c.d) {
+                    this.c.d = true;
+                    this.c.c = (n - i) - t;
+                    if (this.c.c < 0) {
+                        this.c.c = 0;
+                    }
+                }
+                if (i > 0) {
+                    if (i >= this.c.e || this.a.getHeight() - i <= 200) {
+                        if (i <= this.c.e || this.a.getHeight() - i >= 200) {
+                            return;
+                        }
+                        this.c.e = i;
+                        this.c.s(this.b);
+                        return;
+                    }
+                    this.c.e = i;
+                    this.c.b = i - l34.g;
+                    l34 l34Var = this.c;
+                    l34Var.a = ((n - i) - t) - l34Var.c;
+                    if (this.c.a > 0) {
+                        l34 l34Var2 = this.c;
+                        if (l34Var2.t(this.b, l34Var2.a, this.c.b)) {
+                            return;
+                        }
+                        this.c.s(this.b);
+                    }
                 }
             }
-            this.a = l34Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
-            a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.a.a) == null) {
-                return;
-            }
-            aVar.a();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l34(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1001a6);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755580028, "Lcom/repackage/l34;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755580028, "Lcom/repackage/l34;");
+                return;
+            }
+        }
+        g = w24.a(42.0f);
+        h = null;
+    }
+
+    public l34() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        c();
+        this.f = null;
     }
 
-    @SuppressLint({"ClickableViewAccessibility"})
-    public final View.OnTouchListener b() {
+    public static l34 p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a : (View.OnTouchListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            if (h == null) {
+                synchronized (l34.class) {
+                    if (h == null) {
+                        h = new l34();
+                    }
+                }
+            }
+            return h;
+        }
+        return (l34) invokeV.objValue;
     }
 
-    public final void c() {
+    public final void m(View view2, k34 k34Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d00be);
-            setCanceledOnTouchOutside(false);
-            d();
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, k34Var) == null) || view2 == null || k34Var == null) {
+            return;
         }
+        this.e = view2.getHeight();
+        this.f = new a(this, view2, k34Var);
+        view2.getViewTreeObserver().addOnGlobalLayoutListener(this.f);
     }
 
-    @SuppressLint({"ClickableViewAccessibility"})
-    public final void d() {
+    public boolean n(k34 k34Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ((Button) findViewById(R.id.obfuscated_res_0x7f0908ef)).setOnTouchListener(b());
-            ((Button) findViewById(R.id.obfuscated_res_0x7f0908ef)).setOnClickListener(new c(this));
-            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090e2a)).setOnTouchListener(b());
-            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090e2a)).setOnClickListener(new d(this));
-            ((Button) findViewById(R.id.obfuscated_res_0x7f0906bf)).setOnTouchListener(b());
-            ((Button) findViewById(R.id.obfuscated_res_0x7f0906bf)).setOnClickListener(new e(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k34Var)) == null) {
+            yh1 X = ul2.U().X();
+            boolean z = (X == null || r(k34Var.f()) || !X.c(k34Var.f(), o())) ? false : true;
+            if (z) {
+                if (!k34Var.l() || X == null) {
+                    return false;
+                }
+                m(X.getRootView(), k34Var);
+            }
+            return z;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void e(a onClickListener) {
+    public final nq2 o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            Intrinsics.checkNotNullParameter(onClickListener, "onClickListener");
-            this.a = onClickListener;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            nq2 nq2Var = new nq2();
+            nq2Var.k(true);
+            nq2Var.n(-1);
+            nq2Var.j(-2);
+            return nq2Var;
         }
+        return (nq2) invokeV.objValue;
+    }
+
+    public final nq2 q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            nq2 nq2Var = new nq2();
+            nq2Var.k(true);
+            nq2Var.m(i);
+            nq2Var.n(-1);
+            nq2Var.j(-2);
+            return nq2Var;
+        }
+        return (nq2) invokeI.objValue;
+    }
+
+    public final boolean r(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
+            yh1 X = ul2.U().X();
+            return X != null && X.d(view2);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean s(k34 k34Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k34Var)) == null) {
+            yh1 X = ul2.U().X();
+            if (X == null) {
+                return false;
+            }
+            FrameLayout rootView = X.getRootView();
+            if (rootView != null && this.f != null) {
+                rootView.getViewTreeObserver().removeOnGlobalLayoutListener(this.f);
+            }
+            k34Var.h();
+            this.f = null;
+            this.a = -1;
+            this.b = -1;
+            this.c = -1;
+            this.d = false;
+            this.e = -1;
+            return X.removeView(k34Var.f());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean t(k34 k34Var, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, k34Var, i, i2)) == null) {
+            yh1 X = ul2.U().X();
+            boolean z = X != null && X.a(k34Var.f(), q(i2));
+            if (z) {
+                k34Var.k(i);
+            }
+            return z;
+        }
+        return invokeLII.booleanValue;
     }
 }

@@ -1,11 +1,8 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,36 +10,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mx1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
+public class mx1 implements jx1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public JSONArray g;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755484021, "Lcom/repackage/mx1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755484021, "Lcom/repackage/mx1;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755484021, "Lcom/repackage/mx1;")) == null) {
+            return;
         }
-        h = cg1.a;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755484021, "Lcom/repackage/mx1;");
+        }
     }
 
     public mx1() {
@@ -59,62 +45,36 @@ public class mx1 {
         }
     }
 
-    public static mx1 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            mx1 mx1Var = new mx1();
-            try {
-                mx1Var.a = jSONObject.getString("appKey");
-                mx1Var.b = jSONObject.getString(DeepLinkItem.DEEPLINK_APPURL_KEY) + "?swanJsVersion=" + x83.h(0) + "&appVersion=" + md3.D();
-                mx1Var.c = jSONObject.getString("wsUrl");
-                mx1Var.d = jSONObject.optString("notInHistory", "1");
-                mx1Var.e = jSONObject.optString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD);
-                mx1Var.f = jSONObject.optString("slavePreload");
-                mx1Var.g = jSONObject.optJSONArray("hosts");
-                return mx1Var;
-            } catch (JSONException unused) {
-                if (h) {
-                    Log.e("WirelessDebugModel", "DebuggerLaunchAction params is invalid");
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (mx1) invokeL.objValue;
-    }
-
-    public String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? b(i, this.b) : (String) invokeI.objValue;
-    }
-
-    public final String b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
-            if (this.g != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.g.length()) {
-                Uri parse = Uri.parse(str);
-                String optString = this.g.optString(i);
-                if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
-                    return str.replace(parse.getHost(), optString);
-                }
-            }
-            return str;
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public String c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? b(i, this.c) : (String) invokeI.objValue;
-    }
-
-    public boolean d() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jx1
+    public void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            a = gd3.i(bundle, "adb_debug_path");
+            kx1.i(gd3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
+            kx1.j(gd3.i(bundle, "slavePreload"));
+        }
+    }
+
+    @Override // com.repackage.jx1
+    public void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            bundle.putString("adb_debug_path", a);
+            bundle.putString("slavePreload", kx1.c());
+            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, kx1.a());
+        }
+    }
+
+    @Override // com.repackage.jx1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? lx1.b().getPath() : (String) invokeV.objValue;
     }
 }

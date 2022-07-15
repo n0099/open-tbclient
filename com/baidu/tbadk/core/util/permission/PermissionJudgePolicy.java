@@ -11,6 +11,7 @@ import com.baidu.permissionhelper.ApiUtil;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.permissionhelper.context.ContextCompat;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.IPermissionPolicy;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -24,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cr4;
 import com.repackage.d9;
 import com.repackage.h9;
-import com.repackage.nq4;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -145,7 +146,7 @@ public class PermissionJudgePolicy {
                 return;
             }
         }
-        NEED_EXTRA_DIALOG_PERMISSIONS = new ArrayList<>(Arrays.asList("android.permission.CAMERA", "android.permission.RECORD_AUDIO", "android.permission.ACCESS_COARSE_LOCATION"));
+        NEED_EXTRA_DIALOG_PERMISSIONS = new ArrayList<>(Arrays.asList("android.permission.CAMERA", "android.permission.RECORD_AUDIO", PermissionChecker.ACCESS_COARSE_LOCATION));
     }
 
     public PermissionJudgePolicy() {
@@ -306,7 +307,7 @@ public class PermissionJudgePolicy {
     private int getPermissionDescriptionId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) ? R.string.obfuscated_res_0x7f0f0fe1 : ("android.permission.ACCESS_FINE_LOCATION".equals(str) || "android.permission.ACCESS_COARSE_LOCATION".equals(str)) ? R.string.obfuscated_res_0x7f0f0fe6 : "android.permission.CAMERA".equals(str) ? R.string.obfuscated_res_0x7f0f0fde : "android.permission.RECORD_AUDIO".equals(str) ? R.string.obfuscated_res_0x7f0f0fe7 : "android.permission.READ_PHONE_STATE".equals(str) ? R.string.obfuscated_res_0x7f0f0fe0 : "android.permission.SEND_SMS".equals(str) ? R.string.obfuscated_res_0x7f0f0fe8 : "android.permission.CALL_PHONE".equals(str) ? R.string.obfuscated_res_0x7f0f0fdf : R.string.obfuscated_res_0x7f0f0fe1 : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) ? R.string.obfuscated_res_0x7f0f0fdc : (PermissionChecker.ACCESS_FINE_LOCATION.equals(str) || PermissionChecker.ACCESS_COARSE_LOCATION.equals(str)) ? R.string.obfuscated_res_0x7f0f0fe1 : "android.permission.CAMERA".equals(str) ? R.string.obfuscated_res_0x7f0f0fd9 : "android.permission.RECORD_AUDIO".equals(str) ? R.string.obfuscated_res_0x7f0f0fe2 : PermissionChecker.READ_PHONE_STATE.equals(str) ? R.string.obfuscated_res_0x7f0f0fdb : "android.permission.SEND_SMS".equals(str) ? R.string.obfuscated_res_0x7f0f0fe3 : "android.permission.CALL_PHONE".equals(str) ? R.string.obfuscated_res_0x7f0f0fda : R.string.obfuscated_res_0x7f0f0fdc : invokeL.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -382,11 +383,11 @@ public class PermissionJudgePolicy {
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity, str)) {
                 return true;
             }
-            nq4 nq4Var = new nq4(activity);
-            nq4Var.setCanceledOnTouchOutside(false);
-            nq4Var.setTitle(R.string.obfuscated_res_0x7f0f0fe2);
-            nq4Var.setMessageId(getPermissionDescriptionId(str));
-            nq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0973, new nq4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
+            cr4 cr4Var = new cr4(activity);
+            cr4Var.setCanceledOnTouchOutside(false);
+            cr4Var.setTitle(R.string.obfuscated_res_0x7f0f0fdd);
+            cr4Var.setMessageId(getPermissionDescriptionId(str));
+            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f097e, new cr4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -413,11 +414,11 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // com.repackage.nq4.e
-                public void onClick(nq4 nq4Var2) {
+                @Override // com.repackage.cr4.e
+                public void onClick(cr4 cr4Var2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, nq4Var2) == null) {
-                        nq4Var2.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, cr4Var2) == null) {
+                        cr4Var2.dismiss();
                         Intent intent = new Intent();
                         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                         intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
@@ -428,7 +429,7 @@ public class PermissionJudgePolicy {
                         }
                     }
                 }
-            }).setNegativeButton(R.string.obfuscated_res_0x7f0f0366, new nq4.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
+            }).setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new cr4.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -453,18 +454,18 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // com.repackage.nq4.e
-                public void onClick(nq4 nq4Var2) {
+                @Override // com.repackage.cr4.e
+                public void onClick(cr4 cr4Var2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, nq4Var2) == null) {
-                        nq4Var2.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, cr4Var2) == null) {
+                        cr4Var2.dismiss();
                         if (this.this$0.mDialogClickListener != null) {
                             this.this$0.mDialogClickListener.onDialogCaneled(this.val$permission);
                         }
                     }
                 }
             }).create(h9.a(activity));
-            nq4Var.show();
+            cr4Var.show();
             return false;
         }
         return invokeLL.booleanValue;

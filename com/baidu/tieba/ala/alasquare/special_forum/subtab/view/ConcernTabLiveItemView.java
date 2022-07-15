@@ -27,12 +27,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mw5;
+import com.repackage.jx5;
+import com.repackage.nr5;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.qq5;
 /* loaded from: classes3.dex */
-public class ConcernTabLiveItemView extends mw5<qq5> {
+public class ConcernTabLiveItemView extends jx5<nr5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
@@ -84,9 +84,9 @@ public class ConcernTabLiveItemView extends mw5<qq5> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0909d5 && (view2.getTag() instanceof UserData)) {
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0909dc && (view2.getTag() instanceof UserData)) {
                     if (!pi.D()) {
-                        this.a.k.j.showToast(R.string.obfuscated_res_0x7f0f0c37);
+                        this.a.k.j.showToast(R.string.obfuscated_res_0x7f0f0c2b);
                         return;
                     }
                     UserData userData = (UserData) view2.getTag();
@@ -121,21 +121,21 @@ public class ConcernTabLiveItemView extends mw5<qq5> {
             this.a = concernTabLiveItemView2;
             View h = concernTabLiveItemView2.h();
             this.b = h;
-            TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09193d);
+            TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0919e6);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_default_avatar100_bg);
             this.c.setIsRound(true);
             this.c.setAutoChangeStyle(false);
             this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091295);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091299);
-            this.i = this.b.findViewById(R.id.obfuscated_res_0x7f090766);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091336);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09133d);
+            this.i = this.b.findViewById(R.id.obfuscated_res_0x7f09076d);
             Drawable drawable = SkinManager.getDrawable(concernTabLiveItemView.c.getResources(), (int) R.drawable.icon_living_seeding);
             drawable.setBounds(0, 0, concernTabLiveItemView.c.getResources().getDimensionPixelOffset(R.dimen.tbds8), concernTabLiveItemView.c.getResources().getDimensionPixelOffset(R.dimen.tbds8));
             this.e.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092285);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909d5);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909df);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09232d);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909dc);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909e7);
             this.g.setOnClickListener(this.j);
         }
     }
@@ -173,14 +173,14 @@ public class ConcernTabLiveItemView extends mw5<qq5> {
         }
     }
 
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d076a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0788 : invokeV.intValue;
     }
 
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
@@ -203,21 +203,21 @@ public class ConcernTabLiveItemView extends mw5<qq5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     /* renamed from: t */
-    public void i(qq5 qq5Var) {
+    public void i(nr5 nr5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, qq5Var) == null) {
-            UserData userData = qq5Var.a;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nr5Var) == null) {
+            UserData userData = nr5Var.a;
             if (userData != null) {
                 if (!StringUtils.isNull(userData.getPortrait())) {
-                    this.i.c.J(qq5Var.a.getPortrait(), 12, false);
+                    this.i.c.J(nr5Var.a.getPortrait(), 12, false);
                 }
-                if (!StringUtils.isNull(qq5Var.a.getName_show())) {
-                    this.i.d.setText(qq5Var.a.getName_show());
+                if (!StringUtils.isNull(nr5Var.a.getName_show())) {
+                    this.i.d.setText(nr5Var.a.getName_show());
                 }
-                if (qq5Var.c) {
-                    if (qq5Var.a.hadConcerned()) {
+                if (nr5Var.c) {
+                    if (nr5Var.a.hadConcerned()) {
                         this.i.g.setVisibility(8);
                         this.i.h.setVisibility(0);
                     } else {
@@ -228,15 +228,15 @@ public class ConcernTabLiveItemView extends mw5<qq5> {
                     this.i.g.setVisibility(8);
                     this.i.h.setVisibility(8);
                 }
-                this.i.g.setTag(qq5Var.a);
+                this.i.g.setTag(nr5Var.a);
             }
-            AlaInfoData alaInfoData = qq5Var.b;
+            AlaInfoData alaInfoData = nr5Var.b;
             if (alaInfoData != null) {
                 this.i.b.setTag(alaInfoData);
-                if (!StringUtils.isNull(qq5Var.b.description)) {
-                    String str = qq5Var.b.description;
+                if (!StringUtils.isNull(nr5Var.b.description)) {
+                    String str = nr5Var.b.description;
                     int i = this.k;
-                    if (qq5Var.c) {
+                    if (nr5Var.c) {
                         i -= 9;
                     }
                     if (oi.byteLength(str) > i) {
@@ -245,15 +245,15 @@ public class ConcernTabLiveItemView extends mw5<qq5> {
                     this.i.f.setText(str);
                 }
             }
-            if (qq5Var.c) {
+            if (nr5Var.c) {
                 TiebaStatic.log(new StatisticItem("c12895"));
             } else {
                 StatisticItem statisticItem = new StatisticItem("c12893");
                 statisticItem.addParam("fid", this.l);
                 statisticItem.addParam("fname", this.m);
-                AlaInfoData alaInfoData2 = qq5Var.b;
+                AlaInfoData alaInfoData2 = nr5Var.b;
                 if (alaInfoData2 != null && alaInfoData2.isLegalYYLiveData()) {
-                    AlaInfoData alaInfoData3 = qq5Var.b;
+                    AlaInfoData alaInfoData3 = nr5Var.b;
                     int calculateLiveType = YYLiveUtil.calculateLiveType(alaInfoData3);
                     String str2 = StringUtils.isNull(alaInfoData3.appId) ? null : alaInfoData3.appId;
                     if (alaInfoData3.mYyExtData != null) {
@@ -261,12 +261,12 @@ public class ConcernTabLiveItemView extends mw5<qq5> {
                     }
                     statisticItem.addParam("obj_param1", calculateLiveType);
                     statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
-                    YYLiveUtil.calculateLiveType(qq5Var.b);
-                    TiebaStaticHelper.addYYParam(statisticItem, qq5Var.b.mYyExtData);
+                    YYLiveUtil.calculateLiveType(nr5Var.b);
+                    TiebaStaticHelper.addYYParam(statisticItem, nr5Var.b.mYyExtData);
                 }
                 TiebaStatic.log(statisticItem);
             }
-            this.i.g.setTag(qq5Var.a);
+            this.i.g.setTag(nr5Var.a);
             j(g(), TbadkCoreApplication.getInst().getSkinType());
         }
     }

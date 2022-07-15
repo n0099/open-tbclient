@@ -1,41 +1,49 @@
 package com.repackage;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsHotTopic.FrsHotTopicListData;
-import com.baidu.tieba.frs.FrsHotTopic.FrsLinkHashMap;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.R;
+import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
+import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
+import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class jc6 {
     public static /* synthetic */ Interceptable $ic;
-    public static jc6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsLinkHashMap<String, Long> a;
+    public TbPageContext a;
+    public final BdUniqueId b;
+    public b c;
+    public za d;
 
     /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
+    public class a extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ jc6 a;
 
-        public a(jc6 jc6Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jc6 jc6Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jc6Var};
+                Object[] objArr = {jc6Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -44,153 +52,84 @@ public class jc6 {
             this.a = jc6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            FrsHotTopicListData frsHotTopicListData;
+        @Override // com.repackage.za
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                mq4.f();
-                te<String> h = mq4.h("tb.frs_hottopic", "");
-                if (h != null) {
-                    String str = h.get("hot_topic_key");
-                    if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
-                        this.a.a = frsHotTopicListData.mSceneMap;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.a.b) {
+                    if (this.a.c != null) {
+                        this.a.c.a(false, null);
+                        return;
                     }
+                    return;
                 }
-                return null;
+                nc6 searchData = responsedMessage instanceof SearchPostForumHttpResponseMessage ? ((SearchPostForumHttpResponseMessage) responsedMessage).getSearchData() : null;
+                if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
+                    searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
+                }
+                if (this.a.c != null) {
+                    this.a.c.a(searchData != null, searchData);
+                }
             }
-            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jc6 a;
-
-        public b(jc6 jc6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jc6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jc6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                mq4.f();
-                te<String> h = mq4.h("tb.frs_hottopic", "");
-                if (h == null) {
-                    return null;
-                }
-                FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                frsHotTopicListData.mSceneMap = this.a.a;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
-                if (!StringUtils.isNull(jsonStrWithObject)) {
-                    h.g("hot_topic_key", jsonStrWithObject);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
+    public interface b {
+        void a(boolean z, nc6 nc6Var);
     }
 
-    public jc6() {
+    public jc6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466);
+        this.d = aVar;
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.d);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
         }
     }
 
-    public static jc6 d() {
-        InterceptResult invokeV;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (jc6.class) {
-                    if (b == null) {
-                        b = new jc6();
-                    }
-                }
-            }
-            return b;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (jc6) invokeV.objValue;
+        if (!pi.D()) {
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+            return;
+        }
+        c();
+        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
+        SearchPostForumRequestMessage searchPostForumRequestMessage = new SearchPostForumRequestMessage();
+        searchPostForumRequestMessage.setTag(this.b);
+        searchPostForumRequestMessage.set_word(str);
+        MessageManager.getInstance().sendMessage(searchPostForumRequestMessage);
     }
 
-    public boolean c(String str, long j) {
-        InterceptResult invokeLJ;
-        boolean z;
+    public void e(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            if (this.a == null) {
-                this.a = new FrsLinkHashMap<>();
-                e(str, j);
-            }
-            if (StringUtils.isNull(str) || this.a.isEmpty()) {
-                return false;
-            }
-            Iterator<Map.Entry<String, Long>> it = this.a.entrySet().iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = false;
-                    break;
-                }
-                Map.Entry<String, Long> next = it.next();
-                if (next != null && str.equals(next.getKey())) {
-                    z = true;
-                    break;
-                }
-            }
-            if (z && this.a.get(str).longValue() == j) {
-                return false;
-            }
-            this.a.put(str, Long.valueOf(j));
-            f();
-            return true;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public final void e(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            a aVar = new a(this);
-            aVar.setPriority(3);
-            aVar.execute(new Void[0]);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b bVar = new b(this);
-            bVar.setPriority(3);
-            bVar.execute(new Void[0]);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 }

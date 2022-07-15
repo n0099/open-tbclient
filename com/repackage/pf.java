@@ -79,8 +79,8 @@ public class pf implements IHttpNet {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream) == null) {
                 DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-                if (this.a.a.b().l() != null) {
-                    Iterator<BasicNameValuePair> it = this.a.a.b().l().iterator();
+                if (this.a.a.b().j() != null) {
+                    Iterator<BasicNameValuePair> it = this.a.a.b().j().iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -218,9 +218,9 @@ public class pf implements IHttpNet {
                 return 0;
             }
             if (builder instanceof PostFormRequest.PostFormRequestBuilder) {
-                ((PostFormRequest.PostFormRequestBuilder) builder).params(this.a.b().k());
+                ((PostFormRequest.PostFormRequestBuilder) builder).params(this.a.b().i());
             } else if (builder instanceof PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) {
-                ((PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) builder).addParams(this.a.b().k());
+                ((PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) builder).addParams(this.a.b().i());
                 if (this.a.b().g != null) {
                     for (Map.Entry<String, byte[]> entry : this.a.b().g.entrySet()) {
                         String key = entry.getKey();
@@ -293,7 +293,7 @@ public class pf implements IHttpNet {
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (builder = this.b) == null) {
             return;
         }
-        builder.addHeaders(this.a.b().h());
+        builder.addHeaders(this.a.b().g());
     }
 
     @Override // com.baidu.adp.lib.network.http.IHttpNet

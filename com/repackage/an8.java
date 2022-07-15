@@ -1,215 +1,158 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.R;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
-import com.baidu.tieba.themeCenter.background.BackgroundListActivity;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ot4;
-import java.util.ArrayList;
-import java.util.List;
-@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
-public class an8 {
+public class an8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BackgroundListActivity a;
-    public View b;
-    public View c;
-    public NavigationBar d;
-    public MemberRecommendView e;
-    public BdListView f;
-    public pt4 g;
-    public TextView h;
-    public zm8 i;
-    public int j;
+    public final MainTabActivity a;
+    public final nl8 b;
 
-    public an8(BackgroundListActivity backgroundListActivity, ym8 ym8Var) {
+    /* loaded from: classes5.dex */
+    public class a extends de5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(an8 an8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {an8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.repackage.de5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(ob7.v()) : (Boolean) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements jd5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ an8 a;
+
+        public b(an8 an8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {an8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = an8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.jd5
+        /* renamed from: a */
+        public void onReturnDataInUI(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
+                if (bool != null && !bool.booleanValue()) {
+                    ob7 l = ob7.l(this.a.a);
+                    l.n(true);
+                    l.n(false);
+                    return;
+                }
+                ob7.z(1);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public an8(MainTabActivity mainTabActivity) {
+        super(2001371);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {backgroundListActivity, ym8Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = null;
-        this.j = 0;
-        this.a = backgroundListActivity;
-        this.j = pi.f(backgroundListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023f);
-        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012a, (ViewGroup) null);
-        this.b = inflate;
-        this.a.setContentView(inflate);
-        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090392);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09238f);
-        this.d = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e61);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f09238e);
-        this.e = memberRecommendView;
-        memberRecommendView.setFromType(5);
-        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f09123f);
-        pt4 pt4Var = new pt4(this.a.getPageContext());
-        this.g = pt4Var;
-        this.f.setPullRefresh(pt4Var);
-        TextView textView = new TextView(this.a.getActivity());
-        this.h = textView;
-        textView.setHeight(pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        zm8 zm8Var = new zm8(this.a.getPageContext(), ym8Var);
-        this.i = zm8Var;
-        this.f.setAdapter((ListAdapter) zm8Var);
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.f;
     }
 
-    public final List<List<DressItemData>> a(List<DressItemData> list) {
-        InterceptResult invokeL;
+    public final void b() {
+        nl8 nl8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int size = list.size();
-            for (int i = 0; i < size; i = i + 2 + 1) {
-                ArrayList arrayList2 = new ArrayList();
-                for (int i2 = 0; i2 < 3; i2++) {
-                    int i3 = i + i2;
-                    if (i3 < size) {
-                        arrayList2.add(list.get(i3));
-                    }
-                }
-                arrayList.add(arrayList2);
-            }
-            return arrayList;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || MainTabActivity.W) {
+            return;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
-            this.a.hideNetRefreshView(this.b);
-            this.c.setVisibility(0);
+        if (this.b != null && AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+            he5.b(new a(this), new b(this));
         }
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
-
-    public void d() {
-        zm8 zm8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            d95.a(this.a.getPageContext(), this.b);
-            NavigationBar navigationBar = this.d;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
-            }
-            BdListView bdListView = this.f;
-            if (bdListView != null && bdListView.getVisibility() == 0 && (zm8Var = this.i) != null) {
-                zm8Var.notifyDataSetChanged();
-            }
-            pt4 pt4Var = this.g;
-            if (pt4Var != null) {
-                pt4Var.H(TbadkApplication.getInst().getSkinType());
-            }
-            this.e.d();
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
+        if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !this.a.K && (nl8Var = this.b) != null && nl8Var.b() != null) {
+            this.b.b().b();
         }
+        qe5.a(1);
     }
 
-    public final void e(List<List<DressItemData>> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        nl8 nl8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.f.setVisibility(0);
-                this.i.b(list);
-                this.i.notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
+            b();
+            MainTabActivity.W = true;
+            TbadkCoreApplication.getInst().syncHasFinish = true;
+            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
                 return;
             }
-            this.f.setVisibility(8);
-        }
-    }
-
-    public final boolean f(tn8 tn8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tn8Var)) == null) {
-            if (tn8Var != null && !StringUtils.isNull(tn8Var.c())) {
-                this.e.setVisibility(0);
-                this.e.e(tn8Var);
-                return true;
-            }
-            this.e.setVisibility(8);
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(BdListView.p pVar, ot4.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
-            this.f.setOnSrollToBottomListener(pVar);
-            this.g.f(gVar);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.setVisibility(8);
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c51);
-            this.a.setNetRefreshViewTopMargin(this.j);
-            this.a.showNetRefreshView(this.b, string, false);
-        }
-    }
-
-    public void i(tn8 tn8Var, List<DressItemData> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, tn8Var, list, z) == null) {
-            if (list != null && list.size() > 0) {
-                b();
-                if (f(tn8Var)) {
-                    this.f.removeHeaderView(this.h);
-                    this.f.addHeaderView(this.h);
+            if (!this.a.K && (nl8Var = this.b) != null && nl8Var.c() != null) {
+                if (UbsABTestHelper.isNewInterestShowTestA()) {
+                    this.b.c().d();
                 } else {
-                    this.f.removeHeaderView(this.h);
+                    this.b.c().a();
                 }
-                e(a(list));
+            }
+            nl8 nl8Var2 = this.b;
+            if (nl8Var2 == null || nl8Var2.h() == null) {
                 return;
             }
-            h();
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f.A(0L);
+            this.b.h().a();
         }
     }
 }

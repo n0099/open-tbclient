@@ -17,7 +17,6 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.repackage.a7;
 import com.repackage.k1;
 import com.repackage.w7;
-import com.tachikoma.core.utility.FileUtil;
 /* loaded from: classes6.dex */
 public class m1 implements h7 {
     public static /* synthetic */ Interceptable $ic;
@@ -103,7 +102,7 @@ public class m1 implements h7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             synchronized (this) {
-                String replace = str.replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
+                String replace = str.replace('\\', WebvttCueParser.CHAR_SLASH);
                 if (this.h.b > 0) {
                     l1 f = this.h.f();
                     if (f.b.a.equals(replace)) {

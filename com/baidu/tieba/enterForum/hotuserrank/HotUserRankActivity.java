@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ng;
 import com.repackage.qg;
-import com.repackage.w46;
-import com.repackage.x46;
-import com.repackage.y46;
+import com.repackage.u56;
+import com.repackage.v56;
+import com.repackage.w56;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.TiebaFieldsInfo;
@@ -30,16 +30,16 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotUserRankView a;
-    public y46 b;
+    public w56 b;
     public String c;
     public long d;
-    public List<x46> e;
+    public List<v56> e;
     public String f;
     public int g;
     public boolean h;
     public Runnable i;
     public Runnable j;
-    public y46.b k;
+    public w56.b k;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -108,7 +108,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements y46.b {
+    public class c implements w56.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotUserRankActivity a;
@@ -131,43 +131,43 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             this.a = hotUserRankActivity;
         }
 
-        @Override // com.repackage.y46.b
-        public void a(w46 w46Var) {
+        @Override // com.repackage.w56.b
+        public void a(u56 u56Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, w46Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, u56Var) == null) {
                 HotUserRankActivity hotUserRankActivity = this.a;
                 hotUserRankActivity.hideLoadingView(hotUserRankActivity.a.i());
-                if (w46Var == null || w46Var.a == null) {
+                if (u56Var == null || u56Var.a == null) {
                     return;
                 }
-                this.a.f = w46Var.d;
+                this.a.f = u56Var.d;
                 if (this.a.d > 0) {
                     qg.a().post(this.a.i);
                     return;
                 }
-                TiebaFieldsInfo tiebaFieldsInfo = w46Var.a.f;
+                TiebaFieldsInfo tiebaFieldsInfo = u56Var.a.f;
                 if (tiebaFieldsInfo != null && !ListUtils.isEmpty(tiebaFieldsInfo.tieba_fields)) {
-                    List<String> list = w46Var.a.f.tieba_fields;
+                    List<String> list = u56Var.a.f.tieba_fields;
                     this.a.e.clear();
                     for (int i = 0; i < list.size(); i++) {
                         String str = list.get(i);
                         if (str != null && str.equals(this.a.c)) {
                             this.a.g = i;
                         }
-                        x46 x46Var = new x46();
-                        x46Var.b = str;
-                        x46Var.a = str;
-                        this.a.e.add(x46Var);
+                        v56 v56Var = new v56();
+                        v56Var.b = str;
+                        v56Var.a = str;
+                        this.a.e.add(v56Var);
                     }
                     qg.a().post(this.a.i);
                     return;
                 }
                 HotUserRankActivity hotUserRankActivity2 = this.a;
-                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.a.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0c37), true);
+                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.a.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0c2b), true);
             }
         }
 
-        @Override // com.repackage.y46.b
+        @Override // com.repackage.w56.b
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -199,7 +199,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         this.k = new c(this);
     }
 
-    public final void C0() {
+    public final void B0() {
         Uri uri;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getIntent() == null) {
@@ -217,7 +217,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         this.h = getIntent().getBooleanExtra(HotUserRankActivityConfig.KEY_IS_GOD, false);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.t75
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -240,19 +240,19 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             HotUserRankView hotUserRankView = new HotUserRankView(this);
             this.a = hotUserRankView;
             setContentView(hotUserRankView.i());
-            y46 y46Var = new y46(getUniqueId());
-            this.b = y46Var;
-            y46Var.n(this.k);
-            C0();
+            w56 w56Var = new w56(getUniqueId());
+            this.b = w56Var;
+            w56Var.n(this.k);
+            B0();
             if (!TextUtils.isEmpty(this.c)) {
                 this.b.i(this.c);
             } else if (this.d > 0) {
-                this.a.n(getString(R.string.obfuscated_res_0x7f0f066b));
+                this.a.n(getString(R.string.obfuscated_res_0x7f0f0675));
                 this.b.h(this.d);
             }
             this.a.m(this.h);
             if (this.h) {
-                this.a.n(getString(R.string.obfuscated_res_0x7f0f0267));
+                this.a.n(getString(R.string.obfuscated_res_0x7f0f0269));
             }
             showLoadingView(this.a.i());
         }

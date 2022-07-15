@@ -69,7 +69,7 @@ public final class PersonalChatActivityStaticAutoGenerateUrlCollectorImpl implem
             arrayList.add("ReplyMeActivityConfig");
             arrayList.add("OfficialNotificationActivityConfig");
             arrayList.add(UrlSchemaHelper.GOTO_PERSONAL_CHAT);
-            arrayList.add(UrlSchemaHelper.HTTPS_JUMP_TO_CHAT);
+            arrayList.add("https://tieba.baidu.com/mo/q/chat");
             hashMap.put("com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic", arrayList);
             return hashMap;
         }

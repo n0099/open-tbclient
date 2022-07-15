@@ -1,55 +1,91 @@
 package com.kwad.sdk.utils;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.media.AudioAttributes;
-import android.media.AudioFocusRequest;
+import android.content.pm.PackageInfo;
 import android.media.AudioManager;
-import android.os.Build;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class j {
-    public AudioManager a;
-    public AudioManager.OnAudioFocusChangeListener b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.kwad.sdk.utils.j.1
-        @Override // android.media.AudioManager.OnAudioFocusChangeListener
-        public void onAudioFocusChange(int i) {
-            if (j.this.c == null) {
-                return;
-            }
-            if (i < 0) {
-                j.this.c.a();
-            } else {
-                j.this.c.b();
+public final class j {
+    public static String a() {
+        return Locale.getDefault().getLanguage();
+    }
+
+    public static String a(Context context) {
+        try {
+            PackageInfo packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(context.getPackageName(), 64);
+            return packageInfo != null ? packageInfo.versionName : "";
+        } catch (Exception unused) {
+            return "";
+        }
+    }
+
+    public static String a(Context context, String str) {
+        if (!TextUtils.isEmpty(str) && context != null) {
+            try {
+                PackageInfo packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(str, 64);
+                if (packageInfo != null) {
+                    return packageInfo.versionName;
+                }
+            } catch (Exception unused) {
             }
         }
-    };
-    public a c;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-
-        void b();
+        return "";
     }
 
-    public j(Context context) {
-        this.a = (AudioManager) context.getSystemService("audio");
-    }
-
-    @TargetApi(26)
-    private AudioFocusRequest b() {
-        return new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.b).build();
-    }
-
-    public void a(a aVar) {
-        this.c = aVar;
-    }
-
-    public boolean a() {
-        AudioManager audioManager;
-        AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.b;
-        if (onAudioFocusChangeListener == null || (audioManager = this.a) == null) {
-            return false;
+    public static int b(Context context) {
+        try {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            return displayMetrics.widthPixels;
+        } catch (Exception unused) {
+            return 0;
         }
-        return Build.VERSION.SDK_INT >= 26 ? 1 == audioManager.requestAudioFocus(b()) : 1 == audioManager.requestAudioFocus(onAudioFocusChangeListener, 3, 2);
+    }
+
+    public static int c(Context context) {
+        try {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            return displayMetrics.heightPixels;
+        } catch (Exception unused) {
+            return 0;
+        }
+    }
+
+    public static int d(Context context) {
+        AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+        if (audioManager != null) {
+            return audioManager.getStreamVolume(3);
+        }
+        return 0;
+    }
+
+    public static int e(Context context) {
+        if (context == null) {
+            return 0;
+        }
+        try {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            return (int) (displayMetrics.widthPixels / displayMetrics.density);
+        } catch (Exception unused) {
+            return 0;
+        }
+    }
+
+    public static int f(Context context) {
+        if (context == null) {
+            return 0;
+        }
+        try {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            return (int) (displayMetrics.heightPixels / displayMetrics.density);
+        } catch (Exception unused) {
+            return 0;
+        }
     }
 }

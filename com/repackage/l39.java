@@ -1,84 +1,80 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubs.analytics.SampleResult;
+import com.repackage.n39;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public final class l39 {
+public class l39 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a extends r39 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.a b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-
-        public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, aVar, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = aVar;
-            this.c = str;
-            this.d = str2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755579873, "Lcom/repackage/l39;")) == null) {
+            return;
         }
-
-        @Override // com.repackage.r39
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a != null) {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append("{");
-                    for (Map.Entry entry : this.a.entrySet()) {
-                        stringBuffer.append("\"");
-                        stringBuffer.append(entry.getKey());
-                        stringBuffer.append("\":\"");
-                        stringBuffer.append(entry.getValue().toString().replace("\"", "\\\""));
-                        stringBuffer.append("\",");
-                    }
-                    StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
-                    stringBuffer2.append("}");
-                    this.b.w(stringBuffer2.toString());
-                }
-                try {
-                    this.b.x(o39.f().I());
-                    this.b.u(String.valueOf(System.currentTimeMillis()));
-                    this.b.t(this.c);
-                    this.b.s(this.d == null ? "" : this.d);
-                    new p29().c(this.b);
-                } catch (Exception e) {
-                    if (e.getMessage() != null) {
-                        p39.b(e.getMessage());
-                    }
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755579873, "Lcom/repackage/l39;");
         }
     }
 
-    public static void a(String str, String str2, String str3, Map<String, String> map) {
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, map) == null) {
-            com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
-            aVar.v(str);
-            q39.c(new a(map, aVar, str2, str3));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a) {
+                return n39.a.a.f(str);
+            }
+            return SampleResult.OTHERE;
+        }
+        return (SampleResult) invokeL.objValue;
+    }
+
+    public static void b(m39 m39Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, m39Var) == null) || m39Var == null) {
+            return;
+        }
+        h49.b(m39Var);
+    }
+
+    public static void c(String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, map) == null) && a && str != null) {
+            k49.a(str, str2, str3, map);
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
+            f49.a().b(str);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
+            f49.a().c(str);
+        }
+    }
+
+    public static void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
+            a = z;
         }
     }
 }

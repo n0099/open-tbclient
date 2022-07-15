@@ -1,8 +1,6 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +8,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class qt1 extends ys1 {
+public class qt1 extends nt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RectF a;
 
     public qt1() {
         Interceptable interceptable = $ic;
@@ -29,31 +26,18 @@ public class qt1 extends ys1 {
         }
     }
 
-    @Override // com.repackage.ys1
-    public void a(zs1 zs1Var, Canvas canvas) {
-        RectF rectF;
+    @Override // com.repackage.nt1
+    public void a(ot1 ot1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, zs1Var, canvas) == null) || (rectF = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) {
+            ot1Var.f.reset();
         }
-        zs1Var.f.addRect(rectF, Path.Direction.CW);
     }
 
-    @Override // com.repackage.ys1
+    @Override // com.repackage.nt1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = jd3.g((float) jSONArray.optDouble(0));
-                    int g2 = jd3.g((float) jSONArray.optDouble(1));
-                    this.a = new RectF(g, g2, g + jd3.g((float) jSONArray.optDouble(2)), g2 + jd3.g((float) jSONArray.optDouble(3)));
-                }
-            } catch (Exception e) {
-                if (cg1.a) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }

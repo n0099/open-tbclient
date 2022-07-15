@@ -11,7 +11,7 @@ public interface r3 {
 
     int e();
 
-    int getDepth();
+    int f();
 
     int getHeight();
 

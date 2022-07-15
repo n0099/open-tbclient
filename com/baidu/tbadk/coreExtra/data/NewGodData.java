@@ -8,13 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.on4;
+import com.repackage.do4;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.NewGodInfo;
 /* loaded from: classes3.dex */
-public class NewGodData extends on4 implements Serializable {
-    public static /* synthetic */ Interceptable $ic;
+public class NewGodData extends do4 implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final long serialVersionUID = -107269285489960303L;
     public transient /* synthetic */ FieldHolder $fh;
     public String mFieldId;
     public String mFieldName;
@@ -100,7 +101,7 @@ public class NewGodData extends on4 implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mType == 2 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.on4
+    @Override // com.repackage.do4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {
@@ -136,16 +137,9 @@ public class NewGodData extends on4 implements Serializable {
         }
     }
 
-    public void setFieldName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.mFieldName = str;
-        }
-    }
-
     public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.mStatus = i;
         }
     }

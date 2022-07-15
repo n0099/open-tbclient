@@ -25,19 +25,19 @@ public class bb implements au {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f123a;
+    public volatile int f850a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f124a;
+    public Context f851a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ServiceConnection f125a;
+    public ServiceConnection f852a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile a f126a;
+    public volatile a f853a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f127a;
+    public final Object f854a;
 
     /* loaded from: classes8.dex */
     public class a {
@@ -46,7 +46,7 @@ public class bb implements au {
         public final /* synthetic */ bb a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f128a;
+        public String f855a;
         public String b;
         public String c;
         public String d;
@@ -67,7 +67,7 @@ public class bb implements au {
                 }
             }
             this.a = bbVar;
-            this.f128a = null;
+            this.f855a = null;
             this.b = null;
             this.c = null;
             this.d = null;
@@ -109,7 +109,7 @@ public class bb implements au {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) && this.a.f126a == null) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) && this.a.f853a == null) {
                 new Thread(new bd(this, iBinder)).start();
             }
         }
@@ -165,10 +165,10 @@ public class bb implements au {
                 return;
             }
         }
-        this.f123a = 0;
-        this.f126a = null;
-        this.f127a = new Object();
-        this.f124a = context;
+        this.f850a = 0;
+        this.f853a = null;
+        this.f854a = new Object();
+        this.f851a = context;
         a();
     }
 
@@ -176,26 +176,26 @@ public class bb implements au {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.f125a = new b(this, null);
+            this.f852a = new b(this, null);
             Intent intent = new Intent();
             intent.setClassName("com.heytap.openid", "com.heytap.openid.IdentifyService");
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
             try {
-                z = this.f124a.bindService(intent, this.f125a, 1);
+                z = this.f851a.bindService(intent, this.f852a, 1);
             } catch (Exception unused) {
                 z = false;
             }
-            this.f123a = z ? 1 : 2;
+            this.f850a = z ? 1 : 2;
         }
     }
 
     private void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && this.f123a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
-            synchronized (this.f127a) {
+        if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && this.f850a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
+            synchronized (this.f854a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m84a("oppo's " + str + " wait...");
-                    this.f127a.wait(3000L);
+                    com.xiaomi.channel.commonutils.logger.b.m1027a("oppo's " + str + " wait...");
+                    this.f854a.wait(3000L);
                 } catch (Exception unused) {
                 }
             }
@@ -229,7 +229,7 @@ public class bb implements au {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             try {
-                Signature[] signatureArr = this.f124a.getPackageManager().getPackageInfo(this.f124a.getPackageName(), 64).signatures;
+                Signature[] signatureArr = this.f851a.getPackageManager().getPackageInfo(this.f851a.getPackageName(), 64).signatures;
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
                 StringBuilder sb = new StringBuilder();
                 for (byte b2 : messageDigest.digest(signatureArr[0].toByteArray())) {
@@ -245,14 +245,14 @@ public class bb implements au {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b  reason: collision with other method in class */
-    public void m187b() {
+    public void m1130b() {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (serviceConnection = this.f125a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (serviceConnection = this.f852a) == null) {
             return;
         }
         try {
-            this.f124a.unbindService(serviceConnection);
+            this.f851a.unbindService(serviceConnection);
         } catch (Exception unused) {
         }
     }
@@ -263,10 +263,10 @@ public class bb implements au {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             a("getOAID");
-            if (this.f126a == null) {
+            if (this.f853a == null) {
                 return null;
             }
-            return this.f126a.b;
+            return this.f853a.b;
         }
         return (String) invokeV.objValue;
     }

@@ -3,7 +3,7 @@ package com.kwad.sdk.crash.model.message;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class MemoryInfo implements b, Serializable {
             }
             parseJson(new JSONObject(str));
         } catch (JSONException e) {
-            com.kwad.sdk.core.d.a.b(e);
+            com.kwad.sdk.core.d.b.b(e);
         }
     }
 
@@ -100,26 +100,26 @@ public class MemoryInfo implements b, Serializable {
                 }
             }
         } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+            com.kwad.sdk.core.d.b.b(e);
         }
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "mTotalMB", this.mTotalMB);
-        t.a(jSONObject, "mAvailableMB", this.mAvailableMB);
-        t.a(jSONObject, "mJavaHeapLimitMB", this.mJavaHeapLimitMB);
-        t.a(jSONObject, "mJavaHeapMB", this.mJavaHeapMB);
-        t.a(jSONObject, "mVssMB", this.mVssMB);
-        t.a(jSONObject, "mRssMB", this.mRssMB);
-        t.a(jSONObject, "mPssMB", this.mPssMB);
-        t.a(jSONObject, "mThreadsCount", this.mThreadsCount);
-        t.a(jSONObject, "mFdCount", this.mFdCount);
-        t.a(jSONObject, "mFds", this.mFds);
-        t.a(jSONObject, "mJavaThreads", this.mJavaThreads);
-        t.a(jSONObject, "mNativeThreads", this.mNativeThreads);
-        t.a(jSONObject, "mAllThreads", this.mAllThreads);
+        r.a(jSONObject, "mTotalMB", this.mTotalMB);
+        r.a(jSONObject, "mAvailableMB", this.mAvailableMB);
+        r.a(jSONObject, "mJavaHeapLimitMB", this.mJavaHeapLimitMB);
+        r.a(jSONObject, "mJavaHeapMB", this.mJavaHeapMB);
+        r.a(jSONObject, "mVssMB", this.mVssMB);
+        r.a(jSONObject, "mRssMB", this.mRssMB);
+        r.a(jSONObject, "mPssMB", this.mPssMB);
+        r.a(jSONObject, "mThreadsCount", this.mThreadsCount);
+        r.a(jSONObject, "mFdCount", this.mFdCount);
+        r.a(jSONObject, "mFds", this.mFds);
+        r.a(jSONObject, "mJavaThreads", this.mJavaThreads);
+        r.a(jSONObject, "mNativeThreads", this.mNativeThreads);
+        r.a(jSONObject, "mAllThreads", this.mAllThreads);
         return jSONObject;
     }
 
@@ -127,26 +127,19 @@ public class MemoryInfo implements b, Serializable {
         StringBuilder sb = new StringBuilder();
         sb.append("\t总RAM容量: ");
         sb.append(this.mTotalMB);
-        sb.append(" (MB)\n");
-        sb.append("\t剩余RAM容量: ");
+        sb.append(" (MB)\n\t剩余RAM容量: ");
         sb.append(this.mAvailableMB);
-        sb.append(" (MB)\n");
-        sb.append("\t本进程Java堆上限: ");
+        sb.append(" (MB)\n\t本进程Java堆上限: ");
         sb.append(this.mJavaHeapLimitMB);
-        sb.append(" (MB)\n");
-        sb.append("\t本进程Java堆已使用: ");
+        sb.append(" (MB)\n\t本进程Java堆已使用: ");
         sb.append(this.mJavaHeapMB);
-        sb.append(" (MB)\n");
-        sb.append("\t虚拟地址空间已使用Vss: ");
+        sb.append(" (MB)\n\t虚拟地址空间已使用Vss: ");
         sb.append(this.mVssMB);
-        sb.append(" (MB)\n");
-        sb.append("\t实际空间使用量(包含共享库) Rss: ");
+        sb.append(" (MB)\n\t实际空间使用量(包含共享库) Rss: ");
         sb.append(this.mRssMB);
-        sb.append(" (MB)\n");
-        sb.append("\t实际空间使用量(共享库已经均摊)(高内存杀进程的依据）Pss: ");
+        sb.append(" (MB)\n\t实际空间使用量(共享库已经均摊)(高内存杀进程的依据）Pss: ");
         sb.append(this.mPssMB);
-        sb.append(" (MB)\n");
-        sb.append("\t打开文件描述符数: ");
+        sb.append(" (MB)\n\t打开文件描述符数: ");
         sb.append(this.mFdCount);
         sb.append("\n");
         if (this.mFds.size() > 0) {

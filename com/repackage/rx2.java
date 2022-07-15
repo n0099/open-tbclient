@@ -1,50 +1,42 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.view.inputmethod.InputMethodManager;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.publisher.ReplyEditorParams;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lz2;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rx2 {
+public class rx2 extends e23 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
-    public static int c;
-    public static int d;
-    public static int e;
-    public static int f;
-    public static boolean g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public class a implements jx2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ String c;
 
-        public a(View view2) {
+        public a(rx2 rx2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
+                Object[] objArr = {rx2Var, callbackHandler, unitedSchemeEntity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,290 +46,127 @@ public class rx2 {
                     return;
                 }
             }
-            this.a = view2;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.jx2
+        public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rx2.m(this.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                if (jSONObject == null) {
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.c);
+                } else {
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.c);
+                }
+            }
+        }
+
+        @Override // com.repackage.jx2
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.c);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public interface b {
-        void onSoftInputShowing(boolean z);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final vx2 a;
-        public final ViewGroup b;
-        public final b c;
-        public int d;
-        public boolean e;
-        public final Activity f;
-        public int g;
 
-        public c(Activity activity, ViewGroup viewGroup, vx2 vx2Var, b bVar) {
+        public b(rx2 rx2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {activity, viewGroup, vx2Var, bVar};
+                Object[] objArr = {rx2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = 0;
-            this.f = activity;
-            this.c = bVar;
-            this.b = viewGroup;
-            this.a = vx2Var;
-        }
-
-        private Context getContext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.b.getContext() : (Context) invokeV.objValue;
-        }
-
-        public final void a(int i) {
-            int abs;
-            int j;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (this.d == 0) {
-                    this.d = i;
-                    this.a.refreshHeight(rx2.j(getContext()));
-                }
-                if (ox2.e(this.b.getContext())) {
-                    abs = ((View) this.b.getParent()).getHeight() - i;
-                } else {
-                    abs = Math.abs(i - this.d);
-                }
-                if (abs > rx2.g(getContext())) {
-                    if (!rx2.l(getContext(), abs) || this.a.getHeight() == (j = rx2.j(getContext()))) {
-                        return;
-                    }
-                    this.a.refreshHeight(j);
-                } else if (Math.abs(abs) == rx2.i(this.b.getContext())) {
-                    this.d -= abs;
                 }
             }
         }
 
-        public final void b(int i) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                View view2 = (View) this.b.getParent();
-                int height = view2.getHeight() - view2.getPaddingTop();
-                boolean z = true;
-                if (!ox2.e(this.b.getContext())) {
-                    int i2 = this.g;
-                    if (i2 == 0) {
-                        z = this.e;
-                    } else if (i >= i2 - rx2.g(getContext())) {
-                        z = false;
-                    }
-                    this.g = Math.max(this.g, height);
-                } else if (height <= i) {
-                    z = false;
-                }
-                if (this.e != z) {
-                    this.a.onSoftInputShowing(z);
-                    b bVar = this.c;
-                    if (bVar != null) {
-                        bVar.onSoftInputShowing(z);
-                    }
-                }
-                this.e = z;
-            }
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                View childAt = this.b.getChildAt(0);
-                Rect rect = new Rect();
-                if (childAt == null) {
-                    i = -1;
-                } else if (!ox2.e(this.b.getContext()) && (!tx2.e(this.f) || !tx2.c(this.f))) {
-                    i = childAt.getHeight();
-                } else {
-                    childAt.getWindowVisibleDisplayFrame(rect);
-                    i = rect.bottom - rect.top;
-                }
-                if (i == -1) {
-                    return;
-                }
-                a(i);
-                b(i);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755335035, "Lcom/repackage/rx2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rx2(e13 e13Var) {
+        super(e13Var, "/swanAPI/community/openReplyEditor");
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755335035, "Lcom/repackage/rx2;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static ViewTreeObserver.OnGlobalLayoutListener c(Activity activity, ViewGroup viewGroup, vx2 vx2Var, b bVar) {
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, activity, viewGroup, vx2Var, bVar)) == null) {
-            if (viewGroup == null) {
-                viewGroup = (ViewGroup) activity.findViewById(16908290);
-            }
-            c cVar = new c(activity, viewGroup, vx2Var, bVar);
-            viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(cVar);
-            return cVar;
-        }
-        return (ViewTreeObserver.OnGlobalLayoutListener) invokeLLLL.objValue;
-    }
-
-    public static int d(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources)) == null) {
-            if (d == 0) {
-                d = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070155);
-            }
-            return d;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (b == 0) {
-                b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070156);
-            }
-            return b;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int f(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, resources)) == null) {
-            if (c == 0) {
-                c = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070157);
-            }
-            return c;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (a == 0) {
-                a = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070158);
-            }
-            return a;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (e == 0) {
-                e = ix2.a(context, f(context.getResources()));
-            }
-            return e;
-        }
-        return invokeL.intValue;
-    }
-
-    public static synchronized int i(Context context) {
-        InterceptResult invokeL;
-        int i;
-        int identifier;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            synchronized (rx2.class) {
-                if (!g && (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android")) > 0) {
-                    f = context.getResources().getDimensionPixelSize(identifier);
-                    g = true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (h03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
+                return false;
+            } else if (h03Var.n0()) {
+                if (e23.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
-                i = f;
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) ? Math.min(d(context.getResources()), Math.max(f(context.getResources()), h(context))) : invokeL.intValue;
-    }
-
-    public static void k(@NonNull View view2) {
-        InputMethodManager inputMethodManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, view2) == null) || (inputMethodManager = (InputMethodManager) view2.getContext().getSystemService("input_method")) == null) {
-            return;
-        }
-        inputMethodManager.hideSoftInputFromWindow(view2.getWindowToken(), 0);
-    }
-
-    public static boolean l(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, context, i)) == null) {
-            if (e != i && i >= 0) {
-                e = i;
-                return ix2.b(context, i);
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static void m(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, view2) == null) {
-            view2.requestFocus();
-            InputMethodManager inputMethodManager = (InputMethodManager) view2.getContext().getSystemService("input_method");
-            if (inputMethodManager != null) {
-                inputMethodManager.showSoftInput(view2, 0);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
+            } else {
+                JSONObject d = hd3.d(unitedSchemeEntity.getParam("params"));
+                String optString = d.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                a aVar = new a(this, callbackHandler, unitedSchemeEntity, optString);
+                ReplyEditorParams fromJson = ReplyEditorParams.fromJson(d);
+                if (fromJson == null) {
+                    j(context);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params info");
+                    return false;
+                }
+                nx2.c().e(h03Var, fromJson, aVar);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static void n(View view2, long j) {
+    public final void j(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65550, null, view2, j) == null) {
-            view2.postDelayed(new a(view2), j);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            lz2.a aVar = new lz2.a(context);
+            aVar.m(false);
+            aVar.U(R.string.obfuscated_res_0x7f0f12f1);
+            aVar.v(R.string.obfuscated_res_0x7f0f12f5);
+            aVar.O(R.string.obfuscated_res_0x7f0f0115, new b(this));
+            aVar.X();
         }
     }
 }

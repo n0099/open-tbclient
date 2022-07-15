@@ -76,7 +76,7 @@ public final class ThemeEnforcement {
             obtainStyledAttributes.recycle();
             if (z) {
                 TypedValue typedValue = new TypedValue();
-                if (!context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f04030c, typedValue, true) || (typedValue.type == 18 && typedValue.data == 0)) {
+                if (!context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f04030a, typedValue, true) || (typedValue.type == 18 && typedValue.data == 0)) {
                     checkMaterialTheme(context);
                 }
             }

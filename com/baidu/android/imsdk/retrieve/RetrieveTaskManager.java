@@ -66,7 +66,7 @@ public class RetrieveTaskManager {
                 LogUtils.d(TAG, "retrieve-->dispatch jsondata data value is null");
                 return;
             }
-            String optString = optJSONObject.optString(KEY);
+            String optString = optJSONObject.optString("api");
             if (!TextUtils.equals(ACTION_FETCH_LOG_NOTICE, optString)) {
                 LogUtils.d(TAG, "retrieve-->dispatch jsondata api value not equal fetch_log_notice:" + optString);
                 return;

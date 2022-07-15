@@ -10,6 +10,7 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,11 +58,11 @@ public class v {
         public String a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f79a;
+        public boolean f806a;
         public String b;
 
         /* renamed from: b  reason: collision with other field name */
-        public boolean f80b;
+        public boolean f807b;
 
         public b(String str, boolean z, boolean z2, String str2) {
             Interceptable interceptable = $ic;
@@ -79,8 +80,8 @@ public class v {
                 }
             }
             this.a = str;
-            this.f79a = z;
-            this.f80b = z2;
+            this.f806a = z;
+            this.f807b = z2;
             this.b = str2;
         }
     }
@@ -242,7 +243,7 @@ public class v {
         if (interceptable == null || interceptable.invokeLL(65546, null, context, packageInfo) == null) {
             HashSet hashSet = new HashSet();
             String str = context.getPackageName() + ".permission.MIPUSH_RECEIVE";
-            hashSet.addAll(Arrays.asList("android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE", str, "android.permission.ACCESS_WIFI_STATE", "android.permission.VIBRATE"));
+            hashSet.addAll(Arrays.asList(PermissionChecker.INTERNET, "android.permission.ACCESS_NETWORK_STATE", str, PermissionChecker.ACCESS_WIFI_STATE, "android.permission.VIBRATE"));
             PermissionInfo[] permissionInfoArr = packageInfo.permissions;
             if (permissionInfoArr != null) {
                 for (PermissionInfo permissionInfo : permissionInfoArr) {
@@ -296,8 +297,8 @@ public class v {
                 for (ServiceInfo serviceInfo : serviceInfoArr) {
                     if (!TextUtils.isEmpty(serviceInfo.name) && hashMap2.containsKey(serviceInfo.name)) {
                         b bVar = (b) hashMap2.remove(serviceInfo.name);
-                        boolean z = bVar.f79a;
-                        boolean z2 = bVar.f80b;
+                        boolean z = bVar.f806a;
+                        boolean z2 = bVar.f807b;
                         String str = bVar.b;
                         if (z != serviceInfo.enabled) {
                             throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));

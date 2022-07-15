@@ -1,37 +1,30 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class m85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public m85() {
+    public static void a(String str, int i, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_source", str2);
+            if (i > 0) {
+                statisticItem.param("obj_locate", i);
             }
-        }
-        BdUniqueId.gen();
-        this.a = 0;
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a = i;
+            if (!StringUtils.isNull(str3)) {
+                statisticItem.param("tid", str3);
+            }
+            if (!StringUtils.isNull(str4)) {
+                statisticItem.param("fid", str4);
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 }

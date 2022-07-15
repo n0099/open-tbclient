@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.video.kwai;
 
-import android.media.TimedText;
 import android.view.Surface;
 import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
@@ -8,23 +7,23 @@ public interface c {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(c cVar, int i);
+        void a(int i);
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(c cVar);
+        void a();
     }
 
     /* renamed from: com.kwad.sdk.core.video.kwai.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0315c {
-        boolean a(c cVar, int i, int i2);
+    public interface InterfaceC0547c {
+        boolean a(int i, int i2);
     }
 
     /* loaded from: classes5.dex */
     public interface d {
-        boolean a(c cVar, int i, int i2);
+        boolean a(int i, int i2);
     }
 
     /* loaded from: classes5.dex */
@@ -34,17 +33,15 @@ public interface c {
 
     /* loaded from: classes5.dex */
     public interface f {
-        void a(c cVar);
     }
 
     /* loaded from: classes5.dex */
     public interface g {
-        void a(c cVar, TimedText timedText);
     }
 
     /* loaded from: classes5.dex */
     public interface h {
-        void a(c cVar, int i, int i2);
+        void a(int i, int i2);
     }
 
     void a(float f2, float f3);
@@ -53,13 +50,13 @@ public interface c {
 
     void a(Surface surface);
 
-    void a(@NonNull com.kwad.sdk.contentalliance.detail.video.c cVar);
+    void a(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.b bVar);
 
     void a(a aVar);
 
     void a(b bVar);
 
-    void a(InterfaceC0315c interfaceC0315c);
+    void a(InterfaceC0547c interfaceC0547c);
 
     void a(d dVar);
 
@@ -73,25 +70,21 @@ public interface c {
 
     void b(int i);
 
-    boolean e();
+    boolean d();
+
+    void e();
 
     void f();
 
-    void g();
+    long g();
 
-    int h();
+    long h();
 
-    int i();
+    void i();
 
-    long j();
+    void j();
 
-    long k();
+    boolean k();
 
-    void l();
-
-    void m();
-
-    boolean n();
-
-    int o();
+    int l();
 }

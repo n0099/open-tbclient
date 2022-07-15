@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kn5;
+import com.repackage.no5;
 /* loaded from: classes3.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements kn5 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements no5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -69,8 +69,8 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements kn5 {
         }
     }
 
-    @Override // com.repackage.kn5
-    public boolean d0() {
+    @Override // com.repackage.no5
+    public boolean c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -96,15 +96,15 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements kn5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02c7);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914bf);
+            setContentView(R.layout.obfuscated_res_0x7f0d02c8);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091568);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06b4));
-            this.b = LiveTabYYSubFragment.L1(false, 2);
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09069b, this.b).commitAllowingStateLoss();
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06be));
+            this.b = LiveTabYYSubFragment.K1(false, 2);
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906a0, this.b).commitAllowingStateLoss();
             String stringExtra = getIntent().getStringExtra("KEY_FORUM_ID");
-            this.b.v1(stringExtra, getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME));
+            this.b.u1(stringExtra, getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME));
             this.a.post(new a(this));
             TiebaStatic.log(new StatisticItem("c14703").param("fid", stringExtra));
         }

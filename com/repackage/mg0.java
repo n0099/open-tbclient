@@ -1,15 +1,24 @@
 package com.repackage;
 
+import android.view.MotionEvent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class mg0 implements ya1 {
+public class mg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int[] a;
+    public final int[] b;
+    public int c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
 
     public mg0() {
         Interceptable interceptable = $ic;
@@ -21,28 +30,52 @@ public class mg0 implements ya1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new int[]{0, 0};
+        this.b = new int[]{0, 0};
+        this.c = 0;
+        this.h = 0L;
+    }
+
+    public void a(MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                long currentTimeMillis = System.currentTimeMillis();
+                this.d = currentTimeMillis;
+                if (this.h == 0) {
+                    this.h = currentTimeMillis;
+                }
+                this.a[0] = (int) motionEvent.getRawX();
+                this.a[1] = (int) motionEvent.getRawY();
+            } else if (action != 1) {
+                if (action != 2) {
+                    return;
+                }
+                this.c++;
+            } else {
+                this.c = 0;
+                this.e = System.currentTimeMillis();
+                this.b[0] = (int) motionEvent.getRawX();
+                this.b[1] = (int) motionEvent.getRawY();
+                if (Math.max(Math.abs(this.b[0] - this.a[0]), Math.abs(this.b[1] - this.a[1])) > 10) {
+                    this.g++;
+                    this.f += Math.max(0L, this.e - this.d);
+                }
             }
         }
     }
 
-    @Override // com.repackage.ya1
-    public Object get() {
+    public int[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new we0());
-            arrayList.add(new xe0());
-            arrayList.add(new ye0());
-            arrayList.add(new ze0());
-            arrayList.add(new af0());
-            arrayList.add(new cf0());
-            arrayList.add(new vf0());
-            arrayList.add(new jl0());
-            arrayList.add(new n11());
-            arrayList.add(new gj5());
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int[] iArr = this.b;
+            return new int[]{iArr[0], iArr[1]};
         }
-        return invokeV.objValue;
+        return (int[]) invokeV.objValue;
     }
 }

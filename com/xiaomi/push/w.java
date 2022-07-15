@@ -25,7 +25,7 @@ public class w {
         public final String a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final StringBuilder f1006a;
+        public final StringBuilder f1733a;
         public final String b;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -62,7 +62,7 @@ public class w {
                     return;
                 }
             }
-            this.f1006a = new StringBuilder();
+            this.f1733a = new StringBuilder();
             this.a = str;
             this.b = str2;
         }
@@ -72,10 +72,10 @@ public class w {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
                 if (!TextUtils.isEmpty(str)) {
-                    if (this.f1006a.length() > 0) {
-                        this.f1006a.append(this.b);
+                    if (this.f1733a.length() > 0) {
+                        this.f1733a.append(this.b);
                     }
-                    StringBuilder sb = this.f1006a;
+                    StringBuilder sb = this.f1733a;
                     sb.append(str);
                     sb.append(this.a);
                     sb.append(obj);
@@ -88,7 +88,7 @@ public class w {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1006a.toString() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1733a.toString() : (String) invokeV.objValue;
         }
     }
 

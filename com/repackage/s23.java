@@ -1,40 +1,31 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.l03;
 /* loaded from: classes7.dex */
-public class s23 extends p13 {
+public class s23 extends r23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s23(p03 p03Var) {
-        super(p03Var, "/swanAPI/getMenuButtonBoundingClientRect");
+    public s23(k03 k03Var) {
+        super(k03Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
+            Object[] objArr = {k03Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((k03) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,86 +33,45 @@ public class s23 extends p13 {
         }
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.r23
+    public void I(String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (sz2Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            if (p13.b) {
-                Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            bz1 V = fl2.U().V();
-            if (V == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            yy1 m = V.m();
-            if (m == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (sz2Var.w0()) {
-                View r = aj2.i().r(m);
-                if (r == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && M() && (str2 = this.d) != null && str2.equals(str)) {
+            g03 K = g03.K();
+            if (K.E()) {
+                if (K.q().n0()) {
+                    K.n("flag_finish_activity", "flag_remove_task");
+                    return;
                 }
-                unitedSchemeEntity.result = j(r);
-                return true;
-            } else {
-                SwanAppActionBar K1 = m.K1();
-                if (K1 == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                View rightMenu = K1.getRightMenu();
-                if (rightMenu == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                unitedSchemeEntity.result = j(rightMenu);
-                return true;
+                ac3 ac3Var = new ac3();
+                ac3Var.k(10L);
+                ac3Var.i(2107L);
+                ac3Var.d("app forbidden");
+                n03.y0(c84.i().u(str), oj2.c(), K.q().W(), false, null, ac3Var);
             }
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final JSONObject j(View view2) {
-        InterceptResult invokeL;
-        JSONObject wrapCallbackParams;
+    public boolean M() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            sz2 M = sz2.M();
-            int P = M != null ? M.w0() : false ? 0 : (int) (jd3.P(jd3.t()) + 0.5f);
-            int P2 = (int) (jd3.P(view2.getLeft()) + 0.5f);
-            int P3 = (int) (jd3.P(view2.getRight()) + 0.5f);
-            int P4 = ((int) (jd3.P(view2.getTop()) + 0.5f)) + P;
-            int P5 = ((int) (jd3.P(view2.getBottom()) + 0.5f)) + P;
-            int i = P3 - P2;
-            int i2 = P5 - P4;
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("width", i);
-                jSONObject.put("height", i2);
-                jSONObject.put("left", P2);
-                jSONObject.put("right", P3);
-                jSONObject.put("top", P4);
-                jSONObject.put("bottom", P5);
-                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            } catch (JSONException e) {
-                if (p13.b) {
-                    e.printStackTrace();
-                }
-                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (h03.b0() == null || this.b == 0) ? false : true : invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.af3
+    /* renamed from: N */
+    public void a(l03.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            if (tw2.J(aVar.D(), "swan_forbidden_kill_on_client")) {
+                this.b = aVar.j("ipc_forbidden_flag", 1);
+                this.d = aVar.o("mAppId", g03.K().getAppId());
             }
-            if (p13.b) {
-                Log.e("GetMenuButtonBounding", wrapCallbackParams.toString());
+            if (tw2.J(aVar.D(), "swan_kill_to_client")) {
+                g03.K().n("flag_finish_activity", "flag_remove_task");
             }
-            return wrapCallbackParams;
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

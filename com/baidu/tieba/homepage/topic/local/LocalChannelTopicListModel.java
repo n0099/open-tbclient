@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b17;
 import com.repackage.d9;
-import com.repackage.l07;
 /* loaded from: classes3.dex */
 public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicListModel> {
     public static /* synthetic */ Interceptable $ic;
@@ -60,9 +60,9 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
                     }
                     return;
                 }
-                l07 l07Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
+                b17 b17Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
                 if (this.a.a != null) {
-                    this.a.a.a(l07Var);
+                    this.a.a.a(b17Var);
                 }
             }
         }
@@ -70,7 +70,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(l07 l07Var);
+        void a(b17 b17Var);
 
         void onFail(String str);
     }
@@ -98,7 +98,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
         registerListener(aVar);
     }
 
-    public void A(b bVar) {
+    public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a = bVar;

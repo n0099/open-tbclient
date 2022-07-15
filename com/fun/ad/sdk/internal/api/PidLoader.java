@@ -5,16 +5,13 @@ import android.content.Context;
 import android.view.ViewGroup;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd;
 import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.FunNativeAdInflater;
 import com.fun.ad.sdk.FunSplashAd;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.repackage.hh9;
+import com.repackage.qc9;
 /* loaded from: classes4.dex */
 public interface PidLoader {
-    void addListener(hh9 hh9Var);
+    void addListener(qc9 qc9Var);
 
     void destroy();
 
@@ -24,22 +21,21 @@ public interface PidLoader {
 
     FunAdType getAdType();
 
-    @Deprecated
-    FunNativeAd getNativeAd(Context context, String str);
+    double getBiddingOrBasePrices();
 
     FunNativeAd2 getNativeAd2(Context context, String str);
 
     Ssp.Pid getPid();
 
-    RippedAd getRippedAd();
-
     boolean isLoaded();
 
-    boolean load(Context context, FunAdSlot funAdSlot);
+    boolean load(Context context, FunAdSlot funAdSlot, SidSessionMeta sidSessionMeta);
 
-    void removeListener(hh9 hh9Var);
+    void removeListener(qc9 qc9Var);
 
-    boolean show(Activity activity, ViewGroup viewGroup, String str, FunNativeAdInflater funNativeAdInflater);
+    void setBiddingResult(double d, double d2, int i);
 
-    FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str);
+    boolean show(Activity activity, ViewGroup viewGroup, String str, SidSessionMeta sidSessionMeta);
+
+    FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, SidSessionMeta sidSessionMeta);
 }

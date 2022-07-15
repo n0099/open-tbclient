@@ -1,107 +1,173 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Build;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.pay.PayConfig;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p75;
+import com.repackage.te;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class c85 {
+public class c85<T extends p75> extends a85<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static c85 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755843311, "Lcom/repackage/c85;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755843311, "Lcom/repackage/c85;");
-        }
-    }
-
-    public c85() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c85(int i, String str, Class<T> cls) {
+        super(i, str, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, cls};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static synchronized c85 c() {
-        InterceptResult invokeV;
-        c85 c85Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (c85.class) {
-                if (a == null) {
-                    a = new c85();
-                }
-                c85Var = a;
-            }
-            return c85Var;
-        }
-        return (c85) invokeV.objValue;
-    }
-
-    public void a(PayConfig payConfig, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, payConfig, context) == null) {
-            if (payConfig != null && context != null) {
-                if (!d()) {
-                    e(R.string.obfuscated_res_0x7f0f0ea1);
-                    return;
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            e(R.string.obfuscated_res_0x7f0f0ea0);
         }
     }
 
-    public void b(String str, TbPageContext<?> tbPageContext) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0073 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x00d6 */
+    /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v12. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v9. Raw type applied. Possible types: T */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v10, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    /* JADX WARN: Type inference failed for: r7v10 */
+    /* JADX WARN: Type inference failed for: r7v12 */
+    /* JADX WARN: Type inference failed for: r7v17, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v36 */
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
+        InterceptResult invokeL;
+        String str;
+        ?? arrayList;
+        String str2;
+        p75 p75Var;
+        byte[] bArr;
+        p75 p75Var2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, tbPageContext) == null) || tbPageContext == null) {
-            return;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, customMessage)) != null) {
+            return (CustomResponsedMessage) invokeL.objValue;
         }
-        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 : invokeV.booleanValue;
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            pi.N(TbadkCoreApplication.getInst().getContext(), i);
+        p75 p75Var3 = null;
+        if (customMessage == null || !(customMessage instanceof ReadCacheMessage)) {
+            return null;
+        }
+        ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
+        p75 p75Var4 = (p75) a();
+        try {
+            try {
+                if (readCacheMessage.isNeedUid()) {
+                    str = TbadkCoreApplication.getCurrentAccount();
+                    if (str == null) {
+                        str = "";
+                    }
+                } else {
+                    str = null;
+                }
+                if (p75Var4 != null) {
+                    if (readCacheMessage.getRequestData() == null) {
+                        try {
+                            if (p75Var4 instanceof o75) {
+                                br4.f();
+                                List<te.b<byte[]>> a = ui.a(br4.e(this.b, str));
+                                if (a != null) {
+                                    arrayList = new ArrayList(a.size());
+                                    for (te.b<byte[]> bVar : a) {
+                                        if (bVar != null && (bArr = bVar.b) != null && (p75Var2 = (p75) a()) != null) {
+                                            ((o75) p75Var2).initByByteArray(bArr);
+                                            arrayList.add(p75Var2);
+                                        }
+                                    }
+                                    p75Var3 = arrayList;
+                                }
+                            } else if (p75Var4 instanceof r75) {
+                                br4.f();
+                                List<te.b<String>> b = ui.b(br4.h(this.b, str));
+                                if (b != null) {
+                                    arrayList = new ArrayList(b.size());
+                                    for (te.b<String> bVar2 : b) {
+                                        if (bVar2 != null && (str2 = bVar2.b) != null && (p75Var = (p75) a()) != null) {
+                                            ((r75) p75Var).r(str2);
+                                            arrayList.add(p75Var);
+                                        }
+                                    }
+                                    p75Var3 = arrayList;
+                                }
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            p75Var3 = p75Var4;
+                            e.printStackTrace();
+                            return new ReadCacheRespMsg(this.a, p75Var3);
+                        } catch (Throwable th) {
+                            th = th;
+                            p75Var3 = p75Var4;
+                            new ReadCacheRespMsg(this.a, p75Var3);
+                            throw th;
+                        }
+                    } else {
+                        String cacheKey = readCacheMessage.getRequestData().getCacheKey();
+                        String z = readCacheMessage.getRequestData().z();
+                        try {
+                            if (p75Var4 instanceof o75) {
+                                br4.f();
+                                byte[] bArr2 = br4.e(z, str).get(cacheKey);
+                                if (bArr2 != null) {
+                                    ((o75) p75Var4).initByByteArray(bArr2);
+                                    ArrayList arrayList2 = new ArrayList();
+                                    arrayList2.add(p75Var4);
+                                    z = arrayList2;
+                                    p75Var3 = z;
+                                }
+                            } else if (p75Var4 instanceof r75) {
+                                br4.f();
+                                String str3 = br4.h(z, str).get(cacheKey);
+                                if (str3 != null) {
+                                    ((r75) p75Var4).r(str3);
+                                    ?? arrayList3 = new ArrayList();
+                                    arrayList3.add(p75Var4);
+                                    z = arrayList3;
+                                    p75Var3 = z;
+                                }
+                            }
+                        } catch (Exception e2) {
+                            p75Var3 = z;
+                            e = e2;
+                            e.printStackTrace();
+                            return new ReadCacheRespMsg(this.a, p75Var3);
+                        } catch (Throwable th2) {
+                            p75Var3 = z;
+                            th = th2;
+                            new ReadCacheRespMsg(this.a, p75Var3);
+                            throw th;
+                        }
+                    }
+                }
+                return new ReadCacheRespMsg(this.a, p75Var3);
+            } catch (Exception e3) {
+                e = e3;
+            }
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 }

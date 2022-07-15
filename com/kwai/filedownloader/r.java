@@ -78,22 +78,45 @@ public class r {
         }
     }
 
+    private int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+            List<a.InterfaceC0555a> c2 = h.a().c(i);
+            if (c2.isEmpty()) {
+                com.kwai.filedownloader.e.d.d(this, "request pause but not exist %d", Integer.valueOf(i));
+                return 0;
+            }
+            for (a.InterfaceC0555a interfaceC0555a : c2) {
+                interfaceC0555a.F().f();
+            }
+            return c2.size();
+        }
+        return invokeI.intValue;
+    }
+
+    public static com.kwai.filedownloader.a a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? new c(str) : (com.kwai.filedownloader.a) invokeL.objValue;
+    }
+
     public static r a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.a : (r) invokeV.objValue;
     }
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
             com.kwai.filedownloader.e.c.a(context.getApplicationContext());
         }
     }
 
     public static void a(Context context, c.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, context, aVar) == null) {
             if (com.kwai.filedownloader.e.d.a) {
                 com.kwai.filedownloader.e.d.c(r.class, "init Downloader with params: %s %s", context, aVar);
             }
@@ -105,46 +128,29 @@ public class r {
         }
     }
 
-    public int a(int i) {
-        InterceptResult invokeI;
+    public static void a(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<a.b> c2 = h.a().c(i);
-            if (c2 == null || c2.isEmpty()) {
-                com.kwai.filedownloader.e.d.d(this, "request pause but not exist %d", Integer.valueOf(i));
-                return 0;
-            }
-            for (a.b bVar : c2) {
-                bVar.F().f();
-            }
-            return c2.size();
-        }
-        return invokeI.intValue;
-    }
-
-    public com.kwai.filedownloader.a a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? new c(str) : (com.kwai.filedownloader.a) invokeL.objValue;
-    }
-
-    public void a(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
+        if (interceptable == null || interceptable.invokeL(65543, null, eVar) == null) {
             f.a().a("event.service.connect.changed", eVar);
         }
     }
 
-    public boolean a(int i, String str) {
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? n.a().c() : invokeV.booleanValue;
+    }
+
+    public final boolean a(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
             a(i);
             if (n.a().c(i)) {
                 if (TextUtils.isEmpty(str)) {
                     return true;
                 }
-                File file = new File(com.kwai.filedownloader.e.f.d(str));
+                File file = new File(com.kwai.filedownloader.e.f.b(str));
                 if (file.exists()) {
                     file.delete();
                 }
@@ -159,24 +165,18 @@ public class r {
         return invokeIL.booleanValue;
     }
 
-    public void b() {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || c()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || c()) {
             return;
         }
         n.a().a(com.kwai.filedownloader.e.c.a());
     }
 
-    public boolean c() {
+    public final w d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? n.a().c() : invokeV.booleanValue;
-    }
-
-    public w d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.b == null) {
                 synchronized (a) {
                     if (this.b == null) {
@@ -189,10 +189,10 @@ public class r {
         return (w) invokeV.objValue;
     }
 
-    public v e() {
+    public final v e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.d == null) {
                 synchronized (c) {
                     if (this.d == null) {

@@ -1,16 +1,16 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.data.GodUserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class wd6 implements d27 {
+public class wd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MetaData a;
+    public int a;
+    public List<ud6> b;
 
     public wd6() {
         Interceptable interceptable = $ic;
@@ -22,13 +22,7 @@ public class wd6 implements d27 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        MetaData metaData = new MetaData();
-        this.a = metaData;
-        if (metaData.getGodUserData() == null) {
-            this.a.setGodUserData(new GodUserData());
         }
     }
 }

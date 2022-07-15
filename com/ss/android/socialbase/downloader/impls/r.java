@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r implements Handler.Callback, a.InterfaceC0605a {
+public class r implements Handler.Callback, a.InterfaceC0811a {
     public static volatile r a;
     public static b i;
     public final boolean e;
@@ -105,56 +105,245 @@ public class r implements Handler.Callback, a.InterfaceC0605a {
         com.ss.android.socialbase.downloader.a.a.a().a(this);
     }
 
-    private void f() {
-        if (com.ss.android.socialbase.downloader.g.a.c().a("use_network_callback", 0) != 1) {
-            return;
-        }
-        com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.r.1
-            @Override // java.lang.Runnable
-            public void run() {
+    public static r a() {
+        if (a == null) {
+            synchronized (r.class) {
                 try {
-                    if (r.this.b == null || Build.VERSION.SDK_INT < 21) {
-                        return;
+                    if (a == null) {
+                        a = new r();
                     }
-                    r.this.h = (ConnectivityManager) r.this.b.getApplicationContext().getSystemService("connectivity");
-                    r.this.h.registerNetworkCallback(new NetworkRequest.Builder().build(), new ConnectivityManager.NetworkCallback() { // from class: com.ss.android.socialbase.downloader.impls.r.1.1
-                        @Override // android.net.ConnectivityManager.NetworkCallback
-                        public void onAvailable(Network network) {
-                            com.ss.android.socialbase.downloader.c.a.b("RetryScheduler", "network onAvailable: ");
-                            r.this.a(1, true);
-                        }
-                    });
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Throwable th) {
+                    throw th;
                 }
             }
-        });
+        }
+        return a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int g() {
-        try {
-            if (this.h == null) {
-                this.h = (ConnectivityManager) this.b.getApplicationContext().getSystemService("connectivity");
-            }
-            NetworkInfo activeNetworkInfo = this.h.getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                return activeNetworkInfo.getType() == 1 ? 2 : 1;
-            }
-        } catch (Exception unused) {
+    public void a(int i2, int i3, boolean z) {
+        com.ss.android.socialbase.downloader.downloader.r reserveWifiStatusListener;
+        boolean z2;
+        Context context = this.b;
+        if (context == null) {
+            return;
         }
-        return 0;
+        synchronized (this.d) {
+            a aVar = this.d.get(i2);
+            if (aVar == null) {
+                return;
+            }
+            boolean z3 = false;
+            if (aVar.l) {
+                aVar.l = false;
+                int i4 = this.g - 1;
+                this.g = i4;
+                if (i4 < 0) {
+                    this.g = 0;
+                }
+            }
+            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doSchedulerRetryInSubThread: downloadId = " + i2 + ", retryCount = " + aVar.i + ", mWaitingRetryTasksCount = " + this.g);
+            DownloadInfo downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2);
+            if (downloadInfo == null) {
+                c(i2);
+                return;
+            }
+            com.ss.android.socialbase.downloader.c.a.e("RetryScheduler", "doSchedulerRetryInSubThread，id:" + i2);
+            int realStatus = downloadInfo.getRealStatus();
+            if (realStatus == -3 || realStatus == -4) {
+                c(i2);
+            } else if (realStatus == -5 || (realStatus == -2 && downloadInfo.isPauseReserveOnWifi())) {
+                if (realStatus == -2 && (reserveWifiStatusListener = Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).getReserveWifiStatusListener()) != null) {
+                    reserveWifiStatusListener.a(downloadInfo, 4, 3);
+                }
+                com.ss.android.socialbase.downloader.downloader.l w = com.ss.android.socialbase.downloader.downloader.c.w();
+                if (w != null) {
+                    w.a(Collections.singletonList(downloadInfo), 3);
+                }
+                c(i2);
+            } else if (realStatus != -1) {
+            } else {
+                if (i3 != 0) {
+                    z2 = true;
+                } else if (!aVar.f) {
+                    return;
+                } else {
+                    z2 = false;
+                }
+                BaseException failedException = downloadInfo.getFailedException();
+                if (z2 && com.ss.android.socialbase.downloader.i.f.h(failedException)) {
+                    z2 = a(downloadInfo, failedException);
+                }
+                aVar.b();
+                if (!z2) {
+                    if (z) {
+                        aVar.a();
+                    }
+                    a(downloadInfo, (downloadInfo.isOnlyWifi() || downloadInfo.isPauseReserveOnWifi()) ? true : true, i3);
+                    return;
+                }
+                com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doSchedulerRetry: restart task, ****** id = " + aVar.a);
+                aVar.a(System.currentTimeMillis());
+                if (z) {
+                    aVar.a();
+                }
+                downloadInfo.setRetryScheduleCount(aVar.i);
+                if (downloadInfo.getStatus() == -1) {
+                    Downloader.getInstance(context).restart(downloadInfo.getId());
+                }
+            }
+        }
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        if (message.what == 0) {
-            b(message.arg1, message.arg2 == 1);
-        } else {
-            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "handleMessage, doSchedulerRetry, id = " + message.what);
-            a(message.what);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i2, boolean z) {
+        if (this.g <= 0) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        synchronized (this) {
+            if (!z) {
+                if (currentTimeMillis - this.f < 10000) {
+                    return;
+                }
+            }
+            this.f = currentTimeMillis;
+            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "scheduleAllTaskRetry, level = [" + i2 + "], force = [" + z + PreferencesUtil.RIGHT_MOUNT);
+            if (z) {
+                this.c.removeMessages(0);
+            }
+            Message obtain = Message.obtain();
+            obtain.what = 0;
+            obtain.arg1 = i2;
+            obtain.arg2 = z ? 1 : 0;
+            this.c.sendMessageDelayed(obtain, 2000L);
+        }
+    }
+
+    public static void a(b bVar) {
+        i = bVar;
+    }
+
+    private void a(DownloadInfo downloadInfo, boolean z, int i2) {
+        BaseException failedException = downloadInfo.getFailedException();
+        if (failedException == null) {
+            return;
+        }
+        a b2 = b(downloadInfo.getId());
+        if (b2.i > b2.c) {
+            com.ss.android.socialbase.downloader.c.a.d("RetryScheduler", "tryStartScheduleRetry, id = " + b2.a + ", mRetryCount = " + b2.i + ", maxCount = " + b2.c);
+            return;
+        }
+        int errorCode = failedException.getErrorCode();
+        if (!com.ss.android.socialbase.downloader.i.f.h(failedException) && !com.ss.android.socialbase.downloader.i.f.i(failedException) && (!downloadInfo.statusInPause() || !downloadInfo.isPauseReserveOnWifi())) {
+            if (!a(b2, errorCode)) {
+                return;
+            }
+            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "allow error code, id = " + b2.a + ", error code = " + errorCode);
+        }
+        b2.j = z;
+        synchronized (this.d) {
+            if (!b2.l) {
+                b2.l = true;
+                this.g++;
+            }
+        }
+        int d = b2.d();
+        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "tryStartScheduleRetry: id = " + b2.a + ", delayTimeMills = " + d + ", mWaitingRetryTasks = " + this.g);
+        if (!b2.f) {
+            if (z) {
+                return;
+            }
+            this.c.removeMessages(downloadInfo.getId());
+            this.c.sendEmptyMessageDelayed(downloadInfo.getId(), d);
+            return;
+        }
+        if (i2 == 0) {
+            b2.c();
+        }
+        b bVar = i;
+        if (bVar != null) {
+            bVar.a(downloadInfo, d, z, i2);
+        }
+        if (this.e) {
+            b2.a(System.currentTimeMillis());
+            b2.b();
+            b2.a();
+        }
+    }
+
+    private boolean a(a aVar, int i2) {
+        int[] iArr = aVar.g;
+        if (iArr != null && iArr.length != 0) {
+            for (int i3 : iArr) {
+                if (i3 == i2) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean a(DownloadInfo downloadInfo, BaseException baseException) {
+        long j;
+        try {
+            j = com.ss.android.socialbase.downloader.i.f.d(downloadInfo.getTempPath());
+        } catch (BaseException e) {
+            e.printStackTrace();
+            j = 0;
+        }
+        if (j < (baseException instanceof com.ss.android.socialbase.downloader.exception.d ? ((com.ss.android.socialbase.downloader.exception.d) baseException).b() : downloadInfo.getTotalBytes() - downloadInfo.getCurBytes())) {
+            com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
+            if (a2.a("space_fill_part_download", 0) == 1) {
+                if (j > 0) {
+                    int a3 = a2.a("space_fill_min_keep_mb", 100);
+                    if (a3 > 0) {
+                        long j2 = j - (a3 * 1048576);
+                        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "retry schedule: available = " + com.ss.android.socialbase.downloader.i.f.a(j) + "MB, minKeep = " + a3 + "MB, canDownload = " + com.ss.android.socialbase.downloader.i.f.a(j2) + "MB");
+                        if (j2 <= 0) {
+                            com.ss.android.socialbase.downloader.c.a.d("RetryScheduler", "doSchedulerRetryInSubThread: canDownload <= 0 , canRetry = false !!!!");
+                            return false;
+                        }
+                    }
+                } else if (a2.a("download_when_space_negative", 0) != 1) {
+                }
+            }
+            return false;
         }
         return true;
+    }
+
+    private int[] a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            String[] split = str.split(",");
+            if (split.length <= 0) {
+                return null;
+            }
+            int[] iArr = new int[split.length];
+            for (int i2 = 0; i2 < split.length; i2++) {
+                iArr[i2] = Integer.parseInt(split[i2]);
+            }
+            return iArr;
+        } catch (Throwable unused) {
+            return null;
+        }
+    }
+
+    private a b(int i2) {
+        a aVar = this.d.get(i2);
+        if (aVar == null) {
+            synchronized (this.d) {
+                aVar = this.d.get(i2);
+                if (aVar == null) {
+                    aVar = d(i2);
+                }
+                this.d.put(i2, aVar);
+            }
+        }
+        return aVar;
     }
 
     private void b(final int i2, final boolean z) {
@@ -227,130 +416,85 @@ public class r implements Handler.Callback, a.InterfaceC0605a {
         return new a(i2, a3, i4, i5 * 1000, i3 * 1000, z, iArr);
     }
 
-    public void e() {
-        a(5, false);
-    }
-
-    private a b(int i2) {
-        a aVar = this.d.get(i2);
-        if (aVar == null) {
-            synchronized (this.d) {
-                aVar = this.d.get(i2);
-                if (aVar == null) {
-                    aVar = d(i2);
-                }
-                this.d.put(i2, aVar);
-            }
+    private void f() {
+        if (com.ss.android.socialbase.downloader.g.a.c().a("use_network_callback", 0) != 1) {
+            return;
         }
-        return aVar;
-    }
-
-    public static r a() {
-        if (a == null) {
-            synchronized (r.class) {
-                if (a == null) {
-                    a = new r();
+        com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.r.1
+            @Override // java.lang.Runnable
+            public void run() {
+                try {
+                    if (r.this.b == null || Build.VERSION.SDK_INT < 21) {
+                        return;
+                    }
+                    r.this.h = (ConnectivityManager) r.this.b.getApplicationContext().getSystemService("connectivity");
+                    r.this.h.registerNetworkCallback(new NetworkRequest.Builder().build(), new ConnectivityManager.NetworkCallback() { // from class: com.ss.android.socialbase.downloader.impls.r.1.1
+                        @Override // android.net.ConnectivityManager.NetworkCallback
+                        public void onAvailable(Network network) {
+                            com.ss.android.socialbase.downloader.c.a.b("RetryScheduler", "network onAvailable: ");
+                            r.this.a(1, true);
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-        }
-        return a;
-    }
-
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0605a
-    public void c() {
-        a(3, false);
-    }
-
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0605a
-    public void b() {
-        a(4, false);
-    }
-
-    public static void a(b bVar) {
-        i = bVar;
-    }
-
-    public void a(DownloadInfo downloadInfo) {
-        if (downloadInfo == null || TextUtils.isEmpty(com.ss.android.socialbase.downloader.constants.e.a) || !com.ss.android.socialbase.downloader.constants.e.a.equals(downloadInfo.getMimeType())) {
-            return;
-        }
-        a(downloadInfo, downloadInfo.isOnlyWifi() || downloadInfo.isPauseReserveOnWifi(), g());
-    }
-
-    public void d() {
-        a(2, true);
-    }
-
-    private void a(DownloadInfo downloadInfo, boolean z, int i2) {
-        BaseException failedException = downloadInfo.getFailedException();
-        if (failedException == null) {
-            return;
-        }
-        a b2 = b(downloadInfo.getId());
-        if (b2.i > b2.c) {
-            com.ss.android.socialbase.downloader.c.a.d("RetryScheduler", "tryStartScheduleRetry, id = " + b2.a + ", mRetryCount = " + b2.i + ", maxCount = " + b2.c);
-            return;
-        }
-        int errorCode = failedException.getErrorCode();
-        if (!com.ss.android.socialbase.downloader.i.f.h(failedException) && !com.ss.android.socialbase.downloader.i.f.i(failedException) && (!downloadInfo.statusInPause() || !downloadInfo.isPauseReserveOnWifi())) {
-            if (!a(b2, errorCode)) {
-                return;
-            }
-            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "allow error code, id = " + b2.a + ", error code = " + errorCode);
-        }
-        b2.j = z;
-        synchronized (this.d) {
-            if (!b2.l) {
-                b2.l = true;
-                this.g++;
-            }
-        }
-        int d = b2.d();
-        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "tryStartScheduleRetry: id = " + b2.a + ", delayTimeMills = " + d + ", mWaitingRetryTasks = " + this.g);
-        if (!b2.f) {
-            if (z) {
-                return;
-            }
-            this.c.removeMessages(downloadInfo.getId());
-            this.c.sendEmptyMessageDelayed(downloadInfo.getId(), d);
-            return;
-        }
-        if (i2 == 0) {
-            b2.c();
-        }
-        b bVar = i;
-        if (bVar != null) {
-            bVar.a(downloadInfo, d, z, i2);
-        }
-        if (this.e) {
-            b2.a(System.currentTimeMillis());
-            b2.b();
-            b2.a();
-        }
+        });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, boolean z) {
-        if (this.g <= 0) {
-            return;
+    public int g() {
+        try {
+            if (this.h == null) {
+                this.h = (ConnectivityManager) this.b.getApplicationContext().getSystemService("connectivity");
+            }
+            NetworkInfo activeNetworkInfo = this.h.getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                return activeNetworkInfo.getType() == 1 ? 2 : 1;
+            }
+        } catch (Exception unused) {
         }
-        long currentTimeMillis = System.currentTimeMillis();
-        synchronized (this) {
-            if (!z) {
-                if (currentTimeMillis - this.f < 10000) {
-                    return;
+        return 0;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0000, code lost:
+        continue;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0026  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String r1654612903244dc(String str) {
+        while (true) {
+            char c = 'I';
+            char c2 = '`';
+            while (true) {
+                switch (c) {
+                    case 'H':
+                        c = 'J';
+                        c2 = '7';
+                    case 'I':
+                        switch (c2) {
+                            case '_':
+                            case '`':
+                                c = 'J';
+                                c2 = '7';
+                        }
+                        break;
+                    case 'J':
+                        break;
+                    default:
+                        c = 'H';
+                }
+                switch (c2) {
+                    case '7':
+                        char[] charArray = str.toCharArray();
+                        for (int i2 = 0; i2 < charArray.length; i2++) {
+                            charArray[i2] = (char) (charArray[i2] ^ i2);
+                        }
+                        return new String(charArray);
                 }
             }
-            this.f = currentTimeMillis;
-            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "scheduleAllTaskRetry, level = [" + i2 + "], force = [" + z + PreferencesUtil.RIGHT_MOUNT);
-            if (z) {
-                this.c.removeMessages(0);
-            }
-            Message obtain = Message.obtain();
-            obtain.what = 0;
-            obtain.arg1 = i2;
-            obtain.arg2 = z ? 1 : 0;
-            this.c.sendMessageDelayed(obtain, 2000L);
         }
     }
 
@@ -367,151 +511,38 @@ public class r implements Handler.Callback, a.InterfaceC0605a {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, int i3, boolean z) {
-        com.ss.android.socialbase.downloader.downloader.r reserveWifiStatusListener;
-        boolean z2;
-        Context context = this.b;
-        if (context == null) {
+    public void a(DownloadInfo downloadInfo) {
+        if (downloadInfo == null || TextUtils.isEmpty(com.ss.android.socialbase.downloader.constants.e.a) || !com.ss.android.socialbase.downloader.constants.e.a.equals(downloadInfo.getMimeType())) {
             return;
         }
-        synchronized (this.d) {
-            a aVar = this.d.get(i2);
-            if (aVar == null) {
-                return;
-            }
-            boolean z3 = true;
-            if (aVar.l) {
-                aVar.l = false;
-                int i4 = this.g - 1;
-                this.g = i4;
-                if (i4 < 0) {
-                    this.g = 0;
-                }
-            }
-            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doSchedulerRetryInSubThread: downloadId = " + i2 + ", retryCount = " + aVar.i + ", mWaitingRetryTasksCount = " + this.g);
-            DownloadInfo downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2);
-            if (downloadInfo == null) {
-                c(i2);
-                return;
-            }
-            com.ss.android.socialbase.downloader.c.a.e("RetryScheduler", "doSchedulerRetryInSubThread，id:" + i2);
-            int realStatus = downloadInfo.getRealStatus();
-            if (realStatus != -3 && realStatus != -4) {
-                if (realStatus == -5 || (realStatus == -2 && downloadInfo.isPauseReserveOnWifi())) {
-                    if (realStatus == -2 && (reserveWifiStatusListener = Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).getReserveWifiStatusListener()) != null) {
-                        reserveWifiStatusListener.a(downloadInfo, 4, 3);
-                    }
-                    com.ss.android.socialbase.downloader.downloader.l w = com.ss.android.socialbase.downloader.downloader.c.w();
-                    if (w != null) {
-                        w.a(Collections.singletonList(downloadInfo), 3);
-                    }
-                    c(i2);
-                    return;
-                } else if (realStatus != -1) {
-                    return;
-                } else {
-                    if (i3 != 0) {
-                        z2 = true;
-                    } else if (!aVar.f) {
-                        return;
-                    } else {
-                        z2 = false;
-                    }
-                    BaseException failedException = downloadInfo.getFailedException();
-                    if (z2 && com.ss.android.socialbase.downloader.i.f.h(failedException)) {
-                        z2 = a(downloadInfo, failedException);
-                    }
-                    aVar.b();
-                    if (z2) {
-                        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doSchedulerRetry: restart task, ****** id = " + aVar.a);
-                        aVar.a(System.currentTimeMillis());
-                        if (z) {
-                            aVar.a();
-                        }
-                        downloadInfo.setRetryScheduleCount(aVar.i);
-                        if (downloadInfo.getStatus() == -1) {
-                            Downloader.getInstance(context).restart(downloadInfo.getId());
-                            return;
-                        }
-                        return;
-                    }
-                    if (z) {
-                        aVar.a();
-                    }
-                    if (!downloadInfo.isOnlyWifi() && !downloadInfo.isPauseReserveOnWifi()) {
-                        z3 = false;
-                    }
-                    a(downloadInfo, z3, i3);
-                    return;
-                }
-            }
-            c(i2);
-        }
+        a(downloadInfo, downloadInfo.isOnlyWifi() || downloadInfo.isPauseReserveOnWifi(), g());
     }
 
-    private boolean a(a aVar, int i2) {
-        int[] iArr = aVar.g;
-        if (iArr != null && iArr.length != 0) {
-            for (int i3 : iArr) {
-                if (i3 == i2) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0811a
+    public void b() {
+        a(4, false);
     }
 
-    private int[] a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            String[] split = str.split(",");
-            if (split.length <= 0) {
-                return null;
-            }
-            int[] iArr = new int[split.length];
-            for (int i2 = 0; i2 < split.length; i2++) {
-                iArr[i2] = Integer.parseInt(split[i2]);
-            }
-            return iArr;
-        } catch (Throwable unused) {
-            return null;
-        }
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0811a
+    public void c() {
+        a(3, false);
     }
 
-    private boolean a(DownloadInfo downloadInfo, BaseException baseException) {
-        long j;
-        long totalBytes;
-        try {
-            j = com.ss.android.socialbase.downloader.i.f.d(downloadInfo.getTempPath());
-        } catch (BaseException e) {
-            e.printStackTrace();
-            j = 0;
-        }
-        if (baseException instanceof com.ss.android.socialbase.downloader.exception.d) {
-            totalBytes = ((com.ss.android.socialbase.downloader.exception.d) baseException).b();
+    public void d() {
+        a(2, true);
+    }
+
+    public void e() {
+        a(5, false);
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        if (message.what == 0) {
+            b(message.arg1, message.arg2 == 1);
         } else {
-            totalBytes = downloadInfo.getTotalBytes() - downloadInfo.getCurBytes();
-        }
-        if (j < totalBytes) {
-            com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
-            if (a2.a("space_fill_part_download", 0) == 1) {
-                if (j > 0) {
-                    int a3 = a2.a("space_fill_min_keep_mb", 100);
-                    if (a3 > 0) {
-                        long j2 = j - (a3 * 1048576);
-                        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "retry schedule: available = " + com.ss.android.socialbase.downloader.i.f.a(j) + "MB, minKeep = " + a3 + "MB, canDownload = " + com.ss.android.socialbase.downloader.i.f.a(j2) + "MB");
-                        if (j2 <= 0) {
-                            com.ss.android.socialbase.downloader.c.a.d("RetryScheduler", "doSchedulerRetryInSubThread: canDownload <= 0 , canRetry = false !!!!");
-                            return false;
-                        }
-                    }
-                } else if (a2.a("download_when_space_negative", 0) != 1) {
-                }
-            }
-            return false;
+            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "handleMessage, doSchedulerRetry, id = " + message.what);
+            a(message.what);
         }
         return true;
     }

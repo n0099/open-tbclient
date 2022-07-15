@@ -1,160 +1,65 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class of0 implements cl0 {
+public class of0 extends dc1<qh0> {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<zk0> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755441768, "Lcom/repackage/of0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements qh0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(of0 of0Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755441768, "Lcom/repackage/of0;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {of0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        ArrayList arrayList = new ArrayList();
-        a = arrayList;
-        arrayList.add(new df0());
-        a.add(new hk0());
-        a.add(new nf0());
-        a.add(new qf0());
-        rf0 rf0Var = new rf0();
-        cb1<zk0> cb1Var = rf0Var.a;
-        if (cb1Var == null || kx0.g(cb1Var.getList())) {
-            return;
+
+        @Override // com.repackage.qh0
+        public String f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? mf0.e() : (String) invokeV.objValue;
         }
-        a.addAll(rf0Var.a.getList());
     }
 
     public of0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final boolean e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.dc1
+    /* renamed from: a */
+    public qh0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !a.isEmpty() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.cl0
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) && e()) {
-            for (zk0 zk0Var : a) {
-                zk0Var.onActivityCreated(activity, bundle);
-            }
-        }
-    }
-
-    @Override // com.repackage.cl0
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && e()) {
-            for (zk0 zk0Var : a) {
-                zk0Var.onActivityDestroyed(activity);
-            }
-        }
-    }
-
-    @Override // com.repackage.cl0
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && e()) {
-            for (zk0 zk0Var : a) {
-                zk0Var.onActivityPaused(activity);
-            }
-        }
-    }
-
-    @Override // com.repackage.cl0
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && e()) {
-            for (zk0 zk0Var : a) {
-                zk0Var.onActivityResumed(activity);
-            }
-        }
-    }
-
-    @Override // com.repackage.cl0
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, activity, bundle) == null) && e()) {
-            for (zk0 zk0Var : a) {
-                zk0Var.onActivitySaveInstanceState(activity, bundle);
-            }
-        }
-    }
-
-    @Override // com.repackage.cl0
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, activity) == null) && e()) {
-            for (zk0 zk0Var : a) {
-                zk0Var.onActivityStarted(activity);
-            }
-        }
-    }
-
-    @Override // com.repackage.cl0
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, activity) == null) && e()) {
-            for (zk0 zk0Var : a) {
-                zk0Var.onActivityStopped(activity);
-            }
-        }
-    }
-
-    @Override // com.repackage.cl0
-    public void onBackgroundToForeground(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) && e()) {
-            for (zk0 zk0Var : a) {
-                zk0Var.onBackgroundToForeground(activity);
-            }
-        }
-    }
-
-    @Override // com.repackage.cl0
-    public void onForegroundToBackground(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, activity) == null) && e()) {
-            for (zk0 zk0Var : a) {
-                zk0Var.onForegroundToBackground(activity);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (qh0) invokeV.objValue;
     }
 }

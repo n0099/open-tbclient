@@ -2,6 +2,7 @@ package com.meizu.cloud.pushsdk.b.c;
 
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.bumptech.glide.disklrucache.StrictLineReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ public final class h extends j {
     public static final g d = g.a("multipart/parallel");
     public static final g e = g.a(IMAudioTransRequest.CONTENT_TYPE);
     public static final byte[] f = {58, 32};
-    public static final byte[] g = {13, 10};
+    public static final byte[] g = {StrictLineReader.CR, 10};
     public static final byte[] h = {45, 45};
     public final com.meizu.cloud.pushsdk.b.g.e i;
     public final g j;

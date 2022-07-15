@@ -1,213 +1,211 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Point;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class jd0 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static float j = 0.0f;
+    public static float k = 0.0f;
+    public static float l = 1.0f;
+    public static float m = 1.0f;
+    public static float n;
+    public static List<Point> o;
+    public static List<Point> p;
+    public static List<Point> q;
+    public static List<Point> r;
+    public static List<List<Point>> s;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public File g;
-    public File h;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public List<Point> f;
+    public List<Point> g;
+    public List<Point> h;
+    public List<Point> i;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755592645, "Lcom/repackage/jd0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755592645, "Lcom/repackage/jd0;");
+                return;
+            }
+        }
+        a();
+    }
 
     public jd0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = "5.1_v2";
-        this.g = null;
+        this.a = j;
+        this.b = k;
+        this.c = l;
+        this.d = m;
+        this.e = n;
+        this.f = o;
+        this.g = p;
+        this.h = q;
+        this.i = r;
     }
 
-    public static jd0 f() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            jd0 jd0Var = new jd0();
-            jd0Var.d = "source";
-            jd0Var.a = "5.1_v2";
-            jd0Var.f = "resource_capture";
-            String a = jd0Var.a("resource_capture");
-            jd0Var.b = a;
-            jd0Var.c = md0.b(a);
-            jd0Var.g = jd0Var.k();
-            jd0Var.h = jd0Var.d();
-            return jd0Var;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            ArrayList arrayList = new ArrayList();
+            o = arrayList;
+            arrayList.add(new Point(0, 0));
+            o.add(new Point(255, 255));
+            ArrayList arrayList2 = new ArrayList();
+            p = arrayList2;
+            arrayList2.add(new Point(0, 0));
+            p.add(new Point(255, 255));
+            ArrayList arrayList3 = new ArrayList();
+            q = arrayList3;
+            arrayList3.add(new Point(0, 0));
+            q.add(new Point(255, 255));
+            ArrayList arrayList4 = new ArrayList();
+            r = arrayList4;
+            arrayList4.add(new Point(0, 0));
+            r.add(new Point(255, 255));
+            ArrayList arrayList5 = new ArrayList();
+            s = arrayList5;
+            arrayList5.add(o);
+            s.add(p);
+            s.add(q);
+            s.add(r);
         }
-        return (jd0) invokeV.objValue;
     }
 
-    public static jd0 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            jd0 jd0Var = new jd0();
-            jd0Var.d = "source";
-            jd0Var.a = "5.1_v2";
-            jd0Var.f = "resource_live";
-            String a = jd0Var.a("resource_live");
-            jd0Var.b = a;
-            jd0Var.c = md0.b(a);
-            jd0Var.g = jd0Var.k();
-            jd0Var.h = jd0Var.d();
-            return jd0Var;
-        }
-        return (jd0) invokeV.objValue;
-    }
-
-    public static jd0 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            jd0 jd0Var = new jd0();
-            jd0Var.d = "so";
-            jd0Var.e = "so1";
-            jd0Var.a = "5.1_v2";
-            String j = jd0Var.j("so1");
-            jd0Var.b = j;
-            jd0Var.c = md0.b(j);
-            jd0Var.g = jd0Var.k();
-            if (zc0.m()) {
-                ce0.a("DuAr_", "so1 local file path = " + jd0Var.g.getAbsolutePath());
-            }
-            jd0Var.h = jd0Var.d();
-            return jd0Var;
-        }
-        return (jd0) invokeV.objValue;
-    }
-
-    public static jd0 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            jd0 jd0Var = new jd0();
-            jd0Var.d = "so";
-            jd0Var.e = "so2";
-            jd0Var.a = "5.1_v2";
-            String j = jd0Var.j("so2");
-            jd0Var.b = j;
-            jd0Var.c = md0.b(j);
-            jd0Var.g = jd0Var.k();
-            if (zc0.m()) {
-                ce0.a("DuAr_", "So2 local file path = " + jd0Var.g.getAbsolutePath());
-            }
-            jd0Var.h = jd0Var.d();
-            return jd0Var;
-        }
-        return (jd0) invokeV.objValue;
-    }
-
-    public final String a(String str) {
+    public static jd0 b(JSONObject jSONObject) {
         InterceptResult invokeL;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = TextUtils.equals("resource_live", str) ? "https://pic.rmb.bdstatic.com/baidu-ar-source-live-" : "https://pic.rmb.bdstatic.com/baidu-ar-source-";
-            return str2 + "5.1_v2.zip";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            boolean a = de0.a(zc0.getContext());
-            if (TextUtils.equals(this.d, "so")) {
-                if (TextUtils.equals(this.e, "so2")) {
-                    return kd0.f().getAbsolutePath();
-                }
-                return kd0.b(a).getAbsolutePath();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            if (jSONObject == null || jSONObject.length() == 0) {
+                return null;
             }
-            return kd0.d().g().getAbsolutePath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k() : (File) invokeV.objValue;
-    }
-
-    public File d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.h == null) {
-                File c = c();
-                String absolutePath = c != null ? c.getAbsolutePath() : null;
-                if (absolutePath == null) {
-                    return null;
+            jd0 jd0Var = new jd0();
+            try {
+                JSONObject jSONObject2 = jSONObject.getJSONObject("female");
+                if (jSONObject2 != null) {
+                    jSONObject2.optDouble("intensity_smooth");
+                    jSONObject2.optDouble("intensity_white");
                 }
-                if (!absolutePath.endsWith(".zip")) {
-                    absolutePath = absolutePath + ".zip";
+                JSONObject jSONObject3 = jSONObject.getJSONObject("male");
+                if (jSONObject3 != null) {
+                    jSONObject3.optDouble("intensity_smooth");
+                    jSONObject3.optDouble("intensity_white");
                 }
-                if (!absolutePath.endsWith(".loading")) {
-                    absolutePath = absolutePath + ".loading";
+                jd0Var.a = (float) jSONObject.optDouble("intensity_sharpness");
+                jd0Var.b = (float) jSONObject.optDouble("intensity_brightness");
+                jd0Var.c = (float) jSONObject.optDouble("intensity_contrast");
+                jd0Var.d = (float) jSONObject.optDouble("intensity_saturation");
+                JSONObject optJSONObject = jSONObject.optJSONObject("curves");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    jd0Var.e = (float) optJSONObject.optDouble("intensity_curves");
+                    JSONArray jSONArray = optJSONObject.getJSONArray("composite");
+                    if (jSONArray != null && jSONArray.length() > 0) {
+                        jd0Var.f = new CopyOnWriteArrayList();
+                        for (int i9 = 0; i9 < jSONArray.length(); i9++) {
+                            JSONObject jSONObject4 = jSONArray.getJSONObject(i9);
+                            if (jSONObject4 == null || jSONObject4.length() <= 0) {
+                                i7 = 0;
+                                i8 = 0;
+                            } else {
+                                i8 = jSONObject4.optInt("x");
+                                i7 = jSONObject4.optInt("y");
+                            }
+                            jd0Var.f.add(new Point(i8, i7));
+                        }
+                    }
+                    JSONArray jSONArray2 = optJSONObject.getJSONArray("red");
+                    if (jSONArray2 != null && jSONArray2.length() > 0) {
+                        jd0Var.g = new CopyOnWriteArrayList();
+                        for (int i10 = 0; i10 < jSONArray2.length(); i10++) {
+                            JSONObject jSONObject5 = jSONArray2.getJSONObject(i10);
+                            if (jSONObject5 == null || jSONObject5.length() <= 0) {
+                                i5 = 0;
+                                i6 = 0;
+                            } else {
+                                i6 = jSONObject5.optInt("x");
+                                i5 = jSONObject5.optInt("y");
+                            }
+                            jd0Var.g.add(new Point(i6, i5));
+                        }
+                    }
+                    JSONArray jSONArray3 = optJSONObject.getJSONArray("green");
+                    if (jSONArray3 != null && jSONArray3.length() > 0) {
+                        jd0Var.h = new CopyOnWriteArrayList();
+                        for (int i11 = 0; i11 < jSONArray3.length(); i11++) {
+                            JSONObject jSONObject6 = jSONArray3.getJSONObject(i11);
+                            if (jSONObject6 == null || jSONObject6.length() <= 0) {
+                                i3 = 0;
+                                i4 = 0;
+                            } else {
+                                i4 = jSONObject6.optInt("x");
+                                i3 = jSONObject6.optInt("y");
+                            }
+                            jd0Var.h.add(new Point(i4, i3));
+                        }
+                    }
+                    JSONArray jSONArray4 = optJSONObject.getJSONArray("blue");
+                    if (jSONArray4 != null && jSONArray4.length() > 0) {
+                        jd0Var.i = new CopyOnWriteArrayList();
+                        for (int i12 = 0; i12 < jSONArray4.length(); i12++) {
+                            JSONObject jSONObject7 = jSONArray4.getJSONObject(i12);
+                            if (jSONObject7 == null || jSONObject7.length() <= 0) {
+                                i = 0;
+                                i2 = 0;
+                            } else {
+                                i2 = jSONObject7.optInt("x");
+                                i = jSONObject7.optInt("y");
+                            }
+                            jd0Var.i.add(new Point(i2, i));
+                        }
+                    }
                 }
-                this.h = new File(absolutePath);
+                return jd0Var;
+            } catch (JSONException unused) {
+                return null;
             }
-            return this.h;
         }
-        return (File) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a + "-" + this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String j(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.equals("so2", str)) {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
-            } else {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-";
-                if (de0.a(zc0.getContext())) {
-                    str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-64bit-";
-                }
-            }
-            return str2 + "5.1_v2.zip";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public File k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.g == null && !TextUtils.isEmpty(this.a)) {
-                this.g = new File(b(), e());
-            }
-            return this.g;
-        }
-        return (File) invokeV.objValue;
+        return (jd0) invokeL.objValue;
     }
 }

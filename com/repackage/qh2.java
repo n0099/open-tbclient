@@ -1,6 +1,5 @@
 package com.repackage;
 
-import android.view.Surface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes6.dex */
-public class qh2 extends md2<di2> {
+/* loaded from: classes7.dex */
+public class qh2 extends be2<si2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,25 +27,23 @@ public class qh2 extends md2<di2> {
         }
     }
 
-    @Override // com.repackage.md2
+    @Override // com.repackage.be2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getDuration" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.md2
+    @Override // com.repackage.be2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull di2 di2Var) {
-        Object obj;
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull si2 si2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, di2Var) == null) || (obj = command.obj) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, si2Var) == null) {
+            command.ret = si2Var.getDuration();
+            String str = command.what;
+            d(si2Var, str, "Duration: " + command.ret, false);
         }
-        di2Var.setSurface((Surface) obj);
-        String str = command.what;
-        d(di2Var, str, "Surface:" + command.obj.hashCode(), false);
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zw extends sw implements fx<ThreadData>, gx {
+public class zw extends sw implements gx<ThreadData>, hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FollowUserDecorView e;
@@ -49,9 +49,9 @@ public class zw extends sw implements fx<ThreadData>, gx {
         m(z);
     }
 
-    public void k(ym4 ym4Var, boolean z) {
+    public void k(nn4 nn4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ym4Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nn4Var, z) == null) {
             this.f = z;
             t(0);
             o(true);
@@ -84,7 +84,7 @@ public class zw extends sw implements fx<ThreadData>, gx {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fx
+    @Override // com.repackage.gx
     /* renamed from: n */
     public void a(ThreadData threadData) {
         Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class zw extends sw implements fx<ThreadData>, gx {
         }
     }
 
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {

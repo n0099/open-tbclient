@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.DoDailyTask.DataReq;
 import tbclient.DoDailyTask.DoDailyTaskReqIdl;
 /* loaded from: classes3.dex */
@@ -46,7 +46,7 @@ public class DoDailyTaskRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.task_id = Long.valueOf(this.taskId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qc5.a(builder, true);
+                td5.a(builder, true);
             }
             DoDailyTaskReqIdl.Builder builder2 = new DoDailyTaskReqIdl.Builder();
             builder2.data = builder.build(false);

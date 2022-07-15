@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cv4;
-import com.repackage.ev4;
+import com.repackage.aw4;
+import com.repackage.cw4;
+import com.repackage.he7;
+import com.repackage.ie7;
 import com.repackage.nn;
-import com.repackage.pd7;
 import com.repackage.pi;
 import com.repackage.qd7;
-import com.repackage.yc7;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BannerFlowView extends FrameLayout {
@@ -31,12 +31,12 @@ public class BannerFlowView extends FrameLayout {
     public ListViewPager a;
     public View b;
     public IndicatorView c;
-    public qd7 d;
-    public pd7 e;
+    public ie7 d;
+    public he7 e;
     public c f;
 
     /* loaded from: classes3.dex */
-    public class a implements yc7 {
+    public class a implements qd7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerFlowView a;
@@ -59,7 +59,7 @@ public class BannerFlowView extends FrameLayout {
             this.a = bannerFlowView;
         }
 
-        @Override // com.repackage.yc7
+        @Override // com.repackage.qd7
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.f == null) {
@@ -68,7 +68,7 @@ public class BannerFlowView extends FrameLayout {
             this.a.f.a(i);
         }
 
-        @Override // com.repackage.yc7
+        @Override // com.repackage.qd7
         public void b(float f) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) || this.a.f == null) {
@@ -127,7 +127,7 @@ public class BannerFlowView extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public interface c extends yc7 {
+    public interface c extends qd7 {
         void onPageSelected(int i);
     }
 
@@ -170,8 +170,8 @@ public class BannerFlowView extends FrameLayout {
             this.c = indicatorView;
             indicatorView.setSpacing(0);
             b();
-            this.d = new qd7(context, this.a, this.c, null);
-            this.e = new pd7(context, ev4.a);
+            this.d = new ie7(context, this.a, this.c, null);
+            this.e = new he7(context, cw4.a);
             this.d.m(5000L);
             this.d.l(context, this.e);
             this.d.q(new b(this));
@@ -263,13 +263,13 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(cv4.a<ev4, pd7.a> aVar) {
-        pd7 pd7Var;
+    public void setOnItemClickListener(aw4.a<cw4, he7.a> aVar) {
+        he7 he7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) || (pd7Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) || (he7Var = this.e) == null) {
             return;
         }
-        pd7Var.e(aVar);
+        he7Var.e(aVar);
     }
 
     public void setOnPageSelected(c cVar) {

@@ -1,9 +1,7 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xq3 extends xr3 {
+public class xq3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public DownloadState a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
 
     static {
         InterceptResult invokeClinit;
@@ -31,12 +32,10 @@ public class xq3 extends xr3 {
                 return;
             }
         }
-        c = cg1.a;
+        boolean z = rg1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xq3() {
-        super("openApp");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,42 +43,37 @@ public class xq3 extends xr3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = DownloadState.NOT_START;
+        this.d = Integer.parseInt("0");
     }
 
-    @Override // com.repackage.xr3
-    public sr1 a(@NonNull JSONObject jSONObject, @NonNull wc2 wc2Var) {
+    public static xq3 a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, wc2Var)) == null) {
-            if (c) {
-                Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                wc2Var.onFail(31010, "package name is empty");
-                return null;
-            }
-            sr3.a(optString, "openApp", null, null, null);
-            if (!gr3.h(AppRuntime.getAppContext(), optString)) {
-                wc2Var.onFail(31011, "app is not installed");
-                sr3.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31011), null);
-                return null;
-            }
-            if (gr3.l(AppRuntime.getAppContext(), optString)) {
-                wc2Var.a(null);
-                sr3.a(optString, "openApp", "success", null, null);
-            } else {
-                wc2Var.onFail(31019, "open app fail");
-                sr3.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31019), null);
-            }
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            xq3 xq3Var = new xq3();
+            xq3Var.b = str;
+            xq3Var.c = str2;
+            return xq3Var;
         }
-        return (sr1) invokeLL.objValue;
+        return (xq3) invokeLL.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.e = str;
+        }
     }
 }

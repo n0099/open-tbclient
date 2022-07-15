@@ -12,6 +12,7 @@ import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
 import com.kwad.sdk.api.model.AdSourceLogoType;
 import java.util.List;
+import java.util.Map;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes5.dex */
@@ -51,6 +52,18 @@ public interface KsNativeAd {
         @KsAdSdkApi
         @Keep
         void onVideoPlayError(int i, int i2);
+
+        @KsAdSdkApi
+        @Keep
+        void onVideoPlayPause();
+
+        @KsAdSdkApi
+        @Keep
+        void onVideoPlayReady();
+
+        @KsAdSdkApi
+        @Keep
+        void onVideoPlayResume();
 
         @KsAdSdkApi
         @Keep
@@ -184,7 +197,12 @@ public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
+    @Deprecated
     void registerViewForInteraction(Activity activity, @NonNull ViewGroup viewGroup, @NonNull List<View> list, AdInteractionListener adInteractionListener);
+
+    @KsAdSdkApi
+    @Keep
+    void registerViewForInteraction(Activity activity, @NonNull ViewGroup viewGroup, @NonNull Map<View, Integer> map, AdInteractionListener adInteractionListener);
 
     @KsAdSdkApi
     @Keep

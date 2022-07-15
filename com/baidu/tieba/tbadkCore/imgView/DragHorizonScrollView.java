@@ -20,12 +20,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ci8;
-import com.repackage.ei8;
-import com.repackage.fi8;
+import com.repackage.aj8;
+import com.repackage.bj8;
+import com.repackage.yi8;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class DragHorizonScrollView extends ViewGroup implements fi8, ei8, View.OnLongClickListener {
+public class DragHorizonScrollView extends ViewGroup implements bj8, aj8, View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<View> A;
@@ -38,7 +38,7 @@ public class DragHorizonScrollView extends ViewGroup implements fi8, ei8, View.O
     public BaseAdapter a;
     public View b;
     public int c;
-    public ci8 d;
+    public yi8 d;
     public int e;
     public int f;
     public int g;
@@ -197,7 +197,7 @@ public class DragHorizonScrollView extends ViewGroup implements fi8, ei8, View.O
         q(context);
     }
 
-    @Override // com.repackage.fi8
+    @Override // com.repackage.bj8
     public void a(Rect rect) {
         View childAt;
         Interceptable interceptable = $ic;
@@ -218,7 +218,7 @@ public class DragHorizonScrollView extends ViewGroup implements fi8, ei8, View.O
         }
     }
 
-    @Override // com.repackage.fi8
+    @Override // com.repackage.bj8
     public void b() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.q) {
@@ -230,7 +230,7 @@ public class DragHorizonScrollView extends ViewGroup implements fi8, ei8, View.O
         invalidate();
     }
 
-    @Override // com.repackage.fi8
+    @Override // com.repackage.bj8
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -244,14 +244,14 @@ public class DragHorizonScrollView extends ViewGroup implements fi8, ei8, View.O
 
     @Override // android.view.View
     public void computeScroll() {
-        ci8 ci8Var;
+        yi8 yi8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.k.computeScrollOffset()) {
                 scrollTo(this.k.getCurrX(), 0);
                 postInvalidateDelayed(16L);
-                if ((this.q || this.r) && (ci8Var = this.d) != null) {
-                    ci8Var.i();
+                if ((this.q || this.r) && (yi8Var = this.d) != null) {
+                    yi8Var.i();
                     return;
                 }
                 return;
@@ -261,7 +261,7 @@ public class DragHorizonScrollView extends ViewGroup implements fi8, ei8, View.O
         }
     }
 
-    @Override // com.repackage.fi8
+    @Override // com.repackage.bj8
     public void d() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.r) {
@@ -327,7 +327,7 @@ public class DragHorizonScrollView extends ViewGroup implements fi8, ei8, View.O
         return invokeL.intValue;
     }
 
-    @Override // com.repackage.fi8
+    @Override // com.repackage.bj8
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -632,7 +632,7 @@ public class DragHorizonScrollView extends ViewGroup implements fi8, ei8, View.O
             this.p = viewConfiguration.getScaledMaximumFlingVelocity();
             this.k = new Scroller(context, new LinearInterpolator());
             this.l = new Scroller(context);
-            this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702f1);
+            this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702f0);
             this.u = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
         }
     }
@@ -682,11 +682,11 @@ public class DragHorizonScrollView extends ViewGroup implements fi8, ei8, View.O
         }
     }
 
-    @Override // com.repackage.ei8
-    public void setDragController(ci8 ci8Var) {
+    @Override // com.repackage.aj8
+    public void setDragController(yi8 yi8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, ci8Var) == null) {
-            this.d = ci8Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, yi8Var) == null) {
+            this.d = yi8Var;
         }
     }
 

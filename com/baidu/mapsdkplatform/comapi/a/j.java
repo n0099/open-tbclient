@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes2.dex */
 public class j extends c {
     public static /* synthetic */ Interceptable $ic;
@@ -59,7 +58,7 @@ public class j extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, marker)) == null) {
             int i = this.h;
-            ObjectAnimator ofFloat = i == 1 ? ObjectAnimator.ofFloat(marker, AnimationProperty.SCALE_X, this.g) : i == 2 ? ObjectAnimator.ofFloat(marker, AnimationProperty.SCALE_Y, this.g) : null;
+            ObjectAnimator ofFloat = i == 1 ? ObjectAnimator.ofFloat(marker, "scaleX", this.g) : i == 2 ? ObjectAnimator.ofFloat(marker, "scaleY", this.g) : null;
             if (ofFloat != null) {
                 ofFloat.setRepeatCount(this.f);
                 ofFloat.setRepeatMode(c());

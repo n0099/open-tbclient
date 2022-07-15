@@ -1,42 +1,27 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class fn3 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static float a = 3.0f;
-    public static float b = 1.5f;
-    public static float c = 0.12f;
-    public static float d = 0.06f;
-    public static float e = 0.13f;
-    public static float f = 0.12f;
-    public static float g = 0.19f;
-    public static float h = 0.05f;
-    public static float i = 0.48f;
-    public static float j = 0.33f;
-    public static float k = 0.19f;
-    public static float l = 0.45f;
-    public static float m = 0.15f;
-    public static float n = 0.12f;
-    public static float o = 0.13f;
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile en3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755702106, "Lcom/repackage/fn3;")) == null) {
-            return;
+    public static synchronized en3 a() {
+        InterceptResult invokeV;
+        en3 en3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (fn3.class) {
+                if (a == null) {
+                    a = new en3();
+                }
+                en3Var = a;
+            }
+            return en3Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755702106, "Lcom/repackage/fn3;");
-        }
+        return (en3) invokeV.objValue;
     }
 }

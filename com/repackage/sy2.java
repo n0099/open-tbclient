@@ -1,297 +1,328 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.os.Build;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.mobstat.Config;
-import com.baidu.swan.apps.res.ui.BdDatePicker;
-import com.baidu.tieba.R;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.internal.bind.TypeAdapters;
-import com.repackage.xy2;
-import java.util.Date;
+import java.lang.reflect.Method;
+@SuppressLint({"ObsoleteSdkInt"})
 /* loaded from: classes7.dex */
-public class sy2 extends xy2 {
+public class sy2 {
     public static /* synthetic */ Interceptable $ic;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdDatePicker c;
-    public int d;
-    public int e;
-    public int f;
-    public String g;
-    public boolean h;
-    public Date i;
-    public Date j;
+    public final b a;
+    public boolean b;
+    public boolean c;
+    public View d;
+    public View e;
 
     /* loaded from: classes7.dex */
-    public static class a extends xy2.a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Date e;
-        public Date f;
-        public Date g;
-        public String h;
-        public boolean i;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context) {
-            super(context);
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final boolean b;
+        public final int c;
+        public final int d;
+        public final boolean e;
+        public final float f;
+
+        public /* synthetic */ b(Activity activity, boolean z, boolean z2, a aVar) {
+            this(activity, z, z2);
+        }
+
+        @TargetApi(14)
+        public final int a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                if (Build.VERSION.SDK_INT >= 14) {
+                    TypedValue typedValue = new TypedValue();
+                    context.getTheme().resolveAttribute(16843499, typedValue, true);
+                    return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public final int b(Resources resources, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resources, str)) == null) {
+                int identifier = resources.getIdentifier(str, EMABTest.TYPE_DIMEN, "android");
+                if (identifier > 0) {
+                    return resources.getDimensionPixelSize(identifier);
+                }
+                return 0;
+            }
+            return invokeLL.intValue;
+        }
+
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+        }
+
+        @TargetApi(14)
+        public final int d(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+                Resources resources = context.getResources();
+                if (Build.VERSION.SDK_INT < 14 || !i(context)) {
+                    return 0;
+                }
+                return b(resources, this.e ? SapiSystemBarTintManager.SystemBarConfig.h : SapiSystemBarTintManager.SystemBarConfig.i);
+            }
+            return invokeL.intValue;
+        }
+
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.intValue;
+        }
+
+        @TargetApi(14)
+        public final int f(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+                Resources resources = context.getResources();
+                if (Build.VERSION.SDK_INT < 14 || !i(context)) {
+                    return 0;
+                }
+                return b(resources, SapiSystemBarTintManager.SystemBarConfig.j);
+            }
+            return invokeL.intValue;
+        }
+
+        public final float g(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                if (Build.VERSION.SDK_INT >= 16) {
+                    activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+                } else {
+                    activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                }
+                float f = displayMetrics.density;
+                return Math.min(displayMetrics.widthPixels / f, displayMetrics.heightPixels / f);
+            }
+            return invokeL.floatValue;
+        }
+
+        public int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
+        }
+
+        @TargetApi(14)
+        public final boolean i(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+                Resources resources = context.getResources();
+                int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
+                if (identifier != 0) {
+                    boolean z = resources.getBoolean(identifier);
+                    if ("1".equals(sy2.f)) {
+                        return false;
+                    }
+                    if ("0".equals(sy2.f)) {
+                        return true;
+                    }
+                    return z;
+                }
+                return !ViewConfiguration.get(context).hasPermanentMenuKey();
+            }
+            return invokeL.booleanValue;
+        }
+
+        public boolean j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : invokeV.booleanValue;
+        }
+
+        public boolean k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f >= 600.0f || this.e : invokeV.booleanValue;
+        }
+
+        public b(Activity activity, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {activity, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-        }
-
-        @Override // com.repackage.xy2.a
-        public xy2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                sy2 sy2Var = (sy2) super.a();
-                sy2Var.n(this.h);
-                sy2Var.l(this.i);
-                Date date = this.g;
-                if (date != null) {
-                    sy2Var.q(date.getYear() + FeatureCodes.SKY_SEG);
-                    sy2Var.o(this.g.getMonth() + 1);
-                    sy2Var.k(this.g.getDate());
-                }
-                Date date2 = this.e;
-                if (date2 != null) {
-                    sy2Var.p(date2);
-                }
-                Date date3 = this.f;
-                if (date3 != null) {
-                    sy2Var.m(date3);
-                }
-                return sy2Var;
-            }
-            return (xy2) invokeV.objValue;
-        }
-
-        @Override // com.repackage.xy2.a
-        public xy2 b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new sy2(context) : (xy2) invokeL.objValue;
-        }
-
-        public a l(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.i = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a m(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, date)) == null) {
-                this.f = date;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a n(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.h = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a o(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, date)) == null) {
-                this.g = date;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a p(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, date)) == null) {
-                this.e = date;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            Resources resources = activity.getResources();
+            this.e = resources.getConfiguration().orientation == 1;
+            this.f = g(activity);
+            this.a = b(resources, SapiSystemBarTintManager.SystemBarConfig.g);
+            a(activity);
+            this.c = d(activity);
+            this.d = f(activity);
+            this.b = this.c > 0;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sy2(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1001a0);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755304283, "Lcom/repackage/sy2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755304283, "Lcom/repackage/sy2;");
+                return;
+            }
+        }
+        if (Build.VERSION.SDK_INT >= 19) {
+            try {
+                Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class);
+                declaredMethod.setAccessible(true);
+                f = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+            } catch (Throwable unused) {
+                f = null;
+            }
+        }
+    }
+
+    @TargetApi(19)
+    public sy2(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new BdDatePicker(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 1;
-            this.c.setLayoutParams(layoutParams);
-            this.c.setScrollCycle(true);
-            this.c.setStartDate(this.i);
-            this.c.setEndDate(this.j);
-            this.c.setYear(this.d);
-            this.c.setMonth(this.e);
-            this.c.setDay(this.f);
-            this.c.n();
-            this.c.setFields(this.g);
-            this.c.setDisabled(this.h);
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.getDay() : invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.getMonth() : invokeV.intValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (j(TypeAdapters.AnonymousClass27.YEAR)) {
-                sb.append(String.format("%d-", Integer.valueOf(i())));
+        Window window = activity.getWindow();
+        ViewGroup viewGroup = (ViewGroup) window.getDecorView();
+        if (Build.VERSION.SDK_INT >= 19) {
+            TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{16843759, 16843760});
+            try {
+                this.b = obtainStyledAttributes.getBoolean(0, false);
+                this.c = obtainStyledAttributes.getBoolean(1, false);
+                obtainStyledAttributes.recycle();
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                if ((67108864 & attributes.flags) != 0) {
+                    this.b = true;
+                }
+                if ((attributes.flags & 134217728) != 0) {
+                    this.c = true;
+                }
+            } catch (Throwable th) {
+                obtainStyledAttributes.recycle();
+                throw th;
             }
-            if (j(TypeAdapters.AnonymousClass27.MONTH)) {
-                sb.append(String.format("%02d-", Integer.valueOf(g())));
+        }
+        b bVar = new b(activity, this.b, this.c, null);
+        this.a = bVar;
+        if (!bVar.j()) {
+            this.c = false;
+        }
+        if (this.b) {
+            d(activity, viewGroup);
+        }
+        if (this.c) {
+            c(activity, viewGroup);
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.b) {
+            this.d.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public final void c(Context context, ViewGroup viewGroup) {
+        FrameLayout.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup) == null) {
+            this.e = new View(context);
+            if (this.a.k()) {
+                layoutParams = new FrameLayout.LayoutParams(-1, this.a.c());
+                layoutParams.gravity = 80;
+            } else {
+                layoutParams = new FrameLayout.LayoutParams(this.a.e(), -1);
+                layoutParams.gravity = 5;
             }
-            if (j(Config.TRACE_VISIT_RECENT_DAY)) {
-                sb.append(String.format("%02d", Integer.valueOf(f())));
+            this.e.setLayoutParams(layoutParams);
+            this.e.setBackgroundColor(-1728053248);
+            this.e.setVisibility(8);
+            viewGroup.addView(this.e);
+        }
+    }
+
+    public final void d(Context context, ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, viewGroup) == null) {
+            this.d = new View(context);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.a.h());
+            layoutParams.gravity = 48;
+            if (this.c && !this.a.k()) {
+                layoutParams.rightMargin = this.a.e();
             }
-            String sb2 = sb.toString();
-            return sb2.endsWith("-") ? sb2.substring(0, sb2.length() - 1) : sb2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c.getYear() : invokeV.intValue;
-    }
-
-    public final boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.c.l(str) : invokeL.booleanValue;
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void m(Date date) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, date) == null) {
-            this.j = date;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
-            e();
-            b().j(this.c);
-        }
-    }
-
-    public void p(Date date) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, date) == null) {
-            this.i = date;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    @Override // com.repackage.ry2, android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.show();
+            this.d.setLayoutParams(layoutParams);
+            this.d.setBackgroundColor(-1728053248);
+            this.d.setVisibility(8);
+            viewGroup.addView(this.d);
         }
     }
 }

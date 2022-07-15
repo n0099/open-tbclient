@@ -1,116 +1,147 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ss4 extends ls4 {
+public class ss4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final c a;
+    public static final c b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public js4 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ss4(js4 js4Var) {
-        super(js4Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {js4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((js4) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.ss4.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                if (str2 != null) {
+                    str3 = "code:" + str2 + " message:" + str3;
+                }
+                Log.e("BridgeLogger", str3);
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(String str, String str2, String str3);
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class d implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.ss4.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                StatisticItem statisticItem = new StatisticItem("c10729");
+                statisticItem.param("obj_param1", str);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+                if (BdBaseApplication.getInst() != null) {
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755309987, "Lcom/repackage/ss4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755309987, "Lcom/repackage/ss4;");
                 return;
             }
         }
-        this.c = js4Var;
+        a = new b(null);
+        b = new d(null);
+        c = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 
-    @Override // com.repackage.ls4
-    public String f() {
-        InterceptResult invokeV;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Image" : (String) invokeV.objValue;
-    }
-
-    @ms4(isAsync = false, value = "scanBigImages")
-    public void sanBigImages(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && c) {
+            a.a(null, null, str);
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
-        int optInt = jSONObject.optInt("clickIndex");
-        int length = optJSONArray.length();
-        ArrayList<String> arrayList = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
-        for (int i = 0; i < length; i++) {
-            JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-            if (jSONObject2 != null) {
-                String string = jSONObject2.getString("bigImageUrl");
-                String string2 = jSONObject2.getString("originImageUrl");
-                if (!TextUtils.isEmpty(string)) {
-                    arrayList.add(string);
-                    if (!TextUtils.isEmpty(string2)) {
-                        ImageUrlData imageUrlData = new ImageUrlData();
-                        imageUrlData.imageUrl = string;
-                        imageUrlData.originalUrl = string2;
-                        concurrentHashMap.put(string, imageUrlData);
-                    }
-                }
-            }
-        }
-        ImageViewerConfig.Builder builder = new ImageViewerConfig.Builder();
-        builder.y(arrayList);
-        builder.C(optInt);
-        builder.D(true);
-        builder.K(arrayList.size() > 0 ? arrayList.get(0) : "");
-        builder.G(true);
-        builder.x(concurrentHashMap);
-        builder.I(true);
-        c(new CustomMessage(2010000, builder.w(this.c.getContext())));
     }
 
-    @ms4("selectPhotos")
-    public void selectPhotos(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
+    public static void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-            LinkedList<ImageFileInfo> linkedList = new LinkedList<>();
-            if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("selectPhotos")) != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    ImageFileInfo imageFileInfo = new ImageFileInfo();
-                    imageFileInfo.setFilePath(((JSONObject) optJSONArray.get(i)).optString("filePath"));
-                    linkedList.add(imageFileInfo);
-                }
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            a(str3);
+        }
+    }
+
+    public static void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            if (c) {
+                a.a(str, str2, str3);
             }
-            writeImagesInfo.setChosedFiles(linkedList);
-            writeImagesInfo.setMaxImagesAllowed(9);
-            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getContext(), writeImagesInfo.toJsonString(), true, true);
-            albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 5);
-            albumActivityConfig.setRequestCode(12015);
-            c(new CustomMessage(2002001, albumActivityConfig));
+            b.a(str, str2, str3);
         }
     }
 }

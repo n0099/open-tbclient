@@ -1,27 +1,35 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.components.core.webview.jshandler.n;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cm implements com.kwad.sdk.core.d<AdInfo.MaterialSize> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdInfo.MaterialSize materialSize, JSONObject jSONObject) {
+public final class cm implements com.kwad.sdk.core.d<n.a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(n.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        materialSize.width = jSONObject.optInt("width");
-        materialSize.height = jSONObject.optInt("height");
+        aVar.a = jSONObject.optInt("type");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdInfo.MaterialSize materialSize, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(n.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "width", materialSize.width);
-        com.kwad.sdk.utils.t.a(jSONObject, "height", materialSize.height);
+        com.kwad.sdk.utils.r.a(jSONObject, "type", aVar.a);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(n.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(n.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

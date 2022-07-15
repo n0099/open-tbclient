@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.g;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -102,14 +101,14 @@ public class RomUtils {
                     c = 65535;
                     break;
                 case 3418016:
-                    if (lowerCase.equals(MANUFACTURER_OPPO)) {
+                    if (lowerCase.equals("oppo")) {
                         c = 2;
                         break;
                     }
                     c = 65535;
                     break;
                 case 3620012:
-                    if (lowerCase.equals(MANUFACTURER_VIVO)) {
+                    if (lowerCase.equals("vivo")) {
                         c = 3;
                         break;
                     }
@@ -336,7 +335,7 @@ public class RomUtils {
     public static boolean is360() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? check("QIKU") || check(g.h) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? check("QIKU") || check("360") : invokeV.booleanValue;
     }
 
     public static boolean isEmui() {

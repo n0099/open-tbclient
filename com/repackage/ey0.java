@@ -1,28 +1,64 @@
 package com.repackage;
 
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class ey0 {
     public static /* synthetic */ Interceptable $ic;
+    public static by0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> int a(T[] tArr, T t) {
-        InterceptResult invokeLL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755721419, "Lcom/repackage/ey0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755721419, "Lcom/repackage/ey0;");
+        }
+    }
+
+    public ey0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tArr, t)) == null) {
-            if (tArr == null) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            int length = tArr.length;
-            for (int i = 0; i < length; i++) {
-                if (tArr[i] == t) {
-                    return i;
+        }
+    }
+
+    public static by0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (ey0.class) {
+                    if (a == null) {
+                        a = (by0) ServiceManager.getService(by0.a);
+                    }
+                    if (a == null) {
+                        a = by0.b;
+                    }
                 }
             }
-            return -1;
+            return a;
         }
-        return invokeLL.intValue;
+        return (by0) invokeV.objValue;
     }
 }

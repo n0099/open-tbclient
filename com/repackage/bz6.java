@@ -1,27 +1,26 @@
 package com.repackage;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.homepage.personalize.data.RealTimeHttpResponse;
+import com.baidu.tieba.homepage.personalize.data.RealTimeRequest;
+import com.baidu.tieba.homepage.personalize.data.RealTimeSocketResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.Error;
-import tbclient.ExcFrsPage.DataRes;
-import tbclient.ExcFrsPage.ExcFrsPageResIdl;
-import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes5.dex */
-public class bz6 implements m65, s65 {
+public class bz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Object> a;
-    public List<Object> b;
+    public BdUniqueId a;
 
     public bz6() {
         Interceptable interceptable = $ic;
@@ -33,76 +32,71 @@ public class bz6 implements m65, s65 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
     }
 
-    @Override // com.repackage.n65
-    public String getCacheKey() {
-        InterceptResult invokeV;
+    public void a(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.m65
-    public boolean initByByteArray(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            try {
-                initByProtobuf((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
-                return true;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.s65
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
+            b();
+            c();
         }
     }
 
-    @Override // com.repackage.s65
-    public void initByProtobuf(Message message) {
-        ExcFrsPageResIdl excFrsPageResIdl;
-        Error error;
-        DataRes dataRes;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, message) == null) || !(message instanceof ExcFrsPageResIdl) || (excFrsPageResIdl = (ExcFrsPageResIdl) message) == null || (error = excFrsPageResIdl.error) == null || error.errorno.intValue() != 0 || (dataRes = excFrsPageResIdl.data) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, wh8.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ma5 ma5Var = new ma5(309277);
+            ma5Var.setResponsedClass(RealTimeSocketResponse.class);
+            ma5Var.g(true);
+            MessageManager.getInstance().registerTask(ma5Var);
+        }
+    }
+
+    public final void d(NetMessage netMessage) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, netMessage) == null) || netMessage == null) {
             return;
         }
-        if (dataRes.thread_list != null) {
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            arrayList.addAll(excFrsPageResIdl.data.thread_list);
+        if (netMessage.getTag() == null) {
+            netMessage.setTag(this.a);
         }
-        excFrsPageResIdl.data.has_more.intValue();
-        excFrsPageResIdl.data.pn.intValue();
-        if (excFrsPageResIdl.data.tag_list != null) {
-            this.b = new ArrayList();
-            for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
-                if (excellentTagInfo != null) {
-                    this.b.add(excellentTagInfo);
-                }
-            }
-        }
+        MessageManager.getInstance().sendMessage(netMessage);
     }
 
-    @Override // com.repackage.m65
-    public byte[] toCacheByteArray() {
-        InterceptResult invokeV;
+    public void e(long j, String str, String str2, int i, String str3, int i2, String str4, BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2), str4, baijiahaoData}) == null) || StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3)) {
+            return;
         }
-        return (byte[]) invokeV.objValue;
+        RealTimeRequest realTimeRequest = new RealTimeRequest();
+        realTimeRequest.setTid(j);
+        realTimeRequest.setWeight(str);
+        realTimeRequest.setSource(str2);
+        realTimeRequest.setLocation(i);
+        realTimeRequest.setAbtest_tag(str3);
+        realTimeRequest.setType(i2);
+        realTimeRequest.setPage(str4);
+        if (baijiahaoData != null && i2 != ng.e("2", 0)) {
+            realTimeRequest.setOriUgcNid(baijiahaoData.oriUgcNid);
+            realTimeRequest.setOriUgcTid(baijiahaoData.oriUgcTid);
+            realTimeRequest.setOriUgcType(Integer.toString(baijiahaoData.oriUgcType));
+            realTimeRequest.setOriUgcVid(baijiahaoData.oriUgcVid);
+        }
+        d(realTimeRequest);
     }
 }

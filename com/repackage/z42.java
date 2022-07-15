@@ -1,136 +1,112 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes7.dex */
-public final class z42 {
+public final class z42 implements q42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public a b;
+    public OutputStream c;
+    public File d;
+    public boolean e;
 
     /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int a = -1;
-        public static int b = -1;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a {
+        void a(File file);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(138719132, "Lcom/repackage/z42$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(138719132, "Lcom/repackage/z42$a;");
-            }
-        }
-
-        public static String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab") : (String) invokeV.objValue;
-        }
-
-        public static boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (z42.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + a());
-                    String a2 = a();
-                    char c = 65535;
-                    int hashCode = a2.hashCode();
-                    if (hashCode != 251117829) {
-                        if (hashCode != 547804557) {
-                            if (hashCode == 569516856 && a2.equals("debug_on_activity_create")) {
-                                c = 1;
-                            }
-                        } else if (a2.equals("debug_ab")) {
-                            c = 2;
-                        }
-                    } else if (a2.equals("debug_on_app_launch")) {
-                        c = 0;
-                    }
-                    if (c == 0) {
-                        return true;
-                    }
-                    if (c == 1) {
-                        return false;
-                    }
-                }
-                if (a < 0) {
-                    zi2.g0().getSwitch("swan_sub_pkg_launch_switch", 0);
-                    a = 0;
-                }
-                if (z42.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + a);
-                }
-                return a == 1;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (b == -1) {
-                    zi2.g0().getSwitch("swan_app_launch_optimize_v2", 0);
-                    b = 0;
-                }
-                return b == 1;
-            }
-            return invokeV.booleanValue;
-        }
+        void b(File file);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755162055, "Lcom/repackage/z42;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755162055, "Lcom/repackage/z42;");
-                return;
-            }
-        }
-        a = cg1.a;
-    }
-
-    public static void b(rw2 rw2Var, Bundle bundle) {
+    public z42(File file, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, rw2Var, bundle) == null) {
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event start.");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            Bundle bundle2 = new Bundle();
-            bundle2.putBundle("swan_app_on_launch_event", bundle);
-            kw2 kw2Var = new kw2(122, bundle2);
-            if (!rw2Var.T() && a.c()) {
-                rw2Var.f0(kw2Var.h());
+        }
+        this.d = file;
+        this.b = aVar;
+        b(file);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
+            return;
+        }
+        a aVar = this.b;
+        if (aVar != null) {
+            if (this.e) {
+                aVar.a(this.d);
             } else {
-                iw2 e = iw2.e();
-                kw2Var.b(rw2Var.b);
-                kw2Var.p(true);
-                e.h(kw2Var);
+                aVar.b(this.d);
             }
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
+        }
+        jg4.d(this.c);
+    }
+
+    public final void b(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
+            try {
+                if (this.c != null || file == null) {
+                    return;
+                }
+                jg4.h(this.d);
+                this.c = new FileOutputStream(file);
+            } catch (Exception e) {
+                if (q42.a) {
+                    Log.e("HybridIntercept", Log.getStackTraceString(e));
+                }
+            }
+        }
+    }
+
+    public void c(InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) || inputStream == null || this.e) {
+            return;
+        }
+        jg4.Q(inputStream, this.d);
+        this.e = true;
+    }
+
+    public void d(byte[] bArr, int i, int i2) {
+        OutputStream outputStream;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) || (outputStream = this.c) == null) {
+            return;
+        }
+        try {
+            if (i2 > 0) {
+                outputStream.write(bArr, i, i2);
+            } else {
+                this.e = true;
+            }
+        } catch (IOException unused) {
+            jg4.d(this.c);
+            this.c = null;
+            a aVar = this.b;
+            if (aVar != null) {
+                aVar.b(this.d);
             }
         }
     }

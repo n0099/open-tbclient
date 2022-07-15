@@ -51,8 +51,8 @@ public final class TopicStaticAutoGenerateUrlCollectorImpl implements ICmdRouter
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
-            arrayList.add(UrlSchemaHelper.HTTP_JUMP_TOPIC_DETAIL);
-            arrayList.add(UrlSchemaHelper.HTTPS_JUMP_TOPIC_DETAIL);
+            arrayList.add("https://tieba.baidu.com/mo/q/newtopic/detail");
+            arrayList.add("https://tieba.baidu.com/mo/q/newtopic/detail");
             arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC);
             hashMap.put("com.baidu.tieba.homepage.topic.TopicStatic", arrayList);
             return hashMap;

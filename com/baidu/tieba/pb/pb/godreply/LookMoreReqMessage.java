@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.qc5;
+import com.repackage.td5;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
@@ -64,7 +64,7 @@ public class LookMoreReqMessage extends NetMessage {
                 builder.st_type = Integer.valueOf(this.st_type);
                 builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    qc5.a(builder, true);
+                    td5.a(builder, true);
                 }
                 GetPostListReqIdl.Builder builder2 = new GetPostListReqIdl.Builder();
                 builder2.data = builder.build(false);

@@ -54,7 +54,7 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
             setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
             setTextSize(0, pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34));
             setTextColor(ContextCompat.getColor(getContext(), R.color.CAM_X0111));
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f0810ae);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f08102d);
         }
     }
 

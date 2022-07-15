@@ -9,12 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sp7;
+import com.repackage.kq7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean isFirstAgree;
     public CustomDialogData mActDialogData;
     public ContriInfo mContriInfo;
     public int mScore;
@@ -54,8 +55,9 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("agree");
             if (optJSONObject2 != null) {
                 this.mScore = optJSONObject2.optInt("score");
+                this.isFirstAgree = optJSONObject2.optInt("is_first_agree") == 1;
             }
-            this.mActDialogData = sp7.a(optJSONObject);
+            this.mActDialogData = kq7.a(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             ContriInfo contriInfo = new ContriInfo();
             this.mContriInfo = contriInfo;
@@ -88,9 +90,15 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tokenData : (AuthTokenData) invokeV.objValue;
     }
 
+    public boolean isFirstAgree() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isFirstAgree : invokeV.booleanValue;
+    }
+
     public void setContriInfo(ContriInfo contriInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, contriInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, contriInfo) == null) {
             this.mContriInfo = contriInfo;
         }
     }

@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.zy5;
+import com.repackage.wz5;
 /* loaded from: classes3.dex */
 public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public zy5 b;
+    public wz5 b;
     public b c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -150,12 +150,12 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        zy5 zy5Var;
+        wz5 wz5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (zy5Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (wz5Var = this.b) == null) {
             return;
         }
-        zy5Var.I();
+        wz5Var.I();
     }
 
     public void d(@NonNull View view2, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
@@ -164,12 +164,12 @@ public class WriteTipBubbleController {
             return;
         }
         if (this.b == null) {
-            zy5 zy5Var = new zy5(this.a, view2);
-            this.b = zy5Var;
-            zy5Var.g0(R.drawable.pic_post_findlink);
+            wz5 wz5Var = new wz5(this.a, view2);
+            this.b = wz5Var;
+            wz5Var.e0(R.drawable.pic_post_findlink);
             this.b.S(2);
             this.b.Q(true);
-            this.b.f0(19);
+            this.b.d0(19);
             this.b.X(R.color.CAM_X0105);
             this.b.N(5000);
         }
@@ -179,39 +179,39 @@ public class WriteTipBubbleController {
             int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.tbds32);
             int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
             this.b.Z(dimensionPixelSize, 0, dimensionPixelSize, dimensionPixelSize);
-            this.b.j0(0);
-            this.b.k0(-dimensionPixelSize2);
+            this.b.h0(0);
+            this.b.i0(-dimensionPixelSize2);
             this.b.P(R.dimen.tbds177);
-            this.b.i0(R.dimen.tbds484);
+            this.b.g0(R.dimen.tbds484);
         } else if (anchor_view_from == ANCHOR_VIEW_FROM.FROM_EDIT_TEXT) {
             this.b.O(32);
             this.b.L(5);
             int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds32);
             int dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds32);
             this.b.Z(dimensionPixelSize3, 0, dimensionPixelSize3, dimensionPixelSize3);
-            this.b.j0(0);
-            this.b.k0(-dimensionPixelSize4);
+            this.b.h0(0);
+            this.b.i0(-dimensionPixelSize4);
             this.b.P(R.dimen.tbds177);
-            this.b.i0(R.dimen.tbds484);
+            this.b.g0(R.dimen.tbds484);
         } else if (anchor_view_from == ANCHOR_VIEW_FROM.FROM_PB_REPLY) {
             int dimensionPixelSize5 = this.a.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
             int dimensionPixelSize6 = this.a.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
             int dimensionPixelSize7 = this.a.getResources().getDimensionPixelSize(R.dimen.M_H_X006);
-            this.b.g0(R.drawable.obfuscated_res_0x7f0802e8);
+            this.b.e0(R.drawable.obfuscated_res_0x7f0802e8);
             this.b.S(1);
             this.b.O(16);
             this.b.L(2);
-            this.b.e0(R.dimen.T_X08);
+            this.b.c0(R.dimen.T_X08);
             this.b.X(R.color.CAM_X0101);
             int dimensionPixelSize8 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
             this.b.Z(dimensionPixelSize5, dimensionPixelSize6, dimensionPixelSize5, dimensionPixelSize7);
-            this.b.j0(0);
-            this.b.k0(-dimensionPixelSize8);
+            this.b.h0(0);
+            this.b.i0(-dimensionPixelSize8);
             this.b.P(R.dimen.tbds112);
-            this.b.i0(R.dimen.tbds536);
+            this.b.g0(R.dimen.tbds536);
         }
         this.b.M(new a(this, str2));
-        this.b.l0(str);
+        this.b.j0(str);
         TiebaStatic.log("c13801");
     }
 }

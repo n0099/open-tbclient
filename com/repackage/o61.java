@@ -1,42 +1,16 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.payment.PaymentManager;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.app.Activity;
 /* loaded from: classes6.dex */
-public class o61 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface o61 {
 
-    public static void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
-            if (bundle == null) {
-                PaymentManager.i(3, "闪付返回信息为空");
-                return;
-            }
-            String string = bundle.getString("statusCode");
-            try {
-                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
-            } catch (NumberFormatException e) {
-                PaymentManager.i(3, e.getMessage());
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
     }
 
-    public static void b(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
-            m61.a().g(bundle);
-        }
-    }
+    void a(String str);
 
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
-            m61.a().h("");
-        }
-    }
+    String b(Activity activity, String str, a aVar);
+
+    void c(String str, String str2, int i);
 }

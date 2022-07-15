@@ -15,10 +15,10 @@ public abstract class y implements Runnable {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public File f1011a;
+    public File f1738a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Runnable f1012a;
+    public Runnable f1739a;
 
     public y(Context context, File file) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public abstract class y implements Runnable {
             }
         }
         this.a = context;
-        this.f1011a = file;
+        this.f1738a = file;
     }
 
     public /* synthetic */ y(Context context, File file, z zVar) {
@@ -60,12 +60,12 @@ public abstract class y implements Runnable {
             x xVar = null;
             try {
                 try {
-                    if (this.f1011a == null) {
-                        this.f1011a = new File(this.a.getFilesDir(), "default_locker");
+                    if (this.f1738a == null) {
+                        this.f1738a = new File(this.a.getFilesDir(), "default_locker");
                     }
-                    xVar = x.a(this.a, this.f1011a);
-                    if (this.f1012a != null) {
-                        this.f1012a.run();
+                    xVar = x.a(this.a, this.f1738a);
+                    if (this.f1739a != null) {
+                        this.f1739a.run();
                     }
                     a(this.a);
                     if (xVar == null) {

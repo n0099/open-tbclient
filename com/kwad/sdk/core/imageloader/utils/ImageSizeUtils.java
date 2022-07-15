@@ -68,7 +68,7 @@ public final class ImageSizeUtils {
         } else {
             max = Math.max(width / width2, height / height2);
         }
-        return considerMaxTextureSize(width, height, max >= 1 ? max : 1, z);
+        return considerMaxTextureSize(width, height, max > 0 ? max : 1, z);
     }
 
     public static float computeImageScale(ImageSize imageSize, ImageSize imageSize2, ViewScaleType viewScaleType, boolean z) {

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd3;
+import com.repackage.yd3;
 /* loaded from: classes2.dex */
 public class OpenLocationMenuItem {
     public static /* synthetic */ Interceptable $ic;
@@ -148,7 +148,7 @@ public class OpenLocationMenuItem {
                 return;
             }
         }
-        e = jd3.g(45.0f);
+        e = yd3.g(45.0f);
     }
 
     public OpenLocationMenuItem(Context context, String str, MenuItemType menuItemType) {
@@ -167,10 +167,10 @@ public class OpenLocationMenuItem {
             }
         }
         this.c = new TextView(context);
-        this.d = jd3.g(1.0f);
+        this.d = yd3.g(1.0f);
         this.c.setText(str);
         this.c.setTextSize(16.0f);
-        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e74));
+        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df3));
         this.c.setTextColor(-16777216);
         this.c.setGravity(17);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, e);

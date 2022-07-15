@@ -39,7 +39,7 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d05ba : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d05d6 : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
@@ -47,12 +47,12 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.g();
-            this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060293));
-            this.d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060280));
-            this.e.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060280));
-            this.d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e01));
-            this.e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e01));
-            this.k.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06084a));
+            this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060296));
+            this.d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060283));
+            this.e.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060283));
+            this.d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d81));
+            this.e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d81));
+            this.k.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060843));
         }
     }
 

@@ -40,7 +40,7 @@ public class b implements View.OnClickListener {
             SharedPreferencesUtil.put(sb.toString(), Boolean.TRUE);
             PermissionsHelperActivity permissionsHelperActivity = this.a;
             permissionsDTO = permissionsHelperActivity.c;
-            permissionsHelperActivity.requestPermissions(permissionsDTO.permissions, 8001);
+            permissionsHelperActivity.requestPermissions(permissionsDTO.permissions, PermissionsHelperActivity.b);
         }
     }
 }

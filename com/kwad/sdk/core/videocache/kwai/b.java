@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes5.dex */
-public class b implements com.kwad.sdk.core.videocache.a {
+public final class b implements com.kwad.sdk.core.videocache.a {
     public File a;
     public final a b;
     public RandomAccessFile c;
@@ -32,12 +32,12 @@ public class b implements com.kwad.sdk.core.videocache.a {
         }
     }
 
-    private boolean a(File file) {
+    public static boolean a(File file) {
         return file.getName().endsWith(".download");
     }
 
     @Override // com.kwad.sdk.core.videocache.a
-    public synchronized int a(byte[] bArr, long j, int i) {
+    public final synchronized int a(byte[] bArr, long j, int i) {
         try {
             this.c.seek(j);
         } catch (IOException e) {
@@ -47,7 +47,7 @@ public class b implements com.kwad.sdk.core.videocache.a {
     }
 
     @Override // com.kwad.sdk.core.videocache.a
-    public synchronized long a() {
+    public final synchronized long a() {
         try {
         } catch (IOException e) {
             throw new ProxyCacheException("Error reading length of file " + this.a, e);
@@ -56,7 +56,7 @@ public class b implements com.kwad.sdk.core.videocache.a {
     }
 
     @Override // com.kwad.sdk.core.videocache.a
-    public synchronized void a(byte[] bArr, int i) {
+    public final synchronized void a(byte[] bArr, int i) {
         try {
             if (d()) {
                 throw new ProxyCacheException("Error append cache: cache file " + this.a + " is completed!");
@@ -64,12 +64,12 @@ public class b implements com.kwad.sdk.core.videocache.a {
             this.c.seek(a());
             this.c.write(bArr, 0, i);
         } catch (IOException e) {
-            throw new ProxyCacheException(String.format("Error writing %d bytes to %s from buffer with size %d", Integer.valueOf(i), this.c, Integer.valueOf(bArr.length)), e);
+            throw new ProxyCacheException(String.format("Error writing %d bytes to %s from buffer with size %d", Integer.valueOf(i), this.c, 8192), e);
         }
     }
 
     @Override // com.kwad.sdk.core.videocache.a
-    public synchronized void b() {
+    public final synchronized void b() {
         try {
             this.c.close();
             this.b.a(this.a);
@@ -79,7 +79,7 @@ public class b implements com.kwad.sdk.core.videocache.a {
     }
 
     @Override // com.kwad.sdk.core.videocache.a
-    public synchronized void c() {
+    public final synchronized void c() {
         if (d()) {
             return;
         }
@@ -98,7 +98,7 @@ public class b implements com.kwad.sdk.core.videocache.a {
     }
 
     @Override // com.kwad.sdk.core.videocache.a
-    public synchronized boolean d() {
+    public final synchronized boolean d() {
         return !a(this.a);
     }
 }

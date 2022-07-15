@@ -3,14 +3,12 @@ package com.baidu.live.business.base;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
@@ -62,19 +60,10 @@ public abstract class LiveBaseItemView extends RelativeLayout {
         }
     }
 
-    public ViewGroup getVideoContainer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
-
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             if (this.a) {
                 i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i) * this.b), 1073741824);
             }
@@ -84,7 +73,7 @@ public abstract class LiveBaseItemView extends RelativeLayout {
 
     public void setAspectRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
             this.b = f;
         }
     }
@@ -93,21 +82,21 @@ public abstract class LiveBaseItemView extends RelativeLayout {
 
     public void setIsImmersion(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.c = z;
         }
     }
 
     public void setNeedRatio(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.a = z;
         }
     }
 
     public void setUiMode(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
         }
     }
 

@@ -1,64 +1,23 @@
 package com.repackage;
 
-import android.view.View;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fu2 implements du2 {
+public class fu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean a;
+    public static boolean b;
+    public static final int c;
+    public static int d;
+    public static int e;
+    public static final boolean f;
+    public static boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public eu2 a;
-    public long b;
-    public long c;
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fu2 a;
-
-        public a(fu2 fu2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fu2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fu2Var;
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (this.a.l()) {
-                    this.a.m();
-                    return true;
-                }
-                this.a.n();
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -73,123 +32,74 @@ public class fu2 implements du2 {
                 return;
             }
         }
-        d = cg1.a;
+        a = rg1.a;
+        d = -1;
+        e = -1;
+        b = f("swan_get_swan_id_cache");
+        oj2.g0().getSwitch("swan_pms_use_outback_switch", 0);
+        oj2.g0().getSwitch("swan_preload_game_strategy", 0);
+        c = 0;
+        f = f("swan_670_append_request_info");
+        oj2.g0().getSwitch("swan_description_online_control", 0);
+        mc4.a = 0;
+        oj2.g0().getSwitch("swan_bdtls_use_cache", false);
+        g = false;
     }
 
-    public fu2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (l()) {
-            this.a = new eu2();
-        }
-    }
-
-    @Override // com.repackage.du2
-    public void a(long j) {
-        eu2 eu2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && l() && (eu2Var = this.a) != null) {
-            eu2Var.f(j - this.b);
-        }
-    }
-
-    @Override // com.repackage.et2
-    public void b(long j) {
-        eu2 eu2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && l() && (eu2Var = this.a) != null) {
-            this.b = j;
-            eu2Var.e();
-        }
-    }
-
-    @Override // com.repackage.et2
-    public void c(long j) {
-        eu2 eu2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && l() && (eu2Var = this.a) != null) {
-            this.c = j;
-            eu2Var.l(this.b, j);
-            this.a.a();
-        }
-    }
-
-    @Override // com.repackage.du2
-    public void e(long j) {
-        eu2 eu2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048579, this, j) == null) && l() && (eu2Var = this.a) != null) {
-            eu2Var.h(j - this.b);
-        }
-    }
-
-    @Override // com.repackage.du2
-    public void f(long j) {
-        eu2 eu2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && l() && (eu2Var = this.a) != null) {
-            eu2Var.i(j - this.b);
-        }
-    }
-
-    @Override // com.repackage.du2
-    public void g(long j) {
-        eu2 eu2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && l() && (eu2Var = this.a) != null) {
-            eu2Var.g(j - this.b);
-        }
-    }
-
-    @Override // com.repackage.du2
-    public void h(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && d && view2 != null) {
-            view2.setOnLongClickListener(new a(this));
-        }
-    }
-
-    public final boolean l() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (d) {
-                return AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).getBoolean("light_info_switch", false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == -1) {
+                oj2.g0().getSwitch("swan_use_extra_connect_pool", 0);
+                e = 0;
+            }
+            return e;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == -1) {
+                oj2.g0().getSwitch("swan_upgrade_js_thread_priority", 0);
+                d = 0;
+            }
+            return d;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? g : invokeV.booleanValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c : invokeV.intValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? b : invokeV.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            oj2.g0().getSwitch(str, 0);
+            if (a) {
+                Log.d("SwanApiCostOpt", str + " value : 0");
             }
             return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
-            eu2 eu2Var = this.a;
-            if (eu2Var != null) {
-                eu2Var.c();
-            }
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", true).apply();
-            if (this.a == null) {
-                this.a = new eu2();
-            }
-            this.a.k();
-        }
+        return invokeL.booleanValue;
     }
 }

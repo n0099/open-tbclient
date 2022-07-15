@@ -1,11 +1,10 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.http.request.GetRequest;
-import com.baidu.searchbox.http.request.PostByteRequest;
-import com.baidu.swan.pms.PMSConstants;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,108 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import java.util.Map;
-import okhttp3.MediaType;
-import org.json.JSONObject;
-@Deprecated
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 /* loaded from: classes7.dex */
-public class t84 {
+public class t84 implements n84<g94> {
     public static /* synthetic */ Interceptable $ic;
-    public static CookieManager a;
-    public static String b;
+    public static final hd4 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ x84 b;
-
-        public a(Map map, x84 x84Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, x84Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = x84Var;
-        }
-
-        @Override // com.repackage.t84.c
-        public void a(Map<String, String> map, byte[] bArr, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
-                PostByteRequest.PostByteRequestBuilder postByteRequest = u64.g().postByteRequest();
-                c74.a(postByteRequest, this.a);
-                postByteRequest.url(y84.j(str, this.a)).content(bArr).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6).requestSubFrom(10);
-                if (map != null) {
-                    postByteRequest.addHeaders(map);
-                }
-                if (!TextUtils.isEmpty(t84.b)) {
-                    postByteRequest.userAgent(t84.b);
-                }
-                postByteRequest.cookieManager(t84.a).enableStat(true).build().executeStat(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ x84 b;
-
-        public b(Map map, x84 x84Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, x84Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = x84Var;
-        }
-
-        @Override // com.repackage.t84.c
-        public void a(Map<String, String> map, byte[] bArr, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
-                GetRequest.GetRequestBuilder requestSubFrom = u64.g().getRequest().url(y84.j(str, this.a)).requestSubFrom(10);
-                if (!TextUtils.isEmpty(t84.b)) {
-                    requestSubFrom.userAgent(t84.b);
-                }
-                if (map != null) {
-                    requestSubFrom.addHeaders(map);
-                }
-                requestSubFrom.cookieManager(t84.a).enableStat(true).build().executeStat(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(Map<String, String> map, byte[] bArr, String str);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -129,63 +32,84 @@ public class t84 {
                 return;
             }
         }
-        a = b74.b().f();
-        h64 b2 = i64.b();
-        if (b2 == null || !u64.g().c()) {
-            return;
-        }
-        b = b2.a();
+        a = hd4.c();
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    @Deprecated
-    public static void a(String str, Map<String, String> map, Map<String, String> map2, x84<String> x84Var) {
+    public t84() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65537, null, str, map, map2, x84Var) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        if (x84Var != null) {
-            x84Var.onStart();
-        }
-        z64 b2 = b74.b();
-        if (PMSConstants.a(b2)) {
-            b2.m(y84.j(str, map), null, new b(map, x84Var));
-            return;
-        }
-        GetRequest.GetRequestBuilder requestSubFrom = u64.g().getRequest().url(y84.j(str, map)).requestSubFrom(10);
-        if (!TextUtils.isEmpty(b)) {
-            requestSubFrom.userAgent(b);
-        }
-        if (map2 != null) {
-            requestSubFrom.addHeaders(map2);
-        }
-        requestSubFrom.cookieManager(a).enableStat(true).build().executeStat(x84Var);
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    @Deprecated
-    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, x84<String> x84Var) {
+    @Override // com.repackage.n84
+    public void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65538, null, str, map, map2, jSONObject, x84Var) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(b());
         }
-        if (x84Var != null) {
-            x84Var.onStart();
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT NOT NULL,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0,max_age LONG DEFAULT 0,token TEXT,domains TEXT," + GameGuideConfigInfo.KEY_APP_KEY + " TEXT,app_name TEXT, UNIQUE (bundle_id,version_name));";
         }
-        z64 b2 = b74.b();
-        if (PMSConstants.a(b2)) {
-            b2.m(y84.j(str, map), jSONObject.toString(), new a(map, x84Var));
-            return;
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "swan_plugin" : (String) invokeV.objValue;
+    }
+
+    public final void d(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN " + GameGuideConfigInfo.KEY_APP_KEY + " TEXT");
+                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN app_name TEXT");
+            } catch (SQLException e) {
+                a.g("PMSDBHelperPlugin", "#inertAppKeyAndAppName error", e);
+            }
         }
-        q64 postStringRequest = u64.g().postStringRequest();
-        c74.a(postStringRequest, map);
-        postStringRequest.url(y84.j(str, map)).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6).requestSubFrom(10);
-        if (map2 != null) {
-            postStringRequest.addHeaders(map2);
+    }
+
+    public final void e(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN token TEXT");
+                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN domains TEXT");
+            } catch (SQLException e) {
+                a.g("PMSDBHelperPlugin", "#inertTokenAndDomains error", e);
+            }
         }
-        if (!TextUtils.isEmpty(b)) {
-            postStringRequest.userAgent(b);
+    }
+
+    @Override // com.repackage.n84
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, sQLiteDatabase, i, i2) == null) {
+            while (i < i2) {
+                if (i == 2) {
+                    sQLiteDatabase.execSQL(b());
+                } else if (i == 3) {
+                    e(sQLiteDatabase);
+                } else if (i == 5) {
+                    d(sQLiteDatabase);
+                }
+                i++;
+            }
         }
-        postStringRequest.cookieManager(a).enableStat(true).build().executeStat(x84Var);
     }
 }

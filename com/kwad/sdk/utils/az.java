@@ -1,50 +1,57 @@
 package com.kwad.sdk.utils;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.view.View;
-import android.view.ViewGroup;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 /* loaded from: classes5.dex */
-public class az {
-    public static ValueAnimator a(final View view2, int i, final int i2) {
-        b(view2, i);
-        ValueAnimator ofInt = ValueAnimator.ofInt(i, i2);
-        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.utils.az.1
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                az.b(view2, ((Integer) valueAnimator.getAnimatedValue()).intValue());
-            }
-        });
-        ofInt.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.utils.az.2
-            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-                az.b(view2, i2);
-            }
+public final class az {
+    public static long a = 400;
+    public static final Handler b = new Handler(Looper.getMainLooper());
 
-            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                az.b(view2, i2);
-            }
-        });
-        return ofInt;
+    @SuppressLint({"MissingPermission"})
+    public static void a(Context context, Vibrator vibrator) {
+        if (vibrator == null || ag.a(context, "android.permission.VIBRATE") != 0) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= 26) {
+            vibrator.vibrate(VibrationEffect.createOneShot(a, -1));
+        } else {
+            vibrator.vibrate(a);
+        }
     }
 
-    public static ValueAnimator b(final View view2, int i, int i2) {
-        ValueAnimator ofInt = ObjectAnimator.ofInt(i, i2);
-        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.utils.az.3
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                view2.setTranslationY(((Integer) valueAnimator.getAnimatedValue()).intValue());
-            }
-        });
-        return ofInt;
+    public static void a(Runnable runnable) {
+        if (Looper.getMainLooper() == Looper.myLooper()) {
+            runnable.run();
+        } else {
+            b.post(runnable);
+        }
     }
 
-    public static void b(View view2, int i) {
-        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-        layoutParams.height = i;
-        view2.setLayoutParams(layoutParams);
+    public static void a(Runnable runnable, long j) {
+        b.postDelayed(runnable, j);
+    }
+
+    public static void a(Runnable runnable, Object obj, long j) {
+        Message obtain = Message.obtain(b, runnable);
+        obtain.obj = null;
+        b.sendMessageDelayed(obtain, j);
+    }
+
+    @SuppressLint({"MissingPermission"})
+    public static void b(Context context, Vibrator vibrator) {
+        if (vibrator == null || ag.a(context, "android.permission.VIBRATE") != 0) {
+            return;
+        }
+        vibrator.cancel();
+    }
+
+    public static void b(Runnable runnable) {
+        b.removeCallbacks(runnable);
     }
 }

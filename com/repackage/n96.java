@@ -1,40 +1,46 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.RemoveFansController;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.faceshop.DiyEmotionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.m96;
-import com.repackage.ws8;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class n96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public RemoveFansController b;
-    public m96 c;
-    public mz7 d;
-    public ws8 e;
-    public e f;
+    public m96 a;
+    public Handler b;
 
     /* loaded from: classes6.dex */
-    public class a implements m96.b {
+    public class a implements m96.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n96 a;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ n96 c;
 
-        public a(n96 n96Var) {
+        public a(n96 n96Var, List list, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {n96Var};
+                Object[] objArr = {n96Var, list, map};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,31 +50,68 @@ public class n96 {
                     return;
                 }
             }
-            this.a = n96Var;
+            this.c = n96Var;
+            this.a = list;
+            this.b = map;
         }
 
-        @Override // com.repackage.m96.b
-        public void a(int i, String str, boolean z) {
+        @Override // com.repackage.m96.k
+        public void a(int i, int i2, int i3, @Nullable Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) || this.a.f == null) {
-                return;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
+                this.c.d(this.a, this.b);
             }
-            this.a.f.b(i, str, z, 0, 0L);
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements RemoveFansController.IResultCallBack {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n96 a;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ n96 c;
 
-        public b(n96 n96Var) {
+        /* loaded from: classes6.dex */
+        public class a implements m96.k {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.repackage.m96.k
+            public void a(int i, int i2, int i3, @Nullable Object obj) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
+                    b bVar = this.a;
+                    bVar.c.g(bVar.b);
+                }
+            }
+        }
+
+        public b(n96 n96Var, List list, List list2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {n96Var};
+                Object[] objArr = {n96Var, list, list2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -78,24 +121,24 @@ public class n96 {
                     return;
                 }
             }
-            this.a = n96Var;
+            this.c = n96Var;
+            this.a = list;
+            this.b = list2;
         }
 
-        @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
-        public void onResultCallBack(int i, String str, long j, boolean z) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) || this.a.f == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.a.h(this.a, false, new a(this));
             }
-            this.a.f.b(i, str, z, 1, j);
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements ws8.d {
+    public class c implements m96.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n96 a;
 
         public c(n96 n96Var) {
             Interceptable interceptable = $ic;
@@ -109,72 +152,27 @@ public class n96 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = n96Var;
         }
 
-        @Override // com.repackage.ws8.d
-        public void onClick() {
+        @Override // com.repackage.m96.k
+        public void a(int i, int i2, int i3, @Nullable Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d.dismiss();
-                if (this.a.f != null) {
-                    this.a.f.a();
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
+                if (i2 > 0) {
+                    BdLog.e("NewFaceSyncUtil setCollectUpdateTime reSortLocalFace Called:" + System.currentTimeMillis());
+                    nn7.v(System.currentTimeMillis());
                 }
-                this.a.c.d();
+                nn7.o().x(false);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements ws8.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n96 a;
-
-        public d(n96 n96Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n96Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n96Var;
-        }
-
-        @Override // com.repackage.ws8.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.d == null) {
-                return;
-            }
-            this.a.d.dismiss();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a();
-
-        void b(int i, String str, boolean z, int i2, long j);
-    }
-
-    public n96(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public n96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -184,63 +182,106 @@ public class n96 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        m96 m96Var = new m96(tbPageContext, bdUniqueId);
-        this.c = m96Var;
-        m96Var.e(new a(this));
-        RemoveFansController removeFansController = new RemoveFansController(tbPageContext, bdUniqueId);
-        this.b = removeFansController;
-        removeFansController.setResultCallBack(new b(this));
+        this.a = m96.q();
+        this.b = new Handler(Looper.getMainLooper());
     }
 
-    public void d() {
-        ws8 ws8Var;
+    public final void d(List<DiyEmotionData> list, Map<String, DiyEmotionData> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ws8Var = this.e) == null) {
-            return;
-        }
-        ws8Var.e();
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h();
-        }
-    }
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.b.removeFans(j);
-        }
-    }
-
-    public void g(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f = eVar;
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.d == null) {
-                ws8 ws8Var = new ws8(this.a.getContext());
-                this.e = ws8Var;
-                ws8Var.h(this.a.getString(R.string.obfuscated_res_0x7f0f0425));
-                ArrayList arrayList = new ArrayList();
-                ws8.b bVar = new ws8.b(this.a.getString(R.string.obfuscated_res_0x7f0f041f), this.e);
-                bVar.h(new c(this));
-                arrayList.add(bVar);
-                this.e.g(new d(this));
-                this.e.f(arrayList);
-                mz7 mz7Var = new mz7(this.a.getPageActivity(), this.e.b());
-                this.d = mz7Var;
-                mz7Var.a(0.7f);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, list, map) == null) {
+            ArrayList<DiyEmotionData> arrayList = new ArrayList();
+            for (DiyEmotionData diyEmotionData : list) {
+                if (diyEmotionData != null && !map.containsKey(diyEmotionData.getPid()) && !TextUtils.isEmpty(diyEmotionData.getPicUrl())) {
+                    arrayList.add(diyEmotionData);
+                }
             }
-            this.d.show();
+            if (!arrayList.isEmpty()) {
+                kn7.a("【表情云同步】：4 - DIY表情：下载本地没有的表情");
+                ArrayList arrayList2 = new ArrayList();
+                for (DiyEmotionData diyEmotionData2 : arrayList) {
+                    p45 p45Var = new p45();
+                    p45Var.f = diyEmotionData2.getPkgId();
+                    p45Var.a = diyEmotionData2.getPid();
+                    p45Var.d = diyEmotionData2.getPicUrl();
+                    p45Var.b = diyEmotionData2.getWidth();
+                    p45Var.c = diyEmotionData2.getHeight();
+                    p45Var.e = diyEmotionData2.getThumbnail();
+                    arrayList2.add(p45Var);
+                }
+                this.b.post(new b(this, arrayList2, list));
+                return;
+            }
+            g(list);
         }
+    }
+
+    public final void e(List<DiyEmotionData> list, List<DiyEmotionData> list2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
+            ArrayList arrayList = new ArrayList();
+            Map<String, DiyEmotionData> h = h(list2);
+            Map<String, DiyEmotionData> h2 = h(list);
+            for (Map.Entry<String, DiyEmotionData> entry : h.entrySet()) {
+                if (!h2.containsKey(entry.getKey())) {
+                    arrayList.add(entry.getValue());
+                }
+            }
+            if (!arrayList.isEmpty()) {
+                kn7.a("【表情云同步】：4 - DIY表情：删除云端没有的表情");
+                this.a.t(arrayList, false, new a(this, list, h));
+                return;
+            }
+            d(list, h);
+        }
+    }
+
+    public void f(List<DiyEmotionData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            m96.q().j(true);
+            List<DiyEmotionData> r = y86.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
+            for (DiyEmotionData diyEmotionData : r) {
+                String n = m96.n(diyEmotionData.getPid(), false);
+                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                imageFileInfo.setFilePath(n);
+                diyEmotionData.imageFileInfo = imageFileInfo;
+            }
+            BdLog.e("NewFaceSyncUtil MergeCollectFace Called CloudList:");
+            Iterator<DiyEmotionData> it = list.iterator();
+            while (it.hasNext()) {
+                BdLog.e("NewFaceSyncUtil Cloud data:" + it.next().getPkgId());
+            }
+            BdLog.e("NewFaceSyncUtil MergeCollectFace Called localList:");
+            Iterator<DiyEmotionData> it2 = r.iterator();
+            while (it2.hasNext()) {
+                BdLog.e("NewFaceSyncUtil Local data:" + it2.next().getPkgId());
+            }
+            e(list, r);
+        }
+    }
+
+    public final void g(List<DiyEmotionData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            kn7.a("【表情云同步】：5 - DIY表情：根据云端数据进行排序");
+            this.a.r(list, false, new c(this));
+        }
+    }
+
+    public final Map<String, DiyEmotionData> h(List<DiyEmotionData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            HashMap hashMap = new HashMap();
+            if (list != null) {
+                for (DiyEmotionData diyEmotionData : list) {
+                    if (diyEmotionData != null && !TextUtils.isEmpty(diyEmotionData.getPid())) {
+                        hashMap.put(diyEmotionData.getPid(), diyEmotionData);
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

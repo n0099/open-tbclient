@@ -441,7 +441,7 @@ public final class SClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(65564, this, j, sClientPacket) == null) {
             LogTo logTo = LogTo.INSTANCE;
-            logTo.d("*****", "[SClient " + j + "] read socket packet all:" + ((Object) UInt.m832toStringimpl(sClientPacket.m57getBodyLengthpVg5ArA())) + " command:" + SClientPacket.Companion.m63cmd2StrWZ4Q5Ns(sClientPacket.m58getCommandpVg5ArA()));
+            logTo.d("*****", "[SClient " + j + "] read socket packet all:" + ((Object) UInt.m1775toStringimpl(sClientPacket.m57getBodyLengthpVg5ArA())) + " command:" + SClientPacket.Companion.m63cmd2StrWZ4Q5Ns(sClientPacket.m58getCommandpVg5ArA()));
             int m58getCommandpVg5ArA = sClientPacket.m58getCommandpVg5ArA();
             if (m58getCommandpVg5ArA == 0) {
                 byte[] array = sClientPacket.getBody().array();
@@ -496,10 +496,10 @@ public final class SClient {
                 byte[] array2 = sClientPacket.getBody().array();
                 Intrinsics.checkNotNullExpressionValue(array2, "packet.getBody().array()");
                 byte[] sliceArray2 = ArraysKt___ArraysKt.sliceArray(array2, new IntRange(0, sClientPacket.m57getBodyLengthpVg5ArA() - 1));
-                int m787constructorimpl = UInt.m787constructorimpl(UInt.m787constructorimpl(UInt.m787constructorimpl(UByte.m711constructorimpl(sliceArray2[0]) & 255) << 8) | UInt.m787constructorimpl(UByte.m711constructorimpl(sliceArray2[1]) & 255));
-                int m787constructorimpl2 = UInt.m787constructorimpl(UInt.m787constructorimpl(UInt.m787constructorimpl(UByte.m711constructorimpl(sliceArray2[2]) & 255) << 8) | UInt.m787constructorimpl(UByte.m711constructorimpl(sliceArray2[3]) & 255));
-                TornadoLiteRuntime.INSTANCE.setLatencyFromSClientToRemote$tun2tornadolite_release(m787constructorimpl);
-                TornadoLiteRuntime.INSTANCE.setLossRateFromSClientToRemote$tun2tornadolite_release(m787constructorimpl2);
+                int m1730constructorimpl = UInt.m1730constructorimpl(UInt.m1730constructorimpl(UInt.m1730constructorimpl(UByte.m1654constructorimpl(sliceArray2[0]) & 255) << 8) | UInt.m1730constructorimpl(UByte.m1654constructorimpl(sliceArray2[1]) & 255));
+                int m1730constructorimpl2 = UInt.m1730constructorimpl(UInt.m1730constructorimpl(UInt.m1730constructorimpl(UByte.m1654constructorimpl(sliceArray2[2]) & 255) << 8) | UInt.m1730constructorimpl(UByte.m1654constructorimpl(sliceArray2[3]) & 255));
+                TornadoLiteRuntime.INSTANCE.setLatencyFromSClientToRemote$tun2tornadolite_release(m1730constructorimpl);
+                TornadoLiteRuntime.INSTANCE.setLossRateFromSClientToRemote$tun2tornadolite_release(m1730constructorimpl2);
                 int latencyFromMClientToSClient = TornadoLiteRuntime.INSTANCE.getLatencyFromMClientToSClient();
                 int lossRateFromMClientToSClient = TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient();
                 if (TornadoLiteRuntime.INSTANCE.getLossRateFromSClientToRemote() + TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient() >= 100) {
@@ -517,9 +517,9 @@ public final class SClient {
                 sb.append("[CMD_HEART_BEAT ");
                 sb.append(j);
                 sb.append("] remote_latency:");
-                sb.append((Object) UInt.m832toStringimpl(m787constructorimpl));
+                sb.append((Object) UInt.m1775toStringimpl(m1730constructorimpl));
                 sb.append(" remote_lossRate:");
-                sb.append((Object) UInt.m832toStringimpl(m787constructorimpl2));
+                sb.append((Object) UInt.m1775toStringimpl(m1730constructorimpl2));
                 sb.append(" local_latency:");
                 int i2 = i;
                 sb.append(i2);
@@ -614,7 +614,7 @@ public final class SClient {
                         byte[] bytes = str.getBytes(Charsets.UTF_8);
                         Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
                         bodyBuffer.put(bytes);
-                        SClientPacket sClientPacket = new SClientPacket(1, 0, 0, UInt.m787constructorimpl(bytes.length), null);
+                        SClientPacket sClientPacket = new SClientPacket(1, 0, 0, UInt.m1730constructorimpl(bytes.length), null);
                         sClientPacket.encodeHeader2Buffer(headerBuffer);
                         sClientPacket.writeBodyBuffer(bodyBuffer);
                         write(sClientPacket);

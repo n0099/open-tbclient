@@ -1,41 +1,48 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.enterForum.recforum.view.RecommendForumView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes6.dex */
 public class i56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendForumView a;
+    public ArrayList<h56> a;
 
-    public i56(TbPageContext tbPageContext) {
+    public i56() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        RecommendForumView recommendForumView = new RecommendForumView(tbPageContext.getPageActivity());
-        this.a = recommendForumView;
-        recommendForumView.setTbPageContext(tbPageContext);
     }
 
-    public RecommendForumView a() {
-        InterceptResult invokeV;
+    public void a(List<FrsTabInfo> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (RecommendForumView) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            if (this.a == null) {
+                this.a = new ArrayList<>();
+            }
+            this.a.clear();
+            if (list == null) {
+                return;
+            }
+            for (FrsTabInfo frsTabInfo : list) {
+                if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
+                    this.a.add(new h56(frsTabInfo));
+                }
+            }
+        }
     }
 }

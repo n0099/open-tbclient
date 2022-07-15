@@ -1,89 +1,73 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.IInterface;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBNativeListener;
-import com.win.opensdk.core.Info;
+import com.google.android.gms.common.internal.ConnectionTelemetryConfiguration;
+import com.google.android.gms.common.internal.zzj;
 /* loaded from: classes5.dex */
-public class bk9 implements View.OnTouchListener {
+public abstract class bk9<T extends IInterface> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ mk9 a;
+    public final Context a;
+    public final Handler b;
+    @Nullable
+    public volatile zzj c;
 
-    public bk9(mk9 mk9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mk9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755823967, "Lcom/repackage/bk9;")) == null) {
+            return;
         }
-        this.a = mk9Var;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755823967, "Lcom/repackage/bk9;");
+        }
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Info info;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.a.j = true;
-                this.a.k = System.currentTimeMillis();
-                this.a.l = motionEvent.getX();
-                this.a.m = motionEvent.getY();
-                this.a.n = (int) motionEvent.getRawX();
-                this.a.o = (int) motionEvent.getRawY();
-                this.a.p = (int) motionEvent.getX();
-                this.a.q = (int) motionEvent.getY();
-                this.a.v = System.currentTimeMillis();
-                mk9.e(this.a, view2);
-            } else if (action == 1) {
-                this.a.w = (int) motionEvent.getRawX();
-                this.a.x = (int) motionEvent.getRawY();
-                this.a.r = (int) motionEvent.getX();
-                this.a.s = (int) motionEvent.getY();
-                this.a.y = System.currentTimeMillis();
-                Math.abs(motionEvent.getX() - this.a.l);
-                Math.abs(motionEvent.getY() - this.a.m);
-                if (System.currentTimeMillis() - this.a.k < 2000) {
-                    mk9 mk9Var = this.a;
-                    if (mk9Var.j && (info = mk9Var.c) != null && wm9.d(info, mk9Var.h)) {
-                        this.a.h = System.currentTimeMillis();
-                        mk9 mk9Var2 = this.a;
-                        Context context = mk9Var2.a;
-                        String open = mk9Var2.c.getOpen();
-                        mk9 mk9Var3 = this.a;
-                        wm9.a(context, open, mk9Var3.c, mk9Var3.g, mk9Var3.i().toString());
-                        un9 a = yn9.a(this.a.a);
-                        a.h(new co9(this.a.c), null);
-                        a.l("desc", this.a.i().toString());
-                        a.m();
-                        mk9 mk9Var4 = this.a;
-                        sl9.p(mk9Var4.c, mk9Var4.i().toString());
-                        PBNativeListener pBNativeListener = this.a.f;
-                        if (pBNativeListener != null) {
-                            pBNativeListener.onClicked();
-                        }
-                    }
-                }
-            }
-            return true;
+    public static /* bridge */ /* synthetic */ void c(bk9 bk9Var, zzj zzjVar) {
+        bk9Var.c = zzjVar;
+        if (bk9Var.b()) {
+            ConnectionTelemetryConfiguration connectionTelemetryConfiguration = zzjVar.zzd;
+            ek9.a().b(connectionTelemetryConfiguration == null ? null : connectionTelemetryConfiguration.zza());
         }
-        return invokeLL.booleanValue;
+    }
+
+    public void a(int i, @Nullable IBinder iBinder, @Nullable Bundle bundle, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), iBinder, bundle, Integer.valueOf(i2)}) == null) {
+            Handler handler = this.b;
+            handler.sendMessage(handler.obtainMessage(1, i2, -1, new mk9(this, i, iBinder, bundle)));
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @NonNull
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (Context) invokeV.objValue;
     }
 }

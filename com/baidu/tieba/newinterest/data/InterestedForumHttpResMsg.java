@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.go7;
+import com.repackage.yo7;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
@@ -16,7 +16,7 @@ import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
 public class InterestedForumHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public go7 pageData;
+    public yo7 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterestedForumHttpResMsg() {
@@ -36,10 +36,10 @@ public class InterestedForumHttpResMsg extends HttpResponsedMessage {
         }
     }
 
-    public go7 getPageData() {
+    public yo7 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (go7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (yo7) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,8 +58,8 @@ public class InterestedForumHttpResMsg extends HttpResponsedMessage {
             }
             setErrorString(getVerticalForumListResIdl.error.usermsg);
         }
-        go7 go7Var = new go7();
-        this.pageData = go7Var;
-        go7Var.a(getVerticalForumListResIdl.data);
+        yo7 yo7Var = new yo7();
+        this.pageData = yo7Var;
+        yo7Var.a(getVerticalForumListResIdl.data);
     }
 }

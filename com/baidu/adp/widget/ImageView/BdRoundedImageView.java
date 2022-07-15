@@ -394,7 +394,7 @@ public class BdRoundedImageView extends ImageView {
         this.c = ColorStateList.valueOf(0);
         this.d = false;
         this.e = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400e4, R.attr.obfuscated_res_0x7f0400e5, R.attr.obfuscated_res_0x7f040199, R.attr.obfuscated_res_0x7f040316, R.attr.obfuscated_res_0x7f040555}, i2, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400e4, R.attr.obfuscated_res_0x7f0400e5, R.attr.obfuscated_res_0x7f040199, R.attr.obfuscated_res_0x7f040314, R.attr.obfuscated_res_0x7f040556}, i2, 0);
         int i5 = obtainStyledAttributes.getInt(0, -1);
         if (i5 >= 0) {
             setScaleType(i[i5]);

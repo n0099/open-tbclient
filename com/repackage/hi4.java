@@ -1,10 +1,6 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,295 +9,211 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.FloatStrategy;
+import com.baidu.webkit.sdk.WebKitFactory;
+import com.repackage.ed4;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class hi4 {
+public final class hi4 implements ed4 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean c;
+    public static final Set<ed4.a> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
+    public int a;
+    public String b;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements WebKitFactory.WebkitInstallListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ String a;
+        public final /* synthetic */ File b;
+        public final /* synthetic */ hi4 c;
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Integer a;
-        public String b;
-        public Integer c;
-        public Long d;
-        public Long e;
-        public Integer f;
-        public String g;
+        /* renamed from: com.repackage.hi4$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0649a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
 
-        public b() {
+            public RunnableC0649a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    hi4 hi4Var = this.a.c;
+                    hi4Var.j(hi4Var.b);
+                }
+            }
+        }
+
+        public a(hi4 hi4Var, String str, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hi4Var, str, file};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final hi4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-327599329, "Lcom/repackage/hi4$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-327599329, "Lcom/repackage/hi4$c;");
                     return;
                 }
             }
-            a = new hi4(null);
+            this.c = hi4Var;
+            this.a = str;
+            this.b = file;
         }
-    }
 
-    public /* synthetic */ hi4(a aVar) {
-        this();
-    }
-
-    public static hi4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (hi4) invokeV.objValue;
-    }
-
-    public final void a(b bVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, bVar, z) == null) || bVar == null) {
-            return;
-        }
-        try {
-            if (this.a) {
-                boolean h = ht4.k().h("pref_key_task_first_open", true);
-                int l = ht4.k().l("pref_key_float_tip_num", 0);
-                long m = ht4.k().m("pref_key_new_task_complete_time", 0L);
-                long currentTimeMillis = System.currentTimeMillis();
-                if (h) {
-                    if (e(bVar)) {
-                        this.c = true;
-                        ht4.k().u("pref_key_task_first_open", false);
+        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+        public void onInstallFinish(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                boolean z = true;
+                if (jg4.B(this.a, str)) {
+                    synchronized (hi4.d) {
+                        this.c.i(true);
                     }
-                } else if (d(bVar, currentTimeMillis / 1000, m / 1000)) {
-                    if (z) {
-                        if (e(bVar)) {
-                            this.c = true;
-                            ht4.k().w("pref_key_float_tip_num", 0);
-                        }
-                    } else if (l >= bVar.f.intValue() || !e(bVar)) {
+                    return;
+                }
+                if (hi4.e(this.c) <= 2) {
+                    if (8 == i) {
+                        this.c.b = this.a;
                     } else {
-                        this.c = true;
-                        ht4.k().w("pref_key_float_tip_num", l + 1);
-                    }
-                }
-            }
-        } catch (Exception unused) {
-        }
-    }
-
-    public final boolean c(vh4 vh4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vh4Var)) == null) {
-            if (vh4Var == null) {
-                return false;
-            }
-            int x = vh4Var.x();
-            return x == 5 || x == 6 || x == 7 || x == 8;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean d(b bVar, long j, long j2) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bVar, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (bVar != null && j2 > 0 && !TextUtils.isEmpty(bVar.b) && bVar.d.longValue() < bVar.e.longValue() && j >= bVar.d.longValue() && j <= bVar.e.longValue() && bVar.f.intValue() > 0 && bVar.a.intValue() >= 0 && j > j2) {
-                String[] split = bVar.b.split(",");
-                if (split != null && split.length > 0) {
-                    for (String str : split) {
-                        if ("3".equals(str)) {
-                            z = true;
-                            break;
+                        hi4 hi4Var = this.c;
+                        hi4Var.b = this.a + File.pathSeparator + this.c.a;
+                        if (jg4.f(this.b, new File(this.c.b)) != this.b.length()) {
+                            z = false;
                         }
                     }
-                }
-                z = false;
-                if (!z) {
-                    return false;
-                }
-                long intValue = bVar.a.intValue() * 86400;
-                long j3 = j - j2;
-                if (j3 > intValue && j3 < intValue + 86400) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final boolean e(b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2921409, bVar), Boolean.class);
-            if (runTask == null || runTask.getData() == null || !(runTask.getData() instanceof Boolean)) {
-                return false;
-            }
-            return ((Boolean) runTask.getData()).booleanValue();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            ht4.k().y("pref_key_strategy_json", str);
-            ht4.k().w("pref_key_float_tip_num", 0);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ht4.k().x("pref_key_new_task_complete_time", System.currentTimeMillis());
-        }
-    }
-
-    public void h(vh4 vh4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, vh4Var) == null) && vh4Var != null && c(vh4Var)) {
-            ht4.k().x("pref_key_new_task_complete_time", System.currentTimeMillis());
-        }
-    }
-
-    public void i(vi4 vi4Var) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, vi4Var) == null) || vi4Var == null || vi4Var.a() == null || vi4Var.a().size() <= 0) {
-            return;
-        }
-        ArrayList<FloatStrategy> a2 = vi4Var.a();
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        Iterator<FloatStrategy> it = a2.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                bVar = null;
-                break;
-            }
-            FloatStrategy next = it.next();
-            if (currentTimeMillis > next.show_time_begin.longValue() && currentTimeMillis < next.show_time_end.longValue()) {
-                bVar = new b();
-                bVar.b = next.browsetimepage;
-                bVar.c = next.duration;
-                bVar.f = next.show_num;
-                bVar.d = next.show_time_begin;
-                bVar.e = next.show_time_end;
-                bVar.g = next.toast;
-                bVar.a = next.un_do_mission;
-                break;
-            }
-        }
-        if (bVar == null) {
-            f("");
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("un_do_mission", bVar.a.intValue());
-            jSONObject.put("browsetimepage", bVar.b);
-            jSONObject.put("duration", bVar.c.intValue());
-            jSONObject.put("show_time_begin", bVar.d.longValue());
-            jSONObject.put("show_time_end", bVar.e.longValue());
-            jSONObject.put("show_num", bVar.f.intValue());
-            jSONObject.put("toast", bVar.g);
-            String jSONObject2 = jSONObject.toString();
-            if (TextUtils.isEmpty(jSONObject2)) {
-                f("");
-                return;
-            }
-            if (!jSONObject2.equals(ht4.k().q("pref_key_strategy_json", null))) {
-                f(jSONObject2);
-            }
-            a(bVar, true);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a = z;
-            if (z && this.b) {
-                this.b = false;
-                if (!this.c && wh4.w().s()) {
-                    String q = ht4.k().q("pref_key_strategy_json", null);
-                    if (TextUtils.isEmpty(q)) {
+                    if (z && g03.M().postDelayed(new RunnableC0649a(this), 1000L)) {
                         return;
                     }
-                    try {
-                        JSONObject jSONObject = new JSONObject(q);
-                        b bVar = new b();
-                        bVar.a = Integer.valueOf(jSONObject.optInt("un_do_mission", 0));
-                        bVar.b = jSONObject.optString("browsetimepage", "");
-                        bVar.c = Integer.valueOf(jSONObject.optInt("duration", 0));
-                        bVar.d = Long.valueOf(jSONObject.optLong("show_time_begin", 0L));
-                        bVar.e = Long.valueOf(jSONObject.optLong("show_time_end", 0L));
-                        bVar.f = Integer.valueOf(jSONObject.optInt("show_num", 0));
-                        bVar.g = jSONObject.optString("toast", null);
-                        a(bVar, false);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                }
+                if (8 == i) {
+                    jg4.k(this.a);
+                }
+                synchronized (hi4.d) {
+                    this.c.i(false);
                 }
             }
         }
+
+        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+        public void onInstallStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755647298, "Lcom/repackage/hi4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755647298, "Lcom/repackage/hi4;");
+                return;
+            }
+        }
+        d = new HashSet();
     }
 
     public hi4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = true;
-        this.c = false;
+        this.a = 0;
+    }
+
+    public static /* synthetic */ int e(hi4 hi4Var) {
+        int i = hi4Var.a + 1;
+        hi4Var.a = i;
+        return i;
+    }
+
+    @Override // com.repackage.ed4
+    public void a(String str, ed4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
+            synchronized (d) {
+                d.add(aVar);
+                if (c) {
+                    return;
+                }
+                c = true;
+                j(str);
+            }
+        }
+    }
+
+    public final void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            synchronized (d) {
+                for (ed4.a aVar : d) {
+                    if (aVar != null) {
+                        aVar.a(z);
+                    }
+                }
+                d.clear();
+                c = false;
+                this.a = 0;
+            }
+        }
+    }
+
+    public final void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                synchronized (d) {
+                    i(false);
+                }
+                return;
+            }
+            File file = new File(str);
+            if (!file.isFile()) {
+                synchronized (d) {
+                    i(false);
+                }
+                return;
+            }
+            WebKitFactory.installAsync("file://" + str, new a(this, str, file));
+        }
     }
 }

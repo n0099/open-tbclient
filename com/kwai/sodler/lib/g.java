@@ -1,7 +1,6 @@
 package com.kwai.sodler.lib;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
 /* loaded from: classes5.dex */
-public class g extends com.kwai.sodler.lib.kwai.a {
+public class g extends com.kwai.sodler.lib.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,26 +32,24 @@ public class g extends com.kwai.sodler.lib.kwai.a {
         }
     }
 
-    @Override // com.kwai.sodler.lib.kwai.a
-    public void a(Context context, String str) {
+    public static void a(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            a.b("Sodler.simple.package", "Create plugin package entity.");
-            a(new File(str));
-            d();
-        }
-    }
-
-    public void a(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
-            if (file == null || !file.exists()) {
-                a.e("Sodler.simple.package", "Apk file not exist.");
+        if (interceptable == null || interceptable.invokeL(65537, null, file) == null) {
+            if (!file.exists()) {
+                a.b("Sodler.simple.package", "Apk file not exist.");
                 throw new PluginError.LoadError("Apk file not exist.", 4001);
             } else if (file.getAbsolutePath().trim().startsWith("/data/")) {
             } else {
-                a.e("Sodler.simple.package", "Apk file seems to locate in external path (not executable), path = " + file.getAbsolutePath());
+                a.b("Sodler.simple.package", "Apk file seems to locate in external path (not executable), path = " + file.getAbsolutePath());
             }
+        }
+    }
+
+    @Override // com.kwai.sodler.lib.a.a
+    public void a(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
+            a(new File(str));
         }
     }
 }

@@ -1,18 +1,16 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.sapi2.share.ShareCallPacking;
+import android.graphics.Color;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import java.text.DecimalFormat;
 /* loaded from: classes7.dex */
 public class y89 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<Integer> a;
-    public static String b;
+    public static final DecimalFormat a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,33 +26,30 @@ public class y89 {
                 return;
             }
         }
-        ArrayList<Integer> arrayList = new ArrayList<>(4);
-        a = arrayList;
-        arrayList.add(10000);
-        a.add(10001);
-        a.add(10002);
-        a.add(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT));
-        a.add(-1);
+        a = new DecimalFormat("0.00");
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public static String a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                b = m99.a();
-            }
-            if (TextUtils.isEmpty(b)) {
-                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
-            }
-            if (b.toUpperCase().contains("HUAWEI")) {
-                return 10001;
-            }
-            if (b.toUpperCase().contains("XIAOMI")) {
-                return 10002;
-            }
-            return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
         }
-        return invokeV.intValue;
+        return (String) invokeCommon.objValue;
+    }
+
+    public static int b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            try {
+                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
+                return Color.parseColor("#" + hexString + str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
+            }
+        }
+        return invokeLL.intValue;
     }
 }

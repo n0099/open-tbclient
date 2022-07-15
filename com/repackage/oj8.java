@@ -1,542 +1,285 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.PublishProgressData;
-import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class oj8 implements NewWriteModel.e {
+public class oj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NewWriteModel a;
-    public boolean b;
-    public BdUniqueId c;
-    public boolean d;
-    public String e;
-    public int f;
-    public String g;
-    public String h;
-    public String i;
-    public NewWriteModel.e j;
 
-    /* loaded from: classes6.dex */
-    public class a implements NewWriteModel.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oj8 a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755437676, "Lcom/repackage/oj8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755437676, "Lcom/repackage/oj8;");
+        }
+    }
 
-        /* renamed from: com.repackage.oj8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0491a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ WriteData a;
-            public final /* synthetic */ PostWriteCallBackData b;
-            public final /* synthetic */ a c;
+    public static boolean a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            mainDBDatabaseManager.e("delete from cash_data where type=?", new String[]{String.valueOf(i)});
+            return mainDBDatabaseManager.e("Insert into cash_data(type ,account ,data ) values(?,?,?)", new String[]{String.valueOf(i), "", str});
+        }
+        return invokeLI.booleanValue;
+    }
 
-            public RunnableC0491a(a aVar, WriteData writeData, PostWriteCallBackData postWriteCallBackData) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, writeData, postWriteCallBackData};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = writeData;
-                this.b = postWriteCallBackData;
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            c(0);
+        }
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (i == 0) {
+                mainDBDatabaseManager.d("delete from search_data");
+            } else if (i != 1) {
+            } else {
+                mainDBDatabaseManager.d("delete from search_post_data");
             }
+        }
+    }
 
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    PublishProgressData.valueOf(this.a, 100).send(false);
-                    if ((!oi.isEmpty(this.b.getVideoid()) && this.a.getVideoInfo() != null) || (this.a.getVideoInfo() != null && this.a.getVideoInfo().hasUpload())) {
-                        qj8.n(this.b);
-                    } else {
-                        qj8.m(this.b);
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            c(1);
+        }
+    }
+
+    public static void e(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(65541, null, i) == null) || TbadkCoreApplication.getCurrentAccount() == null) {
+            return;
+        }
+        TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), TbadkCoreApplication.getCurrentAccount()});
+    }
+
+    public static void f(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65542, null, i, str) == null) {
+            TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            f(13, str);
+        }
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            i(0, str);
+        }
+    }
+
+    public static void i(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65545, null, i, str) == null) {
+            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str != null) {
+                if (i == 0) {
+                    mainDBDatabaseManager.e("delete from search_data where key=?", new String[]{str});
+                } else if (i != 1) {
+                } else {
+                    mainDBDatabaseManager.e("delete from search_post_data where key=?", new String[]{str});
+                }
+            }
+        }
+    }
+
+    public static void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            e(2);
+        }
+    }
+
+    public static ArrayList<String> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? l(0) : (ArrayList) invokeV.objValue;
+    }
+
+    public static ArrayList<String> l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
+            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            ArrayList<String> arrayList = new ArrayList<>();
+            Cursor cursor = null;
+            try {
+                try {
+                    if (i == 0) {
+                        cursor = mainDBDatabaseManager.j("select * from search_data order by time desc limit 20", null);
+                    } else if (i == 1) {
+                        cursor = mainDBDatabaseManager.j("select * from search_post_data order by time desc limit 5", null);
                     }
-                    this.c.a.f();
-                    this.c.a.g();
-                    if (!oi.isEmpty(this.b.getVideoid()) && this.a.getVideoInfo() != null) {
-                        this.b.mVideoMd5 = this.a.getVideoInfo().getVideoMd5();
-                        if (!oi.isEmpty(this.a.getForumName())) {
-                            this.b.mFrom = 2;
+                    while (cursor.moveToNext()) {
+                        String string = cursor.getString(0);
+                        if (string != null && string.length() > 0) {
+                            arrayList.add(string);
                         }
                     }
-                    this.c.a.u();
+                } catch (Exception e) {
+                    mainDBDatabaseManager.i(e, "getAllSearchData");
                 }
+                return arrayList;
+            } finally {
+                mg.a(cursor);
             }
         }
-
-        public a(oj8 oj8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oj8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = oj8Var;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, hx4 hx4Var, WriteData writeData, AntiData antiData) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, hx4Var, writeData, antiData}) == null) || writeData == null) {
-                return;
-            }
-            if (z) {
-                WorkPostNotifyFlutterData notifyFlutterPostSucc = WorkPostNotifyFlutterData.notifyFlutterPostSucc(postWriteCallBackData.getVideoid());
-                notifyFlutterPostSucc.setForumId(writeData.getForumId());
-                notifyFlutterPostSucc.setForumName(writeData.getForumName());
-                notifyFlutterPostSucc.setThreadDataByWriteData(writeData);
-                notifyFlutterPostSucc.setFlutterPageId(this.a.j());
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, notifyFlutterPostSucc));
-                int l = ht4.k().l("key_video_works_progress_bar_waiting_time", 3);
-                qg.a().postDelayed(new RunnableC0491a(this, writeData, postWriteCallBackData), ((l > 0 ? l : 3) + 1) * 1000);
-                oj8.k().w(null);
-                this.a.u();
-            } else if (sd5.d(postWriteCallBackData, hx4Var, writeData, antiData)) {
-            } else {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, WorkPostNotifyFlutterData.notifyFlutterPostFail(postWriteCallBackData != null ? postWriteCallBackData.getErrorString() : "")));
-                qj8.l(postWriteCallBackData, hx4Var, writeData, antiData);
-                oj8.k().w(null);
-                this.a.u();
-            }
-        }
+        return (ArrayList) invokeI.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PostWriteCallBackData a;
-        public final /* synthetic */ WriteData b;
+    public static ArrayList<String> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? l(1) : (ArrayList) invokeV.objValue;
+    }
 
-        public b(oj8 oj8Var, PostWriteCallBackData postWriteCallBackData, WriteData writeData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oj8Var, postWriteCallBackData, writeData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = postWriteCallBackData;
-            this.b = writeData;
+    public static void n() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65550, null) == null) || TbadkCoreApplication.getCurrentAccount() == null || TbadkCoreApplication.getCurrentAccount().length() <= 0 || TbadkCoreApplication.getCurrentAccountName() == null) {
+            return;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if ((!oi.isEmpty(this.a.getVideoid()) && this.b.getVideoInfo() != null) || (this.b.getVideoInfo() != null && this.b.getVideoInfo().hasUpload())) {
-                    qj8.n(this.a);
+        j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        Cursor cursor = null;
+        try {
+            try {
+                cursor = mainDBDatabaseManager.j("select * from setting where account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                if (cursor != null && cursor.moveToFirst()) {
+                    py4.d().J(cursor.getInt(cursor.getColumnIndex("frequency")));
+                    py4.d().L(cursor.getInt(cursor.getColumnIndex("fans_switch")) == 1);
+                    if (cursor.getInt(cursor.getColumnIndex("reply_me_switch")) == 0) {
+                        py4.d().M(false);
+                    } else {
+                        py4.d().M(true);
+                    }
+                    if (cursor.getInt(cursor.getColumnIndex("at_me_switch")) == 0) {
+                        py4.d().H(false);
+                    } else {
+                        py4.d().H(true);
+                    }
+                    if (cursor.getInt(cursor.getColumnIndex("zan_me_switch")) == 0) {
+                        py4.d().P(false);
+                    } else {
+                        py4.d().P(true);
+                    }
+                    py4.d().a(cursor.getInt(cursor.getColumnIndex("remind_tone")));
+                    if (cursor.getInt(cursor.getColumnIndex("msg_chat_switch")) == 0) {
+                        py4.d().I(false);
+                    } else {
+                        py4.d().I(true);
+                    }
+                    if (cursor.getInt(cursor.getColumnIndex("nodisturb_switch")) == 0) {
+                        py4.d().R(false);
+                    } else {
+                        py4.d().R(true);
+                    }
+                    py4.d().S(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                    py4.d().Q(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                    if (cursor.getInt(cursor.getColumnIndex("remind_light")) == 0) {
+                        py4.d().K(false);
+                    } else {
+                        py4.d().K(true);
+                    }
+                    if (cursor.getInt(cursor.getColumnIndex("stranger_chat_switch")) == 0) {
+                        py4.d().X(false);
+                    } else {
+                        py4.d().X(true);
+                    }
                 } else {
-                    qj8.m(this.a);
+                    py4.d().J(300);
+                    py4.d().L(true);
+                    py4.d().M(true);
+                    py4.d().H(true);
+                    py4.d().P(true);
+                    py4.d().N(true);
+                    py4.d().O(false);
+                    py4.d().K(true);
+                    py4.d().X(false);
+                    py4.d().I(true);
+                    py4.d().R(false);
+                    py4.d().S(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                    py4.d().Q(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                }
+            } catch (Exception e) {
+                mainDBDatabaseManager.i(e, "getSettingData");
+            }
+            mg.a(cursor);
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001311));
+        } catch (Throwable th) {
+            mg.a(null);
+            throw th;
+        }
+    }
+
+    public static void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
+            p(0, str);
+        }
+    }
+
+    public static void p(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65552, null, i, str) == null) {
+            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str != null) {
+                if (i == 0) {
+                    mainDBDatabaseManager.e("delete from search_data where key=?", new String[]{str});
+                    mainDBDatabaseManager.e("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkCoreApplication.getCurrentAccount(), Long.valueOf(System.currentTimeMillis())});
+                } else if (i != 1) {
+                } else {
+                    mainDBDatabaseManager.e("delete from search_post_data where key=?", new String[]{str});
+                    mainDBDatabaseManager.e("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkCoreApplication.getCurrentAccount(), Long.valueOf(System.currentTimeMillis())});
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final oj8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-126152587, "Lcom/repackage/oj8$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-126152587, "Lcom/repackage/oj8$c;");
-                    return;
-                }
-            }
-            a = new oj8(null);
+    public static void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
+            p(1, str);
         }
     }
 
-    public /* synthetic */ oj8(a aVar) {
-        this();
-    }
-
-    public static oj8 k() {
-        InterceptResult invokeV;
+    public static void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            pj8.a("AsyncWriteHelper.getInstance()");
-            return c.a;
-        }
-        return (oj8) invokeV.objValue;
-    }
-
-    public void A(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            pj8.a("AsyncWriteHelper.setHasImage = " + z);
-            this.a.a0(z);
-        }
-    }
-
-    public void B(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a.Z(z);
-        }
-    }
-
-    public void C(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void D(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void E(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    public void F(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.a.b0(z);
-        }
-    }
-
-    public void G(SpanGroupManager spanGroupManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, spanGroupManager) == null) {
-            pj8.a("AsyncWriteHelper.setSpanGroupManager()");
-            this.a.U();
-            this.a.setSpanGroupManager(spanGroupManager);
-        }
-    }
-
-    public void H(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("AsyncWriteHelper.setWriteData = ");
-            sb.append(writeData == null ? StringUtil.NULL_STRING : writeData.toDraftString());
-            pj8.a(sb.toString());
-            this.a.setWriteData(writeData);
-            if (writeData != null && writeData.isWork() && this.c == null) {
-                this.a.c0(this.j);
-            } else {
-                this.a.c0(this);
-            }
-        }
-    }
-
-    public boolean I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            pj8.a("AsyncWriteHelper.startPostWrite()");
-            this.a.U();
-            boolean e0 = this.a.e0();
-            this.b = e0;
-            return e0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, hx4 hx4Var, WriteData writeData, AntiData antiData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, hx4Var, writeData, antiData}) == null) || writeData == null) {
+        if (!(interceptable == null || interceptable.invokeV(65554, null) == null) || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
-        if (z) {
-            PublishProgressData.valueOf(writeData, 100).send(true);
-            qg.a().postDelayed(new b(this, postWriteCallBackData, writeData), 200L);
-            if (writeData.isRichTextEditorMode()) {
-                uu4.b(writeData.getRichContentData().toString(), "2");
-            } else {
-                uu4.b(writeData.getContentString(), "2");
-            }
-            f();
-            g();
-            v(postWriteCallBackData);
-            if (!oi.isEmpty(postWriteCallBackData.getVideoid()) && writeData.getVideoInfo() != null) {
-                postWriteCallBackData.mVideoMd5 = writeData.getVideoInfo().getVideoMd5();
-                if (!oi.isEmpty(writeData.getForumName())) {
-                    postWriteCallBackData.mFrom = 2;
-                }
-            }
-            PublishProgressData.valueOf(writeData, 100).send(false);
-            k().w(null);
-            u();
-        } else if (sd5.d(postWriteCallBackData, hx4Var, writeData, antiData)) {
-        } else {
-            PublishProgressData.valueOf(writeData, 100).send(false);
-            qj8.l(postWriteCallBackData, hx4Var, writeData, antiData);
-            k().w(null);
-            u();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            pj8.a("AsyncWriteHelper.cancelLoadData()");
-            this.a.cancelLoadData();
-        }
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            pj8.a("AsyncWriteHelper.checkImageNum = " + this.a.R());
-            return this.a.R();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void f() {
-        WriteData o;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (o = o()) == null) {
-            return;
-        }
-        if (o.getType() != 0 && o.getType() != 9 && o.getType() != 11) {
-            if (o.getType() == 1) {
-                wg8.w(o.getThreadId(), null);
-            }
-        } else if (o.isLocalChannelDynamic()) {
-            wg8.t(null);
-        } else if (o.isEvaluate()) {
-            wg8.q(o.getItem_id(), null);
-        } else if (TextUtils.isEmpty(o.getTopicId())) {
-            wg8.s(o.getForumId(), o, true);
-        } else {
-            wg8.y(o.getTopicId(), null);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            FileHelper.deleteFileOrDir(new File(cp8.f));
-            wg8.v("");
-        }
-    }
-
-    public void h(boolean z, PostWriteCallBackData postWriteCallBackData, hx4 hx4Var, WriteData writeData, AntiData antiData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, hx4Var, writeData, antiData}) == null) {
-            if (writeData != null && writeData.isWork() && this.c == null) {
-                this.j.callback(z, postWriteCallBackData, hx4Var, writeData, antiData);
-            } else {
-                callback(z, postWriteCallBackData, hx4Var, writeData, antiData);
-            }
-        }
-    }
-
-    public BdUniqueId i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.c : (BdUniqueId) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public WriteData o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("AsyncWriteHelper.getWriteData = ");
-            sb.append(this.a.T() == null ? StringUtil.NULL_STRING : this.a.T().toDraftString());
-            pj8.a(sb.toString());
-            return this.a.T();
-        }
-        return (WriteData) invokeV.objValue;
-    }
-
-    public void p(@NonNull TbPageContextSupport tbPageContextSupport) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, tbPageContextSupport) == null) {
-            pj8.a("AsyncWriteHelper.initWriteStatus()");
-            this.a.d0(tbPageContextSupport.getPageContext());
-            this.a.setWriteData(null);
-            this.a.a0(false);
-        }
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f == 8 : invokeV.booleanValue;
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            pj8.a("AsyncWriteHelper.onWriteActClose()");
-            this.a.d0(null);
-            this.a.setSpanGroupManager(null);
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            NewWriteModel newWriteModel = this.a;
-            if (newWriteModel != null) {
-                newWriteModel.setWriteData(null);
-            }
-            this.b = false;
-        }
-    }
-
-    public final void v(PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, postWriteCallBackData) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004510, postWriteCallBackData));
-        }
-    }
-
-    public void w(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, bdUniqueId) == null) {
-            this.c = bdUniqueId;
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public oj8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = false;
-        this.c = null;
-        this.j = new a(this);
-        NewWriteModel newWriteModel = new NewWriteModel();
-        this.a = newWriteModel;
-        newWriteModel.c0(this);
+        j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{TbadkCoreApplication.getCurrentAccount()});
+        mainDBDatabaseManager.e("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time,remind_light,stranger_chat_switch,zan_me_switch) values(?,?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{TbadkCoreApplication.getCurrentAccount(), Integer.valueOf(py4.d().f()), Integer.valueOf(py4.d().v() ? 1 : 0), Integer.valueOf(py4.d().x() ? 1 : 0), Integer.valueOf(py4.d().s() ? 1 : 0), Integer.valueOf(py4.d().c()), Integer.valueOf(py4.d().t() ? 1 : 0), Integer.valueOf(py4.d().B() ? 1 : 0), py4.d().h(), py4.d().g(), Integer.valueOf(py4.d().u() ? 1 : 0), Integer.valueOf(py4.d().D() ? 1 : 0), Integer.valueOf(py4.d().A() ? 1 : 0)});
     }
 }

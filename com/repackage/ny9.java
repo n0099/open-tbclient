@@ -1,21 +1,35 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
-public final class ny9<E> extends px9<E> {
+public class ny9 implements IYYPayWayView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public Dialog b;
+    public IYYPayWayView c;
+    public IYYPayWayView.b d;
+    public IPayCallback<CurrencyChargeMessage> e;
+    public qx9 f;
 
-    public ny9() {
+    public ny9(Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback, qx9 qx9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, dialog, iYYPayWayView, bVar, iPayCallback, qx9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,54 +39,30 @@ public final class ny9<E> extends px9<E> {
                 return;
             }
         }
-        c(new LinkedQueueNode<>());
-        e(this.producerNode);
-        this.consumerNode.soNext(null);
+        RLog.info("PayWayViewCallback", "create PayWayViewCallback");
+        this.a = activity;
+        this.b = dialog;
+        this.c = iYYPayWayView;
+        this.d = bVar;
+        this.e = iPayCallback;
+        this.f = qx9Var;
     }
 
-    @Override // java.util.Queue
-    public boolean offer(E e) {
-        InterceptResult invokeL;
+    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
+    public void a(ty9 ty9Var, qy9 qy9Var, AppCustomExpand appCustomExpand) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            if (e != null) {
-                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
-                this.producerNode.soNext(linkedQueueNode);
-                this.producerNode = linkedQueueNode;
-                return true;
-            }
-            throw new NullPointerException("null elements not allowed");
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, ty9Var, qy9Var, appCustomExpand) == null) {
+            RLog.info("PayWayViewCallback", "onStartPay");
+            this.f.d(this.a, ty9Var, qy9Var, this.b, this.c, appCustomExpand, this.d, this.e);
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // java.util.Queue
-    public E peek() {
-        InterceptResult invokeV;
+    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
+    public void onRefreshViewFail(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
-            if (lvNext != null) {
-                return lvNext.lpValue();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            RLog.info("PayWayViewCallback", "showPayWayDialog onRefreshViewFail");
+            gz9.b(this.b, PayDialogType.PAY_WAY_DIALOG);
         }
-        return (E) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue
-    public E poll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
-            if (lvNext != null) {
-                E andNullValue = lvNext.getAndNullValue();
-                this.consumerNode = lvNext;
-                return andNullValue;
-            }
-            return null;
-        }
-        return (E) invokeV.objValue;
     }
 }

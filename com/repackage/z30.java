@@ -3,45 +3,47 @@ package com.repackage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
+import java.io.CharArrayWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 /* loaded from: classes7.dex */
 public class z30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(String str, String str2) {
+    public static void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLI(65536, null, inputStream, outputStream, i) != null) {
+            return;
+        }
+        byte[] bArr = new byte[i];
+        while (true) {
+            int read = inputStream.read(bArr);
+            if (read <= 0) {
+                return;
+            }
+            outputStream.write(bArr, 0, read);
+        }
+    }
+
+    public static String b(InputStream inputStream, String str) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                messageDigest.update(str.getBytes(str2));
-                return messageDigest.digest();
-            } catch (Exception unused) {
-                return null;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, inputStream, str)) != null) {
+            return (String) invokeLL.objValue;
+        }
+        CharArrayWriter charArrayWriter = new CharArrayWriter();
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
+        char[] cArr = new char[8192];
+        while (true) {
+            int read = inputStreamReader.read(cArr);
+            if (read > 0) {
+                charArrayWriter.write(cArr, 0, read);
+            } else {
+                return charArrayWriter.toString();
             }
         }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] b(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-                messageDigest.update(bArr);
-                return messageDigest.digest();
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? u30.b(b(bArr), false) : (String) invokeL.objValue;
     }
 }

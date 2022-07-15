@@ -1,21 +1,25 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.Bigvip.BigvipResIdl;
-import tbclient.Bigvip.UserInfoBigVip;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class r67 implements CustomMessageTask.CustomRunnable<Object> {
+public class r67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<String, ImMessageCenterPojo> a;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(Iterator<ImMessageCenterPojo> it);
+    }
 
     public r67() {
         Interceptable interceptable = $ic;
@@ -27,36 +31,49 @@ public class r67 implements CustomMessageTask.CustomRunnable<Object> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new ConcurrentHashMap<>();
+    }
+
+    public void a(ImMessageCenterPojo imMessageCenterPojo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, imMessageCenterPojo) == null) || imMessageCenterPojo == null) {
+            return;
+        }
+        this.a.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public ImMessageCenterPojo c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            UserInfoBigVip userInfoBigVip = null;
-            if (customMessage != null && (customMessage.getData() instanceof Long)) {
-                long longValue = ((Long) customMessage.getData()).longValue();
-                mq4.f();
-                te<byte[]> d = mq4.d("tb.im_recommend_detail");
-                if (d == null) {
-                    return new CustomResponsedMessage<>(2001306, null);
-                }
-                byte[] bArr = d.get(longValue + "");
-                if (bArr == null) {
-                    return new CustomResponsedMessage<>(2001306, null);
-                }
-                try {
-                    userInfoBigVip = ((BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class)).data.user_info;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                }
-                return new CustomResponsedMessage<>(2001306, userInfoBigVip);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return new CustomResponsedMessage<>(2001306, null);
+            return this.a.get(str);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (ImMessageCenterPojo) invokeL.objValue;
+    }
+
+    public void d(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            aVar.a(this.a.values().iterator());
+        }
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? (TextUtils.isEmpty(str) || this.a.remove(str) == null) ? false : true : invokeL.booleanValue;
     }
 }

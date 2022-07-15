@@ -87,7 +87,7 @@ public class MaterialAttributes {
     public static int resolveMinimumAccessibleTouchTarget(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? resolveDimension(context, R.attr.obfuscated_res_0x7f040472, R.dimen.obfuscated_res_0x7f07045a) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? resolveDimension(context, R.attr.obfuscated_res_0x7f040476, R.dimen.obfuscated_res_0x7f0704ba) : invokeL.intValue;
     }
 
     public static int resolveOrThrow(@NonNull Context context, @AttrRes int i, @NonNull String str) {

@@ -20,21 +20,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ge8;
-import com.repackage.he8;
-import com.repackage.ie8;
-import com.repackage.ne8;
+import com.repackage.bf8;
+import com.repackage.cf8;
+import com.repackage.df8;
+import com.repackage.if8;
 import com.repackage.nn;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ForumSquareDelegate implements ie8 {
+public class ForumSquareDelegate implements df8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
     public String mCurrentClassName;
     public ForumSquareModel mForumSquareModel;
-    public ge8 mForumSquareView;
-    public he8 mSquareViewController;
+    public bf8 mForumSquareView;
+    public cf8 mSquareViewController;
     public final TbPageContext mTbPageContext;
     public CustomMessageListener refreshForumSquareListener;
 
@@ -101,7 +101,7 @@ public class ForumSquareDelegate implements ie8 {
         this.mTbPageContext = tbPageContext;
         this.mContext = context;
         this.mForumSquareModel = new ForumSquareModel(context, this);
-        this.mForumSquareView = new ge8(context, this.mTbPageContext);
+        this.mForumSquareView = new bf8(context, this.mTbPageContext);
         this.mTbPageContext.registerListener(this.refreshForumSquareListener);
     }
 
@@ -115,7 +115,7 @@ public class ForumSquareDelegate implements ie8 {
         } else if (ListUtils.getCount(list) < 10) {
             this.mForumSquareView.n();
         } else {
-            this.mForumSquareView.E(this.mForumSquareModel.M(str));
+            this.mForumSquareView.E(this.mForumSquareModel.N(str));
         }
     }
 
@@ -123,7 +123,7 @@ public class ForumSquareDelegate implements ie8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mForumSquareView.F();
-            this.mForumSquareModel.O(this.mCurrentClassName);
+            this.mForumSquareModel.P(this.mCurrentClassName);
         }
     }
 
@@ -140,18 +140,18 @@ public class ForumSquareDelegate implements ie8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCurrentClassName : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ie8
+    @Override // com.repackage.df8
     public void onError(String str, ErrorData errorData) {
-        ge8 ge8Var;
+        bf8 bf8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) || (ge8Var = this.mForumSquareView) == null || this.mForumSquareModel == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) || (bf8Var = this.mForumSquareView) == null || this.mForumSquareModel == null) {
             return;
         }
-        ge8Var.J();
-        ne8 L = this.mForumSquareModel.L(str);
-        if (L != null && (!L.d || !ListUtils.isEmpty(L.a()))) {
-            this.mForumSquareView.s(L.a());
-            checkLoadMoreStateUI(str, L.a());
+        bf8Var.J();
+        if8 M = this.mForumSquareModel.M(str);
+        if (M != null && (!M.d || !ListUtils.isEmpty(M.a()))) {
+            this.mForumSquareView.s(M.a());
+            checkLoadMoreStateUI(str, M.a());
             return;
         }
         this.mForumSquareView.f();
@@ -166,37 +166,37 @@ public class ForumSquareDelegate implements ie8 {
             if (forumSquareModel == null || this.mForumSquareView == null) {
                 return;
             }
-            boolean N = forumSquareModel.N();
-            boolean E = this.mForumSquareView.E(this.mForumSquareModel.M(className));
-            if (N || !E) {
+            boolean O = forumSquareModel.O();
+            boolean E = this.mForumSquareView.E(this.mForumSquareModel.N(className));
+            if (O || !E) {
                 return;
             }
-            this.mForumSquareModel.O(className);
+            this.mForumSquareModel.P(className);
         }
     }
 
     public void onLoadRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ge8 ge8Var = this.mForumSquareView;
-            if (ge8Var != null) {
-                ge8Var.F();
+            bf8 bf8Var = this.mForumSquareView;
+            if (bf8Var != null) {
+                bf8Var.F();
             }
             ForumSquareModel forumSquareModel = this.mForumSquareModel;
             if (forumSquareModel != null) {
-                forumSquareModel.O(getClassName());
+                forumSquareModel.P(getClassName());
             }
         }
     }
 
-    @Override // com.repackage.ie8
+    @Override // com.repackage.df8
     public void onNoData(ErrorData errorData) {
-        ge8 ge8Var;
+        bf8 bf8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, errorData) == null) || (ge8Var = this.mForumSquareView) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, errorData) == null) || (bf8Var = this.mForumSquareView) == null) {
             return;
         }
-        ge8Var.I();
+        bf8Var.I();
     }
 
     public void onSelected(String str) {
@@ -208,17 +208,17 @@ public class ForumSquareDelegate implements ie8 {
             if (forumSquareModel == null || this.mForumSquareView == null) {
                 return;
             }
-            ne8 L = forumSquareModel.L(str);
-            if (L != null && (!L.d || !ListUtils.isEmpty(L.a()))) {
+            if8 M = forumSquareModel.M(str);
+            if (M != null && (!M.d || !ListUtils.isEmpty(M.a()))) {
                 this.mForumSquareView.J();
-                checkLoadMoreStateUI(str, L.a());
-                this.mForumSquareView.s(L.a());
-                this.mForumSquareView.q(L.f, L.g);
+                checkLoadMoreStateUI(str, M.a());
+                this.mForumSquareView.s(M.a());
+                this.mForumSquareView.q(M.f, M.g);
                 return;
             }
             this.mForumSquareView.D();
             checkLoadMoreStateUI(str, null);
-            this.mForumSquareModel.O(str);
+            this.mForumSquareModel.P(str);
             this.mForumSquareView.q(0, 0);
         }
     }
@@ -226,7 +226,7 @@ public class ForumSquareDelegate implements ie8 {
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
         if (r5.equals(r1) == false) goto L11;
      */
-    @Override // com.repackage.ie8
+    @Override // com.repackage.df8
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -243,14 +243,14 @@ public class ForumSquareDelegate implements ie8 {
             this.mCurrentClassName = str;
             this.mForumSquareView.J();
             this.mForumSquareView.r(str, list, z);
-            this.mForumSquareView.t(list2, this.mForumSquareModel.R(list2, 300));
+            this.mForumSquareView.t(list2, this.mForumSquareModel.S(list2, 300));
             checkLoadMoreStateUI(str, list2);
         }
         z = true;
         this.mCurrentClassName = str;
         this.mForumSquareView.J();
         this.mForumSquareView.r(str, list, z);
-        this.mForumSquareView.t(list2, this.mForumSquareModel.R(list2, 300));
+        this.mForumSquareView.t(list2, this.mForumSquareModel.S(list2, 300));
         checkLoadMoreStateUI(str, list2);
     }
 
@@ -269,14 +269,14 @@ public class ForumSquareDelegate implements ie8 {
     }
 
     public void saveScrollPosition(String str) {
-        ne8 L;
+        if8 M;
         Pair<Integer, Integer> c;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || this.mForumSquareView == null || this.mForumSquareModel == null || TextUtils.isEmpty(str) || (L = this.mForumSquareModel.L(str)) == null || (c = this.mForumSquareView.c()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || this.mForumSquareView == null || this.mForumSquareModel == null || TextUtils.isEmpty(str) || (M = this.mForumSquareModel.M(str)) == null || (c = this.mForumSquareView.c()) == null) {
             return;
         }
-        L.f = ((Integer) c.first).intValue();
-        L.g = ((Integer) c.second).intValue();
+        M.f = ((Integer) c.first).intValue();
+        M.g = ((Integer) c.second).intValue();
     }
 
     public void selectForumCategory(String str) {
@@ -291,9 +291,9 @@ public class ForumSquareDelegate implements ie8 {
     public void startLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            he8 he8Var = new he8(this.mContext, this, this.mForumSquareView);
-            this.mSquareViewController = he8Var;
-            he8Var.e();
+            cf8 cf8Var = new cf8(this.mContext, this, this.mForumSquareView);
+            this.mSquareViewController = cf8Var;
+            cf8Var.e();
             startLoadNetData();
         }
     }

@@ -63,12 +63,12 @@ public class SearchView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091c32);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c31);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c30);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091c06);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bff);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091c2e);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091cd4);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd2);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091ca5);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c9e);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091ccf);
         }
     }
 
@@ -79,7 +79,7 @@ public class SearchView extends LinearLayout {
             setOrientation(1);
             setMinimumHeight(pi.f(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0895, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08b5, (ViewGroup) this, true);
             b();
         }
     }
@@ -100,7 +100,7 @@ public class SearchView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.b.setVisibility(0);
-            this.d.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02df), Integer.valueOf(i)));
+            this.d.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e3), Integer.valueOf(i)));
         }
     }
 

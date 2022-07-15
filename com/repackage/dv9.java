@@ -1,5 +1,6 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,26 +8,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class dv9<T> implements yu9<T>, ev9 {
+public final class dv9<E> extends iv9<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ix9 a;
-    public final dv9<?> b;
-    public zu9 c;
-    public long d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public dv9() {
-        this(null, false);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dv9(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((dv9) objArr[0], ((Boolean) objArr[1]).booleanValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,126 +32,101 @@ public abstract class dv9<T> implements yu9<T>, ev9 {
         }
     }
 
-    public final void b(ev9 ev9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ev9Var) == null) {
-            this.a.a(ev9Var);
-        }
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            long j2 = this.d;
-            if (j2 == Long.MIN_VALUE) {
-                this.d = j;
-                return;
-            }
-            long j3 = j2 + j;
-            if (j3 < 0) {
-                this.d = Long.MAX_VALUE;
-            } else {
-                this.d = j3;
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public final void e(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            if (j >= 0) {
-                synchronized (this) {
-                    if (this.c != null) {
-                        this.c.request(j);
-                        return;
-                    }
-                    c(j);
-                    return;
-                }
-            }
-            throw new IllegalArgumentException("number requested cannot be negative: " + j);
-        }
-    }
-
-    public void f(zu9 zu9Var) {
-        long j;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zu9Var) == null) {
-            synchronized (this) {
-                j = this.d;
-                this.c = zu9Var;
-                z = this.b != null && j == Long.MIN_VALUE;
-            }
-            if (z) {
-                this.b.f(this.c);
-            } else if (j == Long.MIN_VALUE) {
-                this.c.request(Long.MAX_VALUE);
-            } else {
-                this.c.request(j);
-            }
-        }
-    }
-
-    @Override // com.repackage.ev9
-    public final boolean isUnsubscribed() {
+    public final long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? rv9.a.d(this, fv9.h) : invokeV.longValue;
     }
 
-    @Override // com.repackage.ev9
-    public final void unsubscribe() {
+    public final long i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a.unsubscribe();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? rv9.a.d(this, jv9.g) : invokeV.longValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? i() == h() : invokeV.booleanValue;
+    }
+
+    public final void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            rv9.a.i(this, fv9.h, j);
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public dv9(dv9<?> dv9Var) {
-        this(dv9Var, true);
+    public final void k(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dv9Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((dv9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            rv9.a.i(this, jv9.g, j);
+        }
+    }
+
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e)) == null) {
+            if (e != null) {
+                E[] eArr = this.b;
+                long j = this.producerIndex;
+                long a = a(j);
+                if (e(eArr, a) != null) {
+                    return false;
+                }
+                f(eArr, a, e);
+                k(j + 1);
+                return true;
             }
+            throw new NullPointerException("null elements not allowed");
         }
+        return invokeL.booleanValue;
     }
 
-    public dv9(dv9<?> dv9Var, boolean z) {
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dv9Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? d(a(this.consumerIndex)) : (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue, com.repackage.tu9
+    public E poll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long j = this.consumerIndex;
+            long a = a(j);
+            E[] eArr = this.b;
+            E e = e(eArr, a);
+            if (e == null) {
+                return null;
             }
+            f(eArr, a, null);
+            j(j + 1);
+            return e;
         }
-        this.d = Long.MIN_VALUE;
-        this.b = dv9Var;
-        this.a = (!z || dv9Var == null) ? new ix9() : dv9Var.a;
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) != null) {
+            return invokeV.intValue;
+        }
+        long h = h();
+        while (true) {
+            long i = i();
+            long h2 = h();
+            if (h == h2) {
+                return (int) (i - h2);
+            }
+            h = h2;
+        }
     }
 }

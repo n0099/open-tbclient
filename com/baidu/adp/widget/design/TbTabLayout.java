@@ -47,7 +47,6 @@ import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
@@ -2166,7 +2165,7 @@ public class TbTabLayout extends HorizontalScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
             String str = Build.MODEL;
-            if (str.contains(RomUtils.MANUFACTURER_VIVO) && str.contains("X20")) {
+            if (str.contains("vivo") && str.contains("X20")) {
                 this.H = pi.f(getContext(), R.dimen.tbds2);
             }
         }
@@ -2261,8 +2260,8 @@ public class TbTabLayout extends HorizontalScrollView {
         e eVar = new e(this, context);
         this.c = eVar;
         super.addView(eVar, 0, new FrameLayout.LayoutParams(-2, -1));
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405f1, R.attr.obfuscated_res_0x7f0405f2, R.attr.obfuscated_res_0x7f0405f3, R.attr.obfuscated_res_0x7f0405f4, R.attr.obfuscated_res_0x7f0405f5, R.attr.obfuscated_res_0x7f0405f6, R.attr.obfuscated_res_0x7f0405f7, R.attr.obfuscated_res_0x7f0405f8, R.attr.obfuscated_res_0x7f0405f9, R.attr.obfuscated_res_0x7f0405fa, R.attr.obfuscated_res_0x7f0405fb, R.attr.obfuscated_res_0x7f0405fd, R.attr.obfuscated_res_0x7f0405fe, R.attr.obfuscated_res_0x7f0405ff, R.attr.obfuscated_res_0x7f040600, R.attr.obfuscated_res_0x7f040601, R.attr.obfuscated_res_0x7f040602, R.attr.obfuscated_res_0x7f040603, R.attr.obfuscated_res_0x7f040604, R.attr.obfuscated_res_0x7f040605, R.attr.obfuscated_res_0x7f040606, R.attr.obfuscated_res_0x7f040607, R.attr.obfuscated_res_0x7f040609, R.attr.obfuscated_res_0x7f04060a, R.attr.obfuscated_res_0x7f04060b}, i, R.style.obfuscated_res_0x7f100330);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405fc});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405f2, R.attr.obfuscated_res_0x7f0405f3, R.attr.obfuscated_res_0x7f0405f4, R.attr.obfuscated_res_0x7f0405f5, R.attr.obfuscated_res_0x7f0405f6, R.attr.obfuscated_res_0x7f0405f7, R.attr.obfuscated_res_0x7f0405f8, R.attr.obfuscated_res_0x7f0405f9, R.attr.obfuscated_res_0x7f0405fa, R.attr.obfuscated_res_0x7f0405fb, R.attr.obfuscated_res_0x7f0405fc, R.attr.obfuscated_res_0x7f0405fe, R.attr.obfuscated_res_0x7f0405ff, R.attr.obfuscated_res_0x7f040600, R.attr.obfuscated_res_0x7f040601, R.attr.obfuscated_res_0x7f040602, R.attr.obfuscated_res_0x7f040603, R.attr.obfuscated_res_0x7f040604, R.attr.obfuscated_res_0x7f040605, R.attr.obfuscated_res_0x7f040606, R.attr.obfuscated_res_0x7f040607, R.attr.obfuscated_res_0x7f040608, R.attr.obfuscated_res_0x7f04060a, R.attr.obfuscated_res_0x7f04060b, R.attr.obfuscated_res_0x7f04060c}, i, R.style.obfuscated_res_0x7f100330);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405fd});
         this.c.h(obtainStyledAttributes.getDimensionPixelSize(10, 0));
         this.c.i(obtainStyledAttributes2.getDimensionPixelSize(0, 0));
         this.c.g(obtainStyledAttributes.getColor(7, 0));
@@ -2275,7 +2274,7 @@ public class TbTabLayout extends HorizontalScrollView {
         this.e = obtainStyledAttributes.getDimensionPixelSize(19, this.e);
         this.f = obtainStyledAttributes.getDimensionPixelSize(17, this.f);
         this.g = obtainStyledAttributes.getDimensionPixelSize(16, this.g);
-        int resourceId = obtainStyledAttributes.getResourceId(22, R.style.obfuscated_res_0x7f1001fd);
+        int resourceId = obtainStyledAttributes.getResourceId(22, R.style.obfuscated_res_0x7f1001fe);
         this.h = resourceId;
         TypedArray obtainStyledAttributes3 = context.obtainStyledAttributes(resourceId, R$styleable.TextAppearance);
         try {
@@ -2297,8 +2296,8 @@ public class TbTabLayout extends HorizontalScrollView {
             obtainStyledAttributes.recycle();
             obtainStyledAttributes2.recycle();
             Resources resources = getResources();
-            this.k = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070228);
-            this.r = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070226);
+            this.k = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070227);
+            this.r = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070223);
             k();
             x();
         } catch (Throwable th) {

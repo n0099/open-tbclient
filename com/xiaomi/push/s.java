@@ -13,7 +13,7 @@ public class s implements Runnable {
     public final /* synthetic */ r a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f822a;
+    public final /* synthetic */ String f1549a;
     public final /* synthetic */ String b;
     public final /* synthetic */ String c;
 
@@ -33,7 +33,7 @@ public class s implements Runnable {
             }
         }
         this.a = rVar;
-        this.f822a = str;
+        this.f1549a = str;
         this.b = str2;
         this.c = str3;
     }
@@ -43,8 +43,8 @@ public class s implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            context = this.a.f819a;
-            SharedPreferences.Editor edit = context.getSharedPreferences(this.f822a, 4).edit();
+            context = this.a.f1546a;
+            SharedPreferences.Editor edit = context.getSharedPreferences(this.f1549a, 4).edit();
             edit.putString(this.b, this.c);
             edit.commit();
         }

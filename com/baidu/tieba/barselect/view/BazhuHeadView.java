@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pc7;
+import com.repackage.hd7;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class BazhuHeadView extends HeadPendantView {
@@ -83,7 +83,7 @@ public class BazhuHeadView extends HeadPendantView {
                 int f3 = pi.f(getContext(), R.dimen.tbds26);
                 int f4 = pi.f(getContext(), R.dimen.tbds44);
                 getHeadView().setBorderWidth(f);
-                getHeadView().setBorderColor(pc7.b("#FCD442"));
+                getHeadView().setBorderColor(hd7.b("#FCD442"));
                 getHeadView().setDrawBorder(true);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(f2, f2);
                 layoutParams.leftMargin = f3;

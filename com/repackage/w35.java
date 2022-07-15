@@ -1,92 +1,40 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes7.dex */
-public class w35 extends t35 {
+public class w35 extends u15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public w35() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w35(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0535), 34, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-    }
-
-    public static ImageOperation e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            ImageOperation imageOperation = new ImageOperation();
-            imageOperation.actionName = AnimationProperty.ROTATE;
-            imageOperation.actionParam = String.valueOf(i);
-            return imageOperation;
-        }
-        return (ImageOperation) invokeI.objValue;
-    }
-
-    @Override // com.repackage.t35
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? AnimationProperty.ROTATE : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.t35
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            j35.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            int i = this.a;
-            if (i == 0 || i == 1) {
-                return BitmapHelper.rotateBitmap(bitmap, this.a);
-            }
-            return (i == 2 || i == 3) ? BitmapHelper.reversalBitmap(bitmap, this.a) : bitmap;
-        }
-        return (Bitmap) invokeLZ.objValue;
-    }
-
-    @Override // com.repackage.t35
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int max = Math.max(pi.k(TbadkCoreApplication.getInst().getApp()), pi.i(TbadkCoreApplication.getInst().getApp()));
-            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    @Override // com.repackage.t35
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
-            return;
-        }
-        this.a = Integer.parseInt(str);
+        this.d = R.drawable.obfuscated_res_0x7f0807f7;
+        this.i = false;
+        this.j = true;
+        this.k = false;
+        this.p = new int[]{60};
     }
 }

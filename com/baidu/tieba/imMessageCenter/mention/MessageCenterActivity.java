@@ -61,7 +61,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.t75
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
             super.onNewIntent(intent);
             MessageCenterFragment messageCenterFragment = this.b;
             if (messageCenterFragment != null) {
-                messageCenterFragment.y1(intent);
+                messageCenterFragment.A1(intent);
             }
         }
     }

@@ -1,88 +1,81 @@
 package com.repackage;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static RecommendItemModel a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            RecommendItemModel recommendItemModel = new RecommendItemModel();
-            recommendItemModel.appName = jSONObject.optString("app_name");
-            recommendItemModel.appKey = jSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-            recommendItemModel.iconUrl = jSONObject.optString("icon_url");
-            recommendItemModel.scheme = jSONObject.optString("scheme");
-            recommendItemModel.desc = jSONObject.optString("desc");
-            JSONObject optJSONObject = jSONObject.optJSONObject(NativeConstants.ID_BUTTON);
-            if (optJSONObject != null) {
-                recommendItemModel.buttonText = optJSONObject.optString("text");
-            }
-            return recommendItemModel;
-        }
-        return (RecommendItemModel) invokeL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class a implements af3<t53> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
 
-    @NonNull
-    public static g34 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            g34 g34Var = new g34();
-            if (jSONObject == null) {
-                return g34Var;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
-            if (optJSONObject != null) {
-                g34Var.a = a(optJSONObject);
-            }
-            g34Var.b = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    g34Var.b.add(a(optJSONArray.optJSONObject(i)));
+        public a(h34 h34Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h34Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return g34Var;
+            this.a = bVar;
         }
-        return (g34) invokeL.objValue;
-    }
 
-    @NonNull
-    public static i34 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            i34 i34Var = new i34();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                i34Var.a = jSONObject.getInt("errno");
-                i34Var.b = jSONObject.optString("errmsg");
-                i34Var.c = jSONObject.optJSONObject("data");
-                return i34Var;
-            } catch (JSONException e) {
-                i34Var.a = -1;
-                i34Var.b = "network error: response parse failed.";
-                if (cg1.a) {
-                    Log.e("RecommendModelParser", "parseResponseModel error:" + e);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public void a(t53 t53Var) {
+            JSONObject jSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t53Var) == null) {
+                if (t53Var != null && (jSONObject = t53Var.g) != null) {
+                    hx1.b("OpenData", "onOpenDataCallback success: ", jSONObject);
+                    this.a.a(t53Var.g);
+                    return;
                 }
-                return i34Var;
+                this.a.a(null);
             }
         }
-        return (i34) invokeL.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(JSONObject jSONObject);
+    }
+
+    public h34() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || ul2.U().getActivity() == null) {
+            return;
+        }
+        t53.B(ul2.U().getActivity(), "snsapi_userinfo", null, true, "GameUserInfoRequest", new a(this, bVar));
     }
 }

@@ -62,7 +62,7 @@ public final class a {
                 JarEntry jarEntry = jarFile.getJarEntry(CommonMethods.ANDROID_MANIFEST_FILENAME);
                 if (jarEntry != null) {
                     Certificate[][] a2 = a(jarFile, jarEntry);
-                    if (!com.bytedance.pangle.util.b.a(a2)) {
+                    if (!com.bytedance.pangle.util.c.a(a2)) {
                         Signature[] a3 = d.a(a2);
                         Enumeration<JarEntry> entries = jarFile.entries();
                         while (entries.hasMoreElements()) {
@@ -76,7 +76,7 @@ public final class a {
                         }
                         for (JarEntry jarEntry2 : arrayList) {
                             Certificate[][] a4 = a(jarFile, jarEntry2);
-                            if (!com.bytedance.pangle.util.b.a(a4)) {
+                            if (!com.bytedance.pangle.util.c.a(a4)) {
                                 if (!o.a(a3, d.a(a4))) {
                                     throw new q(3, "Package " + str + " has mismatched certificates at entry " + jarEntry2.getName());
                                 }

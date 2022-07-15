@@ -1,57 +1,62 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class sp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static String a = "c12585";
-        public static String b = "c12586";
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-6124710, "Lcom/repackage/sp7$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-6124710, "Lcom/repackage/sp7$a;");
+    public sp7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static CustomDialogData a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
+    public int a() {
+        InterceptResult invokeV;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("tb_hudong")) != null && !TextUtils.isEmpty(optJSONObject.optString("content"))) {
-                try {
-                    return CustomDialogData.praseJSON(new JSONObject(Uri.decode(optJSONObject.optString("content"))));
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.b;
+            int hashCode = str.hashCode();
+            if (hashCode == 2154) {
+                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
+                    c = 2;
                 }
+                c = 65535;
+            } else if (hashCode != 2161) {
+                if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
+                    c = 0;
+                }
+                c = 65535;
+            } else {
+                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
+                    c = 1;
+                }
+                c = 65535;
             }
-            return null;
+            if (c != 0) {
+                return c != 1 ? 3 : 2;
+            }
+            return 1;
         }
-        return (CustomDialogData) invokeL.objValue;
+        return invokeV.intValue;
     }
 }

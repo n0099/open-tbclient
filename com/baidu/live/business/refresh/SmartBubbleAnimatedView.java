@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.la0;
+import com.repackage.qa0;
 /* loaded from: classes2.dex */
 public class SmartBubbleAnimatedView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -65,7 +65,7 @@ public class SmartBubbleAnimatedView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                layoutParams.height = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705ae);
+                layoutParams.height = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070611);
                 this.a.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 this.a.c = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (this.a.l && (layoutParams instanceof LinearLayout.LayoutParams)) {
@@ -249,8 +249,8 @@ public class SmartBubbleAnimatedView extends View {
         if (interceptable == null || interceptable.invokeLI(1048576, this, attributeSet, i) == null) {
             this.f.setColor(-16711681);
             this.g.setColor(-7829368);
-            this.g.setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705af));
-            this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705ae);
+            this.g.setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070612));
+            this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070611);
         }
     }
 
@@ -288,7 +288,7 @@ public class SmartBubbleAnimatedView extends View {
             this.d.addUpdateListener(new a(this));
             this.d.setDuration(400L);
             this.d.start();
-            la0.a().postDelayed(new b(this), this.b);
+            qa0.a().postDelayed(new b(this), this.b);
         }
     }
 

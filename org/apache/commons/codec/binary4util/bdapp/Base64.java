@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.disklrucache.StrictLineReader;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.binary4util.BaseNCodec;
@@ -310,7 +311,7 @@ public class Base64 {
             if (r17.do_cr == false) goto L28;
          */
         /* JADX WARN: Code restructure failed: missing block: B:33:0x00dc, code lost:
-            r2[r6] = 13;
+            r2[r6] = com.bumptech.glide.disklrucache.StrictLineReader.CR;
             r6 = r6 + 1;
          */
         /* JADX WARN: Code restructure failed: missing block: B:34:0x00e1, code lost:
@@ -373,7 +374,7 @@ public class Base64 {
                 if (i9 == 0) {
                     if (this.do_cr) {
                         i7 = 5;
-                        bArr3[4] = 13;
+                        bArr3[4] = StrictLineReader.CR;
                     } else {
                         i7 = 4;
                     }
@@ -424,7 +425,7 @@ public class Base64 {
                             }
                             if (this.do_newline) {
                                 if (this.do_cr) {
-                                    bArr3[i5] = 13;
+                                    bArr3[i5] = StrictLineReader.CR;
                                     i5++;
                                 }
                                 i6 = i5 + 1;
@@ -461,7 +462,7 @@ public class Base64 {
                             }
                             if (this.do_newline) {
                                 if (this.do_cr) {
-                                    bArr3[i24] = 13;
+                                    bArr3[i24] = StrictLineReader.CR;
                                     i24++;
                                 }
                                 bArr3[i24] = 10;
@@ -470,7 +471,7 @@ public class Base64 {
                             i5 = i24;
                         } else if (this.do_newline && i5 > 0 && i9 != 19) {
                             if (this.do_cr) {
-                                bArr3[i5] = 13;
+                                bArr3[i5] = StrictLineReader.CR;
                                 i5++;
                             }
                             i6 = i5 + 1;

@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v47;
+import com.repackage.l57;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class IceBreakHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v47 data;
+    public l57 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public IceBreakHttpResponsedMessage() {
@@ -38,9 +38,9 @@ public class IceBreakHttpResponsedMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                v47 v47Var = new v47();
-                this.data = v47Var;
-                v47Var.b(jSONObject);
+                l57 l57Var = new l57();
+                this.data = l57Var;
+                l57Var.b(jSONObject);
             }
         }
     }

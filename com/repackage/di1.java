@@ -1,15 +1,13 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class di1 implements ik1 {
+public class di1 implements yj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +25,13 @@ public class di1 implements ik1 {
         }
     }
 
-    @Override // com.repackage.ik1
-    @Nullable
-    public List<ContentValues> a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.yj1
+    public boolean a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            return true;
         }
-        return (List) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z78;
+import com.repackage.u88;
 import com.squareup.wire.Wire;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +20,7 @@ import tbclient.GetWebviewCacheInfo.Offpack;
 public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, z78> mModuleInfos;
+    public Map<String, u88> mModuleInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewCacheResSocketMsg() {
@@ -56,9 +56,9 @@ public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
                 this.mModuleInfos.clear();
                 for (Offpack offpack : getWebviewCacheInfoResIdl.data.offpack_list) {
                     if (offpack != null && !TextUtils.isEmpty(offpack.mod_name)) {
-                        z78 z78Var = new z78();
-                        z78Var.e(offpack);
-                        this.mModuleInfos.put(offpack.mod_name, z78Var);
+                        u88 u88Var = new u88();
+                        u88Var.e(offpack);
+                        this.mModuleInfos.put(offpack.mod_name, u88Var);
                     }
                 }
             }
@@ -67,7 +67,7 @@ public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
         return invokeIL.objValue;
     }
 
-    public Map<String, z78> getModuleInfos() {
+    public Map<String, u88> getModuleInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mModuleInfos : (Map) invokeV.objValue;

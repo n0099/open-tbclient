@@ -1,102 +1,90 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.searchbox.live.interfaces.service.RouterService;
-import com.baidu.searchbox.live.interfaces.service.ToastService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernRecommendLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class wp5 implements g90 {
+public class wp5 extends an<aq5, LiveTabConcernRecommendLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccountManagerService a;
-    public AppInfoService b;
-    public ToastService c;
-    public RouterService d;
+    public TbPageContext i;
+    public kq5 j;
+    public lq5 k;
 
-    public wp5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wp5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), aq5.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
-        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        this.c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
-        this.d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
+        this.i = tbPageContext;
     }
 
-    @Override // com.repackage.g90
-    public void a(Context context, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: Z */
+    public LiveTabConcernRecommendLineHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) || this.c == null || context == null || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            kq5 kq5Var = new kq5(this.i, viewGroup);
+            this.j = kq5Var;
+            lq5 lq5Var = this.k;
+            if (lq5Var != null) {
+                kq5Var.s(lq5Var);
+            }
+            return new LiveTabConcernRecommendLineHolder(this.j);
         }
-        this.c.showNormal(context, str, 0);
+        return (LiveTabConcernRecommendLineHolder) invokeL.objValue;
     }
 
-    @Override // com.repackage.g90
-    public String b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, aq5 aq5Var, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
+        InterceptResult invokeCommon;
+        kq5 kq5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AccountManagerService accountManagerService = this.a;
-            return accountManagerService != null ? accountManagerService.getAccount().getUk() : "";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, aq5Var, liveTabConcernRecommendLineHolder})) == null) {
+            if (liveTabConcernRecommendLineHolder == null || (kq5Var = liveTabConcernRecommendLineHolder.a) == null) {
+                return null;
+            }
+            kq5Var.i(aq5Var);
+            return liveTabConcernRecommendLineHolder.b();
         }
-        return (String) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.g90
-    public String c() {
-        InterceptResult invokeV;
+    public void b0(lq5 lq5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            return skinType == 1 ? SkinManager.SKIN_TYPE_STR_NIGHT : skinType == 4 ? "dark" : Config.TRACE_VISIT_RECENT_DAY;
+        if (interceptable == null || interceptable.invokeL(1048580, this, lq5Var) == null) {
+            this.k = lq5Var;
+            kq5 kq5Var = this.j;
+            if (kq5Var != null) {
+                kq5Var.s(lq5Var);
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.g90
-    public String getCuid() {
-        InterceptResult invokeV;
-        AppInfoService appInfoService;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a == null || (appInfoService = this.b) == null) ? "" : this.a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_") : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.g90
-    public String getIID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.g90
-    public void invokeScheme(Context context, String str) {
-        RouterService routerService;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) || context == null || TextUtils.isEmpty(str) || (routerService = this.d) == null) {
-            return;
-        }
-        routerService.invokeScheme(context, str);
     }
 }

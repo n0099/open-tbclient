@@ -13,10 +13,10 @@ public class bm {
     public static final String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static byte[] f138a;
+    public static byte[] f865a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static char[] f139a;
+    public static char[] f866a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,33 +33,33 @@ public class bm {
             }
         }
         a = System.getProperty("line.separator");
-        f139a = new char[64];
+        f866a = new char[64];
         char c = 'A';
         int i = 0;
         while (c <= 'Z') {
-            f139a[i] = c;
+            f866a[i] = c;
             c = (char) (c + 1);
             i++;
         }
         char c2 = 'a';
         while (c2 <= 'z') {
-            f139a[i] = c2;
+            f866a[i] = c2;
             c2 = (char) (c2 + 1);
             i++;
         }
         char c3 = '0';
         while (c3 <= '9') {
-            f139a[i] = c3;
+            f866a[i] = c3;
             c3 = (char) (c3 + 1);
             i++;
         }
-        char[] cArr = f139a;
+        char[] cArr = f866a;
         cArr[i] = '+';
         cArr[i + 1] = WebvttCueParser.CHAR_SLASH;
-        f138a = new byte[128];
+        f865a = new byte[128];
         int i2 = 0;
         while (true) {
-            byte[] bArr = f138a;
+            byte[] bArr = f865a;
             if (i2 >= bArr.length) {
                 break;
             }
@@ -67,7 +67,7 @@ public class bm {
             i2++;
         }
         for (int i3 = 0; i3 < 64; i3++) {
-            f138a[f139a[i3]] = (byte) i3;
+            f865a[f866a[i3]] = (byte) i3;
         }
     }
 
@@ -78,7 +78,7 @@ public class bm {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m197a(String str) {
+    public static byte[] m1140a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
@@ -128,7 +128,7 @@ public class bm {
                     if (c3 > 127 || c4 > 127 || c > 127 || c2 > 127) {
                         throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
                     }
-                    byte[] bArr2 = f138a;
+                    byte[] bArr2 = f865a;
                     byte b = bArr2[c3];
                     byte b2 = bArr2[c4];
                     byte b3 = bArr2[c];
@@ -198,7 +198,7 @@ public class bm {
                 int i13 = ((i4 & 15) << 2) | (i5 >>> 6);
                 int i14 = i5 & 63;
                 int i15 = i8 + 1;
-                char[] cArr2 = f139a;
+                char[] cArr2 = f866a;
                 cArr[i8] = cArr2[i11];
                 int i16 = i15 + 1;
                 cArr[i15] = cArr2[i12];
@@ -206,7 +206,7 @@ public class bm {
                 cArr[i16] = i16 < i6 ? cArr2[i13] : '=';
                 int i17 = i16 + 1;
                 if (i17 < i6) {
-                    c = f139a[i14];
+                    c = f866a[i14];
                 }
                 cArr[i17] = c;
                 i8 = i17 + 1;

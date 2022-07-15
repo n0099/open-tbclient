@@ -1,54 +1,18 @@
 package com.repackage;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cy1 extends ProviderDelegation {
+public class cy1 implements jx1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements me3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
-        public final /* synthetic */ cy1 b;
-
-        public a(cy1 cy1Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cy1Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = cy1Var;
-            this.a = bundle;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.me3
-        /* renamed from: a */
-        public Bundle create() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.d(this.a) : (Bundle) invokeV.objValue;
-        }
-    }
 
     public cy1() {
         Interceptable interceptable = $ic;
@@ -64,37 +28,46 @@ public class cy1 extends ProviderDelegation {
         }
     }
 
-    public final Bundle d(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
+    public static void d() {
+        h03 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt("type");
-            ey1 ey1Var = new ey1();
-            String string = bundle.getString("param1");
-            Bundle bundle2 = new Bundle();
-            if (i == 1) {
-                bundle2.putBoolean("result", ey1Var.shouldAcceptCookie(string, bundle.getString("param2")));
-                return bundle2;
-            } else if (i == 2) {
-                bundle2.putBoolean("result", ey1Var.shouldSendCookie(string, bundle.getString("param2")));
-                return bundle2;
-            } else if (i == 3) {
-                ey1Var.storeCookie(string, bundle.getStringArrayList("param2"));
-                return bundle2;
-            } else if (i != 4) {
-                return bundle2;
-            } else {
-                bundle2.putString("result", ey1Var.getCookie(string));
-                return bundle2;
-            }
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (M = h03.M()) == null) {
+            return;
         }
-        return (Bundle) invokeL.objValue;
+        qc3.j(M.getActivity());
+        System.exit(0);
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) ? (Bundle) je3.b(new a(this, bundle)) : (Bundle) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jx1
+    public void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            a = gd3.i(bundle, "extraWSUrl");
+            kx1.i(gd3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
+            kx1.j(gd3.i(bundle, "slavePreload"));
+        }
+    }
+
+    @Override // com.repackage.jx1
+    public void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            bundle.putString("extraWSUrl", a);
+            bundle.putString("slavePreload", kx1.c());
+            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, kx1.a());
+        }
+    }
+
+    @Override // com.repackage.jx1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ay1.e().getPath() : (String) invokeV.objValue;
     }
 }

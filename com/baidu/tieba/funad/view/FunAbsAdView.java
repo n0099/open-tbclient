@@ -4,17 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeAd2;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import com.repackage.nq6;
-import com.repackage.rh8;
+import com.repackage.mi8;
+import com.repackage.zq6;
 import java.util.List;
 /* loaded from: classes3.dex */
 public abstract class FunAbsAdView extends NativeAdContainer {
@@ -45,13 +45,13 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract void b();
 
-    public abstract FrameLayout c(FunNativeAd funNativeAd);
+    public abstract ViewGroup c(FunNativeAd2 funNativeAd2);
 
     public abstract void d(int i);
 
     public abstract void e(BdUniqueId bdUniqueId);
 
-    public abstract void f(@NonNull rh8 rh8Var, @NonNull Activity activity);
+    public abstract void f(@NonNull mi8 mi8Var, @NonNull Activity activity);
 
     public abstract void g(Context context);
 
@@ -63,7 +63,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract int getLayoutId();
 
-    public abstract nq6.g getLogItem();
+    public abstract zq6.g getLogItem();
 
     public abstract String getPageType();
 

@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ht4;
-import com.repackage.nq6;
 import com.repackage.pi;
-import com.repackage.sb5;
+import com.repackage.vc5;
+import com.repackage.xt4;
+import com.repackage.zq6;
 /* loaded from: classes2.dex */
 public class InitBearTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -42,9 +42,9 @@ public class InitBearTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             if (UbsABTestHelper.newSplashStrategy()) {
-                return sb5.w();
+                return vc5.w();
             }
-            return ht4.k().l("splash_origin_ad_strategy_key", 1) != 0;
+            return xt4.k().l("splash_origin_ad_strategy_key", 1) != 0;
         }
         return invokeV.booleanValue;
     }
@@ -77,11 +77,11 @@ public class InitBearTask extends LaunchTask {
     public void initBearSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-            boolean q = sb5.q(ht4.k().l("splash_ad_strategy_key", 0));
+            boolean q = vc5.q(xt4.k().l("splash_ad_strategy_key", 0));
             SpeedStatsManager.getInstance().setIsNeedBear(q);
             SpeedStatsManager.getInstance().setIsNeedPlg(isNeedPlgSplash());
             if (q) {
-                nq6.m().v(new nq6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+                zq6.m().v(new zq6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitBearTask this$0;
@@ -104,7 +104,7 @@ public class InitBearTask extends LaunchTask {
                         this.this$0 = this;
                     }
 
-                    @Override // com.repackage.nq6.l
+                    @Override // com.repackage.zq6.l
                     public void initComplete() {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {

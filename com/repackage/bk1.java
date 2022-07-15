@@ -1,7 +1,9 @@
 package com.repackage;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface bk1 {
-    float a();
-
-    String processUrl(String str);
+    String a(@NonNull String str, @Nullable JSONObject jSONObject);
 }

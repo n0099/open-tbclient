@@ -19,19 +19,19 @@ public class fg implements fz {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f351a;
+    public long f1078a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fw f352a;
+    public fw f1079a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f353a;
+    public XMPushService f1080a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Exception f354a;
+    public Exception f1081a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f355a;
+    public String f1082a;
     public long b;
     public long c;
     public long d;
@@ -53,21 +53,21 @@ public class fg implements fz {
                 return;
             }
         }
-        this.f351a = 0L;
+        this.f1078a = 0L;
         this.b = 0L;
         this.c = 0L;
         this.d = 0L;
         this.e = 0L;
         this.f = 0L;
-        this.f353a = xMPushService;
-        this.f355a = "";
+        this.f1080a = xMPushService;
+        this.f1082a = "";
         b();
         int myUid = Process.myUid();
         try {
             this.f = TrafficStats.getUidRxBytes(myUid);
             this.e = TrafficStats.getUidTxBytes(myUid);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m84a("Failed to obtain traffic data during initialization: " + e);
+            com.xiaomi.channel.commonutils.logger.b.m1027a("Failed to obtain traffic data during initialization: " + e);
             this.f = -1L;
             this.e = -1L;
         }
@@ -78,13 +78,13 @@ public class fg implements fz {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             this.b = 0L;
             this.d = 0L;
-            this.f351a = 0L;
+            this.f1078a = 0L;
             this.c = 0L;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (bj.b(this.f353a)) {
-                this.f351a = elapsedRealtime;
+            if (bj.b(this.f1080a)) {
+                this.f1078a = elapsedRealtime;
             }
-            if (this.f353a.m592c()) {
+            if (this.f1080a.m1535c()) {
                 this.c = elapsedRealtime;
             }
         }
@@ -94,15 +94,15 @@ public class fg implements fz {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             synchronized (this) {
-                com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f355a + " netDuration = " + this.b + " ChannelDuration = " + this.d + " channelConnectedTime = " + this.c);
+                com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f1082a + " netDuration = " + this.b + " ChannelDuration = " + this.d + " channelConnectedTime = " + this.c);
                 fa faVar = new fa();
-                faVar.f330a = (byte) 0;
+                faVar.f1057a = (byte) 0;
                 faVar.a(ez.h.a());
-                faVar.a(this.f355a);
+                faVar.a(this.f1082a);
                 faVar.d((int) (System.currentTimeMillis() / 1000));
                 faVar.b((int) (this.b / 1000));
                 faVar.c((int) (this.d / 1000));
-                fh.m323a().a(faVar);
+                fh.m1266a().a(faVar);
                 b();
             }
         }
@@ -111,37 +111,37 @@ public class fg implements fz {
     public Exception a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f354a : (Exception) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1081a : (Exception) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m322a() {
+    public synchronized void m1265a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (this.f353a == null) {
+                if (this.f1080a == null) {
                     return;
                 }
-                String m189a = bj.m189a((Context) this.f353a);
-                boolean c = bj.c(this.f353a);
+                String m1132a = bj.m1132a((Context) this.f1080a);
+                boolean c = bj.c(this.f1080a);
                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                if (this.f351a > 0) {
-                    this.b += elapsedRealtime - this.f351a;
-                    this.f351a = 0L;
+                if (this.f1078a > 0) {
+                    this.b += elapsedRealtime - this.f1078a;
+                    this.f1078a = 0L;
                 }
                 if (this.c != 0) {
                     this.d += elapsedRealtime - this.c;
                     this.c = 0L;
                 }
                 if (c) {
-                    if ((!TextUtils.equals(this.f355a, m189a) && this.b > 30000) || this.b > 5400000) {
+                    if ((!TextUtils.equals(this.f1082a, m1132a) && this.b > 30000) || this.b > 5400000) {
                         c();
                     }
-                    this.f355a = m189a;
-                    if (this.f351a == 0) {
-                        this.f351a = elapsedRealtime;
+                    this.f1082a = m1132a;
+                    if (this.f1078a == 0) {
+                        this.f1078a = elapsedRealtime;
                     }
-                    if (this.f353a.m592c()) {
+                    if (this.f1080a.m1535c()) {
                         this.c = elapsedRealtime;
                     }
                 }
@@ -154,9 +154,9 @@ public class fg implements fz {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fwVar) == null) {
             this.a = 0;
-            this.f354a = null;
-            this.f352a = fwVar;
-            this.f355a = bj.m189a((Context) this.f353a);
+            this.f1081a = null;
+            this.f1079a = fwVar;
+            this.f1082a = bj.m1132a((Context) this.f1080a);
             fj.a(0, ez.v.a());
         }
     }
@@ -166,27 +166,27 @@ public class fg implements fz {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048579, this, fwVar, i, exc) == null) {
-            if (this.a == 0 && this.f354a == null) {
+            if (this.a == 0 && this.f1081a == null) {
                 this.a = i;
-                this.f354a = exc;
-                fj.b(fwVar.m349a(), exc);
+                this.f1081a = exc;
+                fj.b(fwVar.m1292a(), exc);
             }
             if (i == 22 && this.c != 0) {
-                long m347a = fwVar.m347a() - this.c;
-                if (m347a < 0) {
-                    m347a = 0;
+                long m1290a = fwVar.m1290a() - this.c;
+                if (m1290a < 0) {
+                    m1290a = 0;
                 }
-                this.d += m347a + (gc.b() / 2);
+                this.d += m1290a + (gc.b() / 2);
                 this.c = 0L;
             }
-            m322a();
+            m1265a();
             int myUid = Process.myUid();
             long j2 = -1;
             try {
                 j2 = TrafficStats.getUidRxBytes(myUid);
                 j = TrafficStats.getUidTxBytes(myUid);
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("Failed to obtain traffic data: " + e);
+                com.xiaomi.channel.commonutils.logger.b.m1027a("Failed to obtain traffic data: " + e);
                 j = -1L;
             }
             com.xiaomi.channel.commonutils.logger.b.c("Stats rx=" + (j2 - this.f) + ", tx=" + (j - this.e));
@@ -199,8 +199,8 @@ public class fg implements fz {
     public void a(fw fwVar, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, fwVar, exc) == null) {
-            fj.a(0, ez.d.a(), 1, fwVar.m349a(), bj.c(this.f353a) ? 1 : 0);
-            m322a();
+            fj.a(0, ez.d.a(), 1, fwVar.m1292a(), bj.c(this.f1080a) ? 1 : 0);
+            m1265a();
         }
     }
 
@@ -208,9 +208,9 @@ public class fg implements fz {
     public void b(fw fwVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fwVar) == null) {
-            m322a();
+            m1265a();
             this.c = SystemClock.elapsedRealtime();
-            fj.a(0, ez.v.a(), fwVar.m349a(), fwVar.a());
+            fj.a(0, ez.v.a(), fwVar.m1292a(), fwVar.a());
         }
     }
 }

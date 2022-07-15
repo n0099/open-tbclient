@@ -1,47 +1,38 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.HotspotInfo;
-import com.kwad.sdk.core.response.model.HotspotListData;
-import com.kwad.sdk.core.response.model.TabInfo;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.kwad.sdk.core.response.model.AdStyleInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bw implements com.kwad.sdk.core.d<HotspotListData> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(HotspotListData hotspotListData, JSONObject jSONObject) {
+public final class bw implements com.kwad.sdk.core.d<AdStyleInfo.ExposeTagInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdStyleInfo.ExposeTagInfo exposeTagInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        hotspotListData.trends = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("trends");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                HotspotInfo hotspotInfo = new HotspotInfo();
-                hotspotInfo.parseJson(optJSONArray.optJSONObject(i));
-                hotspotListData.trends.add(hotspotInfo);
-            }
-        }
-        hotspotListData.tabList = new ArrayList();
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("tabList");
-        if (optJSONArray2 != null) {
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                TabInfo tabInfo = new TabInfo();
-                tabInfo.parseJson(optJSONArray2.optJSONObject(i2));
-                hotspotListData.tabList.add(tabInfo);
-            }
+        exposeTagInfo.text = jSONObject.optString("text");
+        if (jSONObject.opt("text") == JSONObject.NULL) {
+            exposeTagInfo.text = "";
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(HotspotListData hotspotListData, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdStyleInfo.ExposeTagInfo exposeTagInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "trends", hotspotListData.trends);
-        com.kwad.sdk.utils.t.a(jSONObject, "tabList", hotspotListData.tabList);
+        com.kwad.sdk.utils.r.a(jSONObject, "text", exposeTagInfo.text);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdStyleInfo.ExposeTagInfo exposeTagInfo, JSONObject jSONObject) {
+        a2(exposeTagInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdStyleInfo.ExposeTagInfo exposeTagInfo, JSONObject jSONObject) {
+        return b2(exposeTagInfo, jSONObject);
     }
 }

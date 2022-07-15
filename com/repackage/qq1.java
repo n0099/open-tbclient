@@ -1,70 +1,124 @@
 package com.repackage;
 
-import android.view.View;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class qq1 extends mq1 {
+public class qq1 extends nq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public qq1() {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public a(qq1 qq1Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qq1Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || zz2.d()) {
+                return;
+            }
+            zz2.f(this.a, R.string.obfuscated_res_0x7f0f03e7).G();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qq1(@NonNull io1 io1Var) {
+        super(io1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {io1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((io1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.mq1
-    public sr1 c(@NonNull yy1 yy1Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ko1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yy1Var)) == null) {
-            View r = aj2.i().r(yy1Var);
-            if (r == null) {
-                return new sr1(1001);
-            }
-            return e(r);
-        }
-        return (sr1) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ClipboardApi" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.mq1
-    public sr1 d(int i) {
-        InterceptResult invokeI;
+    @SuppressLint({"KotlinPropertyAccess"})
+    public hs1 x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new sr1(1001) : (sr1) invokeI.objValue;
-    }
-
-    public final sr1 e(@NonNull View view2) {
-        InterceptResult invokeL;
-        sr1 sr1Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#getClipboardData", false);
+            JSONObject jSONObject = new JSONObject();
             try {
-                sr1Var = new sr1(0, b((int) (jd3.P(view2.getLeft()) + 0.5f), (int) (jd3.P(view2.getTop()) + 0.5f), (int) (jd3.P(view2.getRight()) + 0.5f), (int) (jd3.P(view2.getBottom()) + 0.5f)));
+                CharSequence a2 = ce3.b(getContext()).a();
+                jSONObject.put("data", TextUtils.isEmpty(a2) ? "" : a2.toString());
+                return new hs1(0, jSONObject);
             } catch (JSONException e) {
-                if (mq1.a) {
-                    e.printStackTrace();
-                }
-                sr1Var = new sr1(1001, "result JSONException");
+                p("#getClipboardData json put data fail", e, false);
+                return new hs1(1001, "JSONException");
             }
-            sw1.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param normally, result = " + sr1Var);
-            return sr1Var;
         }
-        return (sr1) invokeL.objValue;
+        return (hs1) invokeV.objValue;
+    }
+
+    @SuppressLint({"KotlinPropertyAccess"})
+    public hs1 y(String str) {
+        InterceptResult invokeL;
+        SwanAppActivity w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#setClipboardData", false);
+            Pair<hs1, JSONObject> s = s(str);
+            hs1 hs1Var = (hs1) s.first;
+            if (hs1Var.isSuccess()) {
+                ce3.b(getContext()).c(((JSONObject) s.second).optString("data"));
+                h03 q = g03.K().q();
+                if (q != null && (w = q.w()) != null) {
+                    be3.f0(new a(this, w), 200L);
+                }
+                return hs1.f();
+            }
+            return hs1Var;
+        }
+        return (hs1) invokeL.objValue;
     }
 }

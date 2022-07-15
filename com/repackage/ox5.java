@@ -1,216 +1,145 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.ala.AlaVideoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k58;
 /* loaded from: classes6.dex */
-public class ox5 implements h58 {
+public class ox5 extends jx5<c36> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaVideoContainer a;
-    public ThreadData b;
-    public AlaInfoData c;
-    public boolean d;
-    public k58 e;
-    public k58.b f;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public View n;
+    public View o;
+    public String p;
 
-    /* loaded from: classes6.dex */
-    public class a implements k58.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ox5 a;
-
-        public a(ox5 ox5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ox5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ox5Var;
-        }
-
-        @Override // com.repackage.k58.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-            }
-        }
-    }
-
-    public ox5(AlaVideoContainer alaVideoContainer) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ox5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {alaVideoContainer};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = false;
-        this.f = new a(this);
-        this.a = alaVideoContainer;
-        if (alaVideoContainer != null) {
-            k58 k58Var = new k58();
-            this.e = k58Var;
-            k58Var.l(this.a.getVideoView());
-            this.e.i(this.f);
+        r(h());
+    }
+
+    @Override // com.repackage.jx5
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0186 : invokeV.intValue;
+    }
+
+    @Override // com.repackage.jx5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.n, R.color.CAM_X0205);
+            SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0106, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
         }
     }
 
-    public final void b() {
-        ThreadData threadData;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (threadData = this.b) == null || threadData.getThreadVideoInfo() == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if (view2 == this.j || view2 == this.k || view2 == this.l || view2 == this.m) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.p));
+                UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(this.b.getPageActivity()), new String[]{(String) view2.getTag()}, true);
+            }
         }
     }
 
-    public void c() {
-        AlaVideoContainer alaVideoContainer;
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (alaVideoContainer = this.a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904e0);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904e1);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904e2);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904e3);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904e4);
+            this.j.setOnClickListener(this);
+            this.k.setOnClickListener(this);
+            this.l.setOnClickListener(this);
+            this.m.setOnClickListener(this);
+            this.n = view2.findViewById(R.id.obfuscated_res_0x7f0907cb);
+            this.o = view2.findViewById(R.id.obfuscated_res_0x7f0907cc);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.jx5
+    /* renamed from: s */
+    public void i(c36 c36Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, c36Var) == null) || c36Var == null || c36Var.c() == null) {
             return;
         }
-        alaVideoContainer.q();
-    }
-
-    public void d(ThreadData threadData, String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{threadData, str, str2, Boolean.valueOf(z)}) == null) || threadData == null) {
-            return;
+        if (!TextUtils.isEmpty(c36Var.c().title)) {
+            this.i.setText(c36Var.c().title);
         }
-        this.b = threadData;
-        if (this.a == null || threadData.getThreadAlaInfo() == null) {
-            return;
+        this.j.setVisibility(8);
+        this.k.setVisibility(8);
+        this.l.setVisibility(8);
+        this.m.setVisibility(8);
+        if (c36Var.c().sub_nodes.size() >= 1) {
+            this.j.setVisibility(0);
+            this.j.setTag(c36Var.c().sub_nodes.get(0).url);
+            this.j.setText(c36Var.c().sub_nodes.get(0).title);
         }
-        AlaInfoData threadAlaInfo = this.b.getThreadAlaInfo();
-        this.c = threadAlaInfo;
-        this.a.setVideoThumbnail(threadAlaInfo.cover);
-        if (z) {
-            this.a.setTitle(this.b.getTitle());
-        } else {
-            this.a.setTitle("");
+        if (c36Var.c().sub_nodes.size() >= 2) {
+            this.k.setVisibility(0);
+            this.k.setTag(c36Var.c().sub_nodes.get(1).url);
+            this.k.setText(c36Var.c().sub_nodes.get(1).title);
         }
-        this.a.setPlayCount(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f01fb), StringHelper.numFormatOverWan(this.b.getThreadAlaInfo().audience_count)));
-    }
-
-    @Override // com.repackage.h58
-    public int getCurrentPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AlaVideoContainer alaVideoContainer = this.a;
-            if (alaVideoContainer == null || alaVideoContainer.getVideoView() == null) {
-                return 0;
-            }
-            return this.a.getVideoView().getCurrentPositionSync();
+        if (c36Var.c().sub_nodes.size() >= 3) {
+            this.l.setVisibility(0);
+            this.l.setTag(c36Var.c().sub_nodes.get(2).url);
+            this.l.setText(c36Var.c().sub_nodes.get(2).title);
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.h58
-    public String getPlayUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ThreadData threadData = this.b;
-            if (threadData == null || threadData.getThreadVideoInfo() == null) {
-                return null;
-            }
-            return this.b.getThreadVideoInfo().video_url;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.h58
-    public View getVideoContainer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            AlaVideoContainer alaVideoContainer = this.a;
-            if (alaVideoContainer != null) {
-                return alaVideoContainer.getView();
-            }
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.repackage.h58
-    public boolean isFullScreen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.h58
-    public boolean isPlayStarted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.h58
-    public boolean isPlaying() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.h58
-    public void startPlay() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (c36Var.c().sub_nodes.size() >= 4) {
+            this.m.setVisibility(0);
+            this.m.setTag(c36Var.c().sub_nodes.get(3).url);
+            this.m.setText(c36Var.c().sub_nodes.get(3).title);
         }
     }
 
-    @Override // com.repackage.h58
-    public void stopPlay() {
+    public void t(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            AlaVideoContainer alaVideoContainer = this.a;
-            if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
-                this.a.getVideoView().stopPlayback();
-                this.a.p();
-                k58 k58Var = this.e;
-                if (k58Var != null) {
-                    k58Var.n();
-                }
-            }
-            this.d = false;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.p = str;
         }
     }
 }

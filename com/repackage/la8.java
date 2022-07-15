@@ -1,40 +1,37 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.TextView;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.widget.RemoteViews;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadReceiver;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class la8 extends pa8 {
+public class la8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HeadImageView h;
-    public TextView i;
-    public TextView j;
+    public final RemoteViews a;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a extends ig<ym> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aa8 a;
-        public final /* synthetic */ la8 b;
+        public final /* synthetic */ la8 a;
 
-        public a(la8 la8Var, aa8 aa8Var) {
+        public a(la8 la8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {la8Var, aa8Var};
+                Object[] objArr = {la8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,87 +41,87 @@ public class la8 extends pa8 {
                     return;
                 }
             }
-            this.b = la8Var;
-            this.a = aa8Var;
+            this.a = la8Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ig
+        public void onLoaded(ym ymVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.b.b.getContext();
-                aa8 aa8Var = this.a;
-                String str = aa8Var.d;
-                String str2 = aa8Var.f;
-                AdvertAppInfo advertAppInfo = this.b.c;
-                y88.a(context, str, str2, advertAppInfo != null ? advertAppInfo.g : "", this.a.j);
-                ClogBuilder clogBuilder = new ClogBuilder();
-                clogBuilder.t(this.b.c.j).o(String.valueOf(this.b.c.position + 1)).n(this.b.c.g).x(String.valueOf(302));
-                vx0.c(clogBuilder);
-                la8 la8Var = this.b;
-                if (la8Var.d != null) {
-                    jc7.c(la8Var.c);
-                }
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, ymVar, str, i) == null) || this.a.a == null || ymVar == null || ymVar.p() == null) {
+                return;
             }
+            this.a.a.setImageViewBitmap(R.id.obfuscated_res_0x7f090284, ymVar.p());
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public la8(View view2, String str) {
-        super(view2, str);
+    public la8(DownloadData downloadData, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
+            Object[] objArr = {downloadData, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], (String) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        k();
+        this.a = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.obfuscated_res_0x7f0d0234);
+        c(i);
+        this.a.setTextViewText(R.id.obfuscated_res_0x7f0907ff, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cce));
+        this.a.setImageViewResource(R.id.obfuscated_res_0x7f0907ed, R.drawable.obfuscated_res_0x7f080def);
+        this.a.setImageViewResource(R.id.obfuscated_res_0x7f0907f0, R.drawable.obfuscated_res_0x7f080ded);
+        this.a.setTextViewText(R.id.obfuscated_res_0x7f0907eb, downloadData.getUser_name());
+        jg.h().m(downloadData.getApp_icon(), 17, new a(this), BdUniqueId.gen());
+        Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
+        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+        intent.setAction(DownloadReceiver.ACTION_PAUSE_DOWNLOAD);
+        intent.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
+        this.a.setOnClickPendingIntent(R.id.obfuscated_res_0x7f0907ed, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, 134217728));
+        Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
+        intent2.setAction(DownloadReceiver.ACTION_CANCEL_DOWNLOAD);
+        intent2.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
+        intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
+        this.a.setOnClickPendingIntent(R.id.obfuscated_res_0x7f0907f0, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    @Override // com.repackage.pa8
-    public void b() {
+    public RemoteViews b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.b();
-            SkinManager.setViewTextColor(this.i, R.color.CAM_X0620, 1);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.j, R.drawable.obfuscated_res_0x7f0811e8, TbadkCoreApplication.getInst().getSkinType());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (RemoteViews) invokeV.objValue;
+    }
+
+    public void c(int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i > 0) {
+                str = i + "%";
+            } else {
+                str = "0%";
+            }
+            this.a.setProgressBar(R.id.obfuscated_res_0x7f0907fd, 100, i, false);
+            this.a.setTextViewText(R.id.obfuscated_res_0x7f0907fe, str);
         }
     }
 
-    @Override // com.repackage.pa8
-    public void c(aa8 aa8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aa8Var) == null) {
-            super.c(aa8Var);
-            this.h.J(aa8Var.c, 10, false);
-            this.i.setText(aa8Var.b);
-            this.j.setText(aa8Var.e);
-            this.b.setOnClickListener(new a(this, aa8Var));
-            b();
-        }
-    }
-
-    public final void k() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f092292);
-            this.h = headImageView;
-            headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
-            this.h.setDefaultBgResource(R.color.CAM_X0205);
-            this.h.setIsRound(true);
-            this.i = (TextView) a(R.id.obfuscated_res_0x7f092285);
-            this.j = (TextView) a(R.id.obfuscated_res_0x7f090054);
+            this.a.setTextViewText(R.id.obfuscated_res_0x7f0907ff, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f050d));
+            this.a.setImageViewResource(R.id.obfuscated_res_0x7f0907ed, R.drawable.obfuscated_res_0x7f080df0);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.setTextViewText(R.id.obfuscated_res_0x7f0907ff, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cce));
+            this.a.setImageViewResource(R.id.obfuscated_res_0x7f0907ed, R.drawable.obfuscated_res_0x7f080def);
         }
     }
 }

@@ -1,27 +1,50 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class gl3 {
     public static /* synthetic */ Interceptable $ic;
+    public static Method a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static hl3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? om5.a() : (hl3) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755674237, "Lcom/repackage/gl3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755674237, "Lcom/repackage/gl3;");
+                return;
+            }
+        }
+        try {
+            a = k44.i(k44.b("android.os.SystemProperties", true), SharedPreferenceManager.OPERATION_GET_PERFIX, String.class);
+        } catch (Throwable unused) {
+        }
     }
 
-    @Inject(force = false)
-    public static il3 b() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new qf3() : (il3) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Method method = a;
+            if (method != null) {
+                try {
+                    return (String) method.invoke(null, str);
+                } catch (Throwable unused) {
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

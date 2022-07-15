@@ -1,33 +1,7 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
-import java.util.List;
-import okhttp3.Interceptor;
+import com.baidu.swan.menu.BaseMenuView;
 /* loaded from: classes6.dex */
 public interface h64 {
-    String a();
-
-    CookieManager f();
-
-    int g();
-
-    Context getAppContext();
-
-    int getReadTimeout();
-
-    boolean h();
-
-    boolean i();
-
-    boolean isDebug();
-
-    void j(String str, HttpRequestBuilder httpRequestBuilder);
-
-    int k();
-
-    List<Interceptor> l();
-
-    int m();
+    void a(BaseMenuView baseMenuView);
 }

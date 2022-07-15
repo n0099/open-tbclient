@@ -1,92 +1,268 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s59;
-import java.io.File;
 import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class c69 extends y59 {
+public class c69 extends v59 implements q79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public d69 B;
+    public String C;
+    public Thread D;
+    public long E;
+    public long F;
+
+    /* loaded from: classes5.dex */
+    public class a extends r79 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c69 a;
+
+        public a(c69 c69Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c69Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c69Var;
+        }
+
+        @Override // com.repackage.r79, com.repackage.q79
+        public void onExceptionThrown(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.z == null || this.a.l) {
+                return;
+            }
+            this.a.z.onExceptionThrown(str);
+        }
+
+        @Override // com.repackage.r79
+        public void onFinishedWriting(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.a.k = true;
+                if (this.a.z == null || this.a.l) {
+                    return;
+                }
+                this.a.z.onFinishedWriting(z);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c69(v59 v59Var, d69 d69Var, s59.a aVar) {
-        super(v59Var, d69Var, aVar);
+    public c69(String str, String str2, int[] iArr) throws Exception {
+        super(0, str, iArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v59Var, d69Var, aVar};
+            Object[] objArr = {str, str2, iArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((v59) objArr2[0], (d69) objArr2[1], (s59.a) objArr2[2]);
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.C = str2;
+        this.B.e(str2);
+        F(this);
     }
 
-    @Override // com.repackage.y59
-    public RandomAccessFile e(File file, String str, long j) throws IOException {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.v59
+    public void B(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
-            randomAccessFile.seek(0L);
-            return randomAccessFile;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = j * 1000;
+            if (j2 < 0) {
+                j2 = 0;
+            }
+            this.E = j2;
+            if (this.e != null) {
+                if (j2 > this.e.getDuration()) {
+                    j2 = this.e.getDuration();
+                }
+                synchronized (this.c) {
+                    this.e.seek(j2);
+                }
+            }
         }
-        return (RandomAccessFile) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.y59
-    public Map<String, String> f(d69 d69Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.v59
+    public void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d69Var)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.k) {
+            return;
         }
-        return (Map) invokeL.objValue;
+        long currentPosition = this.e.getCurrentPosition();
+        long j = this.E;
+        long j2 = currentPosition - j;
+        long j3 = this.F;
+        long duration = j3 > 0 ? j3 - j : this.e.getDuration();
+        double d = duration == 0 ? 0.0d : j2 / duration;
+        double d2 = d >= 0.0d ? d : 0.0d;
+        onProgressChanged(this.n, d2 > 1.0d ? 1.0d : d2, j2);
     }
 
-    @Override // com.repackage.y59
-    public int g() {
+    @Override // com.repackage.v59
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.I();
+            Thread thread = this.D;
+            if (thread == null || !thread.isAlive()) {
+                Thread thread2 = new Thread(this);
+                this.D = thread2;
+                thread2.start();
+            }
+            super.I();
+        }
+    }
+
+    public void R(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            long j2 = j * 1000;
+            this.F = j2;
+            if (this.e != null) {
+                if (j2 > this.e.getDuration()) {
+                    j2 = this.e.getDuration();
+                }
+                synchronized (this.c) {
+                    this.e.h(j2);
+                }
+            }
+        }
+    }
+
+    public void S(r79 r79Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, r79Var) == null) {
+            this.z = r79Var;
+            this.B.d(new a(this));
+        }
+    }
+
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.l = true;
+            this.k = true;
+            Thread thread = this.D;
+            if (thread != null) {
+                try {
+                    thread.interrupt();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                this.D = null;
+            }
+            try {
+                this.B.g();
+            } catch (Exception e2) {
+                w89.e("VideoMuxer", "cancel finishWriting error:" + e2.getMessage());
+            }
+        }
+    }
+
+    @Override // com.repackage.q79
+    public void onCancel() {
+        r79 r79Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (r79Var = this.z) == null) {
+            return;
+        }
+        r79Var.onCancel();
+    }
+
+    @Override // com.repackage.q79
+    public void onExceptionThrown(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.z == null || this.l) {
+            return;
+        }
+        this.z.onExceptionThrown(str);
+    }
+
+    @Override // com.repackage.q79
+    public void onProgressChanged(int i, double d, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) || this.z == null || this.l) {
+            return;
+        }
+        this.z.onProgressChanged(i, d, j);
+    }
+
+    @Override // com.repackage.q79
+    public void onTrackEnd(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            try {
+                this.B.b();
+            } catch (Exception e) {
+                w89.e("VideoMuxer", "onTrackEnd finishWriting error:" + e.getMessage());
+            }
+        }
+    }
+
+    @Override // com.repackage.v59
+    public z59 p() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 200;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            d69 d69Var = new d69(this.C, m(), i());
+            this.B = d69Var;
+            return d69Var;
         }
-        return invokeV.intValue;
+        return (z59) invokeV.objValue;
     }
 
-    @Override // com.repackage.y59
-    public String h() {
-        InterceptResult invokeV;
+    @Override // com.repackage.v59
+    public void t() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c69.class.getSimpleName() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.y59
-    public void j(d69 d69Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, d69Var) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
         }
     }
 
-    @Override // com.repackage.y59
-    public void n(d69 d69Var) {
+    @Override // com.repackage.v59
+    public void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, d69Var) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.v59
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (this.D != null) {
+                this.D = null;
+            }
+            try {
+                this.B.b();
+            } catch (Exception e) {
+                w89.e("VideoMuxer", "onStop finishWriting error:" + e.getMessage());
+            }
         }
     }
 }

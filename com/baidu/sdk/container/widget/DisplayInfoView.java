@@ -87,7 +87,7 @@ public class DisplayInfoView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null) {
                 return;
             }
-            this.a.g.a();
+            this.a.g.b();
         }
     }
 
@@ -159,7 +159,7 @@ public class DisplayInfoView extends LinearLayout {
 
     /* loaded from: classes2.dex */
     public interface d {
-        void a();
+        void b();
 
         void c();
     }

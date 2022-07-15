@@ -53,9 +53,9 @@ public class FunSimpleAdInteractionListener implements FunAdInteractionListener 
     }
 
     @Override // com.fun.ad.sdk.FunAdInteractionListener
-    public void onRewardedVideo(String str) {
+    public void onRewardedVideo(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
         }
     }
 }

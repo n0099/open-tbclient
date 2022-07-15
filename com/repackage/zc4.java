@@ -1,17 +1,9 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zc4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zc4 {
+    void l(JSONObject jSONObject);
 
-    public static SharedPreferences a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new ag4("key_pms_sp_name") : (SharedPreferences) invokeV.objValue;
-    }
+    void o();
 }

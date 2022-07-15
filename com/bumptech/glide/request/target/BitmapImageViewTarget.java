@@ -58,7 +58,7 @@ public class BitmapImageViewTarget extends ImageViewTarget<Bitmap> {
     public void setResource(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
-            ((ImageView) this.f1053view).setImageBitmap(bitmap);
+            ((ImageView) this.f1780view).setImageBitmap(bitmap);
         }
     }
 }

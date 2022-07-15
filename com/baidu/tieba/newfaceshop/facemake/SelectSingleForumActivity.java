@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.in7;
+import com.repackage.ao7;
 import com.repackage.pi;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public NavigationBar c;
     public View d;
     public TextView e;
-    public in7 f;
+    public ao7 f;
     public List<BazhuInfoData.BaInfo> g;
     public View h;
     public View i;
@@ -118,7 +118,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.a.g.get(i);
-                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f092127);
+                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f0921ca);
                 if (checkBox.isChecked()) {
                     return;
                 }
@@ -167,7 +167,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f1109);
+            this.a.setText(R.string.obfuscated_res_0x7f0f1100);
         }
     }
 
@@ -193,25 +193,25 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0745);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091ad3);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            setContentView(R.layout.obfuscated_res_0x7f0d0763);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091b72);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
             this.c = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d = addSystemImageButton;
             if (addSystemImageButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
-                layoutParams.leftMargin = pi.f(getActivity(), R.dimen.obfuscated_res_0x7f070234);
+                layoutParams.leftMargin = pi.f(getActivity(), R.dimen.obfuscated_res_0x7f070232);
                 this.d.setLayoutParams(layoutParams);
             }
-            this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0547));
+            this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0551));
             this.d.setOnClickListener(this.k);
-            this.i = findViewById(R.id.obfuscated_res_0x7f09237c);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092128);
+            this.i = findViewById(R.id.obfuscated_res_0x7f092424);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0921cb);
             this.a = textView;
             textView.setOnClickListener(this.k);
-            this.j = findViewById(R.id.obfuscated_res_0x7f09118c);
-            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f09212c);
+            this.j = findViewById(R.id.obfuscated_res_0x7f09122d);
+            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f0921cf);
             if (getIntent() != null) {
                 ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
                 if (ListUtils.getCount(parcelableArrayListExtra) > 0) {
@@ -219,9 +219,9 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 }
             }
             this.b.setOnItemClickListener(this.l);
-            in7 in7Var = new in7(getActivity());
-            this.f = in7Var;
-            this.b.setAdapter((ListAdapter) in7Var);
+            ao7 ao7Var = new ao7(getActivity());
+            this.f = ao7Var;
+            this.b.setAdapter((ListAdapter) ao7Var);
             this.f.b(this.g);
             G1();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

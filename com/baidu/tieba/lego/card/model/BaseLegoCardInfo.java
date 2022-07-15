@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ah5;
+import com.repackage.di5;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -59,7 +59,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
             if (jSONObject == null) {
                 return;
             }
-            ah5.a().n(jSONObject);
+            di5.a().n(jSONObject);
         }
     }
 

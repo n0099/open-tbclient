@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xi4;
+import com.repackage.mj4;
 import com.squareup.wire.Wire;
 import tbclient.BackUser.BackUserResIdl;
 import tbclient.Error;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class BackUserSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xi4 mData;
+    public mj4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackUserSocketResMsg() {
@@ -50,9 +50,9 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
                     setErrorString(backUserResIdl.error.usermsg);
                 }
                 if (backUserResIdl.data != null) {
-                    xi4 xi4Var = new xi4();
-                    this.mData = xi4Var;
-                    xi4Var.a(backUserResIdl.data);
+                    mj4 mj4Var = new mj4();
+                    this.mData = mj4Var;
+                    mj4Var.a(backUserResIdl.data);
                 }
             }
             return backUserResIdl;
@@ -60,9 +60,9 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public xi4 getData() {
+    public mj4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (xi4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (mj4) invokeV.objValue;
     }
 }

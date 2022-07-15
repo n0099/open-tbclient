@@ -19,6 +19,7 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.mcast.McastConfig;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -410,7 +411,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                 }
             }
             this.a = context;
-            boolean z = context.getPackageManager().checkPermission("android.permission.ACCESS_WIFI_STATE", this.a.getPackageName()) == 0;
+            boolean z = context.getPackageManager().checkPermission(PermissionChecker.ACCESS_WIFI_STATE, this.a.getPackageName()) == 0;
             this.c = z;
             this.b = z ? (WifiManager) this.a.getSystemService("wifi") : null;
         }
@@ -945,13 +946,13 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
 
         /* renamed from: com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect$c$c  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0253c implements Runnable {
+        public class RunnableC0255c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ c b;
 
-            public RunnableC0253c(c cVar, int i) {
+            public RunnableC0255c(c cVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1157,7 +1158,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             if (!(interceptable == null || interceptable.invokeLI(1048582, this, network, i) == null) || b(network, null)) {
                 return;
             }
-            this.b.runOnThread(new RunnableC0253c(this, NetworkChangeNotifierAutoDetect.networkToNetId(network)));
+            this.b.runOnThread(new RunnableC0255c(this, NetworkChangeNotifierAutoDetect.networkToNetId(network)));
         }
 
         @Override // android.net.ConnectivityManager.NetworkCallback

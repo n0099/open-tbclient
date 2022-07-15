@@ -1,33 +1,125 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public interface qk0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes7.dex */
+public class qk0 implements zk0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public rk0 b;
+    public int c;
+    public long d;
+    public AtomicBoolean e;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-    }
-
-    @Autowired
-    /* loaded from: classes6.dex */
-    public static class b {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        @Singleton
-        @Inject(force = false)
-        public static qk0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? et0.a() : (qk0) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final qk0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-68209123, "Lcom/repackage/qk0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-68209123, "Lcom/repackage/qk0$b;");
+                    return;
+                }
+            }
+            a = new qk0(null);
         }
     }
 
-    void a(@Nullable String str, @Nullable String str2, @Nullable a aVar);
+    public /* synthetic */ qk0(a aVar) {
+        this();
+    }
+
+    public static qk0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (qk0) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zk0
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.e.get()) {
+            return;
+        }
+        rk0 rk0Var = this.b;
+        if (rk0Var != null) {
+            rk0Var.d();
+            this.b = null;
+            this.c = -1;
+        }
+        if (z) {
+            if (this.d == 0 || System.currentTimeMillis() - this.d <= 300000) {
+                return;
+            }
+            if (this.e.compareAndSet(false, true)) {
+                this.b = new rk0(60, this.c + 1, true);
+            }
+        } else {
+            if (this.e.compareAndSet(false, true)) {
+                this.b = new rk0(60, this.c + 1, false);
+            }
+            nk0.d().f();
+        }
+        b();
+        this.d = System.currentTimeMillis();
+    }
+
+    public void b() {
+        rk0 rk0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            if (i <= 2 && (rk0Var = this.b) != null) {
+                rk0Var.e();
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.set(false);
+        }
+    }
+
+    public qk0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = -1;
+        this.d = 0L;
+        this.e = new AtomicBoolean(false);
+    }
 }

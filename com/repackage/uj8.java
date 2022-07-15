@@ -1,82 +1,125 @@
 package com.repackage;
 
-import android.content.Context;
-import android.location.Address;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.location.LocationData;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.switchs.ChunkUploadSwitch;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class uj8 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 524288;
+    public static int d = 6144000;
+    public static int e = 524288;
     public transient /* synthetic */ FieldHolder $fh;
+    public yj8 a;
+    public kl7 b;
 
-    public static void a(NetWork netWork, WriteData writeData) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755258930, "Lcom/repackage/uj8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755258930, "Lcom/repackage/uj8;");
+        }
+    }
+
+    public uj8(kl7 kl7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
-            netWork.addPostData("is_location", "2");
-            Address j = jf.n().j(false);
-            if (j != null) {
-                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
-                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kl7Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            LocationData b = ri8.a().b();
-            if (b != null) {
-                netWork.addPostData("name", b.getFormatted_address());
-                netWork.addPostData("sn", b.getSn());
+        }
+        this.b = kl7Var;
+    }
+
+    public static void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            if (i <= 0) {
+                d = 6144000;
+            } else {
+                d = i;
             }
         }
     }
 
-    public static void b(Context context, String str, String str2, String str3) {
+    public static void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06e5, (ViewGroup) null);
-            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(pi.f(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090911);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091dbd);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918c9);
-            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090644);
-            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091dbc);
-            if (imageView != null) {
-                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809b7, R.color.CAM_X0101, null));
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            if (i <= 0) {
+                c = 524288;
+            } else {
+                c = i;
             }
-            if (StringUtils.isNull(str)) {
-                str = context.getString(R.string.obfuscated_res_0x7f0f1122);
-            }
-            textView.setText(str);
-            if (str2 != null || str3 != null) {
-                findViewById.setVisibility(0);
-                textView2.setText(str2);
-                textView3.setText(str3);
-            }
-            c(context, inflate);
         }
     }
 
-    public static void c(Context context, View view2) {
+    public static void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
-            Toast toast = new Toast(context);
-            toast.setView(view2);
-            toast.setGravity(17, 0, 0);
-            toast.setDuration(3000);
-            toast.show();
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            if (i <= 0) {
+                e = 524288;
+            } else {
+                e = i;
+            }
         }
+    }
+
+    public void a() {
+        yj8 yj8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (yj8Var = this.a) == null) {
+            return;
+        }
+        yj8Var.cancel();
+    }
+
+    public VideoFinishResult e(String str, String str2, int i, bk8 bk8Var) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, bk8Var)) == null) {
+            try {
+                if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
+                    this.a = new ak8(str2, e, this.b);
+                } else {
+                    this.a = new zj8(str, c, d, this.b);
+                }
+                this.a.a(bk8Var);
+                return this.a.b(str2, i);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                kl7 kl7Var = this.b;
+                if (kl7Var != null) {
+                    kl7Var.f(306, -4399, el7.a(e2));
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (VideoFinishResult) invokeLLIL.objValue;
     }
 }

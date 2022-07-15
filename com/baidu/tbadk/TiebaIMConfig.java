@@ -56,7 +56,7 @@ public class TiebaIMConfig {
         POST_IMAGE_DEFAULT_WIDTH = 30;
         POST_IMAGE_DEFAULT_HEIGHT = 30;
         NEW_UPLOAD_PIC_SERVER = "c/i/msgcenter/uploadPic";
-        IM_GROUP_SHARE_URL = "http://tieba.baidu.com/group/index?id=";
+        IM_GROUP_SHARE_URL = "https://tieba.baidu.com/group/index?id=";
     }
 
     public TiebaIMConfig() {

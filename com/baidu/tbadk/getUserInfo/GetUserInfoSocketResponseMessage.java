@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c35;
-import com.repackage.d35;
+import com.repackage.e45;
+import com.repackage.f45;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
@@ -19,7 +19,7 @@ import tbclient.GetUserInfo.GetUserInfoResIdl;
 public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c35 mData;
+    public e45 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoSocketResponseMessage() {
@@ -58,18 +58,18 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
             if (getError() != 0) {
                 return getUserInfoResIdl;
             }
-            c35 c35Var = new c35();
-            this.mData = c35Var;
-            c35Var.b(getUserInfoResIdl.data);
+            e45 e45Var = new e45();
+            this.mData = e45Var;
+            e45Var.b(getUserInfoResIdl.data);
             return getUserInfoResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public c35 getData() {
+    public e45 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mData : (c35) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mData : (e45) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -78,9 +78,9 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            c35 c35Var = this.mData;
-            if (c35Var != null && c35Var.a() != null) {
-                d35.d().i(this.mData.a());
+            e45 e45Var = this.mData;
+            if (e45Var != null && e45Var.a() != null) {
+                f45.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }

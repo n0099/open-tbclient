@@ -1,6 +1,7 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,26 +9,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.xy1;
 /* loaded from: classes7.dex */
-public class wy1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
-    public static f83 b;
+public class wy1 implements xy1.b {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755185150, "Lcom/repackage/wy1;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755185150, "Lcom/repackage/wy1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755185150, "Lcom/repackage/wy1;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755185150, "Lcom/repackage/wy1;");
-        }
+        a = rg1.a;
     }
 
     public wy1() {
@@ -44,47 +46,27 @@ public class wy1 {
         }
     }
 
-    public static f83 a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.xy1.b
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (wy1.class) {
-                    if (b == null) {
-                        b = new f83("swan_about_page_sp", true);
-                    }
-                }
-            }
-            return b;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && a) {
+            Log.d("SimplePreDownloadCallback", "pre download success");
         }
-        return (f83) invokeV.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        String O;
+    @Override // com.repackage.xy1.b
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            sz2 b0 = sz2.b0();
-            if (b0 == null) {
-                O = ur1.a(rz2.K().getAppId());
-            } else {
-                O = b0.O();
-            }
-            return "pref_tool_" + O;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && a) {
+            Log.w("SimplePreDownloadCallback", "pre download fail error code - " + i);
         }
-        return (String) invokeV.objValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.xy1.b
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (a == -1) {
-                a = a().getInt(b(), 0);
-            }
-            return a == 1;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a) {
+            Log.w("SimplePreDownloadCallback", "pre download has invalid app id");
         }
-        return invokeV.booleanValue;
     }
 }

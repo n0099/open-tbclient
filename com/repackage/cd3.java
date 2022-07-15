@@ -1,29 +1,61 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Build;
-import android.provider.Settings;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.util.Pair;
-import android.view.Display;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class cd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final boolean a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+
+        public a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + cd3.b;
+                if (cd3.a) {
+                    Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + this.a);
+                }
+                kj2.b(str, this.a, this.b);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,113 +70,14 @@ public class cd3 {
                 return;
             }
         }
-        a = ae3.b;
+        a = rg1.a;
+        b = "aiapps_folder" + File.separator + "feed_back_record.txt";
     }
 
-    @SuppressLint({"PrivateApi", "ObsoleteSdkInt"})
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        int i;
+    public static void c(@NonNull String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Resources resources = context.getResources();
-            int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
-            boolean z = false;
-            boolean z2 = identifier > 0 ? resources.getBoolean(identifier) : false;
-            try {
-                if (Build.VERSION.SDK_INT < 21) {
-                    i = Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
-                } else {
-                    i = Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
-                }
-                if (i != 0) {
-                    return false;
-                }
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                String str = (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, "qemu.hw.mainkeys");
-                if (!"1".equals(str)) {
-                    z = "0".equals(str) ? true : z2;
-                }
-                return z;
-            } catch (Exception unused) {
-                return z2;
-            }
+        if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
+            bd3.k(new a(str, z), "record_feedback_ext_info");
         }
-        return invokeL.booleanValue;
-    }
-
-    public static Pair<Integer, Integer> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Pair<Integer, Integer> d = d();
-            return new Pair<>(Integer.valueOf(((Integer) d.first).intValue()), Integer.valueOf(((Integer) d.second).intValue() - c()));
-        }
-        return (Pair) invokeV.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (e()) {
-                return jd3.r(AppRuntime.getAppContext().getResources(), jd3.L() ? SapiSystemBarTintManager.SystemBarConfig.h : SapiSystemBarTintManager.SystemBarConfig.i);
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public static Pair<Integer, Integer> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
-            if (windowManager == null) {
-                return new Pair<>(Integer.valueOf(jd3.o(appContext)), Integer.valueOf(jd3.n(appContext)));
-            }
-            Display defaultDisplay = windowManager.getDefaultDisplay();
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            defaultDisplay.getRealMetrics(displayMetrics);
-            return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
-        }
-        return (Pair) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (f(appContext)) {
-                return false;
-            }
-            return a(appContext);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            String str = Build.BRAND;
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) != 0;
-                }
-                if (!str.equalsIgnoreCase("HUAWEI") && !str.equalsIgnoreCase("HONOR")) {
-                    return str.equalsIgnoreCase("XIAOMI") ? Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) != 0 : str.equalsIgnoreCase("VIVO") ? Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0 : str.equalsIgnoreCase(a) ? Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0 : str.equalsIgnoreCase(com.kuaishou.weapon.un.g.j) ? Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) != 0 : Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0;
-                }
-                return Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) != 0;
-            } catch (Exception e) {
-                if (cg1.a) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
     }
 }

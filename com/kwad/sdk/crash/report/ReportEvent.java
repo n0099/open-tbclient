@@ -1,7 +1,7 @@
 package com.kwad.sdk.crash.report;
 
 import androidx.annotation.Nullable;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -12,6 +12,30 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
     public String sessionId;
     public StatPackage statPackage;
     public String timeZone;
+
+    /* loaded from: classes5.dex */
+    public static class CustomStatEvent implements com.kwad.sdk.core.b, Serializable {
+        public static final long serialVersionUID = 5177557263564436342L;
+        public String key;
+        public String value;
+
+        @Override // com.kwad.sdk.core.b
+        public void parseJson(@Nullable JSONObject jSONObject) {
+            if (jSONObject == null) {
+                return;
+            }
+            this.key = jSONObject.optString("key");
+            this.value = jSONObject.optString("value");
+        }
+
+        @Override // com.kwad.sdk.core.b
+        public JSONObject toJson() {
+            JSONObject jSONObject = new JSONObject();
+            r.a(jSONObject, "key", this.key);
+            r.a(jSONObject, "value", this.value);
+            return jSONObject;
+        }
+    }
 
     /* loaded from: classes5.dex */
     public static class ExceptionEvent implements com.kwad.sdk.core.b, Serializable {
@@ -35,10 +59,10 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            t.a(jSONObject, "type", this.type);
-            t.a(jSONObject, "message", this.message);
-            t.a(jSONObject, "urlPackage", this.urlPackage);
-            t.a(jSONObject, "flag", this.flag);
+            r.a(jSONObject, "type", this.type);
+            r.a(jSONObject, "message", this.message);
+            r.a(jSONObject, "urlPackage", this.urlPackage);
+            r.a(jSONObject, "flag", this.flag);
             return jSONObject;
         }
     }
@@ -46,6 +70,7 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
     /* loaded from: classes5.dex */
     public static class StatPackage implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -6225392281821567840L;
+        public CustomStatEvent customStatEvent;
         public ExceptionEvent exceptionEvent;
 
         @Override // com.kwad.sdk.core.b
@@ -54,12 +79,14 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
                 return;
             }
             this.exceptionEvent.parseJson(jSONObject.optJSONObject("exceptionEvent"));
+            this.customStatEvent.parseJson(jSONObject.optJSONObject("customStatEvent"));
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            t.a(jSONObject, "exceptionEvent", this.exceptionEvent);
+            r.a(jSONObject, "exceptionEvent", this.exceptionEvent);
+            r.a(jSONObject, "customStatEvent", this.customStatEvent);
             return jSONObject;
         }
     }
@@ -86,10 +113,10 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            t.a(jSONObject, "page", this.page);
-            t.a(jSONObject, "params", this.params);
-            t.a(jSONObject, "identity", this.identity);
-            t.a(jSONObject, "pageType", this.pageType);
+            r.a(jSONObject, "page", this.page);
+            r.a(jSONObject, "params", this.params);
+            r.a(jSONObject, "identity", this.identity);
+            r.a(jSONObject, "pageType", this.pageType);
             return jSONObject;
         }
     }
@@ -109,11 +136,11 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "clientTimeStamp", this.clientTimeStamp);
-        t.a(jSONObject, "clientIncrementId", this.clientIncrementId);
-        t.a(jSONObject, "sessionId", this.sessionId);
-        t.a(jSONObject, "statPackage", this.statPackage);
-        t.a(jSONObject, "timeZone", this.timeZone);
+        r.a(jSONObject, "clientTimeStamp", this.clientTimeStamp);
+        r.a(jSONObject, "clientIncrementId", this.clientIncrementId);
+        r.a(jSONObject, "sessionId", this.sessionId);
+        r.a(jSONObject, "statPackage", this.statPackage);
+        r.a(jSONObject, "timeZone", this.timeZone);
         return jSONObject;
     }
 }

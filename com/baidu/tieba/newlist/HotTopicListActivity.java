@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kp7;
 import com.repackage.nn;
-import com.repackage.so7;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements so7 {
+public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements kp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotTopicListModel a;
@@ -51,7 +51,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.repackage.so7
+    @Override // com.repackage.kp7
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -72,14 +72,14 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.t75
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a078" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.so7
+    @Override // com.repackage.kp7
     public void j(int i, List<nn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, list) == null) {

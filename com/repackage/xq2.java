@@ -1,82 +1,40 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.FormBody;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
 /* loaded from: classes7.dex */
-public final class xq2 extends RequestBody {
+public class xq2 extends yq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaType a;
-    public final FormBody b;
+    public boolean e;
 
-    public xq2(FormBody formBody) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xq2(boolean z) {
+        super(4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {formBody};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = formBody;
+        this.e = z;
     }
 
-    public static xq2 a(FormBody formBody, MediaType mediaType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, formBody, mediaType)) == null) {
-            xq2 xq2Var = new xq2(formBody);
-            xq2Var.b(mediaType);
-            return xq2Var;
-        }
-        return (xq2) invokeLL.objValue;
-    }
-
-    public void b(MediaType mediaType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mediaType) == null) {
-            this.a = mediaType;
-        }
-    }
-
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.contentLength() : invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            MediaType mediaType = this.a;
-            return mediaType == null ? this.b.contentType() : mediaType;
-        }
-        return (MediaType) invokeV.objValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bufferedSink) == null) {
-            this.b.writeTo(bufferedSink);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.booleanValue;
     }
 }

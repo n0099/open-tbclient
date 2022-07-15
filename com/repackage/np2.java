@@ -1,42 +1,76 @@
 package com.repackage;
 
-import android.util.Log;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class np2 {
+public class np2 extends jp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Integer num, String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755461887, "Lcom/repackage/np2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755461887, "Lcom/repackage/np2;");
+                return;
+            }
+        }
+        boolean z = rg1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public np2(@NonNull String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, num, str) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("level", String.valueOf(num));
-            hashMap.put("percentage", str + "%");
-            fl2.U().u(new t92("text-size-adjust", hashMap));
-            cr1.d(num.intValue());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [org.json.JSONObject, T] */
-    public static void b(String str, String str2, String str3) {
+    @Override // com.repackage.jp2
+    public boolean a(zo2 zo2Var, bp2 bp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
-            y92 y92Var = new y92();
-            ?? jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "text-size-adjust");
-                jSONObject.put("percentage", str3 + "%");
-                jSONObject.put("level", str2);
-            } catch (JSONException e) {
-                kv2.b(Log.getStackTraceString(e));
-            }
-            y92Var.c = jSONObject;
-            fl2.U().m(str, y92Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{zo2Var, bp2Var, context, unitedSchemeEntity, callbackHandler, h03Var})) == null) {
+            hx1.i("video", "stop, video id:" + bp2Var.j + " slave id: " + bp2Var.c);
+            d(zo2Var, unitedSchemeEntity, callbackHandler);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void d(zo2 zo2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zo2Var, unitedSchemeEntity, callbackHandler) == null) {
+            zo2Var.y();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

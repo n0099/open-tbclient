@@ -1,71 +1,85 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.lcs.LCSStatisticsResponseMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a45 {
+public class a45 implements b45 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public ImageView b;
+    public ImageView c;
+    public TextView d;
+    public LinearLayout e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755906737, "Lcom/repackage/a45;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755906737, "Lcom/repackage/a45;");
+    public a45(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = ht4.k().l("key_lcs_log_switch", 0) == 1;
-        a = z;
-        if (z) {
-            a();
-        }
+        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0290, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909b9);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909bb);
+        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b7);
+        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909ba);
+        this.d.setText(R.string.obfuscated_res_0x7f0f06d8);
+        b();
     }
 
-    public static void a() {
+    @Override // com.repackage.b45
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_LCS_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.LCS_STATISTICS_URL);
-            tbHttpMessageTask.setResponsedClass(LCSStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
+            return;
         }
+        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+        this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(211).tlRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
+        this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807dc, WebPManager.ResourceStateType.NORMAL));
     }
 
-    public static void b(int i, int i2, int i3, int i4, int i5) {
+    @Override // com.repackage.b45
+    public View getView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            c(i, i2, i3, i4, i5, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            View view2 = this.a;
+            return view2 != null ? view2 : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d028e, (ViewGroup) null);
         }
+        return (View) invokeV.objValue;
     }
 
-    public static void c(int i, int i2, int i3, int i4, int i5, int i6) {
+    @Override // com.repackage.b45
+    public void onClick() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) && a) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
-            httpMessage.addParam("cmd", i);
-            httpMessage.addParam("lcs_status", i2);
-            httpMessage.addParam("online_status", i3);
-            httpMessage.addParam("status_change_name", i4);
-            httpMessage.addParam("status_change_trigger", i5);
-            httpMessage.addParam("lcs_vailable", i6);
-            MessageManager.getInstance().sendMessageFromBackground(httpMessage);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

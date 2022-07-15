@@ -1,116 +1,193 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class pn4 extends ThreadData {
+public class pn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public boolean b;
-    public boolean c;
-    public int d;
+    public String b;
+    public String c;
+    public String d;
+    public float e;
+    public String f;
+    @Nullable
+    public b g;
+    @Nullable
+    public a h;
+    public String i;
+    public String j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755404165, "Lcom/repackage/pn4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755404165, "Lcom/repackage/pn4;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        e = BdUniqueId.gen();
+
+        @Nullable
+        public static a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                a aVar = new a();
+                aVar.a = jSONObject.optString("desc", "权限");
+                String optString = jSONObject.optString("url");
+                aVar.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    aVar.b = jSONObject.optString("cmd");
+                }
+                aVar.c = jSONObject.optString("cmd");
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Nullable
+        public static b a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                b bVar = new b();
+                bVar.a = jSONObject.optString("desc", "隐私");
+                String optString = jSONObject.optString("url");
+                bVar.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    bVar.b = jSONObject.optString("cmd");
+                }
+                bVar.c = jSONObject.optString("cmd");
+                return bVar;
+            }
+            return (b) invokeL.objValue;
+        }
     }
 
     public pn4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = false;
+        this.e = -1.0f;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public static boolean a(pn4 pn4Var) {
+        InterceptResult invokeL;
+        b bVar;
+        a aVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pn4Var)) == null) {
+            if (pn4Var == null) {
+                return false;
+            }
+            return (TextUtils.isEmpty(pn4Var.f) && TextUtils.isEmpty(pn4Var.d) && ((bVar = pn4Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = pn4Var.h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void n(boolean z) {
+    @Nullable
+    public static pn4 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            pn4 pn4Var = new pn4();
+            pn4Var.a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
+            pn4Var.b = jSONObject.optString("app_icon");
+            pn4Var.c = jSONObject.optString("app_name");
+            pn4Var.d = jSONObject.optString("developer_name");
+            pn4Var.f = jSONObject.optString("version");
+            pn4Var.g = b.a(jSONObject.optJSONObject("privacy"));
+            pn4Var.h = a.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
+            pn4Var.i = jSONObject.optString("apk_size");
+            pn4Var.j = jSONObject.optString("apk_url");
+            try {
+                float parseFloat = Float.parseFloat(jSONObject.optString("score"));
+                if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
+                    pn4Var.e = parseFloat;
+                } else {
+                    pn4Var.e = -1.0f;
+                }
+            } catch (NumberFormatException unused) {
+                pn4Var.e = -1.0f;
+            }
+            return pn4Var;
         }
+        return (pn4) invokeL.objValue;
     }
 
-    public void r(boolean z) {
+    public static boolean c(pn4 pn4Var) {
+        InterceptResult invokeL;
+        b bVar;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pn4Var)) == null) {
+            if (pn4Var != null && pn4Var.a) {
+                return (TextUtils.isEmpty(pn4Var.f) || TextUtils.isEmpty(pn4Var.d) || (bVar = pn4Var.g) == null || TextUtils.isEmpty(bVar.b) || (aVar = pn4Var.h) == null || TextUtils.isEmpty(aVar.b)) ? false : true;
+            }
+            return true;
         }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.b = z;
-        }
+        return invokeL.booleanValue;
     }
 }

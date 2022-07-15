@@ -4,20 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class l {
+public final class l {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(com.kwai.filedownloader.a aVar);
-
-        void b(com.kwai.filedownloader.a aVar);
-
-        void c(com.kwai.filedownloader.a aVar);
-
-        void d(com.kwai.filedownloader.a aVar);
     }
 
     public static a a() {

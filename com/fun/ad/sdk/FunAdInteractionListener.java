@@ -9,5 +9,5 @@ public interface FunAdInteractionListener {
 
     void onAdShow(String str, String str2, String str3);
 
-    void onRewardedVideo(String str);
+    void onRewardedVideo(String str, String str2, String str3);
 }

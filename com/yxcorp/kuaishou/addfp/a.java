@@ -1,15 +1,18 @@
 package com.yxcorp.kuaishou.addfp;
 
 import android.content.Context;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yxcorp.kuaishou.addfp.android.a.c;
+import com.yxcorp.kuaishou.addfp.android.b.f;
 /* loaded from: classes8.dex */
-public final class a implements Runnable {
+public class a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public /* synthetic */ KWEGIDDFP a;
+    public final /* synthetic */ KWEGIDDFP a;
 
     public a(KWEGIDDFP kwegiddfp) {
         Interceptable interceptable = $ic;
@@ -30,12 +33,13 @@ public final class a implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         Context context;
         Context context2;
         String str;
         ResponseDfpCallback responseDfpCallback;
         ResponseDfpCallback responseDfpCallback2;
+        Context unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
@@ -45,14 +49,19 @@ public final class a implements Runnable {
                     responseDfpCallback2.onFailed(-3, "parameter error");
                     return;
                 }
+                unused = this.a.mParamContext;
+                int i = f.c;
+                if (Build.VERSION.SDK_INT >= 28) {
+                    f.a();
+                }
                 KWEGIDDFP kwegiddfp = this.a;
-                context2 = this.a.mParamContext;
+                context2 = kwegiddfp.mParamContext;
                 kwegiddfp.mPkgName = context2.getPackageName();
-                com.yxcorp.kuaishou.addfp.android.a.a a = com.yxcorp.kuaishou.addfp.android.a.a.a();
+                c c = c.c();
                 str = this.a.mPkgName;
-                a.a(str);
+                c.b(str);
                 KWEGIDDFP kwegiddfp2 = this.a;
-                responseDfpCallback = this.a.mCallBack;
+                responseDfpCallback = kwegiddfp2.mCallBack;
                 kwegiddfp2.getEGid(responseDfpCallback);
             } catch (Throwable th) {
                 th.printStackTrace();

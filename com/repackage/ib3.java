@@ -1,76 +1,137 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiEnterpriseConfig;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ib3 extends p13 {
+public class ib3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ib3(p03 p03Var) {
-        super(p03Var, "/swanAPI/closeTextarea");
+    public static WifiConfiguration a(fb3 fb3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fb3Var)) == null) {
+            int b = jb3.b(fb3Var);
+            if (f(fb3Var.a)) {
+                WifiConfiguration wifiConfiguration = new WifiConfiguration();
+                wifiConfiguration.SSID = "\"" + fb3Var.a + "\"";
+                if (!TextUtils.isEmpty(fb3Var.b)) {
+                    wifiConfiguration.BSSID = fb3Var.b;
+                }
+                if (b == 0) {
+                    jb3.d(wifiConfiguration, 0);
+                } else if (b == 1) {
+                    jb3.d(wifiConfiguration, 1);
+                    String[] strArr = wifiConfiguration.wepKeys;
+                    strArr[0] = "\"" + fb3Var.d + "\"";
+                } else if (b == 2) {
+                    jb3.d(wifiConfiguration, 2);
+                    wifiConfiguration.preSharedKey = "\"" + fb3Var.d + "\"";
+                } else if (b == 3) {
+                    jb3.d(wifiConfiguration, 3);
+                    WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
+                    wifiEnterpriseConfig.setEapMethod(0);
+                    wifiEnterpriseConfig.setIdentity(fb3Var.c);
+                    wifiEnterpriseConfig.setPassword(fb3Var.d);
+                    wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
+                }
+                return wifiConfiguration;
             }
+            return null;
         }
+        return (WifiConfiguration) invokeL.objValue;
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    public static WifiConfiguration b(Context context, WifiManager wifiManager, WifiInfo wifiInfo) {
+        InterceptResult invokeLLL;
+        List<WifiConfiguration> d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wifiManager, wifiInfo)) == null) {
+            if (wifiInfo != null && f(wifiInfo.getSSID()) && (d = d(context, wifiManager)) != null) {
+                for (WifiConfiguration wifiConfiguration : d) {
+                    if (TextUtils.equals(e(wifiConfiguration.SSID), e(wifiInfo.getSSID()))) {
+                        return wifiConfiguration;
+                    }
+                }
             }
-            sw1.i("CloseTextAreaAction", "closeTextAreaAction paramsJson: " + optParamsAsJo);
-            ew1 ew1Var = new ew1();
-            try {
-                ew1Var.a(optParamsAsJo);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                sw1.d("CloseTextAreaAction", "model parse exception:", e);
-            }
-            dw1 dw1Var = (dw1) fw1.a(ew1Var);
-            if (dw1Var == null) {
-                String str = "can't find textarea component:#" + ew1Var.b;
-                sw1.c("CloseTextAreaAction", str);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
-                return false;
-            }
-            jv1 B = dw1Var.B();
-            if (!B.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
+            return null;
         }
-        return invokeLLLL.booleanValue;
+        return (WifiConfiguration) invokeLLL.objValue;
+    }
+
+    public static WifiConfiguration c(Context context, WifiManager wifiManager, fb3 fb3Var) {
+        InterceptResult invokeLLL;
+        List<WifiConfiguration> d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, wifiManager, fb3Var)) == null) {
+            if (fb3Var != null && f(fb3Var.a) && (d = d(context, wifiManager)) != null) {
+                for (WifiConfiguration wifiConfiguration : d) {
+                    if (TextUtils.equals(e(wifiConfiguration.SSID), fb3Var.a)) {
+                        return wifiConfiguration;
+                    }
+                }
+            }
+            return null;
+        }
+        return (WifiConfiguration) invokeLLL.objValue;
+    }
+
+    public static List<WifiConfiguration> d(Context context, WifiManager wifiManager) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, wifiManager)) == null) {
+            if (wifiManager == null) {
+                return null;
+            }
+            try {
+                if (ContextCompat.checkSelfPermission(context, PermissionChecker.ACCESS_FINE_LOCATION) != 0) {
+                    return null;
+                }
+                return wifiManager.getConfiguredNetworks();
+            } catch (Exception e) {
+                hx1.b("SwanWifiUtils", Log.getStackTraceString(e));
+                return null;
+            }
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || (length = str.length()) <= 1 || str.charAt(0) != '\"') {
+                return str;
+            }
+            int i = length - 1;
+            return str.charAt(i) == '\"' ? str.substring(1, i) : str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || str.equals("<unknown ssid>")) {
+                return false;
+            }
+            return StandardCharsets.UTF_8.newEncoder().canEncode(str);
+        }
+        return invokeL.booleanValue;
     }
 }

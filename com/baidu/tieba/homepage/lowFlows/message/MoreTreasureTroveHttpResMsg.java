@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cw6;
-import com.repackage.hw6;
 import com.repackage.nn;
+import com.repackage.sw6;
+import com.repackage.xw6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes3.dex */
-public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements cw6 {
+public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements sw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<nn> mMoreTreasureTroveDataList;
@@ -39,7 +39,7 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
         }
     }
 
-    @Override // com.repackage.cw6
+    @Override // com.repackage.sw6
     public List<nn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,6 +59,6 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
             setError(error.errorno.intValue());
             setErrorString(moreTreasureTroveResIdl.error.usermsg);
         }
-        this.mMoreTreasureTroveDataList = hw6.b(moreTreasureTroveResIdl);
+        this.mMoreTreasureTroveDataList = xw6.b(moreTreasureTroveResIdl);
     }
 }

@@ -1,41 +1,52 @@
 package com.repackage;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaLoveFamilyActivityConfig;
+import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.ala.view.card.AlaCardBottomUserInfoLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ot5 extends an<eu5, CardViewHolder<dv5>> {
+public class ot5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
+    public TbPageContext<?> a;
+    public List<ThreadData> b;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eu5 a;
-        public final /* synthetic */ ot5 b;
+        public View a;
+        public TbImageView b;
+        public AlaCardBottomUserInfoLayout c;
+        public RelativeLayout d;
+        public TextView e;
 
-        public a(ot5 ot5Var, eu5 eu5Var) {
+        public a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ot5Var, eu5Var};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,22 +56,15 @@ public class ot5 extends an<eu5, CardViewHolder<dv5>> {
                     return;
                 }
             }
-            this.b = ot5Var;
-            this.a = eu5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.b0(this.a);
-            }
+            this.a = view2;
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eac);
+            this.c = (AlaCardBottomUserInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901be);
+            this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901c0);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901bf);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ot5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), eu5.b);
+    public ot5(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,57 +74,98 @@ public class ot5 extends an<eu5, CardViewHolder<dv5>> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
-    }
-
-    public final void a0(eu5 eu5Var, dv5 dv5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, eu5Var, dv5Var) == null) || eu5Var.c() == null) {
-            return;
-        }
-        dv5Var.w(8);
-        dv5Var.x(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f023a));
-        dv5Var.j(this.i, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public final void b0(eu5 eu5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, eu5Var) == null) || eu5Var == null || eu5Var.c() == null) {
-            return;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.a, eu5Var.c().b().user_id)));
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: c0 */
-    public CardViewHolder<dv5> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ThreadData getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new CardViewHolder<>(new dv5(this.i)) : (CardViewHolder) invokeL.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<ThreadData> list = this.b;
+            if (list != null && i >= 0 && i <= list.size()) {
+                return this.b.get(i);
+            }
+            return null;
+        }
+        return (ThreadData) invokeI.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: d0 */
-    public View S(int i, View view2, ViewGroup viewGroup, eu5 eu5Var, CardViewHolder<dv5> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void b(List<ThreadData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, eu5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.b = list;
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (ListUtils.isEmpty(this.b)) {
+                return 0;
+            }
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        AlaInfoData threadAlaInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e7, (ViewGroup) null);
+                aVar = new a(view2);
+                aVar.b.setIsRound(true);
+                aVar.b.setDrawBorder(false);
+                aVar.b.setAutoChangeStyle(true);
+                aVar.b.setGifIconSupport(false);
+                int k = (pi.k(this.a.getPageActivity()) - this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) / 3;
+                int i2 = (k * 16) / 9;
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.d.getLayoutParams();
+                layoutParams.height = k;
+                layoutParams.width = i2;
+                aVar.d.setLayoutParams(layoutParams);
+                AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
+                ((ViewGroup.LayoutParams) layoutParams2).width = i2;
+                view2.setLayoutParams(layoutParams2);
+                view2.setTag(aVar);
+            } else {
+                aVar = (a) view2.getTag();
+            }
+            ThreadData item = getItem(i);
+            if (item == null || (threadAlaInfo = item.getThreadAlaInfo()) == null) {
                 return null;
             }
-            a0(eu5Var, cardViewHolder.c());
-            cardViewHolder.c().h().setOnClickListener(new a(this, eu5Var));
-            return cardViewHolder.c().h();
+            aVar.b.J(threadAlaInfo.cover, 10, false);
+            aVar.c.setData(item);
+            aVar.c.setUserHeadImgVisible(8);
+            aVar.e.setText(item.getTitle());
+            aVar.c.onChangeSkinType(this.a);
+            SkinManager.setViewTextColor(aVar.e, R.color.CAM_X0105, TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            return view2;
         }
-        return (View) invokeCommon.objValue;
+        return (View) invokeILL.objValue;
     }
 }

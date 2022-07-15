@@ -2,12 +2,11 @@ package com.kwad.sdk.crash.utils;
 
 import java.io.Closeable;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
+import java.net.HttpURLConnection;
+import java.net.URLConnection;
+import java.util.zip.ZipFile;
 /* loaded from: classes5.dex */
-public class b {
+public final class b {
     public static void a(Closeable closeable) {
         if (closeable != null) {
             try {
@@ -17,19 +16,19 @@ public class b {
         }
     }
 
-    public static void a(InputStream inputStream) {
-        a((Closeable) inputStream);
+    public static void a(URLConnection uRLConnection) {
+        if (uRLConnection instanceof HttpURLConnection) {
+            ((HttpURLConnection) uRLConnection).disconnect();
+        }
     }
 
-    public static void a(OutputStream outputStream) {
-        a((Closeable) outputStream);
-    }
-
-    public static void a(Reader reader) {
-        a((Closeable) reader);
-    }
-
-    public static void a(Writer writer) {
-        a((Closeable) writer);
+    public static void a(ZipFile zipFile) {
+        if (zipFile == null) {
+            return;
+        }
+        try {
+            zipFile.close();
+        } catch (IOException unused) {
+        }
     }
 }

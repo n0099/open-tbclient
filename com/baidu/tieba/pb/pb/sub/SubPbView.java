@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ir7;
+import com.repackage.as7;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class SubPbView extends LinearLayout {
@@ -138,7 +138,7 @@ public class SubPbView extends LinearLayout {
                             this.g = rawY;
                             this.p = 1.0f - ((rawY - this.f) / pi.i(getContext()));
                             if ((this.m || this.n) && this.b.getTop() == 0 && this.d.getFirstVisiblePosition() == 0 && !this.i) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new ir7(this.g, this.f, this.k, this.p, this.i)));
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new as7(this.g, this.f, this.k, this.p, this.i)));
                             }
                         }
                     }
@@ -148,7 +148,7 @@ public class SubPbView extends LinearLayout {
                     this.i = z2;
                     if (z2) {
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new ir7(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new as7(this.g, this.f, this.k, this.p, this.i)));
                         }
                         this.j.setIntValues((int) (this.g - this.f), pi.i(getContext()));
                         this.j.setDuration(300L);
@@ -158,7 +158,7 @@ public class SubPbView extends LinearLayout {
                         this.f = 0.0f;
                         this.g = 0.0f;
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new ir7(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new as7(this.g, this.f, this.k, this.p, this.i)));
                         }
                         requestLayout();
                     }
@@ -212,7 +212,7 @@ public class SubPbView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.i = true;
             if (this.m || this.n) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new ir7(this.g, this.f, this.k, this.p, this.i)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new as7(this.g, this.f, this.k, this.p, this.i)));
             }
             this.j.setIntValues(0, pi.i(getContext()));
             this.j.setDuration(300L);
@@ -327,18 +327,18 @@ public class SubPbView extends LinearLayout {
         }
     }
 
-    public void setSubPbViewData(ir7 ir7Var) {
+    public void setSubPbViewData(as7 as7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, ir7Var) == null) || ir7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, as7Var) == null) || as7Var == null) {
             return;
         }
-        this.p = ir7Var.d;
-        float f = ir7Var.b;
+        this.p = as7Var.d;
+        float f = as7Var.b;
         this.f = f;
-        float f2 = ir7Var.a;
+        float f2 = as7Var.a;
         this.g = f2;
-        this.k = ir7Var.c;
-        this.i = ir7Var.e;
+        this.k = as7Var.c;
+        this.i = as7Var.e;
         boolean z = f2 > f;
         if (this.i) {
             this.j.setIntValues((int) (this.g - this.f), pi.i(getContext()));
@@ -407,7 +407,7 @@ public class SubPbView extends LinearLayout {
         if (0 != 0) {
             this.o = pi.i(context) / 10;
         } else {
-            this.o = (pi.i(context) / 3) - pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070256);
+            this.o = (pi.i(context) / 3) - pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070255);
         }
         this.k = pi.i(context);
         ValueAnimator ofInt = ValueAnimator.ofInt(pi.i(context), 0);

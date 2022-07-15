@@ -1,71 +1,43 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.NewsInfo;
-import com.kwad.sdk.core.response.model.PhotoInfo;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.kwad.sdk.core.config.item.f;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cp implements com.kwad.sdk.core.d<NewsInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(NewsInfo newsInfo, JSONObject jSONObject) {
+public final class cp implements com.kwad.sdk.core.d<f.a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(f.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        PhotoInfo.AuthorInfo authorInfo = new PhotoInfo.AuthorInfo();
-        newsInfo.authorInfo = authorInfo;
-        authorInfo.parseJson(jSONObject.optJSONObject("authorInfo"));
-        newsInfo.photoId = jSONObject.optLong("photoId");
-        newsInfo.title = jSONObject.optString("title");
-        if (jSONObject.opt("title") == JSONObject.NULL) {
-            newsInfo.title = "";
+        aVar.a = jSONObject.optString("imei");
+        if (jSONObject.opt("imei") == JSONObject.NULL) {
+            aVar.a = "";
         }
-        newsInfo.content = jSONObject.optString("content");
-        if (jSONObject.opt("content") == JSONObject.NULL) {
-            newsInfo.content = "";
+        aVar.b = jSONObject.optString("oaid");
+        if (jSONObject.opt("oaid") == JSONObject.NULL) {
+            aVar.b = "";
         }
-        newsInfo.imageInfo = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("imageInfo");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                NewsInfo.ImageInfo imageInfo = new NewsInfo.ImageInfo();
-                imageInfo.parseJson(optJSONArray.optJSONObject(i));
-                newsInfo.imageInfo.add(imageInfo);
-            }
-        }
-        newsInfo.thumbnailInfo = new ArrayList();
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("thumbnailInfo");
-        if (optJSONArray2 != null) {
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                NewsInfo.ImageInfo imageInfo2 = new NewsInfo.ImageInfo();
-                imageInfo2.parseJson(optJSONArray2.optJSONObject(i2));
-                newsInfo.thumbnailInfo.add(imageInfo2);
-            }
-        }
-        newsInfo.templateUrl = jSONObject.optString("templateUrl");
-        if (jSONObject.opt("templateUrl") == JSONObject.NULL) {
-            newsInfo.templateUrl = "";
-        }
-        newsInfo.publishTimestamp = jSONObject.optLong("publishTimestamp");
-        newsInfo.contentSourceType = jSONObject.optInt("contentSourceType");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(NewsInfo newsInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(f.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "authorInfo", newsInfo.authorInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "photoId", newsInfo.photoId);
-        com.kwad.sdk.utils.t.a(jSONObject, "title", newsInfo.title);
-        com.kwad.sdk.utils.t.a(jSONObject, "content", newsInfo.content);
-        com.kwad.sdk.utils.t.a(jSONObject, "imageInfo", newsInfo.imageInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "thumbnailInfo", newsInfo.thumbnailInfo);
-        com.kwad.sdk.utils.t.a(jSONObject, "templateUrl", newsInfo.templateUrl);
-        com.kwad.sdk.utils.t.a(jSONObject, "publishTimestamp", newsInfo.publishTimestamp);
-        com.kwad.sdk.utils.t.a(jSONObject, "contentSourceType", newsInfo.contentSourceType);
+        com.kwad.sdk.utils.r.a(jSONObject, "imei", aVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "oaid", aVar.b);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(f.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(f.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

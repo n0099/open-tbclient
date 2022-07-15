@@ -1,123 +1,43 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.opengl.GLSurfaceView;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Process;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.DuMixCallback;
-import com.baidu.ar.capture.ICaptureResult;
-import com.baidu.minivideo.arface.bean.Filter;
-import com.baidu.minivideo.arface.bean.Sticker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i79;
-import java.util.HashMap;
+import com.baidu.ugc.download.exception.DownloadException;
+import com.repackage.r69;
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class x69 {
+public abstract class x69 implements r69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g79 a;
+    public String a;
+    public final u69 b;
+    public final c79 c;
+    public final r69.a d;
+    public volatile int e;
+    public volatile int f;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(Object obj);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        boolean a();
-
-        int b();
-
-        void c(int i, int i2, int i3, int i4);
-
-        void d(byte[] bArr);
-
-        String e();
-
-        boolean f();
-
-        void g(int i, int i2, int i3, boolean z);
-
-        void h(boolean z);
-
-        void i(boolean z);
-
-        void j(boolean z);
-
-        boolean k(SurfaceTexture surfaceTexture, f fVar);
-
-        void l(int i);
-
-        void m(boolean z);
-
-        void n();
-
-        boolean o();
-
-        boolean p();
-
-        void q();
-
-        int r();
-
-        void release();
-
-        void s(a aVar);
-
-        void t(int i, int i2, int i3, int i4);
-
-        void u(int i);
-
-        int v();
-    }
-
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        void onBeautyEnableChanged(dd0 dd0Var);
-
-        void onChangeGender(boolean z);
-
-        void onLuaMessage(HashMap<String, Object> hashMap);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface e extends i79.b {
-        void a(ICaptureResult iCaptureResult);
-
-        void c();
-
-        void d(int i);
-
-        void e();
-
-        void f();
-
-        void g(int i, int i2);
-
-        void h(boolean z);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface f {
-        void a(byte[] bArr, int i);
-    }
-
-    public x69(Context context) {
+    public x69(u69 u69Var, c79 c79Var, r69.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {u69Var, c79Var, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,233 +47,292 @@ public class x69 {
                 return;
             }
         }
-        this.a = new g79(context);
-    }
-
-    public boolean A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a0() : invokeV.booleanValue;
-    }
-
-    public boolean B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c0() : invokeV.booleanValue;
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.X();
+        this.f = 0;
+        this.b = u69Var;
+        this.c = c79Var;
+        this.d = aVar;
+        String h = h();
+        this.a = h;
+        if (TextUtils.isEmpty(h)) {
+            this.a = getClass().getSimpleName();
         }
     }
 
-    public void D(int i) {
-        g79 g79Var;
+    public final void a() throws DownloadException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (g79Var = this.a) == null) {
-            return;
-        }
-        g79Var.r(i);
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.onDestroy();
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.q0() : (String) invokeV.objValue;
-    }
-
-    public void c(b bVar, int i, int i2, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{bVar, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
-            this.a.A(bVar, i, i2, z, str);
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            g79 g79Var = this.a;
-            if (g79Var != null) {
-                return g79Var.p0();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.f != 107) {
+                if (this.f != 106) {
+                    return;
+                }
+                n(this.c);
+                throw new DownloadException(106, "Download paused!");
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.a.B(cVar);
-            this.a.e0();
+            throw new DownloadException(107, "Download canceled!");
         }
     }
 
-    public void f() {
+    public final void b(Closeable closeable) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.a.onPause();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.a.onResume();
-        }
-    }
-
-    public void h() {
-        g79 g79Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (g79Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeable) == null) || closeable == null) {
             return;
         }
-        g79Var.k0();
-    }
-
-    public void i(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
-            this.a.s(i, i2);
+        synchronized (x69.class) {
+            closeable.close();
         }
     }
 
-    public void j() {
-        g79 g79Var;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (g79Var = this.a) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.a().getAbsolutePath() + File.separator + this.b.d();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.r69
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f = 107;
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x005c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x007a  */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v6, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r2v7 */
+    /* JADX WARN: Type inference failed for: r7v0, types: [com.repackage.x69, java.lang.Object] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void d() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048580, this) != null) {
             return;
         }
-        g79Var.c();
-    }
-
-    public void k(DuMixCallback duMixCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, duMixCallback) == null) {
-            this.a.x(duMixCallback);
+        try {
+            URL url = new URL(this.c.d());
+            ?? r2 = 0;
+            try {
+                try {
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                    try {
+                        httpURLConnection.setConnectTimeout(4000);
+                        httpURLConnection.setReadTimeout(4000);
+                        httpURLConnection.setRequestMethod("GET");
+                        k(f(this.c), httpURLConnection);
+                        int responseCode = httpURLConnection.getResponseCode();
+                        if (responseCode == g()) {
+                            m(httpURLConnection);
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                                return;
+                            }
+                            return;
+                        }
+                        throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                    } catch (ProtocolException e3) {
+                        e2 = e3;
+                        throw new DownloadException(108, "Protocol error", e2);
+                    } catch (IOException e4) {
+                        e = e4;
+                        throw new DownloadException(108, "IO error", e);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    r2 = url;
+                    if (r2 != 0) {
+                        r2.disconnect();
+                    }
+                    throw th;
+                }
+            } catch (ProtocolException e5) {
+                e2 = e5;
+            } catch (IOException e6) {
+                e = e6;
+            } catch (Throwable th2) {
+                th = th2;
+                if (r2 != 0) {
+                }
+                throw th;
+            }
+        } catch (MalformedURLException e7) {
+            throw new DownloadException(108, "Bad url.", e7);
         }
     }
 
-    public void l(Filter filter) {
+    public abstract RandomAccessFile e(File file, String str, long j) throws IOException;
+
+    public abstract Map<String, String> f(c79 c79Var);
+
+    public abstract int g();
+
+    public abstract String h();
+
+    public final void i(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, filter) == null) {
-            this.a.y(filter);
+        if (interceptable == null || interceptable.invokeL(1048585, this, downloadException) == null) {
+            switch (downloadException.getErrorCode()) {
+                case 106:
+                    synchronized (this.d) {
+                        this.e = 106;
+                        this.d.onDownloadPaused();
+                    }
+                    return;
+                case 107:
+                    synchronized (this.d) {
+                        this.e = 107;
+                        this.d.onDownloadCanceled();
+                    }
+                    return;
+                case 108:
+                    synchronized (this.d) {
+                        this.e = 108;
+                        this.d.a(downloadException);
+                    }
+                    return;
+                default:
+                    throw new IllegalArgumentException("Unknown state");
+            }
         }
     }
 
-    public void m(GLSurfaceView gLSurfaceView) {
+    @Override // com.repackage.r69
+    public boolean isComplete() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, gLSurfaceView) == null) {
-            this.a.w(gLSurfaceView);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.e == 105 : invokeV.booleanValue;
     }
 
-    public void n() {
-        g79 g79Var;
+    @Override // com.repackage.r69
+    public boolean isDownloading() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (g79Var = this.a) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.e == 104 : invokeV.booleanValue;
+    }
+
+    public abstract void j(c79 c79Var);
+
+    public final void k(Map<String, String> map, URLConnection uRLConnection) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048589, this, map, uRLConnection) == null) || map == null) {
             return;
         }
-        g79Var.d();
+        for (String str : map.keySet()) {
+            uRLConnection.setRequestProperty(str, map.get(str));
+        }
     }
 
-    public void o(boolean z) {
-        g79 g79Var;
+    public final void l(InputStream inputStream, RandomAccessFile randomAccessFile) throws DownloadException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || (g79Var = this.a) == null) {
+        if (interceptable != null && interceptable.invokeLL(1048590, this, inputStream, randomAccessFile) != null) {
             return;
         }
-        g79Var.f0(z);
-    }
-
-    public void p(SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, onFrameAvailableListener) == null) {
-            this.a.u(onFrameAvailableListener);
+        byte[] bArr = new byte[8192];
+        while (true) {
+            a();
+            try {
+                int read = inputStream.read(bArr);
+                if (read == -1) {
+                    return;
+                }
+                randomAccessFile.write(bArr, 0, read);
+                long j = read;
+                this.c.e(this.c.b() + j);
+                synchronized (this.d) {
+                    this.b.f(this.b.b() + j);
+                    this.d.onDownloadProgress(this.b.b(), this.b.c());
+                }
+            } catch (IOException e) {
+                n(this.c);
+                throw new DownloadException(108, e);
+            }
         }
     }
 
-    public void q(d dVar) {
+    public final void m(HttpURLConnection httpURLConnection) throws DownloadException {
+        Closeable closeable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, dVar) == null) {
-            this.a.C(dVar);
-        }
-    }
-
-    public void r(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) {
-            this.a.D(eVar);
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-        }
-    }
-
-    public void t(boolean z) {
-        g79 g79Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || (g79Var = this.a) == null) {
+        if (interceptable != null && interceptable.invokeL(1048591, this, httpURLConnection) != null) {
             return;
         }
-        g79Var.G(z);
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+        Closeable closeable2 = null;
+        try {
+            try {
+                InputStream inputStream = httpURLConnection.getInputStream();
+                try {
+                    long c = this.c.c() + this.c.b();
+                    try {
+                        File a = this.b.a();
+                        if (!a.exists()) {
+                            a.mkdirs();
+                        }
+                        RandomAccessFile e = e(a, this.b.d(), c);
+                        l(inputStream, e);
+                        try {
+                            b(inputStream);
+                            b(e);
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                    } catch (IOException e3) {
+                        throw new DownloadException(108, "File occur IOException ", e3);
+                    } catch (Exception e4) {
+                        throw new DownloadException(108, "Occur Exception ", e4);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    closeable2 = inputStream;
+                    closeable = null;
+                    try {
+                        b(closeable2);
+                        b(closeable);
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                    throw th;
+                }
+            } catch (IOException e6) {
+                throw new DownloadException(108, "http get inputStream error", e6);
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            closeable = null;
         }
     }
 
-    public void v(boolean z) {
+    public abstract void n(c79 c79Var);
+
+    @Override // com.repackage.r69
+    public void pause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.a.T(z);
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.f = 106;
         }
     }
 
-    public void w(boolean z) {
-        g79 g79Var;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (g79Var = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            Process.setThreadPriority(10);
+            j(this.c);
+            try {
+                this.e = 104;
+                d();
+                synchronized (this.d) {
+                    this.e = 105;
+                    this.d.onDownloadCompleted(c());
+                }
+            } catch (DownloadException e) {
+                i(e);
+            }
         }
-        g79Var.Y(z);
-    }
-
-    public void x(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048603, this, f2) == null) {
-            this.a.setSpeed(f2);
-        }
-    }
-
-    public boolean y(Sticker sticker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, sticker, str)) == null) ? this.a.H(sticker, str) : invokeLL.booleanValue;
-    }
-
-    public void z(float f2) {
-        g79 g79Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048605, this, f2) == null) || (g79Var = this.a) == null) {
-            return;
-        }
-        g79Var.q(f2);
     }
 }

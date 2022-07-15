@@ -1,81 +1,108 @@
 package com.bytedance.pangle.log;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.pangle.GlobalParam;
+import com.bytedance.pangle.Zeus;
+import com.bytedance.pangle.c.d;
+import com.bytedance.pangle.plugin.Plugin;
+import com.bytedance.pangle.provider.ContentProviderManager;
+import com.bytedance.pangle.util.j;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public long d;
-    public long e;
 
-    public c(String str, String str2, String str3) {
+    public static void a(String str, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, str, jSONObject, jSONObject2, jSONObject3) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            if (jSONObject2 == null) {
+                jSONObject2 = new JSONObject();
+            }
+            if (jSONObject3 == null) {
+                jSONObject3 = new JSONObject();
+            }
+            String str2 = null;
+            if (Zeus.getAppApplication() != null) {
+                Zeus.getAppApplication();
+                str2 = d.a();
+            }
+            if (str2 == null) {
+                str2 = "unknown";
+            }
+            try {
+                jSONObject.putOpt("net_type", a(Integer.valueOf(com.bytedance.pangle.download.a.a(Zeus.getAppApplication()).h)));
+                jSONObject.putOpt(ContentProviderManager.PLUGIN_PROCESS_NAME, a(str2));
+                Plugin plugin = Zeus.getPlugin(jSONObject.optString("plugin_package_name", ""), false);
+                jSONObject.putOpt("plugin_api_version", a(Integer.valueOf(plugin != null ? plugin.getApiVersionCode() : -1)));
+                jSONObject.putOpt("zeus_sdk_version", a("0.0.1-beta.4200.55-systemconfig-pangle"));
+                ZeusLogger.v(ZeusLogger.TAG_REPORTER, "eventName: " + str + "\ncategoryData:" + jSONObject.toString(1) + "\nmetricData:" + jSONObject2.toString(1) + "\nlogExtrData:" + jSONObject3.toString(1));
+                IZeusReporter reporter = GlobalParam.getInstance().getReporter();
+                if (reporter != null) {
+                    JSONObject jSONObject4 = new JSONObject();
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        jSONObject4.putOpt(next, jSONObject.opt(next));
+                    }
+                    Iterator<String> keys2 = jSONObject2.keys();
+                    while (keys2.hasNext()) {
+                        String next2 = keys2.next();
+                        jSONObject4.putOpt(next2, jSONObject2.opt(next2));
+                    }
+                    Iterator<String> keys3 = jSONObject3.keys();
+                    while (keys3.hasNext()) {
+                        String next3 = keys3.next();
+                        jSONObject4.putOpt(next3, jSONObject3.opt(next3));
+                    }
+                    reporter.report(str, jSONObject4);
+                }
+                a.a();
+                a.b();
+            } catch (JSONException e) {
+                ZeusLogger.e(ZeusLogger.TAG_REPORTER, e.getMessage(), e);
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        long currentTimeMillis = System.currentTimeMillis();
-        this.e = currentTimeMillis;
-        this.d = currentTimeMillis;
-        String str4 = this.a;
-        ZeusLogger.i(str4, this.b + String.format(" watcher[%s]-start", str3));
     }
 
-    public static c a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) ? new c(str, str2, str3) : (c) invokeLLL.objValue;
-    }
-
-    public final long b(String str) {
+    public static int b(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.e;
-            long currentTimeMillis2 = System.currentTimeMillis() - this.d;
-            String str2 = this.a;
-            ZeusLogger.i(str2, this.b + String.format(" watcher[%s]-%s cost=%s, total=%s", this.c, str, Long.valueOf(currentTimeMillis), Long.valueOf(currentTimeMillis2)));
-            return currentTimeMillis2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
+            if (obj == null) {
+                return -1;
+            }
+            return j.a(obj.toString());
         }
-        return invokeL.longValue;
+        return invokeL.intValue;
     }
 
-    public final long a(String str) {
+    public static String a(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.e;
-            String str2 = this.a;
-            ZeusLogger.i(str2, this.b + String.format(" watcher[%s]-%s cost=%s", this.c, str, Long.valueOf(currentTimeMillis)));
-            this.e = System.currentTimeMillis();
-            return currentTimeMillis;
-        }
-        return invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) ? obj == null ? "" : obj.toString() : (String) invokeL.objValue;
     }
 
-    public final long a() {
-        InterceptResult invokeV;
+    public static String a(Throwable th) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.d : invokeV.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
+            if (th == null) {
+                return "";
+            }
+            StringWriter stringWriter = new StringWriter();
+            th.printStackTrace(new PrintWriter(stringWriter));
+            return stringWriter.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

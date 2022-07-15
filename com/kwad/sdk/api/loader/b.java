@@ -11,7 +11,7 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 /* loaded from: classes5.dex */
-public class b {
+public final class b {
     public static void a(File file) {
         if (file.isFile()) {
             file.delete();
@@ -27,41 +27,42 @@ public class b {
     }
 
     public static void a(InputStream inputStream, OutputStream outputStream) {
-        byte[] bArr = new byte[8192];
-        while (true) {
-            int read = inputStream.read(bArr);
-            if (read == -1) {
-                return;
+        try {
+            byte[] bArr = new byte[8192];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read == -1) {
+                    break;
+                }
+                outputStream.write(bArr, 0, read);
             }
-            outputStream.write(bArr, 0, read);
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (Exception unused) {
+                }
+            }
+            try {
+                outputStream.close();
+            } catch (Exception unused2) {
+            }
+        } catch (Throwable th) {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (Exception unused3) {
+                }
+            }
+            try {
+                outputStream.close();
+            } catch (Exception unused4) {
+            }
+            throw th;
         }
     }
 
     public static void a(String str, String str2) {
-        b(new FileInputStream(str), new FileOutputStream(str2));
-    }
-
-    public static boolean a(Context context, String str, String str2) {
-        String b = g.b(context, str2);
-        a(new File(b));
-        String d = g.d(context, str2);
-        String e = g.e(context, str2);
-        String f = g.f(context, str2);
-        try {
-            a(str, d);
-            b(context, str, f);
-            return j.a(context, d, e, f).c() != null;
-        } catch (Exception e2) {
-            a(new File(d));
-            a(new File(e));
-            a(new File(f));
-            a(new File(b));
-            throw e2;
-        }
-    }
-
-    public static void b(Context context, String str, String str2) {
-        String str3 = s.a() ? "lib/arm64-v8a/" : "lib/armeabi-v7a/";
+        String str3 = t.a() ? "lib/arm64-v8a/" : "lib/armeabi-v7a/";
         ZipFile zipFile = null;
         try {
             ZipFile zipFile2 = new ZipFile(str);
@@ -72,7 +73,7 @@ public class b {
                     if (!nextElement.isDirectory()) {
                         String name = nextElement.getName();
                         if (!TextUtils.isEmpty(name) && !name.contains("../") && name.endsWith(".so") && name.startsWith(str3)) {
-                            b(zipFile2.getInputStream(nextElement), new FileOutputStream(new File(str2, name.substring(str3.length()))));
+                            a(zipFile2.getInputStream(nextElement), new FileOutputStream(new File(str2, name.substring(str3.length()))));
                         }
                     }
                 }
@@ -96,28 +97,22 @@ public class b {
         }
     }
 
-    public static void b(InputStream inputStream, OutputStream outputStream) {
+    public static boolean a(Context context, String str, String str2) {
+        String a = h.a(context, str2);
+        a(new File(a));
+        String c = h.c(context, str2);
+        String d = h.d(context, str2);
+        String e = h.e(context, str2);
         try {
-            a(inputStream, outputStream);
-            if (outputStream != null) {
-                try {
-                    outputStream.close();
-                } catch (Exception unused) {
-                }
-            }
-        } finally {
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (Exception unused2) {
-                }
-            }
-            if (outputStream != null) {
-                try {
-                    outputStream.close();
-                } catch (Exception unused3) {
-                }
-            }
+            a(new FileInputStream(str), new FileOutputStream(c));
+            a(str, e);
+            return k.a(context, c, d, e).c != null;
+        } catch (Exception e2) {
+            a(new File(c));
+            a(new File(d));
+            a(new File(e));
+            a(new File(a));
+            throw e2;
         }
     }
 }

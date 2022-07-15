@@ -1,54 +1,74 @@
 package com.kwad.sdk.api.loader;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import dalvik.system.DexClassLoader;
-import java.util.ArrayList;
-import java.util.List;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import com.kwad.sdk.api.core.IKsAdSDK;
+import java.lang.Thread;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class d {
-    public static final List<String> a;
+public class d implements Thread.UncaughtExceptionHandler {
+    public static d g;
+    @Nullable
+    public IKsAdSDK b;
+    public Thread.UncaughtExceptionHandler c;
+    public int d;
+    public long f;
+    public Context h;
+    public boolean a = false;
+    public final AtomicBoolean e = new AtomicBoolean();
 
-    /* loaded from: classes5.dex */
-    public static class a extends DexClassLoader {
-        public a(String str, String str2, String str3, ClassLoader classLoader) {
-            super(str, str2, str3, classLoader);
-        }
+    public d(Context context) {
+        this.h = context;
+    }
 
-        private boolean a(String str) {
-            return !TextUtils.isEmpty(str) && str.startsWith("com.kwad.sdk.api");
-        }
-
-        @Override // java.lang.ClassLoader
-        public Class<?> loadClass(String str, boolean z) {
-            if (a(str)) {
-                return getParent().loadClass(str);
+    public static d a(Context context) {
+        if (g == null) {
+            synchronized (d.class) {
+                if (g == null) {
+                    g = new d(context);
+                }
             }
-            Class<?> findLoadedClass = findLoadedClass(str);
-            if (findLoadedClass != null) {
-                return findLoadedClass;
+        }
+        return g;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
+    @Override // java.lang.Thread.UncaughtExceptionHandler
+    public void uncaughtException(Thread thread, Throwable th) {
+        boolean z;
+        try {
+            if (this.a) {
+                Log.d("test.chen", "AutoRevertHandler uncaughtException, mStartCheckTime:" + this.f + ",mMaxDuration:" + this.d + ",mIsCancel:" + this.e.get());
             }
+            if (!this.e.get() && this.f > 0 && System.currentTimeMillis() - this.f <= this.d) {
+                if (this.b != null) {
+                    Object dM = this.b.dM("filterStack", th);
+                    if (dM instanceof Boolean) {
+                        z = ((Boolean) dM).booleanValue();
+                        if (this.h != null && z) {
+                            r.a(this.h, g.d, true);
+                        }
+                    }
+                }
+                z = true;
+                if (this.h != null) {
+                    r.a(this.h, g.d, true);
+                }
+            }
+        } catch (Throwable th2) {
             try {
-                findLoadedClass = findClass(str);
-            } catch (ClassNotFoundException unused) {
+                th2.printStackTrace();
+                Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.c;
+                if (uncaughtExceptionHandler != null) {
+                    uncaughtExceptionHandler.uncaughtException(thread, th);
+                }
+            } finally {
+                Thread.UncaughtExceptionHandler uncaughtExceptionHandler2 = this.c;
+                if (uncaughtExceptionHandler2 != null) {
+                    uncaughtExceptionHandler2.uncaughtException(thread, th);
+                }
             }
-            return findLoadedClass != null ? findLoadedClass : super.loadClass(str, z);
         }
-    }
-
-    static {
-        ArrayList arrayList = new ArrayList();
-        a = arrayList;
-        arrayList.add("com.kwad.sdk");
-        a.add("com.ksad");
-        a.add("com.kwai");
-        a.add("kwad.support");
-        a.add("android.support.rastermill");
-    }
-
-    @NonNull
-    public static ClassLoader a(Context context, String str, String str2, String str3) {
-        return new a(str, str2, str3, context.getClassLoader());
     }
 }

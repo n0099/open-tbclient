@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
 import com.repackage.d9;
 import com.repackage.ng;
+import com.repackage.wh8;
 import com.repackage.za;
 /* loaded from: classes3.dex */
 public class AddPollPostModel extends BdBaseModel {
@@ -109,10 +109,10 @@ public class AddPollPostModel extends BdBaseModel {
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_ADD_POLL_POST, 309006);
-        C();
+        D();
     }
 
-    public void B(String str, String str2, long j) {
+    public void C(String str, String str2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
             AddPollPostRequestNetMessage addPollPostRequestNetMessage = new AddPollPostRequestNetMessage();
@@ -123,22 +123,22 @@ public class AddPollPostModel extends BdBaseModel {
         }
     }
 
-    public final void C() {
+    public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bh8.h(309006, AddPollPostSocketResponseMessage.class, false, false);
-            bh8.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
+            wh8.h(309006, AddPollPostSocketResponseMessage.class, false, false);
+            wh8.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
         }
     }
 
-    public void D(b bVar) {
+    public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public void E(long j) {
+    public void F(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
             this.b = j;

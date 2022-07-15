@@ -20,10 +20,10 @@ public final class af extends XMPushService.j {
     public final /* synthetic */ Cif a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ii f877a;
+    public final /* synthetic */ ii f1604a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f878a;
+    public final /* synthetic */ XMPushService f1605a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public af(int i, ii iiVar, Cif cif, XMPushService xMPushService) {
@@ -43,9 +43,9 @@ public final class af extends XMPushService.j {
                 return;
             }
         }
-        this.f877a = iiVar;
+        this.f1604a = iiVar;
         this.a = cif;
-        this.f878a = xMPushService;
+        this.f1605a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
@@ -61,17 +61,17 @@ public final class af extends XMPushService.j {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 ia iaVar = new ia();
-                iaVar.c(ht.D.f498a);
-                iaVar.a(this.f877a.m475a());
-                iaVar.a(this.f877a.a());
-                iaVar.b(this.f877a.b());
-                iaVar.e(this.f877a.c());
+                iaVar.c(ht.D.f1225a);
+                iaVar.a(this.f1604a.m1418a());
+                iaVar.a(this.f1604a.a());
+                iaVar.b(this.f1604a.b());
+                iaVar.e(this.f1604a.c());
                 iaVar.a(0L);
                 iaVar.d("success clear push message.");
-                ah.a(this.f878a, ah.b(this.a.b(), this.a.m461a(), iaVar, hj.i));
+                ah.a(this.f1605a, ah.b(this.a.b(), this.a.m1404a(), iaVar, hj.i));
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e);
-                this.f878a.a(10, e);
+                this.f1605a.a(10, e);
             }
         }
     }

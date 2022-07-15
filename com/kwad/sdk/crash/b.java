@@ -2,143 +2,178 @@ package com.kwad.sdk.crash;
 
 import android.content.Context;
 /* loaded from: classes5.dex */
-public class b {
+public final class b {
     public final com.kwad.sdk.crash.model.b a;
     public final com.kwad.sdk.crash.model.a b;
-    public final f c;
+    public final g c;
     public final String[] d;
     public final String[] e;
     public final boolean f;
-    public final Context g;
-    public final e h;
-    public final String i;
-    public final String j;
-    public final String k;
+    public final boolean g;
+    public final boolean h;
+    public final boolean i;
+    public final Context j;
+    public final e k;
     public final String l;
     public final String m;
     public final String n;
+    public final String o;
+    public final String p;
+    public final String q;
+    public final String r;
+    public final String s;
 
     /* loaded from: classes5.dex */
     public static class a {
         public int a;
         public String[] b;
-        public boolean c = false;
-        public Context d;
-        public e e;
-        public String f;
-        public String g;
-        public String h;
+        public Context g;
+        public e h;
         public String i;
         public String j;
         public String k;
         public String l;
         public String m;
-        public int n;
+        public String n;
         public String o;
-        public int p;
-        public String q;
+        public String p;
+        public int q;
         public String r;
-        public String s;
+        public int s;
         public String t;
-        public f u;
-        public String[] v;
+        public String u;
+        public String v;
+        public String w;
+        public g x;
+        public String[] y;
+        public boolean c = false;
+        public boolean d = false;
+        public boolean e = false;
+        public boolean f = false;
+        public String z = "";
+        public String A = "";
 
-        public a a(int i) {
-            this.n = i;
+        public final a a(int i) {
+            this.q = i;
             return this;
         }
 
-        public a a(Context context) {
-            this.d = context;
+        public final a a(Context context) {
+            this.g = context;
             return this;
         }
 
-        public a a(e eVar) {
-            this.e = eVar;
+        public final a a(e eVar) {
+            this.h = eVar;
             return this;
         }
 
-        public a a(f fVar) {
-            this.u = fVar;
+        public final a a(g gVar) {
+            this.x = gVar;
             return this;
         }
 
-        public a a(String str) {
-            this.f = str;
+        public final a a(String str) {
+            this.z = str;
             return this;
         }
 
-        public a a(String[] strArr) {
-            this.v = strArr;
+        public final a a(boolean z) {
+            this.d = z;
             return this;
         }
 
-        public b a() {
-            return new b(this);
-        }
-
-        public a b(int i) {
-            this.p = i;
+        public final a a(String[] strArr) {
+            this.y = strArr;
             return this;
         }
 
-        public a b(String str) {
-            this.h = str;
+        public final b a() {
+            return new b(this, (byte) 0);
+        }
+
+        public final a b(int i) {
+            this.s = i;
             return this;
         }
 
-        public a b(String[] strArr) {
+        public final a b(String str) {
+            this.A = str;
+            return this;
+        }
+
+        public final a b(boolean z) {
+            this.e = z;
+            return this;
+        }
+
+        public final a b(String[] strArr) {
             this.b = strArr;
             return this;
         }
 
-        public a c(int i) {
-            this.a = i;
+        public final a c(int i) {
+            this.a = 1;
             return this;
         }
 
-        public a c(String str) {
+        public final a c(String str) {
             this.i = str;
             return this;
         }
 
-        public a d(String str) {
+        public final a c(boolean z) {
+            this.f = z;
+            return this;
+        }
+
+        public final a d(String str) {
             this.k = str;
             return this;
         }
 
-        public a e(String str) {
+        public final a e(String str) {
             this.l = str;
             return this;
         }
 
-        public a f(String str) {
-            this.m = str;
+        public final a f(String str) {
+            this.n = str;
             return this;
         }
 
-        public a g(String str) {
+        public final a g(String str) {
             this.o = str;
             return this;
         }
 
-        public a h(String str) {
-            this.q = str;
+        public final a h(String str) {
+            this.p = str;
             return this;
         }
 
-        public a i(String str) {
+        public final a i(String str) {
             this.r = str;
             return this;
         }
 
-        public a j(String str) {
-            this.s = str;
+        public final a j(String str) {
+            this.t = str;
             return this;
         }
 
-        public a k(String str) {
-            this.t = str;
+        public final a k(String str) {
+            this.u = str;
+            return this;
+        }
+
+        public final a l(String str) {
+            this.v = str;
+            return this;
+        }
+
+        public final a m(String str) {
+            this.w = str;
             return this;
         }
     }
@@ -150,31 +185,40 @@ public class b {
         this.g = aVar.d;
         this.h = aVar.e;
         this.i = aVar.f;
+        this.r = aVar.z;
+        this.s = aVar.A;
         this.j = aVar.g;
         this.k = aVar.h;
         this.l = aVar.i;
         this.m = aVar.j;
         this.n = aVar.k;
-        this.b.a = aVar.q;
-        this.b.b = aVar.r;
-        this.b.d = aVar.t;
-        this.b.c = aVar.s;
-        this.a.d = aVar.o;
-        this.a.e = aVar.p;
-        this.a.b = aVar.m;
-        this.a.c = aVar.n;
-        this.a.a = aVar.l;
+        this.o = aVar.l;
+        this.p = aVar.m;
+        this.q = aVar.n;
+        this.b.a = aVar.t;
+        this.b.b = aVar.u;
+        this.b.d = aVar.w;
+        this.b.c = aVar.v;
+        this.a.d = aVar.r;
+        this.a.e = aVar.s;
+        this.a.b = aVar.p;
+        this.a.c = aVar.q;
+        this.a.a = aVar.o;
         this.a.f = aVar.a;
-        this.c = aVar.u;
-        this.d = aVar.v;
+        this.c = aVar.x;
+        this.d = aVar.y;
         this.e = aVar.b;
     }
 
-    public e a() {
-        return this.h;
+    public /* synthetic */ b(a aVar, byte b) {
+        this(aVar);
     }
 
-    public boolean b() {
+    public final e a() {
+        return this.k;
+    }
+
+    public final boolean b() {
         return this.f;
     }
 }

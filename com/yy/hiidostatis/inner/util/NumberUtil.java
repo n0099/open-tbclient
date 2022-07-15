@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.yoga.YogaNodeJNIBase;
 /* loaded from: classes8.dex */
 public class NumberUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -71,7 +70,7 @@ public class NumberUtil {
     public static int getInt(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bArr)) == null) ? ((bArr[3] << 24) & (-16777216)) | (bArr[0] & 255) | ((bArr[1] << 8) & 65280) | ((bArr[2] << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16711680) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bArr)) == null) ? ((bArr[3] << 24) & (-16777216)) | (bArr[0] & 255) | ((bArr[1] << 8) & 65280) | ((bArr[2] << 16) & 16711680) : invokeL.intValue;
     }
 
     public static long getLong(byte[] bArr) {
@@ -130,7 +129,7 @@ public class NumberUtil {
     public static int getInt(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, bArr, i)) == null) ? ((bArr[i + 3] << 24) & (-16777216)) | (bArr[i + 0] & 255) | ((bArr[i + 1] << 8) & 65280) | ((bArr[i + 2] << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16711680) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, bArr, i)) == null) ? ((bArr[i + 3] << 24) & (-16777216)) | (bArr[i + 0] & 255) | ((bArr[i + 1] << 8) & 65280) | ((bArr[i + 2] << 16) & 16711680) : invokeLI.intValue;
     }
 
     public static long getLong(byte[] bArr, int i) {

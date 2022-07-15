@@ -1,73 +1,47 @@
 package com.kwad.sdk.core.config;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
+import android.text.TextUtils;
+import java.net.URI;
 /* loaded from: classes5.dex */
-public class a {
-    public static final Map<String, com.kwad.sdk.core.config.item.b> a = new ConcurrentHashMap();
+public final class a {
+    public static final String[] a = {"gifshow.com", "kuaishou.com", "static.yximgs.com"};
 
-    public static void a(SharedPreferences.Editor editor) {
-        if (editor != null) {
-            for (String str : a.keySet()) {
-                a.get(str).a(editor);
-            }
+    public static boolean a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
-    }
-
-    public static void a(SharedPreferences sharedPreferences) {
-        if (sharedPreferences != null) {
-            for (String str : a.keySet()) {
-                try {
-                    a.get(str).a(sharedPreferences);
-                } catch (Exception e) {
-                    com.kwad.sdk.core.d.a.b(e);
-                }
+        try {
+            String host = new URI(str).getHost();
+            if (b(host)) {
+                return true;
             }
-        }
-    }
-
-    public static <T> void a(@NonNull com.kwad.sdk.core.config.item.b<T> bVar) {
-        a.put(bVar.b(), bVar);
-    }
-
-    public static void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        for (String str : a.keySet()) {
-            com.kwad.sdk.core.config.item.b bVar = a.get(str);
-            if (jSONObject.has(str)) {
-                bVar.a(jSONObject);
-            }
-        }
-    }
-
-    @WorkerThread
-    public static synchronized boolean a(Context context) {
-        synchronized (a.class) {
-            if (context != null) {
-                SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_config", 0).edit();
-                a(edit);
-                return edit.commit();
-            }
+            return c(host);
+        } catch (Exception unused) {
             return false;
         }
     }
 
-    @WorkerThread
-    public static synchronized void b(Context context) {
-        synchronized (a.class) {
-            if (context != null) {
-                SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
-                if (sharedPreferences != null) {
-                    a(sharedPreferences);
-                }
+    public static boolean b(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        for (String str2 : a) {
+            if (str.contains(str2)) {
+                return true;
             }
         }
+        return false;
+    }
+
+    public static boolean c(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        for (String str2 : d.g()) {
+            if (str.contains(str2)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -1,130 +1,108 @@
 package com.repackage;
 
-import android.app.Application;
-import androidx.lifecycle.Lifecycle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.Typeface;
+import android.view.ViewGroup;
+import com.baidu.spswitch.utils.BDEmotionPanelManager;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.Calendar;
+/* loaded from: classes6.dex */
 public class eh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CustomMessageListener a;
-    public c b;
+    public Context A;
+    public String B;
+    public String C;
+    public String D;
+    public int E;
+    public int F;
+    public int G;
+    public int H;
+    public int I;
+    public int J;
+    public int K;
+    public int L;
+    public int M;
+    public int N;
+    public int O;
+    public int P;
+    public float Q;
+    public boolean R;
+    public boolean S;
+    public boolean T;
+    public WheelView.DividerType U;
+    public kh5 a;
+    public jh5 b;
+    public fh5 c;
+    public boolean[] d;
+    public Calendar e;
+    public Calendar f;
+    public Calendar g;
+    public int h;
+    public int i;
+    public boolean j;
+    public boolean k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public int r;
+    public int s;
+    public int t;
+    public int u;
+    public int v;
+    public int w;
+    public int x;
+    public ViewGroup y;
+    public int z;
 
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eh5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(eh5 eh5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eh5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eh5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Lifecycle.Event event;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof aq4)) {
-                aq4 aq4Var = (aq4) customResponsedMessage.getData();
-                if (aq4Var.a == null || (event = aq4Var.c) == null) {
-                    return;
-                }
-                if (event.equals(Lifecycle.Event.ON_PAUSE)) {
-                    if (this.a.b != null) {
-                        this.a.b.a(aq4Var.a);
-                    }
-                } else if (!aq4Var.c.equals(Lifecycle.Event.ON_RESUME) || this.a.b == null) {
-                } else {
-                    this.a.b.b(aq4Var.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static eh5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-414380543, "Lcom/repackage/eh5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-414380543, "Lcom/repackage/eh5$b;");
-                    return;
-                }
-            }
-            a = new eh5();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(Application application);
-
-        void b(Application application);
-    }
-
-    public eh5() {
+    public eh5(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a(this, 2921698);
-    }
-
-    public static eh5 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (eh5) invokeV.objValue;
-    }
-
-    public void c(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.b = cVar;
-            MessageManager.getInstance().registerListener(this.a);
+        this.d = new boolean[]{true, true, true, false, false, false};
+        this.j = false;
+        this.k = false;
+        this.z = 17;
+        this.E = -16417281;
+        this.F = -16417281;
+        this.G = -16777216;
+        this.H = -1;
+        this.I = BDEmotionPanelManager.COLOR_EMOTION_TYPE_LAYOUT;
+        this.J = 17;
+        this.K = 18;
+        this.L = 18;
+        this.M = -5723992;
+        this.N = -14013910;
+        this.O = -2763307;
+        this.P = -1;
+        this.Q = 1.6f;
+        this.S = true;
+        this.T = false;
+        Typeface typeface = Typeface.MONOSPACE;
+        this.U = WheelView.DividerType.FILL;
+        if (i == 1) {
+            this.x = R.layout.obfuscated_res_0x7f0d06ec;
+        } else {
+            this.x = R.layout.obfuscated_res_0x7f0d06ed;
         }
     }
 }

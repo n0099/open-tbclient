@@ -41,7 +41,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
@@ -493,12 +492,12 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         if (interceptable == null || interceptable.invokeLZ(65550, this, view2, z) == null) {
             if (z) {
                 animatorSet = new AnimatorSet();
-                animatorSet.playTogether(ObjectAnimator.ofFloat(view2, "TranslationY", 0.0f, -50.0f), ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 1.0f, 0.0f));
+                animatorSet.playTogether(ObjectAnimator.ofFloat(view2, "TranslationY", 0.0f, -50.0f), ObjectAnimator.ofFloat(view2, "alpha", 1.0f, 0.0f));
                 animatorSet.addListener(new aa(this, view2));
             } else {
                 view2.setVisibility(0);
                 animatorSet = new AnimatorSet();
-                animatorSet.playTogether(ObjectAnimator.ofFloat(view2, "TranslationY", -50.0f, 0.0f), ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 0.0f, 1.0f));
+                animatorSet.playTogether(ObjectAnimator.ofFloat(view2, "TranslationY", -50.0f, 0.0f), ObjectAnimator.ofFloat(view2, "alpha", 0.0f, 1.0f));
             }
             animatorSet.setDuration(IMLikeRequest.TIME_INTERVAL);
             animatorSet.start();

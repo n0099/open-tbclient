@@ -14,8 +14,8 @@ import com.baidu.turbonet.base.annotations.JNINamespace;
 import com.baidu.turbonet.base.annotations.NativeClassQualifiedName;
 import com.baidu.turbonet.net.BidirectionalStream;
 import com.baidu.turbonet.net.UrlResponseInfo;
-import com.repackage.oz8;
-import com.repackage.sz8;
+import com.repackage.n09;
+import com.repackage.r09;
 import java.nio.ByteBuffer;
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -302,7 +302,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                 try {
                     this.a.c.a(this.a, this.a.o);
                 } catch (Exception e) {
-                    oz8.c("ChromiumNetwork", "Exception in onCanceled method", e);
+                    n09.c("ChromiumNetwork", "Exception in onCanceled method", e);
                 }
             }
         }
@@ -620,7 +620,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
             try {
                 this.b.execute(runnable);
             } catch (RejectedExecutionException e2) {
-                oz8.c("ChromiumNetwork", "Exception posting task to executor", e2);
+                n09.c("ChromiumNetwork", "Exception posting task to executor", e2);
                 synchronized (this.g) {
                     State state = State.ERROR;
                     this.n = state;
@@ -669,8 +669,8 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
             synchronized (this.g) {
-                sz8.b(byteBuffer);
-                sz8.a(byteBuffer);
+                r09.b(byteBuffer);
+                r09.a(byteBuffer);
                 if (this.m == State.WAITING_FOR_READ) {
                     if (x()) {
                         return;
@@ -695,7 +695,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048580, this, byteBuffer, z) == null) {
             synchronized (this.g) {
-                sz8.a(byteBuffer);
+                r09.a(byteBuffer);
                 if (!byteBuffer.hasRemaining() && !z) {
                     throw new IllegalArgumentException("Empty buffer before end of stream.");
                 }
@@ -721,7 +721,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     public final void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            oz8.h("ChromiumNetwork", "destroyNativeStreamLocked " + toString(), new Object[0]);
+            n09.h("ChromiumNetwork", "destroyNativeStreamLocked " + toString(), new Object[0]);
             long j = this.l;
             if (j == 0) {
                 return;
@@ -757,7 +757,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                 try {
                     this.c.b(this, this.o, turbonetException);
                 } catch (Exception e2) {
-                    oz8.c("ChromiumNetwork", "Exception notifying of failed request", e2);
+                    n09.c("ChromiumNetwork", "Exception notifying of failed request", e2);
                 }
             }
         }
@@ -815,7 +815,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                     try {
                         this.c.g(this, this.o);
                     } catch (Exception e2) {
-                        oz8.c("ChromiumNetwork", "Exception in onSucceeded method", e2);
+                        n09.c("ChromiumNetwork", "Exception in onSucceeded method", e2);
                     }
                 }
             }
@@ -826,7 +826,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, exc) == null) {
             TurbonetException turbonetException = new TurbonetException("CalledByNative method has thrown an exception", exc);
-            oz8.c("ChromiumNetwork", "Exception in CalledByNative method", exc);
+            n09.c("ChromiumNetwork", "Exception in CalledByNative method", exc);
             u(turbonetException);
         }
     }

@@ -1,31 +1,37 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdMatrixInfo;
+import com.kwad.components.core.webview.jshandler.c;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o implements com.kwad.sdk.core.d<AdMatrixInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdMatrixInfo adMatrixInfo, JSONObject jSONObject) {
+public final class o implements com.kwad.sdk.core.d<c.a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(c.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        AdMatrixInfo.Styles styles = new AdMatrixInfo.Styles();
-        adMatrixInfo.styles = styles;
-        styles.parseJson(jSONObject.optJSONObject("styles"));
-        AdMatrixInfo.AdDataV2 adDataV2 = new AdMatrixInfo.AdDataV2();
-        adMatrixInfo.adDataV2 = adDataV2;
-        adDataV2.parseJson(jSONObject.optJSONObject("adDataV2"));
+        aVar.a = jSONObject.optLong("creativeId", new Long("-1").longValue());
+        aVar.b = jSONObject.optInt("adStyle", new Integer("-1").intValue());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdMatrixInfo adMatrixInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(c.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "styles", adMatrixInfo.styles);
-        com.kwad.sdk.utils.t.a(jSONObject, "adDataV2", adMatrixInfo.adDataV2);
+        com.kwad.sdk.utils.r.a(jSONObject, "creativeId", aVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "adStyle", aVar.b);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(c.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(c.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

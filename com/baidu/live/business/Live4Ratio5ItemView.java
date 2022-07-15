@@ -1,12 +1,12 @@
 package com.baidu.live.business;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,19 +15,19 @@ import com.baidu.live.business.model.data.LeftLableInfo;
 import com.baidu.live.business.model.data.LiveHostInfo;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.RightLableInfo;
+import com.baidu.live.business.model.data.ThirdLabelInfo;
 import com.baidu.live.business.view.LiveStatusAnimView;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.s80;
-import com.repackage.w80;
-import com.repackage.za0;
+import com.repackage.eb0;
+import com.repackage.t80;
+import com.repackage.x80;
 /* loaded from: classes2.dex */
 public class Live4Ratio5ItemView extends LiveBaseItemView {
     public static /* synthetic */ Interceptable $ic;
@@ -39,10 +39,12 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
     public TextView h;
     public TextView i;
     public SimpleDraweeView j;
-    public FrameLayout k;
-    public boolean l;
+    public boolean k;
+    public View l;
     public View m;
-    public Context n;
+    public TextView n;
+    public SimpleDraweeView o;
+    public Context p;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Live4Ratio5ItemView(Context context) {
@@ -62,7 +64,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                 return;
             }
         }
-        this.l = false;
+        this.k = false;
         d(context);
     }
 
@@ -71,7 +73,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            if (this.l && this.f.b()) {
+            if (this.k && this.f.b()) {
                 this.f.c();
             }
         }
@@ -106,17 +108,19 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             setNeedRatio(true);
             setAspectRatio(1.25f);
-            this.n = context;
-            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04ed, this);
-            this.k = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09125f);
-            this.d = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09125e);
-            this.f = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091261);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091264);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09125a);
-            this.e = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09125b);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091262);
-            this.j = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091263);
-            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091251);
+            this.p = context;
+            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0507, this);
+            this.d = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0912ff);
+            this.f = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091302);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091305);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912fb);
+            this.e = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0912fc);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091303);
+            this.j = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091304);
+            this.l = inflate.findViewById(R.id.obfuscated_res_0x7f0912f2);
+            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091337);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091338);
+            this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091339);
         }
     }
 
@@ -125,51 +129,44 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             SimpleDraweeView simpleDraweeView = this.d;
             if (simpleDraweeView != null) {
-                simpleDraweeView.getHierarchy().setPlaceholderImage(za0.e().j(this.c), ScalingUtils.ScaleType.FIT_XY);
+                simpleDraweeView.getHierarchy().setPlaceholderImage(eb0.e().j(this.c), ScalingUtils.ScaleType.FIT_XY);
             }
             SimpleDraweeView simpleDraweeView2 = this.e;
             if (simpleDraweeView2 != null) {
-                simpleDraweeView2.getHierarchy().setPlaceholderImage(za0.e().j(this.c), ScalingUtils.ScaleType.FIT_XY);
+                simpleDraweeView2.getHierarchy().setPlaceholderImage(eb0.e().j(this.c), ScalingUtils.ScaleType.FIT_XY);
             }
             TextView textView = this.g;
             if (textView != null) {
-                textView.setTextColor(za0.e().a(getContext(), this.c, "color_white3"));
+                textView.setTextColor(eb0.e().a(getContext(), this.c, "color_white3"));
             }
             TextView textView2 = this.i;
             if (textView2 != null) {
-                textView2.setTextColor(za0.e().a(getContext(), this.c, "color_white3"));
+                textView2.setTextColor(eb0.e().a(getContext(), this.c, "color_white3"));
             }
             TextView textView3 = this.h;
             if (textView3 != null) {
-                textView3.setTextColor(za0.e().a(getContext(), this.c, "color_white3"));
+                textView3.setTextColor(eb0.e().a(getContext(), this.c, "color_white3"));
             }
         }
-    }
-
-    @Override // com.baidu.live.business.base.LiveBaseItemView
-    public ViewGroup getVideoContainer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : (ViewGroup) invokeV.objValue;
     }
 
     @Override // com.baidu.live.business.base.LiveBaseItemView
     public void setData(LiveRoomEntity liveRoomEntity, int i) {
         LiveStatusAnimView liveStatusAnimView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, liveRoomEntity, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, liveRoomEntity, i) == null) {
             this.f.setIsImmersion(this.c);
             if (liveRoomEntity != null) {
                 this.d.setImageURI(liveRoomEntity.cover);
                 LeftLableInfo leftLableInfo = liveRoomEntity.leftLabel;
-                if (leftLableInfo != null && !TextUtils.isEmpty(leftLableInfo.text) && (liveStatusAnimView = this.f) != null) {
+                if (leftLableInfo != null && leftLableInfo.canShowLabel() && (liveStatusAnimView = this.f) != null) {
                     int i2 = liveRoomEntity.liveStatus;
                     LeftLableInfo leftLableInfo2 = liveRoomEntity.leftLabel;
                     liveStatusAnimView.setData(i2, leftLableInfo2.text, leftLableInfo2.startColor, leftLableInfo2.endColor);
-                    this.l = true;
+                    this.k = true;
                     this.f.setVisibility(0);
                 } else {
-                    this.l = false;
+                    this.k = false;
                     LiveStatusAnimView liveStatusAnimView2 = this.f;
                     if (liveStatusAnimView2 != null) {
                         liveStatusAnimView2.setVisibility(8);
@@ -184,11 +181,11 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                 if (liveRoomEntity.liveStatus == 0) {
                     this.h.setVisibility(8);
                 } else {
-                    this.h.setText(w80.a(this.n, liveRoomEntity.audienceCount));
+                    this.h.setText(x80.a(this.p, liveRoomEntity.audienceCount));
                     this.h.setVisibility(0);
                 }
-                this.m.getLayoutParams().height = s80.a(getContext(), 61.0f);
-                this.m.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d2f));
+                this.l.getLayoutParams().height = t80.a(getContext(), 61.0f);
+                this.l.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cab));
                 if (liveRoomEntity.showTpl == 1) {
                     this.e.setVisibility(0);
                     this.g.setVisibility(0);
@@ -197,11 +194,11 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                     this.g.setVisibility(8);
                     this.i.setTextSize(1, 14.0f);
                     this.i.setTypeface(Typeface.defaultFromStyle(1));
-                    this.m.getLayoutParams().height = s80.a(getContext(), 35.0f);
-                    this.m.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d2c));
+                    this.l.getLayoutParams().height = t80.a(getContext(), 35.0f);
+                    this.l.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ca8));
                 }
                 RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;
-                if (rightLableInfo != null && !TextUtils.isEmpty(rightLableInfo.iconUrl)) {
+                if (rightLableInfo != null && rightLableInfo.canShowLabel()) {
                     this.j.setImageURI(liveRoomEntity.rightLabel.iconUrl);
                     this.j.setVisibility(0);
                 } else {
@@ -211,6 +208,26 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                     this.d.getHierarchy().setUseGlobalColorFilter(false);
                     this.e.getHierarchy().setUseGlobalColorFilter(false);
                     this.j.getHierarchy().setUseGlobalColorFilter(false);
+                }
+                ThirdLabelInfo thirdLabelInfo = liveRoomEntity.thirdLabel;
+                if (thirdLabelInfo != null && thirdLabelInfo.canShowLabel()) {
+                    this.m.setVisibility(0);
+                    this.n.setText(liveRoomEntity.thirdLabel.text);
+                    if (!TextUtils.isEmpty(liveRoomEntity.thirdLabel.iconUrl)) {
+                        this.o.setImageURI(liveRoomEntity.thirdLabel.iconUrl);
+                        this.o.setVisibility(0);
+                    } else {
+                        this.o.setVisibility(8);
+                    }
+                    if (!TextUtils.isEmpty(liveRoomEntity.thirdLabel.startColor) && !TextUtils.isEmpty(liveRoomEntity.thirdLabel.endColor)) {
+                        try {
+                            ((GradientDrawable) this.m.getBackground()).setColors(new int[]{Color.parseColor(liveRoomEntity.thirdLabel.startColor), Color.parseColor(liveRoomEntity.thirdLabel.endColor)});
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                } else {
+                    this.m.setVisibility(8);
                 }
                 e(Config.TRACE_VISIT_RECENT_DAY);
             }
@@ -236,7 +253,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                 return;
             }
         }
-        this.l = false;
+        this.k = false;
         d(context);
     }
 }

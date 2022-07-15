@@ -1,17 +1,9 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 /* loaded from: classes7.dex */
 public interface x72 {
-    String a();
+    p72 a(String str, m82 m82Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy);
 
-    @Nullable
-    V8EngineConfiguration.CodeCacheSetting b();
-
-    void c(a72 a72Var);
-
-    void d(a72 a72Var);
-
-    String getInitBasePath();
+    String getUserAgent();
 }

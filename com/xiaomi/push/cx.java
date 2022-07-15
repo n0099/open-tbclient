@@ -15,7 +15,7 @@ public class cx extends cr {
     public cr a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ cv f190a;
+    public final /* synthetic */ cv f917a;
     public final /* synthetic */ cr b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -36,11 +36,11 @@ public class cx extends cr {
                 return;
             }
         }
-        this.f190a = cvVar;
+        this.f917a = cvVar;
         this.b = crVar;
         cr crVar2 = this.b;
         this.a = crVar2;
-        ((cr) this).f176b = ((cr) this).f176b;
+        ((cr) this).f903b = ((cr) this).f903b;
         if (crVar2 != null) {
             this.f = crVar2.f;
         }
@@ -58,7 +58,7 @@ public class cx extends cr {
                     arrayList.addAll(this.a.a(true));
                 }
                 synchronized (cv.b) {
-                    cr crVar = cv.b.get(((cr) this).f176b);
+                    cr crVar = cv.b.get(((cr) this).f903b);
                     if (crVar != null) {
                         Iterator<String> it = crVar.a(true).iterator();
                         while (it.hasNext()) {
@@ -67,8 +67,8 @@ public class cx extends cr {
                                 arrayList.add(next);
                             }
                         }
-                        arrayList.remove(((cr) this).f176b);
-                        arrayList.add(((cr) this).f176b);
+                        arrayList.remove(((cr) this).f903b);
+                        arrayList.add(((cr) this).f903b);
                     }
                 }
             }

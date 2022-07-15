@@ -5,23 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fy0;
-import com.repackage.ly0;
+import com.repackage.sy0;
+import com.repackage.yy0;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public abstract class Column implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 10929877886821294L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fy0 field;
+    public final sy0 field;
     public boolean isAssignedValue;
 
-    public Column(fy0 fy0Var) {
+    public Column(sy0 sy0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fy0Var};
+            Object[] objArr = {sy0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,7 +32,7 @@ public abstract class Column implements Serializable {
             }
         }
         this.isAssignedValue = false;
-        this.field = fy0Var;
+        this.field = sy0Var;
     }
 
     public abstract void clear();
@@ -40,7 +40,7 @@ public abstract class Column implements Serializable {
     public void copyTo(Column column) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, column) == null) {
-            ly0.f(this, column);
+            yy0.f(this, column);
         }
     }
 

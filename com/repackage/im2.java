@@ -1,18 +1,16 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class im2 extends em2 {
+public class im2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lm2 z;
+    @Inject(force = false)
+    public rb1<gm2> a;
 
     public im2() {
         Interceptable interceptable = $ic;
@@ -24,34 +22,18 @@ public class im2 extends em2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        a();
     }
 
-    @Override // com.repackage.em2, com.repackage.iv1, com.repackage.rp2
-    public void a(JSONObject jSONObject) throws JSONException {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            pb1 b = pb1.b();
+            this.a = b;
+            b.a(new hm2());
         }
-        super.a(jSONObject);
-        jSONObject.optString("cb");
-        double optDouble = jSONObject.optDouble("latitude");
-        double optDouble2 = jSONObject.optDouble("longitude");
-        jSONObject.optString("guideKey");
-        jSONObject.optString("guideIcon");
-        if (Double.isNaN(optDouble) || Double.isNaN(optDouble2) || optDouble < -90.0d || optDouble > 90.0d || optDouble2 < -180.0d || optDouble2 > 180.0d) {
-            return;
-        }
-        lm2 lm2Var = new lm2();
-        this.z = lm2Var;
-        lm2Var.a(jSONObject);
-    }
-
-    @Override // com.repackage.iv1, com.repackage.rp2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.z != null : invokeV.booleanValue;
     }
 }

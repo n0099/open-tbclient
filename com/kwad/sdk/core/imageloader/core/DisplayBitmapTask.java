@@ -36,18 +36,18 @@ public final class DisplayBitmapTask implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         if (this.imageAware.isCollected()) {
             L.d("ImageAware was collected by GC. Task is cancelled. [%s]", this.memoryCacheKey);
-        } else if (!isViewWasReused()) {
+            this.listener.onLoadingCancelled(this.imageUri, this.imageAware.getWrappedView());
+        } else if (isViewWasReused()) {
+            L.d("ImageAware is reused for another image. Task is cancelled. [%s]", this.memoryCacheKey);
+            this.listener.onLoadingCancelled(this.imageUri, this.imageAware.getWrappedView());
+        } else {
             L.d(LOG_DISPLAY_IMAGE_IN_IMAGEAWARE, this.loadedFrom, this.memoryCacheKey);
             this.displayer.display(this.decodedResult, this.imageAware, this.loadedFrom);
             this.engine.cancelDisplayTaskFor(this.imageAware);
             this.listener.onLoadingComplete(this.imageUri, this.imageAware.getWrappedView(), this.decodedResult);
-            return;
-        } else {
-            L.d("ImageAware is reused for another image. Task is cancelled. [%s]", this.memoryCacheKey);
         }
-        this.listener.onLoadingCancelled(this.imageUri, this.imageAware.getWrappedView());
     }
 }

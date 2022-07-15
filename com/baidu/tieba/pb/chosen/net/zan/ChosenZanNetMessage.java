@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.ExcZan.DataReq;
 import tbclient.ExcZan.ExcZanReqIdl;
 /* loaded from: classes3.dex */
@@ -49,7 +49,7 @@ public class ChosenZanNetMessage extends NetMessage {
             builder.excid = Long.valueOf(this.excId);
             builder.thread_id = Long.valueOf(this.threadId);
             builder.post_id = Long.valueOf(this.postId);
-            qc5.a(builder, true);
+            td5.a(builder, true);
             ExcZanReqIdl.Builder builder2 = new ExcZanReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

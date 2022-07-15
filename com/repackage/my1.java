@@ -1,165 +1,215 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.net.LocalServerSocket;
+import android.net.LocalSocket;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.repackage.iy1;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TimeZone;
 /* loaded from: classes6.dex */
-public class my1 extends p13 {
+public class my1 implements iy1.c {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public iy1.b a;
+    public LocalServerSocket b;
+    public ky1 c;
+    public String d;
+    public boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public my1(p03 p03Var) {
-        super(p03Var, "/swanAPI/sConsole");
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Map<String, String> a;
+        public String b;
+        public String c;
+        public String d;
+        public boolean e;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new HashMap();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static abstract class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public a a;
+
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        public abstract Map<String, String> b();
+
+        public abstract String c();
+
+        public final void d(PrintWriter printWriter, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, printWriter, str, str2) == null) {
+                printWriter.append((CharSequence) str).append(": ").append((CharSequence) str2).append("\r\n");
+            }
+        }
+
+        public void e(OutputStream outputStream) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, outputStream) == null) {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
+                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+                PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
+                printWriter.append("HTTP/1.1").append(WebvttCueParser.CHAR_SPACE).append((CharSequence) c()).append(" \r\n");
+                d(printWriter, "Date", simpleDateFormat.format(new Date()));
+                printWriter.print("Content-Length: " + a().getBytes().length + "\r\n");
+                Map<String, String> b = b();
+                if (b != null && b.size() > 0) {
+                    for (Map.Entry<String, String> entry : b.entrySet()) {
+                        d(printWriter, entry.getKey(), entry.getValue());
+                    }
+                }
+                printWriter.append("\r\n");
+                printWriter.append((CharSequence) a());
+                printWriter.flush();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755483060, "Lcom/repackage/my1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755483060, "Lcom/repackage/my1;");
+                return;
+            }
+        }
+        f = rg1.a;
+    }
+
+    public my1(String str, iy1.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.d = str;
+        this.a = bVar;
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.iy1.c
+    public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (p13.b) {
-                Log.d("ConsoleAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e) {
+            return;
         }
-        return invokeLLLL.booleanValue;
+        try {
+            this.b = new LocalServerSocket(this.d);
+            this.e = true;
+            int i = 0;
+            while (this.e) {
+                LocalSocket accept = this.b.accept();
+                ky1 ky1Var = new ky1(accept.getInputStream(), accept.getOutputStream());
+                this.c = ky1Var;
+                ky1Var.o(this.a);
+                ExecutorUtilsExt.postOnSerial(this.c, "V8InspectorServer");
+                if (gw2.H() && (i = i + 1) > 10) {
+                    if (f) {
+                        Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
+                        return;
+                    }
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            hx1.d("V8InspectorServer", "launch local server fail", e);
+        }
     }
 
-    @Override // com.repackage.p13
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, sz2 sz2Var) {
-        InterceptResult invokeLLLLL;
-        boolean optBoolean;
+    @Override // com.repackage.iy1.c
+    public void stop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, sz2Var)) == null) {
-            if (p13.b) {
-                Log.d("ConsoleAction", "handleSubAction subAction: " + str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e = false;
+            LocalServerSocket localServerSocket = this.b;
+            if (localServerSocket != null) {
+                try {
+                    localServerSocket.close();
+                } catch (IOException e) {
+                    hx1.d("V8InspectorServer", "stop local server fail", e);
+                }
+                this.b = null;
             }
-            if (!pw1.a() && !sw1.f() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
-                return super.i(context, unitedSchemeEntity, callbackHandler, str, sz2Var);
+            ky1 ky1Var = this.c;
+            if (ky1Var != null) {
+                ky1Var.l();
+                this.c = null;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1923550429:
-                    if (str.equals("/swanAPI/sConsole/sanIncData2Console")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -1792428120:
-                    if (str.equals("/swanAPI/sConsole/sanFullData2Console")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case -797920904:
-                    if (str.equals("/swanAPI/sConsole/hide")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -797593805:
-                    if (str.equals("/swanAPI/sConsole/show")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -161927599:
-                    if (str.equals("/swanAPI/sConsole/postMessage")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 1089933937:
-                    if (str.equals("/swanAPI/sConsole/debugSwitch")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 2136057821:
-                    if (str.equals("/swanAPI/sConsole/getSanDataFromActiveSlave")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    if (optParamsAsJo != null && (optBoolean = optParamsAsJo.optBoolean("enableDebug")) != pw1.a()) {
-                        pw1.c(context, optBoolean);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        sw1.i("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
-                    }
-                    return true;
-                case 1:
-                    fl2.U().q().S(true);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    sw1.i("ConsoleAction", "sConsole show");
-                    return true;
-                case 2:
-                    fl2.U().q().S(false);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    sw1.i("ConsoleAction", "sConsole hide");
-                    return true;
-                case 3:
-                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                        sw1.i("ConsoleAction", "send san inc data");
-                        ny1.d(optParamsAsJo.toString());
-                    } else {
-                        sw1.c("ConsoleAction", "san inc data is null");
-                    }
-                    return true;
-                case 4:
-                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                        sw1.i("ConsoleAction", "send san full data");
-                        ny1.c(optParamsAsJo.toString());
-                    } else {
-                        sw1.c("ConsoleAction", "san full data is null");
-                    }
-                    return true;
-                case 5:
-                    sw1.i("ConsoleAction", "request san full data");
-                    ny1.b();
-                    return true;
-                case 6:
-                    bh1 h = aj2.h();
-                    if (h != null) {
-                        h.c(optParamsAsJo);
-                    }
-                    return true;
-                default:
-                    return super.i(context, unitedSchemeEntity, callbackHandler, str, sz2Var);
-            }
+            this.a = null;
         }
-        return invokeLLLLL.booleanValue;
     }
 }

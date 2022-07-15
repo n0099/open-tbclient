@@ -1,0 +1,236 @@
+package com.kwad.components.a;
+
+import android.content.Context;
+import android.net.Uri;
+import android.net.http.Headers;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.WebResourceResponse;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.kwad.components.a.b.b;
+import com.kwad.components.a.b.c;
+import com.kwad.sdk.crash.utils.g;
+import com.kwad.sdk.utils.o;
+import java.io.BufferedInputStream;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URLConnection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public final class b {
+    public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, com.kwad.components.a.kwai.b> a;
+    public static final Map<String, String> b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1242326138, "Lcom/kwad/components/a/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1242326138, "Lcom/kwad/components/a/b;");
+                return;
+            }
+        }
+        a = new ConcurrentHashMap();
+        b = new ConcurrentHashMap();
+    }
+
+    @Nullable
+    public static WebResourceResponse a(Context context, String str, com.kwad.sdk.e.kwai.b bVar, b.a aVar, boolean z) {
+        InterceptResult invokeCommon;
+        com.kwad.components.a.kwai.b bVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, bVar, aVar, Boolean.valueOf(z)})) == null) {
+            try {
+                bVar2 = a(context, bVar, str);
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.b.b(e);
+                aVar.a = "获取配置文件失败" + Log.getStackTraceString(e);
+                bVar2 = null;
+            }
+            if (bVar2 == null) {
+                a(z, "获取配置文件失败");
+                aVar.a = "获取配置文件失败";
+                return null;
+            } else if (TextUtils.isEmpty(bVar2.f)) {
+                a(z, "getResource [" + str + "] getFilePath from url fail");
+                aVar.a = "getFilePath from url fail";
+                return null;
+            } else if (!c.a(bVar2.d)) {
+                a(z, "mimetype为: " + bVar2.d + "不在拦截范围的文件");
+                aVar.a = "mimetype为: " + bVar2.d + "不在拦截范围的文件";
+                return null;
+            } else {
+                BufferedInputStream a2 = o.a(bVar2.f);
+                if (a2 == null) {
+                    a(z, "getResource [" + str + "] inputStream is null");
+                    StringBuilder sb = new StringBuilder("inputStream is null,本地加载路径：");
+                    sb.append(bVar2.f);
+                    aVar.a = sb.toString();
+                    return null;
+                }
+                return a(a2, bVar2);
+            }
+        }
+        return (WebResourceResponse) invokeCommon.objValue;
+    }
+
+    public static WebResourceResponse a(InputStream inputStream, com.kwad.components.a.kwai.b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, bVar)) == null) {
+            String str = bVar.d;
+            if (Build.VERSION.SDK_INT >= 21) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Access-Control-Allow-Origin", bVar.e.a);
+                hashMap.put("Access-Control-Allow-Credentials", "true");
+                hashMap.put("Timing-Allow-Origin", bVar.e.b);
+                hashMap.put(Headers.CONTENT_TYPE, str);
+                hashMap.put("Date", bVar.e.d);
+                hashMap.put("union-cache ", "1");
+                return new WebResourceResponse(bVar.d, "", bVar.a, "OK", hashMap, inputStream);
+            }
+            return new WebResourceResponse(str, "UTF-8", inputStream);
+        }
+        return (WebResourceResponse) invokeLL.objValue;
+    }
+
+    public static com.kwad.components.a.kwai.b a(Context context, com.kwad.sdk.e.kwai.b bVar, String str) {
+        InterceptResult invokeLLL;
+        InputStreamReader inputStreamReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65539, null, context, bVar, str)) != null) {
+            return (com.kwad.components.a.kwai.b) invokeLLL.objValue;
+        }
+        FileInputStream fileInputStream = null;
+        try {
+            String b2 = b(bVar.a);
+            com.kwad.components.a.kwai.b a2 = !TextUtils.isEmpty(b2) ? a(a(b2, str)) : null;
+            if (a2 != null) {
+                com.kwad.sdk.crash.utils.b.a((Closeable) null);
+                com.kwad.sdk.crash.utils.b.a((Closeable) null);
+                return a2;
+            }
+            String d = com.kwad.components.a.b.a.d(context, bVar.b);
+            if (d == null) {
+                com.kwad.sdk.crash.utils.b.a((Closeable) null);
+                com.kwad.sdk.crash.utils.b.a((Closeable) null);
+                return null;
+            }
+            File file = new File(d);
+            if (!file.exists()) {
+                com.kwad.sdk.crash.utils.b.a((Closeable) null);
+                com.kwad.sdk.crash.utils.b.a((Closeable) null);
+                return null;
+            }
+            FileInputStream fileInputStream2 = new FileInputStream(file);
+            try {
+                inputStreamReader = new InputStreamReader(fileInputStream2);
+                try {
+                    String a3 = g.a(inputStreamReader);
+                    if (TextUtils.isEmpty(a3)) {
+                        com.kwad.sdk.crash.utils.b.a(fileInputStream2);
+                        com.kwad.sdk.crash.utils.b.a(inputStreamReader);
+                        return null;
+                    }
+                    JSONObject jSONObject = new JSONObject(a3);
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        JSONObject jSONObject2 = jSONObject.getJSONObject(next);
+                        com.kwad.components.a.kwai.b bVar2 = new com.kwad.components.a.kwai.b();
+                        bVar2.parseJson(jSONObject2);
+                        String host = Uri.parse("https://" + next).getHost();
+                        bVar2.g = host;
+                        bVar2.f = com.kwad.components.a.b.a.c(context, bVar.b) + "/" + next;
+                        if (TextUtils.isEmpty(bVar2.d)) {
+                            bVar2.d = URLConnection.getFileNameMap().getContentTypeFor(bVar2.f);
+                        }
+                        a(next, bVar2);
+                        b2 = host;
+                    }
+                    b(bVar.a, b2);
+                    com.kwad.components.a.kwai.b a4 = a(a(b2, str));
+                    com.kwad.sdk.crash.utils.b.a(fileInputStream2);
+                    com.kwad.sdk.crash.utils.b.a(inputStreamReader);
+                    return a4;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream = fileInputStream2;
+                    com.kwad.sdk.crash.utils.b.a(fileInputStream);
+                    com.kwad.sdk.crash.utils.b.a(inputStreamReader);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                inputStreamReader = null;
+            }
+        } catch (Throwable th3) {
+            th = th3;
+            inputStreamReader = null;
+        }
+    }
+
+    public static com.kwad.components.a.kwai.b a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? a.get(String.valueOf(str.hashCode())) : (com.kwad.components.a.kwai.b) invokeL.objValue;
+    }
+
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            return str + Uri.parse(str2).getPath();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void a(String str, com.kwad.components.a.kwai.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, bVar) == null) {
+            a.put(String.valueOf(str.hashCode()), bVar);
+        }
+    }
+
+    public static void a(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZL(65543, null, z, str) == null) || z) {
+            return;
+        }
+        com.kwad.sdk.core.d.b.a("HybridResourceManager", str);
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? b.get(str) : (String) invokeL.objValue;
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        b.put(str, str2);
+    }
+}

@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o10;
-import com.repackage.t10;
-import com.repackage.u10;
+import com.repackage.q10;
+import com.repackage.v10;
+import com.repackage.w10;
 /* loaded from: classes2.dex */
 public abstract class BaseIPCProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -31,12 +31,12 @@ public abstract class BaseIPCProvider extends ContentProvider {
     public class a extends e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public u10 f;
+        public w10 f;
         public final /* synthetic */ BaseIPCProvider g;
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.BaseIPCProvider$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0095a implements o10.c<String> {
+        public class C0095a implements q10.c<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
@@ -59,7 +59,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
                 this.a = fVar;
             }
 
-            @Override // com.repackage.o10.c
+            @Override // com.repackage.q10.c
             public void a(int i, Exception exc, Bundle bundle) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeILL(1048576, this, i, exc, bundle) == null) {
@@ -71,7 +71,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.o10.c
+            @Override // com.repackage.q10.c
             /* renamed from: b */
             public void onResult(String str, Bundle bundle) {
                 Interceptable interceptable = $ic;
@@ -100,7 +100,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
                 }
             }
             this.g = baseIPCProvider;
-            this.f = new u10(this.g.getContext().getApplicationContext());
+            this.f = new w10(this.g.getContext().getApplicationContext());
         }
 
         @Override // com.baidu.helios.bridge.multiprocess.e
@@ -108,7 +108,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bundle)) == null) {
-                o10.d g = this.f.a().g(str, bundle);
+                q10.d g = this.f.a().g(str, bundle);
                 if (g == null) {
                     return null;
                 }
@@ -258,7 +258,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
             b();
             Bundle bundle = new Bundle();
             g.n(bundle, this.a.asBinder());
-            return new t10(bundle);
+            return new v10(bundle);
         }
         return (Cursor) invokeLLLLL.objValue;
     }

@@ -1,77 +1,129 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
+import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
+import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetVipInfo.VipSpecialItem;
-import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes6.dex */
-public class li7 implements nn {
+public class li7 extends b9<BubbleChooseActivity> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public bi7 a;
-    public List<mi7> b;
+    public NavigationBar a;
+    public ViewGroup b;
+    public GridView c;
+    public View d;
+    public ki7 e;
+    public BubbleChooseActivity f;
+    public ProgressBar g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755528041, "Lcom/repackage/li7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755528041, "Lcom/repackage/li7;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    public li7(VipSpecialList vipSpecialList) {
-        List<VipSpecialItem> list;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public li7(TbPageContext<BubbleChooseActivity> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
-            return;
+        BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
+        this.f = orignalPage;
+        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d015f);
+        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f091217);
+        this.a = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a.setTitleText(R.string.obfuscated_res_0x7f0f0533);
+        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0160, this.f);
+        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0906a0);
+        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090cba);
+        ki7 ki7Var = new ki7(tbPageContext);
+        this.e = ki7Var;
+        this.c.setAdapter((ListAdapter) ki7Var);
+        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f090450);
+    }
+
+    public ki7 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (ki7) invokeV.objValue;
+    }
+
+    public View h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (View) invokeV.objValue;
+    }
+
+    public GridView j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (GridView) invokeV.objValue;
+    }
+
+    public BubbleListData.BubbleData k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            ki7 ki7Var = this.e;
+            if (ki7Var == null) {
+                return null;
+            }
+            return ki7Var.getItem(i);
         }
-        String str = vipSpecialList.card_id;
-        bi7 bi7Var = new bi7();
-        this.a = bi7Var;
-        bi7Var.e(1);
-        this.a.d(vipSpecialList.class_name);
-        this.a.f(vipSpecialList.class_url_name);
-        this.a.g(vipSpecialList.class_url);
-        this.b = new ArrayList();
-        for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
-            this.b.add(new mi7(vipSpecialItem));
+        return (BubbleListData.BubbleData) invokeI.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.g.setVisibility(8);
         }
     }
 
-    @Override // com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void m(List<BubbleListData.BubbleData> list, boolean z) {
+        ki7 ki7Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, list, z) == null) || (ki7Var = this.e) == null) {
+            return;
+        }
+        ki7Var.d(z);
+        this.e.c(list);
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.g.setVisibility(0);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.a.onChangeSkinType((TbPageContext) getPageContext(), i);
+            this.f.getLayoutMode().k(i == 1);
+            this.f.getLayoutMode().j(this.b);
+        }
     }
 }

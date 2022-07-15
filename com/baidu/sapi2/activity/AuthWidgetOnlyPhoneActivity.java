@@ -78,7 +78,7 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d04c8);
+            setContentView(R.layout.obfuscated_res_0x7f0d04e1);
             this.t = getIntent().getStringExtra("EXTRA_PARAM_AUTH_ID");
             this.u = getIntent().getStringExtra(EXTRA_PARAM_SCENE);
             init();

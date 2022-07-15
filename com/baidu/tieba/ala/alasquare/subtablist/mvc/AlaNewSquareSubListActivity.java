@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ir5;
+import com.repackage.fs5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ir5 a;
+    public fs5 a;
     public AlaSquareTabInfo b;
     public String c;
     public String d;
@@ -75,9 +75,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            ir5 ir5Var = this.a;
-            if (ir5Var != null) {
-                ir5Var.h(getPageContext(), i);
+            fs5 fs5Var = this.a;
+            if (fs5Var != null) {
+                fs5Var.h(getPageContext(), i);
             }
         }
     }
@@ -87,7 +87,7 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new ir5(getPageContext(), true);
+            this.a = new fs5(getPageContext(), true);
             if (getIntent() != null) {
                 A1(getIntent());
             } else {
@@ -101,9 +101,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            ir5 ir5Var = this.a;
-            if (ir5Var != null) {
-                ir5Var.i();
+            fs5 fs5Var = this.a;
+            if (fs5Var != null) {
+                fs5Var.i();
             }
         }
     }

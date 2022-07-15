@@ -33,9 +33,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.am;
 import com.repackage.dg;
 import com.repackage.fm;
+import com.repackage.mt4;
 import com.repackage.oi;
 import com.repackage.qg;
-import com.repackage.ws4;
 import com.repackage.zl;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
@@ -402,7 +402,7 @@ public class ViewHelper {
                                 ViewHelper.setTextColor((CheckBox) view2, this.val$skinType);
                                 return false;
                             } else if (ViewHelper.SIDE_BAR_CONTENT.equals(tag)) {
-                                ((TextView) view2).setTextAppearance(TbadkCoreApplication.getInst().getApp(), this.val$isNight ? R.style.obfuscated_res_0x7f1003f1 : R.style.obfuscated_res_0x7f1003ef);
+                                ((TextView) view2).setTextAppearance(TbadkCoreApplication.getInst().getApp(), this.val$isNight ? R.style.obfuscated_res_0x7f1003f4 : R.style.obfuscated_res_0x7f1003f3);
                                 return false;
                             } else if (ViewHelper.MORE_UP.equals(tag)) {
                                 if (view2 instanceof RadioButton) {
@@ -519,7 +519,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLLL(65563, null, context, str, str2) == null) || context == null) {
             return;
         }
-        ws4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        mt4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
     }
 
@@ -529,7 +529,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65564, null, context) == null) || context == null) {
             return;
         }
-        ws4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+        mt4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
         skipToLoginActivity(context);
     }
 
@@ -559,7 +559,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLL(65562, null, context, str) == null) || context == null) {
             return;
         }
-        ws4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        mt4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         checkDownloadSo("libmml_framework.so", "com.baidu.tieba.soloader.libmmlframework", "mml_framework");
         checkDownloadSo("libc++_shared.so", "com.baidu.tieba.soloader.libcshared", SwanKV.LIB_CPP_SHARED);
         checkDownloadSo("libopencv_java3.so", "com.baidu.tieba.soloader.libopencv_java3", "opencv_java3");

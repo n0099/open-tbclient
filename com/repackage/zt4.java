@@ -1,29 +1,91 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.pb.ejection.EjectionAnimationView;
+import com.baidu.tieba.view.WaterRippleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class zt4 extends TBSpecificationButtonConfig {
+public class zt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean u;
+    public final TbPageContext<?> a;
+    public int b;
+    public FrameLayout c;
+    public WaterRippleView d;
+    public EjectionAnimationView e;
+    public AgreeView f;
+    public PopupWindow g;
 
-    public zt4() {
+    /* loaded from: classes7.dex */
+    public class a implements is7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zt4 a;
+
+        public a(zt4 zt4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zt4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zt4Var;
+        }
+
+        @Override // com.repackage.is7
+        public /* synthetic */ void onStart() {
+            hs7.a(this);
+        }
+
+        @Override // com.repackage.is7
+        public void onStop() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.e.setVisibility(8);
+                if (this.a.g != null && this.a.g.isShowing()) {
+                    sg.d(this.a.g, this.a.a.getPageActivity());
+                }
+                if (this.a.f != null) {
+                    this.a.f.P();
+                }
+            }
+        }
+    }
+
+    public zt4(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,108 +95,120 @@ public class zt4 extends TBSpecificationButtonConfig {
                 return;
             }
         }
-        this.i = true;
-        this.b = R.color.CAM_X0101;
-        this.d = R.color.CAM_X0302;
-        this.u = false;
-        this.n = this.o;
-        this.m = this.l;
+        this.b = 0;
+        this.a = tbPageContext;
+        f();
+        g();
     }
 
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
+    public final int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? r(f) : (Drawable) invokeF.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? UtilHelper.getImmersiveStickyBarHeight() + UtilHelper.getScreenHeight(this.a.getPageActivity()) : invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    @Deprecated
-    public void i(int i, int i2, TBSpecificationButtonConfig.IconType iconType) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, iconType) == null) {
-            u(i, iconType);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new FrameLayout(this.a.getPageActivity());
+            this.e = new EjectionAnimationView(this.a.getPageActivity());
+            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.e.setEjectionAnimationViewCallback(new a(this));
+            this.c.addView(this.e);
         }
     }
 
-    public void p(@ColorRes int i) {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-            this.d = R.color.CAM_X0904;
-            this.u = false;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            PopupWindow popupWindow = new PopupWindow();
+            this.g = popupWindow;
+            popupWindow.setContentView(this.c);
+            this.g.setHeight(e());
+            this.g.setWidth(-1);
+            this.g.setOutsideTouchable(false);
+            this.g.setFocusable(false);
+            this.g.setTouchable(false);
         }
     }
 
-    public void q(@ColorRes int i) {
+    public final void h(View view2, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = R.color.CAM_X0101;
-            this.d = i;
-            this.u = false;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, rect) == null) && sg.m(this.g, view2, this.b, 0, 0)) {
+            this.e.setAnchorPosition((rect.right + rect.left) / 2, (rect.bottom + rect.top) / 2);
+            this.e.k();
         }
     }
 
-    public final Drawable r(float f) {
-        InterceptResult invokeF;
+    public void i(AgreeView agreeView) {
+        WaterRippleView waterRippleView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-            if (this.u) {
-                return s(f);
-            }
-            return t(f);
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, agreeView) == null) || agreeView == null || (waterRippleView = this.d) == null) {
+            return;
         }
-        return (Drawable) invokeF.objValue;
+        ViewParent parent = waterRippleView.getParent();
+        if (parent instanceof ViewGroup) {
+            ((ViewGroup) parent).removeView(this.d);
+        }
     }
 
-    public final Drawable s(float f) {
-        InterceptResult invokeF;
-        GradientDrawable gradientDrawable;
+    public void j(boolean z) {
+        PopupWindow popupWindow;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            int color = SkinManager.getColor(this.r, this.d);
-            int[] iArr = {xf8.c(color), color};
-            if (Build.VERSION.SDK_INT >= 16) {
-                gradientDrawable = new GradientDrawable();
-                gradientDrawable.setOrientation(this.s);
-                gradientDrawable.setColors(iArr);
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (popupWindow = this.g) == null) {
+            return;
+        }
+        popupWindow.setClippingEnabled(z);
+    }
+
+    public void k(View view2, List<Bitmap> list, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, view2, list, rect) == null) {
+            this.e.setVisibility(0);
+            this.e.setBitmaps(list);
+            h(view2, rect);
+        }
+    }
+
+    public void l(LinearLayout linearLayout, AgreeView agreeView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, linearLayout, agreeView) == null) || linearLayout == null || agreeView == null) {
+            return;
+        }
+        if (agreeView.getWidth() != 0 && agreeView.getHeight() != 0) {
+            this.f = agreeView;
+            WaterRippleView waterRippleView = this.d;
+            if (waterRippleView == null) {
+                this.d = new WaterRippleView(this.a.getPageActivity());
             } else {
-                gradientDrawable = new GradientDrawable(this.s, iArr);
+                ViewParent parent = waterRippleView.getParent();
+                if (parent instanceof ViewGroup) {
+                    ((ViewGroup) parent).removeView(this.d);
+                }
             }
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
+            linearLayout.getGlobalVisibleRect(new Rect());
+            Rect rect = new Rect();
+            agreeView.getImgAgree().getGlobalVisibleRect(rect);
+            int centerX = rect.centerX();
+            int centerY = rect.centerY();
+            int f = pi.f(this.a.getPageActivity(), R.dimen.tbds166);
+            int i = centerX - f;
+            int i2 = centerY - f;
+            int i3 = f * 2;
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i3);
+            layoutParams.addRule(13, -1);
+            layoutParams.setMargins(i, i2, 0, 0);
+            this.c.addView(this.d, layoutParams);
+            return;
         }
-        return (Drawable) invokeF.objValue;
+        BdLog.e("AgreeView not measured");
     }
 
-    public final Drawable t(float f) {
-        InterceptResult invokeF;
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void u(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, iconType) == null) {
-            this.e[0] = i;
-            this.f = iconType;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e.l();
         }
     }
 }

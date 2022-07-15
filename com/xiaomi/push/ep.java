@@ -49,9 +49,9 @@ public class ep extends es {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            if (m314b() && bitmap != null) {
+            if (m1257b() && bitmap != null) {
                 if (bitmap.getWidth() != 984 || 184 > bitmap.getHeight() || bitmap.getHeight() > 1678) {
-                    com.xiaomi.channel.commonutils.logger.b.m84a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
+                    com.xiaomi.channel.commonutils.logger.b.m1027a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
                 } else {
                     this.b = bitmap;
                 }
@@ -66,11 +66,11 @@ public class ep extends es {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (m314b() && !TextUtils.isEmpty(str)) {
+            if (m1257b() && !TextUtils.isEmpty(str)) {
                 try {
                     this.a = Color.parseColor(str);
                 } catch (Exception unused) {
-                    com.xiaomi.channel.commonutils.logger.b.m84a("parse banner notification image text color error");
+                    com.xiaomi.channel.commonutils.logger.b.m1027a("parse banner notification image text color error");
                 }
             }
             return this;
@@ -100,8 +100,8 @@ public class ep extends es {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!m314b() || this.b == null) {
-                m313b();
+            if (!m1257b() || this.b == null) {
+                m1256b();
                 return;
             }
             super.a();
@@ -123,14 +123,14 @@ public class ep extends es {
                 a(a3);
             }
             int a4 = a(resources, "title", "id", packageName);
-            a().setTextViewText(a4, ((es) this).f311a);
-            Map<String, String> map = ((es) this).f314a;
+            a().setTextViewText(a4, ((es) this).f1038a);
+            Map<String, String> map = ((es) this).f1041a;
             if (map != null && this.a == 16777216) {
                 a(map.get("notification_image_text_color"));
             }
             RemoteViews a5 = a();
             int i = this.a;
-            a5.setTextColor(a4, (i == 16777216 || !m312a(i)) ? -1 : -16777216);
+            a5.setTextColor(a4, (i == 16777216 || !m1255a(i)) ? -1 : -16777216);
             setCustomContentView(a());
             Bundle bundle = new Bundle();
             bundle.putBoolean("miui.customHeight", true);
@@ -143,7 +143,7 @@ public class ep extends es {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (m.m555a()) {
+            if (m.m1498a()) {
                 Resources resources = a().getResources();
                 String packageName = a().getPackageName();
                 return (a(a().getResources(), "bg", "id", a().getPackageName()) == 0 || a(resources, "icon", "id", packageName) == 0 || a(resources, "title", "id", packageName) == 0 || m.a(a()) < 9) ? false : true;
@@ -157,7 +157,7 @@ public class ep extends es {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bitmap)) == null) {
-            if (m314b() && bitmap != null) {
+            if (m1257b() && bitmap != null) {
                 this.c = bitmap;
             }
             return this;

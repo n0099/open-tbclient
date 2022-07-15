@@ -1,138 +1,51 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ba2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ba2 {
+    public static final boolean c0 = rg1.a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755833794, "Lcom/repackage/ba2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public interface a {
+        String a();
+
+        JSONObject b();
+
+        boolean isValid();
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map<String, a> a;
+        public boolean b;
+        public int c;
+        public int d;
+
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755833794, "Lcom/repackage/ba2;");
-                return;
-            }
-        }
-        a = cg1.a;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            f(0).f().c();
-            f(0).e().f();
-            if (f(1) != null) {
-                f(1).f().c();
-                f(1).e().f();
-            }
-        }
-    }
-
-    public static <T extends ya2> Exception b(int i, T t) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, t)) == null) {
-            ea2 f = f(i);
-            if (f == null) {
-                return new Exception("SwanExtCore-Manager doRemoteUpdate: null extensionCoreManager");
-            }
-            return f.a(t);
-        }
-        return (Exception) invokeIL.objValue;
-    }
-
-    public static ExtensionCore c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            ea2 f = f(i);
-            if (f == null) {
-                return null;
-            }
-            return f.c();
-        }
-        return (ExtensionCore) invokeI.objValue;
-    }
-
-    public static long d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            ExtensionCore c = c(i);
-            if (c != null) {
-                return c.extensionCoreVersionCode;
-            }
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    public static String e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            ExtensionCore c = c(i);
-            return (c == null || TextUtils.isEmpty(c.extensionCoreVersionName)) ? "0" : c.extensionCoreVersionName;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static ea2 f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (i == 1) {
-                ea2 u = aj2.i().u();
-                if (u == null && cg1.a) {
-                    Log.e("SwanGameRuntime", "非手百环境依赖注入接口getSwanGameExtensionCoreManager未实现，直接返回");
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return u;
             }
-            return aa2.k();
-        }
-        return (ea2) invokeI.objValue;
-    }
-
-    public static void g(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65543, null, i, i2) == null) {
-            if (a) {
-                Log.d("SwanExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
-            }
-            if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i != i2) {
-                a();
-                jb2.i(0, true);
-                jb2.i(1, true);
-            }
-        }
-    }
-
-    public static void h(int i, @Nullable le3<Exception> le3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65544, null, i, le3Var) == null) {
-            ea2 f = f(i);
-            if (f != null) {
-                f.g(le3Var);
-            } else if (le3Var != null) {
-                le3Var.a(null);
-            }
+            this.a = new HashMap();
+            this.b = true;
+            this.c = 0;
+            this.d = 0;
         }
     }
 }

@@ -1,59 +1,336 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.swan.apps.view.narootview.SwanAppInlineFullScreenContainer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class kh2 extends md2<di2> {
+public class kh2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean i;
+    public static final ViewGroup.LayoutParams j;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public View b;
+    public FrameLayout c;
+    public int d;
+    public int e;
+    public String f;
+    public c g;
+    public d h;
 
-    public kh2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kh2 a;
+
+        public a(kh2 kh2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kh2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b == null) {
+                return;
+            }
+            this.a.b.requestFocus();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+
+        public b(kh2 kh2Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh2Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                fa3.c().e(this.a, -1.0f);
             }
         }
     }
 
-    @Override // com.repackage.md2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRate" : (String) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public interface c {
+        void onCustomViewHidden();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.md2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull di2 di2Var) {
-        Object obj;
-        float floatValue;
+    /* loaded from: classes6.dex */
+    public static class d implements wl2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Activity a;
+        public String b;
+
+        public d(Activity activity, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {activity, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
+            this.b = str;
+        }
+
+        @Override // com.repackage.wl2
+        public void a(pm1 pm1Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, pm1Var) == null) && TextUtils.equals(pm1Var.b(), this.b)) {
+                kh2.f(this.a, true);
+                ((ViewGroup) this.a.getWindow().getDecorView()).setSystemUiVisibility(4098);
+            }
+        }
+
+        @Override // com.repackage.wl2
+        public void b(pm1 pm1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pm1Var) == null) {
+            }
+        }
+
+        @Override // com.repackage.wl2
+        public void c(pm1 pm1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pm1Var) == null) {
+            }
+        }
+
+        @Override // com.repackage.wl2
+        public void d(pm1 pm1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, pm1Var) == null) {
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755558948, "Lcom/repackage/kh2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755558948, "Lcom/repackage/kh2;");
+                return;
+            }
+        }
+        i = rg1.a;
+        j = new FrameLayout.LayoutParams(-1, -1);
+    }
+
+    public kh2(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, di2Var) == null) || (obj = command.obj) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        this.f = str;
+    }
+
+    public static void f(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, z) == null) {
+            activity.getWindow().setFlags(!z ? 0 : 1024, 1024);
+        }
+    }
+
+    @UiThread
+    public synchronized void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            synchronized (this) {
+                if (i) {
+                    Log.d("SwanCustomViewHelper", "addComponentToFullScreen: " + str);
+                }
+                wv1 b2 = uw1.b(this.f, str);
+                if (b2 == null) {
+                    return;
+                }
+                if ("coverView".equals(b2.n().a) || "coverImage".equals(b2.n().a)) {
+                    if (this.c == null) {
+                        return;
+                    }
+                    SwanAppComponentContainerView m = b2.m();
+                    if (m == null) {
+                        return;
+                    }
+                    ViewParent parent = m.getParent();
+                    if (parent instanceof ViewGroup) {
+                        ((ViewGroup) parent).removeView(m);
+                        this.c.addView(m);
+                    }
+                }
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b == null) {
             return;
         }
-        if (obj instanceof Float) {
-            floatValue = ((Float) obj).floatValue();
-        } else {
-            floatValue = obj instanceof Double ? ((Double) obj).floatValue() : Float.MIN_VALUE;
+        if (i) {
+            Log.i("SwanCustomViewHelper", "hideCustomView");
         }
-        if (floatValue != Float.MIN_VALUE) {
-            di2Var.setSpeed(floatValue);
-            String str = command.what;
-            d(di2Var, str, "playbackRate: " + command.obj, false);
+        Context context = this.a;
+        Activity activity = context instanceof Activity ? (Activity) context : null;
+        if (activity != null) {
+            be3.a0(new b(this, activity));
+            xl2.f(this.h);
+            this.h = null;
+            f(activity, false);
+            ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+            viewGroup.removeView(this.c);
+            this.c = null;
+            this.b = null;
+            c cVar = this.g;
+            if (cVar != null) {
+                cVar.onCustomViewHidden();
+            }
+            activity.setRequestedOrientation(this.d);
+            viewGroup.setSystemUiVisibility(this.e);
+        }
+    }
+
+    @UiThread
+    public synchronized void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            synchronized (this) {
+                if (i) {
+                    Log.d("SwanCustomViewHelper", "removeComponentFromFullScreen: " + str);
+                }
+                wv1 b2 = uw1.b(this.f, str);
+                if (b2 == null) {
+                    return;
+                }
+                if ("coverView".equals(b2.n().a) || "coverImage".equals(b2.n().a)) {
+                    SwanAppComponentContainerView m = b2.m();
+                    if (m == null) {
+                        return;
+                    }
+                    ViewParent parent = m.getParent();
+                    if (parent instanceof ViewGroup) {
+                        ((ViewGroup) parent).removeView(m);
+                        b2.insert();
+                    }
+                }
+            }
+        }
+    }
+
+    public void g(View view2, int i2, @Nullable c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, view2, i2, cVar) == null) {
+            if (i) {
+                Log.i("SwanCustomViewHelper", "showCustomView");
+            }
+            Context context = this.a;
+            Activity activity = context instanceof Activity ? (Activity) context : null;
+            if (activity != null) {
+                if (this.b != null) {
+                    if (cVar != null) {
+                        cVar.onCustomViewHidden();
+                        this.g = cVar;
+                        return;
+                    }
+                    return;
+                }
+                this.d = activity.getRequestedOrientation();
+                ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+                SwanAppInlineFullScreenContainer swanAppInlineFullScreenContainer = new SwanAppInlineFullScreenContainer(activity);
+                this.c = swanAppInlineFullScreenContainer;
+                swanAppInlineFullScreenContainer.addView(view2, j);
+                viewGroup.addView(this.c, j);
+                this.b = view2;
+                f(activity, true);
+                activity.setRequestedOrientation(i2);
+                if (oj2.M().a() && (activity instanceof SwanAppActivity)) {
+                    ((SwanAppActivity) activity).x(true, false);
+                }
+                this.e = viewGroup.getSystemUiVisibility();
+                viewGroup.setSystemUiVisibility(4098);
+                if (this.h == null) {
+                    this.h = new d(activity, this.f);
+                }
+                xl2.e(this.h);
+                be3.a0(new a(this));
+            }
         }
     }
 }

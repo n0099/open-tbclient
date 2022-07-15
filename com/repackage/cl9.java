@@ -1,45 +1,30 @@
 package com.repackage;
 
-import android.util.Log;
-import android.view.ViewTreeObserver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
+import com.google.android.gms.common.zzi;
 /* loaded from: classes5.dex */
-public class cl9 implements ViewTreeObserver.OnWindowFocusChangeListener {
+public final class cl9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final zzi[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ tl9 a;
 
-    public cl9(tl9 tl9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tl9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755793215, "Lcom/repackage/cl9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755793215, "Lcom/repackage/cl9;");
                 return;
             }
         }
-        this.a = tl9Var;
-    }
-
-    @Override // android.view.ViewTreeObserver.OnWindowFocusChangeListener
-    public void onWindowFocusChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onWindowFocusChanged:" + z);
-            if (this.a.c != null) {
-                Log.e(MiPushClient.COMMAND_REGISTER, "FocusChange000");
-                this.a.c.a(z);
-            }
-        }
+        a = new zzi[]{dl9.a, dl9.b};
     }
 }

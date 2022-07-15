@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kv9;
-import com.repackage.lv9;
-import com.repackage.mv9;
+import com.repackage.hs9;
+import com.repackage.is9;
+import com.repackage.js9;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes8.dex */
 public final class Actions {
@@ -21,7 +21,7 @@ public final class Actions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class NotImplemented implements lv9<Throwable> {
+    public static final class NotImplemented implements is9<Throwable> {
         public static final /* synthetic */ NotImplemented[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NotImplemented INSTANCE;
@@ -77,7 +77,7 @@ public final class Actions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.lv9
+        @Override // com.repackage.is9
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -87,7 +87,7 @@ public final class Actions {
     }
 
     /* loaded from: classes8.dex */
-    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements kv9, lv9<T0>, mv9<T0, T1> {
+    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements hs9, is9<T0>, js9<T0, T1> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,21 +105,21 @@ public final class Actions {
             }
         }
 
-        @Override // com.repackage.kv9
+        @Override // com.repackage.hs9
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.repackage.lv9
+        @Override // com.repackage.is9
         public void call(T0 t0) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t0) == null) {
             }
         }
 
-        @Override // com.repackage.mv9
+        @Override // com.repackage.js9
         public void call(T0 t0, T1 t1) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t0, t1) == null) {
@@ -197,9 +197,9 @@ public final class Actions {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (a) invokeV.objValue;
     }
 
-    public static lv9<Throwable> b() {
+    public static is9<Throwable> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? NotImplemented.INSTANCE : (lv9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? NotImplemented.INSTANCE : (is9) invokeV.objValue;
     }
 }

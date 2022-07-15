@@ -1,44 +1,98 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseActivity;
+import android.location.Address;
+import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestCommonViewHolder;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.permissionhelper.ApiUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.jf;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public class ue7 extends an<ze7, SearchSuggestCommonViewHolder> {
+public class ue7 implements kf {
     public static /* synthetic */ Interceptable $ic;
+    public static ue7 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context i;
+    public Context a;
+    public boolean b;
+    public String c;
+    public jf.d d;
+    public b e;
+    public LocationClient f;
+    public LocationClientOption g;
+    public Address h;
+    public long i;
+    public boolean j;
 
     /* loaded from: classes7.dex */
-    public class a implements xn {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
 
-        public a(ue7 ue7Var, Context context) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ue7Var, context};
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
+                if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && (customResponsedMessage.getData() instanceof Boolean)) {
+                    if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                        jf.n().r(ue7.j());
+                    } else {
+                        jf.n().v(ue7.j());
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements BDLocationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ue7 a;
+
+        public b(ue7 ue7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ue7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,91 +102,181 @@ public class ue7 extends an<ze7, SearchSuggestCommonViewHolder> {
                     return;
                 }
             }
-            this.a = context;
+            this.a = ue7Var;
         }
 
-        @Override // com.repackage.xn
-        public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof ze7)) {
-                ze7 ze7Var = (ze7) nnVar;
-                String a = ze7Var.a();
-                String b = ze7Var.b();
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921595, b);
-                Context context = this.a;
-                if (context != null && (context instanceof BdBaseActivity)) {
-                    customResponsedMessage.setmOrginalMessage(new CustomMessage(2921595, ((BdBaseActivity) context).getUniqueId()));
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                if ((ApiUtil.shouldCheckPermission() && !PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) || bDLocation == null || bDLocation.getLocType() == 62 || bDLocation.getLocType() == 63 || bDLocation.getLocType() == 67 || bDLocation.getLocType() == 68 || bDLocation.getLocType() > 161) {
+                    return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                TiebaStatic.eventStat(this.a, "search_bar_result_click", "click", 1, new Object[0]);
-                TiebaStatic.log(new StatisticItem("c12842").param("obj_name", a).param("obj_source", "2").param("obj_type", "1").param("obj_locate", i + 1).param("obj_param1", b));
+                this.a.c();
+                this.a.h = new Address(Locale.getDefault());
+                this.a.h.setLatitude(bDLocation.getLatitude());
+                this.a.h.setLongitude(bDLocation.getLongitude());
+                xt4 k = xt4.k();
+                k.y("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
+                this.a.h.setLocality(bDLocation.getCity());
+                Bundle bundle = new Bundle();
+                bundle.putFloat("radius", bDLocation.getRadius());
+                bundle.putDouble("altitude", bDLocation.getAltitude());
+                bundle.putFloat("speed", bDLocation.getSpeed());
+                bundle.putString("cityCode", bDLocation.getCityCode());
+                bundle.putString("street", bDLocation.getStreet());
+                bundle.putString("streetNumber", bDLocation.getStreetNumber());
+                bundle.putString("province", bDLocation.getProvince());
+                this.a.h.setExtras(bundle);
+                this.a.i = System.currentTimeMillis();
+                StringBuffer stringBuffer = new StringBuffer();
+                if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
+                    stringBuffer.append(bDLocation.getCity());
+                }
+                stringBuffer.append(bDLocation.getDistrict());
+                stringBuffer.append(bDLocation.getStreet());
+                if (bDLocation.getAddrStr() != null) {
+                    this.a.h.setAddressLine(0, stringBuffer.toString());
+                }
+                if (this.a.d != null) {
+                    this.a.d.a(0, "", this.a.h, this.a.i, this.a.j);
+                    ab8.e().i(String.valueOf(this.a.h.getLatitude()));
+                    ab8.e().j(String.valueOf(this.a.h.getLongitude()));
+                    ab8.e().k(System.currentTimeMillis());
+                }
             }
+        }
+
+        public /* synthetic */ b(ue7 ue7Var, a aVar) {
+            this(ue7Var);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ue7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755263766, "Lcom/repackage/ue7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755263766, "Lcom/repackage/ue7;");
                 return;
             }
         }
-        this.i = context;
-        this.d = bdUniqueId;
-        V(new a(this, context));
+        MessageManager.getInstance().registerListener(new a(2001330));
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ze7 ze7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        a0(i, view2, viewGroup, ze7Var, searchSuggestCommonViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public SearchSuggestCommonViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public ue7() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SearchSuggestCommonViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d0734, viewGroup, false)) : (SearchSuggestCommonViewHolder) invokeL.objValue;
-    }
-
-    public View a0(int i, View view2, ViewGroup viewGroup, ze7 ze7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ze7Var, searchSuggestCommonViewHolder})) == null) {
-            if (ze7Var == null) {
-                return view2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            b0(searchSuggestCommonViewHolder);
-            WebPManager.setPureDrawable(searchSuggestCommonViewHolder.c, R.drawable.obfuscated_res_0x7f080a20, R.color.CAM_X0109, null);
-            te7.a(searchSuggestCommonViewHolder.b, ze7Var.b(), ze7Var.a());
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+        this.b = true;
+        this.c = "";
+        this.d = null;
+        this.i = 0L;
+        this.j = false;
     }
 
-    public final void b0(SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
+    public static ue7 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, searchSuggestCommonViewHolder) == null) {
-            fr4 d = fr4.d(searchSuggestCommonViewHolder.b);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X06);
-            SkinManager.setBackgroundResource(searchSuggestCommonViewHolder.a, R.drawable.addresslist_item_bg);
-            fr4.d(searchSuggestCommonViewHolder.d).f(R.color.CAM_X0203);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (k == null) {
+                synchronized (ue7.class) {
+                    if (k == null) {
+                        k = new ue7();
+                    }
+                }
+            }
+            return k;
+        }
+        return (ue7) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kf
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.b && this.f != null) {
+                try {
+                    this.j = z;
+                    if (z) {
+                        this.g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                    }
+                    this.f.setLocOption(this.g);
+                    if (!this.f.isStarted()) {
+                        this.f.start();
+                    }
+                    this.f.requestLocation();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    c();
+                    jf.d dVar = this.d;
+                    if (dVar != null) {
+                        dVar.a(5, "", this.h, this.i, this.j);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.kf
+    public void b(jf.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            this.a = context;
+            this.d = dVar;
+            this.c = "baidu";
+            if (this.b) {
+                try {
+                    this.f = new LocationClient(context);
+                    LocationClientOption locationClientOption = new LocationClientOption();
+                    this.g = locationClientOption;
+                    locationClientOption.setOpenGps(true);
+                    this.g.setIgnoreKillProcess(true);
+                    this.g.setProdName(this.c);
+                    this.g.setAddrType("all");
+                    this.g.setCoorType("bd09ll");
+                    b bVar = new b(this, null);
+                    this.e = bVar;
+                    this.f.registerLocationListener(bVar);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.kf
+    public void c() {
+        LocationClient locationClient;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f) != null && locationClient.isStarted()) {
+            try {
+                this.f.stop();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    @Override // com.repackage.kf
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c();
         }
     }
 }

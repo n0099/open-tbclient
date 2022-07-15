@@ -1,76 +1,47 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.tbadk.editortools.view.CommonTabHost;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipTaskItem;
-import tbclient.GetVipInfo.VipTaskList;
 /* loaded from: classes6.dex */
-public class oi7 implements nn {
+public class oi7 extends u15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public bi7 a;
-    public List<pi7> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755438668, "Lcom/repackage/oi7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755438668, "Lcom/repackage/oi7;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    public oi7(VipTaskList vipTaskList) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oi7(Context context) {
+        super(context, context.getString(R.string.obfuscated_res_0x7f0f0533), 12);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipTaskList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (vipTaskList == null || vipTaskList.item == null) {
-            return;
-        }
-        String str = vipTaskList.card_id;
-        bi7 bi7Var = new bi7();
-        this.a = bi7Var;
-        bi7Var.e(3);
-        this.a.d(vipTaskList.class_name);
-        this.a.f(vipTaskList.class_url_name);
-        this.a.g(vipTaskList.class_url);
-        this.b = new ArrayList();
-        for (VipTaskItem vipTaskItem : vipTaskList.item) {
-            this.b.add(new pi7(vipTaskItem));
-        }
-    }
-
-    @Override // com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        this.d = R.drawable.obfuscated_res_0x7f080975;
+        this.h = R.drawable.icon_pure_post_more_bubble64;
+        this.e = R.drawable.obfuscated_res_0x7f0807ef;
+        this.r = R.drawable.obfuscated_res_0x7f080971;
+        this.i = false;
+        this.j = true;
+        this.o = true;
+        CommonTabHost commonTabHost = new CommonTabHost(context);
+        this.m = commonTabHost;
+        commonTabHost.h(new ni7());
+        this.n = 6;
+        this.p = new int[]{1};
     }
 }

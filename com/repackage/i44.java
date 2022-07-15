@@ -1,96 +1,145 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class i44 extends d44<em2> {
+public class i44 {
     public static /* synthetic */ Interceptable $ic;
+    public static Object a;
+    public static Method b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755668440, "Lcom/repackage/i44;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755668440, "Lcom/repackage/i44;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755668440, "Lcom/repackage/i44;")) == null) {
+            return;
         }
-        boolean z = cg1.a;
-    }
-
-    public i44() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755668440, "Lcom/repackage/i44;");
         }
     }
 
-    public static i44 d() {
-        InterceptResult invokeV;
+    public static boolean a(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new i44() : (i44) invokeV.objValue;
-    }
-
-    @Override // com.repackage.d44
-    public boolean b(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, em2Var, bm2Var, sz2Var, jSONObject)) == null) ? e(context, em2Var, bm2Var, sz2Var, jSONObject) : invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, em2 em2Var, bm2 bm2Var, sz2 sz2Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, em2Var, bm2Var, sz2Var, jSONObject)) == null) {
-            sw1.i("map", "GetRegionAction start");
-            am1 A = fl2.U().A(em2Var.c);
-            if (!(A instanceof yl1)) {
-                sw1.c("map", "WebViewManager is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
+            if (!c) {
+                e();
+            }
+            Method method = b;
+            if (method == null) {
                 return false;
             }
-            b54 d = a44.b().c((yl1) A).d(em2Var.b);
-            if (d == null) {
-                sw1.c("map", "can not find map by id " + em2Var.b);
-                return false;
-            }
-            MapStatus mapStatus = d.l.getMap().getMapStatus();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
             try {
-                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
-                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
-                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
-                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
-                jSONObject.put("southwest", jSONObject3);
-                jSONObject.put("northeast", jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                method.invoke(a, strArr);
+                return true;
+            } catch (Throwable unused) {
+                return false;
             }
-            sw1.i("map", "GetRegionAction end");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String replaceAll = str.replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "/");
+            if (replaceAll.startsWith(PreferencesUtil.LEFT_MOUNT)) {
+                return replaceAll;
+            }
+            return "L" + replaceAll + ParamableElem.DIVIDE_PARAM;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean c(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            if (f()) {
+                if (cls == null) {
+                    return false;
+                }
+                return a(b(cls.getName()));
+            }
             return true;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
+            if (f()) {
+                if (strArr == null || strArr.length <= 0) {
+                    return false;
+                }
+                return a(strArr);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (i44.class) {
+                if (c) {
+                    return;
+                }
+                try {
+                    c = true;
+                    Class<?> cls = Class.forName("dalvik.system.VMRuntime");
+                    Method b2 = j44.b(cls, "getRuntime", new Class[0]);
+                    if (b2 != null) {
+                        b2.setAccessible(true);
+                        Object invoke = b2.invoke(null, new Object[0]);
+                        a = invoke;
+                        if (invoke != null) {
+                            Method b3 = j44.b(cls, "setHiddenApiExemptions", String[].class);
+                            b = b3;
+                            if (b3 != null) {
+                                b3.setAccessible(true);
+                            }
+                        }
+                    }
+                } catch (Throwable unused) {
+                }
+            }
+        }
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.VERSION.SDK_INT >= 28 : invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Build.VERSION.SDK_INT > 29 : invokeV.booleanValue;
     }
 }

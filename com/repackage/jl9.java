@@ -1,91 +1,58 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.os.Parcel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
 /* loaded from: classes6.dex */
-public class jl9 {
+public final class jl9 {
     public static /* synthetic */ Interceptable $ic;
-    public static jl9 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755584678, "Lcom/repackage/jl9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755584678, "Lcom/repackage/jl9;");
+                return;
+            }
+        }
+        jl9.class.getClassLoader();
+    }
 
     public jl9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static jl9 a() {
-        InterceptResult invokeV;
+    public static void a(Parcel parcel, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (jl9.class) {
-                    if (a == null) {
-                        a = new jl9();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeLZ(65538, null, parcel, z) == null) {
+            parcel.writeInt(1);
         }
-        return (jl9) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0064, code lost:
-        if (((r6 / 60) / 60) >= r10.a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L12;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(Context context, String str) {
+    public static boolean b(Parcel parcel) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            if (context == null) {
-                throw new RuntimeException("Error:Context is not allowed to be null");
-            }
-            context.getApplicationContext();
-            if (!TextUtils.isEmpty(str)) {
-                in9.v(context, str);
-            }
-            pn9.b(new gl9(this, context));
-            try {
-                pn9.b(new hn9(context));
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            uo9 c = uo9.c(context);
-            long B = in9.B(c.a);
-            boolean z = true;
-            if (B > 0) {
-                try {
-                    long time = (new Date().getTime() - B) / 1000;
-                    if (time < 0) {
-                        c.f();
-                    }
-                    z = false;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            if (z) {
-                c.b = System.currentTimeMillis();
-                pn9.b(new ro9(c));
-            }
-            sl9.E(context);
-            tm9.a(context);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parcel)) == null) ? parcel.readInt() != 0 : invokeL.booleanValue;
     }
 }

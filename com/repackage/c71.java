@@ -1,40 +1,42 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import com.baidu.payment.PaymentManager;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class c71<T> {
+public class c71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public c71() {
+    public static void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
+            if (bundle == null) {
+                PaymentManager.i(3, "闪付返回信息为空");
+                return;
+            }
+            String string = bundle.getString("statusCode");
+            try {
+                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
+            } catch (NumberFormatException e) {
+                PaymentManager.i(3, e.getMessage());
             }
         }
     }
 
-    public void a(Throwable th, int i, String str) {
+    public static void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
+            a71.a().g(bundle);
         }
     }
 
-    public void b(Throwable th, String str) {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
+            a71.a().h("");
         }
     }
-
-    public abstract void c(T t);
 }

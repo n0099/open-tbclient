@@ -1,74 +1,177 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URLConnection;
-import java.util.zip.GZIPInputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import com.repackage.el2;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mh4 {
+public class mh4 extends kh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String a(@NonNull File file) throws IOException {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mh4(ZeusPluginFactory.Invoker invoker, String str) {
+        super(invoker, str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            String canonicalPath = file.getCanonicalPath();
-            if (canonicalPath.endsWith("/")) {
-                return canonicalPath;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {invoker, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ZeusPluginFactory.Invoker) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return canonicalPath + "/";
         }
-        return (String) invokeL.objValue;
     }
 
-    @Nullable
-    public static File b(@NonNull File file, @NonNull String str) throws IOException {
-        InterceptResult invokeLL;
+    @Override // com.repackage.kh4, com.repackage.si2
+    public void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
-            String a = a(file);
-            String canonicalPath = new File(file, str).getCanonicalPath();
-            if (canonicalPath.startsWith(a)) {
-                return new File(canonicalPath);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.kh4
+    public void C0(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
+            try {
+                JSONObject J0 = J0();
+                JSONObject K0 = K0();
+                K0.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, i);
+                K0.put("sub_errorNo", i2);
+                K0.put("errorInfo", str);
+                J0.put("ext", K0.toString());
+                lf4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, J0);
+            } catch (Exception e) {
+                if (kh4.x) {
+                    e.printStackTrace();
+                }
             }
+        }
+    }
+
+    @Override // com.repackage.kh4
+    public void D0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                JSONObject J0 = J0();
+                J0.put("type", "first_frame");
+                J0.put("ext", K0().toString());
+                lf4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SUCCESS, J0);
+            } catch (Exception e) {
+                if (kh4.x) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.kh4, com.repackage.si2
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    @NonNull
+    public final JSONObject J0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", "video");
+                jSONObject.put("network", SwanAppNetworkUtils.e());
+            } catch (Exception e) {
+                if (kh4.x) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @NonNull
+    public final JSONObject K0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext_from", "aiapp");
+                jSONObject.put("appid", h03.g0());
+                jSONObject.put("url", this.b);
+                jSONObject.put(TiebaStatic.Params.VID, this.b);
+                jSONObject.put("isInline", true);
+                String str = "";
+                h03 M = h03.M();
+                if (M != null) {
+                    str = M.w0() ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan";
+                    el2.a Y = M.Y();
+                    if (Y != null && Y.u1() > 0) {
+                        jSONObject.put("ext_start", Y.u1());
+                    }
+                }
+                jSONObject.put("ext_page", str);
+            } catch (Exception e) {
+                if (kh4.x) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.repackage.si2
+    public void N(ZeusPluginFactory.Invoker invoker) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, invoker) == null) {
+        }
+    }
+
+    @Override // com.repackage.kh4, com.repackage.si2
+    public void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.si2
+    public ZeusPluginFactory.Invoker f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return null;
         }
-        return (File) invokeLL.objValue;
+        return (ZeusPluginFactory.Invoker) invokeV.objValue;
     }
 
-    @NonNull
-    public static String c(@NonNull String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.kh4, com.repackage.si2
+    public void n0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String guessContentTypeFromName = URLConnection.guessContentTypeFromName(str);
-            return guessContentTypeFromName == null ? "text/plain" : guessContentTypeFromName;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public static InputStream d(@NonNull String str, @NonNull InputStream inputStream) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) ? str.endsWith(".svgz") ? new GZIPInputStream(inputStream) : inputStream : (InputStream) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static InputStream e(@NonNull File file) throws FileNotFoundException, IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) ? d(file.getPath(), new FileInputStream(file)) : (InputStream) invokeL.objValue;
     }
 }

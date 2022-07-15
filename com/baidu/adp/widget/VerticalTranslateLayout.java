@@ -866,7 +866,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400e8, R.attr.obfuscated_res_0x7f0400ea, R.attr.obfuscated_res_0x7f040619, R.attr.obfuscated_res_0x7f04069f, R.attr.obfuscated_res_0x7f0406a0, R.attr.obfuscated_res_0x7f0406aa, R.attr.obfuscated_res_0x7f0406ab});
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400e8, R.attr.obfuscated_res_0x7f0400ea, R.attr.obfuscated_res_0x7f04061a, R.attr.obfuscated_res_0x7f0406a0, R.attr.obfuscated_res_0x7f0406a1, R.attr.obfuscated_res_0x7f0406ab, R.attr.obfuscated_res_0x7f0406ac});
             this.c = obtainStyledAttributes.getDimension(4, -1.0f);
             this.e = obtainStyledAttributes.getDimension(1, -1.0f);
             this.d = obtainStyledAttributes.getDimension(3, -1.0f);

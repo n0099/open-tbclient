@@ -1,53 +1,90 @@
 package com.repackage;
 
-import android.view.ViewTreeObserver;
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uk9 implements ViewTreeObserver.OnScrollChangedListener {
+public final class uk9 {
     public static /* synthetic */ Interceptable $ic;
+    @Nullable
+    public static Boolean a;
+    @Nullable
+    public static Boolean b;
+    @Nullable
+    public static Boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ql9 a;
-    public final /* synthetic */ tl9 b;
 
-    public uk9(tl9 tl9Var, ql9 ql9Var) {
+    @TargetApi(20)
+    public static boolean a(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tl9Var, ql9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            PackageManager packageManager = context.getPackageManager();
+            if (a == null) {
+                boolean z = false;
+                if (vk9.b() && packageManager.hasSystemFeature("android.hardware.type.watch")) {
+                    z = true;
+                }
+                a = Boolean.valueOf(z);
             }
+            return a.booleanValue();
         }
-        this.b = tl9Var;
-        this.a = ql9Var;
+        return invokeL.booleanValue;
     }
 
-    @Override // android.view.ViewTreeObserver.OnScrollChangedListener
-    public void onScrollChanged() {
+    @TargetApi(26)
+    public static boolean b(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                if (this.b.b || !this.b.b(this.b.a)) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (a(context)) {
+                if (!vk9.d()) {
+                    return true;
                 }
-                this.b.e.removeMessages(1101);
-                this.b.a.getViewTreeObserver().removeOnScrollChangedListener(this);
-                if (this.a != null) {
-                    this.a.a();
+                if (c(context) && !vk9.e()) {
+                    return true;
                 }
-                this.b.b = true;
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    @TargetApi(21)
+    public static boolean c(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (b == null) {
+                boolean z = false;
+                if (vk9.c() && context.getPackageManager().hasSystemFeature("cn.google")) {
+                    z = true;
+                }
+                b = Boolean.valueOf(z);
+            }
+            return b.booleanValue();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (c == null) {
+                boolean z = true;
+                if (!context.getPackageManager().hasSystemFeature("android.hardware.type.iot") && !context.getPackageManager().hasSystemFeature("android.hardware.type.embedded")) {
+                    z = false;
+                }
+                c = Boolean.valueOf(z);
+            }
+            return c.booleanValue();
+        }
+        return invokeL.booleanValue;
     }
 }

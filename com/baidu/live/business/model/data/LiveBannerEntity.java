@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oa0;
+import com.repackage.ta0;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveBannerEntity implements Parcelable {
@@ -39,7 +39,7 @@ public class LiveBannerEntity implements Parcelable {
     public LiveStatInfo statInfo;
 
     /* loaded from: classes2.dex */
-    public class a implements Parcelable.Creator<LiveBannerEntity> {
+    public static class a implements Parcelable.Creator<LiveBannerEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,7 +153,7 @@ public class LiveBannerEntity implements Parcelable {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !oa0.a(this.pic) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !ta0.a(this.pic) : invokeV.booleanValue;
     }
 
     public void parserJson(JSONObject jSONObject) {

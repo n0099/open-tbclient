@@ -5,7 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class g {
+public final class g {
     public static int a = 0;
     public static int b = 1;
     public static int c = 2;
@@ -29,20 +29,20 @@ public class g {
         return jSONArray;
     }
 
-    private String b() {
-        int lastIndexOf;
-        String str = this.d;
-        return ((str.startsWith("com.android.") || this.d.startsWith("android.permission")) && (lastIndexOf = this.d.lastIndexOf(".")) < this.d.length() + (-1)) ? this.d.substring(lastIndexOf + 1) : str;
-    }
-
-    public JSONObject a() {
+    private JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("name", b());
             jSONObject.put("state", this.e);
         } catch (JSONException e) {
-            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.b.a(e);
         }
         return jSONObject;
+    }
+
+    private String b() {
+        int lastIndexOf;
+        String str = this.d;
+        return ((str.startsWith("com.android.") || this.d.startsWith("android.permission")) && (lastIndexOf = this.d.lastIndexOf(".")) < this.d.length() + (-1)) ? this.d.substring(lastIndexOf + 1) : str;
     }
 }

@@ -1,24 +1,27 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.webkit.JavascriptInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class y21 implements Runnable {
+public class y21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
+    public a a;
 
-    public y21(long j, long j2) {
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a();
+    }
+
+    public y21(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,31 +31,14 @@ public abstract class y21 implements Runnable {
                 return;
             }
         }
-        this.a = j;
-        this.b = j2;
+        this.a = aVar;
     }
 
-    public final long a() {
-        InterceptResult invokeV;
+    @JavascriptInterface
+    public void onGoBack() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public final long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public abstract void c();
-
-    public abstract void d();
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.a();
         }
     }
 }

@@ -1,142 +1,94 @@
 package com.repackage;
 
-import android.content.Context;
+import android.net.wifi.WifiConfiguration;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dw1;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jb3 extends p13 {
+public class jb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements dw1.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ jb3 b;
-
-        public a(jb3 jb3Var, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jb3Var, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static int a(WifiConfiguration wifiConfiguration) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wifiConfiguration)) == null) {
+            if (wifiConfiguration == null) {
+                return -1;
             }
-            this.b = jb3Var;
-            this.a = callbackHandler;
-        }
-
-        @Override // com.repackage.dw1.i
-        public void a(String str, String str2, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-                this.b.k(str, str2, this.a, 0, jSONObject);
+            if (wifiConfiguration.allowedKeyManagement.get(1)) {
+                return 2;
             }
+            if (wifiConfiguration.allowedKeyManagement.get(2) || wifiConfiguration.allowedKeyManagement.get(3)) {
+                return 3;
+            }
+            if (wifiConfiguration.wepKeys[0] != null) {
+                return 1;
+            }
+            return wifiConfiguration.allowedKeyManagement.get(0) ? 0 : -1;
         }
+        return invokeL.intValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jb3(p03 p03Var) {
-        super(p03Var, "/swanAPI/openTextarea");
+    public static int b(fb3 fb3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fb3Var)) == null) {
+            if (fb3Var == null) {
+                return -1;
             }
+            if (TextUtils.isEmpty(fb3Var.c) && TextUtils.isEmpty(fb3Var.d)) {
+                return 0;
+            }
+            if (TextUtils.isEmpty(fb3Var.c) || TextUtils.isEmpty(fb3Var.d)) {
+                return !TextUtils.isEmpty(fb3Var.d) ? 2 : -1;
+            }
+            return 3;
         }
+        return invokeL.intValue;
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    public static int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (p13.b) {
-                Log.d("OpenTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+            if (str.contains("WEP")) {
+                return 1;
             }
-            sw1.i("OpenTextAreaAction", "OpenTextAreaAction paramsJson: " + optParamsAsJo);
-            ew1 ew1Var = new ew1();
-            try {
-                ew1Var.a(optParamsAsJo);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                sw1.d("OpenTextAreaAction", "model parse exception:", e);
+            if (str.contains("PSK")) {
+                return 2;
             }
-            SwanAppActivity activity = fl2.U().getActivity();
-            if (activity == null) {
-                sw1.c("OpenTextAreaAction", "activity is null when add textarea");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add textarea");
-                return false;
-            }
-            bz1 V = fl2.U().V();
-            if (V == null) {
-                sw1.c("OpenTextAreaAction", "fragmentManager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
-                return false;
-            }
-            az1 o = V.o();
-            if (o == null) {
-                sw1.c("OpenTextAreaAction", "fragment is null when add input");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
-                return false;
-            }
-            jv1 insert = new dw1(context, ew1Var, activity, o, new a(this, callbackHandler)).insert();
-            if (!insert.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
+            return str.contains("EAP") ? 3 : -1;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public final void k(String str, String str2, CallbackHandler callbackHandler, int i, JSONObject jSONObject) {
+    public static void d(WifiConfiguration wifiConfiguration, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, callbackHandler, Integer.valueOf(i), jSONObject}) == null) {
-            sw1.i("OpenTextAreaAction", "sendAsyncCallback, arg0: " + i + ", arg1: " + jSONObject);
-            if (TextUtils.isEmpty(str2)) {
-                lw1.a("OpenTextAreaAction", "sendAsyncCallback with a empty callback");
-            } else {
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            }
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, wifiConfiguration, i) == null) || wifiConfiguration == null) {
+            return;
+        }
+        wifiConfiguration.allowedKeyManagement.clear();
+        wifiConfiguration.allowedProtocols.clear();
+        wifiConfiguration.allowedAuthAlgorithms.clear();
+        wifiConfiguration.allowedPairwiseCiphers.clear();
+        wifiConfiguration.allowedGroupCiphers.clear();
+        if (i == 0) {
+            wifiConfiguration.allowedKeyManagement.set(0);
+        } else if (i == 1) {
+            wifiConfiguration.allowedKeyManagement.set(0);
+            wifiConfiguration.allowedAuthAlgorithms.set(0);
+            wifiConfiguration.allowedAuthAlgorithms.set(1);
+        } else if (i == 2) {
+            wifiConfiguration.allowedKeyManagement.set(1);
+        } else if (i != 3) {
+        } else {
+            wifiConfiguration.allowedKeyManagement.set(2);
+            wifiConfiguration.allowedKeyManagement.set(3);
         }
     }
 }

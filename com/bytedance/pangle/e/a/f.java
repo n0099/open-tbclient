@@ -1,6 +1,5 @@
 package com.bytedance.pangle.e.a;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +30,7 @@ public final class f {
         InterceptResult invokeI;
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             if (i < 0 || (iArr = this.a) == null || i >= iArr.length) {
                 return null;
             }
@@ -46,40 +45,6 @@ public final class f {
             return sb.toString();
         }
         return (String) invokeI.objValue;
-    }
-
-    public final int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, str)) != null) {
-            return invokeL.intValue;
-        }
-        if (str == null) {
-            return -1;
-        }
-        int i = 0;
-        while (true) {
-            int[] iArr = this.a;
-            if (i == iArr.length) {
-                return -1;
-            }
-            int i2 = iArr[i];
-            int a = a(this.b, i2);
-            if (a == str.length()) {
-                int i3 = 0;
-                while (i3 != a) {
-                    i2 += 2;
-                    if (str.charAt(i3) != a(this.b, i2)) {
-                        break;
-                    }
-                    i3++;
-                }
-                if (i3 == a) {
-                    return i;
-                }
-            }
-            i++;
-        }
     }
 
     public static final int a(int[] iArr, int i) {

@@ -66,7 +66,7 @@ public class PermissionChecker {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                return context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) != -1;
+                return context.checkPermission(READ_PHONE_STATE, Process.myPid(), Process.myUid()) != -1;
             } catch (Throwable th) {
                 CommonMethods.handleNuLException(th);
                 return false;

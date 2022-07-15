@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceTimerManager;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-import com.repackage.c59;
-import com.repackage.w49;
+import com.repackage.b69;
+import com.repackage.v59;
 /* loaded from: classes4.dex */
 public class VLogSimplePlayer {
     public static /* synthetic */ Interceptable $ic = null;
@@ -29,7 +29,7 @@ public class VLogSimplePlayer {
     public Runnable mAudioChangeRunnable;
     public int[] mAudioChangeTypes;
     public boolean mAudioEffectPlayerNeedSeek;
-    public volatile c59 mAudioPlayer;
+    public volatile b69 mAudioPlayer;
     public IMediaPlayer.OnCompletionListener mCompletionListener;
     public volatile int mCurrentState;
     public int[] mEQParams;
@@ -473,16 +473,16 @@ public class VLogSimplePlayer {
 
             @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnSeekCompleteListener
             public void onSeekComplete(IMediaPlayer iMediaPlayer) {
-                c59 c59Var;
-                c59 c59Var2;
+                b69 b69Var;
+                b69 b69Var2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, iMediaPlayer) == null) {
                     long currentPosition = iMediaPlayer.getCurrentPosition();
                     long duration = iMediaPlayer.getDuration();
                     if (currentPosition <= duration && currentPosition >= duration - 100 && !iMediaPlayer.isPlaying() && !this.this$0.isCompatSeekToPlayCompletion) {
                         iMediaPlayer.seekTo(iMediaPlayer.getDuration() - 110);
-                        if (this.this$0.isAudioTypeChange() && (c59Var2 = this.this$0.mAudioPlayer) != null) {
-                            c59Var2.B(iMediaPlayer.getCurrentPosition());
+                        if (this.this$0.isAudioTypeChange() && (b69Var2 = this.this$0.mAudioPlayer) != null) {
+                            b69Var2.B(iMediaPlayer.getCurrentPosition());
                         }
                         this.this$0.isCompatSeekToPlayCompletion = true;
                         return;
@@ -491,10 +491,10 @@ public class VLogSimplePlayer {
                     this.this$0.isCompatSeekToPlayCompletion = false;
                     if (this.this$0.mTargetState == 3 && this.this$0.mCurrentState == 3) {
                         this.this$0.mMediaPlayer.start();
-                        if (!this.this$0.isAudioTypeChange() || (c59Var = this.this$0.mAudioPlayer) == null) {
+                        if (!this.this$0.isAudioTypeChange() || (b69Var = this.this$0.mAudioPlayer) == null) {
                             return;
                         }
-                        c59Var.I();
+                        b69Var.I();
                     }
                 }
             }
@@ -548,7 +548,7 @@ public class VLogSimplePlayer {
     public boolean isAudioTypeChange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) ? this.mAudioPlayer != null && w49.o(this.mAudioChangeTypes) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) ? this.mAudioPlayer != null && v59.o(this.mAudioChangeTypes) : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -624,9 +624,9 @@ public class VLogSimplePlayer {
                 this.mMediaPlayer.release();
             }
             if (isAudioTypeChange()) {
-                c59 c59Var = this.mAudioPlayer;
-                if (c59Var != null) {
-                    c59Var.J();
+                b69 b69Var = this.mAudioPlayer;
+                if (b69Var != null) {
+                    b69Var.J();
                 }
                 this.mAudioPlayer = null;
             }
@@ -644,14 +644,14 @@ public class VLogSimplePlayer {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void resetInternal() {
-        c59 c59Var;
+        b69 b69Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65573, this) == null) {
             if (this.mMediaPlayer != null) {
                 this.mMediaPlayer.reset();
             }
-            if (isAudioTypeChange() && (c59Var = this.mAudioPlayer) != null) {
-                c59Var.J();
+            if (isAudioTypeChange() && (b69Var = this.mAudioPlayer) != null) {
+                b69Var.J();
             }
             this.mCurrentState = 0;
             this.mTargetState = 0;
@@ -672,7 +672,7 @@ public class VLogSimplePlayer {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void seekToInternal(long j) {
-        c59 c59Var;
+        b69 b69Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65575, this, j) == null) {
             try {
@@ -684,11 +684,11 @@ public class VLogSimplePlayer {
                     qMExoWrapperMediaPlayer.pause();
                     this.mSeekWhenPrepared = 0L;
                 }
-                if (!isAudioTypeChange() || (c59Var = this.mAudioPlayer) == null) {
+                if (!isAudioTypeChange() || (b69Var = this.mAudioPlayer) == null) {
                     return;
                 }
-                c59Var.B(j);
-                c59Var.pause();
+                b69Var.B(j);
+                b69Var.pause();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -699,18 +699,18 @@ public class VLogSimplePlayer {
     public void setAudioChangeTypeInternal(int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65576, this, iArr) == null) {
-            if (this.mAudioPlayer != null || w49.o(iArr)) {
-                if (this.mMediaPlayer != null && (this.mAudioPlayer == null || !w49.o(this.mAudioPlayer.g()))) {
+            if (this.mAudioPlayer != null || v59.o(iArr)) {
+                if (this.mMediaPlayer != null && (this.mAudioPlayer == null || !v59.o(this.mAudioPlayer.g()))) {
                     this.mVolumeBackUp = this.mMediaPlayer.getVolume();
                 }
                 if (this.mAudioPlayer == null) {
                     try {
-                        this.mAudioPlayer = new c59(this.mPath, iArr);
+                        this.mAudioPlayer = new b69(this.mPath, iArr);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
-                if (!w49.o(iArr)) {
+                if (!v59.o(iArr)) {
                     if (this.mAudioPlayer != null) {
                         this.mAudioPlayer.N(0.0f, 0.0f);
                     }
@@ -779,9 +779,9 @@ public class VLogSimplePlayer {
         if (interceptable == null || interceptable.invokeV(65579, this) == null) {
             this.mVolumeBackUp = this.mLeftVolume;
             if (isAudioTypeChange()) {
-                c59 c59Var = this.mAudioPlayer;
-                if (c59Var != null) {
-                    c59Var.N(this.mLeftVolume, this.mRightVolume);
+                b69 b69Var = this.mAudioPlayer;
+                if (b69Var != null) {
+                    b69Var.N(this.mLeftVolume, this.mRightVolume);
                     return;
                 }
                 return;
@@ -804,9 +804,9 @@ public class VLogSimplePlayer {
                         qMExoWrapperMediaPlayer.start();
                     }
                     if (isAudioTypeChange()) {
-                        c59 c59Var = this.mAudioPlayer;
-                        c59Var.B(qMExoWrapperMediaPlayer.getCurrentPosition());
-                        c59Var.I();
+                        b69 b69Var = this.mAudioPlayer;
+                        b69Var.B(qMExoWrapperMediaPlayer.getCurrentPosition());
+                        b69Var.I();
                     }
                     this.mCurrentState = 3;
                 } catch (Exception e) {
@@ -912,7 +912,7 @@ public class VLogSimplePlayer {
     public void setAudioChangeType(int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, iArr) == null) {
-            if (!w49.o(this.mAudioChangeTypes) && w49.o(iArr)) {
+            if (!v59.o(this.mAudioChangeTypes) && v59.o(iArr)) {
                 this.mAudioEffectPlayerNeedSeek = true;
             }
             this.mAudioChangeTypes = iArr;
@@ -923,7 +923,7 @@ public class VLogSimplePlayer {
     public void setAudioChangeType(int[] iArr, double[] dArr, int[] iArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048588, this, iArr, dArr, iArr2) == null) {
-            if (!w49.o(this.mAudioChangeTypes) && w49.o(iArr)) {
+            if (!v59.o(this.mAudioChangeTypes) && v59.o(iArr)) {
                 this.mAudioEffectPlayerNeedSeek = true;
             }
             this.mAudioChangeTypes = iArr;
@@ -1005,17 +1005,17 @@ public class VLogSimplePlayer {
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    c59 c59Var;
+                    b69 b69Var;
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.mMediaPlayer == null) {
                         return;
                     }
                     this.this$0.mSpeed = this.val$speed;
                     this.this$0.mMediaPlayer.setPlaybackSpeed(this.val$speed);
-                    if (!this.this$0.isAudioTypeChange() || (c59Var = this.this$0.mAudioPlayer) == null) {
+                    if (!this.this$0.isAudioTypeChange() || (b69Var = this.this$0.mAudioPlayer) == null) {
                         return;
                     }
-                    c59Var.G(this.val$speed);
+                    b69Var.G(this.val$speed);
                 }
             });
         }

@@ -37,6 +37,7 @@ public class CmdConfigHttp {
     public static final int CMD_BAR_ELECTION = 1003436;
     public static final int CMD_BAR_VOTE = 1003437;
     public static final int CMD_BAR_ZHU_INFORMATION = 1003357;
+    public static final int CMD_BAWU_NOTICE_READ = 1003535;
     public static final int CMD_BUBBLE_CATEGORY = 1003039;
     public static final int CMD_BUBBLE_LIST = 1003055;
     public static final int CMD_BUBBLE_SET = 1003056;
@@ -330,6 +331,8 @@ public class CmdConfigHttp {
     public static final int CMD_VR_LOGO = 1003182;
     public static final int CMD_WEB_HTTP_PROXY = 1003364;
     public static final int CMD_WORK_VIDEO_GUIDE_UPDATE = 1003510;
+    public static final int CMD_WRITE_POST_ADD = 1003537;
+    public static final int CMD_WRITE_THREAD_ADD = 1003536;
     public static final int COMMON_PRAISE_Y_OR_N = 1001600;
     public static final int DISTRIBUTE_ACTRUAL_CMD = 1003000;
     public static final int FORUM_RECOMMEND_HTTP_CMD = 1002400;

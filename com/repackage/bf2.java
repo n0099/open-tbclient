@@ -8,9 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bf2 extends md2<dg2> {
+public class bf2 extends be2<rg2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,46 +27,23 @@ public class bf2 extends md2<dg2> {
         }
     }
 
-    @Override // com.repackage.md2
+    @Override // com.repackage.be2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enterRoom" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.md2
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                command.ret = new gg2(jSONObject.optString("roomName"), jSONObject.optLong("userId", -1L), jSONObject.optString("displayName"), jSONObject.optString("rtcAppId"), jSONObject.optString("token")).a() ? 1 : 0;
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getVideoWidth" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.md2
+    @Override // com.repackage.be2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull dg2 dg2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rg2 rg2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, dg2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rg2Var) == null) {
+            command.ret = rg2Var.getVideoWidth();
             String str = command.what;
-            d(dg2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                gg2 gg2Var = new gg2(jSONObject.optString("roomName"), jSONObject.optLong("userId", -1L), jSONObject.optString("displayName"), jSONObject.optString("rtcAppId"), jSONObject.optString("token"));
-                boolean a = gg2Var.a();
-                if (a) {
-                    dg2Var.u(gg2Var);
-                }
-                command.ret = a ? 1 : 0;
-            }
-            String str2 = command.what;
-            d(dg2Var, str2, "result: " + command.ret, true);
+            d(rg2Var, str, "Width: " + command.ret, true);
         }
     }
 }

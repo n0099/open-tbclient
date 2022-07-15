@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.disklrucache.StrictLineReader;
 import com.facebook.common.internal.Ints;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.webp.WebpSupportStatus;
@@ -52,7 +53,7 @@ public class DefaultImageFormatChecker implements ImageFormat.FormatChecker {
         byte[] bArr = {-1, -40, -1};
         JPEG_HEADER = bArr;
         JPEG_HEADER_LENGTH = bArr.length;
-        byte[] bArr2 = {-119, 80, 78, 71, 13, 10, 26, 10};
+        byte[] bArr2 = {-119, 80, 78, 71, StrictLineReader.CR, 10, 26, 10};
         PNG_HEADER = bArr2;
         PNG_HEADER_LENGTH = bArr2.length;
         GIF_HEADER_87A = ImageFormatCheckerUtils.asciiBytes("GIF87a");

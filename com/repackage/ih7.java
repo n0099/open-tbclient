@@ -1,155 +1,84 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService;
-import com.baidu.searchbox.live.interfaces.sharechennel.IShareCallback;
-import com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel;
-import com.baidu.searchbox.live.interfaces.sharechennel.ShareEntity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.live.interfaces.player.ExtAction;
+import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.event.SystemEvent;
+import com.baidu.searchbox.player.event.VideoEvent;
+import com.baidu.searchbox.player.plugin.AbsPlugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ih7 implements ShareChannelService {
+public final class ih7 extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements IShareChannel {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ih7 a;
-
-        public a(ih7 ih7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ih7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ih7Var;
-        }
-
-        @Override // com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel
-        public void shareToChannel(ShareEntity shareEntity, int i, IShareCallback iShareCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, shareEntity, i, iShareCallback) == null) {
-                if (i == 1) {
-                    this.a.c(6, shareEntity, iShareCallback);
-                } else if (i == 3) {
-                    this.a.c(2, shareEntity, iShareCallback);
-                } else if (i == 2) {
-                    this.a.c(3, shareEntity, iShareCallback);
-                } else if (i == 4) {
-                    this.a.c(8, shareEntity, iShareCallback);
-                }
-            }
-        }
-    }
-
-    public ih7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ih7(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 2 || i == 3) {
-                boolean b = xg8.b(TbadkCoreApplication.getInst(), "com.tencent.mm");
-                if (b) {
-                    return b;
-                }
-                pi.O(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f118e));
-                return b;
-            } else if (i == 6) {
-                boolean b2 = xg8.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
-                if (b2) {
-                    return b2;
-                }
-                pi.O(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1187));
-                return b2;
-            } else if (i != 8) {
-                return false;
-            } else {
-                boolean b3 = xg8.b(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
-                if (b3) {
-                    return b3;
-                }
-                pi.O(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1169));
-                return b3;
-            }
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService
-    public IShareChannel buildShareChannel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (IShareChannel) invokeV.objValue;
-    }
-
-    public final void c(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, shareEntity, iShareCallback) == null) || shareEntity == null) {
-            return;
-        }
-        if (!b(i)) {
-            if (iShareCallback != null) {
-                iShareCallback.onShare(0, 0, "");
                 return;
             }
-            return;
         }
-        ShareItem d = d(shareEntity);
-        if (d == null) {
-            return;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaSDKShareEmptyActivityConfig(TbadkCoreApplication.getInst(), d, i, 2)));
+        Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    public final ShareItem d(ShareEntity shareEntity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, shareEntity)) == null) {
-            if (shareEntity != null) {
-                ShareItem shareItem = new ShareItem();
-                shareItem.u = shareEntity.title;
-                shareItem.v = shareEntity.content;
-                shareItem.z = shareEntity.imageUrl;
-                shareItem.w = shareEntity.linkUrl;
-                shareItem.t = String.valueOf(shareEntity.liveId);
-                shareItem.w0 = String.valueOf(shareEntity.userId);
-                return shareItem;
-            }
-            return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{1, 4} : (int[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
+    public void onPlayerEventNotify(VideoEvent event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
         }
-        return (ShareItem) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
+    @SuppressLint({"WrongConstant"})
+    public void onSystemEventNotify(VideoEvent event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            String action = event.getAction();
+            if (action.hashCode() == 1822725860 && action.equals(SystemEvent.ACTION_VOLUME_CHANGED)) {
+                BDVideoPlayer bindPlayer = getBindPlayer();
+                if (bindPlayer == null ? true : bindPlayer.isStop()) {
+                    return;
+                }
+                BDVideoPlayer bindPlayer2 = getBindPlayer();
+                if (bindPlayer2 != null ? bindPlayer2.isComplete() : true) {
+                    return;
+                }
+                ExtAction extAction = new ExtAction(event.getAction());
+                extAction.put(5, Integer.valueOf(event.getIntExtra(5)));
+                BDVideoPlayer bindPlayer3 = getBindPlayer();
+                if (bindPlayer3 == null) {
+                    return;
+                }
+                bindPlayer3.onInfo(0, 0, extAction);
+            }
+        }
     }
 }

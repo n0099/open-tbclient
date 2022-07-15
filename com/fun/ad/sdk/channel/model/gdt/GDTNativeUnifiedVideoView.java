@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.module.gdt.w;
+import com.fun.module.gdt.u;
 import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.nativ.MediaView;
 import com.qq.e.ads.nativ.NativeADMediaListener;
@@ -26,7 +26,7 @@ import com.qq.e.comm.util.AdError;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class GDTNativeUnifiedVideoView extends w {
+public class GDTNativeUnifiedVideoView extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaView d;
@@ -216,22 +216,22 @@ public class GDTNativeUnifiedVideoView extends w {
         this.g = 1.78f;
     }
 
-    @Override // com.fun.module.gdt.w
+    @Override // com.fun.module.gdt.u
     public List<View> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this.c);
-            arrayList.add(((w) this).b);
-            arrayList.add(((w) this).a);
+            arrayList.add(((u) this).b);
+            arrayList.add(((u) this).a);
             arrayList.add(this.e);
             return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.fun.module.gdt.w
+    @Override // com.fun.module.gdt.u
     public void a(NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
@@ -243,13 +243,13 @@ public class GDTNativeUnifiedVideoView extends w {
         }
     }
 
-    @Override // com.fun.module.gdt.w, android.view.View
+    @Override // com.fun.module.gdt.u, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.d = (MediaView) findViewById(R.id.obfuscated_res_0x7f0900f3);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a3);
+            this.d = (MediaView) findViewById(R.id.obfuscated_res_0x7f0900f4);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a4);
         }
     }
 

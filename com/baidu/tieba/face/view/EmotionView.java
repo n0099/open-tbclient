@@ -390,8 +390,8 @@ public class EmotionView extends TbImageView {
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.x0 = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070286);
-            this.y0 = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07028d);
+            this.x0 = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070285);
+            this.y0 = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07028c);
             this.I0 = ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2;
         }
     }

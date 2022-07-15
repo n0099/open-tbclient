@@ -1,12 +1,10 @@
 package com.kwad.sdk.core.webview.request;
 
-import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.a.d;
-import com.kwad.sdk.core.a.e;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.at;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -21,28 +19,23 @@ public class WebCardGetDataResponse extends BaseResultData implements com.kwad.s
         if (jSONObject == null) {
             return;
         }
-        com.kwad.sdk.core.d.a.a(TAG, "jo=" + jSONObject.toString());
-        String optString = jSONObject.optString("egid");
-        if (!TextUtils.isEmpty(optString)) {
-            e.a(optString);
-        }
         try {
-            String optString2 = jSONObject.optString("data");
-            com.kwad.sdk.core.d.a.a(TAG, "WebCardGetDataResponse dataStr=" + optString2);
-            if (at.a(optString2)) {
+            String optString = jSONObject.optString("data");
+            com.kwad.sdk.core.d.b.a(TAG, "WebCardGetDataResponse dataStr=" + optString);
+            if (at.a(optString)) {
                 return;
             }
-            this.data = d.b(optString2);
-            com.kwad.sdk.core.d.a.a(TAG, "WebCardGetDataResponse data=" + this.data);
+            this.data = d.b(optString);
+            com.kwad.sdk.core.d.b.a(TAG, "WebCardGetDataResponse data=" + this.data);
         } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.b.a(e);
         }
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject json = super.toJson();
-        t.a(json, "data", this.data);
+        r.a(json, "data", this.data);
         return json;
     }
 }

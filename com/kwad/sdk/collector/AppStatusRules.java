@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.baidu.down.statistic.ConfigSpeedStat;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -60,10 +60,6 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             return this.strategy;
         }
 
-        public ArrayList<com.kwad.sdk.collector.model.d> getTarget() {
-            return this.target;
-        }
-
         @Override // com.kwad.sdk.core.b
         public void parseJson(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
@@ -87,26 +83,18 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 this.strategy.setTarget(a);
                 duplicateTarget();
             } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+                com.kwad.sdk.core.d.b.a(e);
             }
-        }
-
-        public void setStrategy(Strategy strategy) {
-            this.strategy = strategy;
-        }
-
-        public void setTarget(ArrayList<com.kwad.sdk.collector.model.d> arrayList) {
-            this.target = arrayList;
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            t.a(jSONObject, "strategy", this.strategy);
-            t.a(jSONObject, "target", this.target);
-            t.a(jSONObject, "namedStrategy", this.namedStrategy);
-            t.a(jSONObject, "uploadTarget", this.uploadTarget);
-            t.a(jSONObject, "uploadConfig", this.uploadConfig);
+            r.a(jSONObject, "strategy", this.strategy);
+            r.a(jSONObject, "target", this.target);
+            r.a(jSONObject, "namedStrategy", this.namedStrategy);
+            r.a(jSONObject, "uploadTarget", this.uploadTarget);
+            r.a(jSONObject, "uploadConfig", this.uploadConfig);
             return jSONObject;
         }
     }
@@ -210,7 +198,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 this.needLaunch = jSONObject.optBoolean("needLaunch");
                 setTarget(com.kwad.sdk.collector.model.c.a(jSONObject.optJSONArray("target")));
             } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+                com.kwad.sdk.core.d.b.a(e);
             }
         }
 
@@ -255,14 +243,14 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            t.a(jSONObject, FetchLog.START_TIME, this.startTime);
-            t.a(jSONObject, "scanInterval", this.scanInterval);
-            t.a(jSONObject, "historyGranularity", this.historyGranularity / 1000);
-            t.a(jSONObject, "name", this.name);
-            t.a(jSONObject, "target", getTarget());
-            t.a(jSONObject, "minLaunchInterval", this.minLaunchInterval);
-            t.a(jSONObject, "needSaveLaunchTime", this.needSaveLaunchTime);
-            t.a(jSONObject, "needLaunch", this.needLaunch);
+            r.a(jSONObject, FetchLog.START_TIME, this.startTime);
+            r.a(jSONObject, "scanInterval", this.scanInterval);
+            r.a(jSONObject, "historyGranularity", this.historyGranularity / 1000);
+            r.a(jSONObject, "name", this.name);
+            r.a(jSONObject, "target", getTarget());
+            r.a(jSONObject, "minLaunchInterval", this.minLaunchInterval);
+            r.a(jSONObject, "needSaveLaunchTime", this.needSaveLaunchTime);
+            r.a(jSONObject, "needLaunch", this.needLaunch);
             return jSONObject;
         }
     }
@@ -280,6 +268,21 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 this.fileMaxSize = ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT;
             }
         }
+
+        @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
+        public void parseJson(@Nullable JSONObject jSONObject) {
+            if (jSONObject != null) {
+                this.fileMaxSize = jSONObject.optLong("fileMaxSize");
+            }
+            super.afterParseJson(jSONObject);
+        }
+
+        @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
+        public JSONObject toJson() {
+            JSONObject jSONObject = new JSONObject();
+            r.a(jSONObject, "fileMaxSize", this.fileMaxSize);
+            return jSONObject;
+        }
     }
 
     @NonNull
@@ -291,7 +294,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         try {
             appStatusRules.parseJson(new JSONObject(str));
         } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.b.a(e);
         }
         return appStatusRules;
     }
@@ -334,7 +337,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         Iterator<Strategy> it = getAllStrategy().iterator();
         while (it.hasNext()) {
             Strategy next = it.next();
-            next.setNeedLaunch(h.a(context, next));
+            next.setNeedLaunch(i.a(context, next));
         }
     }
 
@@ -377,7 +380,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         try {
             this.data.parseJson(new JSONObject(com.kwad.sdk.core.a.d.b(jSONObject.optString("data"))));
         } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.b.a(e);
         }
     }
 
@@ -389,7 +392,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
     @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject json = super.toJson();
-        t.a(json, "data", this.data);
+        r.a(json, "data", this.data);
         return json;
     }
 }

@@ -6,6 +6,7 @@ public class TTDownloadEventModel {
     public String a;
     public String b;
     public JSONObject c;
+    public JSONObject d;
 
     public static TTDownloadEventModel builder() {
         return new TTDownloadEventModel();
@@ -19,6 +20,10 @@ public class TTDownloadEventModel {
         return this.b;
     }
 
+    public JSONObject getMaterialMeta() {
+        return this.d;
+    }
+
     public String getTag() {
         return this.a;
     }
@@ -30,6 +35,11 @@ public class TTDownloadEventModel {
 
     public TTDownloadEventModel setLabel(String str) {
         this.b = str;
+        return this;
+    }
+
+    public TTDownloadEventModel setMaterialMeta(JSONObject jSONObject) {
+        this.d = jSONObject;
         return this;
     }
 

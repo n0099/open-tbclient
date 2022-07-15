@@ -251,13 +251,13 @@ public class ImageLoader {
         if (imageLoaderConfiguration == null) {
             throw new IllegalArgumentException(ERROR_INIT_CONFIG_WITH_NULL);
         }
-        if (this.configuration == null) {
-            L.d(LOG_INIT_CONFIG, new Object[0]);
-            this.engine = new ImageLoaderEngine(imageLoaderConfiguration);
-            this.configuration = imageLoaderConfiguration;
-        } else {
+        if (this.configuration != null) {
             L.w(WARNING_RE_INIT_CONFIG, new Object[0]);
+            return;
         }
+        L.d(LOG_INIT_CONFIG, new Object[0]);
+        this.engine = new ImageLoaderEngine(imageLoaderConfiguration);
+        this.configuration = imageLoaderConfiguration;
     }
 
     public boolean isInited() {

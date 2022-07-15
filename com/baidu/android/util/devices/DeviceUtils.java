@@ -26,6 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.C0294;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -249,7 +250,7 @@ public class DeviceUtils implements IDevices {
                 }
                 CPUInfo cPUInfo2 = new CPUInfo();
                 try {
-                    FileReader fileReader = new FileReader("/proc/cpuinfo");
+                    FileReader fileReader = new FileReader(C0294.f19);
                     BufferedReader bufferedReader = new BufferedReader(fileReader);
                     for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                         String lowerCase = readLine.trim().toLowerCase(Locale.getDefault());

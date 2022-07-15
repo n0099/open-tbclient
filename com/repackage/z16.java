@@ -1,62 +1,102 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class z16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
 
-    public z16(int i, int i2) {
+    public static final e16 a(o0 o0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (e16) o0Var.d(e16.class);
+        }
+        return (e16) invokeL.objValue;
+    }
+
+    public static final b16 b(o0 o0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (b16) o0Var.d(b16.class);
+        }
+        return (b16) invokeL.objValue;
+    }
+
+    public static final long c(o0 o0Var) {
+        InterceptResult invokeL;
+        p06 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            b16 b = b(o0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
             }
+            return a.g();
         }
-        this.a = i;
-        this.b = i2;
+        return invokeL.longValue;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public static final a16 d(o0 o0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('[' char), (wrap: int : 0x000e: IGET  (r1v3 int A[REMOVE]) = (r4v0 'this' com.repackage.z16 A[IMMUTABLE_TYPE, THIS]) com.repackage.z16.a int), ('x' char), (wrap: int : 0x0018: IGET  (r1v5 int A[REMOVE]) = (r4v0 'this' com.repackage.z16 A[IMMUTABLE_TYPE, THIS]) com.repackage.z16.b int), (']' char)] */
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append('[');
-            sb.append(this.a);
-            sb.append('x');
-            sb.append(this.b);
-            sb.append(']');
-            return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (a16) o0Var.d(a16.class);
         }
-        return (String) invokeV.objValue;
+        return (a16) invokeL.objValue;
+    }
+
+    public static final c16 e(o0 o0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (c16) o0Var.d(c16.class);
+        }
+        return (c16) invokeL.objValue;
+    }
+
+    public static final long f(o0 o0Var) {
+        InterceptResult invokeL;
+        p06 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            b16 b = b(o0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
+            }
+            return a.j();
+        }
+        return invokeL.longValue;
+    }
+
+    public static final boolean g(o0 o0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, o0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return j - f(o0Var) < 0;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean h(o0 o0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, o0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return j - f(o0Var) > c(o0Var);
+        }
+        return invokeLJ.booleanValue;
     }
 }

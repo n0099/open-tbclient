@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cd8;
-import com.repackage.wc8;
+import com.repackage.rd8;
+import com.repackage.xd8;
 @Autowired
 /* loaded from: classes2.dex */
 public class LokiRuntime {
@@ -173,13 +173,13 @@ public class LokiRuntime {
     public static ILokiIdentityContext getIdentityContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? wc8.a() : (ILokiIdentityContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? rd8.a() : (ILokiIdentityContext) invokeV.objValue;
     }
 
     @Inject
     public static ILokiIdentityNeedContext getIdentityNeedContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? cd8.a() : (ILokiIdentityNeedContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? xd8.a() : (ILokiIdentityNeedContext) invokeV.objValue;
     }
 }

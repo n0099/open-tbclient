@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.n86;
 import com.repackage.pi;
-import com.repackage.q76;
 /* loaded from: classes3.dex */
 public class SearchEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -78,7 +78,7 @@ public class SearchEmotionModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(String str, q76 q76Var);
+        void a(String str, n86 n86Var);
 
         void onFail(int i, String str);
     }
@@ -104,7 +104,7 @@ public class SearchEmotionModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void A(String str, int i, int i2, b bVar) {
+    public void B(String str, int i, int i2, b bVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bVar}) == null) || bVar == null || TextUtils.isEmpty(str)) {
             return;

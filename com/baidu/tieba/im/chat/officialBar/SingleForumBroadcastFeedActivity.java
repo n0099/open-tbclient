@@ -16,24 +16,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f67;
-import com.repackage.l47;
-import com.repackage.q55;
-import com.repackage.u57;
+import com.repackage.b57;
+import com.repackage.l67;
+import com.repackage.s65;
+import com.repackage.x67;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l47 a;
+    public b57 a;
     public OfficialBarFeedMsglistView b;
     public String c;
     public byte d;
-    public q55 e;
-    public l47.d f;
+    public s65 e;
+    public b57.d f;
 
     /* loaded from: classes3.dex */
-    public class a extends q55<TopToastEvent> {
+    public class a extends s65<TopToastEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity c;
@@ -57,7 +57,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.j55
+        @Override // com.repackage.l65
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
@@ -74,7 +74,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements l47.d {
+    public class b implements b57.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity a;
@@ -97,16 +97,16 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // com.repackage.l47.d
-        public void a(List<f67> list) {
+        @Override // com.repackage.b57.d
+        public void a(List<x67> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 this.a.b.p(list, null);
             }
         }
 
-        @Override // com.repackage.l47.d
-        public void onReadCountLoad(LongSparseArray<u57> longSparseArray) {
+        @Override // com.repackage.b57.d
+        public void onReadCountLoad(LongSparseArray<l67> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
                 this.a.b.q(longSparseArray);
@@ -145,9 +145,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            l47 l47Var = new l47(getPageContext());
-            this.a = l47Var;
-            l47Var.i(this.f);
+            b57 b57Var = new b57(getPageContext());
+            this.a = b57Var;
+            b57Var.i(this.f);
             this.b = new OfficialBarFeedMsglistView(this, true);
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra("key_uid");
@@ -164,9 +164,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            l47 l47Var = this.a;
-            if (l47Var != null) {
-                l47Var.e();
+            b57 b57Var = this.a;
+            if (b57Var != null) {
+                b57Var.e();
             }
             unRegisterResponsedEventListener();
         }

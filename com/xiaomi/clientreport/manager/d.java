@@ -34,7 +34,7 @@ public class d extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo202a() {
+    public String mo1145a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100888" : (String) invokeV.objValue;
@@ -48,7 +48,7 @@ public class d extends al.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a = this.a.a();
             if (a > 0) {
-                executorService = this.a.f18a;
+                executorService = this.a.f745a;
                 executorService.execute(new e(this));
             }
         }

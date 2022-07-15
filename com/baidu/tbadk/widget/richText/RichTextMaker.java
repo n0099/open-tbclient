@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.pf5;
-import com.repackage.uc5;
+import com.repackage.sg5;
+import com.repackage.xd5;
 /* loaded from: classes3.dex */
 public abstract class RichTextMaker<T> {
     public static /* synthetic */ Interceptable $ic;
@@ -99,8 +99,8 @@ public abstract class RichTextMaker<T> {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                uc5.a(i >= 0);
-                uc5.c(this == START_OFFSET);
+                xd5.a(i >= 0);
+                xd5.c(this == START_OFFSET);
                 this.offset = i;
                 return this;
             }
@@ -109,7 +109,7 @@ public abstract class RichTextMaker<T> {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends pf5 {
+    public class a extends sg5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int h;
@@ -142,12 +142,12 @@ public abstract class RichTextMaker<T> {
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tbadk.widget.richText.RichTextMaker */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.repackage.pf5, android.text.style.ClickableSpan
+        @Override // com.repackage.sg5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.j.c(view2, this.h, this.i);
-                view2.setTag(R.id.obfuscated_res_0x7f091e53, Boolean.TRUE);
+                view2.setTag(R.id.obfuscated_res_0x7f091ef7, Boolean.TRUE);
             }
         }
     }

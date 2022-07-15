@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.iv4;
+import com.repackage.gw4;
 import com.repackage.sb;
 /* loaded from: classes4.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
@@ -75,7 +75,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                iv4.a();
+                gw4.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");
@@ -151,7 +151,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 long longValue = directorySize + directorySize3 + fileSize + directorySize2 + ((runTask == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue());
                 float f = ((float) longValue) + 0.0f;
                 if (longValue >= 10485.76d) {
-                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.c.getString(R.string.obfuscated_res_0x7f0f0aac);
+                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.c.getString(R.string.obfuscated_res_0x7f0f0a9a);
                 }
                 return "";
             }
@@ -197,7 +197,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         this.c = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void D() {
+    public void E() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a == null) {
             b bVar = new b(this, null);
@@ -206,7 +206,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    public void E() {
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -217,7 +217,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    public void F() {
+    public void G() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b == null) {
             c cVar = new c(this, null);
@@ -226,14 +226,14 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    public void G(boolean z) {
+    public void H(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             TbadkCoreApplication.getInst().setHeadsetModeOn(z);
         }
     }
 
-    public void H(BaseActivity.LoadDataCallBack loadDataCallBack) {
+    public void I(BaseActivity.LoadDataCallBack loadDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, loadDataCallBack) == null) {
             this.d = loadDataCallBack;

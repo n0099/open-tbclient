@@ -1,69 +1,76 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.sweetsqlite.BooleanColumn;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.nadcore.sweetsqlite.IntegerColumn;
-import com.baidu.nadcore.sweetsqlite.LongColumn;
-import com.baidu.nadcore.sweetsqlite.StringColumn;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class fy0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile fy0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final String b;
-    public final int c;
-    public final int d;
-    public final String e;
+    public final ConcurrentHashMap<String, cy0> a;
 
-    public fy0(int i, String str, String str2, int i2, int i3) {
+    public fy0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = str;
-        this.e = str2;
-        this.c = i2;
-        this.d = i3;
+        this.a = new ConcurrentHashMap<>();
     }
 
-    public static boolean a(Column column) {
-        InterceptResult invokeL;
+    public static fy0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, column)) == null) ? ((BooleanColumn) column).getValue() : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (fy0.class) {
+                    if (b == null) {
+                        b = new fy0();
+                    }
+                }
+            }
+            return b;
+        }
+        return (fy0) invokeV.objValue;
     }
 
-    public static int b(Column column) {
+    @NonNull
+    public cy0 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, column)) == null) ? ((IntegerColumn) column).getValue() : invokeL.intValue;
-    }
-
-    public static long c(Column column) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, column)) == null) ? ((LongColumn) column).getValue() : invokeL.longValue;
-    }
-
-    public static String d(Column column) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, column)) == null) ? ((StringColumn) column).getValue() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            cy0 cy0Var = (cy0) zx0.b(this.a, str);
+            if (cy0Var == null) {
+                synchronized (fy0.class) {
+                    cy0Var = (cy0) zx0.b(this.a, str);
+                    if (cy0Var == null) {
+                        if (TextUtils.isEmpty(str)) {
+                            cy0Var = ey0.a().a();
+                        } else {
+                            cy0Var = ey0.a().b(str);
+                        }
+                        zx0.e(this.a, str, cy0Var);
+                    }
+                }
+            }
+            return cy0Var;
+        }
+        return (cy0) invokeL.objValue;
     }
 }

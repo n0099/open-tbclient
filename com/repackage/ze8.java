@@ -1,146 +1,133 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.res.Configuration;
+import android.util.Log;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.AdSdkSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ze8 {
+public class ze8 implements qe8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<yp4> a;
-    public ArrayList<a> b;
-    public ArrayList<b> c;
-    public boolean d;
-    public long e;
-    public ArrayList<d> f;
+    public final re8 a;
+    public final se8 b;
+    public ql4 c;
+    public ViewGroup d;
+    public boolean e;
+    public long f;
+    public long g;
+    public boolean h;
+    public final Runnable i;
+    public final Runnable j;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public boolean d;
+        public final /* synthetic */ ze8 a;
 
-        public a() {
+        public a(ze8 ze8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ze8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ze8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a.a()) {
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("splash_request_timeout"));
+            if (TbadkCoreApplication.getInst().isDebugMode()) {
+                Log.d("IAdSdkSplash", "请求time out and switch next");
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921536, this.a.c));
+            this.a.f = System.currentTimeMillis();
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-        public boolean c;
-        public int d;
-        public String e;
-        public String f;
-        public String g;
-        public String h;
-        public String i;
-        public long j;
-        public long k;
-        public String l;
-        public int m;
-        public int n;
+        public final /* synthetic */ ze8 a;
 
-        public b() {
+        public b(ze8 ze8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ze8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ze8Var;
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public String c;
-        public long d;
-        public long e;
-        public String f;
-        public String g;
-        public String h;
-        public String i;
-
-        public c() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.e || this.a.d == null) {
+                return;
+            }
+            SpeedStatsManager.getInstance().setIsTimeout(true);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921657, Boolean.class);
+            if (runTask == null || runTask.getData() == null || !((Boolean) runTask.getData()).booleanValue()) {
+                TiebaStatic.log(new StatisticItem("splash_timeout_go_maintab"));
+                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 0).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_PARAM2, this.a.a.i() ? 2 : 1).param("obj_param1", 1).eventStat();
+                if (TbadkCoreApplication.getInst().isDebugMode()) {
+                    Log.d("IAdSdkSplash", "兜底time out and jump maintab");
                 }
+                this.a.a.getRootView().removeView(this.a.d);
+                this.a.b.a();
+                BdStatisticsManager.getInstance().newDebug("VideoSplashTimeOut", 0L, null, "splashTimeOut", "true");
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public String c;
-        public String d;
-        public ArrayList<c> e;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public ze8() {
+    public ze8(re8 re8Var, se8 se8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {re8Var, se8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -150,354 +137,128 @@ public class ze8 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = new ArrayList<>();
-        this.f = new ArrayList<>();
-        this.d = true;
+        this.e = false;
+        this.f = 0L;
+        this.g = -1L;
+        this.h = false;
+        this.i = new a(this);
+        this.j = new b(this);
+        this.a = re8Var;
+        this.b = se8Var;
     }
 
-    public ArrayList<a> a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.qe8
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            m();
+            ql4 ql4Var = this.c;
+            if (ql4Var != null) {
+                ql4Var.f(null);
+                this.c.e(null);
+            }
+        }
     }
 
-    public ArrayList<b> b() {
+    @Override // com.repackage.qe8
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            o();
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public String d() {
+    public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            JSONArray jSONArray2 = new JSONArray();
-            try {
-                if (this.a != null && this.a.size() != 0) {
-                    Iterator<yp4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        yp4 next = it.next();
-                        if (next != null) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("pic_url_bigger", next.a());
-                            jSONObject2.put("link", next.b());
-                            jSONArray2.put(jSONObject2);
-                        }
-                    }
-                    jSONObject.put(SpeedStatsUtils.UBC_VALUE_BANNER, jSONArray2);
-                }
-                jSONObject.put("prevtime", this.e);
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-            if (this.f != null && this.f.size() != 0) {
-                Iterator<d> it2 = this.f.iterator();
-                while (it2.hasNext()) {
-                    d next2 = it2.next();
-                    if (next2 != null) {
-                        JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("title", next2.a);
-                        jSONObject3.put("type", next2.b);
-                        jSONObject3.put("pic", next2.c);
-                        jSONObject3.put("link", next2.d);
-                        ArrayList<c> arrayList = next2.e;
-                        if (arrayList != null && arrayList.size() != 0) {
-                            JSONArray jSONArray3 = new JSONArray();
-                            Iterator<c> it3 = arrayList.iterator();
-                            while (it3.hasNext()) {
-                                c next3 = it3.next();
-                                if (next3 != null) {
-                                    JSONObject jSONObject4 = new JSONObject();
-                                    jSONObject4.put("forum_id", next3.a);
-                                    jSONObject4.put("forum_name", next3.b);
-                                    jSONObject4.put("avatar", next3.c);
-                                    jSONObject4.put("explain", next3.f);
-                                    jSONObject4.put("desc", next3.g);
-                                    jSONObject4.put("tag", next3.h);
-                                    jSONObject4.put("thread_num", next3.e);
-                                    jSONObject4.put("member_count", next3.d);
-                                    jSONObject4.put("link", next3.i);
-                                    jSONArray3.put(jSONObject4);
-                                }
-                            }
-                            jSONObject3.put("forum_list", jSONArray3);
-                            jSONArray.put(jSONObject3);
-                        }
-                        jSONArray.put(jSONObject3);
-                    }
-                }
-                JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("new_list", jSONArray);
-                jSONObject.put("new_recommend_topic", jSONObject5);
-                return jSONObject.toString();
-            }
-            return jSONObject.toString();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.longValue;
+    }
+
+    public ViewGroup j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (ViewGroup) invokeV.objValue;
+    }
+
+    public long k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.longValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            qg.a().postDelayed(this.j, 500L);
         }
-        return (String) invokeV.objValue;
     }
 
-    public ArrayList<yp4> e() {
-        InterceptResult invokeV;
+    public void m() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.longValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        ArrayList<a> arrayList;
-        ArrayList<b> arrayList2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.d) {
-                ArrayList<yp4> arrayList3 = this.a;
-                return (arrayList3 == null || arrayList3.size() == 0) && ((arrayList = this.b) == null || arrayList.size() == 0) && ((arrayList2 = this.c) == null || arrayList2.size() == 0);
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h = true;
+            qg.a().removeCallbacks(this.j);
+            qg.a().removeCallbacks(this.i);
         }
-        return invokeV.booleanValue;
     }
 
-    public final void h(JSONArray jSONArray) {
+    public void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, jSONArray) == null) || jSONArray == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (SwitchManager.getInstance().findType(AdSdkSwitch.KEY_AD_SDK_SWITCH) == 0) {
+                this.b.a();
+            } else if (MessageManager.getInstance().findTask(2016555) == null) {
+                this.b.a();
+            } else {
+                p();
+            }
+        }
+    }
+
+    @Override // com.repackage.qe8
+    public void onConfigurationChanged(Configuration configuration) {
+        ql4 ql4Var;
+        ol4 ol4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) || (ql4Var = this.c) == null || (ol4Var = ql4Var.c) == null) {
             return;
         }
-        try {
-            if (jSONArray.length() == 0) {
+        ol4Var.a();
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.h = false;
+            long currentTimeMillis = System.currentTimeMillis();
+            this.g = System.currentTimeMillis();
+            this.c = new ql4(this.a.i(), this.a.j());
+            this.d = new RelativeLayout(this.a.getActivity());
+            this.d.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            this.a.getRootView().addView(this.d);
+            this.c.f(this.d);
+            this.c.e(new ye8(this.a, this.b, this));
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016555, Long.class, this.c);
+            if (this.h) {
                 return;
             }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("pic_url_bigger", "");
-                    String optString2 = jSONObject.optString("link", "");
-                    String optString3 = jSONObject.optString("template_id", "");
-                    if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                        yp4 yp4Var = new yp4();
-                        yp4Var.d(optString);
-                        yp4Var.e(optString2);
-                        yp4Var.f(optString3);
-                        this.a.add(yp4Var);
-                    }
-                }
+            s95.b().j(System.currentTimeMillis() - currentTimeMillis);
+            long longValue = runTask != null ? ((Long) runTask.getData()).longValue() : 1000L;
+            if (UbsABTestHelper.newSplashStrategy()) {
+                qg.a().postDelayed(this.j, vc5.l() + 500);
+            } else {
+                qg.a().postDelayed(this.i, longValue);
             }
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r2v11 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [int, boolean] */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    public final void i(JSONArray jSONArray) {
-        int optInt;
-        JSONArray optJSONArray;
-        int i;
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONArray) == null) || jSONArray == null) {
-            return;
-        }
-        try {
-            if (jSONArray.length() == 0) {
-                return;
-            }
-            boolean z = false;
-            int i2 = 0;
-            int i3 = 0;
-            while (i2 < jSONArray.length()) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                if (jSONObject != null && (optInt = jSONObject.optInt("type", -1)) != -1) {
-                    boolean z2 = true;
-                    String str2 = "";
-                    if (optInt == 1) {
-                        i3++;
-                        a aVar = new a();
-                        aVar.a = jSONObject.optString("title", "");
-                        aVar.b = jSONObject.optString("link", "");
-                        aVar.c = jSONObject.optString("pic", "");
-                        aVar.d = z;
-                        this.b.add(aVar);
-                    } else if (optInt == 3) {
-                        i3++;
-                        a aVar2 = new a();
-                        aVar2.a = jSONObject.optString("title", "");
-                        aVar2.b = jSONObject.optString("link", "");
-                        aVar2.c = jSONObject.optString("pic", "");
-                        aVar2.d = true;
-                        this.b.add(aVar2);
-                    } else if ((optInt == 2 || optInt == 0) && (optJSONArray = jSONObject.optJSONArray("forum_list")) != null && optJSONArray.length() != 0) {
-                        b bVar = new b();
-                        bVar.a = true;
-                        int i4 = i2 - i3;
-                        bVar.m = i4;
-                        if (optInt == 2) {
-                            bVar.c = true;
-                        } else {
-                            bVar.c = z;
-                        }
-                        bVar.l = jSONObject.optString("link", "");
-                        bVar.b = jSONObject.optString("title", "");
-                        this.c.add(bVar);
-                        int i5 = 0;
-                        ?? r2 = z;
-                        while (i5 < optJSONArray.length()) {
-                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i5);
-                            if (jSONObject2 == null) {
-                                i = i2;
-                                str = str2;
-                            } else {
-                                b bVar2 = new b();
-                                if (optInt == 2) {
-                                    bVar2.c = z2;
-                                } else {
-                                    bVar2.c = r2;
-                                }
-                                bVar2.a = r2;
-                                bVar2.m = i4;
-                                bVar2.n = i5;
-                                bVar2.d = jSONObject2.optInt("forum_id", r2);
-                                bVar2.e = jSONObject2.optString("forum_name", str2);
-                                bVar2.f = jSONObject2.optString("avatar", str2);
-                                bVar2.h = jSONObject2.optString("explain", str2);
-                                bVar2.i = jSONObject2.optString("desc", str2);
-                                bVar2.g = jSONObject2.optString("tag", str2);
-                                i = i2;
-                                bVar2.j = jSONObject2.optLong("member_count", 0L);
-                                bVar2.k = jSONObject2.optLong("thread_num", 0L);
-                                str = str2;
-                                bVar2.l = jSONObject2.optString("link", str);
-                                this.c.add(bVar2);
-                            }
-                            i5++;
-                            str2 = str;
-                            i2 = i;
-                            r2 = 0;
-                            z2 = true;
-                        }
-                    }
-                }
-                i2++;
-                z = false;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            if (str != null && str.length() >= 1) {
-                try {
-                    k(new JSONObject(str));
-                    l(str);
-                    return;
-                } catch (Exception e) {
-                    this.d = false;
-                    BdLog.e(e.toString());
-                    return;
-                }
-            }
-            this.d = false;
-        }
-    }
-
-    public void k(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            h(jSONObject.optJSONArray(SpeedStatsUtils.UBC_VALUE_BANNER));
-            this.e = jSONObject.optLong("prevtime");
-            JSONObject optJSONObject = jSONObject.optJSONObject("new_recommend_topic");
-            if (optJSONObject == null) {
-                return;
-            }
-            i(optJSONObject.optJSONArray("new_list"));
-        } catch (Exception e) {
-            this.d = false;
-            BdLog.e(e.toString());
-        }
-    }
-
-    public final void l(String str) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || str == null) {
-            return;
-        }
-        try {
-            JSONObject optJSONObject = new JSONObject(str).optJSONObject("new_recommend_topic");
-            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("new_list")) != null && optJSONArray.length() != 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject jSONObject = optJSONArray.getJSONObject(i);
-                    if (jSONObject != null) {
-                        d dVar = new d();
-                        this.f.add(dVar);
-                        dVar.e = new ArrayList<>();
-                        dVar.a = jSONObject.optString("title", "");
-                        dVar.b = jSONObject.optInt("type", -1);
-                        dVar.c = jSONObject.optString("pic", "");
-                        dVar.d = jSONObject.optString("link", "");
-                        JSONArray optJSONArray2 = jSONObject.optJSONArray("forum_list");
-                        if (optJSONArray2 != null && optJSONArray2.length() != 0) {
-                            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                                JSONObject jSONObject2 = optJSONArray2.getJSONObject(i2);
-                                if (jSONObject2 != null) {
-                                    c cVar = new c();
-                                    cVar.a = jSONObject2.optInt("forum_id", 0);
-                                    cVar.b = jSONObject2.optString("forum_name", "");
-                                    cVar.c = jSONObject2.optString("avatar", "");
-                                    cVar.f = jSONObject2.optString("explain", "");
-                                    cVar.g = jSONObject2.optString("desc", "");
-                                    cVar.h = jSONObject2.optString("tag", "");
-                                    cVar.d = jSONObject2.optLong("member_count", 0L);
-                                    cVar.e = jSONObject2.optLong("thread_num", 0L);
-                                    cVar.i = jSONObject2.optString("link", "");
-                                    dVar.e.add(cVar);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
-    }
-
-    public void m(ArrayList<yp4> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
-            this.a = arrayList;
-        }
-    }
-
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.e = j;
         }
     }
 }

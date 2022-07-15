@@ -7,11 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rx5;
+import com.repackage.oy5;
 import java.io.Serializable;
 import tbclient.CardLinkInfo;
 /* loaded from: classes3.dex */
-public class CardLinkInfoData extends rx5 implements Serializable {
+public class CardLinkInfoData extends oy5 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARROW_BTN_STYLE = "2";
     public static final String DEL_BTN_STYLE = "3";
@@ -208,7 +208,7 @@ public class CardLinkInfoData extends rx5 implements Serializable {
         }
     }
 
-    @Override // com.repackage.rx5
+    @Override // com.repackage.oy5
     public int sort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,136 +1,118 @@
 package com.repackage;
 
-import android.net.Uri;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class gy4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final gy4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public String a;
+    public String b;
+    public final boolean c;
 
-    /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<ShareItem, Integer, ShareItem> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ gy4 b;
-
-        public a(gy4 gy4Var, ShareItem shareItem) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755661713, "Lcom/repackage/gy4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gy4Var, shareItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = gy4Var;
-            this.a = shareItem;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ShareItem doInBackground(ShareItem... shareItemArr) {
-            InterceptResult invokeL;
-            ShareItem shareItem;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareItemArr)) == null) {
-                String str = null;
-                if (shareItemArr == null || shareItemArr.length < 1 || (shareItem = shareItemArr[0]) == null) {
-                    return null;
-                }
-                String str2 = shareItem.N;
-                NetWork netWork = new NetWork();
-                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
-                if (shareItem.B == 4) {
-                    netWork.addPostData("forum_id", this.a.M);
-                    netWork.addPostData("type", "2");
-                } else {
-                    netWork.addPostData("thread_id", str2);
-                    netWork.addPostData("type", "3");
-                }
-                String postNetData = netWork.postNetData();
-                if (oi.isEmpty(postNetData)) {
-                    return shareItem;
-                }
-                try {
-                    str = new JSONObject(postNetData).optString(BigdayActivityConfig.IMG_URL);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                if (shareItem.B != 4) {
-                    shareItem.p0 = str;
-                    shareItem.y = Uri.parse(str);
-                }
-                return shareItem;
-            }
-            return (ShareItem) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ShareItem shareItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem) == null) {
-                super.onPostExecute(shareItem);
-                if (this.b.a != null) {
-                    this.b.a.a(shareItem);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755661713, "Lcom/repackage/gy4;");
+                return;
             }
         }
+        d = new gy4(false);
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(ShareItem shareItem);
-    }
-
-    public gy4() {
+    public gy4(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
+        this.c = z;
     }
 
-    public void b(ShareItem shareItem) {
+    public static gy4 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-            new a(this, shareItem).execute(shareItem);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("video_activity");
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("image_url");
+                String optString2 = optJSONObject.optString("url");
+                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2)) {
+                    gy4 gy4Var = new gy4(true);
+                    gy4Var.g(optString);
+                    gy4Var.f(optString2);
+                    return gy4Var;
+                }
+            }
+            return d;
+        }
+        return (gy4) invokeL.objValue;
+    }
+
+    public boolean a(gy4 gy4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gy4Var)) == null) ? this.b.equals(gy4Var.b()) && this.a.equals(gy4Var.c()) : invokeL.booleanValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public void c(b bVar) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.a = bVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
         }
     }
 }

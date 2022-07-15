@@ -12,8 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class cs5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public qo5 a;
+    public qo5 b;
 
     static {
         InterceptResult invokeClinit;
@@ -28,7 +30,7 @@ public class cs5 extends BaseCardInfo {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public cs5() {
@@ -49,6 +51,6 @@ public class cs5 extends BaseCardInfo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

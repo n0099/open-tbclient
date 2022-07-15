@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.ContextUtils;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 import com.baidu.turbonet.net.TurbonetEngine;
-import com.repackage.oz8;
+import com.repackage.n09;
 import java.util.ArrayList;
 import java.util.List;
 @JNINamespace
@@ -107,7 +107,7 @@ public class CronetLibraryLoader {
                 ContextUtils.b(context.getApplicationContext());
                 builder.m();
                 ContextUtils.c();
-                oz8.h("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
+                n09.h("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
                 ContextUtils.b(context.getApplicationContext());
                 if (!b.isAlive()) {
                     b.start();
@@ -136,7 +136,7 @@ public class CronetLibraryLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            oz8.h("TurboNetLibraryLoader", "getTurboNetHandler, init done " + d, new Object[0]);
+            n09.h("TurboNetLibraryLoader", "getTurboNetHandler, init done " + d, new Object[0]);
             if (d) {
                 return nativeGetTurboNetHandler();
             }

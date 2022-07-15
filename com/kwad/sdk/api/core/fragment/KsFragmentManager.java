@@ -116,7 +116,8 @@ public class KsFragmentManager {
     @KsAdSdkDynamicApi
     @Keep
     public static void enableDebugLogging(boolean z) {
-        enableDebugLogging(z);
+        while (true) {
+        }
     }
 
     @KsAdSdkDynamicApi

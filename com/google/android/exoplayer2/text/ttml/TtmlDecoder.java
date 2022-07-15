@@ -430,7 +430,7 @@ public final class TtmlDecoder extends SimpleSubtitleDecoder {
                         c = 65535;
                         break;
                     case -1224696685:
-                        if (attributeName.equals("fontFamily")) {
+                        if (attributeName.equals(TtmlNode.ATTR_TTS_FONT_FAMILY)) {
                             c = 3;
                             break;
                         }
@@ -479,7 +479,7 @@ public final class TtmlDecoder extends SimpleSubtitleDecoder {
                         c = 65535;
                         break;
                     case 1287124693:
-                        if (attributeName.equals("backgroundColor")) {
+                        if (attributeName.equals(TtmlNode.ATTR_TTS_BACKGROUND_COLOR)) {
                             c = 1;
                             break;
                         }

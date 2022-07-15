@@ -1,153 +1,100 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
 /* loaded from: classes6.dex */
-public final class i02 {
+public class i02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public long c;
-    public int d;
-    public RequestStatus e;
-    public String f;
 
-    public i02(String str, long j, long j2, int i, RequestStatus requestStatus, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), requestStatus, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a implements SwanAppNetworkUtils.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                i02.b(this.a, i);
             }
         }
-        this.a = str;
-        this.b = j;
-        this.c = j2;
-        this.d = i;
-        this.e = requestStatus;
-        this.f = str2;
     }
 
-    public static i02 a(String str, long j, long j2, int i, String str2) {
-        InterceptResult invokeCommon;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str2})) == null) ? new i02(str, j, j2, i, RequestStatus.STATUS_FAILED, str2) : (i02) invokeCommon.objValue;
-    }
-
-    public static i02 b(String str, long j, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Long.valueOf(j), str2})) == null) ? new i02(str, j, RequestStatus.STATUS_SEND, str2) : (i02) invokeCommon.objValue;
-    }
-
-    public static i02 c(String str, long j, long j2, int i, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str2})) == null) ? new i02(str, j, j2, i, RequestStatus.STATUS_SUCCESS, str2) : (i02) invokeCommon.objValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c - this.b : invokeV.longValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || i02.class != obj.getClass()) {
-                return false;
-            }
-            i02 i02Var = (i02) obj;
-            return this.b == i02Var.b && Objects.equals(this.a, i02Var.a) && Objects.equals(this.f, i02Var.f);
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            SwanAppNetworkUtils.b(new a(str));
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public static void b(String str, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? g(false) : invokeV.booleanValue;
-    }
-
-    public boolean g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            if (z) {
-                int i = this.d;
-                return (i >= 400 && i < 600) || this.d == 0;
-            }
-            int i2 = this.d;
-            return i2 >= 400 && i2 < 600;
+        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
+            c(str, i != 1 ? i != 2 ? i != 3 ? "unknown" : "offline" : "bad" : FrsActivityConfig.GOOD);
         }
-        return invokeZ.booleanValue;
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? d() > 3000 : invokeV.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.b), this.f) : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "Request{url='" + this.a + "', startTime=" + this.b + ", endTime=" + this.c + ", statusCode=" + this.d + ", status=" + this.e + ", tag=" + this.f + '}';
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            d(str, str2, null);
         }
-        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public i02(String str, long j, RequestStatus requestStatus, String str2) {
-        this(str, j, 0L, 200, requestStatus, str2);
+    public static void d(String str, String str2, @Nullable String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), requestStatus, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue(), ((Integer) objArr2[3]).intValue(), (RequestStatus) objArr2[4], (String) objArr2[5]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            e(str, str2, str3, 0, 0, 0, 0L);
+        }
+    }
+
+    public static void e(String str, String str2, @Nullable String str3, int i, int i2, int i3, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+            j73 j73Var = new j73();
+            j73Var.a = "swan";
+            j73Var.b = str;
+            j73Var.a("appid", g03.K().getAppId());
+            j73Var.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
+            if (!TextUtils.isEmpty(str3)) {
+                j73Var.a("request", str3);
+                j73Var.a("request_total", String.valueOf(i));
+                j73Var.a("request_fail", String.valueOf(i2));
+                j73Var.a("request_slow", String.valueOf(i3));
+                j73Var.a("error_duration", String.valueOf(j));
             }
+            j73Var.a("jserror", m02.d().c() ? "1" : "0");
+            j73Var.a(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, h02.b() ? "1" : "0");
+            a73.x("1619", j73Var);
         }
     }
 }

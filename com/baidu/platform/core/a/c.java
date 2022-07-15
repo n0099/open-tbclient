@@ -1,7 +1,6 @@
 package com.baidu.platform.core.a;
 
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +39,7 @@ public class c extends com.baidu.platform.base.e {
             this.a.a("l", "10");
             this.a.a("ie", IMAudioTransRequest.CHARSET);
             this.a.a("oue", "1");
-            this.a.a(UriUtil.LOCAL_RESOURCE_SCHEME, RetrieveTaskManager.KEY);
+            this.a.a(UriUtil.LOCAL_RESOURCE_SCHEME, "api");
             this.a.a("fromproduct", "android_map_sdk");
             this.a.a("uid", str);
         }

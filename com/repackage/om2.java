@@ -1,83 +1,243 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class om2 implements rp2 {
+public final class om2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static final Set<String> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<lm2> a;
-    public int b;
-    public float c;
-    public boolean d;
+    public final String a;
+    public final Object b;
+    public final int c;
 
-    public om2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public Object b;
+        public int c;
+        public RuntimeException d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        this.b = 0;
-        this.c = 0.0f;
-        this.d = false;
-    }
 
-    @Override // com.repackage.rp2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("points")) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("points");
-            int length = optJSONArray == null ? 0 : optJSONArray.length();
-            if (length > 0) {
-                this.a = new ArrayList<>(length);
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        lm2 lm2Var = new lm2();
-                        lm2Var.a(optJSONObject);
-                        if (lm2Var.isValid()) {
-                            this.a.add(lm2Var);
+        @Nullable
+        @SuppressLint({"BDThrowableCheck"})
+        public om2 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.d != null) {
+                    if (om2.d) {
+                        throw this.d;
+                    }
+                    return null;
+                } else if (this.a == null) {
+                    this.d = new IllegalStateException("key == null");
+                    if (om2.d) {
+                        throw this.d;
+                    }
+                    return null;
+                } else {
+                    synchronized (a.class) {
+                        if (om2.e.contains(this.a)) {
+                            this.d = new IllegalStateException("the key of switch has been occupied");
+                            if (om2.d) {
+                                throw this.d;
+                            }
+                            return null;
+                        } else if (this.b == null) {
+                            this.d = new IllegalStateException("defaultValue == null");
+                            if (om2.d) {
+                                throw this.d;
+                            }
+                            return null;
+                        } else if (om2.c(this.c, this.b)) {
+                            om2.e.add(this.a);
+                            return new om2(this);
+                        } else {
+                            this.d = new IllegalStateException("valueType error");
+                            if (om2.d) {
+                                throw this.d;
+                            }
+                            return null;
                         }
                     }
                 }
             }
-            ArrayList<lm2> arrayList = this.a;
-            if (arrayList == null || arrayList.size() <= 0) {
-                return;
+            return (om2) invokeV.objValue;
+        }
+
+        public a b(@NonNull Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                this.b = obj;
+                return this;
             }
-            this.b = fm2.a(jSONObject.optString("color"), 0);
-            this.c = Math.abs(fm2.b(jSONObject.optDouble("width", 0.0d)));
-            this.d = jSONObject.optBoolean("dottedLine", false);
-            jSONObject.optBoolean("arrowLine", false);
-            jSONObject.optString("arrowIconPath");
-            fm2.a(jSONObject.optString("borderColor"), 0);
-            Math.abs(fm2.b(jSONObject.optDouble("borderWidth", 0.0d)));
+            return (a) invokeL.objValue;
+        }
+
+        public Exception c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (Exception) invokeV.objValue;
+        }
+
+        @SuppressLint({"BDThrowableCheck"})
+        public a d(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    this.d = new IllegalArgumentException("the key of switch must not be empty");
+                    if (!om2.d) {
+                        this.a = null;
+                        return this;
+                    }
+                    throw this.d;
+                } else if (TextUtils.equals("sids", str)) {
+                    this.d = new IllegalArgumentException("sid must not equal \"sids\"");
+                    if (!om2.d) {
+                        this.a = null;
+                        return this;
+                    }
+                    throw this.d;
+                } else {
+                    this.a = str;
+                    return this;
+                }
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a e(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.c = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
         }
     }
 
-    @Override // com.repackage.rp2
-    public boolean isValid() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755434979, "Lcom/repackage/om2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755434979, "Lcom/repackage/om2;");
+                return;
+            }
+        }
+        d = rg1.a;
+        e = new HashSet();
+    }
+
+    public om2(@NonNull a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = aVar.a;
+        this.b = aVar.b;
+        this.c = aVar.c;
+    }
+
+    public static boolean c(int i, Object obj) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, obj)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                return false;
+                            }
+                            return obj instanceof String;
+                        }
+                        return obj instanceof Long;
+                    }
+                    return obj instanceof Integer;
+                }
+                return obj instanceof Double;
+            }
+            return obj instanceof Boolean;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public Object d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<lm2> arrayList = this.a;
-            return arrayList != null && arrayList.size() > 0;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (d) {
+                return "SwanLocalABTestSwitch{key='" + this.a + "', defaultValue=" + this.b + ", valueType=" + this.c + '}';
+            }
+            return super.toString();
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

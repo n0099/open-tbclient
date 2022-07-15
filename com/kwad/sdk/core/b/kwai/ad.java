@@ -1,29 +1,53 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.config.item.AvatarGuiderConfigItem;
+import com.kwad.sdk.core.response.model.AdStyleInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ad implements com.kwad.sdk.core.d<AvatarGuiderConfigItem.AvatarGuiderConfig> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AvatarGuiderConfigItem.AvatarGuiderConfig avatarGuiderConfig, JSONObject jSONObject) {
+public final class ad implements com.kwad.sdk.core.d<AdStyleInfo.PlayEndInfo.AdWebCardInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdStyleInfo.PlayEndInfo.AdWebCardInfo adWebCardInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        avatarGuiderConfig.showByPlayRate = jSONObject.optInt("showByPlayRate", new Integer("70").intValue());
-        avatarGuiderConfig.showTimeLength = jSONObject.optInt("showTimeLength", new Integer("3000").intValue());
-        avatarGuiderConfig.showMaxTimes = jSONObject.optInt("showMaxTimes", new Integer("7").intValue());
+        adWebCardInfo.typeLandscape = jSONObject.optLong("typeLandscape");
+        adWebCardInfo.typePortrait = jSONObject.optLong("typePortrait");
+        adWebCardInfo.cardUrl = jSONObject.optString("cardUrl");
+        if (jSONObject.opt("cardUrl") == JSONObject.NULL) {
+            adWebCardInfo.cardUrl = "";
+        }
+        adWebCardInfo.cardData = jSONObject.optString("cardData");
+        if (jSONObject.opt("cardData") == JSONObject.NULL) {
+            adWebCardInfo.cardData = "";
+        }
+        adWebCardInfo.cardShowPlayCount = jSONObject.optInt("cardShowPlayCount");
+        adWebCardInfo.cardShowTime = jSONObject.optLong("cardShowTime");
+        adWebCardInfo.cardDelayTime = jSONObject.optLong("cardDelayTime");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AvatarGuiderConfigItem.AvatarGuiderConfig avatarGuiderConfig, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdStyleInfo.PlayEndInfo.AdWebCardInfo adWebCardInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "showByPlayRate", avatarGuiderConfig.showByPlayRate);
-        com.kwad.sdk.utils.t.a(jSONObject, "showTimeLength", avatarGuiderConfig.showTimeLength);
-        com.kwad.sdk.utils.t.a(jSONObject, "showMaxTimes", avatarGuiderConfig.showMaxTimes);
+        com.kwad.sdk.utils.r.a(jSONObject, "typeLandscape", adWebCardInfo.typeLandscape);
+        com.kwad.sdk.utils.r.a(jSONObject, "typePortrait", adWebCardInfo.typePortrait);
+        com.kwad.sdk.utils.r.a(jSONObject, "cardUrl", adWebCardInfo.cardUrl);
+        com.kwad.sdk.utils.r.a(jSONObject, "cardData", adWebCardInfo.cardData);
+        com.kwad.sdk.utils.r.a(jSONObject, "cardShowPlayCount", adWebCardInfo.cardShowPlayCount);
+        com.kwad.sdk.utils.r.a(jSONObject, "cardShowTime", adWebCardInfo.cardShowTime);
+        com.kwad.sdk.utils.r.a(jSONObject, "cardDelayTime", adWebCardInfo.cardDelayTime);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdStyleInfo.PlayEndInfo.AdWebCardInfo adWebCardInfo, JSONObject jSONObject) {
+        a2(adWebCardInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdStyleInfo.PlayEndInfo.AdWebCardInfo adWebCardInfo, JSONObject jSONObject) {
+        return b2(adWebCardInfo, jSONObject);
     }
 }

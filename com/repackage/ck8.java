@@ -1,51 +1,171 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.AdToMainTabActivitySwitch;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ck8 {
+public abstract class ck8 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public bk8 a;
+    public final String b;
+    public final int c;
+    public final long d;
+    public final String e;
+    public final int f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755794207, "Lcom/repackage/ck8;")) == null) {
+    public ck8(String str, int i, int i2, long j, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = str;
+        this.c = i2;
+        this.d = j;
+        this.e = str2;
+        this.f = i;
+    }
+
+    public abstract void a();
+
+    public byte[] b(RandomAccessFile randomAccessFile, int i) {
+        InterceptResult invokeLI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, randomAccessFile, i)) == null) {
+            if (randomAccessFile != null && i >= 0) {
+                if (i == this.c) {
+                    i2 = (int) (this.d - ((i - 1) * this.f));
+                } else {
+                    i2 = this.f;
+                }
+                byte[] bArr = new byte[i2];
+                try {
+                    synchronized (randomAccessFile) {
+                        randomAccessFile.seek((i - 1) * this.f);
+                        r3 = randomAccessFile.read(bArr, 0, i2) != -1;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (r3) {
+                    return bArr;
+                }
+            }
+            return null;
+        }
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public abstract boolean c();
+
+    public void d(int i) {
+        bk8 bk8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (bk8Var = this.a) == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        bk8Var.onProgressUpdate(i / 100.0f);
+    }
+
+    public final String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            try {
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+                if (optJSONObject != null) {
+                    return optJSONObject.optString("video_url");
+                }
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            return null;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755794207, "Lcom/repackage/ck8;");
+        return (String) invokeL.objValue;
+    }
+
+    public void f(bk8 bk8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bk8Var) == null) {
+            this.a = bk8Var;
         }
     }
 
-    public static void a(MainTabActivity mainTabActivity, Intent intent) {
+    public abstract fk8 g(ArrayList<Integer> arrayList, String str, int i);
+
+    public fk8 h(RandomAccessFile randomAccessFile, int i, long j, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, mainTabActivity, intent) == null) || a || !AdToMainTabActivitySwitch.getIsOn() || mainTabActivity == null || !mainTabActivity.isTaskRoot() || intent == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{randomAccessFile, Integer.valueOf(i), Long.valueOf(j), str})) == null) {
+            byte[] b = b(randomAccessFile, i);
+            if (b == null) {
+                fk8 fk8Var = new fk8();
+                fk8Var.b = -1;
+                fk8Var.c = "上传文件不存在";
+                return fk8Var;
+            } else if (c()) {
+                return null;
+            } else {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
+                netWork.addPostData("chunk_no", String.valueOf(i));
+                netWork.addPostData("chunk_sum", String.valueOf(this.c));
+                netWork.addPostData("chunk_size", String.valueOf(b.length));
+                netWork.addPostData("video_size", String.valueOf(this.d));
+                netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.e);
+                netWork.addPostData("video_len", String.valueOf(j));
+                netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
+                netWork.addPostData("video_chunk", b);
+                netWork.addPostData("upload_id", str);
+                if (c()) {
+                    return null;
+                }
+                String postMultiNetData = netWork.postMultiNetData();
+                if (c()) {
+                    return null;
+                }
+                fk8 fk8Var2 = new fk8();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    fk8Var2.a = e(postMultiNetData);
+                } else {
+                    if (netWork.getNetContext().getResponse().isNetSuccess()) {
+                        fk8Var2.b = netWork.getNetContext().getResponse().mServerErrorCode;
+                    } else {
+                        fk8Var2.b = netWork.getNetContext().getResponse().mNetErrorCode;
+                    }
+                    fk8Var2.c = netWork.getNetContext().getResponse().mErrorString;
+                }
+                return fk8Var2;
+            }
         }
-        String action = intent.getAction();
-        Set<String> categories = intent.getCategories();
-        if (action == null || categories == null || !TextUtils.equals(action, "android.intent.action.MAIN") || !categories.contains("android.intent.category.LAUNCHER")) {
-            return;
-        }
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
-        a = true;
+        return (fk8) invokeCommon.objValue;
     }
 }

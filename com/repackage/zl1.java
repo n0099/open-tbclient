@@ -1,31 +1,25 @@
 package com.repackage;
 
-import android.view.View;
-import android.webkit.ValueCallback;
+import android.content.Context;
 /* loaded from: classes7.dex */
-public interface zl1 extends qy1 {
-    boolean canGoBack();
+public interface zl1 {
+    void b();
 
-    View covertToView();
+    void c();
 
-    void destroy();
+    zl1 create();
 
-    @Override // com.repackage.qy1
-    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
+    void d(rp2 rp2Var, boolean z);
 
-    int getContentHeight();
+    void e(rp2 rp2Var, Context context);
 
-    View getCurrentWebView();
+    boolean isPlaying();
 
-    float getScale();
+    boolean onBackPressed();
 
-    int getWebViewScrollX();
+    void pause();
 
-    int getWebViewScrollY();
+    void resume();
 
-    void goBack();
-
-    void setDefaultViewSize(int i, int i2, String str);
-
-    void webViewScrollTo(int i, int i2);
+    void stop();
 }

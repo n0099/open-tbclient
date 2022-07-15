@@ -1,45 +1,99 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.repackage.bv8;
+import com.repackage.zw5;
 /* loaded from: classes5.dex */
-public final class ax5 implements View.OnClickListener {
+public class ax5 implements zw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final Context b;
-    public View c;
-    public RelativeLayout d;
-    public RelativeLayout e;
-    public ImageView f;
-    public TextView g;
-    public ImageView h;
+    public bv8 a;
+    public TextView b;
+    public zw5.c c;
+    public zw5.b d;
+    public zw5.a e;
 
-    public ax5(Context context) {
+    /* loaded from: classes5.dex */
+    public class a implements bv8.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ax5 a;
+
+        public a(ax5 ax5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ax5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ax5Var;
+        }
+
+        @Override // com.repackage.bv8.a
+        public float a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a.d != null) {
+                    return this.a.d.a();
+                }
+                return 1.0f;
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // com.repackage.bv8.a
+        public void b(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+                if (this.a.e != null) {
+                    this.a.e.a(f);
+                }
+                TextView textView = this.a.b;
+                ax5 ax5Var = this.a;
+                textView.setText(ax5Var.h(ax5Var.getProgress()));
+            }
+        }
+
+        @Override // com.repackage.bv8.a
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a.c == null) {
+                return;
+            }
+            this.a.c.a();
+        }
+
+        @Override // com.repackage.bv8.a
+        public void onProgress(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+                this.a.b.setText(this.a.h(f));
+            }
+        }
+    }
+
+    public ax5(bv8 bv8Var, TextView textView, zw5.c cVar, zw5.b bVar, zw5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {bv8Var, textView, cVar, bVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,143 +103,218 @@ public final class ax5 implements View.OnClickListener {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        this.a = 3;
-        this.b = context;
-        c();
+        this.a = bv8Var;
+        this.b = textView;
+        this.c = cVar;
+        this.d = bVar;
+        this.e = aVar;
+        i();
     }
 
-    public final View a() {
+    @Override // com.repackage.zw5
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ImageView imageView = this.h;
-            if (imageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCardInterestClose");
-                return null;
+            bv8 bv8Var = this.a;
+            if (bv8Var != null) {
+                bv8Var.a();
+                return true;
             }
-            return imageView;
+            return false;
         }
-        return (View) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final View b() {
+    @Override // com.repackage.zw5
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.c;
-            if (view2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mView");
-                return null;
+            bv8 bv8Var = this.a;
+            if (bv8Var != null) {
+                return bv8Var.b();
             }
-            return view2;
+            return false;
         }
-        return (View) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void c() {
+    @Override // com.repackage.zw5
+    public int getMaxDuration() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RelativeLayout relativeLayout = null;
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d019a, (ViewGroup) null);
-            Intrinsics.checkNotNullExpressionValue(inflate, "from(mContext).inflate(R…card_interest_view, null)");
-            this.c = inflate;
-            if (inflate == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mView");
-                inflate = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            bv8 bv8Var = this.a;
+            if (bv8Var != null) {
+                return bv8Var.getMaxDuration();
             }
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09052e);
-            Intrinsics.checkNotNullExpressionValue(findViewById, "mView.findViewById(R.id.card_interest_root)");
-            this.d = (RelativeLayout) findViewById;
-            View view2 = this.c;
-            if (view2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mView");
-                view2 = null;
-            }
-            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f09052d);
-            Intrinsics.checkNotNullExpressionValue(findViewById2, "mView.findViewById(R.id.card_interest_insind)");
-            this.e = (RelativeLayout) findViewById2;
-            View view3 = this.c;
-            if (view3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mView");
-                view3 = null;
-            }
-            View findViewById3 = view3.findViewById(R.id.obfuscated_res_0x7f09052a);
-            Intrinsics.checkNotNullExpressionValue(findViewById3, "mView.findViewById(R.id.card_interest_add)");
-            this.f = (ImageView) findViewById3;
-            View view4 = this.c;
-            if (view4 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mView");
-                view4 = null;
-            }
-            View findViewById4 = view4.findViewById(R.id.obfuscated_res_0x7f09052c);
-            Intrinsics.checkNotNullExpressionValue(findViewById4, "mView.findViewById(R.id.card_interest_content)");
-            this.g = (TextView) findViewById4;
-            View view5 = this.c;
-            if (view5 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mView");
-                view5 = null;
-            }
-            View findViewById5 = view5.findViewById(R.id.obfuscated_res_0x7f09052b);
-            Intrinsics.checkNotNullExpressionValue(findViewById5, "mView.findViewById(R.id.card_interest_close)");
-            this.h = (ImageView) findViewById5;
-            RelativeLayout relativeLayout2 = this.e;
-            if (relativeLayout2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCardInterestInsind");
-            } else {
-                relativeLayout = relativeLayout2;
-            }
-            relativeLayout.setOnClickListener(this);
-            d(TbadkCoreApplication.getInst().getSkinType());
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public final void d(int i) {
+    @Override // com.repackage.zw5
+    public float getProgress() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.a == i) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            bv8 bv8Var = this.a;
+            if (bv8Var != null) {
+                return bv8Var.getProgress();
+            }
+            return 0.0f;
         }
-        RelativeLayout relativeLayout = this.d;
-        ImageView imageView = null;
-        if (relativeLayout == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("mCardInterestRoot");
-            relativeLayout = null;
-        }
-        fr4 d = fr4.d(relativeLayout);
-        d.n(R.string.J_X06);
-        d.f(R.color.CAM_X0201);
-        ImageView imageView2 = this.f;
-        if (imageView2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("mCardInterestAdd");
-            imageView2 = null;
-        }
-        WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f080696, R.color.CAM_X0304, null);
-        TextView textView = this.g;
-        if (textView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("mCardInterestContent");
-            textView = null;
-        }
-        fr4 d2 = fr4.d(textView);
-        d2.v(R.color.CAM_X0304);
-        d2.z(R.dimen.T_X08);
-        ImageView imageView3 = this.h;
-        if (imageView3 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("mCardInterestClose");
-        } else {
-            imageView = imageView3;
-        }
-        imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+        return invokeV.floatValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View v) {
+    @Override // com.repackage.zw5
+    public int getSlideNum() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v) == null) {
-            Intrinsics.checkNotNullParameter(v, "v");
-            if (v.getId() == R.id.obfuscated_res_0x7f09052d) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InterestGuideActivityConfig(this.b, 5)));
-                vy6.a(1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            bv8 bv8Var = this.a;
+            if (bv8Var != null) {
+                return bv8Var.getSlideNum();
             }
+            return 0;
         }
+        return invokeV.intValue;
+    }
+
+    public final String h(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            if (f >= getMaxDuration()) {
+                f = getMaxDuration();
+            }
+            if (f > 60.0f) {
+                return ((int) (f / 60.0f)) + "'" + String.format("%.1f", Float.valueOf(f % 60.0f));
+            }
+            return String.format("%.1f", Float.valueOf(f));
+        }
+        return (String) invokeF.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            bv8 bv8Var = this.a;
+            if (bv8Var == null) {
+                return false;
+            }
+            bv8Var.setOnProgressListener(new a(this));
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.zw5
+    public boolean pause() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            bv8 bv8Var = this.a;
+            if (bv8Var != null) {
+                bv8Var.stop();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.zw5
+    public boolean reset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            bv8 bv8Var = this.a;
+            if (bv8Var != null) {
+                bv8Var.reset();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.zw5
+    public boolean setMaxDuration(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            bv8 bv8Var = this.a;
+            if (bv8Var != null) {
+                bv8Var.setMaxDuration(i);
+                this.a.invalidate();
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.repackage.zw5
+    public boolean setMinDuration(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            bv8 bv8Var = this.a;
+            if (bv8Var != null) {
+                bv8Var.setMinDuration(i);
+                this.a.invalidate();
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.repackage.zw5
+    public boolean setProgress(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            bv8 bv8Var = this.a;
+            if (bv8Var != null) {
+                bv8Var.setProgress(j);
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // com.repackage.zw5
+    public boolean setShowDeleteLastTip(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+            bv8 bv8Var = this.a;
+            if (bv8Var != null) {
+                bv8Var.setShowDeleteLastTip(z);
+                return true;
+            }
+            return false;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    @Override // com.repackage.zw5
+    public boolean start() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            bv8 bv8Var = this.a;
+            if (bv8Var != null) {
+                bv8Var.start();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

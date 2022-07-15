@@ -232,42 +232,42 @@ public class BdTypeListView extends BdListView implements tn<BdTypeListView> {
                         an anVar = this.H.get(nnVar.getType());
                         if (anVar.x() != null) {
                             gn gnVar = new gn();
-                            gnVar.h(anVar.x());
+                            gnVar.g(anVar.x());
                             if (nnVar instanceof BaseCardInfo) {
                                 gnVar.position = ((BaseCardInfo) nnVar).position;
                                 gnVar.setSupportType(BaseCardInfo.SupportType.TOP);
                             }
-                            gnVar.f(nnVar);
+                            gnVar.d(nnVar);
                             arrayList.add(gnVar);
                         }
                         if (anVar.v() != null) {
                             gn gnVar2 = new gn();
-                            gnVar2.h(anVar.v());
+                            gnVar2.g(anVar.v());
                             if (nnVar instanceof BaseCardInfo) {
                                 gnVar2.position = ((BaseCardInfo) nnVar).position;
                                 gnVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                             }
-                            gnVar2.f(nnVar);
+                            gnVar2.d(nnVar);
                             arrayList.add(gnVar2);
                         }
                         if (anVar.w() != null) {
                             gn gnVar3 = new gn();
-                            gnVar3.h(anVar.w());
+                            gnVar3.g(anVar.w());
                             if (nnVar instanceof BaseCardInfo) {
                                 gnVar3.position = ((BaseCardInfo) nnVar).position;
                                 gnVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             }
-                            gnVar3.f(nnVar);
+                            gnVar3.d(nnVar);
                             arrayList.add(gnVar3);
                         }
                         if (anVar.u() != null) {
                             gn gnVar4 = new gn();
-                            gnVar4.h(anVar.u());
+                            gnVar4.g(anVar.u());
                             if (nnVar instanceof BaseCardInfo) {
                                 gnVar4.position = ((BaseCardInfo) nnVar).position;
                                 gnVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                             }
-                            gnVar4.f(nnVar);
+                            gnVar4.d(nnVar);
                             arrayList.add(gnVar4);
                         }
                     } else {

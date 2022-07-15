@@ -1,22 +1,21 @@
 package com.kwai.sodler.lib;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class f {
+public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static com.kwai.sodler.lib.a.b a(@NonNull Context context, @NonNull com.kwai.sodler.lib.kwai.f fVar) {
-        InterceptResult invokeLL;
+    public static com.kwai.sodler.lib.c.b a(@NonNull com.kwai.sodler.lib.a.f fVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, fVar)) == null) {
-            fVar.b().f().a(fVar);
-            return fVar.s();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fVar)) == null) {
+            fVar.b().g().a(fVar);
+            return fVar.r();
         }
-        return (com.kwai.sodler.lib.a.b) invokeLL.objValue;
+        return (com.kwai.sodler.lib.c.b) invokeL.objValue;
     }
 }

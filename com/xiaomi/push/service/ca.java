@@ -23,7 +23,7 @@ public class ca {
     public static final Object a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ArrayList<hn> f957a;
+    public static ArrayList<hn> f1684a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,13 +40,13 @@ public class ca {
             }
         }
         a = new Object();
-        f957a = new ArrayList<>();
+        f1684a = new ArrayList<>();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            f957a.clear();
+            f1684a.clear();
         }
     }
 
@@ -60,10 +60,10 @@ public class ca {
     public static void a(hn hnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, hnVar) == null) {
-            if (f957a.size() > 10) {
-                f957a.remove(0);
+            if (f1684a.size() > 10) {
+                f1684a.remove(0);
             }
-            f957a.add(hnVar);
+            f1684a.add(hnVar);
         }
     }
 
@@ -74,7 +74,7 @@ public class ca {
             String a2 = com.xiaomi.push.r.a(context).a("mipush", "td_key", "");
             if (TextUtils.isEmpty(a2)) {
                 a2 = com.xiaomi.push.bp.a(20);
-                com.xiaomi.push.r.a(context).m564a("mipush", "td_key", a2);
+                com.xiaomi.push.r.a(context).m1507a("mipush", "td_key", a2);
             }
             return a(a2);
         }
@@ -85,7 +85,7 @@ public class ca {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bm.m197a(str), 16);
+            byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bm.m1140a(str), 16);
             copyOf[0] = 68;
             copyOf[15] = 84;
             return copyOf;
@@ -117,7 +117,7 @@ public class ca {
                 if (b != null && b.length >= 1) {
                     if (b.length > 10240) {
                         str2 = "TinyData write to cache file failed case too much data content item:" + hnVar.d() + "  ts:" + System.currentTimeMillis();
-                        com.xiaomi.channel.commonutils.logger.b.m84a(str2);
+                        com.xiaomi.channel.commonutils.logger.b.m1027a(str2);
                         com.xiaomi.push.ab.a((Closeable) null);
                         com.xiaomi.push.ab.a((Closeable) null);
                     }
@@ -156,7 +156,7 @@ public class ca {
                     }
                 }
                 str2 = "TinyData write to cache file failed case encryption fail item:" + hnVar.d() + "  ts:" + System.currentTimeMillis();
-                com.xiaomi.channel.commonutils.logger.b.m84a(str2);
+                com.xiaomi.channel.commonutils.logger.b.m1027a(str2);
                 com.xiaomi.push.ab.a((Closeable) null);
                 com.xiaomi.push.ab.a((Closeable) null);
             } catch (Throwable th2) {

@@ -1,38 +1,69 @@
 package com.repackage;
 
-import android.content.Context;
-import android.media.AudioManager;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class h93 extends p13 {
+public final class h93 extends i93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean g;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ArrayList a;
+        public final /* synthetic */ h93 b;
+
+        public a(h93 h93Var, ArrayList arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h93Var, arrayList};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = h93Var;
+            this.a = arrayList;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.m(this.a);
+                this.b.j();
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h93(p03 p03Var) {
-        super(p03Var, "/swanAPI/getMediaVolumeSync");
+    public h93(d93 d93Var) {
+        super(d93Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
+            Object[] objArr = {d93Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((d93) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,66 +71,89 @@ public class h93 extends p13 {
         }
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.i93
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (sz2Var == null) {
-                sw1.c("getMediaVolumeSync", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (p13.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal swanApp");
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a()) {
+            long currentTimeMillis = i93.f ? System.currentTimeMillis() : 0L;
+            this.a.g(new a(this, this.b.n()));
+            if (i93.f) {
+                Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - currentTimeMillis));
+            }
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.g) {
+            return;
+        }
+        long currentTimeMillis = i93.f ? System.currentTimeMillis() : 0L;
+        this.a.b();
+        this.g = true;
+        if (i93.f) {
+            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - currentTimeMillis));
+        }
+    }
+
+    public ArrayList<c93> k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            long currentTimeMillis = i93.f ? System.currentTimeMillis() : 0L;
+            ArrayList<c93> arrayList = new ArrayList<>();
+            try {
+                arrayList = this.a.e(str);
+            } catch (Exception e) {
+                hx1.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
+            }
+            if (i93.f) {
+                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - currentTimeMillis));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long currentTimeMillis = i93.f ? System.currentTimeMillis() : 0L;
+            this.a.h();
+            if (i93.f) {
+                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - currentTimeMillis));
+            }
+        }
+    }
+
+    public final void m(ArrayList<c93> arrayList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) || arrayList == null || arrayList.isEmpty()) {
+            return;
+        }
+        if (i93.f) {
+            Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
+        }
+        Iterator<c93> it = arrayList.iterator();
+        while (it.hasNext()) {
+            c93 next = it.next();
+            if (next != null) {
+                if (i93.f) {
+                    Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
                 }
-                return false;
-            } else if (context == null) {
-                sw1.c("getMediaVolumeSync", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (p13.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal context");
-                }
-                return false;
-            } else {
-                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-                if (audioManager == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "get AudioManager error");
-                    if (p13.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- get AudioManager error");
-                    }
-                    return false;
-                }
-                int streamMaxVolume = audioManager.getStreamMaxVolume(3);
-                int streamVolume = audioManager.getStreamVolume(3);
-                if (streamMaxVolume <= 0) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "max volume get 0");
-                    if (p13.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- max volume get 0");
-                    }
-                    return false;
-                }
-                double d = streamVolume / streamMaxVolume;
-                if (d < 0.0d) {
-                    d = 0.0d;
-                } else if (d > 1.0d) {
-                    d = 1.0d;
-                }
-                if (p13.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync: " + d);
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("value", d);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                    return true;
-                } catch (JSONException unused) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
-                    if (p13.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- json exception");
-                    }
-                    return false;
+                int i = next.i;
+                if (i == 0) {
+                    this.a.a(next);
+                    this.b.y(next);
+                } else if (i == 2) {
+                    this.a.d(next.a, next.b, next.c);
+                    this.b.g(next);
+                } else if (i == 3) {
+                    this.a.d(next.a, next.b, next.c);
+                    this.a.a(next);
+                    this.b.y(next);
                 }
             }
         }
-        return invokeLLLL.booleanValue;
     }
 }

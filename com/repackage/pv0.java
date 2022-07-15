@@ -1,23 +1,17 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
-public abstract class pv0 implements rv0 {
+public final class pv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pu0 a;
-    public Context b;
-    public uv0 c;
+    public String a;
 
     public pv0() {
         Interceptable interceptable = $ic;
@@ -32,180 +26,41 @@ public abstract class pv0 implements rv0 {
                 return;
             }
         }
-        l(null);
+        this.a = "";
     }
 
-    @Override // com.repackage.js0
-    public void a(@NonNull ir0 ir0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ir0Var) == null) {
-        }
-    }
-
-    public void b(@NonNull uv0 uv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uv0Var) == null) {
-            this.c = uv0Var;
-        }
-    }
-
-    public void c(@NonNull pu0 pu0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pu0Var) == null) {
-            this.a = pu0Var;
-            o();
-        }
-    }
-
-    @Override // com.repackage.js0
-    public void d(@NonNull ir0 ir0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ir0Var) == null) {
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c = null;
-        }
-    }
-
-    public void f() {
-        pu0 pu0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (pu0Var = this.a) == null) {
-            return;
-        }
-        pu0Var.e(this);
-        this.a = null;
-    }
-
-    @Override // com.repackage.rv0
-    public void g(@NonNull ir0 ir0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ir0Var) == null) {
-        }
-    }
-
-    public Context getContext() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (Context) invokeV.objValue;
-    }
-
-    @Override // com.repackage.js0
-    public int getExpectOrder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.a;
+            return !(str == null || StringsKt__StringsJVMKt.isBlank(str));
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.js0
-    public int getType() {
-        InterceptResult invokeV;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.js0
-    public void h(@NonNull PlayerStatus playerStatus, @NonNull PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, playerStatus, playerStatus2) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
         }
     }
 
-    @Nullable
-    public oo0 i() {
-        InterceptResult invokeV;
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            uv0 uv0Var = this.c;
-            if (uv0Var != null) {
-                return uv0Var.b();
-            }
-            return null;
-        }
-        return (oo0) invokeV.objValue;
-    }
-
-    @Override // com.repackage.js0
-    public void j(@NonNull ir0 ir0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, ir0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = str;
         }
     }
 
-    @Override // com.repackage.js0
-    public void k(@NonNull ir0 ir0Var) {
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, ir0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
     }
 
-    public void l(@Nullable Context context) {
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
-            if (context == null) {
-                this.b = no0.b();
-            } else {
-                this.b = context;
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
         }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.js0
-    public void n(@NonNull ir0 ir0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, ir0Var) == null) {
-        }
-    }
-
-    public final void o() {
-        int[] subscribeEvent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (subscribeEvent = getSubscribeEvent()) == null || subscribeEvent.length <= 0) {
-            return;
-        }
-        for (int i : subscribeEvent) {
-            this.a.c(i, this);
-        }
-    }
-
-    @Override // com.repackage.js0
-    public void q(@NonNull ir0 ir0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, ir0Var) == null) {
-        }
-    }
-
-    public pv0(@Nullable Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        l(context);
     }
 }

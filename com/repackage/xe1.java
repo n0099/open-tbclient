@@ -1,22 +1,18 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import cn.com.chinatelecom.gateway.lib.PreCodeListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xe1 extends HandlerThread {
+public abstract class xe1 implements PreCodeListener {
     public static /* synthetic */ Interceptable $ic;
-    public static xe1 a;
-    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final long a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xe1() {
-        super("SSOHandlerThread", 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,36 +20,17 @@ public class xe1 extends HandlerThread {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = System.currentTimeMillis();
     }
 
-    public static Handler a() {
+    public long a() {
         InterceptResult invokeV;
-        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (xe1.class) {
-                b();
-                handler = b;
-            }
-            return handler;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a == null) {
-            xe1 xe1Var = new xe1();
-            a = xe1Var;
-            xe1Var.start();
-            b = new Handler(a.getLooper());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
     }
 }

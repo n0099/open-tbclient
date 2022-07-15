@@ -1,107 +1,96 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
-import com.baidu.tieba.recapp.view.AdVideoFlowView;
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class qa8 implements l98 {
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.yy.gslbsdk.db.DelayTB;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class qa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ij5 a;
-    public TbPageContext<BaseFragmentActivity> b;
-    public Map<AdvertAppInfo, AdVideoFlowView> c;
+    public String a;
+    public List<a> b;
 
-    public qa8(IAdBaseAsyncController.a aVar) {
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public long b;
+        public long c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                this.a = jSONObject.optInt("style");
+                long optLong = jSONObject.optLong(DelayTB.DELAY);
+                this.b = optLong;
+                if (optLong < 0) {
+                    this.b = 0L;
+                }
+                this.c = jSONObject.optLong("duration");
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    public qa8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        ij5 ij5Var = new ij5(PlaceId.VIDEO_FLOW, "VIDEO_FLOW", aVar);
-        this.a = ij5Var;
-        ij5Var.e(false);
-        this.c = new HashMap();
-    }
-
-    @Override // com.repackage.l98
-    public void a(TbPageContext<BaseFragmentActivity> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.b = tbPageContext;
-        }
-    }
-
-    @Override // com.repackage.l98
-    public void c(AdvertAppInfo advertAppInfo, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z) == null) {
-            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
-            if (adVideoFlowView != null) {
-                adVideoFlowView.onPageSelected(z);
-            }
-            for (AdVideoFlowView adVideoFlowView2 : this.c.values()) {
-                if (adVideoFlowView2 != adVideoFlowView) {
-                    adVideoFlowView2.onPageSelected(false);
-                }
             }
         }
     }
 
-    @Override // com.repackage.l98
-    @Nullable
-    public m88 i(AdvertAppInfo advertAppInfo) {
+    public static qa8 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, advertAppInfo)) == null) {
-            if (this.b == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
-            if (adVideoFlowView == null) {
-                adVideoFlowView = new AdVideoFlowView(this.b.getPageActivity());
-                this.c.put(advertAppInfo, adVideoFlowView);
+            qa8 qa8Var = new qa8();
+            qa8Var.a = jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
+            JSONArray optJSONArray = jSONObject.optJSONArray(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
+            qa8Var.b = new ArrayList();
+            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
+                List<a> list = qa8Var.b;
+                a aVar = new a();
+                aVar.a(optJSONArray.optJSONObject(i));
+                list.add(aVar);
             }
-            adVideoFlowView.setPageContext(this.b);
-            adVideoFlowView.setData(advertAppInfo);
-            return adVideoFlowView;
+            return qa8Var;
         }
-        return (m88) invokeL.objValue;
-    }
-
-    @Override // com.repackage.l98
-    public void loadAd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.d(1, null);
-        }
-    }
-
-    @Override // com.repackage.l98
-    public void m(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, advertAppInfo) == null) {
-            this.c.remove(advertAppInfo);
-        }
+        return (qa8) invokeL.objValue;
     }
 }

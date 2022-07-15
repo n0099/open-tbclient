@@ -32,25 +32,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fe5;
-import com.repackage.ge5;
-import com.repackage.je5;
-import com.repackage.ke5;
-import com.repackage.le5;
-import com.repackage.me5;
+import com.repackage.if5;
+import com.repackage.jf5;
+import com.repackage.mf5;
+import com.repackage.nf5;
+import com.repackage.of5;
+import com.repackage.pf5;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
-public class FullScreenLayout extends FrameLayout implements le5 {
+public class FullScreenLayout extends FrameLayout implements of5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int G;
     public transient /* synthetic */ FieldHolder $fh;
     public ValueAnimator A;
     public ObjectAnimator B;
-    public ge5 C;
-    public ke5 D;
-    public je5 E;
+    public jf5 C;
+    public nf5 D;
+    public mf5 E;
     public ViewTreeObserver.OnGlobalLayoutListener F;
-    public fe5 a;
+    public if5 a;
     public ImageView b;
     public FrameLayout.LayoutParams c;
     public ImageView d;
@@ -68,7 +68,7 @@ public class FullScreenLayout extends FrameLayout implements le5 {
     public int p;
     public int q;
     public int r;
-    public me5 s;
+    public pf5 s;
     public boolean t;
     public int u;
     public int v;
@@ -127,7 +127,7 @@ public class FullScreenLayout extends FrameLayout implements le5 {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements ge5.b {
+    public class b implements jf5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FullScreenLayout a;
@@ -150,7 +150,7 @@ public class FullScreenLayout extends FrameLayout implements le5 {
             this.a = fullScreenLayout;
         }
 
-        @Override // com.repackage.ge5.b
+        @Override // com.repackage.jf5.b
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.J() && this.a.isAttachedToWindow()) {
@@ -558,8 +558,8 @@ public class FullScreenLayout extends FrameLayout implements le5 {
                 this.B.cancel();
                 this.b.setRotation(0.0f);
             }
-            me5 me5Var = this.s;
-            if (me5Var != null && me5Var.a()) {
+            pf5 pf5Var = this.s;
+            if (pf5Var != null && pf5Var.a()) {
                 this.s.d();
             }
             this.d.setAlpha(1.0f);
@@ -579,7 +579,7 @@ public class FullScreenLayout extends FrameLayout implements le5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.h = ViewConfiguration.get(context).getScaledTouchSlop();
-            this.s = new me5(this);
+            this.s = new pf5(this);
             G(context);
             E(context);
             W();
@@ -754,9 +754,9 @@ public class FullScreenLayout extends FrameLayout implements le5 {
     }
 
     public final void O() {
-        ke5 ke5Var;
+        nf5 nf5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (ke5Var = this.D) == null || StringUtils.isNull(ke5Var.c())) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (nf5Var = this.D) == null || StringUtils.isNull(nf5Var.c())) {
             return;
         }
         if (this.f == null) {
@@ -766,9 +766,9 @@ public class FullScreenLayout extends FrameLayout implements le5 {
         }
         this.f.j(this.D.c());
         x(this.a.l());
-        je5 je5Var = this.E;
-        if (je5Var != null) {
-            je5Var.a(this.j);
+        mf5 mf5Var = this.E;
+        if (mf5Var != null) {
+            mf5Var.a(this.j);
         }
     }
 
@@ -918,7 +918,7 @@ public class FullScreenLayout extends FrameLayout implements le5 {
         }
     }
 
-    @Override // com.repackage.le5
+    @Override // com.repackage.of5
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
@@ -926,7 +926,7 @@ public class FullScreenLayout extends FrameLayout implements le5 {
         }
     }
 
-    @Override // com.repackage.le5
+    @Override // com.repackage.of5
     public void b(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048600, this, i2, i3, i4, i5) == null) {
@@ -939,9 +939,9 @@ public class FullScreenLayout extends FrameLayout implements le5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onAttachedToWindow();
-            ge5 ge5Var = this.C;
-            if (ge5Var != null) {
-                ge5Var.e();
+            jf5 jf5Var = this.C;
+            if (jf5Var != null) {
+                jf5Var.e();
             }
         }
     }
@@ -985,23 +985,23 @@ public class FullScreenLayout extends FrameLayout implements le5 {
         return invokeL.booleanValue;
     }
 
-    public void setClickListener(je5 je5Var) {
+    public void setClickListener(mf5 mf5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, je5Var) == null) {
-            this.E = je5Var;
+        if (interceptable == null || interceptable.invokeL(1048604, this, mf5Var) == null) {
+            this.E = mf5Var;
         }
     }
 
-    public void setFloatData(ke5 ke5Var) {
+    public void setFloatData(nf5 nf5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, ke5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, nf5Var) == null) {
             if (this.C == null) {
-                ge5 ge5Var = new ge5(this.b, this.d);
-                this.C = ge5Var;
-                ge5Var.f(new b(this));
+                jf5 jf5Var = new jf5(this.b, this.d);
+                this.C = jf5Var;
+                jf5Var.f(new b(this));
             }
-            this.C.g(ke5Var);
-            this.D = ke5Var;
+            this.C.g(nf5Var);
+            this.D = nf5Var;
         }
     }
 
@@ -1086,7 +1086,7 @@ public class FullScreenLayout extends FrameLayout implements le5 {
                 return;
             }
         }
-        this.a = fe5.a();
+        this.a = if5.a();
         this.g = new RectF();
         this.j = true;
         this.k = true;

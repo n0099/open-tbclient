@@ -22,6 +22,7 @@ import android.widget.ListAdapter;
 import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
-import com.repackage.ti9;
+import com.repackage.tm9;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -775,7 +776,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         public void c(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ti9.c("addToScrap");
+                tm9.c("addToScrap");
                 LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
                 if (layoutParams == null) {
                     return;
@@ -863,7 +864,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             Stack<View> stack;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                ti9.c("getFromScrap: " + i);
+                tm9.c("getFromScrap: " + i);
                 if (this.g.getHeaderViewsCount() > i) {
                     return null;
                 }
@@ -928,7 +929,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                     int i4 = size - 1;
                     int i5 = 0;
                     while (i5 < i3) {
-                        ti9.c("remove scarp views from pruneScrapViews");
+                        tm9.c("remove scarp views from pruneScrapViews");
                         this.g.removeDetachedView(stack.remove(i4), false);
                         i5++;
                         i4--;
@@ -948,7 +949,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                 Stack<View>[] stackArr = this.d;
                 for (int i2 = 0; i2 < i; i2++) {
                     Stack<View> stack = stackArr[i2];
-                    ti9.c("add scarp views from reclaimScrapViews");
+                    tm9.c("add scarp views from reclaimScrapViews");
                     list.addAll(stack);
                 }
             }
@@ -971,7 +972,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                                 stack = this.d[i];
                             }
                             this.g.dispatchFinishTemporaryDetach(view2);
-                            ti9.c("addToScrap from scrapActiveViews");
+                            tm9.c("addToScrap from scrapActiveViews");
                             stack.add(view2);
                             if (z) {
                                 this.a.onMovedToScrapHeap(view2);
@@ -1152,7 +1153,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         this.mActivePointerId = -1;
         initAbsListView();
         setVerticalScrollBarEnabled(true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{16842752, 16842970, R.attr.obfuscated_res_0x7f040046, R.attr.obfuscated_res_0x7f040087, R.attr.obfuscated_res_0x7f040149, R.attr.contentDescription, R.attr.obfuscated_res_0x7f04020a, R.attr.obfuscated_res_0x7f04020f, R.attr.obfuscated_res_0x7f040281, R.attr.obfuscated_res_0x7f040282, R.attr.obfuscated_res_0x7f040283, R.attr.obfuscated_res_0x7f04028c, R.attr.obfuscated_res_0x7f04028e, R.attr.obfuscated_res_0x7f040295, R.attr.obfuscated_res_0x7f040296, R.attr.obfuscated_res_0x7f0402b9, R.attr.obfuscated_res_0x7f0402f9, R.attr.obfuscated_res_0x7f0402fd, R.attr.obfuscated_res_0x7f04030f, R.attr.obfuscated_res_0x7f040331, R.attr.obfuscated_res_0x7f0403bf, R.attr.obfuscated_res_0x7f0403c2, R.attr.obfuscated_res_0x7f04042a, R.attr.obfuscated_res_0x7f04042e, R.attr.obfuscated_res_0x7f04043c, R.attr.obfuscated_res_0x7f040490, R.attr.obfuscated_res_0x7f040491, R.attr.obfuscated_res_0x7f040492, R.attr.obfuscated_res_0x7f040493, R.attr.obfuscated_res_0x7f040494, R.attr.obfuscated_res_0x7f04049a, R.attr.obfuscated_res_0x7f04049e, R.attr.obfuscated_res_0x7f0404a0, R.attr.obfuscated_res_0x7f0404a1, R.attr.obfuscated_res_0x7f0404a4, R.attr.obfuscated_res_0x7f0404a5, R.attr.obfuscated_res_0x7f0404a7, R.attr.obfuscated_res_0x7f0404a9, R.attr.obfuscated_res_0x7f0404aa, R.attr.obfuscated_res_0x7f040539, R.attr.obfuscated_res_0x7f040548, R.attr.obfuscated_res_0x7f040549, R.attr.obfuscated_res_0x7f04054a, R.attr.obfuscated_res_0x7f040560, R.attr.obfuscated_res_0x7f040562, R.attr.obfuscated_res_0x7f040563, R.attr.obfuscated_res_0x7f040567, R.attr.obfuscated_res_0x7f040568, R.attr.obfuscated_res_0x7f040569, R.attr.obfuscated_res_0x7f04056a, R.attr.obfuscated_res_0x7f04056b, R.attr.obfuscated_res_0x7f04056c, R.attr.obfuscated_res_0x7f04056d, R.attr.obfuscated_res_0x7f04056e, R.attr.obfuscated_res_0x7f04056f, R.attr.obfuscated_res_0x7f040570, R.attr.obfuscated_res_0x7f040571, R.attr.obfuscated_res_0x7f040572, R.attr.obfuscated_res_0x7f040573, R.attr.obfuscated_res_0x7f0405b2, R.attr.obfuscated_res_0x7f04060c, R.attr.obfuscated_res_0x7f04063f, R.attr.obfuscated_res_0x7f04065c, R.attr.obfuscated_res_0x7f04066b, R.attr.obfuscated_res_0x7f0406ad, R.attr.obfuscated_res_0x7f0406ae, R.attr.obfuscated_res_0x7f0406b0, R.attr.obfuscated_res_0x7f0406b1, R.attr.obfuscated_res_0x7f0406c7, R.attr.obfuscated_res_0x7f0406ce});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{16842752, 16842970, R.attr.obfuscated_res_0x7f040046, R.attr.obfuscated_res_0x7f040087, R.attr.obfuscated_res_0x7f040149, R.attr.contentDescription, R.attr.obfuscated_res_0x7f04020a, R.attr.obfuscated_res_0x7f04020f, R.attr.obfuscated_res_0x7f040281, R.attr.obfuscated_res_0x7f040282, R.attr.obfuscated_res_0x7f040283, R.attr.obfuscated_res_0x7f04028c, R.attr.obfuscated_res_0x7f04028e, R.attr.obfuscated_res_0x7f040295, R.attr.obfuscated_res_0x7f040296, R.attr.obfuscated_res_0x7f0402b7, R.attr.obfuscated_res_0x7f0402f7, R.attr.obfuscated_res_0x7f0402fb, R.attr.obfuscated_res_0x7f04030d, R.attr.obfuscated_res_0x7f04032f, R.attr.obfuscated_res_0x7f0403c7, R.attr.obfuscated_res_0x7f0403ca, R.attr.obfuscated_res_0x7f04042a, R.attr.obfuscated_res_0x7f04042e, R.attr.obfuscated_res_0x7f040440, R.attr.obfuscated_res_0x7f040494, R.attr.obfuscated_res_0x7f040495, R.attr.obfuscated_res_0x7f040496, R.attr.obfuscated_res_0x7f040497, R.attr.obfuscated_res_0x7f040498, R.attr.obfuscated_res_0x7f04049e, R.attr.obfuscated_res_0x7f0404a2, R.attr.obfuscated_res_0x7f0404a4, R.attr.obfuscated_res_0x7f0404a5, R.attr.obfuscated_res_0x7f0404a8, R.attr.obfuscated_res_0x7f0404a9, R.attr.obfuscated_res_0x7f0404ab, R.attr.obfuscated_res_0x7f0404ad, R.attr.obfuscated_res_0x7f0404ae, R.attr.obfuscated_res_0x7f04053a, R.attr.obfuscated_res_0x7f040549, R.attr.obfuscated_res_0x7f04054a, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f040561, R.attr.obfuscated_res_0x7f040563, R.attr.obfuscated_res_0x7f040564, R.attr.obfuscated_res_0x7f040568, R.attr.obfuscated_res_0x7f040569, R.attr.obfuscated_res_0x7f04056a, R.attr.obfuscated_res_0x7f04056b, R.attr.obfuscated_res_0x7f04056c, R.attr.obfuscated_res_0x7f04056d, R.attr.obfuscated_res_0x7f04056e, R.attr.obfuscated_res_0x7f04056f, R.attr.obfuscated_res_0x7f040570, R.attr.obfuscated_res_0x7f040571, R.attr.obfuscated_res_0x7f040572, R.attr.obfuscated_res_0x7f040573, R.attr.obfuscated_res_0x7f040574, R.attr.obfuscated_res_0x7f0405b3, R.attr.obfuscated_res_0x7f04060d, R.attr.obfuscated_res_0x7f040640, R.attr.obfuscated_res_0x7f04065d, R.attr.obfuscated_res_0x7f04066c, R.attr.obfuscated_res_0x7f0406ae, R.attr.obfuscated_res_0x7f0406af, R.attr.obfuscated_res_0x7f0406b1, R.attr.obfuscated_res_0x7f0406b2, R.attr.obfuscated_res_0x7f0406c8, R.attr.obfuscated_res_0x7f0406cf});
         try {
             View.class.getDeclaredMethod("initializeScrollbars", TypedArray.class).invoke(this, obtainStyledAttributes);
         } catch (IllegalAccessException e2) {
@@ -1741,7 +1742,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
     public void invalidateViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            ti9.a("data changed by invalidateViews()");
+            tm9.a("data changed by invalidateViews()");
             this.mDataChanged = true;
             rememberSyncState();
             requestLayout();
@@ -1801,7 +1802,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             if (g2 != null) {
                 view2 = this.mAdapter.getView(i2, g2, this);
                 if (view2 != g2) {
-                    ti9.c("obtainView");
+                    tm9.c("obtainView");
                     this.mRecycler.c(g2);
                     int i3 = this.mCacheColorHint;
                     if (i3 != 0) {
@@ -1812,7 +1813,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                     dispatchFinishTemporaryDetach(view2);
                 }
             } else {
-                ti9.c("makeView:" + i2);
+                tm9.c("makeView:" + i2);
                 view2 = this.mAdapter.getView(i2, null, this);
                 int i4 = this.mCacheColorHint;
                 if (i4 != 0) {
@@ -1948,7 +1949,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                 }
                 this.mRecycler.h();
             }
-            ti9.c("onLayout");
+            tm9.c("onLayout");
             layoutChildren();
             this.mInLayout = false;
         }
@@ -1996,7 +1997,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                     j jVar = new j();
                     jVar.a = j2;
                     jVar.d = (int) this.mSyncHeight;
-                    jVar.c = bundle.getInt("position");
+                    jVar.c = bundle.getInt(CriusAttrConstants.POSITION);
                     jVar.b = bundle.getInt("viewTop");
                     jVar.e = bundle.getInt("childCount");
                     int[] intArray = bundle.getIntArray("viewTops");
@@ -2027,7 +2028,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                 bundle.putLong("firstId", jVar.a);
                 bundle.putInt("viewTop", this.mPendingSync.b);
                 bundle.putIntArray("viewTops", this.mPendingSync.f);
-                bundle.putInt("position", this.mPendingSync.c);
+                bundle.putInt(CriusAttrConstants.POSITION, this.mPendingSync.c);
                 bundle.putInt("height", this.mPendingSync.d);
                 bundle.putInt("childCount", this.mPendingSync.e);
                 return bundle;
@@ -2040,7 +2041,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                 if (i2 >= i3) {
                     i2 = i3 - 1;
                 }
-                bundle.putInt("position", i2);
+                bundle.putInt(CriusAttrConstants.POSITION, i2);
                 bundle.putLong("firstId", this.mAdapter.getItemId(i2));
                 bundle.putInt("viewTop", getChildAt(0).getTop());
                 int[] iArr = new int[childCount];
@@ -2051,7 +2052,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             } else {
                 bundle.putInt("viewTop", 0);
                 bundle.putLong("firstId", -1L);
-                bundle.putInt("position", 0);
+                bundle.putInt(CriusAttrConstants.POSITION, 0);
                 bundle.putIntArray("viewTops", new int[1]);
             }
             return bundle;
@@ -2065,7 +2066,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         if (!(interceptable == null || interceptable.invokeIIII(1048632, this, i2, i3, i4, i5) == null) || getChildCount() <= 0) {
             return;
         }
-        ti9.a("data changed by onSizeChanged()");
+        tm9.a("data changed by onSizeChanged()");
         this.mDataChanged = true;
         rememberSyncState();
     }
@@ -2260,7 +2261,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
             super.onWindowFocusChanged(z);
-            ti9.c("onWindowFocusChanged");
+            tm9.c("onWindowFocusChanged");
             int i2 = !isInTouchMode();
             if (!z) {
                 setChildrenDrawingCacheEnabled(false);
@@ -2277,7 +2278,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                 int i3 = this.mLastTouchMode;
                 if (i2 != i3 && i3 != -1) {
                     this.mLayoutMode = 0;
-                    ti9.c("onWindowFocusChanged");
+                    tm9.c("onWindowFocusChanged");
                     layoutChildren();
                 }
             }
@@ -2771,7 +2772,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         this.mIsScrap = new boolean[1];
         this.mActivePointerId = -1;
         initAbsListView();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011d, R.attr.obfuscated_res_0x7f040145, R.attr.obfuscated_res_0x7f0401fc, R.attr.obfuscated_res_0x7f040284, R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f0403f9, R.attr.obfuscated_res_0x7f040574, R.attr.obfuscated_res_0x7f0405ad, R.attr.obfuscated_res_0x7f0405c3, R.attr.obfuscated_res_0x7f04065e, R.attr.obfuscated_res_0x7f0406ac}, i2, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011d, R.attr.obfuscated_res_0x7f040145, R.attr.obfuscated_res_0x7f0401fc, R.attr.obfuscated_res_0x7f040284, R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f040401, R.attr.obfuscated_res_0x7f040575, R.attr.obfuscated_res_0x7f0405ae, R.attr.obfuscated_res_0x7f0405c4, R.attr.obfuscated_res_0x7f04065f, R.attr.obfuscated_res_0x7f0406ad}, i2, 0);
         Drawable drawable = obtainStyledAttributes.getDrawable(5);
         if (drawable != null) {
             setSelector(drawable);

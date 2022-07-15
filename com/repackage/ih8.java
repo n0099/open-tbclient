@@ -1,48 +1,66 @@
 package com.repackage;
 
-import android.content.Context;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.AbsDelegateAdapterList;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActBtn;
 /* loaded from: classes6.dex */
-public class ih8 {
+public class ih8 implements nn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsDelegateAdapterList a;
-    public Context b;
+    public String a;
+    public String b;
 
-    public ih8(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755618344, "Lcom/repackage/ih8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755618344, "Lcom/repackage/ih8;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    public ih8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, absDelegateAdapterList};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = context;
-        this.a = absDelegateAdapterList;
     }
 
-    public AbsDelegateAdapterList a() {
-        InterceptResult invokeV;
+    public void a(ActBtn actBtn) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (AbsDelegateAdapterList) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, actBtn) == null) || actBtn == null) {
+            return;
+        }
+        this.a = actBtn.text;
+        this.b = actBtn.url;
     }
 
-    public Context getContext() {
+    @Override // com.repackage.nn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

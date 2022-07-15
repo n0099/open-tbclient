@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.disklrucache.StrictLineReader;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.Locale;
 /* loaded from: classes.dex */
@@ -115,7 +116,7 @@ public final class BidiFormatter {
                 } while (charAt != ';');
                 this.charIndex = i;
                 this.lastChar = WebvttCueParser.CHAR_SEMI_COLON;
-                return (byte) 13;
+                return StrictLineReader.CR;
             }
             return invokeV.byteValue;
         }
@@ -177,7 +178,7 @@ public final class BidiFormatter {
                 }
                 this.charIndex = i;
                 this.lastChar = '>';
-                return (byte) 13;
+                return StrictLineReader.CR;
             }
             return invokeV.byteValue;
         }
@@ -215,7 +216,7 @@ public final class BidiFormatter {
                 } else {
                     this.charIndex = i;
                     this.lastChar = '<';
-                    return (byte) 13;
+                    return StrictLineReader.CR;
                 }
             }
         }

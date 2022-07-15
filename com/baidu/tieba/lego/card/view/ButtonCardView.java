@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nq4;
-import com.repackage.pc7;
+import com.repackage.cr4;
+import com.repackage.hd7;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class ButtonCardView extends BaseCardView<ButtonCard> {
@@ -69,7 +69,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements nq4.e {
+    public class b implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ButtonCard a;
@@ -94,18 +94,18 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             this.a = buttonCard;
         }
 
-        @Override // com.repackage.nq4.e
-        public void onClick(nq4 nq4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                 UrlManager.getInstance().dealOneLink(this.b.i, new String[]{this.a.getBtnScheme()});
-                nq4Var.dismiss();
+                cr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements nq4.e {
+    public class c implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ButtonCardView a;
@@ -128,11 +128,11 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             this.a = buttonCardView;
         }
 
-        @Override // com.repackage.nq4.e
-        public void onClick(nq4 nq4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
-                nq4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
             }
         }
     }
@@ -163,11 +163,11 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public void setDialog(ButtonCard buttonCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, buttonCard) == null) {
-            nq4 nq4Var = new nq4(this.i.getPageActivity());
-            nq4Var.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
-            nq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0358, new b(this, buttonCard));
-            nq4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0366, new c(this));
-            nq4Var.create(this.i).show();
+            cr4 cr4Var = new cr4(this.i.getPageActivity());
+            cr4Var.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
+            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f035c, new b(this, buttonCard));
+            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new c(this));
+            cr4Var.create(this.i).show();
         }
     }
 
@@ -198,7 +198,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         this.n.setDefaultBgResource(R.color.transparent);
         if (!TextUtils.isEmpty(buttonCard.getPicUrl())) {
             this.n.J(buttonCard.getPicUrl(), 17, false);
-        } else if (!pc7.a(bgColor)) {
+        } else if (!hd7.a(bgColor)) {
             this.n.setBackgroundColor(bgColor);
         } else {
             this.n.setDefaultBgResource(R.color.transparent);
@@ -210,7 +210,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         this.o.setText(buttonCard.getText());
         this.o.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
         int textColor = buttonCard.getTextColor();
-        if (!pc7.a(textColor)) {
+        if (!hd7.a(textColor)) {
             this.o.setTextColor(textColor);
         }
         this.o.setOnClickListener(new a(this, buttonCard));
@@ -220,14 +220,14 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         if (i == 1) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            if (!pc7.a(buttonColor)) {
-                gradientDrawable.setStroke(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029b), buttonColor);
+            if (!hd7.a(buttonColor)) {
+                gradientDrawable.setStroke(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029a), buttonColor);
             }
             gradientDrawable.setColor(0);
             this.o.setBackgroundDrawable(gradientDrawable);
         } else if (i != 2) {
             this.o.setBackgroundColor(0);
-        } else if (!pc7.a(buttonColor)) {
+        } else if (!hd7.a(buttonColor)) {
             this.o.setBackgroundColor(buttonColor);
         } else {
             this.o.setBackgroundColor(0);
@@ -255,8 +255,8 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.i.getPageActivity().getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d0177, (ViewGroup) null);
             this.m = relativeLayout;
-            this.o = (Button) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0903ee);
-            this.n = (TbImageView) this.m.findViewById(R.id.obfuscated_res_0x7f091eec);
+            this.o = (Button) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0903f0);
+            this.n = (TbImageView) this.m.findViewById(R.id.obfuscated_res_0x7f091f90);
             return this.m;
         }
         return (View) invokeV.objValue;

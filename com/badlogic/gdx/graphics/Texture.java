@@ -21,7 +21,6 @@ import com.repackage.k1;
 import com.repackage.m1;
 import com.repackage.o3;
 import com.repackage.q5;
-import com.tachikoma.core.component.anim.TimeFunctionConst;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -61,7 +60,7 @@ public class Texture extends o3 {
                 }
             }
             Nearest = new TextureFilter("Nearest", 0, 9728);
-            Linear = new TextureFilter(TimeFunctionConst.Time.LINEAR, 1, 9729);
+            Linear = new TextureFilter("Linear", 1, 9729);
             MipMap = new TextureFilter("MipMap", 2, 9987);
             MipMapNearestNearest = new TextureFilter("MipMapNearestNearest", 3, 9984);
             MipMapLinearNearest = new TextureFilter("MipMapLinearNearest", 4, 9985);

@@ -1,90 +1,70 @@
 package com.repackage;
 
-import android.os.AsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import com.win.opensdk.PBError;
-import java.io.File;
+import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes5.dex */
-public class ap9 extends AsyncTask {
+public abstract class ap9 implements cp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ long a;
-    public final /* synthetic */ String b;
-    public final /* synthetic */ cm9 c;
 
-    public ap9(cm9 cm9Var, long j, String str) {
+    public ap9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cm9Var, Long.valueOf(j), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = cm9Var;
-        this.a = j;
-        this.b = str;
     }
 
-    @Override // android.os.AsyncTask
-    public Object doInBackground(Object[] objArr) {
-        InterceptResult invokeL;
+    @Override // com.repackage.cp9
+    public void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, qp9 qp9Var, xp9 xp9Var) throws InvalidDataException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-            String str = ((String[]) objArr)[0];
-            if (str != null) {
-                try {
-                    return sl9.F(str);
-                } catch (OutOfMemoryError unused) {
-                    return null;
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, webSocket, qp9Var, xp9Var) == null) {
         }
-        return invokeL.objValue;
     }
 
-    @Override // android.os.AsyncTask
-    public void onPostExecute(Object obj) {
-        File file;
-        File file2;
+    @Override // com.repackage.cp9
+    public yp9 onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, qp9 qp9Var) throws InvalidDataException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            byte[] bArr = (byte[]) obj;
-            if (bArr == null) {
-                cm9 cm9Var = this.c;
-                dm9 dm9Var = cm9Var.c;
-                if (dm9Var != null && !cm9Var.e) {
-                    dm9Var.onFail(PBError.NO_RESUOURCE);
-                    this.c.d = true;
-                }
-            } else {
-                cm9 cm9Var2 = this.c;
-                if (cm9Var2.c != null && !cm9Var2.e) {
-                    file = cm9Var2.g;
-                    sl9.t(bArr, file.getPath(), new wo9(this));
-                }
-            }
-            if (bArr != null) {
-                cm9 cm9Var3 = this.c;
-                if (cm9Var3.e) {
-                    cm9Var3.g = new File(sl9.e(this.c.a) + File.separator + "win" + File.separator + sl9.D(this.b) + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION);
-                    file2 = this.c.g;
-                    sl9.t(bArr, file2.getPath(), null);
-                }
-            }
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, draft, qp9Var)) == null) ? new up9() : (yp9) invokeLLL.objValue;
+    }
+
+    @Override // com.repackage.cp9
+    public void onWebsocketHandshakeSentAsClient(WebSocket webSocket, qp9 qp9Var) throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webSocket, qp9Var) == null) {
+        }
+    }
+
+    @Deprecated
+    public abstract void onWebsocketMessageFragment(WebSocket webSocket, Framedata framedata);
+
+    @Override // com.repackage.cp9
+    public void onWebsocketPing(WebSocket webSocket, Framedata framedata) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webSocket, framedata) == null) {
+            webSocket.sendFrame(new op9((np9) framedata));
+        }
+    }
+
+    @Override // com.repackage.cp9
+    public void onWebsocketPong(WebSocket webSocket, Framedata framedata) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, webSocket, framedata) == null) {
         }
     }
 }

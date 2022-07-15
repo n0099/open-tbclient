@@ -1,195 +1,226 @@
 package com.repackage;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
+import android.webkit.WebSettings;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobstat.Config;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.Inet6Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.UUID;
+import org.apache.http.cookie.ClientCookie;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kp3 {
+public class kp3 extends jp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static DisplayMetrics a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int q;
+    public int r;
+    public int s;
+    public String t;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kp3(Context context, hp3 hp3Var, int i, int i2) {
+        super(context, hp3Var);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) ? (int) (f * d(AppRuntime.getAppContext())) : invokeF.intValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, hp3Var, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (hp3) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.q = 1;
+        this.r = 1;
+        this.s = 1;
+        this.r = i;
+        this.s = i2;
     }
 
-    public static String b() {
+    @Override // com.repackage.jp3
+    public HashMap<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String substring = new dp3().a(String.valueOf(System.currentTimeMillis())).substring(4, 14);
-            String e = jo3.b().e();
-            return "38" + substring + e.substring(0, 4);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                String[] split = str.split(ParamableElem.DIVIDE_PARAM);
-                int length = split.length;
-                for (int i = 0; i != length; i++) {
-                    String trim = split[i].trim();
-                    String[] split2 = trim.split("=");
-                    if (split2.length >= 2 && TextUtils.equals(str2, split2[0])) {
-                        if (split2.length == 2) {
-                            return split2[1];
-                        }
-                        return trim.substring(split2[0].length() + 1);
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (String) invokeLL.objValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    public static float d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            n(AppRuntime.getAppContext());
-            DisplayMetrics displayMetrics = a;
-            if (displayMetrics != null) {
-                return displayMetrics.density;
-            }
-            return 0.0f;
-        }
-        return invokeL.floatValue;
-    }
-
-    public static String e() {
+    @Override // com.repackage.jp3
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String str = Build.MODEL;
-            return TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
         return (String) invokeV.objValue;
     }
 
-    public static String f() {
+    @Override // com.repackage.jp3
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.VERSION.RELEASE;
-            return TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "https://powerful.xdplt.com/api/v1/front/ltc" : (String) invokeV.objValue;
     }
 
-    public static String g() {
+    public final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String str = Build.MANUFACTURER;
-            return TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            n(AppRuntime.getAppContext());
-            DisplayMetrics displayMetrics = a;
-            if (displayMetrics != null) {
-                return displayMetrics.heightPixels;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int i(@Nullable Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            n(AppRuntime.getAppContext());
-            DisplayMetrics displayMetrics = a;
-            if (displayMetrics != null) {
-                return displayMetrics.widthPixels;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date()) : (String) invokeV.objValue;
-    }
-
-    public static String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? AppRuntime.getAppContext().getPackageName() : (String) invokeV.objValue;
-    }
-
-    public static String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                Context appContext = AppRuntime.getAppContext();
-                return appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
+                String a = ll3.b.a(this.b);
+                return TextUtils.isEmpty(a) ? UUID.randomUUID().toString() : a;
+            } catch (Exception unused) {
                 return "";
             }
         }
         return (String) invokeV.objValue;
     }
 
-    public static boolean m() {
+    public JSONObject i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? Build.VERSION.SDK_INT >= 24 : invokeV.booleanValue;
-    }
-
-    public static void n(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && a == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (appContext != null) {
-                context = appContext;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("id", String.valueOf(System.currentTimeMillis()));
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("id", this.i.e());
+                jSONObject2.put("name", yo3.b().a());
+                jSONObject2.put("bundle", zp3.k());
+                jSONObject2.put("version", zp3.l());
+                jSONObject.put("app", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("ua", l());
+                jSONObject3.put("imei", yo3.b().m());
+                jSONObject3.put(HttpRequest.ANDROID_ID, h());
+                jSONObject3.put("ip", j(true));
+                jSONObject3.put("type", 1);
+                jSONObject3.put("os", 1);
+                jSONObject3.put(HttpConstants.OS_VERSION, zp3.f());
+                jSONObject3.put("make", zp3.g());
+                jSONObject3.put("model", zp3.e());
+                jSONObject3.put("language", this.b.getResources().getConfiguration().locale.getLanguage());
+                jSONObject3.put("connection_type", NetworkUtils.c(true));
+                jSONObject3.put("carrier", k(this.b));
+                jSONObject3.put("mac", NetworkUtils.e(this.b));
+                jSONObject3.put("screen_width", zp3.i(this.b));
+                jSONObject3.put("screen_height", zp3.h(this.b));
+                jSONObject3.put("screen_orientation", this.b.getResources().getConfiguration().orientation);
+                jSONObject.put(Config.DEVICE_PART, jSONObject3);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("sid", this.i.b());
+                jSONObject4.put("ad_count", this.q);
+                jSONObject4.put(TiebaStatic.Params.AD_TYPE, this.r);
+                jSONObject4.put("pos", this.s);
+                jSONObject4.put("width", this.i.d());
+                jSONObject4.put("height", this.i.a());
+                jSONObject4.put(ClientCookie.SECURE_ATTR, 1);
+                JSONArray jSONArray = new JSONArray();
+                jSONArray.put(jSONObject4);
+                jSONObject.put("imps", jSONArray);
+                return jSONObject;
+            } catch (Exception unused) {
+                return null;
             }
-            if (context == null) {
-                return;
-            }
-            a = context.getResources().getDisplayMetrics();
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static boolean o() {
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0032, code lost:
+        r0 = r3.getHostAddress().toString();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String j(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            String str = null;
+            try {
+                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                loop0: while (true) {
+                    if (!networkInterfaces.hasMoreElements()) {
+                        break;
+                    }
+                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                    while (inetAddresses.hasMoreElements()) {
+                        InetAddress nextElement = inetAddresses.nextElement();
+                        if (!z || !(nextElement instanceof Inet6Address)) {
+                            if (!nextElement.isLoopbackAddress()) {
+                                break loop0;
+                            }
+                        }
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return TextUtils.isEmpty(str) ? "" : str;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public int k(Context context) {
+        InterceptResult invokeL;
+        TelephonyManager telephonyManager;
+        String simOperator;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
+                return 0;
+            }
+            if ("46000".equals(simOperator) || "46002".equals(simOperator) || "46007".equals(simOperator)) {
+                return 1;
+            }
+            if ("46001".equals(simOperator)) {
+                return 2;
+            }
+            return "46003".equals(simOperator) ? 3 : 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public final String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? TextUtils.equals(BaseWebViewActivity.SHOUBAI_SCHEME, jo3.b().a()) : invokeV.booleanValue;
-    }
-
-    public static int p(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65551, null, f)) == null) ? (int) (f / d(AppRuntime.getAppContext())) : invokeF.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (TextUtils.isEmpty(this.t)) {
+                try {
+                    try {
+                        this.t = WebSettings.getDefaultUserAgent(this.b);
+                    } catch (Exception unused) {
+                        this.t = "";
+                    }
+                } catch (Exception unused2) {
+                    this.t = System.getProperty("http.agent");
+                }
+            }
+            return this.t;
+        }
+        return (String) invokeV.objValue;
     }
 }

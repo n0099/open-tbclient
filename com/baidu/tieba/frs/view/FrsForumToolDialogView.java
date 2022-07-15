@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
+import com.repackage.ur4;
 /* loaded from: classes3.dex */
 public class FrsForumToolDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -46,30 +46,30 @@ public class FrsForumToolDialogView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0300, this);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f92);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092176);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090404);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09041e);
-            this.a.setText(R.string.obfuscated_res_0x7f0f0366);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0994);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0302, this);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fa3);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090406);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090420);
+            this.a.setText(R.string.obfuscated_res_0x7f0f036a);
+            this.d.setText(R.string.obfuscated_res_0x7f0f099f);
             this.c.setPlaceHolder(3);
             this.c.setDrawCorner(true);
             this.c.setAutoChangeStyle(true);
             this.c.setConrers(3);
             this.c.setRadiusById(R.string.J_X06);
-            fr4 d = fr4.d(this.b);
+            ur4 d = ur4.d(this.b);
             d.v(R.color.CAM_X0107);
             d.w(R.dimen.M_T_X001);
             d.z(R.dimen.T_X06);
-            fr4 d2 = fr4.d(this.a);
+            ur4 d2 = ur4.d(this.a);
             d2.v(R.color.CAM_X0105);
             d2.n(R.string.J_X07);
             d2.l(R.dimen.L_X02);
             d2.z(R.dimen.T_X08);
             d2.k(R.color.CAM_X0902);
             d2.f(R.color.CAM_X0201);
-            fr4 d3 = fr4.d(this.d);
+            ur4 d3 = ur4.d(this.d);
             d3.v(R.color.CAM_X0302);
             d3.n(R.string.J_X07);
             d3.z(R.dimen.T_X08);
@@ -77,7 +77,7 @@ public class FrsForumToolDialogView extends LinearLayout {
             d3.e(R.string.A_X07);
             d3.k(R.color.CAM_X0302);
             d3.f(R.color.CAM_X0201);
-            fr4 d4 = fr4.d(this);
+            ur4 d4 = ur4.d(this);
             d4.n(R.string.J_X06);
             d4.m(0);
             d4.f(R.color.CAM_X0201);

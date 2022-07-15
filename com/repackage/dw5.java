@@ -1,27 +1,35 @@
 package com.repackage;
 
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.SystemClock;
+import android.view.Choreographer;
+import androidx.annotation.RequiresApi;
+import androidx.collection.SimpleArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cw5;
-import com.repackage.eu8;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class dw5 implements cw5 {
+public class dw5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ThreadLocal<dw5> g;
     public transient /* synthetic */ FieldHolder $fh;
-    public eu8 a;
-    public TextView b;
-    public cw5.c c;
-    public cw5.b d;
-    public cw5.a e;
+    public final SimpleArrayMap<b, Long> a;
+    public final ArrayList<b> b;
+    public final a c;
+    public c d;
+    public long e;
+    public boolean f;
 
     /* loaded from: classes5.dex */
-    public class a implements eu8.a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dw5 a;
@@ -44,277 +52,328 @@ public class dw5 implements cw5 {
             this.a = dw5Var;
         }
 
-        @Override // com.repackage.eu8.a
-        public float a() {
-            InterceptResult invokeV;
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.d != null) {
-                    return this.a.d.a();
-                }
-                return 1.0f;
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // com.repackage.eu8.a
-        public void b(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
-                if (this.a.e != null) {
-                    this.a.e.a(f);
-                }
-                TextView textView = this.a.b;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e = SystemClock.uptimeMillis();
                 dw5 dw5Var = this.a;
-                textView.setText(dw5Var.h(dw5Var.getProgress()));
-            }
-        }
-
-        @Override // com.repackage.eu8.a
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a.c == null) {
-                return;
-            }
-            this.a.c.a();
-        }
-
-        @Override // com.repackage.eu8.a
-        public void onProgress(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-                this.a.b.setText(this.a.h(f));
+                dw5Var.h(dw5Var.e);
+                if (this.a.b.size() > 0) {
+                    this.a.j().a();
+                }
             }
         }
     }
 
-    public dw5(eu8 eu8Var, TextView textView, cw5.c cVar, cw5.b bVar, cw5.a aVar) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        boolean a(long j);
+    }
+
+    /* loaded from: classes5.dex */
+    public static abstract class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final a a;
+
+        public c(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        public abstract void a();
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Runnable b;
+        public final Handler c;
+        public long d;
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.d = SystemClock.uptimeMillis();
+                    this.a.a.a();
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = -1L;
+            this.b = new a(this);
+            this.c = new Handler(Looper.myLooper());
+        }
+
+        @Override // com.repackage.dw5.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.postDelayed(this.b, Math.max(10 - (SystemClock.uptimeMillis() - this.d), 0L));
+            }
+        }
+    }
+
+    @RequiresApi(16)
+    /* loaded from: classes5.dex */
+    public static class e extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Choreographer b;
+        public final Choreographer.FrameCallback c;
+
+        /* loaded from: classes5.dex */
+        public class a implements Choreographer.FrameCallback {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ e a;
+
+            public a(e eVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = eVar;
+            }
+
+            @Override // android.view.Choreographer.FrameCallback
+            public void doFrame(long j) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                    this.a.a.a();
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = Choreographer.getInstance();
+            this.c = new a(this);
+        }
+
+        @Override // com.repackage.dw5.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.postFrameCallback(this.c);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755752977, "Lcom/repackage/dw5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755752977, "Lcom/repackage/dw5;");
+                return;
+            }
+        }
+        g = new ThreadLocal<>();
+    }
+
+    public dw5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eu8Var, textView, cVar, bVar, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = eu8Var;
-        this.b = textView;
-        this.c = cVar;
-        this.d = bVar;
-        this.e = aVar;
-        i();
+        this.a = new SimpleArrayMap<>();
+        this.b = new ArrayList<>();
+        this.c = new a(this);
+        this.e = 0L;
+        this.f = false;
     }
 
-    @Override // com.repackage.cw5
-    public boolean a() {
+    public static dw5 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var != null) {
-                eu8Var.a();
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (g.get() == null) {
+                g.set(new dw5());
             }
-            return false;
+            return g.get();
         }
-        return invokeV.booleanValue;
+        return (dw5) invokeV.objValue;
     }
 
-    @Override // com.repackage.cw5
-    public boolean b() {
-        InterceptResult invokeV;
+    public void f(b bVar, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var != null) {
-                return eu8Var.b();
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, bVar, j) == null) {
+            if (this.b.size() == 0) {
+                j().a();
             }
-            return false;
+            if (!this.b.contains(bVar)) {
+                this.b.add(bVar);
+            }
+            if (j > 0) {
+                this.a.put(bVar, Long.valueOf(SystemClock.uptimeMillis() + j));
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.cw5
-    public int getMaxDuration() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var != null) {
-                return eu8Var.getMaxDuration();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f) {
+            for (int size = this.b.size() - 1; size >= 0; size--) {
+                if (this.b.get(size) == null) {
+                    this.b.remove(size);
+                }
             }
-            return 0;
+            this.f = false;
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.repackage.cw5
-    public float getProgress() {
+    public final void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            long uptimeMillis = SystemClock.uptimeMillis();
+            for (int i = 0; i < this.b.size(); i++) {
+                b bVar = this.b.get(i);
+                if (bVar != null && k(bVar, uptimeMillis)) {
+                    bVar.a(j);
+                }
+            }
+            g();
+        }
+    }
+
+    public final c j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var != null) {
-                return eu8Var.getProgress();
+            if (this.d == null) {
+                if (Build.VERSION.SDK_INT >= 16) {
+                    this.d = new e(this.c);
+                } else {
+                    this.d = new d(this.c);
+                }
             }
-            return 0.0f;
+            return this.d;
         }
-        return invokeV.floatValue;
+        return (c) invokeV.objValue;
     }
 
-    @Override // com.repackage.cw5
-    public int getSlideNum() {
-        InterceptResult invokeV;
+    public final boolean k(b bVar, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var != null) {
-                return eu8Var.getSlideNum();
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, bVar, j)) == null) {
+            Long l = this.a.get(bVar);
+            if (l == null) {
+                return true;
             }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public final String h(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            if (f >= getMaxDuration()) {
-                f = getMaxDuration();
-            }
-            if (f > 60.0f) {
-                return ((int) (f / 60.0f)) + "'" + String.format("%.1f", Float.valueOf(f % 60.0f));
-            }
-            return String.format("%.1f", Float.valueOf(f));
-        }
-        return (String) invokeF.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var == null) {
-                return false;
-            }
-            eu8Var.setOnProgressListener(new a(this));
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.cw5
-    public boolean pause() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var != null) {
-                eu8Var.stop();
+            if (l.longValue() < j) {
+                this.a.remove(bVar);
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLJ.booleanValue;
     }
 
-    @Override // com.repackage.cw5
-    public boolean reset() {
-        InterceptResult invokeV;
+    public void l(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var != null) {
-                eu8Var.reset();
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.a.remove(bVar);
+            int indexOf = this.b.indexOf(bVar);
+            if (indexOf >= 0) {
+                this.b.set(indexOf, null);
+                this.f = true;
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.cw5
-    public boolean setMaxDuration(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var != null) {
-                eu8Var.setMaxDuration(i);
-                this.a.invalidate();
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.repackage.cw5
-    public boolean setMinDuration(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var != null) {
-                eu8Var.setMinDuration(i);
-                this.a.invalidate();
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.repackage.cw5
-    public boolean setProgress(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var != null) {
-                eu8Var.setProgress(j);
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // com.repackage.cw5
-    public boolean setShowDeleteLastTip(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var != null) {
-                eu8Var.setShowDeleteLastTip(z);
-                return true;
-            }
-            return false;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    @Override // com.repackage.cw5
-    public boolean start() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            eu8 eu8Var = this.a;
-            if (eu8Var != null) {
-                eu8Var.start();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

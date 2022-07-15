@@ -15,10 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tb7;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.repackage.lc7;
 /* loaded from: classes3.dex */
-public class LegoBottomView extends RelativeLayout implements tb7 {
+public class LegoBottomView extends RelativeLayout implements lc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ObjectAnimator a;
@@ -161,7 +160,7 @@ public class LegoBottomView extends RelativeLayout implements tb7 {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 0.0f, 0.5f, 1.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 0.5f, 1.0f);
             this.a = ofFloat;
             ofFloat.setDuration(1000L);
             this.a.addListener(new a(this));
@@ -175,7 +174,7 @@ public class LegoBottomView extends RelativeLayout implements tb7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.tb7
+    @Override // com.repackage.lc7
     public void onScrollStateChanged(AbsListView absListView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, absListView, i) == null) {

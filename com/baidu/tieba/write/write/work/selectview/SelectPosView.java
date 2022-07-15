@@ -2,9 +2,7 @@ package com.baidu.tieba.write.write.work.selectview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,31 +32,14 @@ public final class SelectPosView extends SelectBarView {
                 return;
             }
         }
-        f();
+        e();
     }
 
-    public final void e(ResponsedSelectLocation responsedSelectLocation) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, responsedSelectLocation) == null) {
-            if (responsedSelectLocation != null) {
-                String name = responsedSelectLocation.getName();
-                if (!(name == null || name.length() == 0)) {
-                    getMCenterContentPos().setVisibility(0);
-                    getMCenterContentTips().setVisibility(8);
-                    getMCenterContentPos().setText(responsedSelectLocation.getName());
-                    return;
-                }
-            }
-            getMCenterContentPos().setVisibility(8);
-            getMCenterContentTips().setVisibility(0);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            getMLeftTitle().setText(getContext().getString(R.string.obfuscated_res_0x7f0f15c0));
-            getMCenterContentTips().setText(getContext().getString(R.string.obfuscated_res_0x7f0f15c1));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            getMLeftTitle().setText(getContext().getString(R.string.obfuscated_res_0x7f0f15c2));
+            getMCenterContentTips().setText(getContext().getString(R.string.obfuscated_res_0x7f0f15c3));
             getMCenterContent().setVisibility(8);
         }
     }
@@ -82,7 +63,7 @@ public final class SelectPosView extends SelectBarView {
                 return;
             }
         }
-        f();
+        e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -104,6 +85,6 @@ public final class SelectPosView extends SelectBarView {
                 return;
             }
         }
-        f();
+        e();
     }
 }

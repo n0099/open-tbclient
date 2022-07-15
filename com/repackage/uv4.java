@@ -1,32 +1,23 @@
 package com.repackage;
 
+import android.text.Editable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class uv4 {
+public class uv4 extends pv4<uv4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bw4 a;
-    public int b;
-    public long c;
-    public long d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
     public String i;
-    public boolean j;
-    public String k;
-    public String l;
 
     public uv4() {
         Interceptable interceptable = $ic;
@@ -38,100 +29,109 @@ public class uv4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = 0;
-        this.f = 0;
-        this.g = 300;
-        this.h = 1;
-        this.a = new bw4();
     }
 
-    public bw4 a() {
-        InterceptResult invokeV;
+    public static uv4 u(@NonNull uv4 uv4Var, @NonNull Editable editable) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (bw4) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, uv4Var, editable)) == null) {
+            uv4 uv4Var2 = new uv4();
+            uv4Var2.b(uv4Var);
+            uv4Var2.n(editable);
+            return uv4Var2;
+        }
+        return (uv4) invokeLL.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.pv4
+    public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            super.a(editable, i, i2, i3);
+        }
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.pv4
+    public void p(Editable editable) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#");
+            sb.append("[视频]");
+            sb.append(this.i);
+            sb.append("#");
+            i(sb);
+        }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.pv4
+    public void q(Editable editable, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e == 1 : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, editable, i) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#");
+            sb.append("[视频]");
+            sb.append(this.i);
+            sb.append("#");
+            i(sb);
+        }
     }
 
-    public boolean e() {
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            o(true);
+            v();
+        }
+    }
+
+    public String s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b == 1) {
-                long currentTimeMillis = System.currentTimeMillis() / 1000;
-                return this.c < currentTimeMillis && currentTimeMillis < this.d;
-            }
-            return false;
+            return "#[视频]" + this.i + "#";
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean f() {
+    public String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (String) invokeV.objValue;
     }
 
-    public void g(JSONObject jSONObject) throws JSONException {
+    public void v() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            i(s());
+            if (id5.g(this.c, f())) {
+                return;
+            }
+            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a04, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+            eMRichTextAnyIconSpan.b(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
+            eMRichTextAnyIconSpan.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
+            l(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);
+            l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
         }
-        jSONObject.optInt("als_control", 1);
-        jSONObject.optInt("not_use_lego_patch", 0);
-        jSONObject.optInt("ad_video_not_autoplay", 1);
-        this.f = jSONObject.optInt("lp_video_not_autoplay", 0);
-        this.a.a(jSONObject);
-        JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
-        if (optJSONObject != null) {
-            this.b = optJSONObject.optInt("log_feed_switch", 0);
-            this.c = optJSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, -1L);
-            this.d = optJSONObject.optLong("end_time", -1L);
-            optJSONObject.optString("ext_info");
+    }
+
+    public uv4(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        this.e = jSONObject.optInt("ad_collect_switch", 0);
-        JSONObject optJSONObject2 = jSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
-        if (optJSONObject2 != null) {
-            this.g = optJSONObject2.optInt("interval", 300);
-        }
-        this.h = jSONObject.optInt("video_page_style", 1);
-        ht4.k().w("video_page_style", this.h);
-        jSONObject.optInt("ad_download_lib", 0);
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("action_control");
-        if (optJSONObject3 != null) {
-            this.i = optJSONObject3.optString("url");
-            optJSONObject3.optString("name");
-            optJSONObject3.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-            optJSONObject3.optString("text_color_pressed");
-        }
-        this.j = jSONObject.optInt("afd_jump_pb") == 1;
-        this.k = jSONObject.optString("afd_eid");
-        JSONObject optJSONObject4 = jSONObject.optJSONObject("iadex_sniff_list_url");
-        if (optJSONObject4 != null) {
-            String optString = optJSONObject4.optString("os_type2_iadex_url");
-            this.l = optString;
-            ub5.h(optString);
-            return;
-        }
-        ub5.h(null);
+        this.i = str;
     }
 }

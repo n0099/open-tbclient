@@ -1,120 +1,143 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.forumSquare.ForumSquareActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BawuThrones;
 /* loaded from: classes7.dex */
-public class xb6 {
+public class xb6 extends an<yb6, CardViewHolder<bc6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qc6 a;
-    public BawuThrones b;
+    public TbPageContext<?> i;
+    public jy5<yb6> j;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a extends jy5<yb6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ xb6 b;
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static xb6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(124061991, "Lcom/repackage/xb6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(124061991, "Lcom/repackage/xb6$b;");
+        public a(xb6 xb6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xb6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new xb6(null);
+            this.b = xb6Var;
         }
-    }
 
-    public /* synthetic */ xb6(a aVar) {
-        this();
-    }
-
-    public static xb6 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (xb6) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
-            qc6 qc6Var = this.a;
-            if (qc6Var != null) {
-                qc6Var.g();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.jy5
+        /* renamed from: d */
+        public void a(View view2, yb6 yb6Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, yb6Var) == null) && yb6Var != null && (this.b.i.getPageActivity() instanceof ForumSquareActivity)) {
+                String f = ((ForumSquareActivity) this.b.i.getPageActivity()).A1().f();
+                if (!"推荐".equals(f)) {
+                    StatisticItem statisticItem = new StatisticItem("c13652");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("fid", yb6Var.a);
+                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, f);
+                    TiebaStatic.log(statisticItem);
+                    return;
+                }
+                StatisticItem statisticItem2 = new StatisticItem("c13643");
+                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem2.param("fid", yb6Var.a);
+                statisticItem2.param("obj_locate", 3);
+                TiebaStatic.log(statisticItem2);
             }
-            this.a = null;
         }
     }
 
-    public BawuThrones b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (BawuThrones) invokeV.objValue;
-    }
-
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_RECOMMEND);
-            httpMessage.addParam("forum_id", str);
-            httpMessage.addParam("thread_id", str2);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public void e(BawuThrones bawuThrones) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bawuThrones) == null) {
-            this.b = bawuThrones;
-        }
-    }
-
-    public void f(TbPageContext tbPageContext, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, tbPageContext, str, str2) == null) {
-            if (this.a == null) {
-                this.a = new qc6();
-            }
-            this.a.i(tbPageContext, str, str2);
-        }
-    }
-
-    public xb6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xb6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), yb6.h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.j = new a(this);
+        this.i = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: a0 */
+    public CardViewHolder<bc6> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            bc6 bc6Var = new bc6(this.i);
+            bc6Var.o(this.e);
+            return new CardViewHolder<>(bc6Var);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: b0 */
+    public View S(int i, View view2, ViewGroup viewGroup, yb6 yb6Var, CardViewHolder<bc6> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yb6Var, cardViewHolder})) == null) {
+            if (yb6Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
+                return null;
+            }
+            cardViewHolder.c().i(yb6Var);
+            cardViewHolder.c().n(this.j);
+            if (this.i.getPageActivity() instanceof ForumSquareActivity) {
+                String f = ((ForumSquareActivity) this.i.getPageActivity()).A1().f();
+                if (!"推荐".equals(f)) {
+                    StatisticItem statisticItem = new StatisticItem("c13651");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("fid", yb6Var.a);
+                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, f);
+                    TiebaStatic.log(statisticItem);
+                } else {
+                    StatisticItem statisticItem2 = new StatisticItem("c13642");
+                    statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem2.param("fid", yb6Var.d());
+                    statisticItem2.param("obj_locate", 3);
+                    TiebaStatic.log(statisticItem2);
+                }
+            }
+            return cardViewHolder.b();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

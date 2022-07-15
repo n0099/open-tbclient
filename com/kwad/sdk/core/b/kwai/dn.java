@@ -1,38 +1,42 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.webview.jshandler.w;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dn implements com.kwad.sdk.core.d<w.a> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(w.a aVar, JSONObject jSONObject) {
+public final class dn implements com.kwad.sdk.core.d<com.kwad.components.core.webview.b.kwai.i> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(com.kwad.components.core.webview.b.kwai.i iVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        aVar.a = jSONObject.optString("url");
+        iVar.a = jSONObject.optString("url");
         if (jSONObject.opt("url") == JSONObject.NULL) {
-            aVar.a = "";
+            iVar.a = "";
         }
-        aVar.b = jSONObject.optString("method");
-        if (jSONObject.opt("method") == JSONObject.NULL) {
-            aVar.b = "";
-        }
-        aVar.c = jSONObject.optString("params");
-        if (jSONObject.opt("params") == JSONObject.NULL) {
-            aVar.c = "";
+        iVar.b = jSONObject.optString("title");
+        if (jSONObject.opt("title") == JSONObject.NULL) {
+            iVar.b = "";
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(w.a aVar, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(com.kwad.components.core.webview.b.kwai.i iVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "url", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "method", aVar.b);
-        com.kwad.sdk.utils.t.a(jSONObject, "params", aVar.c);
+        com.kwad.sdk.utils.r.a(jSONObject, "url", iVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "title", iVar.b);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(com.kwad.components.core.webview.b.kwai.i iVar, JSONObject jSONObject) {
+        a2(iVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.components.core.webview.b.kwai.i iVar, JSONObject jSONObject) {
+        return b2(iVar, jSONObject);
     }
 }

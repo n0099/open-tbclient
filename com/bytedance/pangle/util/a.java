@@ -13,6 +13,27 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static void a(IPluginActivity iPluginActivity, Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, iPluginActivity, activity) == null) {
+            try {
+                FieldUtils.writeField(iPluginActivity, "mTheme", (Object) null);
+                FieldUtils.writeField((Object) iPluginActivity, "mThemeResource", (Object) 0);
+                int[] a = a(activity);
+                if (a == null) {
+                    return;
+                }
+                for (int i : a) {
+                    if (i != 0) {
+                        iPluginActivity.setProxyTheme2Plugin(i);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static void a(com.bytedance.pangle.wrapper.a aVar, Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, aVar, activity) == null) {
@@ -43,7 +64,7 @@ public final class a {
                 return null;
             }
             try {
-                if (g.c()) {
+                if (h.c()) {
                     Object readField = FieldUtils.readField(theme, "mThemeImpl");
                     if (readField == null) {
                         return null;
@@ -86,26 +107,5 @@ public final class a {
             }
         }
         return (int[]) invokeL.objValue;
-    }
-
-    public static void a(IPluginActivity iPluginActivity, Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, iPluginActivity, activity) == null) {
-            try {
-                FieldUtils.writeField(iPluginActivity, "mTheme", (Object) null);
-                FieldUtils.writeField((Object) iPluginActivity, "mThemeResource", (Object) 0);
-                int[] a = a(activity);
-                if (a == null) {
-                    return;
-                }
-                for (int i : a) {
-                    if (i != 0) {
-                        iPluginActivity.setProxyTheme2Plugin(i);
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 }

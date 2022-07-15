@@ -1,70 +1,38 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdStyleInfo;
+import com.kwad.components.core.webview.jshandler.s;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cw implements com.kwad.sdk.core.d<AdStyleInfo.PlayDetailInfo.PatchEcInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(AdStyleInfo.PlayDetailInfo.PatchEcInfo patchEcInfo, JSONObject jSONObject) {
+public final class cw implements com.kwad.sdk.core.d<s.a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(s.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        patchEcInfo.strongStyleItemId = jSONObject.optString("strongStyleItemId");
-        if (jSONObject.opt("strongStyleItemId") == JSONObject.NULL) {
-            patchEcInfo.strongStyleItemId = "";
+        aVar.a = jSONObject.optString("adTemplate");
+        if (jSONObject.opt("adTemplate") == JSONObject.NULL) {
+            aVar.a = "";
         }
-        patchEcInfo.strongStylePicUrl = jSONObject.optString("strongStylePicUrl");
-        if (jSONObject.opt("strongStylePicUrl") == JSONObject.NULL) {
-            patchEcInfo.strongStylePicUrl = "";
-        }
-        patchEcInfo.strongStyleItemUrl = jSONObject.optString("strongStyleItemUrl");
-        if (jSONObject.opt("strongStyleItemUrl") == JSONObject.NULL) {
-            patchEcInfo.strongStyleItemUrl = "";
-        }
-        patchEcInfo.strongStyleItemPrice = jSONObject.optString("strongStyleItemPrice");
-        if (jSONObject.opt("strongStyleItemPrice") == JSONObject.NULL) {
-            patchEcInfo.strongStyleItemPrice = "";
-        }
-        patchEcInfo.strongStylePriceAfterComm = jSONObject.optString("strongStylePriceAfterComm");
-        if (jSONObject.opt("strongStylePriceAfterComm") == JSONObject.NULL) {
-            patchEcInfo.strongStylePriceAfterComm = "";
-        }
-        patchEcInfo.strongStyleUserCommAmountBuying = jSONObject.optString("strongStyleUserCommAmountBuying");
-        if (jSONObject.opt("strongStyleUserCommAmountBuying") == JSONObject.NULL) {
-            patchEcInfo.strongStyleUserCommAmountBuying = "";
-        }
-        patchEcInfo.strongStyleUserCommAmountSharing = jSONObject.optString("strongStyleUserCommAmountSharing");
-        if (jSONObject.opt("strongStyleUserCommAmountSharing") == JSONObject.NULL) {
-            patchEcInfo.strongStyleUserCommAmountSharing = "";
-        }
-        patchEcInfo.nebulaKwaiLink = jSONObject.optString("nebulaKwaiLink");
-        if (jSONObject.opt("nebulaKwaiLink") == JSONObject.NULL) {
-            patchEcInfo.nebulaKwaiLink = "";
-        }
-        patchEcInfo.linkCode = jSONObject.optString("linkCode");
-        if (jSONObject.opt("linkCode") == JSONObject.NULL) {
-            patchEcInfo.linkCode = "";
-        }
-        patchEcInfo.platformTypeCode = jSONObject.optInt("platformTypeCode");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(AdStyleInfo.PlayDetailInfo.PatchEcInfo patchEcInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(s.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleItemId", patchEcInfo.strongStyleItemId);
-        com.kwad.sdk.utils.t.a(jSONObject, "strongStylePicUrl", patchEcInfo.strongStylePicUrl);
-        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleItemUrl", patchEcInfo.strongStyleItemUrl);
-        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleItemPrice", patchEcInfo.strongStyleItemPrice);
-        com.kwad.sdk.utils.t.a(jSONObject, "strongStylePriceAfterComm", patchEcInfo.strongStylePriceAfterComm);
-        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleUserCommAmountBuying", patchEcInfo.strongStyleUserCommAmountBuying);
-        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleUserCommAmountSharing", patchEcInfo.strongStyleUserCommAmountSharing);
-        com.kwad.sdk.utils.t.a(jSONObject, "nebulaKwaiLink", patchEcInfo.nebulaKwaiLink);
-        com.kwad.sdk.utils.t.a(jSONObject, "linkCode", patchEcInfo.linkCode);
-        com.kwad.sdk.utils.t.a(jSONObject, "platformTypeCode", patchEcInfo.platformTypeCode);
+        com.kwad.sdk.utils.r.a(jSONObject, "adTemplate", aVar.a);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(s.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(s.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c89;
-import com.repackage.je0;
-import com.repackage.re0;
+import com.repackage.b99;
+import com.repackage.oe0;
+import com.repackage.we0;
 /* loaded from: classes4.dex */
 public class TemplateEffectProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
@@ -30,23 +30,23 @@ public class TemplateEffectProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(je0 je0Var, int i, float[] fArr) {
+    public int onProcessFrame(oe0 oe0Var, int i, float[] fArr) {
         InterceptResult invokeLIL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, je0Var, i, fArr)) == null) {
-            if (je0Var == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, oe0Var, i, fArr)) == null) {
+            if (oe0Var == null) {
                 return i;
             }
             int i3 = 1;
             while (true) {
-                if (i3 >= c89.b(je0Var.l())) {
+                if (i3 >= b99.b(oe0Var.l())) {
                     i2 = i;
                     break;
                 }
-                MediaTrack mediaTrack = (MediaTrack) c89.c(je0Var.l(), i3);
-                if (mediaTrack != null && re0.m(mediaTrack, "template_effect")) {
-                    i2 = je0Var.i(mediaTrack, i, null);
+                MediaTrack mediaTrack = (MediaTrack) b99.c(oe0Var.l(), i3);
+                if (mediaTrack != null && we0.m(mediaTrack, "template_effect")) {
+                    i2 = oe0Var.i(mediaTrack, i, null);
                     break;
                 }
                 i3++;

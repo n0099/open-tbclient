@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.Cif;
-import com.repackage.e67;
 import com.repackage.eg;
-import com.repackage.i47;
+import com.repackage.w67;
+import com.repackage.y47;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MultiContentView extends LinearLayout {
@@ -234,17 +234,17 @@ public class MultiContentView extends LinearLayout {
         }
     }
 
-    public final void d(TbPageContext<?> tbPageContext, e67.a aVar, MultiImageTextBottomView multiImageTextBottomView, View view2) {
+    public final void d(TbPageContext<?> tbPageContext, w67.a aVar, MultiImageTextBottomView multiImageTextBottomView, View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, aVar, multiImageTextBottomView, view2) == null) || aVar == null || multiImageTextBottomView == null) {
             return;
         }
-        multiImageTextBottomView.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070246)));
+        multiImageTextBottomView.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070245)));
         multiImageTextBottomView.setData(tbPageContext, aVar, view2, this.k);
         this.c.addView(multiImageTextBottomView);
     }
 
-    public final void e(TbPageContext<?> tbPageContext, e67.a aVar, SingleImageTextView singleImageTextView, View view2) {
+    public final void e(TbPageContext<?> tbPageContext, w67.a aVar, SingleImageTextView singleImageTextView, View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, aVar, singleImageTextView, view2) == null) || aVar == null || singleImageTextView == null) {
             return;
@@ -255,7 +255,7 @@ public class MultiContentView extends LinearLayout {
         this.c.addView(singleImageTextView);
     }
 
-    public final void f(TbPageContext<?> tbPageContext, e67.a aVar, MultiImageTextTopView multiImageTextTopView, View view2) {
+    public final void f(TbPageContext<?> tbPageContext, w67.a aVar, MultiImageTextTopView multiImageTextTopView, View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, tbPageContext, aVar, multiImageTextTopView, view2) == null) || aVar == null || multiImageTextTopView == null) {
             return;
@@ -269,18 +269,18 @@ public class MultiContentView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0547, this);
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0561, this);
             this.b = inflate;
-            this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092379);
-            i47 i47Var = new i47();
-            this.d = i47Var.f(this.a);
-            this.e = i47Var.d(this.a);
-            this.f = i47Var.e(this.a);
+            this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092421);
+            y47 y47Var = new y47();
+            this.d = y47Var.f(this.a);
+            this.e = y47Var.d(this.a);
+            this.f = y47Var.e(this.a);
             this.c.setOnHierarchyChangeListener(new a(this));
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, List<e67.a> list, View view2) {
+    public void setData(TbPageContext<?> tbPageContext, List<w67.a> list, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, tbPageContext, list, view2) == null) {
             this.c.removeAllViews();

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.Tabfeedlist.DataReq;
 import tbclient.Tabfeedlist.TabfeedlistReqIdl;
 /* loaded from: classes3.dex */
@@ -60,7 +60,7 @@ public class TabFeedListRequestMessage extends NetMessage {
                 builder.scr_w = Integer.valueOf(pi.k(TbadkCoreApplication.getInst()));
                 builder.scr_d = Integer.valueOf((int) pi.h(TbadkCoreApplication.getInst()));
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    qc5.a(builder, true);
+                    td5.a(builder, true);
                 }
                 TabfeedlistReqIdl.Builder builder2 = new TabfeedlistReqIdl.Builder();
                 builder2.data = builder.build(false);

@@ -17,7 +17,7 @@ public class COSPushHelper {
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile boolean f25a;
+    public static volatile boolean f752a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -73,13 +73,13 @@ public class COSPushHelper {
     public static boolean getNeedRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f25a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f752a : invokeV.booleanValue;
     }
 
     public static boolean hasNetwork(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m149a(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m1092a(context) : invokeL.booleanValue;
     }
 
     public static void onNotificationMessageCome(Context context, String str) {
@@ -100,7 +100,7 @@ public class COSPushHelper {
         if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (a2 = f.a(context).a(e.c)) == null) {
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m84a("ASSEMBLE_PUSH :  register cos when network change!");
+        com.xiaomi.channel.commonutils.logger.b.m1027a("ASSEMBLE_PUSH :  register cos when network change!");
         a2.register();
     }
 
@@ -108,7 +108,7 @@ public class COSPushHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
             synchronized (COSPushHelper.class) {
-                f25a = z;
+                f752a = z;
             }
         }
     }
@@ -116,7 +116,7 @@ public class COSPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
-            i.m148a(context, e.c, str);
+            i.m1091a(context, e.c, str);
         }
     }
 }

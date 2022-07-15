@@ -1,114 +1,173 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class r53 {
+public class r53 extends s53<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean r;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Activity m;
+    public final String n;
+    public final String o;
+    public boolean p;
+    public int q;
 
-    public static String a(@NonNull String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            return str + str2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755399391, "Lcom/repackage/r53;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755399391, "Lcom/repackage/r53;");
+                return;
+            }
         }
-        return (String) invokeLL.objValue;
+        r = rg1.a;
     }
 
-    public static void b() {
+    public r53(Activity activity, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            String appId = rz2.K().getAppId();
-            a83 a = g83.a();
-            a.remove(a("SwanAppStabilitySp-obtainData", appId));
-            a.remove(a("SwanAppStabilitySp-autoObtain", appId));
-            a.remove(a("SwanAppStabilitySp-swanStartupStability", appId));
-            a.remove(a("SwanAppStabilitySp-obtainIntervalMs", appId));
-            a.remove(a("SwanAppStabilitySp-autoObtainDataLen", appId));
-            a.remove(a("SwanAppStabilitySp-stabilityProfile", appId));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, str, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.m = activity;
+        this.n = str;
+        this.o = str2;
+        this.p = z;
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? g83.a().getInt(a("SwanAppStabilitySp-autoObtainDataLen", rz2.K().getAppId()), i) : invokeI.intValue;
-    }
-
-    public static int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? g83.a().getInt(a("SwanAppStabilitySp-obtainIntervalMs", rz2.K().getAppId()), i) : invokeI.intValue;
-    }
-
-    public static int e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? g83.a().getInt(a("SwanAppStabilitySp-swanStartupStability", rz2.K().getAppId()), i) : invokeI.intValue;
-    }
-
-    public static boolean f() {
+    @Override // com.repackage.s53
+    public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? g83.a().getBoolean(a("SwanAppStabilitySp-autoObtain", rz2.K().getAppId()), false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d53.b() && !Q() : invokeV.booleanValue;
     }
 
-    public static boolean g() {
+    @Override // com.repackage.s53
+    public void K() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.q++;
+        }
+    }
+
+    public JSONObject P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? g83.a().getBoolean(a("SwanAppStabilitySp-obtainData", rz2.K().getAppId()), false) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                h03 M = M();
+                jSONObject.put("ma_id", M.O());
+                jSONObject.put("scope", this.n);
+                jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
+                jSONObject.put("host_key_hash", f53.g());
+                jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, M.O());
+                if (M.Y() != null && M.Y().T() != null) {
+                    jSONObject.put("scene", M.Y().T());
+                }
+                if (this.p) {
+                    jSONObject.put("action_type", "1");
+                }
+                String l = oj2.o().l();
+                if (!TextUtils.isEmpty(l)) {
+                    jSONObject.put("host_api_key", l);
+                }
+                if (!TextUtils.isEmpty(this.o)) {
+                    jSONObject.put("provider_appkey", this.o);
+                }
+            } catch (JSONException e) {
+                if (r) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static boolean h() {
+    public boolean Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? g83.a().getBoolean(a("SwanAppStabilitySp-stabilityProfile", rz2.K().getAppId()), false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.q >= A() : invokeV.booleanValue;
     }
 
-    public static void i(String str, boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.e53
+    @SuppressLint({"BDThrowableCheck"})
+    /* renamed from: R */
+    public JSONObject m(JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65544, null, str, z) == null) {
-            g83.a().putBoolean(a("SwanAppStabilitySp-autoObtain", str), z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            JSONObject c = f53.c(jSONObject);
+            int optInt = c.optInt("errno", 10001);
+            if (optInt != 0) {
+                if (11001 == optInt) {
+                    f53.m(c);
+                    f53.t("MaOpenDataRequest", c.toString());
+                }
+                if (r) {
+                    throw new JSONException("Illegal errno=" + optInt + " errms=" + c.optString("errms"));
+                }
+            }
+            return c;
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static void j(String str, int i) {
+    @Override // com.repackage.e53
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, null, str, i) == null) {
-            g83.a().putInt(a("SwanAppStabilitySp-autoObtainDataLen", str), i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            v("data", P().toString());
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public static void k(String str, int i) {
+    @Override // com.repackage.s53
+    public HttpRequest w(s53 s53Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, str, i) == null) {
-            g83.a().putInt(a("SwanAppStabilitySp-obtainIntervalMs", str), i);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, s53Var)) == null) ? oj2.o().u(this.m, s53Var.B()) : (HttpRequest) invokeL.objValue;
     }
 
-    public static void l(boolean z, @Nullable String str) {
+    @Override // com.repackage.s53
+    public SwanInterfaceType z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65547, null, z, str) == null) {
-            g83.a().putBoolean(a("SwanAppStabilitySp-obtainData", str), z);
-        }
-    }
-
-    public static void m(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65548, null, z, str) == null) {
-            g83.a().putBoolean(a("SwanAppStabilitySp-stabilityProfile", str), z);
-        }
-    }
-
-    public static void n(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) {
-            g83.a().putInt(a("SwanAppStabilitySp-swanStartupStability", str), i);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? SwanInterfaceType.OPEN_DATA : (SwanInterfaceType) invokeV.objValue;
     }
 }

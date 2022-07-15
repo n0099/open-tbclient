@@ -7,7 +7,8 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.kuaishou.weapon.un.x;
+import com.fun.ad.sdk.FunAdSdk;
+import com.kuaishou.weapon.p0.C0400;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
 /* loaded from: classes.dex */
@@ -50,7 +51,7 @@ public class ContentModelParser {
         }
         switch (str.hashCode()) {
             case 3239:
-                if (str.equals(x.t)) {
+                if (str.equals(C0400.f421)) {
                     c = 7;
                     break;
                 }
@@ -80,7 +81,7 @@ public class ContentModelParser {
             case SpeedStatsStampTable.AD_CALL_SHOW_END_STAMP_KEY /* 3308 */:
                 break;
             case 3488:
-                if (str.equals("mm")) {
+                if (str.equals(FunAdSdk.PLATFORM_MM)) {
                     c = 11;
                     break;
                 }

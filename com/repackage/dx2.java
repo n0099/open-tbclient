@@ -1,142 +1,127 @@
 package com.repackage;
 
-import com.baidu.swan.apps.publisher.draft.DraftData;
+import android.os.Bundle;
+import android.os.Message;
+import android.os.RemoteException;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.xw2;
+import java.util.ArrayDeque;
+import java.util.Deque;
 /* loaded from: classes5.dex */
-public final class dx2 {
+public class dx2 implements xw2.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Deque<Message> a;
 
-    public static final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File file = new File(b(), "publisher_draft");
-            if (file.exists()) {
-                file.delete();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755752109, "Lcom/repackage/dx2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755752109, "Lcom/repackage/dx2;");
+                return;
             }
         }
+        boolean z = rg1.a;
     }
 
-    public static final String b() {
-        InterceptResult invokeV;
+    public dx2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            sz2 M = sz2.M();
-            String v = a73.v(M != null ? M.b : null);
-            Intrinsics.checkNotNullExpressionValue(v, "StorageUtil.getSwanAppStoreDirectory(appId)");
-            return v;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        this.a = new ArrayDeque();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x005b  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final DraftData c() {
-        InterceptResult invokeV;
-        ObjectInputStream objectInputStream;
+    @Override // com.repackage.xw2.c
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(b(), "publisher_draft");
-            ObjectInputStream objectInputStream2 = null;
-            try {
-                try {
-                    if (file.exists()) {
-                        objectInputStream = new ObjectInputStream(new FileInputStream(file));
-                        try {
-                            Object readObject = objectInputStream.readObject();
-                            if (readObject != null) {
-                                DraftData draftData = (DraftData) readObject;
-                                if (System.currentTimeMillis() - draftData.getTimeStamp() > 432000000) {
-                                    objectInputStream.close();
-                                    return null;
-                                }
-                                objectInputStream.close();
-                                return draftData;
-                            }
-                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.swan.apps.publisher.draft.DraftData");
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (objectInputStream != null) {
-                                objectInputStream.close();
-                            }
-                            return null;
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    objectInputStream2 = "publisher_draft";
-                    if (objectInputStream2 != null) {
-                        objectInputStream2.close();
-                    }
-                    throw th;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            cx2 Q = cx2.Q();
+            while (Q.O() && !this.a.isEmpty()) {
+                Message peek = this.a.peek();
+                if (peek == null || e(peek)) {
+                    this.a.poll();
                 }
-            } catch (Exception e2) {
-                e = e2;
-                objectInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (objectInputStream2 != null) {
-                }
-                throw th;
             }
-            return null;
         }
-        return (DraftData) invokeV.objValue;
     }
 
-    public static final void d(DraftData draftData) {
-        ObjectOutputStream objectOutputStream;
+    @Override // com.repackage.xw2.c
+    public void b(@NonNull zw2 zw2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, draftData) == null) || draftData == null) {
-            return;
-        }
-        File file = new File(b(), "publisher_draft");
-        try {
-            if (file.exists()) {
-                file.delete();
-                file.createNewFile();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zw2Var) == null) {
+            Message h = zw2Var.h();
+            h.arg1 = SwanAppProcessInfo.current().index;
+            if (g03.K().E()) {
+                Object obj = h.obj;
+                if (obj instanceof Bundle) {
+                    Bundle bundle = (Bundle) obj;
+                    if (!bundle.containsKey("ai_apps_id")) {
+                        bundle.putString("ai_apps_id", g03.K().getAppId());
+                    }
+                }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            if (e(h) || !zw2Var.n()) {
+                return;
+            }
+            this.a.offer(h);
+            cx2.Q().c0();
         }
-        ObjectOutputStream objectOutputStream2 = null;
-        try {
+    }
+
+    @Override // com.repackage.xw2.c
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    @Override // com.repackage.xw2.c
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    public final boolean e(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, message)) == null) {
+            cx2 Q = cx2.Q();
+            if (message == null || !Q.O()) {
+                return false;
+            }
             try {
-                objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
-            } catch (Exception e2) {
-                e = e2;
+                Q.S().send(message);
+                return true;
+            } catch (RemoteException e) {
+                Q.U();
+                hx1.l("SwanMsgSenderOfClient", " sendMsgToService msg = " + message.toString(), e);
+                return false;
             }
-        } catch (Throwable th) {
-            th = th;
         }
-        try {
-            objectOutputStream.writeObject(draftData);
-            objectOutputStream.close();
-        } catch (Exception e3) {
-            e = e3;
-            objectOutputStream2 = objectOutputStream;
-            e.printStackTrace();
-            if (objectOutputStream2 != null) {
-                objectOutputStream2.close();
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            objectOutputStream2 = objectOutputStream;
-            if (objectOutputStream2 != null) {
-                objectOutputStream2.close();
-            }
-            throw th;
-        }
+        return invokeL.booleanValue;
     }
 }

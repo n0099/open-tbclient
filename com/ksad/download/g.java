@@ -11,12 +11,11 @@ import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import com.kwad.sdk.core.download.DownloadParams;
 import java.io.File;
 /* loaded from: classes5.dex */
-public class g {
+public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,7 +33,7 @@ public class g {
             for (ResolveInfo resolveInfo : a.getPackageManager().queryIntentActivities(intent, 65536)) {
                 a.grantUriPermission(resolveInfo.activityInfo.packageName, a2, 3);
             }
-            if (KsAdSDKImpl.get().isEnableInstallPermission() && (downloadTask.getTag() instanceof DownloadParams) && ((DownloadParams) downloadTask.getTag()).requestInstallPermission) {
+            if (b.a && (downloadTask.getTag() instanceof DownloadParams) && ((DownloadParams) downloadTask.getTag()).requestInstallPermission) {
                 intent = a(intent);
             }
             return PendingIntent.getActivity(a, downloadTask.getId(), intent, 134217728);
@@ -55,7 +54,7 @@ public class g {
             for (ResolveInfo resolveInfo : a.getPackageManager().queryIntentActivities(intent, 65536)) {
                 a.grantUriPermission(resolveInfo.activityInfo.packageName, a2, 3);
             }
-            if (z && KsAdSDKImpl.get().isEnableInstallPermission()) {
+            if (z && b.a) {
                 intent = a(intent);
             }
             return PendingIntent.getActivity(a, i, intent, 134217728);

@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
+import com.repackage.br4;
 import com.repackage.d9;
-import com.repackage.mq4;
 import com.repackage.te;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
@@ -157,8 +157,8 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             isOk = netWork.isNetSuccess();
             ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
             if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null)) {
-                mq4.f();
-                te<String> g = mq4.g("tb.my_posts");
+                br4.f();
+                te<String> g = br4.g("tb.my_posts");
                 if (g != null) {
                     g.e(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + KEY, postNetData, 86400000L);
                 }

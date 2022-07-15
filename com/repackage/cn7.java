@@ -1,171 +1,227 @@
 package com.repackage;
 
-import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.R;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cy;
+import com.repackage.ny;
+import com.repackage.tw;
 /* loaded from: classes5.dex */
-public class cn7 {
+public class cn7 extends tm7<qq4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId k;
+    public TbPageContext<?> l;
+    public tn m;
+    public jy5<ThreadData> n;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755791355, "Lcom/repackage/cn7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a extends jy5<ThreadData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cn7 b;
+
+        public a(cn7 cn7Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cn7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755791355, "Lcom/repackage/cn7;");
+            this.b = cn7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.jy5
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+                cy5.b().d(true);
+                this.b.g0(view2, threadData);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements tw.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(cn7 cn7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cn7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.tw.b
+        public void a(nn4 nn4Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, nn4Var, view2) == null) || nn4Var == null) {
+                return;
+            }
+            if (view2.getId() == R.id.obfuscated_res_0x7f09232d) {
+                nn4Var.objType = 3;
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09230c) {
+                nn4Var.objType = 4;
+            } else {
+                nn4Var.objType = 1;
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements xn {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cn7 a;
+
+        public c(cn7 cn7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cn7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cn7Var;
+        }
+
+        @Override // com.repackage.xn
+        public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof qq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                ThreadData threadData = ((qq4) nnVar).s;
+                threadData.objType = 1;
+                if (this.a.n != null) {
+                    this.a.n.a(threadCardViewHolder.b(), threadData);
+                }
+                ThreadCardUtils.jumpToPB(threadData, view2.getContext(), 17, false, uw.a((tn) viewGroup, view2, i), this.a.j.getOrignalPage().C1(), this.a.Z() ? "3" : "2");
+                threadCardViewHolder.c().o(new ny.a(1));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cn7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = um7.c + "draft/";
-        b = a + "upload_draft";
+        this.n = new a(this);
+        this.l = tbPageContext;
+        this.k = bdUniqueId2;
     }
 
-    public static void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: e0 */
+    public ThreadCardViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File file = new File(b);
-            if (file.exists()) {
-                file.delete();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            cy.b bVar = new cy.b(this.l.getPageActivity());
+            tw twVar = new tw(this.l.getPageActivity());
+            twVar.u(this.k);
+            twVar.d(1024);
+            twVar.t(new b(this));
+            twVar.w(this.l);
+            bVar.o(twVar);
+            cy k = bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.m);
+            k.r(17);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.k(this.k);
+            V(new c(this));
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0010 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r2v6, types: [com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft] */
-    public static FaceGroupDraft b() {
-        InterceptResult invokeV;
-        FaceGroupDraft faceGroupDraft;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: f0 */
+    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
-            return (FaceGroupDraft) invokeV.objValue;
-        }
-        File file = new File(b);
-        ?? r2 = 0;
-        r2 = null;
-        r2 = null;
-        r2 = null;
-        r2 = null;
-        FaceGroupDraft faceGroupDraft2 = null;
-        r2 = null;
-        r2 = null;
-        ObjectInputStream objectInputStream = null;
-        try {
-            if (!file.exists()) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, threadCardViewHolder})) == null) {
+            if (qq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = qq4Var.s) == null) {
                 return null;
             }
-            try {
-                ObjectInputStream objectInputStream2 = new ObjectInputStream(new FileInputStream(file));
-                try {
-                    Object readObject = objectInputStream2.readObject();
-                    if (readObject != null && (readObject instanceof FaceGroupDraft)) {
-                        faceGroupDraft2 = (FaceGroupDraft) readObject;
-                    }
-                    objectInputStream2.close();
-                    mg.c(objectInputStream2);
-                    return faceGroupDraft2;
-                } catch (IOException e) {
-                    e = e;
-                    FaceGroupDraft faceGroupDraft3 = faceGroupDraft2;
-                    objectInputStream = objectInputStream2;
-                    faceGroupDraft = faceGroupDraft3;
-                    e.printStackTrace();
-                    mg.c(objectInputStream);
-                    r2 = faceGroupDraft;
-                    return r2;
-                } catch (ClassNotFoundException e2) {
-                    e = e2;
-                    FaceGroupDraft faceGroupDraft4 = faceGroupDraft2;
-                    objectInputStream = objectInputStream2;
-                    faceGroupDraft = faceGroupDraft4;
-                    e.printStackTrace();
-                    mg.c(objectInputStream);
-                    r2 = faceGroupDraft;
-                    return r2;
-                } catch (Throwable th) {
-                    th = th;
-                    FaceGroupDraft faceGroupDraft5 = faceGroupDraft2;
-                    objectInputStream = objectInputStream2;
-                    faceGroupDraft = faceGroupDraft5;
-                    th.printStackTrace();
-                    mg.c(objectInputStream);
-                    r2 = faceGroupDraft;
-                    return r2;
-                }
-            } catch (IOException e3) {
-                e = e3;
-                faceGroupDraft = null;
-            } catch (ClassNotFoundException e4) {
-                e = e4;
-                faceGroupDraft = null;
-            } catch (Throwable th2) {
-                th = th2;
-                faceGroupDraft = null;
-            }
-        } catch (Throwable th3) {
-            mg.c(r2);
-            throw th3;
+            threadData.statFloor = B(i) + 1;
+            threadCardViewHolder.c().q(i);
+            threadCardViewHolder.g(qq4Var.s);
+            threadCardViewHolder.c().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.c().p(this.n);
+            qm7.c(this, qq4Var);
+            return threadCardViewHolder.b();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void g0(View view2, ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, threadData) == null) {
+            qm7.b(this, threadData);
         }
     }
 
-    public static void c(FaceGroupDraft faceGroupDraft) {
-        ObjectOutputStream objectOutputStream;
+    public void h0(tn tnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, faceGroupDraft) == null) {
-            ObjectOutputStream objectOutputStream2 = null;
-            try {
-                try {
-                    File file = new File(a);
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    a();
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(b));
-                } finally {
-                    mg.d(objectOutputStream2);
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                objectOutputStream.writeObject(faceGroupDraft);
-                mg.d(objectOutputStream);
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-            } catch (IOException e4) {
-                e = e4;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-            } catch (Throwable th2) {
-                th = th2;
-                objectOutputStream2 = objectOutputStream;
-                th.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, tnVar) == null) {
+            this.m = tnVar;
         }
     }
 }

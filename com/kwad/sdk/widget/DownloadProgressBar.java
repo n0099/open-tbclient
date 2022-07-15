@@ -44,7 +44,7 @@ public class DownloadProgressBar extends View {
         super(context, attributeSet, i);
         this.n = new Runnable() { // from class: com.kwad.sdk.widget.DownloadProgressBar.1
             @Override // java.lang.Runnable
-            public void run() {
+            public final void run() {
                 DownloadProgressBar.this.invalidate();
                 if (DownloadProgressBar.this.getWindowVisibility() == 0) {
                     DownloadProgressBar.this.postDelayed(this, 34L);
@@ -56,7 +56,7 @@ public class DownloadProgressBar extends View {
         this.e = new RectF();
         Paint paint = new Paint(1);
         this.c = paint;
-        paint.setTextSize(com.kwad.sdk.a.kwai.a.a(context, 16.0f));
+        paint.setTextSize(com.kwad.sdk.b.kwai.a.a(context, 16.0f));
         this.c.setColor(-1);
         this.c.setTextAlign(Paint.Align.CENTER);
         this.h = new Rect();

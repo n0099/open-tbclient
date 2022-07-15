@@ -1,71 +1,110 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.heytap.mcssdk.mode.CommandMessage;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class x81 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, bundle) == null) || bundle == null) {
-            return;
-        }
-        try {
-            String string = bundle.getString("zid");
-            if (TextUtils.isEmpty(string)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755217824, "Lcom/repackage/x81;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755217824, "Lcom/repackage/x81;");
                 return;
             }
-            bundle.remove("zid");
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("c", bundle.getString("cuid"));
-            jSONObject.put("z", string);
-            jSONObject.put("mac", n81.c());
-            jSONObject.put("app", "android");
-            jSONObject.put("ver", o81.a(context));
-            bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
-        } catch (Exception e) {
-            u81.b(e.getMessage());
+        }
+        if (x71.a() != 1) {
+            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
         }
     }
 
-    public static Bundle b(Context context, Bundle bundle) {
-        InterceptResult invokeLL;
+    public x81() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bundle)) == null) {
-            if (bundle == null) {
-                return new Bundle();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            l81.a = bundle.getString("bduss");
-            l81.b = bundle.getString("tpOrderId");
-            l81.g = bundle.getString("nativeAppId");
-            l81.h = bundle.getString("sceneSource");
-            l81.c = bundle.getString("appKey");
-            l81.d = bundle.getString("dealId");
-            bundle.putString("deviceType", "ANDROID");
-            bundle.putString("channel", "cashiersdk");
-            bundle.putString(CommandMessage.SDK_VERSION, "2.8.7.9");
-            String[] stringArray = bundle.getStringArray("blockedPayChannels");
-            if (stringArray != null && stringArray.length > 0) {
-                bundle.remove("blockedPayChannels");
-                JSONArray jSONArray = new JSONArray();
-                for (String str : stringArray) {
-                    jSONArray.put(str);
-                }
-                bundle.putString("bannedChannels", jSONArray.toString());
-            }
-            a(context, bundle);
-            return bundle;
         }
-        return (Bundle) invokeLL.objValue;
+    }
+
+    public void a(s71 s71Var, r71 r71Var, q71 q71Var) {
+        DataOutputStream dataOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(1048576, this, s71Var, r71Var, q71Var) != null) {
+            return;
+        }
+        try {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
+            for (Map.Entry<String, String> entry : s71Var.c().entrySet()) {
+                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+            }
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setUseCaches(false);
+            httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.setReadTimeout(5000);
+            StringBuilder sb = new StringBuilder();
+            for (Map.Entry<String, String> entry2 : r71Var.c().entrySet()) {
+                String encode = URLEncoder.encode(entry2.getValue(), IMAudioTransRequest.CHARSET);
+                sb.append(entry2.getKey());
+                sb.append("=");
+                sb.append(encode);
+                sb.append("&");
+            }
+            byte[] bytes = sb.toString().getBytes();
+            httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
+            httpURLConnection.connect();
+            dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+            try {
+                dataOutputStream.write(bytes);
+                dataOutputStream.flush();
+                int responseCode = httpURLConnection.getResponseCode();
+                if (q71Var != null) {
+                    if (responseCode >= 200 && responseCode <= 299) {
+                        q71Var.c(null);
+                    } else {
+                        q71Var.a(null, 119501, null);
+                    }
+                }
+                g91.a(dataOutputStream);
+            } catch (Throwable unused) {
+                if (q71Var != null) {
+                    try {
+                        q71Var.a(null, 119501, null);
+                    } catch (Throwable th) {
+                        g91.a(dataOutputStream);
+                        throw th;
+                    }
+                }
+                g91.a(dataOutputStream);
+            }
+        } catch (Throwable unused2) {
+            dataOutputStream = null;
+        }
     }
 }

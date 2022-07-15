@@ -1,112 +1,332 @@
 package com.repackage;
 
-import android.util.Log;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
+import com.baidu.sofire.utility.PermissionChecker;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qr1 implements or1 {
+public class qr1 extends gr1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile qr1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<or1> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755370623, "Lcom/repackage/qr1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements de3<hs1> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qr1 a;
+
+        public a(qr1 qr1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qr1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755370623, "Lcom/repackage/qr1;");
-                return;
-            }
+            this.a = qr1Var;
         }
-        b = cg1.a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.repackage.de3
+        public hs1 call() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject d = vt2.c().d("getSystemInfo");
+                if (d == null) {
+                    qr1 qr1Var = this.a;
+                    d = qr1Var.G(qr1Var.getContext());
+                    vt2.c().h("getSystemInfo", d);
+                    vt2.c().h("getSystemInfoSync", d);
+                }
+                if (d == null) {
+                    return new hs1(202, "empty joData");
+                }
+                return new hs1(0, d);
+            }
+            return (hs1) invokeV.objValue;
+        }
     }
 
-    public qr1() {
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ de3 b;
+        public final /* synthetic */ qr1 c;
+
+        public b(qr1 qr1Var, String str, de3 de3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qr1Var, str, de3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = qr1Var;
+            this.a = str;
+            this.b = de3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.d(this.a, (hs1) this.b.call());
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qr1(@NonNull io1 io1Var) {
+        super(io1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {io1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((io1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add(new pr1());
     }
 
-    public static qr1 c() {
+    public static void B(@NonNull JSONObject jSONObject) throws JSONException {
+        h03 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) && (M = h03.M()) != null && M.e0().f("mapp_location")) {
+            hk2 I = oj2.I();
+            g33 h = I == null ? null : I.h();
+            if (h == null) {
+                return;
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("city", h.k);
+            jSONObject2.put("cityCode", h.l);
+            jSONObject2.put("country", h.i);
+            jSONObject2.put("district", h.n);
+            jSONObject2.put("province", h.m);
+            jSONObject2.put("street", h.o);
+            jSONObject2.put("streetNumber", h.p);
+            jSONObject2.put("coord_gcj02", D(h, "gcj02"));
+            jSONObject2.put("coord_wgs84", D(h, CoordinateType.WGS84));
+            jSONObject.put("cacheLocation", jSONObject2);
+        }
+    }
+
+    public static JSONObject D(@NonNull g33 g33Var, @NonNull String str) throws JSONException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, g33Var, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            double[] g = oj2.I().g(g33Var, str);
+            if (g != null && g.length >= 2) {
+                jSONObject.put("longitude", g[0]);
+                jSONObject.put("latitude", g[1]);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static String F(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            int R = context instanceof SwanAppActivity ? ((SwanAppActivity) context).R() : 0;
+            if (R == 1) {
+                return m93.i(pj2.i().m(), R);
+            }
+            return m93.i(b72.U().d0(), R);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void A(@NonNull JSONObject jSONObject) throws JSONException {
+        h03 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (M = h03.M()) != null && M.e0().f("mapp_set_user_agent")) {
+            jSONObject.put(TTDownloadField.TT_USERAGENT, x64.b().getUserAgent());
+        }
+    }
+
+    public final void C(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull Pair<Integer, Integer> pair) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, pair) == null) {
+            int O = yd3.O(qd3.e(context));
+            int O2 = yd3.O(((Integer) pair.first).intValue());
+            int O3 = yd3.O(((Integer) pair.second).intValue());
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("left", 0);
+            jSONObject2.put("right", O2);
+            jSONObject2.put("top", O);
+            jSONObject2.put("width", O2);
+            jSONObject2.put("bottom", O3);
+            jSONObject2.put("height", O3 - O);
+            jSONObject.put("safeArea", jSONObject2);
+        }
+    }
+
+    public hs1 E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (qr1.class) {
-                    if (c == null) {
-                        c = new qr1();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#getCommonSysInfoSync", false);
+            JSONObject d = vt2.c().d("getCommonSysInfoSync");
+            if (d == null) {
+                try {
+                    d = new JSONObject();
+                    d.put("imei", be3.r());
+                    vt2.c().h("getCommonSysInfoSync", d);
+                } catch (JSONException unused) {
+                    return new hs1(1001, "exec fail");
+                }
+            }
+            return new hs1(0, d);
+        }
+        return (hs1) invokeV.objValue;
+    }
+
+    public final JSONObject G(Context context) {
+        InterceptResult invokeL;
+        JSONObject a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (oj2.g0().o()) {
+                a2 = rr1.b(context);
+            } else {
+                a2 = rr1.a(context);
+            }
+            if (a2 == null) {
+                return null;
+            }
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            Pair<Integer, Integer> r = ul2.U().r();
+            Pair<Integer, Integer> x = ul2.U().x();
+            try {
+                a2.put("SDKVersion", F(context));
+                a2.put("windowWidth", (int) (((Integer) r.first).intValue() / displayMetrics.density));
+                a2.put("windowHeight", (int) (((Integer) r.second).intValue() / displayMetrics.density));
+                a2.put("screenWidth", yd3.O(((Integer) x.first).intValue()));
+                a2.put("screenHeight", yd3.O(((Integer) x.second).intValue()));
+                a2.put("privacyMode", oj2.y0().c());
+                B(a2);
+                z(context, a2);
+                C(context, a2, x);
+                A(a2);
+            } catch (JSONException e) {
+                p("json put data fail", e, false);
+            }
+            return a2;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public hs1 H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            q("#getSystemInfo", false);
+            return I(null);
+        }
+        return (hs1) invokeV.objValue;
+    }
+
+    public hs1 I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            q("#getSystemInfoAsync", false);
+            a aVar = new a(this);
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    String optString = new JSONObject(str).optString("cb");
+                    if (!TextUtils.isEmpty(optString)) {
+                        bd3.k(new b(this, optString, aVar), "SystemInfoApi");
+                        return hs1.f();
                     }
+                } catch (JSONException e) {
+                    p("json put data fail", e, false);
                 }
             }
-            return c;
+            return aVar.call();
         }
-        return (qr1) invokeV.objValue;
+        return (hs1) invokeL.objValue;
     }
 
-    @Override // com.repackage.or1
-    public void a(String str) {
+    public hs1 J() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (b) {
-                Log.d("Api-Marker", "markStart: " + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            q("#getSystemInfoSync", false);
+            JSONObject d = vt2.c().d("getSystemInfoSync");
+            if (d == null) {
+                d = G(getContext());
+                vt2.c().h("getSystemInfoSync", d);
+                vt2.c().h("getSystemInfo", d);
             }
-            for (int i = 0; i < this.a.size(); i++) {
-                this.a.get(i).a(str);
+            if (d == null) {
+                return new hs1(202, "empty joData");
             }
+            return new hs1(0, d);
         }
+        return (hs1) invokeV.objValue;
     }
 
-    @Override // com.repackage.or1
-    public void b(String str) {
+    @Override // com.repackage.ko1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (b) {
-                Log.d("Api-Marker", "markEnd: " + str);
-            }
-            for (int i = 0; i < this.a.size(); i++) {
-                this.a.get(i).b(str);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "SystemInfoApi" : (String) invokeV.objValue;
     }
 
-    public synchronized void d() {
+    public final void z(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (b) {
-                    Log.d("Api-Marker", "release: ");
-                }
-                if (c == null) {
-                    return;
-                }
-                c = null;
-            }
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, jSONObject) == null) {
+            jSONObject.put("cameraAuthorized", ld3.j(context, "android.permission.CAMERA"));
+            jSONObject.put("locationAuthorized", ld3.j(context, PermissionChecker.ACCESS_FINE_LOCATION));
+            jSONObject.put("microphoneAuthorized", ld3.j(context, "android.permission.RECORD_AUDIO"));
+            jSONObject.put("notificationAuthorized", be3.N(context));
+            jSONObject.put("locationEnabled", be3.L(context));
+            jSONObject.put("wifiEnabled", be3.V(context));
         }
     }
 }

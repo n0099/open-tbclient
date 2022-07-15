@@ -1,84 +1,151 @@
 package com.repackage;
 
-import android.content.ContentValues;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import com.repackage.ed4;
 /* loaded from: classes7.dex */
-public class u92 extends t92 {
+public final class u92 implements ed4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ContentValues d;
+    public String a;
+    public boolean b;
+    public ed4 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u92(@Nullable Map<String, String> map) {
-        super("lifecycle", map);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.repackage.t92, com.repackage.s92
-    public void m(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("cuid", zi2.h0().i(zi2.c()));
-            map.put("mtjCuid", zi2.h0().i(zi2.c()));
-            ContentValues contentValues = this.d;
-            if (contentValues != null) {
-                for (String str : contentValues.keySet()) {
-                    Object obj = this.d.get(str);
-                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
-                        map.put(str, String.valueOf(obj));
-                    } else {
-                        map.put(str, obj);
-                    }
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public u92 a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return;
             }
-            for (Map.Entry<String, String> entry : this.c.entrySet()) {
-                map.put(entry.getKey(), entry.getValue());
+        }
+
+        public u92 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                u92 u92Var = this.a;
+                this.a = null;
+                return u92Var;
+            }
+            return (u92) invokeV.objValue;
+        }
+
+        public b b(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                c().b = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public final u92 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.a == null) {
+                    this.a = new u92(null);
+                }
+                return this.a;
+            }
+            return (u92) invokeV.objValue;
+        }
+
+        public b d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                c().a = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b e(ed4 ed4Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ed4Var)) == null) {
+                c().c = ed4Var;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+    }
+
+    public /* synthetic */ u92(a aVar) {
+        this();
+    }
+
+    @Override // com.repackage.ed4
+    public void a(String str, ed4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
+            ed4 ed4Var = this.c;
+            if (ed4Var != null) {
+                ed4Var.a(str, aVar);
+            } else if (aVar != null) {
+                aVar.a(true);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u92(@NonNull ContentValues contentValues) {
-        super("lifecycle", null);
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "SoLib:: libName=" + this.a + " buildin=" + this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public u92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {contentValues};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = contentValues;
     }
 }

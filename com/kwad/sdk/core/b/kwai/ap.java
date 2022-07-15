@@ -1,53 +1,40 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.CouponInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ap implements com.kwad.sdk.core.d<CouponInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(CouponInfo couponInfo, JSONObject jSONObject) {
+public final class ap implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.a.b> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(com.kwad.sdk.core.webview.a.a.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        couponInfo.displayName = jSONObject.optString("displayName");
-        if (jSONObject.opt("displayName") == JSONObject.NULL) {
-            couponInfo.displayName = "";
-        }
-        couponInfo.displayTitle = jSONObject.optString("displayTitle");
-        if (jSONObject.opt("displayTitle") == JSONObject.NULL) {
-            couponInfo.displayTitle = "";
-        }
-        couponInfo.displayValue = jSONObject.optString("displayValue");
-        if (jSONObject.opt("displayValue") == JSONObject.NULL) {
-            couponInfo.displayValue = "";
-        }
-        couponInfo.displayBase = jSONObject.optString("displayBase");
-        if (jSONObject.opt("displayBase") == JSONObject.NULL) {
-            couponInfo.displayBase = "";
-        }
-        couponInfo.displayType = jSONObject.optString("displayType");
-        if (jSONObject.opt("displayType") == JSONObject.NULL) {
-            couponInfo.displayType = "";
-        }
-        couponInfo.displayActionWords = jSONObject.optString("displayActionWords");
-        if (jSONObject.opt("displayActionWords") == JSONObject.NULL) {
-            couponInfo.displayActionWords = "";
-        }
+        bVar.a = jSONObject.optDouble("x");
+        bVar.b = jSONObject.optDouble("y");
+        bVar.c = jSONObject.optInt("width");
+        bVar.d = jSONObject.optInt("height");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(CouponInfo couponInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(com.kwad.sdk.core.webview.a.a.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "displayName", couponInfo.displayName);
-        com.kwad.sdk.utils.t.a(jSONObject, "displayTitle", couponInfo.displayTitle);
-        com.kwad.sdk.utils.t.a(jSONObject, "displayValue", couponInfo.displayValue);
-        com.kwad.sdk.utils.t.a(jSONObject, "displayBase", couponInfo.displayBase);
-        com.kwad.sdk.utils.t.a(jSONObject, "displayType", couponInfo.displayType);
-        com.kwad.sdk.utils.t.a(jSONObject, "displayActionWords", couponInfo.displayActionWords);
+        com.kwad.sdk.utils.r.a(jSONObject, "x", bVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "y", bVar.b);
+        com.kwad.sdk.utils.r.a(jSONObject, "width", bVar.c);
+        com.kwad.sdk.utils.r.a(jSONObject, "height", bVar.d);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.webview.a.a.b bVar, JSONObject jSONObject) {
+        a2(bVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.webview.a.a.b bVar, JSONObject jSONObject) {
+        return b2(bVar, jSONObject);
     }
 }

@@ -2,6 +2,7 @@ package com.qq.e.comm;
 
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,7 +29,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                String[] strArr = {"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE", "android.permission.ACCESS_WIFI_STATE"};
+                String[] strArr = {PermissionChecker.INTERNET, "android.permission.ACCESS_NETWORK_STATE", PermissionChecker.ACCESS_WIFI_STATE};
                 int i = 0;
                 while (true) {
                     if (i >= 3) {

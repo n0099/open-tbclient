@@ -1,75 +1,90 @@
 package com.kwad.sdk.utils;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Handler;
-import android.os.Message;
+import android.content.pm.PackageInfo;
+import android.content.pm.Signature;
 import android.text.TextUtils;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.kuaishou.weapon.un.w0;
-import com.kwad.sdk.utils.bc;
+import androidx.annotation.Nullable;
+import java.security.MessageDigest;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class e implements bc.a {
-    public a b;
-    public String c;
-    public BroadcastReceiver d = new BroadcastReceiver() { // from class: com.kwad.sdk.utils.e.1
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            String schemeSpecificPart = (!TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction()) || intent.getData() == null) ? null : intent.getData().getSchemeSpecificPart();
-            if (TextUtils.isEmpty(schemeSpecificPart)) {
-                return;
+public final class e {
+    public static HashMap<String, ArrayList<String>> a = new HashMap<>();
+    public static String b;
+
+    @Nullable
+    public static String a(Context context) {
+        if (TextUtils.isEmpty(b)) {
+            ArrayList<String> a2 = a(context, "SHA1");
+            if (a2 != null && a2.size() != 0) {
+                b = a2.get(0);
             }
-            Message obtainMessage = e.this.a.obtainMessage(w0.i0);
-            obtainMessage.obj = schemeSpecificPart;
-            obtainMessage.sendToTarget();
+            return b;
         }
-    };
-    public Handler a = new bc(this);
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(String str);
+        return b;
     }
 
-    public e(String str) {
-        this.c = str;
-    }
-
-    public void a(Context context) {
-        if (context != null) {
-            try {
-                context.unregisterReceiver(this.d);
-            } catch (Throwable th) {
-                com.kwad.sdk.core.d.a.b(th);
+    public static String a(Signature signature, String str) {
+        byte[] byteArray = signature.toByteArray();
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance(str);
+            if (messageDigest != null) {
+                byte[] digest = messageDigest.digest(byteArray);
+                StringBuilder sb = new StringBuilder();
+                for (byte b2 : digest) {
+                    sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3).toUpperCase());
+                    sb.append(":");
+                }
+                return sb.substring(0, sb.length() - 1);
             }
+            return "error!";
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.b.e("AppSigningUtil", e.getMessage());
+            return "error!";
         }
-        this.b = null;
     }
 
-    public void a(Context context, a aVar) {
-        if (context == null) {
-            return;
+    @Nullable
+    public static ArrayList<String> a(Context context, String str) {
+        String packageName;
+        Signature[] b2;
+        if (context == null || (packageName = context.getPackageName()) == null) {
+            return null;
         }
-        this.b = aVar;
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-        intentFilter.addDataScheme("package");
-        context.registerReceiver(this.d, intentFilter);
+        if (a.get(str) != null) {
+            return a.get(str);
+        }
+        ArrayList<String> arrayList = new ArrayList<>();
+        try {
+            for (Signature signature : b(context, packageName)) {
+                String str2 = "error!";
+                if ("MD5".equals(str)) {
+                    str2 = a(signature, "MD5");
+                } else if ("SHA1".equals(str)) {
+                    str2 = a(signature, "SHA1");
+                } else if ("SHA256".equals(str)) {
+                    str2 = a(signature, "SHA256");
+                }
+                arrayList.add(str2);
+            }
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.b.e("AppSigningUtil", "签名信息列表获取失败 " + e.getMessage());
+        }
+        a.put(str, arrayList);
+        return arrayList;
     }
 
-    @Override // com.kwad.sdk.utils.bc.a
-    public void a(Message message) {
-        Object obj;
-        a aVar;
-        if (message.what != 242 || (obj = message.obj) == null || !obj.equals(this.c) || (aVar = this.b) == null) {
-            return;
+    public static Signature[] b(Context context, String str) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            if (packageInfo == null) {
+                return null;
+            }
+            return packageInfo.signatures;
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.b.e("AppSigningUtil", e.getMessage());
+            return null;
         }
-        aVar.a(this.c);
-    }
-
-    public void a(String str) {
-        this.c = str;
     }
 }

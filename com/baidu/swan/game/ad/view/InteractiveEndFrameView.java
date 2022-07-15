@@ -16,35 +16,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ap3;
-import com.repackage.bp3;
-import com.repackage.jo3;
-import com.repackage.jp3;
-import com.repackage.ro3;
-import com.repackage.sn3;
-import com.repackage.xn3;
-import com.repackage.zn3;
+import com.repackage.gp3;
+import com.repackage.ho3;
+import com.repackage.mo3;
+import com.repackage.oo3;
+import com.repackage.pp3;
+import com.repackage.qp3;
+import com.repackage.yo3;
+import com.repackage.yp3;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class InteractiveEndFrameView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RewardWebView a;
-    public ro3 b;
+    public gp3 b;
     public AdElementInfo c;
     public DownloadParams d;
-    public sn3 e;
+    public ho3 e;
     public JSONObject f;
     public String g;
     public String h;
     public DownloadState i;
-    public bp3 j;
-    public xn3 k;
+    public qp3 j;
+    public mo3 k;
     public RelativeLayout l;
     public RelativeLayout.LayoutParams m;
 
     /* loaded from: classes2.dex */
-    public class a implements sn3 {
+    public class a implements ho3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InteractiveEndFrameView a;
@@ -67,7 +67,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             this.a = interactiveEndFrameView;
         }
 
-        @Override // com.repackage.sn3
+        @Override // com.repackage.ho3
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -75,7 +75,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.sn3
+        @Override // com.repackage.ho3
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -83,7 +83,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.sn3
+        @Override // com.repackage.ho3
         public void c(DownloadState downloadState, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i) == null) {
@@ -107,7 +107,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.sn3
+        @Override // com.repackage.ho3
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -115,7 +115,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.sn3
+        @Override // com.repackage.ho3
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             return (String) invokeV.objValue;
         }
 
-        @Override // com.repackage.sn3
+        @Override // com.repackage.ho3
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || this.a.l == null) {
@@ -170,7 +170,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
         public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
-                ap3.h(this.a.c, this.a.b);
+                pp3.h(this.a.c, this.a.b);
                 this.a.g = str;
                 String v = this.a.v(str);
                 if (!TextUtils.isEmpty(v)) {
@@ -178,20 +178,20 @@ public class InteractiveEndFrameView extends RelativeLayout {
                 }
                 InteractiveEndFrameView interactiveEndFrameView = this.a;
                 interactiveEndFrameView.d = new DownloadParams(interactiveEndFrameView.g, this.a.h);
-                this.a.k = new zn3();
+                this.a.k = new oo3();
                 InteractiveEndFrameView interactiveEndFrameView2 = this.a;
-                xn3 xn3Var = interactiveEndFrameView2.k;
-                xn3Var.c(this.a.getContext(), this.a.d, this.a.e);
-                interactiveEndFrameView2.k = xn3Var;
+                mo3 mo3Var = interactiveEndFrameView2.k;
+                mo3Var.c(this.a.getContext(), this.a.d, this.a.e);
+                interactiveEndFrameView2.k = mo3Var;
                 this.a.k.e(this.a.d);
                 this.a.k.f();
-                if (jp3.a(this.a.getContext(), this.a.d.b) && this.a.l != null) {
+                if (yp3.a(this.a.getContext(), this.a.d.b) && this.a.l != null) {
                     this.a.l.removeView(this.a.k.getRealView());
                     this.a.l.addView(this.a.k.getRealView(), this.a.m);
                     this.a.k.b(DownloadState.INSTALLED);
                     return;
                 }
-                jo3.b().d(this.a.getContext(), this.a.d.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.e);
+                yo3.b().d(this.a.getContext(), this.a.d.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.e);
             }
         }
     }
@@ -216,7 +216,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
         }
         this.h = "";
         this.i = DownloadState.NOT_START;
-        this.b = new ro3(context);
+        this.b = new gp3(context);
     }
 
     public void s(AdElementInfo adElementInfo, RelativeLayout relativeLayout) {
@@ -231,7 +231,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             this.a.loadUrl(endFrameUrl);
             addView(this.a, new RelativeLayout.LayoutParams(-1, -1));
             this.f = adElementInfo.getAdMonitors();
-            this.j = new bp3(getContext(), this.f);
+            this.j = new qp3(getContext(), this.f);
             w();
             setDownloadListener();
         }
@@ -253,7 +253,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
             if (DownloadState.DOWNLOADING == this.i) {
                 this.e = null;
-                jo3.b().d(getContext(), this.d.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.e);
+                yo3.b().d(getContext(), this.d.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.e);
             }
         }
     }
@@ -291,9 +291,9 @@ public class InteractiveEndFrameView extends RelativeLayout {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            float u = u(getContext(), R.dimen.obfuscated_res_0x7f070320);
-            float u2 = u(getContext(), R.dimen.obfuscated_res_0x7f07031f);
-            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07031e);
+            float u = u(getContext(), R.dimen.obfuscated_res_0x7f07031f);
+            float u2 = u(getContext(), R.dimen.obfuscated_res_0x7f07031e);
+            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07031d);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (getContext().getResources().getDisplayMetrics().widthPixels * u), (int) (getContext().getResources().getDisplayMetrics().heightPixels * u2));
             layoutParams.addRule(12);
             layoutParams.bottomMargin = dimensionPixelSize;

@@ -1,5 +1,6 @@
 package com.sdk.base.framework.e;
 
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,17 +116,17 @@ public final class a extends d {
                             b5 = -1;
                             b3 = -1;
                             if (i != 2) {
-                                i2 = ((b3 >>> 4) & 3) | ((b6 << 2) & 252);
+                                i2 = ((b3 >>> 4) & 3) | ((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE);
                             } else if (i != 3) {
                                 if (i != 4) {
                                     return;
                                 }
-                                outputStream.write((byte) (((b6 << 2) & 252) | ((b3 >>> 4) & 3)));
+                                outputStream.write((byte) (((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE) | ((b3 >>> 4) & 3)));
                                 outputStream.write((byte) (((b3 << 4) & 240) | ((b4 >>> 2) & 15)));
                                 outputStream.write((byte) (((b4 << 6) & 192) | (b5 & 63)));
                                 return;
                             } else {
-                                outputStream.write((byte) (((b6 << 2) & 252) | (3 & (b3 >>> 4))));
+                                outputStream.write((byte) (((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE) | (3 & (b3 >>> 4))));
                                 i2 = ((b3 << 4) & 240) | ((b4 >>> 2) & 15);
                             }
                             outputStream.write((byte) i2);

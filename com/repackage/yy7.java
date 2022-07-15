@@ -1,94 +1,82 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.util.SparseIntArray;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.SkinManager;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.CardForumHeadLayout;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yy7 {
+public class yy7 extends an<es7, VideoPbEnterForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseIntArray a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755125382, "Lcom/repackage/yy7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755125382, "Lcom/repackage/yy7;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yy7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new SparseIntArray();
     }
 
-    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || textView == null) {
-            return;
-        }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        int b = b(R.dimen.obfuscated_res_0x7f070207);
-        if (z2 && z3) {
-            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070305), b, b(R.dimen.obfuscated_res_0x7f070263));
-        } else if (z) {
-            layoutParams.setMargins(0, b(R.dimen.obfuscated_res_0x7f070305), 0, 0);
-        } else if (!z2) {
-            layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f070235), b(R.dimen.obfuscated_res_0x7f070305), b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
-        } else {
-            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070305), b, b(R.dimen.obfuscated_res_0x7f0701b2));
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) "icon");
-        spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
-        Drawable drawable = SkinManager.getDrawable(R.drawable.icon_pb_tail);
-        drawable.setBounds(0, 0, b, b);
-        wd5 wd5Var = new wd5(drawable);
-        wd5Var.c(b(R.dimen.obfuscated_res_0x7f070224));
-        spannableStringBuilder.setSpan(wd5Var, 0, 4, 33);
-        textView.setLayoutParams(layoutParams);
-        textView.setText(spannableStringBuilder);
-        textView.setTextColor(smallTailInfo.showColorId);
-        textView.setVisibility(0);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.repackage.an
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, es7 es7Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
+        a0(i, view2, viewGroup, es7Var, videoPbEnterForumViewHolder);
+        return view2;
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.an
+    /* renamed from: Z */
+    public VideoPbEnterForumViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = a.get(i, -1);
-            if (i2 == -1) {
-                int f = pi.f(TbadkCoreApplication.getInst().getContext(), i);
-                a.put(i, f);
-                return f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a);
+            CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.a);
+            cardForumHeadLayout.setPadding(pi.f(this.a, R.dimen.tbds32), 0, 0, 0);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, pi.f(this.a, R.dimen.tbds156));
+            layoutParams.leftMargin = pi.f(this.a, R.dimen.tbds44);
+            layoutParams.rightMargin = pi.f(this.a, R.dimen.tbds44);
+            layoutParams.bottomMargin = pi.f(this.a, R.dimen.tbds76);
+            frameLayout.addView(cardForumHeadLayout, layoutParams);
+            return new VideoPbEnterForumViewHolder(frameLayout);
+        }
+        return (VideoPbEnterForumViewHolder) invokeL.objValue;
+    }
+
+    public View a0(int i, View view2, ViewGroup viewGroup, es7 es7Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, es7Var, videoPbEnterForumViewHolder})) == null) {
+            if (es7Var != null) {
+                videoPbEnterForumViewHolder.setData(es7Var.a);
             }
-            return i2;
+            videoPbEnterForumViewHolder.c();
+            return view2;
         }
-        return invokeI.intValue;
-    }
-
-    public static void c(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
-        SpannableString spannableString;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || (spannableString = smallTailInfo.tailSpannable) == null || spannableString.length() == 0 || textView == null) {
-            return;
-        }
-        smallTailInfo.updateShowInfo();
-        a(smallTailInfo, textView, z, z2, z3);
+        return (View) invokeCommon.objValue;
     }
 }

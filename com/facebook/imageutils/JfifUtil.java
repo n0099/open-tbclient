@@ -2,13 +2,13 @@ package com.facebook.imageutils;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.DownloadConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
-import com.kuaishou.weapon.un.w0;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -62,10 +62,10 @@ public class JfifUtil {
                 case 192:
                 case 193:
                 case 194:
-                case 195:
+                case DownloadConstants.STATUS_WAITING_FOR_NETWORK /* 195 */:
                 case Constants.METHOD_IM_DELIVER_CONFIG_MSG /* 197 */:
                 case 198:
-                case w0.b1 /* 199 */:
+                case 199:
                 case 201:
                 case 202:
                 case 203:

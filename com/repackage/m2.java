@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.tachikoma.core.utility.FileUtil;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +23,7 @@ public class m2 extends j3 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m2(AssetManager assetManager, String str, Files.FileType fileType) {
-        super(str.replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH), fileType);
+        super(str.replace('\\', WebvttCueParser.CHAR_SLASH), fileType);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +48,7 @@ public class m2 extends j3 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String replace = str.replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
+            String replace = str.replace('\\', WebvttCueParser.CHAR_SLASH);
             return this.a.getPath().length() == 0 ? new m2(this.c, new File(replace), this.b) : new m2(this.c, new File(this.a, replace), this.b);
         }
         return (j3) invokeL.objValue;
@@ -164,7 +163,7 @@ public class m2 extends j3 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            String replace = str.replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH);
+            String replace = str.replace('\\', WebvttCueParser.CHAR_SLASH);
             if (this.a.getPath().length() != 0) {
                 return e1.d.d(new File(this.a.getParent(), replace).getPath(), this.b);
             }

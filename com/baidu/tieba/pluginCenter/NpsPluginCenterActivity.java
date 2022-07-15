@@ -95,9 +95,9 @@ public class NpsPluginCenterActivity extends BaseActivity {
             if (getIntent() != null) {
                 getIntent().getIntExtra("key_from_type", 0);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09238f);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e84));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e7d));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
@@ -105,7 +105,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public final void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091bee);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c8d);
             this.e.add("com.baidu.searchbox.bjhlivenps");
             this.e.add("com.baidu.live.media.business");
             this.e.add(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME);
@@ -162,7 +162,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0617);
+            setContentView(R.layout.obfuscated_res_0x7f0d0633);
             A1();
             B1();
         }

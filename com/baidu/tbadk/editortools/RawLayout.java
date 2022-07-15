@@ -187,7 +187,7 @@ public class RawLayout extends ViewGroup {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403d3, R.attr.obfuscated_res_0x7f04052a, R.attr.obfuscated_res_0x7f0405b5, R.attr.obfuscated_res_0x7f0405b8});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403db, R.attr.obfuscated_res_0x7f04052e, R.attr.obfuscated_res_0x7f0405b6, R.attr.obfuscated_res_0x7f0405b9});
             String string = obtainStyledAttributes.getString(1);
             if (string == null) {
                 string = "horizontal";
@@ -672,7 +672,7 @@ public class RawLayout extends ViewGroup {
                 }
             }
             this.a = 0;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403d3, R.attr.obfuscated_res_0x7f04052a, R.attr.obfuscated_res_0x7f0405b5, R.attr.obfuscated_res_0x7f0405b8});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403db, R.attr.obfuscated_res_0x7f04052e, R.attr.obfuscated_res_0x7f0405b6, R.attr.obfuscated_res_0x7f0405b9});
             this.a = obtainStyledAttributes.getInt(0, 0);
             obtainStyledAttributes.recycle();
             if (((LinearLayout.LayoutParams) this).gravity == -1) {

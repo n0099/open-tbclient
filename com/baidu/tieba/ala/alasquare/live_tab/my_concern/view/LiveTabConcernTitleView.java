@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mw5;
-import com.repackage.rq5;
+import com.repackage.jx5;
+import com.repackage.or5;
 /* loaded from: classes3.dex */
-public class LiveTabConcernTitleView extends mw5<rq5> {
+public class LiveTabConcernTitleView extends jx5<or5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
@@ -52,7 +52,7 @@ public class LiveTabConcernTitleView extends mw5<rq5> {
             this.a = liveTabConcernTitleView;
             View h = liveTabConcernTitleView.h();
             this.b = h;
-            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091e2c);
+            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091ed0);
         }
     }
 
@@ -79,14 +79,14 @@ public class LiveTabConcernTitleView extends mw5<rq5> {
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07e6 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0804 : invokeV.intValue;
     }
 
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -103,14 +103,14 @@ public class LiveTabConcernTitleView extends mw5<rq5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.mw5
+    @Override // com.repackage.jx5
     /* renamed from: r */
-    public void i(rq5 rq5Var) {
+    public void i(or5 or5Var) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, rq5Var) == null) || rq5Var == null || StringUtils.isNull(rq5Var.b) || (viewHolder = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, or5Var) == null) || or5Var == null || StringUtils.isNull(or5Var.b) || (viewHolder = this.i) == null) {
             return;
         }
-        viewHolder.c.setText(rq5Var.b);
+        viewHolder.c.setText(or5Var.b);
     }
 }

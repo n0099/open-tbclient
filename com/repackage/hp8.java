@@ -1,164 +1,35 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.R;
-import com.baidu.tieba.model.VideoHolyCardModel;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class hp8 {
     public static /* synthetic */ Interceptable $ic;
-    public static hp8 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoHolyCardModel a;
-    public boolean b;
-    public boolean c;
-    public VideoHolyCardModel.c d;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hp8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(hp8 hp8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hp8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hp8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && ni.x()) {
-                this.a.b();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements VideoHolyCardModel.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hp8 a;
-
-        public b(hp8 hp8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hp8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hp8Var;
-        }
-
-        @Override // com.baidu.tieba.model.VideoHolyCardModel.c
-        public void onResult(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.b = z;
-            }
-        }
-    }
-
-    public hp8() {
+    public static void a(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = new b(this);
-        e();
-        if (PermissionUtil.isAgreePrivacyPolicy()) {
-            b();
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
+            b(tbPageContext, str, null);
         }
     }
 
-    public static hp8 c() {
-        InterceptResult invokeV;
+    public static void b(TbPageContext<?> tbPageContext, String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (hp8.class) {
-                    if (e == null) {
-                        e = new hp8();
-                    }
-                }
-            }
-            return e;
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, str, bundle) == null) || StringUtils.isNull(str) || tbPageContext == null) {
+            return;
         }
-        return (hp8) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == null) {
-                VideoHolyCardModel videoHolyCardModel = new VideoHolyCardModel();
-                this.a = videoHolyCardModel;
-                videoHolyCardModel.E(this.d);
-            }
-            this.a.C();
+        if (bundle == null) {
+            bundle = new Bundle();
         }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(new a(this, 2000994));
+        if (bundle.get(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM) == null) {
+            bundle.putBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, false);
         }
-    }
-
-    public void f(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && this.b && !this.c) {
-            pi.N(context, R.string.obfuscated_res_0x7f0f06b9);
-            this.c = true;
-        }
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str}, bundle);
     }
 }

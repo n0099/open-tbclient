@@ -263,7 +263,7 @@ public class TbCameraView extends TextureView {
         this.s = new c(this);
         this.t = new d(this);
         setSurfaceTextureListener(this.q);
-        this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d4);
+        this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d3);
         this.j = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
     }
 

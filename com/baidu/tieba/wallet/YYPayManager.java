@@ -20,12 +20,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b85;
-import com.repackage.e85;
-import com.repackage.f85;
-import com.repackage.ht4;
-import com.repackage.y75;
-import com.repackage.z75;
+import com.repackage.a95;
+import com.repackage.b95;
+import com.repackage.d95;
+import com.repackage.g95;
+import com.repackage.h95;
+import com.repackage.xt4;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
@@ -59,7 +59,7 @@ public class YYPayManager {
     public static final int YY_PAY_USE_CHANNEL_YY_LIVE = 30;
     public static BroadcastReceiver broadcastReceiver;
     public static IWechatProxyCallback wxPayCallback;
-    public static b85 yyPayResultCallback;
+    public static d95 yyPayResultCallback;
     public static YYPayUIKit yyPayUIKit;
     public static YYPayUIKit yyPayUIKitYYLive;
     public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class YYPayManager {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
             Context applicationContext = BdBaseApplication.getInst().getApp().getApplicationContext();
             String packageName = applicationContext.getPackageName();
-            String q = ht4.k().q("version_name", "");
+            String q = xt4.k().q("version_name", "");
             Context context = TbadkCoreApplication.getInst().getContext();
             MiddleReportConfig build = new MiddleReportConfig.MiddleReportConfigBuilder().build();
             build.setAppName("百度贴吧");
@@ -163,36 +163,36 @@ public class YYPayManager {
         }
     }
 
-    public static void destoryYyPayCallback(b85 b85Var) {
+    public static void destoryYyPayCallback(d95 d95Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, b85Var) == null) && b85Var == yyPayResultCallback) {
+        if ((interceptable == null || interceptable.invokeL(65542, null, d95Var) == null) && d95Var == yyPayResultCallback) {
             yyPayResultCallback = null;
         }
     }
 
-    public static void doYYPayTask(e85 e85Var) {
+    public static void doYYPayTask(g95 g95Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, e85Var) == null) || e85Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, g95Var) == null) || g95Var == null) {
             return;
         }
         initYYPaySDK();
         createUIKit();
-        yyPayResultCallback = e85Var.e;
-        Object obj = e85Var.a;
+        yyPayResultCallback = g95Var.e;
+        Object obj = g95Var.a;
         if (!(obj instanceof Activity)) {
             obj = getCurrentActivity();
         }
         IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-        viewParams.closeOnSuccess = e85Var.g;
-        if (!TextUtils.isEmpty(e85Var.c)) {
-            viewParams.payAmountDialogTitle = e85Var.c;
+        viewParams.closeOnSuccess = g95Var.g;
+        if (!TextUtils.isEmpty(g95Var.c)) {
+            viewParams.payAmountDialogTitle = g95Var.c;
         }
-        Long l = e85Var.d;
+        Long l = g95Var.d;
         if (l != null) {
             int intValue = l.intValue();
             viewParams.targetAmount = intValue;
             if (intValue > 0) {
-                int i = e85Var.f;
+                int i = g95Var.f;
                 if (i == 1) {
                     viewParams.payScene = PayScene.DIALOG_PAY_SCENE;
                 } else if (i != 3) {
@@ -202,12 +202,12 @@ public class YYPayManager {
                 }
             }
         }
-        b85 b85Var = yyPayResultCallback;
-        if (b85Var instanceof y75) {
-            viewParams.viewEventListener = new AbsViewEventHandler((y75) b85Var) { // from class: com.baidu.tieba.wallet.YYPayManager.1
+        d95 d95Var = yyPayResultCallback;
+        if (d95Var instanceof a95) {
+            viewParams.viewEventListener = new AbsViewEventHandler((a95) d95Var) { // from class: com.baidu.tieba.wallet.YYPayManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ y75 val$absPayAllResult;
+                public final /* synthetic */ a95 val$absPayAllResult;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -289,27 +289,27 @@ public class YYPayManager {
                         YYPayManager.yyPayResultCallback.onSuccess(null);
                         return;
                     }
-                    f85 f85Var = new f85();
+                    h95 h95Var = new h95();
                     CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                    f85Var.g = currencyChargeMessage.status;
-                    f85Var.b = currencyChargeMessage.appid;
-                    f85Var.h = Long.valueOf(currencyChargeMessage.uid);
-                    f85Var.i = currencyChargeMessage.usedChannel;
-                    f85Var.d = currencyChargeMessage.currencyType;
-                    f85Var.a = Long.valueOf(currencyChargeMessage.amount);
-                    f85Var.c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                    f85Var.f = currencyChargeMessage.orderId;
-                    f85Var.e = currencyChargeMessage.expand;
-                    YYPayManager.yyPayResultCallback.onSuccess(f85Var);
+                    h95Var.g = currencyChargeMessage.status;
+                    h95Var.b = currencyChargeMessage.appid;
+                    h95Var.h = Long.valueOf(currencyChargeMessage.uid);
+                    h95Var.i = currencyChargeMessage.usedChannel;
+                    h95Var.d = currencyChargeMessage.currencyType;
+                    h95Var.a = Long.valueOf(currencyChargeMessage.amount);
+                    h95Var.c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                    h95Var.f = currencyChargeMessage.orderId;
+                    h95Var.e = currencyChargeMessage.expand;
+                    YYPayManager.yyPayResultCallback.onSuccess(h95Var);
                 }
             };
-            if (e85Var.b == 0) {
+            if (g95Var.b == 0) {
                 yyPayUIKit.startPayDialog((Activity) obj, viewParams, iPayCallback);
             } else {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);
             }
             if (TbSingleton.getInstance().isUserBan()) {
-                z75.a(null);
+                b95.a(null);
             }
         }
     }

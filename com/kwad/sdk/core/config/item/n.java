@@ -5,54 +5,36 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class n extends b<String> {
-    public static volatile String[] a;
-
+public final class n extends a<String> {
     public n(String str, String str2) {
         super(str, str2);
-        a = null;
-    }
-
-    private void a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        a = str.split(",");
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public void a(@NonNull SharedPreferences.Editor editor) {
-        editor.putString(b(), a());
+    public final void a(@NonNull SharedPreferences.Editor editor) {
+        editor.putString(a(), b());
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public void a(@NonNull SharedPreferences sharedPreferences) {
-        String string = sharedPreferences.getString(b(), c());
-        a((n) string);
-        a(string);
+    public final void a(@NonNull SharedPreferences sharedPreferences) {
+        a((n) sharedPreferences.getString(a(), c()));
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
+    public final void a(JSONObject jSONObject) {
+        String optString = jSONObject != null ? jSONObject.optString(a(), c()) : null;
+        if (TextUtils.isEmpty(optString)) {
             a((n) c());
-            return;
+        } else {
+            a((n) optString);
         }
-        String optString = jSONObject.optString(b(), c());
-        a((n) optString);
-        a(optString);
     }
 
-    public boolean a(long j) {
-        String[] strArr;
-        if (a == null) {
-            return false;
-        }
-        for (String str : a) {
-            if (str != null && String.valueOf(j).equals(str.trim())) {
-                return true;
-            }
-        }
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.config.item.b
+    @NonNull
+    /* renamed from: d */
+    public final String b() {
+        return (String) super.b();
     }
 }

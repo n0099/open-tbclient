@@ -22,17 +22,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ii8;
-import com.repackage.li8;
+import com.repackage.ej8;
+import com.repackage.hj8;
+import com.repackage.lj8;
 import com.repackage.oi;
-import com.repackage.pi8;
 import com.repackage.sg;
-import com.repackage.vw4;
+import com.repackage.tx4;
 /* loaded from: classes2.dex */
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ii8 callback;
+    public ej8 callback;
     public TbWebViewActivity mActivity;
 
     public TbWebChromeClient(TbWebViewActivity tbWebViewActivity) {
@@ -131,16 +131,16 @@ public class TbWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        ii8 ii8Var;
+        ej8 ej8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!vw4.a(str) && str2.startsWith("tiebaapp")) {
-                li8 li8Var = new li8();
-                li8Var.v(pi8.b(str2));
-                li8Var.x(301);
-                callJsMethod(webView, li8Var.c(), li8Var.d());
+            if (!tx4.a(str) && str2.startsWith("tiebaapp")) {
+                hj8 hj8Var = new hj8();
+                hj8Var.v(lj8.b(str2));
+                hj8Var.x(301);
+                callJsMethod(webView, hj8Var.c(), hj8Var.d());
             }
-            if (vw4.a(str) && (ii8Var = this.callback) != null && ii8Var.onJsPrompt(str2, jsPromptResult)) {
+            if (tx4.a(str) && (ej8Var = this.callback) != null && ej8Var.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();
@@ -193,10 +193,10 @@ public class TbWebChromeClient extends WebChromeClient {
         }
     }
 
-    public void setOnJsPromptCallback(ii8 ii8Var) {
+    public void setOnJsPromptCallback(ej8 ej8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ii8Var) == null) {
-            this.callback = ii8Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ej8Var) == null) {
+            this.callback = ej8Var;
         }
     }
 

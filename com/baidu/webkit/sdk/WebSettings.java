@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
+import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -554,7 +555,7 @@ public abstract class WebSettings implements Observer {
             NORMAL = new TextSize("NORMAL", 2, 100);
             LARGERLITTLE = new TextSize("LARGERLITTLE", 3, 125);
             LARGER = new TextSize("LARGER", 4, 150);
-            LARGERMORE = new TextSize("LARGERMORE", 5, 175);
+            LARGERMORE = new TextSize("LARGERMORE", 5, HideBottomViewOnScrollBehavior.EXIT_ANIMATION_DURATION);
             TextSize textSize = new TextSize("LARGEST", 6, 200);
             LARGEST = textSize;
             $VALUES = new TextSize[]{SMALLEST, SMALLER, NORMAL, LARGERLITTLE, LARGER, LARGERMORE, textSize};

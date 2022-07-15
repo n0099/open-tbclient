@@ -1,6 +1,7 @@
 package com.baidu.ar.vo.a;
 
 import com.baidu.ar.h.i;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,8 +46,8 @@ public class a {
                 if (jSONObject.has("place_type")) {
                     bVar.T(jSONObject.getInt("place_type"));
                 }
-                if (jSONObject.has("position")) {
-                    bVar.aX(jSONObject.getString("position"));
+                if (jSONObject.has(CriusAttrConstants.POSITION)) {
+                    bVar.aX(jSONObject.getString(CriusAttrConstants.POSITION));
                 }
                 if (jSONObject.has("distance")) {
                     bVar.U(jSONObject.getInt("distance"));

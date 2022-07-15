@@ -3,6 +3,7 @@ package com.ss.android.downloadlib.addownload;
 import android.content.Intent;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.ss.android.download.api.config.IDownloadButtonClickListener;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.downloadad.api.download.AdDownloadModel;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
@@ -25,6 +26,10 @@ public class h {
 
     public static boolean b(DownloadModel downloadModel) {
         return downloadModel != null && downloadModel.getModelType() == 2;
+    }
+
+    public static boolean a(DownloadModel downloadModel, IDownloadButtonClickListener iDownloadButtonClickListener) {
+        return downloadModel.isAd() && iDownloadButtonClickListener != null;
     }
 
     public static int a(@NonNull com.ss.android.downloadlib.addownload.b.e eVar, boolean z, com.ss.android.socialbase.appdownloader.f fVar) {

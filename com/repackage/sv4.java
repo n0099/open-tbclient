@@ -1,70 +1,59 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbPatternsCompat;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.regex.Matcher;
 /* loaded from: classes7.dex */
 public class sv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    public sv4() {
+    @Nullable
+    public static String a(@Nullable String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            int i = 0;
+            while (i < str.length()) {
+                str = str.substring(i);
+                Matcher matcher = TbPatternsCompat.PLAIN_TEXT_AT_WITH_BLANK.matcher(str);
+                if (!matcher.find()) {
+                    break;
+                }
+                matcher.group(1).trim();
+                matcher.group(2).trim();
+                String trim = matcher.group(3).trim();
+                if (i != 0) {
+                    sb.append(",");
+                }
+                sb.append(trim);
+                i = matcher.end();
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            String a = a(str);
+            if (TextUtils.isEmpty(a)) {
                 return;
             }
-        }
-        this.a = false;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("zan_or_cai_smallflow");
-            c(optJSONObject);
-            d(optJSONObject);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public final void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = true;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            if (jSONObject != null) {
-                ht4.k().y("praise_abtest_switch_json", jSONObject.toString());
-            } else {
-                ht4.k().y("praise_abtest_switch_json", "");
-            }
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_AT_SUCESSED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", str2).param(TiebaStatic.Params.FRIEND_UID, a));
         }
     }
 }

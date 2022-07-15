@@ -10,7 +10,7 @@ public class FileExistsException extends IOException {
     }
 
     public FileExistsException(File file) {
-        super("File " + file + " exists");
+        super("File " + file + " already exists");
     }
 
     public FileExistsException(String str) {

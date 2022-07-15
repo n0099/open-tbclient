@@ -1,46 +1,62 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class qm9 {
+public final class qm9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final qm9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public double b;
+    public final /* synthetic */ Activity a;
+    public final /* synthetic */ mm9 b;
+    public final /* synthetic */ lm9 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755375180, "Lcom/repackage/qm9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755375180, "Lcom/repackage/qm9;");
-                return;
-            }
-        }
-        c = new qm9();
-    }
-
-    public qm9() {
+    public qm9(lm9 lm9Var, Activity activity, mm9 mm9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lm9Var, activity, mm9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = lm9Var;
+        this.a = activity;
+        this.b = mm9Var;
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+                aVar = this.c.d;
+                String str = this.a.getApplicationInfo().packageName;
+                lm9 lm9Var = this.c;
+                l = lm9.l();
+                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
+                new Handler().postDelayed(new rm9(this, atomicBoolean), 3000L);
+            } catch (RemoteException e) {
+                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
+                lm9 lm9Var2 = this.c;
+                lm9.n(this.a, this.b);
             }
         }
     }

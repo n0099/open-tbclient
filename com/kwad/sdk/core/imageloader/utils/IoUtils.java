@@ -1,6 +1,6 @@
 package com.kwad.sdk.core.imageloader.utils;
 
-import java.io.Closeable;
+import com.kwad.sdk.crash.utils.b;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -14,15 +14,6 @@ public final class IoUtils {
     /* loaded from: classes5.dex */
     public interface CopyListener {
         boolean onBytesCopied(int i, int i2);
-    }
-
-    public static void closeSilently(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception unused) {
-            }
-        }
     }
 
     public static boolean copyStream(InputStream inputStream, OutputStream outputStream, CopyListener copyListener) {
@@ -62,21 +53,17 @@ public final class IoUtils {
                 try {
                     int read = inputStreamReader.read(cArr, 0, 1024);
                     if (read < 0) {
-                        closeSilently(inputStreamReader);
+                        b.a(inputStreamReader);
                         return sb.toString();
                     }
                     sb.append(cArr, 0, read);
                 } catch (Exception unused) {
-                    if (inputStreamReader != null) {
-                        closeSilently(inputStreamReader);
-                    }
+                    b.a(inputStreamReader);
                     return null;
                 } catch (Throwable th) {
                     th = th;
                     inputStreamReader2 = inputStreamReader;
-                    if (inputStreamReader2 != null) {
-                        closeSilently(inputStreamReader2);
-                    }
+                    b.a(inputStreamReader2);
                     throw th;
                 }
             }
@@ -91,12 +78,11 @@ public final class IoUtils {
         do {
             try {
             } catch (IOException unused) {
-            } catch (Throwable th) {
-                closeSilently(inputStream);
-                throw th;
+                return;
+            } finally {
+                b.a(inputStream);
             }
         } while (inputStream.read(new byte[32768], 0, 32768) != -1);
-        closeSilently(inputStream);
     }
 
     public static boolean shouldStopLoading(CopyListener copyListener, int i, int i2) {

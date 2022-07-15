@@ -27,8 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
 import com.repackage.qg;
-import com.repackage.tv4;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.repackage.rw4;
 /* loaded from: classes3.dex */
 public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -142,7 +141,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
                 return;
             }
         }
-        s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ce);
+        s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cd);
         t = pi.k(TbadkCoreApplication.getInst());
     }
 
@@ -186,14 +185,14 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d065d, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091705);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091707);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091708);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091709);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09170a);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09170b);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091706);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0679, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917ae);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917b0);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917b1);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917b2);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917b3);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917b4);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917af);
             this.g = textView;
             textView.setX((t - s) / 2);
             e(TbadkCoreApplication.getInst().getSkinType());
@@ -205,7 +204,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.h = new AnimatorSet();
-            Drawable drawable = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806f1);
+            Drawable drawable = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806f2);
             ImageView imageView = this.a;
             float intrinsicWidth = (t - drawable.getIntrinsicWidth()) / 2;
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "X", t, intrinsicWidth);
@@ -242,10 +241,10 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
             ofFloat7.setStartDelay(1400L);
             this.m.play(ofFloat7);
             this.n = new AnimatorSet();
-            ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.g, AnimationProperty.SCALE_X, 0.0f, 2.0f, 1.0f);
+            ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.g, "scaleX", 0.0f, 2.0f, 1.0f);
             ofFloat8.setDuration(500L);
             ofFloat8.setStartDelay(400L);
-            ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.g, AnimationProperty.SCALE_Y, 0.0f, 2.0f, 1.0f);
+            ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.g, "scaleY", 0.0f, 2.0f, 1.0f);
             ofFloat9.setDuration(500L);
             ofFloat8.setStartDelay(400L);
             ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.g, "X", t / 2, intrinsicWidth2);
@@ -261,10 +260,10 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             SkinManager.setBackgroundColor(this, R.color.black_alpha60);
-            tv4 activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
+            rw4 activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
             if (activitySwitch == null || !activitySwitch.a()) {
-                i2 = R.drawable.obfuscated_res_0x7f0806f3;
-                i3 = R.drawable.obfuscated_res_0x7f0806f1;
+                i2 = R.drawable.obfuscated_res_0x7f0806f4;
+                i3 = R.drawable.obfuscated_res_0x7f0806f2;
             } else {
                 i2 = R.drawable.icon_floor_praised_floating_xmas;
                 i3 = R.drawable.icon_floor_bigpraised_floating_xmas;

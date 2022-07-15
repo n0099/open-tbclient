@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dc1;
 import com.repackage.mf;
-import com.repackage.ob1;
 /* loaded from: classes2.dex */
-public class NetExperimentFetcher extends ob1<mf> {
+public class NetExperimentFetcher extends dc1<mf> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,6 +55,13 @@ public class NetExperimentFetcher extends ob1<mf> {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UbsABTestHelper.isBdNetABTest() : invokeV.booleanValue;
         }
 
+        @Override // com.repackage.mf
+        public boolean qaHttpsTest() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? UbsABTestHelper.isQaHttpsTest() : invokeV.booleanValue;
+        }
+
         public /* synthetic */ NetExperimentImpl(AnonymousClass1 anonymousClass1) {
             this();
         }
@@ -76,7 +83,7 @@ public class NetExperimentFetcher extends ob1<mf> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.ob1
+    @Override // com.repackage.dc1
     public mf createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

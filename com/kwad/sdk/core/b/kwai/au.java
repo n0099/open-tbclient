@@ -1,38 +1,34 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.live.mode.LiveInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class au implements com.kwad.sdk.core.d<LiveInfo.CoverThumbnailUrl> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(LiveInfo.CoverThumbnailUrl coverThumbnailUrl, JSONObject jSONObject) {
+public final class au implements com.kwad.sdk.core.d<com.kwad.components.core.webview.b.kwai.d> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(com.kwad.components.core.webview.b.kwai.d dVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        coverThumbnailUrl.cdn = jSONObject.optString("cdn");
-        if (jSONObject.opt("cdn") == JSONObject.NULL) {
-            coverThumbnailUrl.cdn = "";
-        }
-        coverThumbnailUrl.url = jSONObject.optString("url");
-        if (jSONObject.opt("url") == JSONObject.NULL) {
-            coverThumbnailUrl.url = "";
-        }
-        coverThumbnailUrl.urlPattern = jSONObject.optString("urlPattern");
-        if (jSONObject.opt("urlPattern") == JSONObject.NULL) {
-            coverThumbnailUrl.urlPattern = "";
-        }
+        dVar.a = jSONObject.optInt("closeDelaySeconds");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(LiveInfo.CoverThumbnailUrl coverThumbnailUrl, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(com.kwad.components.core.webview.b.kwai.d dVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "cdn", coverThumbnailUrl.cdn);
-        com.kwad.sdk.utils.t.a(jSONObject, "url", coverThumbnailUrl.url);
-        com.kwad.sdk.utils.t.a(jSONObject, "urlPattern", coverThumbnailUrl.urlPattern);
+        com.kwad.sdk.utils.r.a(jSONObject, "closeDelaySeconds", dVar.a);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(com.kwad.components.core.webview.b.kwai.d dVar, JSONObject jSONObject) {
+        a2(dVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.components.core.webview.b.kwai.d dVar, JSONObject jSONObject) {
+        return b2(dVar, jSONObject);
     }
 }

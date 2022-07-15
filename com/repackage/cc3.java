@@ -1,123 +1,106 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class cc3 {
+public final class cc3<ValueT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public ValueT b;
+    public a<ValueT> c;
 
     /* loaded from: classes5.dex */
-    public static class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setTranslationX(0.0f);
-            }
-        }
+    public interface a<ValueT> {
+        ValueT update() throws IllegalStateException;
     }
 
-    public static void a(bz1 bz1Var, Context context) {
+    /* JADX DEBUG: Multi-variable search result rejected for r6v1, resolved type: com.repackage.ec3 */
+    /* JADX WARN: Multi-variable type inference failed */
+    public cc3(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, bz1Var, context) == null) {
-            b(bz1Var, context, 2);
-        }
-    }
-
-    public static void b(bz1 bz1Var, Context context, int i) {
-        View S;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65537, null, bz1Var, context, i) == null) || bz1Var == null || bz1Var.k() < i) {
-            return;
-        }
-        yy1 j = bz1Var.j(bz1Var.k() - i);
-        yy1 m = bz1Var.m();
-        if (m == null || !m.D0) {
-            float o = jd3.o(context) >> 2;
-            if (j == null || (S = j.S()) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ObjectAnimator.ofFloat(S, AnimationProperty.TRANSLATE_X, -o, 0.0f).setDuration(300L).start();
         }
+        this.a = str;
+        ec3.a().h(this);
     }
 
-    public static void c(bz1 bz1Var, Context context) {
-        View S;
+    public CharSequence a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, bz1Var, context) == null) || bz1Var == null || bz1Var.k() < 2) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ValueT valuet = this.b;
+            return valuet == null ? "" : valuet.toString();
         }
-        yy1 j = bz1Var.j(bz1Var.k() - 2);
-        float o = jd3.o(context) >> 2;
-        if (j == null || (S = j.S()) == null) {
-            return;
-        }
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(S, AnimationProperty.TRANSLATE_X, 0.0f, -o);
-        ofFloat.setDuration(300L).start();
-        ofFloat.addListener(new a(S));
+        return (CharSequence) invokeV.objValue;
     }
 
-    public static void d(@NonNull od4 od4Var, String str, int i, int i2) {
+    public cc3<ValueT> b(a<ValueT> aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65539, null, od4Var, str, i, i2) == null) || od4Var == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            this.c = aVar;
+            update();
+            return this;
         }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1876181062) {
-            if (hashCode != -983638536) {
-                if (hashCode == 1528366175 && str.equals("showModalPage")) {
-                    c = 1;
+        return (cc3) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.a, a()) : (String) invokeV.objValue;
+    }
+
+    public boolean update() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? update((a) this.c) : invokeV.booleanValue;
+    }
+
+    public boolean update(a<ValueT> aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
+            if (aVar != null) {
+                try {
+                    return update((cc3<ValueT>) aVar.update());
+                } catch (IllegalStateException e) {
+                    hx1.o("Tracer", "index update IllegalStateException " + e.getMessage());
+                    return false;
                 }
-            } else if (str.equals("navigateBack")) {
-                c = 0;
             }
-        } else if (str.equals("hideModalPage")) {
-            c = 2;
+            return false;
         }
-        if (c != 0) {
-            if (c == 1 || c == 2) {
-                return;
-            }
-            od4Var.i(i, i2);
-            return;
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.repackage.ec3 */
+    /* JADX WARN: Multi-variable type inference failed */
+    public boolean update(ValueT valuet) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, valuet)) == null) {
+            this.b = valuet;
+            ec3.a().e(this);
+            return true;
         }
-        bz1 V = fl2.U().V();
-        yy1 j = V.j(V.k() - 1);
-        if (j == null || !j.D0) {
-            od4Var.i(i, i2);
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jz7;
+import com.repackage.d08;
 import com.squareup.wire.Wire;
 import tbclient.Personal.PersonalResIdl;
 /* loaded from: classes3.dex */
@@ -47,7 +47,7 @@ public class PersonPolymericSocketResMsg extends SocketResponsedMessage {
                 if (getError() != 0) {
                     return personalResIdl;
                 }
-                jz7 personCenterData = personPolymericReqMsg.getPersonCenterData();
+                d08 personCenterData = personPolymericReqMsg.getPersonCenterData();
                 if (personalResIdl.data != null && personCenterData != null) {
                     personCenterData.a(personalResIdl);
                 }

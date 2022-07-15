@@ -1,30 +1,113 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import com.baidu.poly.widget.toast.ToastLoadingView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r91 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface r91 {
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ToastLoadingView a;
+        public int a;
+        public String b;
+        public long c;
+        public long d;
+        public long e;
+        public String f;
+        public int g;
+        public List<C0720a> h;
 
-        public a(ToastLoadingView toastLoadingView) {
+        /* renamed from: com.repackage.r91$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public static class C0720a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public String a;
+            public String b;
+
+            public C0720a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            public static C0720a a(JSONObject jSONObject) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                    if (jSONObject == null) {
+                        return null;
+                    }
+                    C0720a c0720a = new C0720a();
+                    c0720a.a = jSONObject.isNull("promotionInsId") ? "" : jSONObject.optString("promotionInsId");
+                    c0720a.b = jSONObject.isNull("valid") ? "" : jSONObject.optString("valid");
+                    return c0720a;
+                }
+                return (C0720a) invokeL.objValue;
+            }
+
+            public static JSONObject b(C0720a c0720a) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0720a)) == null) {
+                    if (c0720a == null) {
+                        return null;
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("promotionInsId", c0720a.a);
+                        jSONObject.put("valid", c0720a.b);
+                    } catch (JSONException e) {
+                        i91.d(e.getMessage());
+                    }
+                    return jSONObject;
+                }
+                return (JSONObject) invokeL.objValue;
+            }
+
+            public static List<C0720a> c(JSONArray jSONArray) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
+                    if (jSONArray == null) {
+                        return null;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    try {
+                        jSONArray.get(0);
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            arrayList.add(a((JSONObject) jSONArray.opt(i)));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    return arrayList;
+                }
+                return (List) invokeL.objValue;
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {toastLoadingView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -34,54 +117,49 @@ public class r91 {
                     return;
                 }
             }
-            this.a = toastLoadingView;
+            this.a = 2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public static JSONObject a(a aVar) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                r91.b(this.a);
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
+                if (aVar == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("statusCode", aVar.a);
+                    jSONObject.put("msg", aVar.b);
+                    jSONObject.put("totalAmount", aVar.c);
+                    jSONObject.put("userPayAmount", aVar.d);
+                    jSONObject.put("reduceAmount", aVar.e);
+                    jSONObject.put("overdueStatus", aVar.g);
+                    jSONObject.put("usedHostMarketingDetail", aVar.f);
+                    if (aVar.h != null && !aVar.h.isEmpty()) {
+                        JSONArray jSONArray = new JSONArray();
+                        for (C0720a c0720a : aVar.h) {
+                            jSONArray.put(C0720a.b(c0720a));
+                        }
+                        jSONObject.put("promotionStatus", jSONArray);
+                    }
+                } catch (JSONException e) {
+                    i91.d(e.getMessage());
+                }
+                return jSONObject;
             }
+            return (JSONObject) invokeL.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "Data{statusCode=" + this.a + ", message='" + this.b + "', totalAmount=" + this.c + ", userPayAmount=" + this.d + ", reduceAmount=" + this.e + ", usedHostMarketingDetail='" + this.f + "', overdueStatus='" + this.g + "'}";
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    public static void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, ToastLoadingView toastLoadingView, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{viewGroup, layoutParams, toastLoadingView, Long.valueOf(j)}) == null) {
-            if (toastLoadingView.getParent() instanceof ViewGroup) {
-                ((ViewGroup) toastLoadingView.getParent()).removeView(toastLoadingView);
-            }
-            viewGroup.addView(toastLoadingView, layoutParams);
-            toastLoadingView.setLoading(true);
-            if (j != -1) {
-                viewGroup.postDelayed(new a(toastLoadingView), j);
-            }
-        }
-    }
-
-    public static void b(ToastLoadingView toastLoadingView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, toastLoadingView) == null) && toastLoadingView != null && (toastLoadingView.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) toastLoadingView.getParent()).removeView(toastLoadingView);
-            toastLoadingView.setLoading(false);
-        }
-    }
-
-    public static ToastLoadingView c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, String str, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{viewGroup, layoutParams, str, Long.valueOf(j)})) == null) {
-            if (viewGroup == null) {
-                return null;
-            }
-            ToastLoadingView toastLoadingView = new ToastLoadingView(viewGroup.getContext());
-            if (!TextUtils.isEmpty(str)) {
-                toastLoadingView.setText(str);
-            }
-            a(viewGroup, layoutParams, toastLoadingView, j);
-            return toastLoadingView;
-        }
-        return (ToastLoadingView) invokeCommon.objValue;
-    }
+    void a(a aVar);
 }

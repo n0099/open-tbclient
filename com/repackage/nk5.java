@@ -1,380 +1,191 @@
 package com.repackage;
 
 import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AdWebViewActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.PvThread;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.advert.sdk.data.AdType;
-import com.baidu.tieba.advert.sdk.data.RedirectType;
-import com.baidu.tieba.advert.sdk.view.SplashAdView;
-import com.baidu.tieba.advert.sdk.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import com.repackage.an4;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes6.dex */
 public class nk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e a;
-    public String b;
-    public WeakReference<SplashAdView> c;
 
-    /* loaded from: classes6.dex */
-    public class a implements CustomMessageTask.CustomRunnable<ew4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nk5 a;
-
-        public a(nk5 nk5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nk5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nk5Var;
-        }
-
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<ew4> customMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getCmd() == 2016310) {
-                    try {
-                        return new CustomResponsedMessage<>(2016310, this.a.f(customMessage.getData()));
-                    } catch (Exception unused) {
-                    }
-                }
-                return null;
-            }
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements uk5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SplashAdView a;
-        public final /* synthetic */ nk5 b;
-
-        public b(nk5 nk5Var, SplashAdView splashAdView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nk5Var, splashAdView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nk5Var;
-            this.a = splashAdView;
-        }
-
-        @Override // com.repackage.uk5
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str));
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_CLICK);
-                statisticItem.param("obj_source", str);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @Override // com.repackage.uk5
-        public void b(qk5 qk5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qk5Var) == null) {
-            }
-        }
-
-        @Override // com.repackage.uk5
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // com.repackage.uk5
-        public void d() {
-            rk5 entryInfoData;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                SplashAdView splashAdView = (SplashAdView) this.b.c.get();
-                if (splashAdView != null) {
-                    this.b.b = this.a.g();
-                    nk5 nk5Var = this.b;
-                    nk5Var.h(nk5Var.b);
-                }
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_SHOW);
-                if (splashAdView != null && (entryInfoData = splashAdView.getEntryInfoData()) != null) {
-                    if (entryInfoData.d()) {
-                        statisticItem.param("obj_source", entryInfoData.e);
-                    } else {
-                        statisticItem.param("obj_source", entryInfoData.b);
-                    }
-                }
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @Override // com.repackage.uk5
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(nk5 nk5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nk5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://ignore"));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements CountDownTextView.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(nk5 nk5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nk5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.advert.sdk.widget.CountDownTextView.d
-        public void onTimeout(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://timeout"));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<CountDownTextView> a;
-
-        public /* synthetic */ e(CountDownTextView countDownTextView, a aVar) {
-            this(countDownTextView);
-        }
-
-        public void a(String str) {
-            CountDownTextView countDownTextView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (countDownTextView = this.a.get()) == null) {
-                return;
-            }
-            countDownTextView.d(str, 0);
-        }
-
-        public e(CountDownTextView countDownTextView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {countDownTextView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(countDownTextView);
-        }
-    }
-
-    public nk5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-    }
-
-    public final View f(ew4 ew4Var) {
+    public static String a(String str) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ew4Var)) == null) {
-            if (ew4Var == null || !ew4Var.c()) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (oi.isEmpty(str) || str.indexOf("cuid=") > -1) {
+                return str;
             }
-            Activity pageActivity = ew4Var.getContext().getPageActivity();
-            int a2 = ew4Var.a();
-            int b2 = ew4Var.b();
-            SplashAdView splashAdView = new SplashAdView(ew4Var.getContext(), "1481698145541", AdType.SPLASH, a2, b2, RedirectType.APPMANAGE);
-            splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(b2, a2));
-            this.c = new WeakReference<>(splashAdView);
-            splashAdView.setBCAdCallBack(new b(this, splashAdView));
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            if (str.indexOf("?") > 0) {
+                sb.append("&");
+            } else {
+                sb.append("?");
+            }
+            if (!UtilHelper.isNativeAdURL(str)) {
+                sb.append("cuid=");
+                sb.append(TbadkCoreApplication.getInst().getCuid());
+                sb.append("&cuid_galaxy2=");
+                sb.append(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                sb.append("&c3_aid=");
+                sb.append(TbadkCoreApplication.getInst().getCuidGalaxy3());
+                sb.append("&cuid_gid=");
+                sb.append(TbadkCoreApplication.getInst().getCuidGid());
+            }
+            sb.append("&timestamp=");
+            sb.append(System.currentTimeMillis());
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (oi.isEmpty(str) || str.indexOf("_client_version=") <= -1) {
+                return str + "&_client_version=" + TbConfig.getVersion();
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(Context context) {
+        CookieManager cookieManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            an4.b c = an4.b().c(TbadkCoreApplication.getCurrentBduss());
             try {
-                z = splashAdView.f();
-            } catch (Throwable unused) {
-                z = false;
+                CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
+                cookieManager = CookieManager.getInstance();
+            } catch (Throwable th) {
+                BdLog.e(th);
+                cookieManager = null;
             }
-            if (z) {
-                try {
-                    int dimension = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f07027c);
-                    int dimension2 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070215);
-                    Activity pageActivity2 = ew4Var.getContext().getPageActivity();
-                    if (UtilHelper.isNotchScreen(pageActivity2) || UtilHelper.isCutoutScreen(pageActivity2)) {
-                        dimension2 += pi.s(pageActivity2);
-                    }
-                    int dimension3 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070207);
-                    int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070236);
-                    int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702da);
-                    CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
-                    this.a = new e(countDownTextView, null);
-                    String str = this.b;
-                    if (TextUtils.isEmpty(str)) {
-                        str = pageActivity.getResources().getString(R.string.obfuscated_res_0x7f0f11bd);
-                    }
-                    if (splashAdView.n) {
-                        countDownTextView.d(str, 6);
-                    } else {
-                        countDownTextView.d(str, 3);
-                    }
-                    splashAdView.setTag(Boolean.valueOf(splashAdView.n));
-                    float f = dimension;
-                    countDownTextView.setTextSize(0, f);
-                    countDownTextView.setTextColor(Color.parseColor("#ffffff"));
-                    countDownTextView.setGravity(17);
-                    countDownTextView.setAlpha(0.5f);
-                    GradientDrawable gradientDrawable = new GradientDrawable();
-                    gradientDrawable.setColor(Color.parseColor("#000000"));
-                    gradientDrawable.setCornerRadius(pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224));
-                    gradientDrawable.setStroke(1, Color.parseColor("#000000"));
-                    countDownTextView.setBackgroundDrawable(gradientDrawable);
-                    countDownTextView.setOnClickListener(new c(this));
-                    countDownTextView.setTimeoutListener(new d(this));
-                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimension4, dimension5);
-                    layoutParams.addRule(10);
-                    layoutParams.addRule(11);
-                    layoutParams.setMargins(0, dimension2, dimension3, 0);
-                    int f2 = pi.f(pageActivity, R.dimen.obfuscated_res_0x7f07030a);
-                    countDownTextView.setPadding(f2, f2, f2, f2);
-                    splashAdView.addView(countDownTextView, layoutParams);
-                    int dimension6 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f9);
-                    TextView textView = new TextView(pageActivity);
-                    textView.setText(R.string.obfuscated_res_0x7f0f00dd);
-                    textView.setTextSize(0, f);
-                    textView.setAlpha(0.5f);
-                    textView.setIncludeFontPadding(false);
-                    textView.setGravity(17);
-                    textView.setBackgroundDrawable(gradientDrawable.getConstantState().newDrawable());
-                    int f3 = pi.f(pageActivity, R.dimen.obfuscated_res_0x7f0701d4);
-                    textView.setPadding(f3, f3, f3, f3);
-                    SkinManager.setViewTextColor(textView, (int) R.color.common_color_10013);
-                    RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams((int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070261), (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070225));
-                    layoutParams2.setMargins(dimension6, 0, 0, dimension6);
-                    layoutParams2.addRule(9);
-                    layoutParams2.addRule(12);
-                    splashAdView.addView(textView, layoutParams2);
-                } catch (Exception unused2) {
+            if (cookieManager == null) {
+                return;
+            }
+            if (c != null) {
+                cookieManager.setAcceptCookie(true);
+                cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; c3_aid=" + TbadkCoreApplication.getInst().getCuidGalaxy3() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ParamableElem.DIVIDE_PARAM);
+                String a = en4.a(TbadkCoreApplication.getCurrentAccountInfo());
+                StringBuilder sb = new StringBuilder();
+                if (!StringUtils.isNull(a)) {
+                    sb.append("STOKEN=");
+                    sb.append(a);
+                    sb.append("; domain=.tieba.baidu.com;");
+                    cookieManager.setCookie("tieba.baidu.com", sb.toString());
                 }
-                return splashAdView;
+            } else {
+                try {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        cookieManager.removeAllCookies(null);
+                        CookieManager.getInstance().flush();
+                    } else {
+                        cookieManager.removeAllCookie();
+                        CookieSyncManager.createInstance(context);
+                        CookieSyncManager.getInstance().sync();
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
             }
-            return null;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new a(this));
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(customMessageTask);
+            try {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    CookieManager.getInstance().flush();
+                } else {
+                    CookieSyncManager.getInstance().sync();
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2);
+            }
         }
     }
 
-    public final void h(String str) {
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.a == null || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                str = "http://".concat(str);
+            }
+            if (str.contains("?")) {
+                str3 = "&st_type=" + str2;
+            } else {
+                str3 = "?st_type=" + str2;
+            }
+            return str.concat(str3);
         }
-        this.a.a(str);
+        return (String) invokeLL.objValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
+            new PvThread("open_webview", true).start();
+        }
+    }
+
+    public static void f(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
+            String b = b(a(str));
+            try {
+                Intent intent = new Intent("android.intent.action.VIEW");
+                intent.setData(Uri.parse(b));
+                if (!(context instanceof Activity)) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                context.startActivity(intent);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void g(Context context, String str, String str2, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, context, str, str2, bundle) == null) {
+            h(context, str2, str, true, true, true, bundle);
+        }
+    }
+
+    public static void h(Context context, String str, String str2, boolean z, boolean z2, boolean z3, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), bundle}) == null) {
+            e();
+            try {
+                if (StringUtils.isNull(str2)) {
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdWebViewActivityConfig(context, str, str2, z, z2, z3, bundle)));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

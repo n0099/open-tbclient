@@ -1,17 +1,29 @@
 package com.repackage;
+
+import java.io.IOException;
 /* loaded from: classes7.dex */
 public interface t59 {
+    int a() throws IOException;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(String str, t59 t59Var);
-    }
+    int b() throws IOException;
 
-    void cancel();
+    boolean c();
 
-    boolean isRunning();
+    void close();
 
-    void pause();
+    void d();
 
-    void start();
+    int e() throws IOException;
+
+    boolean f();
+
+    byte[] g();
+
+    long getCurrentPosition();
+
+    long getDuration();
+
+    void h(long j);
+
+    void seek(long j);
 }

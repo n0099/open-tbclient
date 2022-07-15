@@ -1,140 +1,117 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jm1 {
+public final class jm1 extends kl2<jm1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public volatile long c;
-    public long d;
-    public long e;
-    public long f;
-    public String g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755583965, "Lcom/repackage/jm1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755583965, "Lcom/repackage/jm1;");
-                return;
-            }
-        }
-        boolean z = cg1.a;
+    /* loaded from: classes6.dex */
+    public interface a {
+        public static final String a = kl2.r("SwanApkFetcher.Params", "title");
+        public static final String b = kl2.r("SwanApkFetcher.Params", EmotionResourceInfo.JSON_KEY_PKG_NAME);
+        public static final String c = kl2.r("SwanApkFetcher.Params", "description");
+        public static final String d = kl2.r("SwanApkFetcher.Params", "should_auto_install");
+        public static final String e = kl2.r("SwanApkFetcher.Params", "current_swan_app");
+        public static final String f = kl2.r("SwanApkFetcher.Params", "content_disposition");
+        public static final String g = kl2.r("SwanApkFetcher.Params", "mime_type");
+        public static final String h = kl2.r("SwanApkFetcher.Params", HttpRequest.USER_AGENT);
+        public static final String i = kl2.r("SwanApkFetcher.Params", BreakpointSQLiteKey.CONTENT_LENGTH);
+        public static final String j = kl2.r("SwanApkFetcher.Params", "ext_info");
     }
 
     public jm1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.g = "1";
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
-        char c;
+    public jm1 E(Boolean bool) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.g;
-            switch (str.hashCode()) {
-                case 48:
-                    if (str.equals("0")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 49:
-                    if (str.equals("1")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 50:
-                    if (str.equals("2")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 51:
-                    if (str.equals("3")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            return c != 0 ? c != 1 ? c != 2 ? c != 3 ? "unknown" : "fip" : "ftp" : "fcp" : "fmp";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bool)) == null) ? t(a.d, bool.booleanValue()) : (jm1) invokeL.objValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public jm1 F(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.f;
-            if (j > 0) {
-                return j;
-            }
-            long[] jArr = {this.d, this.e, this.b};
-            long j2 = Long.MAX_VALUE;
-            for (int i = 0; i < 3; i++) {
-                long j3 = jArr[i];
-                if (j3 > 0 && j3 < j2) {
-                    j2 = j3;
-                }
-            }
-            if (j2 != Long.MAX_VALUE) {
-                this.f = j2;
-            }
-            return this.f;
-        }
-        return invokeV.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? z(a.f, str) : (jm1) invokeL.objValue;
     }
 
-    public String c(long j) {
-        InterceptResult invokeJ;
+    public jm1 G(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? j == this.d ? "2" : j == this.e ? "3" : (j != this.b && j == this.c) ? "0" : "1" : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? z(a.i, str) : (jm1) invokeL.objValue;
     }
 
-    public String toString() {
+    public jm1 H(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? z(a.e, str) : (jm1) invokeL.objValue;
+    }
+
+    public jm1 I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? z(a.c, str) : (jm1) invokeL.objValue;
+    }
+
+    public jm1 J(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? z(a.j, str) : (jm1) invokeL.objValue;
+    }
+
+    public jm1 K(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? z(a.g, str) : (jm1) invokeL.objValue;
+    }
+
+    public jm1 L(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? z(a.b, str) : (jm1) invokeL.objValue;
+    }
+
+    public jm1 M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "WebViewPaintTiming{fp=" + this.a + ", fcp=" + this.b + ", fmp=" + this.c + ", ftp=" + this.d + ", fip=" + this.e + ", mMinCache=" + this.f + ", fmpType='" + this.g + "', fmpTypeName='" + a() + "'}";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (jm1) invokeV.objValue;
+    }
+
+    public jm1 N(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? z(a.a, str) : (jm1) invokeL.objValue;
+    }
+
+    public jm1 O(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? z(a.h, str) : (jm1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.df3
+    public /* bridge */ /* synthetic */ df3 a() {
+        M();
+        return this;
     }
 }

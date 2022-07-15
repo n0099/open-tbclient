@@ -15,6 +15,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i60;
+import com.repackage.j60;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -190,7 +191,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             if (i2 < optJSONArray.length()) {
                                 JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                                 if (jSONObject2 != null && jSONObject2.optInt("id", -1) == 501100) {
-                                    Utility.setUploadIMInitTrack(this.mContext, jSONObject2.optInt("switch", 0));
+                                    Utility.setUploadIMInitTrack(this.mContext, jSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0));
                                     break;
                                 }
                                 i2++;
@@ -199,7 +200,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             }
                         }
                     }
-                    if (!i60.e) {
+                    if (!j60.e) {
                         ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                     }
                 } catch (Exception e) {

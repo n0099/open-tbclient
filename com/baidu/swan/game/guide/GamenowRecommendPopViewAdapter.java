@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.bq3;
-import com.repackage.nq3;
+import com.repackage.cr3;
+import com.repackage.qq3;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> implements View.OnClickListener {
@@ -52,8 +52,8 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090814);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921b8);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09081b);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225d);
         }
     }
 
@@ -122,7 +122,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
         if (TextUtils.isEmpty(recommendGameInfo.appKey)) {
             return;
         }
-        nq3.n().b("gbBDialogClick", "3", recommendGameInfo.appKey, String.valueOf(intValue));
-        bq3.n().A(recommendGameInfo.appKey, recommendGameInfo.appName, recommendGameInfo.iconUrl, intValue);
+        cr3.n().b("gbBDialogClick", "3", recommendGameInfo.appKey, String.valueOf(intValue));
+        qq3.n().A(recommendGameInfo.appKey, recommendGameInfo.appName, recommendGameInfo.iconUrl, intValue);
     }
 }

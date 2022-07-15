@@ -1,64 +1,55 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class p45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<n45> a;
-    public Context b;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
-    public p45(Context context) {
+    public p45() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = context;
     }
 
-    public void a(n45 n45Var) {
+    public static p45 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, n45Var) == null) || n45Var == null || n45Var.b() == null) {
-            return;
-        }
-        Iterator<n45> it = this.a.iterator();
-        while (it.hasNext()) {
-            n45 next = it.next();
-            if (next != null && next.b() != null && next.b().e == n45Var.b().e) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            try {
+                p45 p45Var = new p45();
+                p45Var.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
+                p45Var.b = jSONObject.optInt("width");
+                p45Var.c = jSONObject.optInt("height");
+                p45Var.d = jSONObject.optString("pic_url");
+                p45Var.e = jSONObject.optString("thumbnail");
+                p45Var.g = jSONObject.optString("origin_url");
+                return p45Var;
+            } catch (Exception unused) {
+                return null;
             }
         }
-        this.a.add(n45Var);
-    }
-
-    public ArrayList<n45> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (Context) invokeV.objValue;
+        return (p45) invokeL.objValue;
     }
 }

@@ -1,29 +1,26 @@
 package com.repackage;
 
-import android.view.MotionEvent;
+import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class gg0 {
+public class gg0<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int[] a;
-    public final int[] b;
-    public int c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public long h;
+    public T a;
 
-    public gg0() {
+    public gg0(T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,49 +30,86 @@ public class gg0 {
                 return;
             }
         }
-        this.a = new int[]{0, 0};
-        this.b = new int[]{0, 0};
-        this.c = 0;
-        this.h = 0L;
+        this.a = t;
     }
 
-    public void a(MotionEvent motionEvent) {
+    public T a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                long currentTimeMillis = System.currentTimeMillis();
-                this.d = currentTimeMillis;
-                if (this.h == 0) {
-                    this.h = currentTimeMillis;
-                }
-                this.a[0] = (int) motionEvent.getRawX();
-                this.a[1] = (int) motionEvent.getRawY();
-            } else if (action != 1) {
-                if (action != 2) {
-                    return;
-                }
-                this.c++;
-            } else {
-                this.c = 0;
-                this.e = System.currentTimeMillis();
-                this.b[0] = (int) motionEvent.getRawX();
-                this.b[1] = (int) motionEvent.getRawY();
-                if (Math.max(Math.abs(this.b[0] - this.a[0]), Math.abs(this.b[1] - this.a[1])) > 10) {
-                    this.g++;
-                    this.f += Math.max(0L, this.e - this.d);
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (T) invokeV.objValue;
     }
 
-    public int[] b() {
+    public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int[] iArr = this.b;
-            return new int[]{iArr[0], iArr[1]};
+            T t = this.a;
+            if (t instanceof Bitmap) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ((Bitmap) this.a).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                return byteArrayOutputStream.toByteArray();
+            } else if (t instanceof File) {
+                return s01.g((File) t);
+            } else {
+                if (t instanceof byte[]) {
+                    return (byte[]) t;
+                }
+                return null;
+            }
         }
-        return (int[]) invokeV.objValue;
+        return (byte[]) invokeV.objValue;
+    }
+
+    public Class<?> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getClass() : (Class) invokeV.objValue;
+    }
+
+    public boolean d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? (this.a instanceof File) && System.currentTimeMillis() - ((File) this.a).lastModified() > j : invokeJ.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        boolean delete;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            T t = this.a;
+            if (t instanceof Bitmap) {
+                if (!((Bitmap) t).isRecycled()) {
+                    ((Bitmap) this.a).recycle();
+                }
+            } else if (t instanceof File) {
+                delete = ((File) t).delete();
+                this.a = null;
+                return delete;
+            }
+            delete = true;
+            this.a = null;
+            return delete;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            T t = this.a;
+            if (t instanceof Bitmap) {
+                return ((Bitmap) t).getByteCount();
+            }
+            if (t instanceof File) {
+                return (int) ((File) t).length();
+            }
+            if (t instanceof byte[]) {
+                return ((byte[]) t).length;
+            }
+            return 1;
+        }
+        return invokeV.intValue;
     }
 }

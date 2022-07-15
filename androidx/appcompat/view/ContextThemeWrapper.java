@@ -143,7 +143,7 @@ public class ContextThemeWrapper extends ContextWrapper {
                 return theme;
             }
             if (this.mThemeResource == 0) {
-                this.mThemeResource = R$style.obfuscated_res_0x7f100220;
+                this.mThemeResource = R$style.obfuscated_res_0x7f100221;
             }
             initializeTheme();
             return this.mTheme;

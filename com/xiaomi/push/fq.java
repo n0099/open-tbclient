@@ -53,13 +53,13 @@ public class fq {
                     return gv.a(this.a, fwVar);
                 }
                 if (name.equals("presence")) {
-                    return gv.m373a(this.a);
+                    return gv.m1316a(this.a);
                 }
                 if (this.a.getName().equals("stream")) {
                     return null;
                 }
                 if (this.a.getName().equals("error")) {
-                    throw new gh(gv.m374a(this.a));
+                    throw new gh(gv.m1317a(this.a));
                 }
                 if (!this.a.getName().equals("warning")) {
                     this.a.getName().equals("bind");

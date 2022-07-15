@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dk5;
+import com.repackage.gl5;
 /* loaded from: classes3.dex */
 public class SearchFriendActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class SearchFriendActivityStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(SearchFriendActivityConfig.class, SearchFriendActivity.class);
-        MessageManager.getInstance().registerTask(new CustomMessageTask(2001265, new dk5()));
+        MessageManager.getInstance().registerTask(new CustomMessageTask(2001265, new gl5()));
     }
 
     public SearchFriendActivityStatic() {

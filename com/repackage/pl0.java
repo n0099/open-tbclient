@@ -1,53 +1,24 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.PopEventTypeEnum;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import android.app.Activity;
+import android.os.Bundle;
 /* loaded from: classes6.dex */
-public final class pl0 implements zg0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final PopEventTypeEnum a;
+public interface pl0 extends ql0 {
+    void onActivityCreated(Activity activity, Bundle bundle);
 
-    public pl0(PopEventTypeEnum type) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-    }
+    void onActivityDestroyed(Activity activity);
 
-    @Override // com.repackage.zg0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = pl0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "PopOverViewEvent::class.java.simpleName");
-            return simpleName;
-        }
-        return (String) invokeV.objValue;
-    }
+    void onActivityPaused(Activity activity);
 
-    public final PopEventTypeEnum getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (PopEventTypeEnum) invokeV.objValue;
-    }
+    void onActivityResumed(Activity activity);
+
+    void onActivitySaveInstanceState(Activity activity, Bundle bundle);
+
+    void onActivityStarted(Activity activity);
+
+    void onActivityStopped(Activity activity);
+
+    void onBackgroundToForeground(Activity activity);
+
+    void onForegroundToBackground(Activity activity);
 }

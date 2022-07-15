@@ -21,10 +21,10 @@ public class n {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cif)) == null) {
-            byte[] m466a = cif.m466a();
+            byte[] m1409a = cif.m1409a();
             ik ikVar = new ik();
             try {
-                it.a(ikVar, m466a);
+                it.a(ikVar, m1409a);
                 return ikVar;
             } catch (iz unused) {
                 return null;
@@ -46,9 +46,9 @@ public class n {
         try {
             byte[] b = b(Base64.decode(stringExtra, 2), context.getSharedPreferences("mipush_apps_scrt", 0).getString(stringExtra2, null));
             if (b != null) {
-                al.m600a(context, y.a(b), b);
+                al.m1543a(context, y.a(b), b);
             } else {
-                com.xiaomi.channel.commonutils.logger.b.m84a("notify fcm notification error ：dencrypt failed");
+                com.xiaomi.channel.commonutils.logger.b.m1027a("notify fcm notification error ：dencrypt failed");
             }
         } catch (Throwable th) {
             com.xiaomi.channel.commonutils.logger.b.a("notify fcm notification error ", th);
@@ -68,11 +68,11 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("secret is empty, return null");
+                com.xiaomi.channel.commonutils.logger.b.m1027a("secret is empty, return null");
                 return null;
             }
             try {
-                return com.xiaomi.push.i.b(com.xiaomi.push.bm.m197a(str), bArr);
+                return com.xiaomi.push.i.b(com.xiaomi.push.bm.m1140a(str), bArr);
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a("encryption error. ", e);
                 return null;
@@ -86,11 +86,11 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("secret is empty, return null");
+                com.xiaomi.channel.commonutils.logger.b.m1027a("secret is empty, return null");
                 return null;
             }
             try {
-                return com.xiaomi.push.i.a(com.xiaomi.push.bm.m197a(str), bArr);
+                return com.xiaomi.push.i.a(com.xiaomi.push.bm.m1140a(str), bArr);
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a("dencryption error. ", e);
                 return null;

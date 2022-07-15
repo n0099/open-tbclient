@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.module.gdt.w;
+import com.fun.module.gdt.u;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class GDTNativeUnifiedImg3View extends w {
+public class GDTNativeUnifiedImg3View extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout d;
@@ -91,22 +91,22 @@ public class GDTNativeUnifiedImg3View extends w {
         }
     }
 
-    @Override // com.fun.module.gdt.w
+    @Override // com.fun.module.gdt.u
     public List<View> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this.c);
-            arrayList.add(((w) this).b);
-            arrayList.add(((w) this).a);
+            arrayList.add(((u) this).b);
+            arrayList.add(((u) this).a);
             arrayList.add(this.d);
             return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.fun.module.gdt.w
+    @Override // com.fun.module.gdt.u
     public void a(NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
@@ -118,15 +118,15 @@ public class GDTNativeUnifiedImg3View extends w {
         }
     }
 
-    @Override // com.fun.module.gdt.w, android.view.View
+    @Override // com.fun.module.gdt.u, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900ab);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a8);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900aa);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900ac);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900aa);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ab);
         }
     }
 

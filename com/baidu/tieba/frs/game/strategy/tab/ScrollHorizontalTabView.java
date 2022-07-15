@@ -24,14 +24,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.ti6;
+import com.repackage.qj6;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ti6> a;
+    public final List<qj6> a;
     public final List<TextView> b;
     public final int c;
     public final int d;
@@ -198,7 +198,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ScrollHorizontalTabView scrollHorizontalTabView = this.a;
-                scrollHorizontalTabView.scrollBy(scrollHorizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070256), 0);
+                scrollHorizontalTabView.scrollBy(scrollHorizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070255), 0);
             }
         }
     }
@@ -258,10 +258,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                ti6 ti6Var = (ti6) ListUtils.getItem(this.a.a, i);
-                if (this.a.o == null || this.a.o.a(i, ti6Var)) {
+                qj6 qj6Var = (qj6) ListUtils.getItem(this.a.a, i);
+                if (this.a.o == null || this.a.o.a(i, qj6Var)) {
                     if (this.a.o != null) {
-                        this.a.o.b(i, ti6Var);
+                        this.a.o.b(i, qj6Var);
                     }
                     if (this.a.e) {
                         if (this.a.f != i) {
@@ -284,9 +284,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
     /* loaded from: classes3.dex */
     public interface f {
-        boolean a(int i, ti6 ti6Var);
+        boolean a(int i, qj6 qj6Var);
 
-        void b(int i, ti6 ti6Var);
+        void b(int i, qj6 qj6Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -328,10 +328,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             int size = this.a.size();
             int size2 = this.b.size();
             for (int i = 0; i < size && i < size2; i++) {
-                ti6 ti6Var = this.a.get(i);
+                qj6 qj6Var = this.a.get(i);
                 TextView textView = this.b.get(i);
-                if (ti6Var != null && textView != null) {
-                    textView.setText(ti6Var.b);
+                if (qj6Var != null && textView != null) {
+                    textView.setText(qj6Var.b);
                 }
             }
         }
@@ -421,7 +421,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    public void setData(List<ti6> list) {
+    public void setData(List<qj6> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.a.clear();
@@ -520,7 +520,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 int[] iArr = new int[2];
                 ((View) ListUtils.getItem(this.b, i)).getLocationOnScreen(iArr);
                 int k = pi.k(getContext()) - iArr[0];
-                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070256);
+                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070255);
                 if (iArr[0] < 0) {
                     post(new c(this, dimensionPixelSize));
                 } else if (k < dimensionPixelSize) {

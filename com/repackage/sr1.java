@@ -1,387 +1,464 @@
 package com.repackage;
 
-import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.StandardCharsets;
+import com.repackage.el2;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sr1 implements rr1 {
+public class sr1 extends gr1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int b;
-    public String c;
-    public JSONObject d;
-    public boolean e;
 
     /* loaded from: classes7.dex */
-    public static class a extends sr1 {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final sr1 g;
-        public static final sr1 h;
-        public static final sr1 i;
-        public static final sr1 j;
-        public static final sr1 k;
-        public static final sr1 l;
         public transient /* synthetic */ FieldHolder $fh;
-        public volatile String f;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ h03 b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-4456414, "Lcom/repackage/sr1$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-4456414, "Lcom/repackage/sr1$a;");
-                    return;
-                }
-            }
-            g = new a(0);
-            h = new a(202, "json str is empty");
-            i = new a(202, "json str parse fail");
-            j = new a(1001, "json put data fail");
-            k = new a(1001, "swan app is null");
-            l = new a(1001, "swan activity is null");
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
+        public a(JSONObject jSONObject, h03 h03Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                Object[] objArr = {jSONObject, h03Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = jSONObject;
+            this.b = h03Var;
         }
 
-        @Override // com.repackage.sr1, com.repackage.rr1
-        @NonNull
-        public String a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f == null) {
-                    synchronized (this) {
-                        if (this.f == null) {
-                            this.f = super.a();
-                        }
-                    }
-                }
-                return this.f;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.sr1
-        public void g(@NonNull String str, @NonNull Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                sr1.y(this.a, this.b);
             }
         }
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2, @NonNull String str) {
-            super(i2, str);
+    /* loaded from: classes7.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ HybridUbcFlow b;
+        public final /* synthetic */ nm1 c;
+
+        public b(String str, HybridUbcFlow hybridUbcFlow, nm1 nm1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), str};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                Object[] objArr = {str, hybridUbcFlow, nm1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
+                }
+            }
+            this.a = str;
+            this.b = hybridUbcFlow;
+            this.c = nm1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (TextUtils.equals(this.a, "1")) {
+                    this.b.S();
+                } else {
+                    this.b.C(this.c);
                 }
             }
         }
     }
 
-    public sr1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sr1(@NonNull io1 io1Var) {
+        super(io1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {io1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((io1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = false;
     }
 
-    public static String b(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: Removed duplicated region for block: B:25:0x004d  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x005b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void A(HybridUbcFlow hybridUbcFlow, h03 h03Var, String str, @Nullable nm1 nm1Var) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (i != 0) {
-                if (i != 101) {
-                    if (i != 201) {
-                        if (i != 202) {
-                            if (i != 301) {
-                                if (i != 302) {
-                                    switch (i) {
-                                        case 401:
-                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14c5);
-                                        case 402:
-                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14c2);
-                                        case 403:
-                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14c3);
-                                        default:
-                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ca);
-                                    }
-                                }
-                                return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14c4);
-                            }
-                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14c6);
-                        }
-                        return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14c9);
+        if (!(interceptable == null || interceptable.invokeLLLL(65537, null, hybridUbcFlow, h03Var, str, nm1Var) == null) || hybridUbcFlow == null || h03Var == null) {
+            return;
+        }
+        if (!b72.U().p0()) {
+            if (TextUtils.equals(str, "1")) {
+                hybridUbcFlow.S();
+                return;
+            } else {
+                hybridUbcFlow.C(nm1Var);
+                return;
+            }
+        }
+        long I = oj2.g0().I();
+        if (I <= 0) {
+            return;
+        }
+        el2.a Y = h03Var.Y();
+        boolean z = false;
+        if (Y != null) {
+            long currentTimeMillis = System.currentTimeMillis() - Y.N();
+            if (currentTimeMillis < I) {
+                j = I - currentTimeMillis;
+                if (z) {
+                    if (j <= 0) {
+                        return;
                     }
-                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ca);
+                    bd3.c(new b(str, hybridUbcFlow, nm1Var), "waitFcp", j, TimeUnit.MILLISECONDS);
+                    return;
+                } else if (TextUtils.equals(str, "1")) {
+                    hybridUbcFlow.S();
+                    return;
+                } else {
+                    hybridUbcFlow.C(nm1Var);
+                    return;
                 }
-                return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14c7);
             }
-            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14c8);
+            z = true;
         }
-        return (String) invokeI.objValue;
+        j = 0;
+        if (z) {
+        }
     }
 
-    public static sr1 c() {
-        InterceptResult invokeV;
+    public static void B(JSONObject jSONObject, h03 h03Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a.j : (sr1) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65538, null, jSONObject, h03Var) == null) {
+            ExecutorUtilsExt.postOnElastic(new a(jSONObject, h03Var), "handlePerformMsg", 2);
+        }
     }
 
-    public static sr1 d() {
-        InterceptResult invokeV;
+    public static void C(JSONObject jSONObject) {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? a.h : (sr1) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) || (optJSONArray = jSONObject.optJSONArray("data")) == null || optJSONArray.length() < 1) {
+            return;
+        }
+        ot2.e().c(optJSONArray.optJSONObject(0));
     }
 
-    public static sr1 e() {
-        InterceptResult invokeV;
+    public static void D(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? a.i : (sr1) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("ext")) == null) {
+            return;
+        }
+        String optString = optJSONObject.optString("routeId");
+        if (TextUtils.isEmpty(optString)) {
+            return;
+        }
+        HybridUbcFlow q = mt2.q("route", optString);
+        if (TextUtils.equals(optJSONObject.optString("hasWebView"), "1")) {
+            q.I(HybridUbcFlow.SubmitStrategy.ROUTE_WEB);
+        }
+        q.G(H(jSONObject.optJSONArray("data")));
+        q.n();
+        pm1 A = ul2.U().A(optJSONObject.optString("slaveId"));
+        if (A instanceof SwanAppSlaveManager) {
+            ((SwanAppSlaveManager) A).l1();
+        }
     }
 
-    public static sr1 f() {
-        InterceptResult invokeV;
+    public static void E(@Nullable JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? a.g : (sr1) invokeV.objValue;
-    }
-
-    public static sr1 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? a.l : (sr1) invokeV.objValue;
-    }
-
-    public static sr1 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? a.k : (sr1) invokeV.objValue;
-    }
-
-    @Override // com.repackage.rr1
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("status", String.valueOf(this.b));
-                if (TextUtils.isEmpty(this.c)) {
-                    this.c = b(this.b);
+        if (interceptable == null || interceptable.invokeL(65541, null, jSONArray) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("FlowJarAction-671: ");
+            sb.append(jSONArray == null ? StringUtil.NULL_STRING : jSONArray);
+            hx1.k("UbcFlowJarApi", sb.toString());
+            if (jSONArray == null || jSONArray.length() == 0) {
+                return;
+            }
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                try {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i);
+                    if (TextUtils.equals(jSONObject.optString("type"), "feTraceError")) {
+                        h63.d().h(jSONObject);
+                    } else {
+                        h63.d().k(jSONObject);
+                    }
+                } catch (JSONException unused) {
                 }
-                jSONObject.put("message", this.c);
-                if (this.d != null) {
-                    jSONObject.put("data", this.e ? Uri.encode(this.d.toString(), StandardCharsets.UTF_8.name()) : this.d);
+            }
+        }
+    }
+
+    public static void F(JSONArray jSONArray) {
+        pz1 H;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, jSONArray) == null) || (H = ul2.U().H()) == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = jSONArray.getJSONObject(0);
+            if (jSONObject != null) {
+                String string = jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID);
+                String optString = jSONObject.optString(PmsConstant.Statistic.Key.REV_TIMESTAMP);
+                long j = 0;
+                if (!TextUtils.isEmpty(optString)) {
+                    try {
+                        j = Long.valueOf(optString).longValue();
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
                 }
-            } catch (JSONException e) {
-                sw1.p("SwanApiResult", "API", "#toJsonString json put data fail", e, false);
+                H.L3(new l73(string, j));
             }
-            return jSONObject.toString();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        return (String) invokeV.objValue;
     }
 
-    public void g(@NonNull String str, @NonNull Object obj) {
+    public static UbcFlowEvent G(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            if (this.d == null) {
-                this.d = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            try {
-                this.d.put(str, obj);
-            } catch (JSONException e) {
-                sw1.p("SwanApiResult", "API", "#putData json put data fail", e, false);
+            String optString = jSONObject.optString("actionId");
+            long optLong = jSONObject.optLong("timestamp");
+            if (TextUtils.isEmpty(optString)) {
+                return null;
             }
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
+            ubcFlowEvent.h(optLong);
+            return ubcFlowEvent;
         }
+        return (UbcFlowEvent) invokeL.objValue;
     }
 
-    public boolean h(@NonNull String str, @Nullable Object obj) {
-        InterceptResult invokeLL;
+    public static List<UbcFlowEvent> H(JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
-            if (this.d == null) {
-                this.d = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray == null) {
+                return arrayList;
             }
-            try {
-                this.d.put(str, obj);
-                return true;
-            } catch (JSONException e) {
-                sw1.p("SwanApiResult", "API", "#safePutData json put data fail", e, false);
-                return false;
+            for (int i = 0; i < jSONArray.length(); i++) {
+                UbcFlowEvent G = G(jSONArray.optJSONObject(i));
+                if (G != null) {
+                    G.e("FE");
+                    arrayList.add(G);
+                }
             }
+            return arrayList;
         }
-        return invokeLL.booleanValue;
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.repackage.rr1
-    public boolean isSuccess() {
+    public static void y(JSONObject jSONObject, h03 h03Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, jSONObject, h03Var) == null) {
+            d22 W = b72.U().W();
+            int j = W instanceof h22 ? ((h22) W).j() : 0;
+            r63.C(true);
+            r63.r();
+            HybridUbcFlow p = mt2.p("startup");
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            nm1 nm1Var = null;
+            String str2 = "0";
+            if (optJSONObject != null) {
+                str2 = optJSONObject.optString("hasWebView", "0");
+                str = optJSONObject.optString("hasRelaunch");
+                pm1 A = ul2.U().A(optJSONObject.optString("slaveId"));
+                if (A instanceof nm1) {
+                    nm1Var = (nm1) A;
+                }
+            } else {
+                str = "";
+            }
+            if (TextUtils.equals(str2, "1")) {
+                HybridUbcFlow.SubmitStrategy i = p.i();
+                if (i == HybridUbcFlow.SubmitStrategy.HYBRID) {
+                    p.I(HybridUbcFlow.SubmitStrategy.HYBRID_WEB);
+                } else if (i == HybridUbcFlow.SubmitStrategy.RELAUNCH) {
+                    p.I(HybridUbcFlow.SubmitStrategy.RELAUNCH_WEB);
+                }
+            }
+            if (TextUtils.equals(str, "none")) {
+                if (TextUtils.equals(str2, "1")) {
+                    p.S();
+                } else {
+                    p.C(nm1Var);
+                }
+            }
+            A(p, h03Var, str2, nm1Var);
+            JSONArray optJSONArray = jSONObject.optJSONArray("data");
+            p.D("codecache", String.valueOf(j));
+            p.D("slave_codecache", String.valueOf(z()));
+            p.G(H(optJSONArray));
+            p.n();
+        }
+    }
+
+    public static int z() {
+        InterceptResult invokeV;
+        pz1 o;
+        nm1 o3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            qz1 V = ul2.U().V();
+            if (V == null || (o = V.o()) == null || (o3 = o.o3()) == null) {
+                return 0;
+            }
+            return o3.h0();
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0089, code lost:
+        if (r2.equals("670") != false) goto L20;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public hs1 I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            char c = 0;
+            q("#ubcFlowJar", false);
+            h03 b0 = h03.b0();
+            if (b0 == null) {
+                return new hs1(1001, "swan app is null");
+            }
+            Pair<hs1, JSONObject> s = s(str);
+            hs1 hs1Var = (hs1) s.first;
+            if (hs1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("flowId");
+                if (TextUtils.isEmpty(optString)) {
+                    return new hs1(201, "empty flowId");
+                }
+                switch (optString.hashCode()) {
+                    case 53647:
+                        break;
+                    case 53648:
+                        if (optString.equals("671")) {
+                            c = 3;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 55357:
+                        if (optString.equals("805")) {
+                            c = 1;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 56506:
+                        if (optString.equals("967")) {
+                            c = 4;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 46733230:
+                        if (optString.equals("10360")) {
+                            c = 2;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1529139648:
+                        if (optString.equals("renderMonitorLog")) {
+                            c = 5;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    default:
+                        c = 65535;
+                        break;
+                }
+                if (c == 0) {
+                    B(jSONObject, b0);
+                } else if (c == 1) {
+                    F(jSONObject.optJSONArray("data"));
+                } else if (c == 2) {
+                    cg3.a().g(jSONObject.optJSONArray("data"));
+                } else if (c == 3) {
+                    E(jSONObject.optJSONArray("data"));
+                } else if (c == 4) {
+                    D(jSONObject);
+                } else if (c != 5) {
+                    return new hs1(201, "unknown flowId");
+                } else {
+                    C(jSONObject);
+                }
+                return hs1.f();
+            }
+            return hs1Var;
+        }
+        return (hs1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ko1
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b == 0 : invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a() : (String) invokeV.objValue;
-    }
-
-    public sr1(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.b = i;
-    }
-
-    public sr1(int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.b = i;
-        this.c = str;
-    }
-
-    public sr1(int i, @NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), jSONObject};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.b = i;
-        this.d = jSONObject;
-    }
-
-    public sr1(int i, @NonNull JSONObject jSONObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), jSONObject, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.b = i;
-        this.d = jSONObject;
-        this.e = z;
-    }
-
-    public sr1(int i, @NonNull String str, @NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, jSONObject};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.b = i;
-        this.c = str;
-        this.d = jSONObject;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "UbcFlowJarApi" : (String) invokeV.objValue;
     }
 }

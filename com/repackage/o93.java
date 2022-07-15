@@ -1,70 +1,98 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l93;
+import java.io.File;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class o93 extends n93 {
+public final class o93 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o93(p03 p03Var) {
-        super(p03Var, "/swanAPI/getBatteryInfoSync");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((p03) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755484920, "Lcom/repackage/o93;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755484920, "Lcom/repackage/o93;");
                 return;
+            }
+        }
+        a = rg1.a;
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File c = c();
+            if (c.exists()) {
+                jg4.j(c);
             }
         }
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    public static long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (j(context, sz2Var, unitedSchemeEntity)) {
-                l93.a a = l93.a(context);
-                if (a == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
-                    return false;
-                }
-                if (p13.b) {
-                    Log.d("battery", "/swanAPI/getBatteryInfoSync = level: " + a.a + " ; plugged: " + a.b);
-                }
-                JSONObject k = k(a);
-                if (k == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
-                    if (p13.b) {
-                        Log.d("SwanAppAction", "getBatteryInfoSync --- json error");
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? v83.a().getLong("aiapps_cur_debug_ver_key", 0L) : invokeV.longValue;
+    }
+
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new File(zk2.d().get(0).a, "/aiapps_debug_swan_core/") : (File) invokeV.objValue;
+    }
+
+    public static File d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File c = c();
+            if (!c.exists()) {
+                c.mkdirs();
+            }
+            return new File(c, "debugSwanCore.zip");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            File file = new File(c().getPath(), "pkginfo.json");
+            if (file.exists()) {
+                JSONObject jSONObject = null;
+                try {
+                    jSONObject = new JSONObject(jg4.E(file));
+                } catch (JSONException e) {
+                    if (a) {
+                        e.printStackTrace();
                     }
+                }
+                if (jSONObject == null) {
                     return false;
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(k, 0);
+                String optString = jSONObject.optString("version_name");
+                if (TextUtils.isEmpty(optString)) {
+                    return true;
+                }
+                v83.a().putLong("aiapps_cur_debug_ver_key", wd3.b(optString));
                 return true;
             }
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 }

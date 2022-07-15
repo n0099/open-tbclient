@@ -15,7 +15,7 @@ public final class MemoryCacheUtils {
         return new Comparator<String>() { // from class: com.kwad.sdk.core.imageloader.utils.MemoryCacheUtils.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
-            public int compare(String str, String str2) {
+            public final int compare(String str, String str2) {
                 return str.substring(0, str.lastIndexOf("_")).compareTo(str2.substring(0, str2.lastIndexOf("_")));
             }
         };

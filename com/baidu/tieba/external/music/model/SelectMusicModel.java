@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.j76;
+import com.repackage.g86;
 import com.repackage.ni;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ import org.json.JSONObject;
 public class SelectMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j76 a;
+    public g86 a;
     public TbPageContext b;
     public final HttpMessageListener c;
 
@@ -131,13 +131,13 @@ public class SelectMusicModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectMusicModel(TbPageContext tbPageContext, j76 j76Var) {
+    public SelectMusicModel(TbPageContext tbPageContext, g86 g86Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, j76Var};
+            Object[] objArr = {tbPageContext, g86Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -150,25 +150,25 @@ public class SelectMusicModel extends BdBaseModel {
         }
         this.c = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
         this.b = tbPageContext;
-        this.a = j76Var;
-        B();
+        this.a = g86Var;
+        C();
         this.c.setTag(getUniqueId());
         this.c.setSelfListener(true);
         registerListener(this.c);
     }
 
-    public void A() {
+    public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!ni.z()) {
-                this.b.showToast(R.string.obfuscated_res_0x7f0f0c6f);
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c63);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
             }
         }
     }
 
-    public final void B() {
+    public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC, TbConfig.SERVER_ADDRESS + "c/f/video/music");

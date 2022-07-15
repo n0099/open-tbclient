@@ -1,348 +1,131 @@
 package com.repackage;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
+import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewParent;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ow1 {
+public final class ow1 extends sv1<TextView, pw1> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SwanAppComponentContainerView i;
+    public TextView j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755425400, "Lcom/repackage/ow1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755425400, "Lcom/repackage/ow1;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ow1(@NonNull Context context, @NonNull pw1 pw1Var) {
+        super(context, pw1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, pw1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (tv1) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = mw1.b();
-        b = new String[]{mw1.c(), mw1.b(), "https://ossapi.baidu.com", "https://ext.baidu.com"};
+        g(4);
+        this.i = new SwanAppComponentContainerView(context);
+        this.j = new TextView(context);
     }
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        StringBuilder sb;
-        StringBuilder sb2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.sv1, com.repackage.uv1, com.repackage.wv1
+    @NonNull
+    /* renamed from: Z */
+    public zw1 k(@NonNull pw1 pw1Var, @NonNull pw1 pw1Var2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, pw1Var, pw1Var2)) == null) {
+            zw1 k = super.k(pw1Var, pw1Var2);
+            if (!TextUtils.equals(pw1Var.E, pw1Var2.E) && (TextUtils.equals(pw1Var.E, "scroll") || TextUtils.equals(pw1Var2.E, "scroll"))) {
+                k.b(7);
             }
-            String str4 = str2 + "=";
-            int indexOf = str.indexOf("?");
-            String str5 = null;
-            if (indexOf < 0) {
-                int indexOf2 = str.indexOf("#");
-                if (indexOf2 < 0) {
-                    sb2 = new StringBuilder(str);
-                } else {
-                    str5 = str.substring(indexOf2);
-                    sb2 = new StringBuilder(str.substring(0, indexOf2));
-                }
-                sb2.append("?");
-                sb2.append(str4);
-                sb2.append(str3);
-                if (str5 != null) {
-                    sb2.append(str5);
-                }
-                return sb2.toString();
+            if (!TextUtils.equals(pw1Var.E, pw1Var2.E) || (TextUtils.equals(pw1Var2.E, "scroll") && pw1Var.D != pw1Var2.D)) {
+                k.b(8);
             }
-            if (str.indexOf("&" + str4, indexOf) < 0) {
-                if (str.indexOf("?" + str4, indexOf) < 0) {
-                    int indexOf3 = str.indexOf("#");
-                    if (indexOf3 < 0) {
-                        sb = new StringBuilder(str);
-                    } else {
-                        str5 = str.substring(indexOf3);
-                        str = str.substring(0, indexOf3);
-                        sb = new StringBuilder(str);
-                    }
-                    if (!str.endsWith("&") && !str.endsWith("?")) {
-                        sb.append("&");
-                    }
-                    sb.append(str4);
-                    sb.append(str3);
-                    if (str5 != null) {
-                        sb.append(str5);
-                    }
-                    return sb.toString();
-                }
-                return str;
-            }
-            return str;
+            return k;
         }
-        return (String) invokeLLL.objValue;
+        return (zw1) invokeLL.objValue;
     }
 
-    public static String b(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wv1
+    @NonNull
+    /* renamed from: a0 */
+    public TextView v(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String b2 = st2.b();
-            return b2 != null ? a(str, "launchid", b2) : str;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? this.j : (TextView) invokeL.objValue;
     }
 
-    public static int c() {
-        InterceptResult invokeV;
-        NetworkInfo networkInfo;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.uv1
+    /* renamed from: b0 */
+    public void P(@NonNull View view2, @NonNull pw1 pw1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String str = null;
-            try {
-                networkInfo = ((ConnectivityManager) zi2.c().getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (NullPointerException unused) {
-                networkInfo = null;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, pw1Var) == null) {
+            if (wv1.h) {
+                Log.d("Component-CoverView", "renderAlpha");
             }
-            if (networkInfo != null) {
-                str = "wifi".equals(networkInfo.getTypeName().toLowerCase()) ? "WIFI" : networkInfo.getExtraInfo();
+            if (pw1Var.j == null) {
+                return;
             }
-            if (str != null) {
-                String upperCase = str.toUpperCase();
-                if ("WIFI".equals(upperCase)) {
-                    return 1;
-                }
-                if ("3GNET".equals(upperCase)) {
-                    return 21;
-                }
-                if ("3GWAP".equals(upperCase)) {
-                    return 22;
-                }
-                if ("CMNET".equals(upperCase)) {
-                    return 31;
-                }
-                if ("UNINET".equals(upperCase)) {
-                    return 32;
-                }
-                if ("CTNET".equals(upperCase)) {
-                    return 33;
-                }
-                if ("CMWAP".equals(upperCase)) {
-                    return 41;
-                }
-                if ("UNIWAP".equals(upperCase)) {
-                    return 42;
-                }
-                return "CTWAP".equals(upperCase) ? 43 : 5;
+            ViewParent parent = view2.getParent();
+            if (parent instanceof View) {
+                super.P((View) parent, pw1Var);
             }
-            return 5;
         }
-        return invokeV.intValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.uv1
+    /* renamed from: c0 */
+    public void Q(@NonNull TextView textView, @NonNull pw1 pw1Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? zi2.n().a() : (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? "a0" : (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String g = g();
-            String h = h();
-            int i = Build.VERSION.SDK_INT;
-            String i2 = i();
-            return g + "_" + h + "_" + i + "_" + i2;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, textView, pw1Var) == null) {
+            if (wv1.h) {
+                Log.d("Component-CoverView", "renderBackground");
+            }
+            if (pw1Var.j == null) {
+                return;
+            }
+            SwanAppComponentContainerView m = m();
+            if (m != null) {
+                m.setModel(pw1Var);
+            }
+            ViewParent parent = textView.getParent();
+            if (parent instanceof View) {
+                GradientDrawable gradientDrawable = new GradientDrawable();
+                gradientDrawable.setColor(pw1Var.k);
+                gradientDrawable.setCornerRadius(pw1Var.n);
+                gradientDrawable.setStroke(pw1Var.l, pw1Var.m);
+                ((View) parent).setBackground(gradientDrawable);
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String str = Build.MODEL;
-            return TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str = Build.VERSION.RELEASE;
-            return TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            String str = Build.MANUFACTURER;
-            return TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String j(String str) {
+    @Override // com.repackage.wv1
+    @NonNull
+    public SwanAppComponentContainerView u(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? j(s()) : (String) invokeV.objValue;
-    }
-
-    public static String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? j(t()) : (String) invokeV.objValue;
-    }
-
-    public static String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? j(f()) : (String) invokeV.objValue;
-    }
-
-    public static int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            NetworkInfo c = SwanAppNetworkUtils.c(zi2.c());
-            if (c == null) {
-                return 0;
-            }
-            return c.getSubtype();
-        }
-        return invokeV.intValue;
-    }
-
-    public static String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return c() + "_" + n();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? AppRuntime.getApplication().getPackageName() : (String) invokeV.objValue;
-    }
-
-    public static String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? "android" : (String) invokeV.objValue;
-    }
-
-    public static String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? dg1.a() : (String) invokeV.objValue;
-    }
-
-    public static String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            int o = jd3.o(appContext);
-            int n = jd3.n(appContext);
-            int m = jd3.m(appContext);
-            String q = q();
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(o);
-            stringBuffer.append("_");
-            stringBuffer.append(n);
-            stringBuffer.append("_");
-            stringBuffer.append(q);
-            stringBuffer.append("_");
-            stringBuffer.append(md3.D());
-            stringBuffer.append("_");
-            stringBuffer.append(m);
-            return stringBuffer.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? zi2.h0().i(AppRuntime.getAppContext()) : (String) invokeV.objValue;
-    }
-
-    public static boolean u(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (String str2 : b) {
-                if (str.startsWith(str2)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) ? w(str, false) : (String) invokeL.objValue;
-    }
-
-    public static String w(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65559, null, str, z)) == null) {
-            String a2 = a(a(a(a(a(a(a(a(a(a(str, "uid", l()), "ua", k()), "ut", m()), "osbranch", e()), "pkgname", p()), "network", o()), "appname", d()), "hostname", d()), "swan_sdk_version", r()), "mnpunion", String.valueOf(SwanAppAllianceLoginHelper.d.f() ? 2 : 0));
-            return z ? b(a2) : a2;
-        }
-        return (String) invokeLZ.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? this.i : (SwanAppComponentContainerView) invokeL.objValue;
     }
 }

@@ -20,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.qg;
+import com.repackage.y95;
 /* loaded from: classes3.dex */
 public class FlutterPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -78,7 +79,7 @@ public class FlutterPluginManager {
             if (NPSPackageManager.getInstance().getBundleStatus(PLUGIN_PKG_NAME) == 43) {
                 NPSManager.getInstance().loadClazz(PLUGIN_PKG_NAME, PLUGIN_IMPL_CLASS, IFlutterPlugin.class, iInvokeCallback);
             } else {
-                NPSPackageManager.getInstance().installBundle(PLUGIN_PKG_NAME, new IInstallCallback(this, iInvokeCallback) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.4
+                NPSPackageManager.getInstance().installBundle(PLUGIN_PKG_NAME, new IInstallCallback(this, iInvokeCallback) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ FlutterPluginManager this$0;
@@ -172,9 +173,9 @@ public class FlutterPluginManager {
 
     public void initFromPersonInfo(PersonInfoActivityConfig personInfoActivityConfig) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, personInfoActivityConfig) == null) && this.mIFlutterPlugin == null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, personInfoActivityConfig) == null) && this.mIFlutterPlugin == null) {
             UtilHelper.showToast(TbadkCoreApplication.getInst().getCurrentActivity(), "加载插件中...");
-            invokePlugin(new IInvokeCallback(this, personInfoActivityConfig) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.3
+            invokePlugin(new IInvokeCallback(this, personInfoActivityConfig) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FlutterPluginManager this$0;
@@ -208,10 +209,10 @@ public class FlutterPluginManager {
                                 this.this$0.mIFlutterPlugin = (IFlutterPlugin) ((Class) obj).newInstance();
                                 this.this$0.mIFlutterPlugin.init();
                             }
-                            qg.a().post(new Runnable(this) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.3.1
+                            qg.a().post(new Runnable(this) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.4.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass3 this$1;
+                                public final /* synthetic */ AnonymousClass4 this$1;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -345,6 +346,69 @@ public class FlutterPluginManager {
                     }
                 }
             });
+        }
+    }
+
+    public void init(y95 y95Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y95Var) == null) {
+            if (this.mIFlutterPlugin == null) {
+                UtilHelper.showToast(TbadkCoreApplication.getInst().getCurrentActivity(), "加载插件中...");
+                invokePlugin(new IInvokeCallback(this, y95Var) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ FlutterPluginManager this$0;
+                    public final /* synthetic */ y95 val$callback;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, y95Var};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$callback = y95Var;
+                    }
+
+                    @Override // com.baidu.nps.main.invoke.IInvokeCallback
+                    public void onResult(int i, String str, Object obj) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
+                            if (i != 14) {
+                                this.val$callback.onFail();
+                                return;
+                            }
+                            try {
+                                if (this.this$0.mIFlutterPlugin == null) {
+                                    this.this$0.mIFlutterPlugin = (IFlutterPlugin) ((Class) obj).newInstance();
+                                    this.this$0.mIFlutterPlugin.init();
+                                }
+                                this.val$callback.onSuccess();
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                                this.val$callback.onFail();
+                            } catch (InstantiationException e2) {
+                                e2.printStackTrace();
+                                this.val$callback.onFail();
+                            } catch (Throwable th) {
+                                th.printStackTrace();
+                                this.val$callback.onFail();
+                            }
+                        }
+                    }
+                });
+                return;
+            }
+            y95Var.onSuccess();
         }
     }
 }

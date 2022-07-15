@@ -1,24 +1,35 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.apache.http.client.methods.HttpPut;
 /* loaded from: classes5.dex */
-public final class do0 {
+public class do0 {
     public static /* synthetic */ Interceptable $ic;
+    public static ho0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? (TextUtils.equals(str, "GET") || TextUtils.equals(str, "HEAD")) ? false : true : invokeL.booleanValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755760820, "Lcom/repackage/do0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755760820, "Lcom/repackage/do0;");
+                return;
+            }
+        }
+        a = ho0.a;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public static ho0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? TextUtils.equals(str, "POST") || TextUtils.equals(str, "PATCH") || TextUtils.equals(str, HttpPut.METHOD_NAME) || TextUtils.equals(str, "PROPPATCH") || TextUtils.equals(str, "REPORT") : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (ho0) invokeV.objValue;
     }
 }

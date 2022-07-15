@@ -16,7 +16,9 @@ public class LoginDialogData {
     public static final String FIRST_START_1 = "new_start_1";
     public static final String FIRST_START_2 = "new_start_2";
     public static final String FRS_PUBLISH_RESULT_PAGE = "frs_fabu";
+    public static final String HOME_OPERATE_DIALOG = "home_operate_dialog";
     public static final String HOME_PAGE_RESULT_PAGE = "new_shouye";
+    public static final String HOME_PAGE_WRITE_PAGE = "home_write";
     public static final String INTEREST_FORUM_COMMIT = "index_interest";
     public static final String MINE_PAGE = "mine_page";
     public static final String PB_BOTTOM_REPLY_RESULT_PAGE = "pb_huitie";
@@ -27,6 +29,7 @@ public class LoginDialogData {
     public static final String SETTING_PAGE = "setting_page";
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
+    public String jumpUrl;
     public String locate;
     public ILoginListener loginListener;
     public String minePageKey;
@@ -62,67 +65,80 @@ public class LoginDialogData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.context : (Context) invokeV.objValue;
     }
 
+    public String getJumpUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.jumpUrl : (String) invokeV.objValue;
+    }
+
     public String getLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.locate : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.locate : (String) invokeV.objValue;
     }
 
     public ILoginListener getLoginListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.loginListener : (ILoginListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.loginListener : (ILoginListener) invokeV.objValue;
     }
 
     public String getMinePageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.minePageKey : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.minePageKey : (String) invokeV.objValue;
     }
 
     public String getMinePageLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.minePageLocate : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.minePageLocate : (String) invokeV.objValue;
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.url : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.url : (String) invokeV.objValue;
+    }
+
+    public void setJumpUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.jumpUrl = str;
+        }
     }
 
     public void setLocate(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.locate = str;
         }
     }
 
     public void setLoginListener(ILoginListener iLoginListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, iLoginListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, iLoginListener) == null) {
             this.loginListener = iLoginListener;
         }
     }
 
     public void setMinePageKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.minePageKey = str;
         }
     }
 
     public void setMinePageLocate(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.minePageLocate = str;
         }
     }
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             this.url = str;
         }
     }

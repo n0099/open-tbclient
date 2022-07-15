@@ -1,71 +1,135 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.provider.FontsContractCompat;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.consts.AdDownloadCode;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class hj0 {
+public class hj0 implements ij0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<cj0> a;
 
-    public static String a(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        double d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            lx0.f(jSONObject, "downStatus", str);
-            try {
-                d = Double.parseDouble(str2) * 100.0d;
-            } catch (Exception unused) {
-                d = 0.0d;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-326795034, "Lcom/repackage/hj0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-326795034, "Lcom/repackage/hj0$a;");
+                    return;
+                }
             }
-            lx0.e(jSONObject, "process", Math.round(d));
-            lx0.f(jSONObject, "uri", str3);
-            lx0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
-            return jSONObject.toString();
+            int[] iArr = new int[AdDownloadStatus.values().length];
+            a = iArr;
+            try {
+                iArr[AdDownloadStatus.NONE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AdDownloadStatus.PAUSE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[AdDownloadStatus.COMPLETED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[AdDownloadStatus.INSTALLED.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[AdDownloadStatus.FAILED.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
         }
-        return (String) invokeLLLL.objValue;
     }
 
-    public static void b(@Nullable tg0 tg0Var, boolean z, @Nullable Map<String, String> map) {
+    public hj0(@NonNull cj0 cj0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tg0Var, Boolean.valueOf(z), map}) == null) || tg0Var == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cj0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new WeakReference<>(cj0Var);
+    }
+
+    @Override // com.repackage.ij0
+    public void a(AdDownloadStatus adDownloadStatus) {
+        cj0 cj0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, adDownloadStatus) == null) || (cj0Var = this.a.get()) == null) {
             return;
         }
-        if (map == null) {
-            map = new HashMap<>();
+        si0 t = cj0Var.t();
+        switch (a.a[adDownloadStatus.ordinal()]) {
+            case 1:
+                cj0Var.w("0", String.valueOf(t.i), "", t.d());
+                return;
+            case 2:
+                String valueOf = String.valueOf(t.i);
+                Uri uri = t.k;
+                cj0Var.w("2", valueOf, uri != null ? uri.toString() : "", t.d());
+                return;
+            case 3:
+                String valueOf2 = String.valueOf(t.i);
+                Uri uri2 = t.k;
+                cj0Var.w("1", valueOf2, uri2 != null ? uri2.toString() : "", t.d());
+                return;
+            case 4:
+                Uri uri3 = t.k;
+                cj0Var.w("3", "1", uri3 != null ? uri3.toString() : "", t.d());
+                return;
+            case 5:
+                Uri uri4 = t.k;
+                cj0Var.w("6", "1", uri4 != null ? uri4.toString() : "", t.d());
+                return;
+            case 6:
+                cj0Var.w("4", "0", "", t.d());
+                return;
+            default:
+                return;
         }
-        mx0.e(map, "status", z ? "0" : "202");
-        mx0.e(map, "message", z ? "调用成功" : "");
-        tg0Var.a(z, map);
     }
 
-    public static void c(@Nullable tg0 tg0Var, String str, String str2, String str3, String str4) {
+    @Override // com.repackage.ij0
+    public void b(AdDownloadCode adDownloadCode) {
+        cj0 cj0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65538, null, tg0Var, str, str2, str3, str4) == null) || tg0Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) == null) || (cj0Var = this.a.get()) == null || adDownloadCode == AdDownloadCode.ERROR_FAST_CLICK) {
             return;
         }
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, str);
-        JSONObject jSONObject = new JSONObject();
-        lx0.f(jSONObject, "uri", str2);
-        lx0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
-        lx0.f(jSONObject, "downStatus", str4);
-        hashMap.put("data", jSONObject.toString());
-        b(tg0Var, true, hashMap);
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TextUtils.isEmpty(str) ? "" : lx0.c(str).optString("bt_info") : (String) invokeL.objValue;
+        cj0Var.w("4", "0", "", cj0Var.t().d());
     }
 }

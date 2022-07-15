@@ -1,81 +1,71 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public abstract class vy0 extends BaseExecutorCell {
+public class vy0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<Class<? extends bz0>, bz0> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vy0(int i) {
-        super(i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755214972, "Lcom/repackage/vy0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755214972, "Lcom/repackage/vy0;");
+                return;
+            }
+        }
+        a = new HashMap<>();
+    }
+
+    public vy0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-    }
-
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d && e() < this.b : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public void g(ElasticTask elasticTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask) == null) {
-            super.g(elasticTask);
-            if (this.d) {
-                hz0.f().k();
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void i() {
+    public static <T extends bz0> T a(Class<T> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.d) {
-                Log.w(d(), "This executor cell is already opened.");
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            T t = (T) a.get(cls);
+            if (t == null) {
+                synchronized (vy0.class) {
+                    t = (T) a.get(cls);
+                    if (t == null) {
+                        t = (T) wy0.a(cls);
+                        a.put(cls, t);
+                    }
+                }
             }
-            this.d = true;
-            this.c.setKeepAliveTime(5000L, TimeUnit.MILLISECONDS);
+            return t;
         }
+        return (T) invokeL.objValue;
     }
 
-    public void j() {
+    public static <T extends bz0> az0 b(Class<T> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.d) {
-                Log.w(d(), "This executor cell is already shutdown.");
-                return;
-            }
-            this.d = false;
-            this.c.setKeepAliveTime(100L, TimeUnit.MILLISECONDS);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) ? a(cls).b() : (az0) invokeL.objValue;
     }
 }

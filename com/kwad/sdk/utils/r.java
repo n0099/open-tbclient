@@ -1,100 +1,178 @@
 package com.kwad.sdk.utils;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.location.Location;
-import android.location.LocationManager;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import com.kuaishou.weapon.adsdk.DeviceInfo;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class r {
-    public static boolean a;
-    public static Location b;
+public final class r {
+    public static <T> List<T> a(String str) {
+        return s.a(str);
+    }
 
-    @Nullable
-    public static Location a(Context context) {
-        if (!ao.a() || ao.b() == null) {
-            if (a || b != null || context == null) {
-                return b;
+    public static <T extends com.kwad.sdk.core.b> List<T> a(String str, @NonNull com.kwad.sdk.core.c<T> cVar) {
+        ArrayList arrayList = new ArrayList();
+        if (TextUtils.isEmpty(str)) {
+            return arrayList;
+        }
+        try {
+            JSONArray jSONArray = new JSONArray(str);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                T a = cVar.a();
+                a.parseJson(jSONObject);
+                arrayList.add(a);
             }
-            if (!ao.a() && !com.kwad.sdk.core.config.b.a(64L)) {
-                if (com.kwad.sdk.b.a.booleanValue()) {
-                    return DeviceInfo.getLocation(context);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.b.a(e);
+        }
+        return arrayList;
+    }
+
+    public static <T> List<T> a(JSONArray jSONArray) {
+        return s.a(jSONArray);
+    }
+
+    public static JSONArray a(@NonNull List<String> list) {
+        return s.a(list);
+    }
+
+    public static JSONObject a(Map<String, String> map) {
+        return s.a(map);
+    }
+
+    public static void a(JSONArray jSONArray, JSONObject jSONObject) {
+        jSONArray.put(jSONObject);
+    }
+
+    public static void a(JSONObject jSONObject, String str, byte b) {
+        if (jSONObject == null) {
+            return;
+        }
+        s.a(jSONObject, str, b);
+    }
+
+    public static void a(JSONObject jSONObject, String str, double d) {
+        if (jSONObject == null) {
+            return;
+        }
+        s.a(jSONObject, str, d);
+    }
+
+    public static void a(JSONObject jSONObject, String str, float f) {
+        if (jSONObject == null) {
+            return;
+        }
+        s.a(jSONObject, str, f);
+    }
+
+    public static void a(JSONObject jSONObject, String str, int i) {
+        if (jSONObject == null) {
+            return;
+        }
+        s.a(jSONObject, str, i);
+    }
+
+    public static void a(JSONObject jSONObject, String str, long j) {
+        if (jSONObject == null) {
+            return;
+        }
+        s.a(jSONObject, str, j);
+    }
+
+    public static void a(JSONObject jSONObject, String str, com.kwad.sdk.core.b bVar) {
+        if (jSONObject == null || bVar == null) {
+            return;
+        }
+        try {
+            jSONObject.put(str, bVar.toJson());
+        } catch (JSONException unused) {
+        }
+    }
+
+    public static void a(JSONObject jSONObject, String str, String str2) {
+        if (jSONObject == null) {
+            return;
+        }
+        s.a(jSONObject, str, str2);
+    }
+
+    public static void a(JSONObject jSONObject, String str, List<?> list) {
+        if (jSONObject == null || list == null) {
+            return;
+        }
+        JSONArray jSONArray = new JSONArray();
+        boolean z = false;
+        for (Object obj : list) {
+            if (obj instanceof com.kwad.sdk.core.b) {
+                a(jSONArray, ((com.kwad.sdk.core.b) obj).toJson());
+            } else if ((obj instanceof String) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof JSONObject) || (obj instanceof JSONArray) || (obj instanceof Double) || (obj instanceof Boolean)) {
+                jSONArray.put(obj);
+            } else {
+                if (!(obj instanceof Float)) {
+                    break;
                 }
                 try {
-                    LocationManager locationManager = (LocationManager) context.getSystemService("location");
-                    if (locationManager.isProviderEnabled("gps")) {
-                        b = a(context, locationManager);
-                    }
-                    if (b == null && locationManager.isProviderEnabled("network")) {
-                        b = b(context, locationManager);
-                    }
-                    if (b == null && locationManager.isProviderEnabled("passive")) {
-                        b = c(context, locationManager);
-                    }
-                    return b;
-                } catch (Exception e) {
-                    a = true;
-                    com.kwad.sdk.core.d.a.b(e);
+                    jSONArray.put(((Float) obj).floatValue());
+                } catch (JSONException unused) {
                 }
             }
-            return null;
+            z = true;
         }
-        return ao.b();
-    }
-
-    @SuppressLint({"MissingPermission"})
-    public static Location a(Context context, LocationManager locationManager) {
-        try {
-            if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == 0) {
-                Location lastKnownLocation = locationManager.getLastKnownLocation("gps");
-                if (lastKnownLocation == null) {
-                    a = true;
-                }
-                return lastKnownLocation;
-            }
-            return null;
-        } catch (Exception e) {
-            a = true;
-            com.kwad.sdk.core.d.a.b(e);
-            return null;
+        if (z) {
+            a(jSONObject, str, jSONArray);
         }
     }
 
-    @SuppressLint({"MissingPermission"})
-    public static Location b(Context context, LocationManager locationManager) {
-        try {
-            if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == 0 || ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
-                Location lastKnownLocation = locationManager.getLastKnownLocation("network");
-                if (lastKnownLocation == null) {
-                    a = true;
-                }
-                return lastKnownLocation;
-            }
-            return null;
-        } catch (Exception e) {
-            a = true;
-            com.kwad.sdk.core.d.a.b(e);
-            return null;
+    public static void a(JSONObject jSONObject, String str, JSONArray jSONArray) {
+        if (jSONObject == null) {
+            return;
         }
+        s.a(jSONObject, str, jSONArray);
     }
 
-    @SuppressLint({"MissingPermission"})
-    public static Location c(Context context, LocationManager locationManager) {
-        try {
-            if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
-                Location lastKnownLocation = locationManager.getLastKnownLocation("passive");
-                if (lastKnownLocation == null) {
-                    a = true;
-                }
-                return lastKnownLocation;
-            }
-            return null;
-        } catch (Exception e) {
-            a = true;
-            com.kwad.sdk.core.d.a.b(e);
-            return null;
+    public static void a(JSONObject jSONObject, String str, JSONObject jSONObject2) {
+        if (jSONObject == null) {
+            return;
         }
+        s.a(jSONObject, str, jSONObject2);
+    }
+
+    public static void a(JSONObject jSONObject, String str, boolean z) {
+        if (jSONObject == null) {
+            return;
+        }
+        s.a(jSONObject, str, z);
+    }
+
+    public static void a(JSONObject jSONObject, JSONObject jSONObject2) {
+        s.a(jSONObject, jSONObject2);
+    }
+
+    public static Map<String, String> b(String str) {
+        return s.b(str);
+    }
+
+    public static <T> JSONArray b(List<T> list) {
+        JSONArray jSONArray = new JSONArray();
+        if (list != null && !list.isEmpty()) {
+            for (Object obj : list) {
+                if (obj != null) {
+                    if (!(obj instanceof JSONObject)) {
+                        if (obj instanceof com.kwad.sdk.core.b) {
+                            obj = ((com.kwad.sdk.core.b) obj).toJson();
+                        } else if (!(obj instanceof String)) {
+                            throw new IllegalArgumentException("<T> now suppprt type: " + obj.getClass().getName());
+                        }
+                    }
+                    jSONArray.put(obj);
+                }
+            }
+        }
+        return jSONArray;
     }
 }

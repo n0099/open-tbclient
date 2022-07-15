@@ -1,82 +1,252 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.repackage.b72;
+import com.repackage.m53;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class cb2 implements bb2 {
+public class cb2 extends e23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755803042, "Lcom/repackage/cb2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a implements af3<k53<m53.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ JSONObject d;
+
+        public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {callbackHandler, unitedSchemeEntity, context, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755803042, "Lcom/repackage/cb2;");
-                return;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = context;
+            this.d = jSONObject;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.af3
+        /* renamed from: b */
+        public void a(k53<m53.e> k53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
+                if (f53.h(k53Var)) {
+                    try {
+                        cb2.l(this.c, this.d);
+                        UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(this.d, 0));
+                        return;
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
+                        return;
+                    }
+                }
+                f53.p(k53Var, this.a, this.b);
             }
         }
-        a = oi2.g() + File.separator + "extension_core";
     }
 
-    public cb2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cb2(e13 e13Var) {
+        super(e13Var, "/swanAPI/debug/getDebugConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.bb2
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
+    public static JSONObject k(String str, Object obj) throws JSONException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "aiapps/extcore/extension-core.zip" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.bb2
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, obj)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("name", str);
+            jSONObject.put("value", obj);
+            return jSONObject;
         }
-        return invokeV.intValue;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    @Override // com.repackage.bb2
-    @NonNull
-    public String d() {
-        InterceptResult invokeV;
+    /* JADX WARN: Type inference failed for: r1v14 */
+    /* JADX WARN: Type inference failed for: r1v15, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r1v51 */
+    public static void l(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "aiapps/extcore/extension-config.json" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, jSONObject) == null) {
+            String string = context.getString(R.string.obfuscated_res_0x7f0f013b);
+            boolean s = gw2.s();
+            va2.a(s);
+            jSONObject.put("loadCts", k(string, Integer.valueOf(s ? 1 : 0)));
+            String string2 = context.getString(R.string.obfuscated_res_0x7f0f011e);
+            boolean r = gw2.r();
+            va2.a(r);
+            jSONObject.put("emitLive", k(string2, Integer.valueOf(r ? 1 : 0)));
+            String string3 = context.getString(R.string.obfuscated_res_0x7f0f011c);
+            boolean o = gw2.o();
+            va2.a(o);
+            jSONObject.put("emitHttps", k(string3, Integer.valueOf(o ? 1 : 0)));
+            String string4 = context.getString(R.string.obfuscated_res_0x7f0f014f);
+            boolean y = gw2.y();
+            va2.a(y);
+            jSONObject.put("useExtension", k(string4, Integer.valueOf(y ? 1 : 0)));
+            String string5 = context.getString(R.string.obfuscated_res_0x7f0f011a);
+            ?? r1 = (gw2.w() || gw2.A()) ? 0 : 1;
+            va2.a(r1);
+            jSONObject.put("emitDomain", k(string5, Integer.valueOf((int) r1)));
+            String string6 = context.getString(R.string.obfuscated_res_0x7f0f0125);
+            boolean q = gw2.q();
+            va2.a(q);
+            jSONObject.put("emitWss", k(string6, Integer.valueOf(q ? 1 : 0)));
+            String string7 = context.getString(R.string.obfuscated_res_0x7f0f011d);
+            boolean x = gw2.x();
+            va2.a(x);
+            jSONObject.put("emitLaunchMode", k(string7, Integer.valueOf(x ? 1 : 0)));
+            jSONObject.put("debugEnvData", k(context.getString(R.string.obfuscated_res_0x7f0f0132), gw2.g()));
+            String string8 = context.getString(R.string.obfuscated_res_0x7f0f0123);
+            boolean k = gw2.k();
+            va2.a(k);
+            jSONObject.put("emitReplaceSwanCore", k(string8, Integer.valueOf(k ? 1 : 0)));
+            String string9 = context.getString(R.string.obfuscated_res_0x7f0f0121);
+            boolean h = gw2.h();
+            va2.a(h);
+            jSONObject.put("emitReplaceGameCore", k(string9, Integer.valueOf(h ? 1 : 0)));
+            String string10 = context.getString(R.string.obfuscated_res_0x7f0f0122);
+            boolean p = gw2.p();
+            va2.a(p);
+            jSONObject.put("emitReplaceJsNative", k(string10, Integer.valueOf(p ? 1 : 0)));
+            boolean d = b72.v.d();
+            String string11 = context.getString(R.string.obfuscated_res_0x7f0f0124);
+            va2.a(d);
+            jSONObject.put("emitReplaceV8Core", k(string11, Integer.valueOf(d ? 1 : 0)));
+            String string12 = context.getString(R.string.obfuscated_res_0x7f0f0120);
+            boolean m = xa2.m();
+            va2.a(m);
+            jSONObject.put("emitReplaceDynamicLib", k(string12, Integer.valueOf(m ? 1 : 0)));
+            jSONObject.put("emitHostEnv", k(context.getString(R.string.obfuscated_res_0x7f0f011b), Integer.valueOf(gw2.t())));
+            String string13 = context.getString(R.string.obfuscated_res_0x7f0f0142);
+            boolean a2 = ab2.a();
+            va2.a(a2);
+            jSONObject.put("openStabilityCollector", k(string13, Integer.valueOf(a2 ? 1 : 0)));
+            String string14 = context.getString(R.string.obfuscated_res_0x7f0f0141);
+            boolean a3 = za2.a();
+            va2.a(a3);
+            jSONObject.put("openPerformanceTesting", k(string14, Integer.valueOf(a3 ? 1 : 0)));
+            String string15 = context.getString(R.string.obfuscated_res_0x7f0f011f);
+            boolean k2 = wa2.k();
+            va2.a(k2);
+            jSONObject.put("emitReplaceDependency", k(string15, Integer.valueOf(k2 ? 1 : 0)));
+        }
     }
 
-    @Override // com.repackage.bb2
-    @NonNull
-    public File f() {
-        InterceptResult invokeV;
+    public static boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new File(a) : (File) invokeV.objValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            h03Var.e0().g(context, "mapp_cts_debug", new a(callbackHandler, unitedSchemeEntity, context, new JSONObject()));
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public static boolean n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, unitedSchemeEntity, callbackHandler)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            hx1.i("getDebugConfig", "swangame getDebugConfig");
+            if (!e23.b) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
+                return false;
+            }
+            JSONObject a2 = e23.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                hx1.c("getDebugConfig", "params is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!TextUtils.equals(a2.optString("category"), "swanGame")) {
+                hx1.c("getDebugConfig", "params is not swangame");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                try {
+                    boolean o = gw2.o();
+                    va2.a(o);
+                    jSONObject.put("emitHttps", o ? 1 : 0);
+                    boolean q = gw2.q();
+                    va2.a(q);
+                    jSONObject.put("emitWss", q ? 1 : 0);
+                    jSONObject.put("debugEnvData", gw2.g());
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    return true;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
+                    return false;
+                }
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            hx1.i("getDebugConfig", "swan getDebugConfig");
+            int k = g03.K().k();
+            if (k != 0) {
+                if (k != 1) {
+                    hx1.c("getDebugConfig", "frame type error");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "frame type error");
+                    return false;
+                }
+                return n(unitedSchemeEntity, callbackHandler);
+            }
+            return m(context, unitedSchemeEntity, callbackHandler, h03Var);
+        }
+        return invokeLLLL.booleanValue;
     }
 }

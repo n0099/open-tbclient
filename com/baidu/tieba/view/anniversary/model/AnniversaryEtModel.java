@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
 import com.repackage.d9;
-import com.repackage.gt8;
-import com.repackage.jt8;
-import com.repackage.kt8;
+import com.repackage.du8;
+import com.repackage.gu8;
+import com.repackage.hu8;
+import com.repackage.wh8;
 import com.repackage.za;
 /* loaded from: classes4.dex */
 public class AnniversaryEtModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gt8 a;
-    public kt8 b;
+    public du8 a;
+    public hu8 b;
     public final za c;
 
     /* loaded from: classes4.dex */
@@ -63,14 +63,14 @@ public class AnniversaryEtModel extends BdBaseModel {
                 this.a.a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                 return;
             }
-            jt8 jt8Var = null;
+            gu8 gu8Var = null;
             if (responsedMessage instanceof AnniversaryEtSocketResMessage) {
-                jt8Var = ((AnniversaryEtSocketResMessage) responsedMessage).getResultData();
+                gu8Var = ((AnniversaryEtSocketResMessage) responsedMessage).getResultData();
             } else if (responsedMessage instanceof AnniversaryEtHttpResMessage) {
-                jt8Var = ((AnniversaryEtHttpResMessage) responsedMessage).getResultData();
+                gu8Var = ((AnniversaryEtHttpResMessage) responsedMessage).getResultData();
             }
-            if (jt8Var != null) {
-                this.a.a.K0(jt8Var);
+            if (gu8Var != null) {
+                this.a.a.K0(gu8Var);
             } else {
                 this.a.a.onError(-1, "请求失败，请稍后重试");
             }
@@ -78,13 +78,13 @@ public class AnniversaryEtModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AnniversaryEtModel(@NonNull TbPageContext tbPageContext, gt8 gt8Var) {
+    public AnniversaryEtModel(@NonNull TbPageContext tbPageContext, du8 du8Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, gt8Var};
+            Object[] objArr = {tbPageContext, du8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -96,12 +96,12 @@ public class AnniversaryEtModel extends BdBaseModel {
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_HTTP_ET_VIDEO, 309725);
-        this.a = gt8Var;
-        this.b = new kt8(tbPageContext, gt8Var);
+        this.a = du8Var;
+        this.b = new hu8(tbPageContext, du8Var);
         init();
     }
 
-    public void B(int i) {
+    public void C(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             AnniversaryReqMsg anniversaryReqMsg = new AnniversaryReqMsg();
@@ -111,22 +111,22 @@ public class AnniversaryEtModel extends BdBaseModel {
         }
     }
 
-    public void C(jt8 jt8Var) {
-        kt8 kt8Var;
+    public void D(gu8 gu8Var) {
+        hu8 hu8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jt8Var) == null) || (kt8Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gu8Var) == null) || (hu8Var = this.b) == null) {
             return;
         }
-        kt8Var.m(jt8Var);
+        hu8Var.m(gu8Var);
     }
 
     public void cancel() {
-        kt8 kt8Var;
+        hu8 hu8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (kt8Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (hu8Var = this.b) == null) {
             return;
         }
-        kt8Var.i();
+        hu8Var.i();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -142,8 +142,8 @@ public class AnniversaryEtModel extends BdBaseModel {
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            bh8.h(309725, AnniversaryEtSocketResMessage.class, false, false);
-            bh8.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
+            wh8.h(309725, AnniversaryEtSocketResMessage.class, false, false);
+            wh8.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
             registerListener(this.c);
         }
     }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.pb.interactionpopupwindow;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -107,7 +108,7 @@ public class CustomDialogData implements IBaseDialogData {
                     button.text = optJSONObject2.optString("text");
                     button.action = optJSONObject2.optString("action");
                     button.image = optJSONObject2.optString("image");
-                    if (optJSONObject2.optString("position").equals("left")) {
+                    if (optJSONObject2.optString(CriusAttrConstants.POSITION).equals("left")) {
                         customDialogData.leftButton = button;
                     } else {
                         customDialogData.rightButton = button;

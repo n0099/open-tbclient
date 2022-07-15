@@ -1,27 +1,34 @@
 package com.repackage;
 
+import android.animation.Animator;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsSplashScreenAd;
+import com.repackage.mg9;
 /* loaded from: classes6.dex */
-public class lg9 extends pg9 {
+public class lg9 implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ KsSplashScreenAd c;
-    public final /* synthetic */ kg9 d;
+    public final /* synthetic */ mg9.a a;
+    public final /* synthetic */ View b;
+    public final /* synthetic */ ViewGroup c;
+    public final /* synthetic */ float d;
+    public final /* synthetic */ float e;
+    public final /* synthetic */ int[] f;
+    public final /* synthetic */ ViewGroup g;
+    public final /* synthetic */ mg9 h;
 
-    public lg9(kg9 kg9Var, KsSplashScreenAd ksSplashScreenAd) {
+    public lg9(mg9 mg9Var, mg9.a aVar, View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kg9Var, ksSplashScreenAd};
+            Object[] objArr = {mg9Var, aVar, view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,54 +38,44 @@ public class lg9 extends pg9 {
                 return;
             }
         }
-        this.d = kg9Var;
-        this.c = ksSplashScreenAd;
+        this.h = mg9Var;
+        this.a = aVar;
+        this.b = view2;
+        this.c = viewGroup;
+        this.d = f;
+        this.e = f2;
+        this.f = iArr;
+        this.g = viewGroup2;
     }
 
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdClicked() {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationCancel(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(this.b, new String[0]);
-            this.b = true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
         }
     }
 
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowEnd() {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+            this.h.a(this.b, this.c, this.d, this.e, this.f, this.g, this.a);
         }
     }
 
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowError(int i, String str) {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationRepeat(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            LogPrinter.e("onAdShowError code: " + i + ", message: " + str, new Object[0]);
-            this.d.onAdError(i, str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
         }
     }
 
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowStart() {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onSkippedAd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose();
+        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            LogPrinter.d("zoomOut onAnimationStart", new Object[0]);
+            this.h.getClass();
         }
     }
 }

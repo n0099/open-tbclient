@@ -1,25 +1,28 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.util.Log;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.down.retry.HttpRetryStatistic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bv3 extends a72 {
+public class bv3 extends ez1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean A;
     public transient /* synthetic */ FieldHolder $fh;
+    public View z;
 
     /* loaded from: classes5.dex */
-    public class a implements V8Engine.WorkerFactory {
+    public class a extends vy1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bv3 a;
 
         public a(bv3 bv3Var) {
             Interceptable interceptable = $ic;
@@ -33,75 +36,132 @@ public class bv3 extends a72 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = bv3Var;
         }
 
-        @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
-        public V8Engine onCreateWorker() {
-            InterceptResult invokeV;
+        @Override // com.repackage.vy1
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                cv3 cv3Var = new cv3(this.a.getInitBasePath());
-                cv3Var.J0();
-                cv3Var.r(new m72(cv3Var));
-                cv3Var.I0(new n72(cv3Var));
-                return cv3Var.n0();
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.a(str);
+                if (bv3.A) {
+                    Log.e("SwanGameConsoleManager", "onPageFinished");
+                }
+                cv3.a();
             }
-            return (V8Engine) invokeV.objValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755813582, "Lcom/repackage/bv3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755813582, "Lcom/repackage/bv3;");
+                return;
+            }
+        }
+        A = rg1.a;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bv3(@NonNull String str, @NonNull x72 x72Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        super(str, x72Var, v8ThreadDelegatePolicy);
+    public bv3(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, x72Var, v8ThreadDelegatePolicy};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (x72) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        V8Engine v8Engine = this.a;
-        if (v8Engine == null) {
-            return;
+    }
+
+    @Override // com.repackage.ez1, com.repackage.mm1
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            cv3.h(false);
+            this.z = null;
+            super.F();
         }
-        v8Engine.setWorkerFactoryDelegate(new a(this));
     }
 
-    @Override // com.repackage.a72
-    public EventTarget C() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ez1, com.repackage.mm1
+    public void H(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new bu3(this) : (EventTarget) invokeV.objValue;
-    }
-
-    @Override // com.repackage.c72, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
-    public int getInvokeSourceType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.z = view2;
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.repackage.a72
-    @NonNull
-    public EventTarget w() {
+    @Override // com.repackage.ez1, com.repackage.mm1
+    public void R(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (t().getVisibility() == (z ? 0 : 8)) {
+                return;
+            }
+            if (A) {
+                Log.i("SwanGameConsoleManager", "setConsoleVisible:" + z);
+            }
+            if (z) {
+                ul2.U().m("console", wu3.u(true));
+            }
+            if (this.z != null) {
+                this.z.setVisibility(z ? 4 : 0);
+            }
+            super.R(z);
+        }
+    }
+
+    @Override // com.repackage.ez1, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.pm1
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new yt3(this) : (EventTarget) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "console" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ez1, com.repackage.mm1
+    public void i0(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            cv3.g(str, str2);
+        }
+    }
+
+    @Override // com.repackage.ez1
+    public void i1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            t().setVisibility(8);
+            t().setBackgroundColor(0);
+            cv3.c();
+            k1();
+            String i = xu3.m().i();
+            if (A) {
+                Log.d("SwanGameConsoleManager", HttpRetryStatistic.RETRY_URL + i);
+            }
+            loadUrl(i);
+        }
+    }
+
+    public final void k1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            c(new a(this));
+        }
     }
 }

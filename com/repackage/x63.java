@@ -1,128 +1,41 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.y63;
 /* loaded from: classes7.dex */
-public class x63 {
+public class x63 extends hw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ SwanInterfaceType e;
-
-        public a(int i, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, str2, str3, swanInterfaceType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-            this.e = swanInterfaceType;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.a;
-                boolean z = (i == 2000 || i == 0) ? false : true;
-                String n = l63.n(rz2.K().l());
-                JSONObject jSONObject = new JSONObject();
-                sc3.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, rz2.K().getAppId());
-                sc3.f(jSONObject, "hostName", zi2.n().a());
-                sc3.f(jSONObject, "network", rf4.e());
-                sc3.f(jSONObject, "launchid", rz2.K().r().W().V());
-                if (z) {
-                    sc3.f(jSONObject, "response", this.b);
-                    sc3.f(jSONObject, "statusCode", this.c);
-                    sc3.f(jSONObject, "request_url", this.d);
-                }
-                x63.d(n, this.e.getClassify(), this.e.getInterfaceName(), this.a, jSONObject, z);
+    public x63() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a(SwanInterfaceType swanInterfaceType) {
+    @Override // com.repackage.hw2
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, swanInterfaceType) == null) {
-            c(swanInterfaceType, 2000, null, null);
-        }
-    }
-
-    public static void b(SwanInterfaceType swanInterfaceType, int i, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{swanInterfaceType, Integer.valueOf(i), str, str2, str3}) == null) {
-            mc3.j(new a(i, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
-        }
-    }
-
-    public static void c(SwanInterfaceType swanInterfaceType, int i, String str, Response response) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65538, null, swanInterfaceType, i, str, response) == null) {
-            String str3 = null;
-            if (response != null) {
-                String valueOf = String.valueOf(response.code());
-                str3 = response.request().url().toString();
-                str2 = valueOf;
-            } else {
-                str2 = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            y63.a aVar = y63.a().a;
+            if (!ProcessUtils.isMainProcess() || aVar == null) {
+                return;
             }
-            b(swanInterfaceType, i, str3, str2, str);
-        }
-    }
-
-    public static void d(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Integer.valueOf(i), jSONObject, Boolean.valueOf(z)}) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("from", str);
-                jSONObject2.put("type", str2);
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject2.put("page", str3);
-                }
-                jSONObject2.put("value", String.valueOf(i));
-                if (jSONObject != null) {
-                    jSONObject2.put("ext", jSONObject);
-                }
-                z53.k("874", jSONObject2);
-                if (z) {
-                    z53.i("2486", AddressEditActivity.CHINA_REGION_CODE, jSONObject2);
-                }
-            } catch (JSONException e) {
-                if (sz2.v) {
-                    e.printStackTrace();
-                }
-            }
+            aVar.a(bundle.getString("statTag"), bundle.getString("statisticData"));
         }
     }
 }

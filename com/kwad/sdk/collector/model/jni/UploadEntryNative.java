@@ -4,8 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.e;
-import com.kwad.sdk.utils.q;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class UploadEntryNative extends NativeObject implements e {
@@ -34,12 +33,12 @@ public class UploadEntryNative extends NativeObject implements e {
     @Override // com.kwad.sdk.collector.model.e
     @Nullable
     @WorkerThread
-    public JSONObject a() {
+    public final JSONObject a() {
         try {
             JSONObject jSONObject = new JSONObject();
-            t.a(jSONObject, "packageName", AppStatusNative.uploadEntryGetPackageName(this));
-            t.a(jSONObject, "content", q.a(AppStatusNative.uploadEntryGetOriginFilePath(this)));
-            t.a(jSONObject, "fileName", b());
+            r.a(jSONObject, "packageName", AppStatusNative.uploadEntryGetPackageName(this));
+            r.a(jSONObject, "content", com.kwad.sdk.collector.e.a(AppStatusNative.uploadEntryGetOriginFilePath(this)));
+            r.a(jSONObject, "fileName", b());
             return jSONObject;
         } catch (Throwable unused) {
             return null;
@@ -59,15 +58,20 @@ public class UploadEntryNative extends NativeObject implements e {
         if (this == obj) {
             return true;
         }
-        if (obj == null || UploadEntryNative.class != obj.getClass()) {
-            return false;
-        }
-        UploadEntryNative uploadEntryNative = (UploadEntryNative) obj;
-        String uploadEntryGetPackageName = AppStatusNative.uploadEntryGetPackageName(this);
-        String uploadEntryGetOriginFilePath = AppStatusNative.uploadEntryGetOriginFilePath(this);
-        if (uploadEntryGetPackageName == null ? a(uploadEntryNative) == null : uploadEntryGetPackageName.equals(a(uploadEntryNative))) {
+        if (obj != null && UploadEntryNative.class == obj.getClass()) {
+            UploadEntryNative uploadEntryNative = (UploadEntryNative) obj;
+            String uploadEntryGetPackageName = AppStatusNative.uploadEntryGetPackageName(this);
+            String uploadEntryGetOriginFilePath = AppStatusNative.uploadEntryGetOriginFilePath(this);
+            if (uploadEntryGetPackageName == null ? a(uploadEntryNative) != null : !uploadEntryGetPackageName.equals(a(uploadEntryNative))) {
+                return false;
+            }
             String uploadEntryGetOriginFilePath2 = AppStatusNative.uploadEntryGetOriginFilePath(uploadEntryNative);
-            return uploadEntryGetOriginFilePath != null ? uploadEntryGetOriginFilePath.equals(uploadEntryGetOriginFilePath2) : uploadEntryGetOriginFilePath2 == null;
+            if (uploadEntryGetOriginFilePath != null) {
+                return uploadEntryGetOriginFilePath.equals(uploadEntryGetOriginFilePath2);
+            }
+            if (uploadEntryGetOriginFilePath2 == null) {
+                return true;
+            }
         }
         return false;
     }
@@ -92,8 +96,8 @@ public class UploadEntryNative extends NativeObject implements e {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "packageName", AppStatusNative.uploadEntryGetPackageName(this));
-        t.a(jSONObject, "originFilePath", AppStatusNative.uploadEntryGetOriginFilePath(this));
+        r.a(jSONObject, "packageName", AppStatusNative.uploadEntryGetPackageName(this));
+        r.a(jSONObject, "originFilePath", AppStatusNative.uploadEntryGetOriginFilePath(this));
         return jSONObject;
     }
 

@@ -32,40 +32,40 @@ public abstract class jf {
     public abstract byte a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract double m537a();
+    public abstract double m1480a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract int m538a();
+    public abstract int m1481a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract long m539a();
+    public abstract long m1482a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jc m540a();
+    public abstract jc m1483a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jd m541a();
+    public abstract jd m1484a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract je m542a();
+    public abstract je m1485a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jj m543a();
+    public abstract jj m1486a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jk m544a();
+    public abstract jk m1487a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m545a();
+    public abstract String m1488a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract ByteBuffer m546a();
+    public abstract ByteBuffer m1489a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract short m547a();
+    public abstract short m1490a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m548a();
+    public abstract void m1491a();
 
     public abstract void a(byte b);
 
@@ -90,7 +90,7 @@ public abstract class jf {
     public abstract void a(boolean z);
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m549a();
+    public abstract boolean m1492a();
 
     public abstract void b();
 

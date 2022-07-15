@@ -5,6 +5,9 @@ import android.text.TextUtils;
 import com.ss.android.socialbase.downloader.network.IDownloadHttpService;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Collections;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
 import okhttp3.Call;
@@ -29,6 +32,13 @@ public class g implements IDownloadHttpService {
                     }
                     OkHttpClient.Builder t = com.ss.android.socialbase.downloader.downloader.c.t();
                     t.dns(new Dns() { // from class: com.ss.android.socialbase.downloader.impls.g.2
+                        @Override // okhttp3.Dns
+                        public List<InetAddress> lookup(String str4) throws UnknownHostException {
+                            if (TextUtils.equals(host, str4)) {
+                                return Collections.singletonList(InetAddress.getByName(str2));
+                            }
+                            return Dns.SYSTEM.lookup(str4);
+                        }
                     });
                     OkHttpClient build = t.build();
                     synchronized (this.a) {

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
-import com.repackage.db1;
+import com.repackage.sb1;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -60,7 +60,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                 jSONObject.put("time", String.valueOf(perfExpInfo.getTime()));
                 jSONObject.put("description", perfExpInfo.getException());
                 jSONObject.put("page", perfExpInfo.getPage());
-                jSONObject.put("processName", db1.b());
+                jSONObject.put("processName", sb1.b());
                 jSONObject.put(Constant.KEY_BUSINESS, perfExpInfo.getBusiness());
                 JSONObject jSONObject2 = new JSONObject();
                 if (perfExpInfo.isNeedPageTrace() && (trackUIs = perfExpInfo.getTrackUIs()) != null && trackUIs.size() > 0) {

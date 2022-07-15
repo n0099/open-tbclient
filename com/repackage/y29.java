@@ -1,20 +1,21 @@
 package com.repackage;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public final class y29 {
+public class y29 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile t29 a;
+    public static q29 b;
+    public static s29 c;
+    public static r29 d;
+    public static s19 e;
+    public static w19 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public SQLiteDatabase a;
 
     public y29() {
         Interceptable interceptable = $ic;
@@ -26,62 +27,116 @@ public final class y29 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = t29.a().c();
     }
 
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
-        }
-    }
-
-    public final boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Cursor rawQuery = this.a.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
-            int count = rawQuery.getCount();
-            rawQuery.close();
-            return count > 0;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final List<com.baidu.ubs.analytics.a.n> c() {
+    public static q29 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
-            ArrayList arrayList = new ArrayList();
-            while (rawQuery.moveToNext()) {
-                com.baidu.ubs.analytics.a.n nVar = new com.baidu.ubs.analytics.a.n();
-                nVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-                nVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
-                nVar.A(rawQuery.getString(rawQuery.getColumnIndex("_keepTime")));
-                nVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
-                arrayList.add(nVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            q29 q29Var = b;
+            if (q29Var != null) {
+                return q29Var;
             }
-            rawQuery.close();
-            return arrayList;
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                b = a.a();
+            }
+            return b;
         }
-        return (List) invokeV.objValue;
+        return (q29) invokeV.objValue;
     }
 
-    public final void d(com.baidu.ubs.analytics.a.n nVar) {
+    public static r29 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nVar) == null) {
-            this.a.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            r29 r29Var = d;
+            if (r29Var != null) {
+                return r29Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                d = a.e();
+            }
+            return d;
         }
+        return (r29) invokeV.objValue;
     }
 
-    public final void e(com.baidu.ubs.analytics.a.n nVar) {
+    public static s29 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
-            this.a.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            s29 s29Var = c;
+            if (s29Var != null) {
+                return s29Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                c = a.b();
+            }
+            return c;
         }
+        return (s29) invokeV.objValue;
+    }
+
+    public static t29 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (y29.class) {
+                if (a == null) {
+                    a = x29.a();
+                }
+            }
+            return a;
+        }
+        return (t29) invokeV.objValue;
+    }
+
+    public static s19 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            s19 s19Var = e;
+            if (s19Var != null) {
+                return s19Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                e = a.c();
+            }
+            return e;
+        }
+        return (s19) invokeV.objValue;
+    }
+
+    public static w19 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            w19 w19Var = f;
+            if (w19Var != null) {
+                return w19Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                f = a.d();
+            }
+            return f;
+        }
+        return (w19) invokeV.objValue;
     }
 }

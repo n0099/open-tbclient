@@ -13,7 +13,7 @@ public class BlurUtils {
         int[] iArr2;
         int i4 = i;
         Bitmap copy = z ? bitmap : bitmap.copy(bitmap.getConfig(), true);
-        if (i4 < 1) {
+        if (i4 <= 0) {
             return null;
         }
         int width = copy.getWidth();

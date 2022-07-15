@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imageutils.WebpUtil;
-import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.UnsupportedEncodingException;
 import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
@@ -106,7 +105,7 @@ public class WebpSupportStatus {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, bArr, i)) == null) {
-            return matchBytePattern(bArr, i + 12, WEBP_VP8X_BYTES) && ((bArr[i + 20] & YogaNodeJNIBase.HAS_NEW_LAYOUT) == 16);
+            return matchBytePattern(bArr, i + 12, WEBP_VP8X_BYTES) && ((bArr[i + 20] & 16) == 16);
         }
         return invokeLI.booleanValue;
     }

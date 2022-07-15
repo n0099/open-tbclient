@@ -1,19 +1,21 @@
 package com.kwad.sdk.crash.utils;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class i {
-    public static List<String> c;
-    public static String d;
-    public static final Object a = new Object();
-    public static final Object b = new Object();
-    public static SimpleDateFormat e = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    public static char[] f = new char[29];
-    public static char[] g = new char[29];
-
+public final class i {
     public static String a(long j) {
-        return j <= 0 ? "unknown" : e.format(new Date(j));
+        String valueOf;
+        String valueOf2;
+        long j2 = j / 60000;
+        long j3 = (j - (60000 * j2)) / 1000;
+        if (j2 < 10) {
+            valueOf = "0" + j2;
+        } else {
+            valueOf = String.valueOf(j2);
+        }
+        if (j3 < 10) {
+            valueOf2 = "0" + j3;
+        } else {
+            valueOf2 = String.valueOf(j3);
+        }
+        return valueOf + ":" + valueOf2;
     }
 }

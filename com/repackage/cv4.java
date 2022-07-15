@@ -1,76 +1,89 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
+import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class cv4<T extends nn, V extends BdBaseViewPagerAdapter.a> {
+public final class cv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a<T, V> b;
-    public BdUniqueId c;
+    public ItemData a;
+    public final int b;
+    public final String c;
 
-    /* loaded from: classes5.dex */
-    public interface a<T extends nn, V extends BdBaseViewPagerAdapter.a> {
-        void a(V v, T t);
-    }
-
-    public cv4(Context context, BdUniqueId bdUniqueId) {
+    public cv4(ItemData item, int i, String tid) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {item, Integer.valueOf(i), tid};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.c = bdUniqueId;
+        Intrinsics.checkNotNullParameter(item, "item");
+        Intrinsics.checkNotNullParameter(tid, "tid");
+        this.a = item;
+        this.b = i;
+        this.c = tid;
     }
 
-    public a<T, V> a() {
+    public final ItemData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ItemData) invokeV.objValue;
     }
 
-    public abstract V b(ViewGroup viewGroup);
-
-    public void c(V v, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v, t) == null) {
-        }
-    }
-
-    public abstract View d(ViewGroup viewGroup, V v, T t);
-
-    public void e(a<T, V> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    public BdUniqueId getType() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof cv4) {
+                cv4 cv4Var = (cv4) obj;
+                return Intrinsics.areEqual(this.a, cv4Var.a) && this.b == cv4Var.b && Intrinsics.areEqual(this.c, cv4Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b) * 31) + this.c.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ItemCardViewButtonData(item=" + this.a + ", position=" + this.b + ", tid=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,91 +1,47 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.homepage.personalize.PersonalizePageView;
+import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipHttpResMsg;
+import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipSocketResMsg;
+import com.baidu.tieba.homepage.personalize.view.ConcernUnreadTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.by;
-import com.repackage.my;
 /* loaded from: classes7.dex */
-public class zw6 extends an<yx5, ThreadCardViewHolder<yx5>> implements zi5 {
+public class zw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId i;
-    public TbPageContext<?> j;
-    public ly6 k;
-    public String l;
-    public boolean m;
-    public tn n;
-    public mx5<yx5> o;
+    public mu6 a;
+    public PersonalizePageView b;
+    public ConcernUnreadTipView c;
+    public TbPageContext d;
+    public BdUniqueId e;
+    public Runnable f;
+    public za g;
+    public CustomMessageListener h;
 
     /* loaded from: classes7.dex */
-    public class a extends mx5<yx5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zw6 b;
-
-        public a(zw6 zw6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zw6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = zw6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mx5
-        /* renamed from: d */
-        public void a(View view2, yx5 yx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, yx5Var) == null) {
-                fx5.b().d(true);
-                xi5.c().h("page_recommend", "show_");
-                if (view2 == null || this.b.k == null || yx5Var == null || yx5Var.getThreadData() == null || StringUtils.isNull(yx5Var.getThreadData().getTid())) {
-                    return;
-                }
-                if ((view2.getTag() instanceof String) && !ow6.b(ng.g(yx5Var.getThreadData().getTid(), 0L))) {
-                    ow6.a(ng.g(yx5Var.getThreadData().getTid(), 0L));
-                    this.b.k.e(ng.g(yx5Var.getThreadData().getTid(), 0L), yx5Var.D(), yx5Var.r(), yx5Var.n(), yx5Var.c(), ng.e((String) view2.getTag(), 1), "homepage", yx5Var.getThreadData().getBaijiahaoData());
-                }
-                this.b.f0(view2, yx5Var);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements xn {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zw6 a;
 
-        public b(zw6 zw6Var) {
+        public a(zw6 zw6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,194 +59,252 @@ public class zw6 extends an<yx5, ThreadCardViewHolder<yx5>> implements zi5 {
             this.a = zw6Var;
         }
 
-        @Override // com.repackage.xn
-        public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof yx5) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                yx5 yx5Var = (yx5) nnVar;
-                yx5Var.f = 1;
-                if (this.a.o != null) {
-                    this.a.o.a(threadCardViewHolder.b(), yx5Var);
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b == null) {
+                return;
+            }
+            if (this.a.c != null) {
+                this.a.b.removeView(this.a.c);
+                TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 3));
+            }
+            this.a.b.setIsUnreadTipShow(false);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends za {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zw6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(zw6 zw6Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zw6Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                ThreadCardUtils.jumpToPB((ym4) yx5Var, view2.getContext(), 2, false);
-                threadCardViewHolder.c().o(new my.a(1));
+            }
+            this.a = zw6Var;
+        }
+
+        @Override // com.repackage.za
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage instanceof ConcernUnreadTipHttpResMsg) {
+                    this.a.e(((ConcernUnreadTipHttpResMsg) responsedMessage).mData);
+                } else if (responsedMessage instanceof ConcernUnreadTipSocketResMsg) {
+                    this.a.e(((ConcernUnreadTipSocketResMsg) responsedMessage).mData);
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zw6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    /* loaded from: classes7.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zw6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(zw6 zw6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zw6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zw6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.f(true);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zw6 a;
+
+        public d(zw6 zw6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zw6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zw6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null || this.a.c.a == null) {
+                return;
+            }
+            if (view2.getId() != this.a.c.a.getId()) {
+                if (this.a.a != null) {
+                    this.a.a.setCurrentTab(0);
+                    return;
+                }
+                return;
+            }
+            this.a.f(false);
+            TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 1));
+        }
+    }
+
+    public zw6(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = true;
-        this.o = new a(this);
-        this.j = tbPageContext;
-        c0();
+        this.f = new a(this);
+        this.g = new b(this, CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541);
+        this.h = new c(this, 2921064);
+        if (tbPageContext == null) {
+            return;
+        }
+        this.d = tbPageContext;
+        tbPageContext.registerListener(this.g);
+        tbPageContext.registerListener(this.h);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, wh8.a(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
+        tbHttpMessageTask.setIsNeedAddCommenParam(true);
+        tbHttpMessageTask.setResponsedClass(ConcernUnreadTipHttpResMsg.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        ma5 ma5Var = new ma5(309541);
+        ma5Var.setResponsedClass(ConcernUnreadTipSocketResMsg.class);
+        ma5Var.g(true);
+        MessageManager.getInstance().registerTask(ma5Var);
     }
 
-    public final void c0() {
+    public final void e(qy6 qy6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, qy6Var) == null) && qy6Var != null && qy6Var.a()) {
+            k(qy6Var);
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            qg.a().removeCallbacks(this.f);
+            PersonalizePageView personalizePageView = this.b;
+            if (personalizePageView != null) {
+                ConcernUnreadTipView concernUnreadTipView = this.c;
+                if (concernUnreadTipView != null) {
+                    personalizePageView.removeView(concernUnreadTipView);
+                    if (z && this.b.getIsUnreadTipShow()) {
+                        xt4.k().x(xt4.o("concern_unread_tip_next_show_time"), 0L);
+                        TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 2));
+                    }
+                }
+                this.b.setIsUnreadTipShow(false);
+            }
+        }
+    }
+
+    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            yx5.R = "c10705";
-            yx5.S = "c10730";
-            yx5.T = "c10731";
-            yx5.U = "c10704";
-            yx5.V = "c10755";
-            yx5.W = "c10710";
-            yx5.X = "c10736";
-            yx5.Y = "c10737";
-            yx5.Z = "c10711";
-            yx5.g0 = "c10758";
-            yx5.h0 = "c10757";
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: d0 */
-    public ThreadCardViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            by.b bVar = new by.b(this.j.getPageActivity(), false);
-            dx dxVar = new dx(this.j.getPageActivity());
-            dxVar.x(this.m);
-            dxVar.w("index");
-            bVar.h(dxVar);
-            by k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.n);
-            k.r(2);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.k(this.i);
-            V(new b(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: e0 */
-    public View S(int i, View view2, ViewGroup viewGroup, yx5 yx5Var, ThreadCardViewHolder<yx5> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yx5Var, threadCardViewHolder})) == null) {
-            if (yx5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || yx5Var.a == null) {
-                return null;
+            this.b = null;
+            this.a = null;
+            if (this.f != null) {
+                qg.a().removeCallbacks(this.f);
             }
-            yx5Var.I(yx5Var.position + 1);
-            yx5Var.a.statFloor = yx5Var.n();
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.c().b(this.l);
-            threadCardViewHolder.g(yx5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.o);
-            fx5.b().a(yx5Var.B());
-            xi5.c().a(yx5Var.B());
-            sy6.h(yx5Var.a, this.i, yx5Var.n());
-            return threadCardViewHolder.b();
+            MessageManager.getInstance().unRegisterListener(this.g);
+            MessageManager.getInstance().unRegisterListener(this.h);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00c9  */
-    /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void f0(View view2, yx5 yx5Var) {
+    public void h(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048581, this, view2, yx5Var) != null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+            this.e = bdUniqueId;
+        }
+    }
+
+    public void i(PersonalizePageView personalizePageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, personalizePageView) == null) {
+            this.b = personalizePageView;
+        }
+    }
+
+    public void j(mu6 mu6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, mu6Var) == null) {
+            this.a = mu6Var;
+        }
+    }
+
+    public void k(qy6 qy6Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, qy6Var) == null) || this.b == null) {
             return;
         }
-        int id = view2.getId();
-        int i = 3;
-        if (view2.getId() == R.id.obfuscated_res_0x7f091f85 || id == R.id.obfuscated_res_0x7f091f99) {
-            TiebaStatic.log(yx5Var.A());
-            xi5.c().i("page_recommend", "clk_", yx5Var.A());
-            sy6.c(yx5Var.a, yx5Var.r(), yx5Var.n(), 1);
-        } else if (id != R.id.obfuscated_res_0x7f090c7b) {
-            if (id == R.id.obfuscated_res_0x7f090c76) {
-                StatisticItem statisticItem = new StatisticItem("c10760");
-                statisticItem.param("obj_locate", 2);
-                TiebaStatic.log(statisticItem);
-                i = 5;
-                sy6.c(yx5Var.a, yx5Var.r(), yx5Var.n(), 1);
-            } else {
-                if (id != R.id.obfuscated_res_0x7f090c79 && id != R.id.obfuscated_res_0x7f090c7a) {
-                    if (view2 instanceof TbImageView) {
-                        if (view2.getTag(R.id.obfuscated_res_0x7f090c77) instanceof Integer) {
-                            StatisticItem statisticItem2 = new StatisticItem("c10760");
-                            statisticItem2.param("obj_locate", 3);
-                            TiebaStatic.log(statisticItem2);
-                        }
-                        TiebaStatic.log(yx5Var.P());
-                        xi5.c().i("page_recommend", "clk_", yx5Var.P());
-                        sy6.c(yx5Var.a, yx5Var.r(), yx5Var.n(), 2);
-                    }
-                } else {
-                    StatisticItem statisticItem3 = new StatisticItem("c10760");
-                    statisticItem3.param("obj_locate", 1);
-                    TiebaStatic.log(statisticItem3);
-                }
-                i = 0;
-            }
-            if (i == 0) {
-                sy6.d(yx5Var.a, this.i, yx5Var.n(), i);
-                return;
-            }
-            return;
-        } else {
-            StatisticItem statisticItem4 = new StatisticItem("c10760");
-            statisticItem4.param("obj_locate", 4);
-            TiebaStatic.log(statisticItem4);
+        ConcernUnreadTipView concernUnreadTipView = new ConcernUnreadTipView(this.d.getContext());
+        this.c = concernUnreadTipView;
+        concernUnreadTipView.setBdUniqueId(this.e);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+        layoutParams.gravity = 49;
+        this.c.setLayoutParams(layoutParams);
+        this.c.setData(qy6Var);
+        this.c.setClickListener(new d(this));
+        this.b.setIsUnreadTipShow(true);
+        this.b.addView(this.c);
+        if (qy6Var != null) {
+            TiebaStatic.log(new StatisticItem("c12631").param("obj_param1", qy6Var.a).param(TiebaStatic.Params.OBJ_PARAM2, qy6Var.e));
         }
-        i = 1;
-        if (i == 0) {
-        }
-    }
-
-    @Override // com.repackage.zi5
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.l = str;
-        }
-    }
-
-    public void g0(ly6 ly6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ly6Var) == null) {
-            this.k = ly6Var;
-        }
-    }
-
-    public void h0(tn tnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tnVar) == null) {
-            this.n = tnVar;
-        }
-    }
-
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.m = z;
-        }
+        qg.a().postDelayed(this.f, 5000L);
     }
 }

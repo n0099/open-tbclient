@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j59;
+import com.repackage.i69;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable<LocalAlbumInfo> {
@@ -88,7 +88,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
                 return null;
             }
             try {
-                return new j59().a(list);
+                return new i69().a(list);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -105,7 +105,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
                 return null;
             }
             try {
-                return new j59().a(localAlbumInfo);
+                return new i69().a(localAlbumInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

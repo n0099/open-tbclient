@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xo7;
+import com.repackage.pp7;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
@@ -116,11 +116,11 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2921332, (Class) null);
-            setContentView(R.layout.obfuscated_res_0x7f0d04ca);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b18);
+            setContentView(R.layout.obfuscated_res_0x7f0d04e3);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091bb7);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a5e));
+            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a4b));
             try {
                 this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
             } catch (Exception e) {
@@ -166,10 +166,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         }
         int type = baseResp.getType();
         if (1 == type) {
-            xo7 xo7Var = new xo7();
-            xo7Var.a = this;
-            xo7Var.b = baseResp;
-            MessageManager.getInstance().runTask(2921351, null, xo7Var);
+            pp7 pp7Var = new pp7();
+            pp7Var.a = this;
+            pp7Var.b = baseResp;
+            MessageManager.getInstance().runTask(2921351, null, pp7Var);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {
             SendMessageToWX.Resp resp = (SendMessageToWX.Resp) baseResp;

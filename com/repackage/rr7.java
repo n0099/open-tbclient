@@ -1,125 +1,73 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Message;
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rr7 implements View.OnTouchListener {
+public class rr7 implements nn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public b d;
-    public long e;
-    public Handler f;
+    public BdUniqueId a;
+    public boolean b;
 
-    /* loaded from: classes7.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rr7 a;
-
-        public a(rr7 rr7Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755340646, "Lcom/repackage/rr7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rr7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = rr7Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i == 2) {
-                    this.a.a = 0;
-                    this.a.b = 0L;
-                    this.a.c = 0L;
-                } else if (i == 1 && this.a.a == 1) {
-                    if (this.a.d != null) {
-                        this.a.d.a();
-                    }
-                    this.a.a = 0;
-                    this.a.b = 0L;
-                    this.a.c = 0L;
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755340646, "Lcom/repackage/rr7;");
+                return;
             }
         }
+        c = BdUniqueId.gen();
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a();
-
-        void b();
-    }
-
-    public rr7(b bVar) {
+    public rr7(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0L;
-        this.c = 0L;
-        this.e = 500L;
-        this.f = new a(this);
-        this.d = bVar;
+        this.a = bdUniqueId;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                if (this.d == null) {
-                    return false;
-                }
-                int i = this.a + 1;
-                this.a = i;
-                if (i == 1) {
-                    this.b = System.currentTimeMillis();
-                    this.f.sendEmptyMessageDelayed(1, this.e);
-                } else if (i == 2) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    this.c = currentTimeMillis;
-                    if (currentTimeMillis - this.b < this.e) {
-                        this.d.b();
-                    }
-                    this.f.sendEmptyMessage(2);
-                }
-            }
-            return true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.b = z;
         }
-        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,67 +1,76 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
-import com.kwad.sdk.core.response.model.PhotoInfo;
+import com.baidu.android.imsdk.db.DBTableDefine;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ae implements com.kwad.sdk.core.d<PhotoInfo.BaseInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(PhotoInfo.BaseInfo baseInfo, JSONObject jSONObject) {
+public final class ae implements com.kwad.sdk.core.d<AdInfo.AdvertiserInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        baseInfo.photoId = jSONObject.optLong("photoId");
-        baseInfo.sdkExtraData = jSONObject.optString("sdkExtraData");
-        if (jSONObject.opt("sdkExtraData") == JSONObject.NULL) {
-            baseInfo.sdkExtraData = "";
+        advertiserInfo.userId = jSONObject.optLong("userId");
+        advertiserInfo.userName = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
+        if (jSONObject.opt(TbEnum.SystemMessage.KEY_USER_NAME) == JSONObject.NULL) {
+            advertiserInfo.userName = "";
         }
-        baseInfo.title = jSONObject.optString("title");
-        if (jSONObject.opt("title") == JSONObject.NULL) {
-            baseInfo.title = "";
+        advertiserInfo.rawUserName = jSONObject.optString("rawUserName");
+        if (jSONObject.opt("rawUserName") == JSONObject.NULL) {
+            advertiserInfo.rawUserName = "";
         }
-        baseInfo.shareUrl = jSONObject.optString("shareUrl");
-        if (jSONObject.opt("shareUrl") == JSONObject.NULL) {
-            baseInfo.shareUrl = "";
+        advertiserInfo.userGender = jSONObject.optString("userGender");
+        if (jSONObject.opt("userGender") == JSONObject.NULL) {
+            advertiserInfo.userGender = "";
         }
-        baseInfo.waterMarkPosition = jSONObject.optInt("waterMarkPosition", new Integer("1").intValue());
-        baseInfo.recoExt = jSONObject.optString("recoExt");
-        if (jSONObject.opt("recoExt") == JSONObject.NULL) {
-            baseInfo.recoExt = "";
+        advertiserInfo.portraitUrl = jSONObject.optString("portraitUrl");
+        if (jSONObject.opt("portraitUrl") == JSONObject.NULL) {
+            advertiserInfo.portraitUrl = "";
         }
-        baseInfo.likeCount = jSONObject.optLong("likeCount");
-        baseInfo.commentCount = jSONObject.optLong("commentCount");
-        baseInfo.viewCount = jSONObject.optLong("viewCount");
-        baseInfo.createTime = jSONObject.optLong(FileMetaUtil.CREATE_TIME);
-        baseInfo.videoDesc = jSONObject.optString("videoDesc");
-        if (jSONObject.opt("videoDesc") == JSONObject.NULL) {
-            baseInfo.videoDesc = "";
+        advertiserInfo.adAuthorText = jSONObject.optString("adAuthorText");
+        if (jSONObject.opt("adAuthorText") == JSONObject.NULL) {
+            advertiserInfo.adAuthorText = "";
         }
-        baseInfo.playTimes = jSONObject.optLong("playTimes");
-        baseInfo.videoUrlCacheTime = jSONObject.optLong("videoUrlCacheTime");
-        baseInfo.contentSourceType = jSONObject.optInt("contentSourceType");
+        advertiserInfo.authorIconGuide = jSONObject.optString("authorIconGuide");
+        if (jSONObject.opt("authorIconGuide") == JSONObject.NULL) {
+            advertiserInfo.authorIconGuide = "";
+        }
+        advertiserInfo.followed = jSONObject.optBoolean("followed");
+        advertiserInfo.fansCount = jSONObject.optInt("fansCount");
+        advertiserInfo.brief = jSONObject.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+        if (jSONObject.opt(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF) == JSONObject.NULL) {
+            advertiserInfo.brief = "";
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(PhotoInfo.BaseInfo baseInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "photoId", baseInfo.photoId);
-        com.kwad.sdk.utils.t.a(jSONObject, "sdkExtraData", baseInfo.sdkExtraData);
-        com.kwad.sdk.utils.t.a(jSONObject, "title", baseInfo.title);
-        com.kwad.sdk.utils.t.a(jSONObject, "shareUrl", baseInfo.shareUrl);
-        com.kwad.sdk.utils.t.a(jSONObject, "waterMarkPosition", baseInfo.waterMarkPosition);
-        com.kwad.sdk.utils.t.a(jSONObject, "recoExt", baseInfo.recoExt);
-        com.kwad.sdk.utils.t.a(jSONObject, "likeCount", baseInfo.likeCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "commentCount", baseInfo.commentCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "viewCount", baseInfo.viewCount);
-        com.kwad.sdk.utils.t.a(jSONObject, FileMetaUtil.CREATE_TIME, baseInfo.createTime);
-        com.kwad.sdk.utils.t.a(jSONObject, "videoDesc", baseInfo.videoDesc);
-        com.kwad.sdk.utils.t.a(jSONObject, "playTimes", baseInfo.playTimes);
-        com.kwad.sdk.utils.t.a(jSONObject, "videoUrlCacheTime", baseInfo.videoUrlCacheTime);
-        com.kwad.sdk.utils.t.a(jSONObject, "contentSourceType", baseInfo.contentSourceType);
+        com.kwad.sdk.utils.r.a(jSONObject, "userId", advertiserInfo.userId);
+        com.kwad.sdk.utils.r.a(jSONObject, TbEnum.SystemMessage.KEY_USER_NAME, advertiserInfo.userName);
+        com.kwad.sdk.utils.r.a(jSONObject, "rawUserName", advertiserInfo.rawUserName);
+        com.kwad.sdk.utils.r.a(jSONObject, "userGender", advertiserInfo.userGender);
+        com.kwad.sdk.utils.r.a(jSONObject, "portraitUrl", advertiserInfo.portraitUrl);
+        com.kwad.sdk.utils.r.a(jSONObject, "adAuthorText", advertiserInfo.adAuthorText);
+        com.kwad.sdk.utils.r.a(jSONObject, "authorIconGuide", advertiserInfo.authorIconGuide);
+        com.kwad.sdk.utils.r.a(jSONObject, "followed", advertiserInfo.followed);
+        com.kwad.sdk.utils.r.a(jSONObject, "fansCount", advertiserInfo.fansCount);
+        com.kwad.sdk.utils.r.a(jSONObject, DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, advertiserInfo.brief);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {
+        a2(advertiserInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {
+        return b2(advertiserInfo, jSONObject);
     }
 }

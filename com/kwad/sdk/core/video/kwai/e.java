@@ -1,27 +1,58 @@
 package com.kwad.sdk.core.video.kwai;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.utils.AbiUtil;
-import com.kwai.sodler.lib.ext.PluginError;
-import com.kwai.sodler.lib.ext.b;
-import com.kwai.sodler.lib.g;
-import com.kwai.sodler.lib.h;
-import com.kwai.video.ksvodplayerkit.KSVodPlayerCoreInitConfig;
+import androidx.annotation.NonNull;
+import com.kwad.sdk.core.report.m;
+import com.kwad.sdk.service.ServiceProvider;
+import com.kwad.sdk.utils.ah;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class e {
-    public static final AtomicBoolean a = new AtomicBoolean(false);
+public final class e {
     public static AtomicBoolean b;
+    public static final AtomicBoolean a = new AtomicBoolean(false);
+    public static int c = -1;
+    public static boolean d = false;
 
-    public static void a(Context context) {
-        com.kwad.sdk.core.d.a.a("kp init");
-        KSVodPlayerCoreInitConfig.updatePlayerConfig(com.kwad.sdk.core.config.b.g());
-        if (!b()) {
-            d(context);
+    /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: com.kwad.sdk.core.video.kwai.d */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static c a(@NonNull Context context, boolean z, boolean z2, boolean z3) {
+        boolean z4;
+        b bVar;
+        b bVar2;
+        try {
+            if (b() && z2 && a()) {
+                com.kwad.sdk.core.d.b.c("MediaPlayerImpl", "constructPlayer KwaiMediaPlayer");
+                d dVar = new d(context);
+                dVar.b(z);
+                bVar2 = dVar;
+            } else {
+                com.kwad.sdk.core.d.b.c("MediaPlayerImpl", "constructPlayer AndroidMediaPlayer");
+                bVar2 = new b();
+            }
+            z4 = false;
+            bVar = bVar2;
+        } catch (Throwable th) {
+            com.kwad.sdk.core.d.b.a("MediaPlayerImpl", "constructPlayer exception, using AndroidMediaPlayer", th);
+            if (!d) {
+                d = true;
+                com.kwad.sdk.service.a.a(th);
+            }
+            z4 = true;
+            bVar = new b();
         }
-        c(context);
+        int a2 = ah.a(b(), ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).d(), z2, a(), z4, z3, bVar.l());
+        com.kwad.sdk.core.d.b.a("player v=" + Integer.toBinaryString(a2));
+        if (c != a2) {
+            c = a2;
+            a(a2);
+        }
+        return bVar;
+    }
+
+    public static void a(int i) {
+        m mVar = new m(10212L);
+        mVar.aj = i;
+        com.kwad.sdk.core.report.e.a2(mVar);
     }
 
     public static boolean a() {
@@ -35,74 +66,10 @@ public class e {
     }
 
     public static boolean b() {
-        return a.get() || KsAdSDKImpl.get().getIsExternal() || com.kwad.sdk.b.e.booleanValue();
-    }
-
-    public static void c(Context context) {
-        try {
-            d.a(context);
-        } catch (Throwable th) {
-            com.kwad.sdk.core.d.a.b(th);
+        com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class);
+        if (a.get()) {
+            return true;
         }
-    }
-
-    public static void d(final Context context) {
-        String v;
-        String str;
-        if (AbiUtil.b()) {
-            v = com.kwad.sdk.core.config.b.w();
-            if (TextUtils.isEmpty(v)) {
-                v = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/so/ks_so-kwaiPlayerArm64v8aRelease-3.3.20.apk";
-            }
-            str = "kwaiplayer-v8a";
-        } else {
-            v = com.kwad.sdk.core.config.b.v();
-            if (TextUtils.isEmpty(v)) {
-                v = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/so/ks_so-kwaiPlayerArmeabiv7aRelease-3.3.20.apk";
-            }
-            str = "kwaiplayer-v7a";
-        }
-        com.kwai.sodler.kwai.b.a(context);
-        com.kwai.sodler.lib.a.b bVar = new com.kwai.sodler.lib.a.b();
-        bVar.c = v;
-        bVar.e = true;
-        bVar.a = str;
-        bVar.b = "3.4";
-        bVar.g = true;
-        com.kwai.sodler.kwai.b.a(str, bVar, new b.a() { // from class: com.kwad.sdk.core.video.kwai.e.1
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
-            public void a(h hVar) {
-                super.a(hVar);
-                e.a.set(false);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
-            public void a(h hVar, PluginError pluginError) {
-                e.a.set(false);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
-            public void a(h hVar, g gVar) {
-                e.a.set(true);
-                e.c(context);
-                e.e();
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
-            public void b(h hVar) {
-                super.b(hVar);
-            }
-        });
-    }
-
-    public static void e() {
+        return (dVar != null && dVar.d()) || com.kwad.b.kwai.a.c.booleanValue();
     }
 }

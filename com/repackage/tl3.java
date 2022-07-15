@@ -1,159 +1,27 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class tl3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String b;
+    public static volatile sl3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Response a;
-        public final /* synthetic */ String b;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                if (tl3.a) {
-                    Log.d("SwanAppExchanger", "startLaunchAction onSuccess result: " + str);
-                    Log.d("SwanAppExchanger", "startLaunchAction onSuccess status: " + i);
-                }
-                if (i != 200) {
-                    String f = tl3.f(this.a);
-                    if (!TextUtils.isEmpty(f)) {
-                        ul3.a(f);
-                        return;
-                    }
-                    tl3.d("get launch scheme fail: request fail with code " + i, this.b, str, true);
-                    return;
-                }
-                try {
-                    ul3.a(new JSONObject(str).optString("data"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    tl3.d("get launch scheme fail: " + e.getMessage(), this.b, str, false);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                tl3.d("get launch scheme fail: network err with exception: " + exc.getMessage(), this.b, "", true);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.StringResponseCallback, com.baidu.searchbox.http.callback.ResponseCallback
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                this.a = response;
-                return super.parseResponse(response, i);
-            }
-            return (String) invokeLI.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755286954, "Lcom/repackage/tl3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755286954, "Lcom/repackage/tl3;");
-                return;
-            }
-        }
-        a = cg1.a;
-        b = SchemeConfig.getSchemeHead() + "://";
-    }
-
-    public static void d(String str, String str2, String str3, boolean z) {
+    public static synchronized sl3 a() {
+        InterceptResult invokeV;
+        sl3 sl3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
-            if (z) {
-                kz2.g(AppRuntime.getAppContext(), "打开失败，请检查网络设置").G();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (tl3.class) {
+                if (a == null) {
+                    a = new sl3();
+                }
+                sl3Var = a;
             }
-            lb3 lb3Var = new lb3();
-            lb3Var.k(1L);
-            lb3Var.i(12L);
-            lb3Var.f(str);
-            pb3.a().f(lb3Var);
-            if (a) {
-                Log.w("SwanAppExchanger", "open aiapp fail, url : " + str2);
-            }
+            return sl3Var;
         }
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(rb3.a()).url(str).build().executeAsyncOnUIBack(new a(str));
-        }
-    }
-
-    public static String f(Response response) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, response)) == null) {
-            if (response == null) {
-                return null;
-            }
-            String header = response.header(Headers.LOCATION);
-            if (!TextUtils.isEmpty(header) && header.startsWith("baiduboxapp://")) {
-                return header.replace("baiduboxapp://", b);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (sl3) invokeV.objValue;
     }
 }

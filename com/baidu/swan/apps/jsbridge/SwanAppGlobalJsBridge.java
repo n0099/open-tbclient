@@ -16,21 +16,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ak2;
-import com.repackage.ht2;
-import com.repackage.it2;
-import com.repackage.md3;
-import com.repackage.p92;
-import com.repackage.q92;
-import com.repackage.qy1;
-import com.repackage.sw1;
-import com.repackage.wk2;
-import com.repackage.z12;
+import com.repackage.be3;
+import com.repackage.ea2;
+import com.repackage.fa2;
+import com.repackage.fz1;
+import com.repackage.hx1;
+import com.repackage.ll2;
+import com.repackage.o22;
+import com.repackage.pk2;
+import com.repackage.wt2;
+import com.repackage.xt2;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 @Keep
 /* loaded from: classes2.dex */
-public class SwanAppGlobalJsBridge extends ak2 {
+public class SwanAppGlobalJsBridge extends pk2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_jsbridge";
     public static final String TAG = "SwanAppGlobalJsBridge";
@@ -71,7 +71,7 @@ public class SwanAppGlobalJsBridge extends ak2 {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends q92 {
+    public class b extends fa2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String c;
@@ -99,7 +99,7 @@ public class SwanAppGlobalJsBridge extends ak2 {
             this.c = str2;
         }
 
-        @Override // com.repackage.q92
+        @Override // com.repackage.fa2
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -110,7 +110,7 @@ public class SwanAppGlobalJsBridge extends ak2 {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements ht2 {
+    public class c implements wt2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppGlobalJsBridge a;
@@ -148,7 +148,7 @@ public class SwanAppGlobalJsBridge extends ak2 {
                         SwanAppGlobalJsBridge swanAppGlobalJsBridge = this.a.a;
                         swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), (String) it.next());
                     }
-                    if (wk2.a) {
+                    if (ll2.a) {
                         Log.d("SwanPerformance", "pending api count = " + this.a.a.mPendingSchemeList.size());
                     }
                     this.a.a.mPendingSchemeList.clear();
@@ -174,43 +174,43 @@ public class SwanAppGlobalJsBridge extends ak2 {
             this.a = swanAppGlobalJsBridge;
         }
 
-        @Override // com.repackage.ht2
+        @Override // com.repackage.wt2
         public void a() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.mPendingSchemeList.isEmpty()) {
                 return;
             }
-            md3.a0(new a(this));
+            be3.a0(new a(this));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppGlobalJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, qy1 qy1Var) {
-        super(context, unitedSchemeMainDispatcher, callbackHandler, qy1Var);
+    public SwanAppGlobalJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, fz1 fz1Var) {
+        super(context, unitedSchemeMainDispatcher, callbackHandler, fz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, qy1Var};
+            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, fz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (UnitedSchemeMainDispatcher) objArr2[1], (CallbackHandler) objArr2[2], (qy1) objArr2[3]);
+                super((Context) objArr2[0], (UnitedSchemeMainDispatcher) objArr2[1], (CallbackHandler) objArr2[2], (fz1) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mPendingSchemeList = new CopyOnWriteArrayList<>();
-        md3.e0(new a(this));
+        be3.e0(new a(this));
     }
 
     private void dispatchOnUiThread(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
-            p92.b().c(new b(this, str, str), null);
+            ea2.b().c(new b(this, str, str), null);
         }
     }
 
@@ -225,7 +225,7 @@ public class SwanAppGlobalJsBridge extends ak2 {
             UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(str2));
             unitedSchemeEntity.setReferUrl(this.mCallbackHandler.getCurrentPageUrl());
             unitedSchemeEntity.setPageUrl(str);
-            if (ak2.DEBUG) {
+            if (pk2.DEBUG) {
                 Log.d(TAG, "doSchemeDispatch scheme: " + str2 + " mCallbackHandler: " + this.mCallbackHandler);
             }
             SchemeTimeCostMoniter.getInstance().schemeStart(str2);
@@ -240,7 +240,7 @@ public class SwanAppGlobalJsBridge extends ak2 {
     public void registerLaunchTrigger() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            it2.c().d(new c(this));
+            xt2.c().d(new c(this));
         }
     }
 
@@ -249,11 +249,11 @@ public class SwanAppGlobalJsBridge extends ak2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            sw1.i(TAG, "dispatch: scheme " + str);
-            if (z12.a(this.mJsContainer, str)) {
+            hx1.i(TAG, "dispatch: scheme " + str);
+            if (o22.a(this.mJsContainer, str)) {
                 return false;
             }
-            if (it2.c().b(str)) {
+            if (xt2.c().b(str)) {
                 this.mPendingSchemeList.add(str);
                 return true;
             }

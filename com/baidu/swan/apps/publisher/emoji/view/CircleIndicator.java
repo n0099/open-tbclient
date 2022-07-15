@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ex2;
+import com.repackage.tx2;
 /* loaded from: classes2.dex */
 public class CircleIndicator extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -61,7 +61,7 @@ public class CircleIndicator extends View {
         public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                ex2.g(this.a.getContext().getApplicationContext()).k();
+                tx2.g(this.a.getContext().getApplicationContext()).k();
             }
         }
 
@@ -146,8 +146,8 @@ public class CircleIndicator extends View {
             Paint paint = new Paint();
             this.h = paint;
             paint.setAntiAlias(true);
-            this.k = getResources().getColor(R.color.obfuscated_res_0x7f060a87);
-            this.l = getResources().getColor(R.color.obfuscated_res_0x7f060a88);
+            this.k = getResources().getColor(R.color.obfuscated_res_0x7f060a7e);
+            this.l = getResources().getColor(R.color.obfuscated_res_0x7f060a7f);
             this.c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070108);
         }
     }

@@ -40,7 +40,7 @@ public final class ho {
     public static final ho a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ho[] f481a;
+    public static final /* synthetic */ ho[] f1208a;
     public static final ho aA;
     public static final ho aB;
     public static final ho aC;
@@ -143,7 +143,7 @@ public final class ho {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f482a;
+    public final int f1209a;
 
     static {
         InterceptResult invokeClinit;
@@ -285,7 +285,7 @@ public final class ho {
         bu = new ho("CollectionPluginMd5", 124, 1003);
         ho hoVar = new ho("CollectionPluginForceStop", 125, 1004);
         bv = hoVar;
-        f481a = new ho[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP, aQ, aR, aS, aT, aU, aV, aW, aX, aY, aZ, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, bo, bp, bq, br, bs, bt, bu, hoVar};
+        f1208a = new ho[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP, aQ, aR, aS, aT, aU, aV, aW, aX, aY, aZ, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, bo, bp, bq, br, bs, bt, bu, hoVar};
     }
 
     public ho(String str, int i2, int i3) {
@@ -306,7 +306,7 @@ public final class ho {
                 return;
             }
         }
-        this.f482a = i3;
+        this.f1209a = i3;
     }
 
     public static ho valueOf(String str) {
@@ -318,12 +318,12 @@ public final class ho {
     public static ho[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ho[]) f481a.clone() : (ho[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ho[]) f1208a.clone() : (ho[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f482a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1209a : invokeV.intValue;
     }
 }

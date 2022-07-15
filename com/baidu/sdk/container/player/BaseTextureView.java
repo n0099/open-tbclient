@@ -13,27 +13,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yc1;
-import com.repackage.zc1;
+import com.repackage.nd1;
+import com.repackage.od1;
 @TargetApi(14)
 /* loaded from: classes2.dex */
-public class BaseTextureView extends TextureView implements TextureView.SurfaceTextureListener, yc1 {
+public class BaseTextureView extends TextureView implements TextureView.SurfaceTextureListener, nd1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public int c;
-    public zc1 d;
+    public od1 d;
     public SurfaceTexture e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseTextureView(Context context, zc1 zc1Var) {
+    public BaseTextureView(Context context, od1 od1Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, zc1Var};
+            Object[] objArr = {context, od1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,7 +45,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
             }
         }
         this.a = 1;
-        this.d = zc1Var;
+        this.d = od1Var;
         setSurfaceTextureListener(this);
     }
 
@@ -119,12 +119,12 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        zc1 zc1Var;
+        od1 od1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i, i2) == null) || (zc1Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i, i2) == null) || (od1Var = this.d) == null) {
             return;
         }
-        zc1Var.b(new Surface(surfaceTexture));
+        od1Var.b(new Surface(surfaceTexture));
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
@@ -132,9 +132,9 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, surfaceTexture)) == null) {
-            zc1 zc1Var = this.d;
-            if (zc1Var != null) {
-                zc1Var.a();
+            od1 od1Var = this.d;
+            if (od1Var != null) {
+                od1Var.a();
             }
             this.e = surfaceTexture;
             return false;
@@ -156,7 +156,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
         }
     }
 
-    @Override // com.repackage.yc1
+    @Override // com.repackage.nd1
     public void onVideoSizeChanged(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
@@ -169,7 +169,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
         }
     }
 
-    @Override // com.repackage.yc1
+    @Override // com.repackage.nd1
     public void setDisplayMode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {

@@ -2,19 +2,19 @@ package com.kwad.sdk.core.webview.kwai;
 
 import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
-public class d implements a {
+public final class d implements a {
     @Override // com.kwad.sdk.core.webview.kwai.a
     @NonNull
-    public String a() {
+    public final String a() {
         return "";
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public void a(String str, @NonNull c cVar) {
+    public final void a(String str, @NonNull c cVar) {
         cVar.a(-1, "DefaultHandler response data");
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public void b() {
+    public final void b() {
     }
 }

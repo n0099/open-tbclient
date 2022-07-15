@@ -1,74 +1,60 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdDislike;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 /* loaded from: classes6.dex */
-public class jd9 implements TTAdDislike.DislikeInteractionCallback {
+public class jd9 implements AdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ View a;
-    public final /* synthetic */ FunAdInteractionListener b;
-    public final /* synthetic */ String c;
-    public final /* synthetic */ hd9 d;
 
-    public jd9(hd9 hd9Var, View view2, FunAdInteractionListener funAdInteractionListener, String str) {
+    public jd9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hd9Var, view2, funAdInteractionListener, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = hd9Var;
-        this.a = view2;
-        this.b = funAdInteractionListener;
-        this.c = str;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onCancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.e("CSJNativeExpressAd dislike callback onCancel", new Object[0]);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onSelected(int i, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            LogPrinter.e("CSJNativeExpressAd dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
-            View view2 = this.a;
-            if (view2 != null && view2.getParent() != null) {
-                ((ViewGroup) this.a.getParent()).removeView(this.a);
-            }
-            this.d.onAdClose();
-            FunAdInteractionListener funAdInteractionListener = this.b;
-            if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(this.c);
             }
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onShow() {
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public void destroy(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public RippedAd getRippedAd(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            return null;
+        }
+        return (RippedAd) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public void preParseRippedAd(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public void report(Object obj, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{obj, str, Long.valueOf(j)}) == null) {
         }
     }
 }

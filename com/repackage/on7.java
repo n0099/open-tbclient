@@ -1,9 +1,7 @@
 package com.repackage;
+
+import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
 /* loaded from: classes6.dex */
-public interface on7<E> {
-    void L0();
-
-    void onFail();
-
-    void onSuccess(E e);
+public interface on7 {
+    void a(GetCloudFaceGroupMessage getCloudFaceGroupMessage);
 }

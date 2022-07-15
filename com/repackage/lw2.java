@@ -1,20 +1,97 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.os.Message;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class lw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean d;
+    public static volatile lw2 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<String, mw2<kw2>> a;
+    public ConcurrentHashMap<String, Runnable> b;
+    public a c;
+
+    /* loaded from: classes6.dex */
+    public static class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<lw2> a;
+        public String b;
+
+        public b(lw2 lw2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lw2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(lw2Var);
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            lw2 lw2Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (lw2Var = this.a.get()) == null) {
+                return;
+            }
+            if (lw2.d) {
+                Log.d("MDelegate-Observe", "run: observer timeout " + this.b);
+            }
+            kw2 kw2Var = new kw2(this.b);
+            kw2Var.setResult(null);
+            lw2Var.c(kw2Var);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,99 +106,153 @@ public class lw2 {
                 return;
             }
         }
-        a = cg1.a;
+        d = rg1.a;
     }
 
-    public static void a(Message message) {
-        Bundle bundle;
+    public lw2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
-            if (a) {
-                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            int i = message.arg1;
-            Bundle bundle2 = (Bundle) message.obj;
-            String str = "";
-            String str2 = null;
-            if (bundle2 != null) {
-                str2 = bundle2.getString("ai_apps_delegation_name", null);
-                str = bundle2.getString("ai_apps_observer_id", "");
-                bundle = bundle2.getBundle("ai_apps_data");
-            } else {
-                bundle = null;
-            }
-            tv2.a(i, str2, str, bundle);
         }
+        this.a = new ConcurrentHashMap<>();
+        this.b = new ConcurrentHashMap<>();
+        this.c = new a(Looper.getMainLooper());
     }
 
-    public static void b(Message message) {
-        Bundle bundle;
+    public static lw2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
-            Bundle bundle2 = (Bundle) message.obj;
-            String str = "";
-            String str2 = null;
-            if (bundle2 != null) {
-                str2 = bundle2.getString("ai_apps_delegation_name", null);
-                str = bundle2.getString("ai_apps_observer_id", "");
-                bundle = bundle2.getBundle("ai_apps_data");
-            } else {
-                bundle = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (e == null) {
+                synchronized (lw2.class) {
+                    if (e == null) {
+                        e = new lw2();
+                    }
+                }
             }
-            tv2.a(-1000, str2, str, bundle);
+            return e;
         }
+        return (lw2) invokeV.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void c(Message message) {
+    public void c(@NonNull kw2 kw2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
-            Object obj = message.obj;
-            if (!(obj instanceof Bundle)) {
-                if (a) {
-                    throw new RuntimeException("delegation msg obj is not a bundle");
+        if (interceptable == null || interceptable.invokeL(1048576, this, kw2Var) == null) {
+            mw2<kw2> mw2Var = this.a.get(kw2Var.b());
+            if (mw2Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "notify a null observer");
+                    return;
                 }
                 return;
             }
-            Bundle bundle = (Bundle) obj;
-            vv2 vv2Var = new vv2(bundle.getString("key_observer_id", ""));
-            vv2Var.setResult(bundle.getBundle("key_result_data"));
-            wv2.b().c(vv2Var);
+            String b2 = mw2Var.b();
+            if (d) {
+                Log.d("MDelegate-Observe", "notify observer: " + b2);
+            }
+            mw2Var.onEvent(kw2Var);
+            if (this.b.containsKey(b2)) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "remove observer: " + b2 + " timeout runnable");
+                }
+                this.c.removeCallbacks(this.b.get(b2));
+                this.b.remove(b2);
+            }
+            if (mw2Var.c()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "auto unregister disposable observer: " + b2);
+                }
+                f(mw2Var);
+            }
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void d(Message message) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
-            Object obj = message.obj;
-            if (!(obj instanceof Bundle)) {
-                if (a) {
-                    throw new RuntimeException("delegation msg obj is not a bundle");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (d) {
+                Log.d("MDelegate-Observe", "release observable");
+            }
+            if (e == null) {
+                return;
+            }
+            this.a.clear();
+            for (Map.Entry<String, Runnable> entry : this.b.entrySet()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "remove observer: " + entry.getKey() + " timeout runnable");
+                }
+                this.c.removeCallbacks(entry.getValue());
+            }
+            this.b.clear();
+            e = null;
+        }
+    }
+
+    public void e(mw2<kw2> mw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mw2Var) == null) {
+            if (mw2Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "register a null observer");
+                    return;
                 }
                 return;
             }
-            Bundle bundle = (Bundle) obj;
-            vv2 vv2Var = new vv2(bundle.getString("key_observer_id", ""));
-            vv2Var.setResult(bundle.getBundle("key_result_data"));
-            wv2.b().c(vv2Var);
+            String b2 = mw2Var.b();
+            if (this.a.containsKey(b2)) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "multiple register observer：" + b2);
+                    return;
+                }
+                return;
+            }
+            if (d) {
+                Log.d("MDelegate-Observe", "register observer: " + b2);
+            }
+            this.a.put(b2, mw2Var);
+            long a2 = mw2Var.a();
+            if (a2 <= 0 || !mw2Var.c()) {
+                return;
+            }
+            if (d) {
+                Log.d("MDelegate-Observe", "post observer: " + b2 + " " + a2 + "ms timeout runnable");
+            }
+            b bVar = new b(this, b2);
+            this.b.put(b2, bVar);
+            this.c.postDelayed(bVar, a2);
         }
     }
 
-    public static void e(int i, Bundle bundle) {
+    public void f(mw2<kw2> mw2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
-            iw2 e = iw2.e();
-            kw2 kw2Var = new kw2(126, bundle);
-            kw2Var.a(i);
-            e.h(kw2Var);
-        }
-    }
-
-    public static void f(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
-            iw2.e().h(new kw2(21, bundle));
+        if (interceptable == null || interceptable.invokeL(1048579, this, mw2Var) == null) {
+            if (mw2Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "unregister a null observer");
+                    return;
+                }
+                return;
+            }
+            String b2 = mw2Var.b();
+            if (!this.a.containsKey(b2)) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "unregister a nonexistent observer");
+                    return;
+                }
+                return;
+            }
+            if (d) {
+                Log.d("MDelegate-Observe", "unregister observer: " + b2);
+            }
+            this.a.remove(b2);
         }
     }
 }

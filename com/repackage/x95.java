@@ -1,162 +1,110 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.annotation.TargetApi;
+import android.view.Choreographer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.by;
-import com.repackage.my;
+@TargetApi(16)
 /* loaded from: classes7.dex */
-public class x95 extends q95<bq4, ThreadCardViewHolder<bq4>> {
+public class x95 implements Choreographer.FrameCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mx5<bq4> o;
+    public long a;
+    public long b;
+    public long c;
+    public int d;
+    public int e;
+    public boolean f;
 
-    /* loaded from: classes7.dex */
-    public class a extends mx5<bq4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x95 b;
-
-        public a(x95 x95Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x95Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = x95Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mx5
-        /* renamed from: d */
-        public void a(View view2, bq4 bq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bq4Var) == null) {
-                this.b.b0(view2, bq4Var);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements xn {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x95 a;
-
-        public b(x95 x95Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x95Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x95Var;
-        }
-
-        @Override // com.repackage.xn
-        public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof bq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                bq4 bq4Var = (bq4) nnVar;
-                bq4Var.objType = 1;
-                if (this.a.o != null) {
-                    this.a.o.a(threadCardViewHolder.b(), bq4Var);
-                }
-                ThreadCardUtils.jumpToPB((ym4) bq4Var, view2.getContext(), this.a.h0(), false);
-                threadCardViewHolder.c().o(new my.a(1));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x95(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_ENTER_FORUM);
+    public x95() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = new a(this);
+        this.a = 0L;
+        this.d = 0;
+        this.e = -1;
+        this.f = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: t0 */
-    public ThreadCardViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            by.b bVar = new by.b(this.k.getPageActivity(), false);
-            bVar.h(new ax(this.k.getPageActivity()));
-            by k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.l);
-            k.r(h0());
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.k(this.e);
-            V(new b(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: u0 */
-    public View S(int i, View view2, ViewGroup viewGroup, bq4 bq4Var, ThreadCardViewHolder<bq4> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bq4Var, threadCardViewHolder})) == null) {
-            if (bq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = bq4Var.s) == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = this.c;
+            if (j2 <= 0) {
+                return;
             }
-            threadData.statFloor = B(i) + 1;
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(bq4Var);
-            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.o);
-            return threadCardViewHolder.b();
+            long j3 = j - j2;
+            if (j3 <= 0 || this.e > 0) {
+                return;
+            }
+            this.e = (int) (60 - ((this.d * 1000) / j3));
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.c = currentTimeMillis;
+            this.b = currentTimeMillis + 1000;
+            this.a = 0L;
+            this.d = 0;
+            this.e = -1;
+            this.f = false;
+            Choreographer.getInstance().postFrameCallback(this);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f = true;
+            Choreographer.getInstance().removeFrameCallback(this);
+            a(System.currentTimeMillis());
+            this.d = 0;
+            this.c = 0L;
+        }
+    }
+
+    @Override // android.view.Choreographer.FrameCallback
+    public void doFrame(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            long j2 = this.a;
+            if (j2 != 0) {
+                long j3 = (j - j2) / 1000000;
+                if (j3 > 16 && j3 < 960) {
+                    this.d = (int) (this.d + (j3 / 16));
+                }
+            }
+            this.a = j;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis < this.b && !this.f) {
+                Choreographer.getInstance().postFrameCallback(this);
+                return;
+            }
+            a(currentTimeMillis);
+            this.d = 0;
+            this.c = 0L;
+        }
     }
 }

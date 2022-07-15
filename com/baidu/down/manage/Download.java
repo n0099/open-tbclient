@@ -17,7 +17,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class Download {
     public static /* synthetic */ Interceptable $ic;
     public static final DecimalFormat DFOEMAT;

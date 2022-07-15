@@ -1,23 +1,14 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pj1;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class og3 implements pj1 {
+public class og3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,78 +26,15 @@ public class og3 implements pj1 {
         }
     }
 
-    @Override // com.repackage.pj1
-    public void a(pj1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar.onFinish();
-        }
-    }
-
-    @Override // com.repackage.pj1
-    public void b(Activity activity, Bundle bundle, eg1 eg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, eg1Var) == null) {
-            sf3.M(activity, false, bundle, eg1Var);
-        }
-    }
-
-    @Override // com.repackage.pj1
-    public void c(gg1 gg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gg1Var) == null) {
-            sf3.c(gg1Var);
-        }
-    }
-
-    @Override // com.repackage.pj1
-    public String d(@NonNull Context context) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? sf3.i(context) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.pj1
-    public boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? sf3.F(context) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.pj1
-    public String f(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? sf3.l(context) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.pj1
-    public void g(pj1.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            cVar.a(true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putString("result", hg3.x(getAgent().getContext()));
+            return bundle2;
         }
-    }
-
-    @Override // com.repackage.pj1
-    public String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? sf3.y(context) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.pj1
-    public String i(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? sf3.l(context) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.pj1
-    public void j(eg1 eg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, eg1Var) == null) {
-            new nh3().h(eg1Var);
-        }
+        return (Bundle) invokeL.objValue;
     }
 }

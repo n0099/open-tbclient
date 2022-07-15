@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ht4;
-import com.repackage.q85;
-import com.repackage.sr4;
+import com.repackage.hs4;
+import com.repackage.s95;
+import com.repackage.xt4;
 /* loaded from: classes2.dex */
 public class InitCmdRouterAndStaticTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -35,8 +35,8 @@ public class InitCmdRouterAndStaticTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            sr4.a();
-            q85.b().u(System.currentTimeMillis() - currentTimeMillis);
+            hs4.a();
+            s95.b().u(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -44,7 +44,7 @@ public class InitCmdRouterAndStaticTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (ht4.k().l("static_opt_open", 0) > 0) {
+            if (xt4.k().l("static_opt_open", 0) > 0) {
                 CmdRouter.init(TbadkCoreApplication.getInst());
             }
             initTasks();

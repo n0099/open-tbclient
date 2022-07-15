@@ -1,45 +1,69 @@
 package com.repackage;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xu9;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 /* loaded from: classes6.dex */
-public abstract class pz9<T, R> extends xu9<R> implements yu9<T> {
+public final class pz9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final pz9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pz9(xu9.a<R> aVar) {
-        super(aVar);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755392478, "Lcom/repackage/pz9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755392478, "Lcom/repackage/pz9;");
+                return;
+            }
+        }
+        a = new pz9();
+    }
+
+    public pz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((xu9.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final oz9<T, R> C() {
-        InterceptResult invokeV;
+    @TargetApi(17)
+    public final boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (getClass() == oz9.class) {
-                return (oz9) this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (context != null && (context instanceof Activity)) {
+                Activity activity = (Activity) context;
+                if (!activity.isFinishing()) {
+                    return Build.VERSION.SDK_INT < 17 || !activity.isDestroyed();
+                }
+                RLog.warn("ViewUtils", "activity is finishing");
+                return false;
             }
-            return new oz9<>(this);
+            RLog.warn("ViewUtils", "mContext is null or not activity");
+            return false;
         }
-        return (oz9) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

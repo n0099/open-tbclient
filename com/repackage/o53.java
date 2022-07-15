@@ -1,52 +1,81 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class o53 {
+public class o53 extends s53<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context m;
 
-    public static void a(JSONObject jSONObject, @Nullable String str) {
+    public o53(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, jSONObject, str) == null) {
-            r53.l(true, str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("stability_config");
-            if (optJSONObject == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            sw1.b("SwanAppStabilityConfig", "stabilityConfigJo=" + optJSONObject);
-            r53.n(str, optJSONObject.optInt("_SwanStartupStability_"));
-            r53.k(str, optJSONObject.optInt("obtain_interval_ms", 500));
-            int optInt = optJSONObject.optInt("auto_obtain_data_len", 0);
-            if (optInt > 0) {
-                r53.i(str, true);
-                r53.j(str, optInt);
+        }
+        this.m = context;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.e53
+    /* renamed from: P */
+    public JSONObject m(JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? f53.c(jSONObject) : (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.repackage.e53
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            h03 M = h03.M();
+            if (M != null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("ma_id", M.O());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                v("data", jSONObject.toString());
+                return true;
             }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public static void b(@Nullable String str) {
+    @Override // com.repackage.s53
+    public HttpRequest w(s53 s53Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            r53.m(true, str);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, s53Var)) == null) ? oj2.o().M(this.m, s53Var.B()) : (HttpRequest) invokeL.objValue;
     }
 
-    public static void c(JSONObject jSONObject, @Nullable String str) {
+    @Override // com.repackage.s53
+    public SwanInterfaceType z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, jSONObject, str) == null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("performance_type");
-        if (TextUtils.equals(optString, CloudStabilityUBCUtils.VALUE_TYPE)) {
-            a(jSONObject, str);
-        } else if (TextUtils.equals(optString, "stabilityProfile")) {
-            b(str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SwanInterfaceType.OPEN_ID : (SwanInterfaceType) invokeV.objValue;
     }
 }

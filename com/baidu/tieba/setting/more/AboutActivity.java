@@ -21,30 +21,30 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ac7;
 import com.repackage.c9;
-import com.repackage.cl4;
-import com.repackage.ht4;
-import com.repackage.ib7;
-import com.repackage.lb8;
-import com.repackage.ob8;
-import com.repackage.tb8;
-import com.repackage.ub8;
-import com.repackage.zx4;
+import com.repackage.gc8;
+import com.repackage.jc8;
+import com.repackage.oc8;
+import com.repackage.pc8;
+import com.repackage.rl4;
+import com.repackage.xt4;
+import com.repackage.xy4;
 import java.util.Date;
 /* loaded from: classes4.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lb8 a;
+    public gc8 a;
     public AboutModel b;
     public c c;
     public String d;
-    public tb8 e;
-    public ub8 f;
+    public oc8 e;
+    public pc8 f;
     public int g;
 
     /* loaded from: classes4.dex */
-    public class a implements ob8 {
+    public class a implements jc8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -67,7 +67,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.repackage.ob8
+        @Override // com.repackage.jc8
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -80,13 +80,13 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 2) {
                     this.a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i == 3) {
-                    ht4.k().u(SettingTextFunctionIntroView.h, true);
-                    cl4.s(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0779), this.a.d, true, false, false);
+                    xt4.k().u(SettingTextFunctionIntroView.h, true);
+                    rl4.s(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0783), this.a.d, true, false, false);
                 } else if (i != 4) {
                     if (i == 5) {
                         if (this.a.e == null) {
                             AboutActivity aboutActivity = this.a;
-                            aboutActivity.e = new tb8(aboutActivity.getActivity());
+                            aboutActivity.e = new oc8(aboutActivity.getActivity());
                             this.a.e.create(this.a.getPageContext());
                         }
                         this.a.e.show();
@@ -208,17 +208,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public final void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ib7.b().a(true);
+            ac7.b().a(true);
             AboutModel aboutModel = this.b;
             if (aboutModel == null) {
                 this.b = new AboutModel(this, new b(this));
             } else {
                 aboutModel.cancelLoadData();
             }
-            this.b.D();
-            lb8 lb8Var = this.a;
-            if (lb8Var != null) {
-                lb8Var.s();
+            this.b.E();
+            gc8 gc8Var = this.a;
+            if (gc8Var != null) {
+                gc8Var.s();
             }
         }
     }
@@ -226,32 +226,32 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public final void J1(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            lb8 lb8Var = this.a;
-            if (lb8Var != null) {
-                lb8Var.t();
+            gc8 gc8Var = this.a;
+            if (gc8Var != null) {
+                gc8Var.t();
             }
-            zx4 zx4Var = obj != null ? (zx4) obj : null;
-            if (zx4Var != null) {
-                TbadkCoreApplication.getInst().setVersionData(zx4Var.s());
+            xy4 xy4Var = obj != null ? (xy4) obj : null;
+            if (xy4Var != null) {
+                TbadkCoreApplication.getInst().setVersionData(xy4Var.s());
                 TbadkCoreApplication.getInst().refreshNewVersion(false);
-                if (zx4Var.s().hasNewVer() && TbConfig.COULD_UPDATE) {
-                    if (zx4Var.s().forceUpdate()) {
-                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), zx4Var.s(), zx4Var.j())));
+                if (xy4Var.s().hasNewVer() && TbConfig.COULD_UPDATE) {
+                    if (xy4Var.s().forceUpdate()) {
+                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), xy4Var.s(), xy4Var.j())));
                     } else {
                         Long valueOf = Long.valueOf(new Date().getTime());
-                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), zx4Var.s(), zx4Var.j()));
+                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), xy4Var.s(), xy4Var.j()));
                         TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
                         sendMessage(customMessage);
                     }
                 }
-                lb8 lb8Var2 = this.a;
-                if (lb8Var2 != null) {
-                    lb8Var2.x();
+                gc8 gc8Var2 = this.a;
+                if (gc8Var2 != null) {
+                    gc8Var2.x();
                     return;
                 }
                 return;
             }
-            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c37));
+            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c2b));
         }
     }
 
@@ -287,9 +287,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            lb8 lb8Var = this.a;
-            if (lb8Var != null) {
-                lb8Var.z(i);
+            gc8 gc8Var = this.a;
+            if (gc8Var != null) {
+                gc8Var.z(i);
             }
         }
     }
@@ -299,10 +299,10 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f = new ub8(this);
-            lb8 lb8Var = new lb8(this, new a(this));
-            this.a = lb8Var;
-            lb8Var.x();
+            this.f = new pc8(this);
+            gc8 gc8Var = new gc8(this, new a(this));
+            this.a = gc8Var;
+            gc8Var.x();
             K1();
         }
     }
@@ -317,17 +317,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            lb8 lb8Var = this.a;
-            if (lb8Var != null) {
-                lb8Var.t();
+            gc8 gc8Var = this.a;
+            if (gc8Var != null) {
+                gc8Var.t();
             }
-            tb8 tb8Var = this.e;
-            if (tb8Var != null) {
-                tb8Var.dismiss();
+            oc8 oc8Var = this.e;
+            if (oc8Var != null) {
+                oc8Var.dismiss();
             }
-            ub8 ub8Var = this.f;
-            if (ub8Var != null) {
-                ub8Var.i();
+            pc8 pc8Var = this.f;
+            if (pc8Var != null) {
+                pc8Var.i();
                 this.f = null;
             }
         }
@@ -340,7 +340,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (PermissionUtil.checkWriteExternalStorage(getActivity().getApplicationContext())) {
                 L1();
             } else {
-                showToast(R.string.obfuscated_res_0x7f0f15d1);
+                showToast(R.string.obfuscated_res_0x7f0f15d5);
             }
         }
     }
@@ -350,9 +350,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            lb8 lb8Var = this.a;
-            if (lb8Var != null) {
-                lb8Var.x();
+            gc8 gc8Var = this.a;
+            if (gc8Var != null) {
+                gc8Var.x();
             }
         }
     }

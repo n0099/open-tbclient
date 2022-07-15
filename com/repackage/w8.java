@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class w8 {
@@ -20,10 +20,10 @@ public class w8 {
     public static final w8 f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
-    public z91 b;
+    public na1 b;
     public long c;
     public final Handler d;
-    public final ArrayList<uc1> e;
+    public final CopyOnWriteArrayList<jd1> e;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -55,9 +55,9 @@ public class w8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a != 1 || ((float) (System.currentTimeMillis() - this.b.c)) >= ja1.i() * 60000.0f) {
+                if (this.a != 1 || ((float) (System.currentTimeMillis() - this.b.c)) >= ya1.i() * 60000.0f) {
                     if (this.b.b == null) {
-                        this.b.b = new z91();
+                        this.b.b = new na1();
                     }
                     this.b.b.k();
                     this.b.c = System.currentTimeMillis();
@@ -104,7 +104,7 @@ public class w8 {
         }
         this.a = false;
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new ArrayList<>();
+        this.e = new CopyOnWriteArrayList<>();
     }
 
     public static w8 f() {
@@ -123,9 +123,9 @@ public class w8 {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Context b2 = bh0.b();
+            Context b2 = hh0.b();
             if (b2 instanceof Application) {
-                ((Application) b2).registerActivityLifecycleCallbacks(new da1());
+                ((Application) b2).registerActivityLifecycleCallbacks(new ra1());
             }
         }
     }
@@ -134,7 +134,7 @@ public class w8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject d = x91.a().d();
+            JSONObject d = la1.a().d();
             return d == null || d.optBoolean("real_time_query_switch", true);
         }
         return invokeV.booleanValue;

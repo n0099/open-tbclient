@@ -1,31 +1,142 @@
 package com.repackage;
 
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewStub;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.tieba.pb.view.PbGiftListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class iu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d9 a;
-    public NavigationBarCoverTip b;
-    public TextView c;
-    public int d;
+    public View a;
+    public ViewStub b;
+    public PbGiftListView c;
+    public ViewStub d;
+    public LinearLayout e;
+    public View f;
+    public BaseWebView g;
 
-    public iu7(d9 d9Var, NavigationBarCoverTip navigationBarCoverTip) {
+    /* loaded from: classes6.dex */
+    public class a implements BaseWebView.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(iu7 iu7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iu7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
+        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements BaseWebView.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(iu7 iu7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iu7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
+        public void onPageFinished(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+                webView.loadUrl("javascript:(function(){var iframe=document.getElementsByClassName(\"video_iframe\");if(iframe&&iframe.length>0){for(var i=iframe.length-1;i>=0;i--){iframe[i].contentWindow.document.getElementsByClassName(\"tvp_fullscreen_button\")[0].style.display=\"none\"}}})();");
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iu7 a;
+
+        public c(iu7 iu7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iu7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iu7Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.g != null) {
+                        this.a.g.destroy();
+                        this.a.g = null;
+                    }
+                } catch (Throwable th) {
+                    BdLog.e(th);
+                }
+            }
+        }
+    }
+
+    public iu7(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var, navigationBarCoverTip};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,49 +146,111 @@ public class iu7 {
                 return;
             }
         }
-        this.a = d9Var;
-        this.b = navigationBarCoverTip;
-        b();
+        this.a = view2;
+        this.b = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090c5f);
+        this.d = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0912cf);
     }
 
-    public void a(String str) {
+    public void a() {
+        BaseWebView baseWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (baseWebView = this.g) == null) {
             return;
         }
-        if (!oi.isEmpty(str) && this.d <= 0) {
-            this.b.setVisibility(0);
-            this.d++;
-            this.c.setText(str);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
-            this.b.removeAllViews();
-            this.b.addView(this.c);
-            this.b.k(this.a.getPageActivity(), 5000);
-            return;
-        }
-        c();
-        this.b.setVisibility(8);
+        baseWebView.removeAllViews();
+        this.g.getSettings().setBuiltInZoomControls(true);
+        this.g.setVisibility(8);
+        qg.a().postDelayed(new c(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
     }
 
-    public final void b() {
+    public void b(qp4 qp4Var, String str, String str2, long j, long j2, long j3) {
+        ViewStub viewStub;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new TextView(this.a.getPageActivity());
-            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            this.c.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
-            this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
-            this.c.setGravity(19);
-            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
-            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{qp4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (qp4Var != null && !ListUtils.isEmpty(qp4Var.a()) && (viewStub = this.b) != null) {
+                if (this.c == null) {
+                    this.c = (PbGiftListView) viewStub.inflate();
+                }
+                this.c.setVisibility(0);
+                this.c.g(qp4Var, str, str2, j, j2, j3);
+                this.c.i();
+                return;
+            }
+            PbGiftListView pbGiftListView = this.c;
+            if (pbGiftListView != null) {
+                pbGiftListView.setVisibility(8);
+            }
         }
     }
 
-    public void c() {
-        NavigationBarCoverTip navigationBarCoverTip;
+    public void c(fp4 fp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (navigationBarCoverTip = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fp4Var) == null) || fp4Var == null || oi.isEmpty(fp4Var.e())) {
             return;
         }
-        navigationBarCoverTip.i();
+        BaseWebView baseWebView = this.g;
+        if ((baseWebView == null || !baseWebView.getIsLoaded()) && fp4Var.c() == fp4.g && this.d != null) {
+            if (fp4Var.f()) {
+                LinearLayout linearLayout = this.e;
+                if (linearLayout != null) {
+                    linearLayout.setVisibility(8);
+                    return;
+                }
+                return;
+            }
+            if (this.e == null) {
+                LinearLayout linearLayout2 = (LinearLayout) this.d.inflate();
+                this.e = linearLayout2;
+                this.f = linearLayout2.findViewById(R.id.obfuscated_res_0x7f0912ca);
+                this.g = (BaseWebView) this.e.findViewById(R.id.obfuscated_res_0x7f0912d0);
+            }
+            this.f.setVisibility(0);
+            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+            this.g.setVisibility(0);
+            this.g.setFocusable(false);
+            this.g.setBackgroundColor(0);
+            this.g.getSettings().setCacheMode(-1);
+            this.g.setVerticalScrollBarEnabled(false);
+            this.g.setHorizontalScrollBarEnabled(false);
+            this.g.getSettings().setAllowFileAccess(true);
+            this.g.getSettings().setAppCacheEnabled(true);
+            this.g.getSettings().setDomStorageEnabled(true);
+            this.g.getSettings().setDatabaseEnabled(true);
+            this.g.setOnLoadUrlListener(new a(this));
+            this.g.setOnPageFinishedListener(new b(this));
+            this.g.loadUrl(fp4Var.e());
+        }
+    }
+
+    public void d() {
+        BaseWebView baseWebView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (baseWebView = this.g) == null) {
+            return;
+        }
+        try {
+            baseWebView.onPause();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void e() {
+        BaseWebView baseWebView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (baseWebView = this.g) == null) {
+            return;
+        }
+        try {
+            baseWebView.onResume();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.google.zxing.oned.rss.expanded;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.location.BDLocation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.android.exoplayer2.extractor.ts.H262Reader;
 import com.google.android.exoplayer2.extractor.ts.PsExtractor;
 import com.google.android.exoplayer2.extractor.ts.TsExtractor;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
+import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
@@ -28,7 +31,6 @@ import com.google.zxing.oned.rss.DataCharacter;
 import com.google.zxing.oned.rss.FinderPattern;
 import com.google.zxing.oned.rss.RSSUtils;
 import com.google.zxing.oned.rss.expanded.decoders.AbstractExpandedDecoder;
-import com.kuaishou.weapon.un.w0;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -73,7 +75,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
         EVEN_TOTAL_SUBSET = new int[]{4, 20, 52, 104, 204};
         GSUM = new int[]{0, 348, 1388, 2948, 3988};
         FINDER_PATTERNS = new int[][]{new int[]{1, 8, 4, 1}, new int[]{3, 6, 4, 1}, new int[]{3, 4, 6, 1}, new int[]{3, 2, 8, 1}, new int[]{2, 6, 5, 1}, new int[]{2, 2, 9, 1}};
-        WEIGHTS = new int[][]{new int[]{1, 3, 9, 27, 81, 32, 96, 77}, new int[]{20, 60, 180, 118, 143, 7, 21, 63}, new int[]{PsExtractor.PRIVATE_STREAM_1, 145, 13, 39, 117, Cea708Decoder.COMMAND_DLW, 209, 205}, new int[]{193, 157, 49, 147, 19, 57, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, 91}, new int[]{62, 186, 136, Constants.METHOD_IM_DELIVER_CONFIG_MSG, w0.w, 85, 44, 132}, new int[]{Constants.METHOD_IM_SEND_MCAST_MSG, 133, TsExtractor.TS_PACKET_SIZE, Cea708Decoder.COMMAND_DLC, 4, 12, 36, 108}, new int[]{113, 128, w0.i, 97, 80, 29, 87, 50}, new int[]{150, 28, 84, 41, 123, 158, 52, Cea708Decoder.COMMAND_DS4}, new int[]{46, 138, 203, MatroskaExtractor.ID_CUE_POINT, 139, 206, 196, 166}, new int[]{76, 17, 51, 153, 37, 111, 122, 155}, new int[]{43, 129, MatroskaExtractor.ID_PIXEL_WIDTH, 106, 107, 110, 119, Cea708Decoder.COMMAND_SPL}, new int[]{16, 48, Cea708Decoder.COMMAND_SPA, 10, 30, 90, 59, w0.u}, new int[]{109, 116, Cea708Decoder.COMMAND_DSW, 200, 178, 112, 125, 164}, new int[]{70, 210, 208, 202, H262Reader.START_GROUP, 130, 179, 115}, new int[]{134, w0.M, Cea708Decoder.COMMAND_SWA, 31, 93, 68, 204, 190}, new int[]{w0.I, 22, 66, 198, 172, 94, 71, 2}, new int[]{6, 18, 54, 162, 64, 192, Cea708Decoder.COMMAND_DF2, 40}, new int[]{120, 149, 25, 75, 14, 42, 126, 167}, new int[]{79, 26, 78, 23, 69, 207, w0.b1, 175}, new int[]{103, 98, 83, 38, 114, 131, 182, 124}, new int[]{161, 61, 183, 127, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 88, 53, 159}, new int[]{55, w0.n0, 73, 8, 24, 72, 5, 15}, new int[]{45, 135, 194, 160, 58, MatroskaExtractor.ID_TRACK_ENTRY, 100, 89}};
+        WEIGHTS = new int[][]{new int[]{1, 3, 9, 27, 81, 32, 96, 77}, new int[]{20, 60, 180, 118, Cea708Decoder.COMMAND_RST, 7, 21, 63}, new int[]{PsExtractor.PRIVATE_STREAM_1, Cea708Decoder.COMMAND_SPC, 13, 39, 117, Cea708Decoder.COMMAND_DLW, 209, 205}, new int[]{193, Cea708Decoder.COMMAND_DF5, 49, 147, 19, 57, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, 91}, new int[]{62, MatroskaExtractor.ID_PIXEL_HEIGHT, 136, Constants.METHOD_IM_DELIVER_CONFIG_MSG, 169, 85, 44, 132}, new int[]{Constants.METHOD_IM_SEND_MCAST_MSG, 133, TsExtractor.TS_PACKET_SIZE, Cea708Decoder.COMMAND_DLC, 4, 12, 36, 108}, new int[]{113, 128, 173, 97, 80, 29, 87, 50}, new int[]{150, 28, 84, 41, 123, Cea708Decoder.COMMAND_DF6, 52, Cea708Decoder.COMMAND_DS4}, new int[]{46, 138, 203, MatroskaExtractor.ID_CUE_POINT, Cea708Decoder.COMMAND_TGW, 206, 196, TTAdConstant.IMAGE_MODE_LIVE}, new int[]{76, 17, 51, 153, 37, 111, 122, 155}, new int[]{43, 129, MatroskaExtractor.ID_PIXEL_WIDTH, 106, 107, 110, 119, Cea708Decoder.COMMAND_SPL}, new int[]{16, 48, Cea708Decoder.COMMAND_SPA, 10, 30, 90, 59, 177}, new int[]{109, 116, Cea708Decoder.COMMAND_DSW, 200, 178, 112, 125, 164}, new int[]{70, 210, 208, 202, H262Reader.START_GROUP, 130, 179, 115}, new int[]{134, 191, Cea708Decoder.COMMAND_SWA, 31, 93, 68, 204, 190}, new int[]{148, 22, 66, 198, 172, 94, 71, 2}, new int[]{6, 18, 54, BDLocation.TypeServerDecryptError, 64, 192, Cea708Decoder.COMMAND_DF2, 40}, new int[]{120, 149, 25, 75, 14, 42, 126, 167}, new int[]{79, 26, 78, 23, 69, 207, 199, HideBottomViewOnScrollBehavior.EXIT_ANIMATION_DURATION}, new int[]{103, 98, 83, 38, 114, 131, 182, 124}, new int[]{161, 61, 183, 127, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 88, 53, 159}, new int[]{55, 165, 73, 8, 24, 72, 5, 15}, new int[]{45, 135, 194, 160, 58, MatroskaExtractor.ID_TRACK_ENTRY, 100, 89}};
         FINDER_PATTERN_SEQUENCES = new int[][]{new int[]{0, 0}, new int[]{0, 1, 1}, new int[]{0, 2, 1, 3}, new int[]{0, 4, 1, 3, 2}, new int[]{0, 4, 1, 3, 3, 5}, new int[]{0, 4, 1, 3, 4, 5, 5}, new int[]{0, 0, 1, 1, 2, 2, 3, 3}, new int[]{0, 0, 1, 1, 2, 2, 3, 4, 4}, new int[]{0, 0, 1, 1, 2, 2, 3, 4, 5, 5}, new int[]{0, 0, 1, 1, 2, 3, 3, 4, 4, 5, 5}};
     }
 
@@ -210,7 +212,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
                     i++;
                 }
             }
-            return ((i + (-4)) * w0.A) + (checksumPortion % w0.A) == leftChar.getValue();
+            return ((i + (-4)) * 211) + (checksumPortion % 211) == leftChar.getValue();
         }
         return invokeV.booleanValue;
     }

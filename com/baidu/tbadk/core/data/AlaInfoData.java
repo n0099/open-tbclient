@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fn4;
 import com.repackage.oi;
+import com.repackage.un4;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -46,7 +46,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public transient fn4 label;
+    public transient un4 label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
@@ -204,7 +204,7 @@ public class AlaInfoData implements Serializable, Parcelable {
             alaUserInfoData.parserProtobuf(alaLiveInfo.user_info);
             AlaShareInfoData alaShareInfoData = new AlaShareInfoData();
             this.share_info = alaShareInfoData;
-            alaShareInfoData.z(alaLiveInfo.share_info);
+            alaShareInfoData.A(alaLiveInfo.share_info);
             this.live_status = alaLiveInfo.live_status.intValue();
             this.duration = alaLiveInfo.duration.intValue();
             this.audience_count = alaLiveInfo.audience_count.intValue();
@@ -320,9 +320,9 @@ public class AlaInfoData implements Serializable, Parcelable {
             this.thread_id = jSONObject.optLong("thread_id");
             JSONObject optJSONObject = jSONObject.optJSONObject("label");
             if (optJSONObject != null) {
-                fn4 fn4Var = new fn4();
-                this.label = fn4Var;
-                fn4Var.a(optJSONObject);
+                un4 un4Var = new un4();
+                this.label = un4Var;
+                un4Var.a(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
             if (optJSONArray != null) {

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.g;
+import com.bytedance.pangle.GlobalParam;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
@@ -191,8 +191,8 @@ public class ZeusLogger {
             String prefixTraceInfo = prefixTraceInfo(str2);
             if (sDebug) {
                 Log.i(str, prefixTraceInfo);
-            } else if (g.a().b.getLogger() != null) {
-                g.a().b.getLogger().i(str, prefixTraceInfo);
+            } else if (GlobalParam.getInstance().getLogger() != null) {
+                GlobalParam.getInstance().getLogger().i(str, prefixTraceInfo);
             }
         }
     }
@@ -203,8 +203,8 @@ public class ZeusLogger {
             String prefixTraceInfo = prefixTraceInfo(str2);
             if (sDebug) {
                 Log.v(str, prefixTraceInfo);
-            } else if (g.a().b.getLogger() != null) {
-                g.a().b.getLogger().v(str, prefixTraceInfo);
+            } else if (GlobalParam.getInstance().getLogger() != null) {
+                GlobalParam.getInstance().getLogger().v(str, prefixTraceInfo);
             }
         }
     }
@@ -215,8 +215,8 @@ public class ZeusLogger {
             String prefixTraceInfo = prefixTraceInfo(str2);
             if (sDebug) {
                 Log.w(str, prefixTraceInfo);
-            } else if (g.a().b.getLogger() != null) {
-                g.a().b.getLogger().w(str, prefixTraceInfo);
+            } else if (GlobalParam.getInstance().getLogger() != null) {
+                GlobalParam.getInstance().getLogger().w(str, prefixTraceInfo);
             }
         }
     }
@@ -228,7 +228,7 @@ public class ZeusLogger {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0054 A[Catch: JSONException -> 0x0047, TryCatch #0 {JSONException -> 0x0047, blocks: (B:12:0x0037, B:14:0x003f, B:18:0x004e, B:20:0x0054, B:21:0x0059, B:17:0x0049), top: B:29:0x0037 }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0050 A[Catch: JSONException -> 0x0043, TryCatch #0 {JSONException -> 0x0043, blocks: (B:12:0x0033, B:14:0x003b, B:18:0x004a, B:20:0x0050, B:21:0x0055, B:17:0x0045), top: B:29:0x0033 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -238,8 +238,8 @@ public class ZeusLogger {
             String prefixTraceInfo = prefixTraceInfo(str2);
             if (sDebug) {
                 Log.e(str, prefixTraceInfo, th);
-            } else if (g.a().b.getLogger() != null) {
-                g.a().b.getLogger().e(str, prefixTraceInfo, th);
+            } else if (GlobalParam.getInstance().getLogger() != null) {
+                GlobalParam.getInstance().getLogger().e(str, prefixTraceInfo, th);
             }
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
@@ -249,21 +249,21 @@ public class ZeusLogger {
                     e.printStackTrace();
                 }
                 if (str.startsWith(TAG)) {
-                    jSONObject.putOpt("log_tag", d.a(str));
+                    jSONObject.putOpt("log_tag", c.a(str));
                     if (!TextUtils.isEmpty(str3)) {
                         jSONObject.putOpt("plugin_package_name", str3);
                     }
-                    jSONObject2.putOpt("message", d.a(prefixTraceInfo));
-                    jSONObject2.putOpt("throwable", d.a(th));
-                    d.a(com.bytedance.pangle.b.b.i, jSONObject, null, jSONObject2);
+                    jSONObject2.putOpt("message", c.a(prefixTraceInfo));
+                    jSONObject2.putOpt("throwable", c.a(th));
+                    c.a(com.bytedance.pangle.b.b.i, jSONObject, null, jSONObject2);
                 }
             }
             jSONObject.putOpt("log_tag", ImageViewerConfig.FROM_OTHER);
             if (!TextUtils.isEmpty(str3)) {
             }
-            jSONObject2.putOpt("message", d.a(prefixTraceInfo));
-            jSONObject2.putOpt("throwable", d.a(th));
-            d.a(com.bytedance.pangle.b.b.i, jSONObject, null, jSONObject2);
+            jSONObject2.putOpt("message", c.a(prefixTraceInfo));
+            jSONObject2.putOpt("throwable", c.a(th));
+            c.a(com.bytedance.pangle.b.b.i, jSONObject, null, jSONObject2);
         }
     }
 
@@ -273,8 +273,8 @@ public class ZeusLogger {
             String prefixTraceInfo = prefixTraceInfo(str2);
             if (sDebug) {
                 Log.w(str, prefixTraceInfo, th);
-            } else if (g.a().b.getLogger() != null) {
-                g.a().b.getLogger().w(str, prefixTraceInfo, th);
+            } else if (GlobalParam.getInstance().getLogger() != null) {
+                GlobalParam.getInstance().getLogger().w(str, prefixTraceInfo, th);
             }
         }
     }

@@ -1,27 +1,14 @@
 package com.repackage;
 
-import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.widget.AdapterView;
-import android.widget.FrameLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.PopupWindow;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.album.MediaFileInfo;
+import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,417 +18,365 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class yw8 extends PopupWindow {
+public class yw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public ValueAnimator b;
-    public ValueAnimator c;
-    public BaseFragmentActivity d;
-    public View e;
-    public ListView f;
-    public ViewGroup g;
-    public vv8 h;
-    public int i;
-    public f j;
-    public final AdapterView.OnItemClickListener k;
-    public final View.OnClickListener l;
+    public final d9 b;
+    public WriteImagesInfo c;
+    public VideoFileInfo d;
+    public String e;
+    public ImageFileInfo f;
+    public List<ImageFileInfo> g;
+    public final List<yk4> h;
 
-    /* loaded from: classes7.dex */
-    public class a implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yw8 a;
-
-        public a(yw8 yw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yw8Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                jk4 item = this.a.h.getItem(i);
-                if (this.a.j != null) {
-                    this.a.j.a(i, item);
-                }
-                this.a.j();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yw8 a;
-
-        public b(yw8 yw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yw8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.j();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yw8 a;
-
-        public c(yw8 yw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yw8Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                ViewGroup.LayoutParams layoutParams = this.a.f.getLayoutParams();
-                layoutParams.height = intValue;
-                this.a.f.setLayoutParams(layoutParams);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yw8 a;
-
-        public d(yw8 yw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yw8Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                ViewGroup.LayoutParams layoutParams = this.a.f.getLayoutParams();
-                layoutParams.height = intValue;
-                this.a.f.setLayoutParams(layoutParams);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yw8 a;
-
-        public e(yw8 yw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yw8Var;
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.h();
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface f {
-        void a(int i, jk4 jk4Var);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yw8(BaseFragmentActivity baseFragmentActivity) {
-        super(baseFragmentActivity.getPageContext().getPageActivity());
+    public yw8(d9 d9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
+            Object[] objArr = {d9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = new a(this);
-        this.l = new b(this);
-        this.d = baseFragmentActivity;
-        setWidth(-1);
-        setHeight(-1);
-        setContentView(g(new ArrayList(), jk4.f));
-        setFocusable(true);
-        setTouchable(true);
-        setOutsideTouchable(true);
-        setAnimationStyle(0);
-        setBackgroundDrawable(new ColorDrawable(0));
+        this.a = 9;
+        this.h = new ArrayList();
+        this.b = d9Var;
     }
 
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
+    public void A(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (this.c == null) {
+                this.c = new WriteImagesInfo(this.a);
+            }
+            this.c.setLastAlbumId(str);
         }
     }
 
-    public final int e(List<jk4> list, String str) {
-        InterceptResult invokeLL;
+    public void B(boolean z) {
+        WriteImagesInfo writeImagesInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str)) == null) {
-            if (list != null && list.size() != 0 && !TextUtils.isEmpty(str)) {
-                int size = list.size();
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (writeImagesInfo = this.c) == null) {
+            return;
+        }
+        writeImagesInfo.setOriginalImg(z);
+    }
+
+    public void C(WriteImagesInfo writeImagesInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeImagesInfo) == null) {
+            this.c = writeImagesInfo;
+        }
+    }
+
+    public int D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo == null) {
+                return 0;
+            }
+            return writeImagesInfo.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void a(ImageFileInfo imageFileInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, imageFileInfo) == null) {
+            if (this.c == null) {
+                this.c = new WriteImagesInfo(this.a);
+            }
+            this.c.addChooseFile(imageFileInfo);
+        }
+    }
+
+    public void b() {
+        WriteImagesInfo writeImagesInfo;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (writeImagesInfo = this.c) == null) {
+            return;
+        }
+        writeImagesInfo.clear();
+    }
+
+    public void c(ImageFileInfo imageFileInfo) {
+        WriteImagesInfo writeImagesInfo;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, imageFileInfo) == null) || (writeImagesInfo = this.c) == null) {
+            return;
+        }
+        writeImagesInfo.delChooseFile(imageFileInfo);
+    }
+
+    public List<MediaFileInfo> d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (this.h != null && !StringUtils.isNull(str)) {
+                for (yk4 yk4Var : this.h) {
+                    if (yk4Var != null && TextUtils.equals(str, yk4Var.b())) {
+                        return yk4Var.d();
+                    }
+                }
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List<yk4> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (List) invokeV.objValue;
+    }
+
+    public VideoFileInfo f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : (VideoFileInfo) invokeV.objValue;
+    }
+
+    public List<ImageFileInfo> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo != null) {
+                return writeImagesInfo.getChosedFiles();
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public List<ImageFileInfo> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.g : (List) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        List<ImageFileInfo> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            ImageFileInfo imageFileInfo = this.f;
+            if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath()) && (list = this.g) != null && list.size() != 0) {
+                int size = this.g.size();
                 for (int i = 0; i < size; i++) {
-                    jk4 jk4Var = list.get(i);
-                    if (jk4Var != null && str.equals(jk4Var.b())) {
+                    ImageFileInfo imageFileInfo2 = this.g.get(i);
+                    if (imageFileInfo2 != null && this.f.getFilePath().equals(imageFileInfo2.getFilePath())) {
                         return i;
                     }
                 }
             }
-            return -1;
+            return 0;
         }
-        return invokeLL.intValue;
+        return invokeV.intValue;
     }
 
-    public void f() {
+    public String k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ListView listView = this.f;
-            if (listView != null) {
-                listView.clearAnimation();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo != null) {
+                return writeImagesInfo.getLastAlbumId();
             }
-            ViewGroup viewGroup = this.g;
-            if (viewGroup != null) {
-                viewGroup.clearAnimation();
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo != null) {
+                return writeImagesInfo.getMaxImagesAllowed();
             }
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    @SuppressLint({"ResourceAsColor"})
-    public final View g(List<jk4> list, String str) {
-        InterceptResult invokeLL;
+    public WriteImagesInfo m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, list, str)) == null) {
-            BdListView bdListView = new BdListView(this.d.getPageContext().getPageActivity());
-            this.f = bdListView;
-            bdListView.setCacheColorHint(this.d.getResources().getColor(17170445));
-            bdListView.setDivider(null);
-            bdListView.setDividerHeight(0);
-            bdListView.setFadingEdgeLength(0);
-            vv8 vv8Var = new vv8(this.d);
-            this.h = vv8Var;
-            vv8Var.b(list, str);
-            bdListView.setAdapter((ListAdapter) this.h);
-            FrameLayout frameLayout = new FrameLayout(this.d.getPageContext().getPageActivity());
-            FrameLayout frameLayout2 = new FrameLayout(this.d.getPageContext().getPageActivity());
-            this.g = frameLayout2;
-            frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
-            frameLayout.addView(bdListView, new FrameLayout.LayoutParams(-1, -2));
-            this.f.setOnItemClickListener(this.k);
-            frameLayout.setOnClickListener(this.l);
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.g, R.color.black_alpha70);
-            return frameLayout;
-        }
-        return (View) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.c : (WriteImagesInfo) invokeV.objValue;
     }
 
-    public final void h() {
+    public boolean n(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.dismiss();
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.c == null) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(this.f.getHeight(), 0);
-                this.c = ofInt;
-                ofInt.addUpdateListener(new d(this));
-                this.c.setDuration(350L);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, imageFileInfo)) == null) {
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo == null) {
+                return false;
             }
-            this.c.start();
-            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-            alphaAnimation.setDuration(350L);
-            alphaAnimation.setInterpolator(new LinearInterpolator());
-            alphaAnimation.setAnimationListener(new e(this));
-            this.g.startAnimation(alphaAnimation);
+            return writeImagesInfo.isAdded(imageFileInfo);
         }
+        return invokeL.booleanValue;
     }
 
-    public void j() {
+    public boolean o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            i();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? !ListUtils.isEmpty(g()) : invokeV.booleanValue;
     }
 
-    public void k(List<jk4> list, String str) {
+    public boolean p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, list, str) == null) || list == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.d != null : invokeV.booleanValue;
+    }
+
+    public boolean q(VideoFileInfo videoFileInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, videoFileInfo)) == null) {
+            VideoFileInfo videoFileInfo2 = this.d;
+            return (videoFileInfo2 == null || videoFileInfo == null || videoFileInfo2.videoId != videoFileInfo.videoId) ? false : true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? ListUtils.isEmpty(d(yk4.f)) : invokeV.booleanValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo != null) {
+                return writeImagesInfo.isOriginalImg();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public yk4 t(List<MediaFileInfo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, list)) == null) {
+            yk4 yk4Var = new yk4();
+            yk4Var.h(yk4.f);
+            yk4Var.l(this.b.getString(R.string.obfuscated_res_0x7f0f024e));
+            int count = ListUtils.getCount(list);
+            yk4Var.j(list);
+            yk4Var.i(String.valueOf(count));
+            MediaFileInfo mediaFileInfo = (MediaFileInfo) ListUtils.getItem(list, count - 1);
+            if (mediaFileInfo instanceof ImageFileInfo) {
+                yk4Var.k((ImageFileInfo) mediaFileInfo);
+            } else if (mediaFileInfo instanceof VideoFileInfo) {
+                yk4Var.k((VideoFileInfo) mediaFileInfo);
+            }
+            return yk4Var;
+        }
+        return (yk4) invokeL.objValue;
+    }
+
+    public yk4 u(List<VideoFileInfo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, list)) == null) {
+            yk4 yk4Var = new yk4();
+            yk4Var.h(yk4.g);
+            yk4Var.l(this.b.getString(R.string.obfuscated_res_0x7f0f0250));
+            int count = ListUtils.getCount(list);
+            yk4Var.i(String.valueOf(count));
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(list)) {
+                arrayList.addAll(list);
+            }
+            yk4Var.j(arrayList);
+            VideoFileInfo videoFileInfo = (VideoFileInfo) ListUtils.getItem(list, count - 1);
+            if (videoFileInfo != null) {
+                yk4Var.k(videoFileInfo);
+            }
+            return yk4Var;
+        }
+        return (yk4) invokeL.objValue;
+    }
+
+    public final void v(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048601, this, str) == null) || this.h == null || StringUtils.isNull(str)) {
             return;
         }
-        this.i = e(list, str);
-        this.a = -2;
-        if (list.size() > 5) {
-            this.a = this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702eb);
-        }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f.getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = new FrameLayout.LayoutParams(-1, this.a);
-        } else {
-            layoutParams.height = this.a;
-        }
-        this.f.setLayoutParams(layoutParams);
-        if (this.a < 0) {
-            this.a = pi.f(this.d, R.dimen.tbds168) * list.size();
-        }
-        this.h.b(list, str);
-        this.h.notifyDataSetChanged();
-    }
-
-    public void l(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            this.j = fVar;
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.b == null) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(0, this.a);
-                this.b = ofInt;
-                ofInt.addUpdateListener(new c(this));
-                this.b.setDuration(350L);
-            }
-            this.b.start();
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(350L);
-            alphaAnimation.setInterpolator(new LinearInterpolator());
-            this.g.startAnimation(alphaAnimation);
-        }
-    }
-
-    public void n(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
-            this.f.setSelection(this.i);
-            if (Build.VERSION.SDK_INT < 24) {
-                if (sg.k(this, view2)) {
-                    m();
-                    return;
+        for (yk4 yk4Var : this.h) {
+            if (yk4Var != null && TextUtils.equals(str, yk4Var.b())) {
+                ArrayList arrayList = new ArrayList();
+                if (yk4Var.d() != null) {
+                    for (MediaFileInfo mediaFileInfo : yk4Var.d()) {
+                        if (mediaFileInfo instanceof ImageFileInfo) {
+                            arrayList.add((ImageFileInfo) mediaFileInfo);
+                        }
+                    }
                 }
-                return;
-            }
-            int statusBarHeight = UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0;
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int height = (iArr[1] + view2.getHeight()) - statusBarHeight;
-            ((FrameLayout.LayoutParams) this.f.getLayoutParams()).topMargin = height;
-            ((FrameLayout.LayoutParams) this.g.getLayoutParams()).topMargin = height;
-            if (sg.m(this, view2, 0, 0, 0)) {
-                m();
+                this.g = arrayList;
             }
         }
+    }
+
+    public void w(VideoFileInfo videoFileInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, videoFileInfo) == null) {
+            this.d = videoFileInfo;
+        }
+    }
+
+    public void x(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            this.e = str;
+            v(str);
+        }
+    }
+
+    public void y(ImageFileInfo imageFileInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, imageFileInfo) == null) {
+            this.f = imageFileInfo;
+        }
+    }
+
+    public void z(el4 el4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048605, this, el4Var) == null) || el4Var == null) {
+            return;
+        }
+        List<MediaFileInfo> list = el4Var.b;
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(t(list));
+        if (!ListUtils.isEmpty(el4Var.c)) {
+            arrayList.add(u(el4Var.c));
+        }
+        if (!ListUtils.isEmpty(el4Var.a)) {
+            arrayList.addAll(el4Var.a);
+        }
+        this.h.clear();
+        this.h.addAll(arrayList);
     }
 }

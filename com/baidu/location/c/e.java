@@ -57,7 +57,7 @@ public class e {
     public LocationManager e;
     public Location f;
     public c g;
-    public C0101e h;
+    public C0103e h;
     public GpsStatus i;
     public a j;
     public boolean k;
@@ -414,13 +414,13 @@ public class e {
 
     /* renamed from: com.baidu.location.c.e$e  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0101e implements LocationListener {
+    public class C0103e implements LocationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e a;
         public long b;
 
-        public C0101e(e eVar) {
+        public C0103e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -439,7 +439,7 @@ public class e {
             this.b = 0L;
         }
 
-        public /* synthetic */ C0101e(e eVar, f fVar) {
+        public /* synthetic */ C0103e(e eVar, f fVar) {
             this(eVar);
         }
 
@@ -884,9 +884,9 @@ public class e {
                                 this.e.addNmeaListener(dVar);
                             }
                         }
-                        C0101e c0101e = new C0101e(this, null);
-                        this.h = c0101e;
-                        this.e.requestLocationUpdates("passive", 9000L, 0.0f, c0101e);
+                        C0103e c0103e = new C0103e(this, null);
+                        this.h = c0103e;
+                        this.e.requestLocationUpdates("passive", 9000L, 0.0f, c0103e);
                     } catch (Exception unused) {
                     }
                     this.D = new g(this);

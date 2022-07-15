@@ -1,26 +1,28 @@
 package com.kwad.sdk.core.a;
 
 import androidx.annotation.NonNull;
-import com.kwad.sdk.plugin.DevelopMangerPlugin;
+import com.kwad.sdk.components.DevelopMangerComponents;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class d {
-    public static i a;
+public final class d {
+    public static h a;
 
-    public static i a() {
-        i iVar = a;
-        if (iVar != null) {
-            return iVar;
+    public static h a() {
+        h fVar;
+        h hVar = a;
+        if (hVar != null) {
+            return hVar;
         }
-        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_CLOSE_AES");
-        if (a2 == null || !((Boolean) a2.getValue()).booleanValue()) {
-            com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.f.a(com.kwad.sdk.plugin.a.class);
-            a = (aVar == null || aVar.b() == null) ? new g() : aVar.b();
-            return a;
+        com.kwad.sdk.components.c.a(DevelopMangerComponents.class);
+        com.kwad.sdk.components.f fVar2 = (com.kwad.sdk.components.f) com.kwad.sdk.components.c.a(com.kwad.sdk.components.f.class);
+        if (fVar2 != null) {
+            fVar2.b();
+            fVar = fVar2.b();
+        } else {
+            fVar = new f();
         }
-        g gVar = new g();
-        a = gVar;
-        return gVar;
+        a = fVar;
+        return a;
     }
 
     public static String a(String str) {
@@ -36,7 +38,7 @@ public class d {
     }
 
     public static String b(String str) {
-        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_HOST_ENCRYPT_DISABLE");
-        return (a2 == null || !((Boolean) a2.getValue()).booleanValue()) ? a().b(str) : str;
+        com.kwad.sdk.components.c.a(DevelopMangerComponents.class);
+        return a().b(str);
     }
 }

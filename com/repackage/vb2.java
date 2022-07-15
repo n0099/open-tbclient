@@ -1,88 +1,131 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class vb2 {
+public class vb2 extends ub2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, wb2> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755237013, "Lcom/repackage/vb2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755237013, "Lcom/repackage/vb2;");
+                return;
+            }
+        }
+        d = rg1.a;
+    }
 
     public vb2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-    }
-
-    public void a(wb2 wb2Var, String... strArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, wb2Var, strArr) == null) || strArr == null || strArr.length == 0) {
-            return;
-        }
-        for (String str : strArr) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.put(str, wb2Var);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void b() {
+    @Override // com.repackage.tb2
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public ArrayList<wb2> c(String... strArr) {
+    @Override // com.repackage.tb2
+    public <T extends nb2> Exception g(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-            ArrayList<wb2> arrayList = null;
-            if (strArr != null && strArr.length != 0) {
-                for (String str : strArr) {
-                    if (!TextUtils.isEmpty(str)) {
-                        for (String str2 : this.a.keySet()) {
-                            if (str2.startsWith(str) || str.startsWith(str2)) {
-                                if (arrayList == null) {
-                                    arrayList = new ArrayList<>();
-                                }
-                                arrayList.add(this.a.get(str2));
-                            }
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            if (d) {
+                Log.d("SwanNoPresetExtensionCoreControl", "doUpdate: preset");
+                return null;
             }
-            return arrayList;
+            return null;
         }
-        return (ArrayList) invokeL.objValue;
+        return (Exception) invokeL.objValue;
     }
 
-    public void d(wb2 wb2Var, String... strArr) {
+    @Override // com.repackage.tb2
+    @NonNull
+    public ExtensionCore h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, wb2Var, strArr) == null) || strArr == null || strArr.length == 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ExtensionCore extensionCore = new ExtensionCore();
+            extensionCore.extensionCoreVersionCode = 0L;
+            extensionCore.extensionCoreVersionName = "0";
+            extensionCore.extensionCorePath = "";
+            extensionCore.extensionCoreType = 0;
+            return extensionCore;
         }
-        for (String str : strArr) {
-            if (!TextUtils.isEmpty(str) && this.a.get(str) == wb2Var) {
-                this.a.remove(str);
+        return (ExtensionCore) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tb2
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.repackage.tb2
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "0" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ub2, com.repackage.tb2
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (d) {
+                Log.d("SwanNoPresetExtensionCoreControl", "isNeedUpdate false");
+                return false;
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.tb2
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+        }
+    }
+
+    @Override // com.repackage.tb2
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
         }
     }
 }

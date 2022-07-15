@@ -1,19 +1,22 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.chosen.PbChosenActivity;
+import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
+import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
+import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class wq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
 
     public wq7() {
         Interceptable interceptable = $ic;
@@ -25,37 +28,52 @@ public class wq7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        b();
+        a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, wh8.a(TbConfig.FINE_PB_PAGE, 309093));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ChosenPbHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    public static wq7 a(String str) {
-        InterceptResult invokeL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                wq7 wq7Var = new wq7();
-                wq7Var.a = jSONObject.optBoolean("show", false);
-                wq7Var.b = jSONObject.optInt("position", -1);
-                return wq7Var;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ma5 ma5Var = new ma5(309093);
+            ma5Var.setResponsedClass(ChosenPbSocketResponse.class);
+            ma5Var.g(true);
+            ma5Var.h(false);
+            MessageManager.getInstance().registerTask(ma5Var);
         }
-        return (wq7) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{\"show\":" + this.a + ",\"position\":" + this.b + '}';
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
+            int k = pi.k(pbChosenActivity.getPageContext().getPageActivity());
+            int i = pi.i(pbChosenActivity.getPageContext().getPageActivity());
+            float h = pi.h(pbChosenActivity.getPageContext().getPageActivity());
+            chosenPbNetMessage.setQ_type(45L);
+            chosenPbNetMessage.setScrH(i);
+            chosenPbNetMessage.setScrW(k);
+            chosenPbNetMessage.setScr_dip(h);
+            chosenPbNetMessage.setExcId(j);
+            chosenPbNetMessage.setTagCode(j2);
+            chosenPbNetMessage.setThreadId(j3);
+            pbChosenActivity.sendMessage(chosenPbNetMessage);
         }
-        return (String) invokeV.objValue;
     }
 }

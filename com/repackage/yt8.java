@@ -1,15 +1,7 @@
 package com.repackage;
 
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import android.view.View;
 /* loaded from: classes7.dex */
 public interface yt8 {
-    void a();
-
-    void b(CloudMusicData.MusicTagList.MusicList musicList, int i);
-
-    void c();
-
-    void d(CloudMusicData.MusicTagList musicTagList);
-
-    void e(int i);
+    void a(View view2, q76 q76Var);
 }

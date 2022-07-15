@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.repackage.a7;
-import com.tachikoma.core.utility.FileUtil;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -83,7 +82,7 @@ public class x3 implements h7 {
                     a7<a4> a7Var = new a7<>();
                     a7.b<String> it = particleEmitter.f().iterator();
                     while (it.hasNext()) {
-                        String name = new File(it.next().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH)).getName();
+                        String name = new File(it.next().replace('\\', WebvttCueParser.CHAR_SLASH)).getName();
                         a4 a4Var = (a4) w7Var.c(name);
                         if (a4Var == null) {
                             a4Var = new a4(j(j3Var.a(name)));
@@ -107,7 +106,7 @@ public class x3 implements h7 {
                     a7<a4> a7Var = new a7<>();
                     a7.b<String> it = particleEmitter.f().iterator();
                     while (it.hasNext()) {
-                        String name = new File(it.next().replace(FileUtil.WINDOWS_SEPARATOR, WebvttCueParser.CHAR_SLASH)).getName();
+                        String name = new File(it.next().replace('\\', WebvttCueParser.CHAR_SLASH)).getName();
                         int lastIndexOf = name.lastIndexOf(46);
                         if (lastIndexOf != -1) {
                             name = name.substring(0, lastIndexOf);

@@ -27,7 +27,6 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-import com.kuaishou.weapon.un.w0;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -735,7 +734,7 @@ public final class Cea708Decoder extends CeaDecoder {
                         i2++;
                     }
                     return;
-                case 139:
+                case COMMAND_TGW /* 139 */:
                     for (int i5 = 1; i5 <= 8; i5++) {
                         if (this.serviceBlockPacket.readBit()) {
                             this.cueBuilders[8 - i5].setVisibility(!cueBuilder.isVisible());
@@ -755,7 +754,7 @@ public final class Cea708Decoder extends CeaDecoder {
                     return;
                 case COMMAND_DLC /* 142 */:
                     return;
-                case 143:
+                case COMMAND_RST /* 143 */:
                     resetCueBuilders();
                     return;
                 case COMMAND_SPA /* 144 */:
@@ -766,7 +765,7 @@ public final class Cea708Decoder extends CeaDecoder {
                         handleSetPenAttributes();
                         return;
                     }
-                case 145:
+                case COMMAND_SPC /* 145 */:
                     if (!this.currentCueBuilder.isDefined()) {
                         this.serviceBlockPacket.skipBits(24);
                         return;
@@ -783,7 +782,7 @@ public final class Cea708Decoder extends CeaDecoder {
                         return;
                     }
                 case 147:
-                case w0.I /* 148 */:
+                case 148:
                 case 149:
                 case 150:
                 default:
@@ -802,8 +801,8 @@ public final class Cea708Decoder extends CeaDecoder {
                 case COMMAND_DF2 /* 154 */:
                 case 155:
                 case COMMAND_DS4 /* 156 */:
-                case 157:
-                case 158:
+                case COMMAND_DF5 /* 157 */:
+                case COMMAND_DF6 /* 158 */:
                 case 159:
                     int i6 = i - 152;
                     handleDefineWindow(i6);

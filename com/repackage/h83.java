@@ -1,64 +1,134 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 /* loaded from: classes6.dex */
-public class h83 extends ProviderDelegation {
+public abstract class h83 implements l83 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ReadWriteLock c;
     public transient /* synthetic */ FieldHolder $fh;
+    public File a;
+    public final long b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755694418, "Lcom/repackage/h83;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755694418, "Lcom/repackage/h83;");
+                return;
+            }
+        }
+        c = new ReentrantReadWriteLock();
+    }
 
     public h83() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = d();
+        this.b = getMaxSize();
+    }
+
+    @Override // com.repackage.l83
+    public boolean a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            c.readLock().lock();
+            try {
+                return e() + j > this.b;
+            } finally {
+                c.readLock().unlock();
+            }
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // com.repackage.l83
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            c.writeLock().lock();
+            try {
+                try {
+                    if (this.a == null) {
+                        this.a = d();
+                    }
+                    File file = this.a;
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    jg4.O(String.valueOf(e() + j).getBytes(), file);
+                } catch (Exception e) {
+                    if (rg1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            } finally {
+                c.writeLock().unlock();
             }
         }
     }
 
-    @Nullable
-    public static AshmemFileDescriptor c(@NonNull String str, int i) {
-        InterceptResult invokeLI;
+    @NonNull
+    public abstract String c();
+
+    public final File d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("name", str);
-            bundle.putInt("size", i);
-            hw2 c = fw2.c(h83.class, bundle);
-            if (c.a()) {
-                c.a.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-                return (AshmemFileDescriptor) c.a.getParcelable("result");
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new File(c() + File.separator + "record.pro");
         }
-        return (AshmemFileDescriptor) invokeLI.objValue;
+        return (File) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public final long e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            String string = bundle.getString("name", null);
-            int i = bundle.getInt("size", 0);
-            Bundle bundle2 = new Bundle();
-            bundle2.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-            bundle2.putParcelable("result", m83.a(string, i));
-            return bundle2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == null) {
+                this.a = d();
+            }
+            File file = this.a;
+            if (file.exists() && file.isFile()) {
+                String E = jg4.E(file);
+                try {
+                    if (!TextUtils.isEmpty(E) && TextUtils.isDigitsOnly(E.trim())) {
+                        return Long.parseLong(E.trim());
+                    }
+                } catch (Exception e) {
+                    if (rg1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return 0L;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeV.longValue;
     }
 }

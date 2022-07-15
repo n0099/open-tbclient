@@ -1,10 +1,9 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.TextView;
+import android.os.Handler;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.face.SearchEmotionModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class pw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public final View b;
-    public final TextView c;
-    public PbFragment d;
-    public View.OnClickListener e;
+    public Handler a;
+    public SearchEmotionModel b;
+    public String c;
+    public SearchEmotionModel.b d;
+    public Runnable e;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pw7 a;
@@ -43,25 +42,23 @@ public class pw7 {
             this.a = pw7Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                pw7 pw7Var = this.a;
-                if (view2 != pw7Var.b || pw7Var.d == null || this.a.d.getBaseFragmentActivity() == null) {
-                    return;
-                }
-                this.a.d.getBaseFragmentActivity().finish();
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a.c) || this.a.d == null) {
+                return;
             }
+            if (this.a.b == null) {
+                this.a.b = new SearchEmotionModel();
+            }
+            this.a.b.B(this.a.c, 0, 30, this.a.d);
         }
     }
 
-    public pw7(PbFragment pbFragment) {
+    public pw7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,24 +69,37 @@ public class pw7 {
             }
         }
         this.e = new a(this);
-        this.d = pbFragment;
-        this.b = pbFragment.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f091352);
-        this.c = (TextView) this.d.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f091353);
-        this.a = this.d.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f09134f);
-        this.b.setOnClickListener(this.e);
+        this.a = new Handler();
     }
 
-    public void b(String str) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.c.setText(str);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SearchEmotionModel searchEmotionModel = this.b;
+            if (searchEmotionModel != null) {
+                searchEmotionModel.cancelLoadData();
+            }
+            this.a.removeCallbacks(this.e);
         }
     }
 
-    public void c() {
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                this.c = "";
+                return;
+            }
+            this.a.removeCallbacks(this.e);
+            this.a.postDelayed(this.e, 300L);
+            this.c = str;
+        }
+    }
+
+    public void g(SearchEmotionModel.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 }

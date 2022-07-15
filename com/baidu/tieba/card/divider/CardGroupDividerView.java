@@ -79,9 +79,9 @@ public class CardGroupDividerView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d017c, (ViewGroup) this, true);
-            this.a = findViewById(R.id.obfuscated_res_0x7f0904d5);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d6);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0903c8);
+            this.a = findViewById(R.id.obfuscated_res_0x7f0904d7);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d8);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0903ca);
             b();
         }
     }

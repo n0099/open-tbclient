@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class te2 extends md2<dg2> {
+public class te2 extends be2<pe2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,26 +27,21 @@ public class te2 extends md2<dg2> {
         }
     }
 
-    @Override // com.repackage.md2
+    @Override // com.repackage.be2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableAgc" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "release" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.md2
+    @Override // com.repackage.be2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull dg2 dg2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull pe2 pe2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, dg2Var) == null) {
-            String str = command.what;
-            d(dg2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                dg2Var.m0(((Boolean) obj).booleanValue());
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, pe2Var) == null) {
+            pe2Var.release();
         }
     }
 }

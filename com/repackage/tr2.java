@@ -1,100 +1,115 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.websocket.WebSocketManager;
+import com.baidu.searchbox.websocket.WebSocketTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class tr2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile Set<String> a;
 
-    /* loaded from: classes7.dex */
-    public static final class a implements pr2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Function1 a;
-        public final /* synthetic */ String b;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755281219, "Lcom/repackage/tr2;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755281219, "Lcom/repackage/tr2;");
+        }
+    }
 
-        public a(Function1 function1, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {function1, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public tr2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final synchronized boolean a() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                Set<String> set = this.a;
+                z = (set != null ? set.size() : 0) < 5;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final synchronized void b(WebSocketTask task) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
+            synchronized (this) {
+                Intrinsics.checkNotNullParameter(task, "task");
+                if (this.a == null) {
+                    this.a = new LinkedHashSet();
+                }
+                Set<String> set = this.a;
+                if (set != null) {
+                    set.add(task.getTaskId());
                 }
             }
-            this.a = function1;
-            this.b = str;
         }
+    }
 
-        @Override // com.repackage.pr2
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONArray c = tr2.c();
-                if (c != null && c.length() != 0) {
-                    int length = c.length();
-                    for (int i = 0; i < length; i++) {
-                        if (Intrinsics.areEqual(this.b, c.get(i))) {
-                            Function1 function1 = this.a;
-                            if (function1 != null) {
-                                Unit unit = (Unit) function1.invoke(Boolean.TRUE);
-                                return;
-                            }
-                            return;
+    public final synchronized void c(String taskId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
+            synchronized (this) {
+                Intrinsics.checkNotNullParameter(taskId, "taskId");
+                Set<String> set = this.a;
+                if (set != null) {
+                    set.remove(taskId);
+                }
+            }
+        }
+    }
+
+    public final synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                Set<String> set = this.a;
+                if (set != null) {
+                    for (String str : set) {
+                        try {
+                            WebSocketManager.INSTANCE.close(str, 1001, "aiapp terminate");
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
-                    Function1 function12 = this.a;
-                    if (function12 != null) {
-                        Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
-                        return;
-                    }
-                    return;
                 }
-                Function1 function13 = this.a;
-                if (function13 != null) {
-                    Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
+                Set<String> set2 = this.a;
+                if (set2 != null) {
+                    set2.clear();
                 }
             }
         }
-    }
-
-    public static final void b(String str, Function1<? super Boolean, Unit> function1) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, function1) == null) {
-            or2.g().z(new a(function1, str));
-        }
-    }
-
-    public static final JSONArray c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            sz2 b0 = sz2.b0();
-            if (b0 != null) {
-                String q = b0.e0().q("note_data_pay_check_list", "");
-                if (q == null || StringsKt__StringsJVMKt.isBlank(q)) {
-                    return null;
-                }
-                return new JSONObject(q).optJSONArray("pay_keys");
-            }
-            return null;
-        }
-        return (JSONArray) invokeV.objValue;
     }
 }

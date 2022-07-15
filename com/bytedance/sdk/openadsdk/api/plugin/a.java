@@ -10,6 +10,7 @@ import com.bytedance.sdk.openadsdk.TTAppContextHolder;
 import com.bytedance.sdk.openadsdk.TTPluginListener;
 import com.bytedance.sdk.openadsdk.common.CommonListener;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
+import java.lang.ref.WeakReference;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes4.dex */
 public final class a implements TTAdManager {
@@ -20,10 +21,10 @@ public final class a implements TTAdManager {
     /* loaded from: classes4.dex */
     public class AnonymousClass1 implements b<TTAdNative> {
         public TTAdNative a;
-        public final /* synthetic */ Context b;
+        public final /* synthetic */ WeakReference b;
 
-        public AnonymousClass1(Context context) {
-            this.b = context;
+        public AnonymousClass1(WeakReference weakReference) {
+            this.b = weakReference;
         }
 
         @Override // com.bytedance.sdk.openadsdk.api.plugin.a.b
@@ -37,7 +38,7 @@ public final class a implements TTAdManager {
                     @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0272a
                     public void a(TTAdManager tTAdManager) {
                         AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
-                        anonymousClass1.a = tTAdManager.createAdNative(anonymousClass1.b);
+                        anonymousClass1.a = tTAdManager.createAdNative((Context) anonymousClass1.b.get());
                         interfaceC0272a.a(AnonymousClass1.this.a);
                     }
                 });
@@ -241,11 +242,12 @@ public final class a implements TTAdManager {
                 interfaceC0272a.a(this.b);
                 return;
             } catch (Throwable th) {
-                com.bytedance.sdk.openadsdk.api.b.d.c("PluginDefaultAdManager", "Unexpected manager call error: " + th.getMessage());
+                com.bytedance.sdk.openadsdk.api.a.d("PluginDefaultAdManager", "Unexpected manager call error: " + th.getMessage());
+                e.a(th);
                 return;
             }
         }
-        ScheduledExecutorService scheduledExecutorService = g.a;
+        ScheduledExecutorService scheduledExecutorService = f.a;
         if (scheduledExecutorService != null) {
             scheduledExecutorService.submit(new Runnable() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.8
                 @Override // java.lang.Runnable
@@ -258,20 +260,21 @@ public final class a implements TTAdManager {
                         if (interfaceC0272a instanceof c) {
                             ((c) interfaceC0272a).a();
                         }
-                        com.bytedance.sdk.openadsdk.api.b.d.c("PluginDefaultAdManager", "Not ready, no manager");
+                        com.bytedance.sdk.openadsdk.api.a.d("PluginDefaultAdManager", "Not ready, no manager");
                     } catch (Throwable th2) {
-                        com.bytedance.sdk.openadsdk.api.b.d.c("PluginDefaultAdManager", "Unexpected manager call error: " + th2.getMessage());
+                        com.bytedance.sdk.openadsdk.api.a.d("PluginDefaultAdManager", "Unexpected manager call error: " + th2.getMessage());
+                        e.a(th2);
                     }
                 }
             });
         } else {
-            com.bytedance.sdk.openadsdk.api.b.d.c("PluginDefaultAdManager", "Not ready, no executor");
+            com.bytedance.sdk.openadsdk.api.a.d("PluginDefaultAdManager", "Not ready, no executor");
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdNative createAdNative(Context context) {
-        return new d(new AnonymousClass1(context));
+        return new d(new AnonymousClass1(new WeakReference(context)));
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
@@ -291,7 +294,7 @@ public final class a implements TTAdManager {
             call(new c<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.4
                 @Override // com.bytedance.sdk.openadsdk.api.plugin.a.c
                 public void a() {
-                    e.a(bundle);
+                    com.bytedance.sdk.openadsdk.api.plugin.d.a(bundle);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -319,7 +322,7 @@ public final class a implements TTAdManager {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public String getSDKVersion() {
-        return "4.0.2.2";
+        return "4.5.2.6";
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
@@ -343,7 +346,7 @@ public final class a implements TTAdManager {
         final Bundle bundle;
         if (obj instanceof TTPluginListener) {
             TTPluginListener tTPluginListener = (TTPluginListener) obj;
-            bundle = f.a(TTAppContextHolder.getContext()).a(tTPluginListener.packageName(), tTPluginListener.config());
+            bundle = e.a(TTAppContextHolder.getContext()).a(tTPluginListener.packageName(), tTPluginListener.config());
         } else {
             bundle = obj;
         }
@@ -351,10 +354,10 @@ public final class a implements TTAdManager {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0272a
             public void a(TTAdManager tTAdManager) {
-                if (obj instanceof TTPluginListener) {
-                    f.a(TTAppContextHolder.getContext()).a((TTPluginListener) obj);
-                }
                 tTAdManager.register(bundle);
+                if (obj instanceof TTPluginListener) {
+                    e.a(TTAppContextHolder.getContext()).a((TTPluginListener) obj);
+                }
             }
         });
     }

@@ -150,8 +150,8 @@ public class xf implements IHttpNet {
             } else if (httpNetType == IHttpNet.HttpNetType.POST_BYTE) {
                 dataOutputStream = new DataOutputStream(this.b.getOutputStream());
                 try {
-                    if (this.a.b().l() != null) {
-                        Iterator<BasicNameValuePair> it = this.a.b().l().iterator();
+                    if (this.a.b().j() != null) {
+                        Iterator<BasicNameValuePair> it = this.a.b().j().iterator();
                         while (it.hasNext()) {
                             BasicNameValuePair next = it.next();
                             if (next != null) {
@@ -228,7 +228,7 @@ public class xf implements IHttpNet {
     @Override // com.baidu.adp.lib.network.http.IHttpNet
     public void e(URL url) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, url) == null) && ni.z() && ni.x()) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, url) == null) && ni.z()) {
             try {
                 String c = ni.c();
                 if (c == null || c.length() <= 0) {
@@ -289,10 +289,10 @@ public class xf implements IHttpNet {
     @Override // com.baidu.adp.lib.network.http.IHttpNet
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.b == null || this.a.b().h() == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.b == null || this.a.b().g() == null) {
             return;
         }
-        for (Map.Entry<String, String> entry : this.a.b().h().entrySet()) {
+        for (Map.Entry<String, String> entry : this.a.b().g().entrySet()) {
             this.b.addRequestProperty(entry.getKey(), entry.getValue());
         }
     }
@@ -385,12 +385,12 @@ public class xf implements IHttpNet {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             StringBuilder sb = new StringBuilder(1024);
-            LinkedList<BasicNameValuePair> l = this.a.b().l();
-            if (l == null) {
+            LinkedList<BasicNameValuePair> j = this.a.b().j();
+            if (j == null) {
                 return sb;
             }
             int i = 0;
-            Iterator<BasicNameValuePair> it = l.iterator();
+            Iterator<BasicNameValuePair> it = j.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (next != null) {

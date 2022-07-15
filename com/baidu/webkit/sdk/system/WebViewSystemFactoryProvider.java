@@ -73,7 +73,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
         this.mStaticWebSettings.put(WebViewFactoryProvider.SETTING_JS_ENABLE_ON_FILE_SCHEMA, WebViewFactoryProvider.SETTING_JS_ENABLE_ON_FILE_SCHEMA_VALUE);
         this.mStaticWebSettings.put(WebViewFactoryProvider.SETTING_FIX_WEBVIEW_HOLES, WebViewFactoryProvider.SETTING_FIX_WEBVIEW_HOLES_VALUE);
         this.mStaticWebSettings.put(WebViewFactoryProvider.SETTING_URL_SAFE_CHECK, WebViewFactoryProvider.SETTING_URL_SAFE_CHECK_VALUE);
-        this.mStaticWebSettings.put("Debug", WebViewFactoryProvider.SETTING_DEBUG_VALUE);
+        this.mStaticWebSettings.put(WebViewFactoryProvider.SETTING_DEBUG, WebViewFactoryProvider.SETTING_DEBUG_VALUE);
         this.mStaticWebSettings.put(WebViewFactoryProvider.SETTING_UA_EMULATE, WebViewFactoryProvider.SETTING_UA_EMULATE_VALUE);
         this.mStaticWebSettings.put(WebViewFactoryProvider.SETTING_ENABLE_JS_PROMPT, WebViewFactoryProvider.SETTING_ENABLE_JS_PROMPT_VALUE);
         this.mStaticWebSettings.put(WebViewFactoryProvider.SETTING_JS_CHECK_POLICY, WebViewFactoryProvider.SETTING_JS_CHECK_POLICY_VALUE);

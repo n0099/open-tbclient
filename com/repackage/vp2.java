@@ -1,16 +1,20 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vp2 {
+public class vp2 extends up2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,26 +30,52 @@ public class vp2 {
                 return;
             }
         }
-        a = cg1.a;
+        boolean z = rg1.a;
     }
 
-    public static String a(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vp2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pMSAppInfo)) == null) {
-            if (pMSAppInfo == null) {
-                if (a) {
-                    Log.e("AppInfoExt", "appInfo can not be null, please check");
-                    return "";
-                }
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            String str = pMSAppInfo.serverExt;
-            if (a) {
-                Log.d("AppInfoExt", "appId - " + pMSAppInfo.appId + ",get app info' ext - " + str);
-            }
-            return str;
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.up2
+    public boolean a(pp2 pp2Var, rp2 rp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{pp2Var, rp2Var, context, unitedSchemeEntity, callbackHandler, h03Var})) == null) {
+            hx1.i("vrvideo", "remove, video id:" + rp2Var.j + " slave id: " + rp2Var.c);
+            d(pp2Var, rp2Var, unitedSchemeEntity, callbackHandler);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void d(pp2 pp2Var, rp2 rp2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pp2Var, rp2Var, unitedSchemeEntity, callbackHandler) == null) {
+            wv1 a = uw1.a(rp2Var);
+            if (a != null) {
+                a.B();
+            } else {
+                ax1.a("VrVideoRemoveAction", "remove with a null component");
+            }
+            pp2Var.onDestroy();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
     }
 }

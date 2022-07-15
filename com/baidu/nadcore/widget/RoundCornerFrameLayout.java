@@ -73,7 +73,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public final void d(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040556});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040557});
             int dimension = (int) obtainStyledAttributes.getDimension(0, 0.0f);
             if (dimension > 0) {
                 setCornerRadius(dimension);

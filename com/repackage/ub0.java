@@ -1,163 +1,103 @@
 package com.repackage;
 
-import android.opengl.Matrix;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mario.gldraw2d.params.MirrorType;
-import com.baidu.mario.gldraw2d.params.ScaleType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ub0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "ub0";
+public class ub0 implements Cloneable {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public int f;
+    public long g;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(37995761, "Lcom/repackage/ub0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(37995761, "Lcom/repackage/ub0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[ScaleType.values().length];
-            a = iArr;
-            try {
-                iArr[ScaleType.FIT_XY.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[ScaleType.FIT_CENTER.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[ScaleType.CENTER_CROP.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755266866, "Lcom/repackage/ub0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public ub0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755266866, "Lcom/repackage/ub0;");
-        }
-    }
-
-    public static void a(float[] fArr, MirrorType mirrorType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, fArr, mirrorType) == null) {
-            if (fArr == null) {
-                Log.e(a, "mirrorDraw2DMVP mvpMatrix == NULLLLLLL!!!");
-            }
-            if (mirrorType == MirrorType.HORIZONTALLY) {
-                Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
-            } else if (mirrorType == MirrorType.VERTICALLY) {
-                Matrix.rotateM(fArr, 0, 180.0f, 1.0f, 0.0f, 0.0f);
-                fArr[6] = 0.0f;
-                fArr[9] = 0.0f;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 3553;
+        this.b = -1;
+        this.c = false;
+        this.d = false;
+        this.g = 0L;
     }
 
-    public static void b(float[] fArr) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public ub0 clone() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, fArr) == null) {
-            Matrix.setIdentityM(fArr, 0);
-        }
-    }
-
-    public static void c(float[] fArr, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65539, null, fArr, f) == null) {
-            if (fArr == null) {
-                Log.e(a, "rotateDraw2DMVP mvpMatrix == NULLLLLLL!!!");
-            }
-            Matrix.rotateM(fArr, 0, f, 0.0f, 0.0f, 1.0f);
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0062, code lost:
-        if (r0 > r5) goto L32;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0067, code lost:
-        if (r0 > r5) goto L30;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0069, code lost:
-        r5 = r5 / r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x006d, code lost:
-        r8 = r0 / r5;
-        r5 = 1.0f;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void d(float[] fArr, pb0 pb0Var, ob0 ob0Var, ScaleType scaleType, float f) {
-        float f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, pb0Var, ob0Var, scaleType, Float.valueOf(f)}) == null) {
-            if (fArr == null) {
-                Log.e(a, "scaleDraw2DMVP mvpMatrix == NULLLLLLL!!!");
-            } else if (pb0Var != null && pb0Var.d() > 0 && pb0Var.b() > 0) {
-                if (ob0Var != null && ob0Var.c() > 0 && ob0Var.b() > 0) {
-                    float d = (pb0Var.d() * 1.0f) / pb0Var.b();
-                    float c = (ob0Var.c() * 1.0f) / ob0Var.b();
-                    int i = a.a[scaleType.ordinal()];
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i != 3) {
-                                if (i == 4) {
-                                    f2 = f;
-                                }
-                            }
-                        }
-                        Matrix.scaleM(fArr, 0, f, f2, 1.0f);
-                        return;
-                    }
-                    f2 = 1.0f;
-                    f = 1.0f;
-                    Matrix.scaleM(fArr, 0, f, f2, 1.0f);
-                    return;
-                }
-                Log.e(a, "scaleDraw2DMVP draw target error!!!");
-            } else {
-                Log.e(a, "scaleDraw2DMVP source texture error!!!");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return (ub0) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                return null;
             }
         }
+        return (ub0) invokeV.objValue;
     }
 
-    public static void e(float[] fArr, float f, float f2) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            Matrix.translateM(fArr, 0, f, f2, 1.0f);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b != -1 : invokeV.booleanValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
         }
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "type = " + this.a + " && id = " + this.b + " && cameraFrame" + this.c + " && frontCamera = " + this.d + " && width * height = " + this.e + " * " + this.f + " && timestamp = " + this.g;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.z;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -120,7 +119,7 @@ public final class DeviceInfoUtils {
         }
         BufferedReader bufferedReader2 = null;
         try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new ProcessBuilder("/system/bin/cat", z.b).start().getInputStream()));
+            bufferedReader = new BufferedReader(new InputStreamReader(new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq").start().getInputStream()));
             try {
                 long parseLong = Long.parseLong(bufferedReader.readLine());
                 try {

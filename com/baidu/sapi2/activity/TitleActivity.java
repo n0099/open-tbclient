@@ -116,7 +116,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             } else {
                 setBtnVisibility(4, 0, 4);
                 setTitleDrawable(null, null, null, null);
-                setLeftBtnDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081019), null, null, null);
+                setLeftBtnDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f99), null, null, null);
             }
             b();
             if (this.configuration.showBottomBack) {
@@ -130,39 +130,39 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (sapiConfiguration = this.configuration) != null && sapiConfiguration.isDarkMode) {
             if (this.useTitle) {
-                setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f0609be));
-                setLeftBtnImage(R.drawable.obfuscated_res_0x7f08101a);
-                setLeftBtnTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bb));
-                setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bb));
-                setRightBtnColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bb));
+                setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f0609b5));
+                setLeftBtnImage(R.drawable.obfuscated_res_0x7f080f9a);
+                setLeftBtnTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b2));
+                setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b2));
+                setRightBtnColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b2));
                 LinearLayout linearLayout = this.mLeftBtnLayout;
                 if (linearLayout != null) {
-                    linearLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609be));
+                    linearLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b5));
                 }
                 ImageView imageView = this.mRightBtnClose;
                 if (imageView != null) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f081090);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f08100f);
                 }
                 View view2 = this.dividerLine;
                 if (view2 != null) {
-                    view2.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609be));
+                    view2.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b5));
                 }
             }
             ImageView imageView2 = this.mBottomBackBtnIv;
             if (imageView2 != null) {
-                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f08101a);
+                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080f9a);
             }
             RelativeLayout relativeLayout = this.mBottomBgLayout;
             if (relativeLayout != null) {
-                relativeLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609be));
+                relativeLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b5));
             }
             TextView textView = this.mBottomBackTvText;
             if (textView != null) {
-                textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bb));
+                textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b2));
             }
             ImageView imageView3 = this.mBottomDividerLine;
             if (imageView3 != null) {
-                imageView3.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609be));
+                imageView3.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b5));
             }
         }
     }
@@ -249,11 +249,11 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             }
             SapiConfiguration sapiConfiguration = this.configuration;
             if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
-                setTheme(R.style.obfuscated_res_0x7f100177);
+                setTheme(R.style.obfuscated_res_0x7f100178);
             } else {
                 SapiConfiguration sapiConfiguration2 = this.configuration;
                 if (sapiConfiguration2 != null && sapiConfiguration2.isNightMode) {
-                    setTheme(R.style.obfuscated_res_0x7f100178);
+                    setTheme(R.style.obfuscated_res_0x7f100179);
                 }
             }
             SapiConfiguration sapiConfiguration3 = this.configuration;
@@ -560,22 +560,22 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                 childAt.setFitsSystemWindows(true);
             }
             if (this.useTitle) {
-                this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092017);
-                this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092031);
-                this.mLeftBtnTv = (TextView) findViewById(R.id.obfuscated_res_0x7f092024);
-                this.mLeftBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f092023);
-                this.mRightBtn = (Button) findViewById(R.id.obfuscated_res_0x7f092025);
-                this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bcb);
-                this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bca);
-                this.dividerLine = findViewById(R.id.obfuscated_res_0x7f09202a);
-                this.mRightBtnClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f09203e);
+                this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0920bc);
+                this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0920d6);
+                this.mLeftBtnTv = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c9);
+                this.mLeftBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920c8);
+                this.mRightBtn = (Button) findViewById(R.id.obfuscated_res_0x7f0920ca);
+                this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c6a);
+                this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c69);
+                this.dividerLine = findViewById(R.id.obfuscated_res_0x7f0920cf);
+                this.mRightBtnClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920e3);
                 SapiConfiguration sapiConfiguration = this.configuration;
-                if (sapiConfiguration != null && sapiConfiguration.showBottomBack && this.bottomBackView == null && (viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091d9f)) != null) {
+                if (sapiConfiguration != null && sapiConfiguration.showBottomBack && this.bottomBackView == null && (viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091e43)) != null) {
                     this.bottomBackView = viewStub.inflate();
-                    this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b12);
-                    this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f091bc9);
-                    this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b14);
-                    this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b5d);
+                    this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bb1);
+                    this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f091c68);
+                    this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bb3);
+                    this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bfc);
                     ViewUtility.setOnClickListener(this.mBottomBackBtnIv, this);
                     ViewUtility.setOnClickListener(this.mBottomBackTvText, this);
                     ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
@@ -602,7 +602,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             }
             SapiConfiguration sapiConfiguration3 = this.configuration;
             if (sapiConfiguration3 != null && !sapiConfiguration3.isDarkMode && sapiConfiguration3.isNightMode) {
-                ((ViewGroup) this.mTitleBgLayout.getRootView()).addView(((LayoutInflater) getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d04c1, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
+                ((ViewGroup) this.mTitleBgLayout.getRootView()).addView(((LayoutInflater) getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d04da, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
             }
             if (this.bottomBackView != null) {
                 SoftKeyBoardListener.setListener(this, new SoftKeyBoardListener.OnSoftKeyBoardChangeListener(this) { // from class: com.baidu.sapi2.activity.TitleActivity.1

@@ -1,28 +1,27 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class mx3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile lx3 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String value;
 
-    public mx3() {
+    public static synchronized lx3 a() {
+        InterceptResult invokeV;
+        lx3 lx3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (mx3.class) {
+                if (a == null) {
+                    a = new lx3();
+                }
+                lx3Var = a;
             }
+            return lx3Var;
         }
+        return (lx3) invokeV.objValue;
     }
 }

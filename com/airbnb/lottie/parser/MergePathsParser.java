@@ -3,10 +3,11 @@ package com.airbnb.lottie.parser;
 import androidx.appcompat.widget.SearchView;
 import com.airbnb.lottie.model.content.MergePaths;
 import com.airbnb.lottie.parser.moshi.JsonReader;
+import com.fun.ad.sdk.FunAdSdk;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class MergePathsParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "mm", "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, FunAdSdk.PLATFORM_MM, "hd");
 
     public static MergePaths parse(JsonReader jsonReader) throws IOException {
         String str = null;

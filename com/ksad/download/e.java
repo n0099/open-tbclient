@@ -8,9 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.download.DownloadParams;
 /* loaded from: classes5.dex */
-public class e {
+public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public f a;
@@ -58,7 +57,7 @@ public class e {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (e) invokeV.objValue;
     }
 
-    public synchronized void a(int i) {
+    public final synchronized void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             synchronized (this) {
@@ -69,63 +68,77 @@ public class e {
         }
     }
 
-    public synchronized void a(DownloadTask downloadTask) {
+    public final synchronized void a(DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask) == null) {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
                     a(downloadTask.getId());
-                } else if (this.a != null) {
+                    return;
+                }
+                if (this.a != null) {
                     this.a.a(downloadTask);
                 }
             }
         }
     }
 
-    public synchronized void a(DownloadTask downloadTask, boolean z) {
+    public final synchronized void a(DownloadTask downloadTask, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, downloadTask, z) == null) {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
                     a(downloadTask.getId());
-                } else if (this.a != null) {
+                    return;
+                }
+                if (this.a != null) {
                     this.a.a(downloadTask, z);
                 }
             }
         }
     }
 
-    public void a(f fVar) {
+    public final void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
             this.a = fVar;
         }
     }
 
-    public synchronized void b(DownloadTask downloadTask) {
+    public final synchronized void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, downloadTask) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.a(str);
+                }
+            }
+        }
+    }
+
+    public final synchronized void b(DownloadTask downloadTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, downloadTask) == null) {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
                     a(downloadTask.getId());
-                } else if (this.a != null) {
+                    return;
+                }
+                if (this.a != null) {
                     this.a.b(downloadTask);
                 }
             }
         }
     }
 
-    public synchronized void c(DownloadTask downloadTask) {
+    public final synchronized void c(DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, downloadTask) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, downloadTask) == null) {
             synchronized (this) {
                 if (this.a != null) {
                     this.a.c(downloadTask);
                 }
-                Object tag = downloadTask.getTag();
-                if (tag instanceof DownloadParams) {
-                    DownloadParams downloadParams = (DownloadParams) tag;
-                }
+                downloadTask.getTag();
             }
         }
     }

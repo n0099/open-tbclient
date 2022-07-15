@@ -35,7 +35,7 @@ public class WrapContentHeightViewPager extends ViewPager {
         }
     }
 
-    public final int a(int i, View view2) {
+    public final int b(int i, View view2) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, view2)) == null) {
@@ -76,7 +76,7 @@ public class WrapContentHeightViewPager extends ViewPager {
                 if (view2 != null) {
                     view2.measure(i, i2);
                 }
-                setMeasuredDimension(getMeasuredWidth(), a(i2, view2));
+                setMeasuredDimension(getMeasuredWidth(), b(i2, view2));
             }
         }
     }

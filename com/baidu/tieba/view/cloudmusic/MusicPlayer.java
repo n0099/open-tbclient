@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cu8;
+import com.repackage.zu8;
 import java.io.IOException;
 /* loaded from: classes4.dex */
 public class MusicPlayer {
@@ -121,7 +121,7 @@ public class MusicPlayer {
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                cu8.b().d(this.a);
+                zu8.b().d(this.a);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
                 this.b.a.setLooping(true);
                 this.b.a.start();

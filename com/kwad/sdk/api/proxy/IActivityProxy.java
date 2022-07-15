@@ -65,9 +65,15 @@ public abstract class IActivityProxy implements IComponentProxy {
     public void onBackPressed() {
         Activity activity = this.mActivity;
         if (activity instanceof BaseProxyActivity) {
-            ((BaseProxyActivity) activity).superOnBackPressed();
+            try {
+                ((BaseProxyActivity) activity).superOnBackPressed();
+            } catch (Exception unused) {
+            }
         } else if (activity instanceof BaseProxyFragmentActivity) {
-            ((BaseProxyFragmentActivity) activity).superOnBackPressed();
+            try {
+                ((BaseProxyFragmentActivity) activity).superOnBackPressed();
+            } catch (Exception unused2) {
+            }
         } else {
             throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
         }

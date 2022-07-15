@@ -1,45 +1,172 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.graphics.Rect;
+import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.tieba.R;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class by2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final View b;
+    public jy2 c;
+    public Context d;
 
-    public static FullScreenFloatView a(Context context, ViewGroup viewGroup, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, viewGroup, i)) == null) {
-            if (context == null || viewGroup == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755810730, "Lcom/repackage/by2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            FullScreenFloatView b = b(context, i);
-            viewGroup.addView(b);
-            return b;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755810730, "Lcom/repackage/by2;");
+                return;
+            }
         }
-        return (FullScreenFloatView) invokeLLI.objValue;
+        e = rg1.a;
     }
 
-    public static FullScreenFloatView b(Context context, int i) {
-        InterceptResult invokeLI;
+    public by2(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (context == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = -1;
+        this.b = view2;
+        this.d = view2.getContext();
+    }
+
+    public final jy2 a(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            jy2 jy2Var = this.c;
+            if (jy2Var != null) {
+                return jy2Var;
+            }
+            if (view2 instanceof jy2) {
+                jy2 jy2Var2 = (jy2) view2;
+                this.c = jy2Var2;
+                return jy2Var2;
+            } else if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                    jy2 a = a(viewGroup.getChildAt(i));
+                    if (a != null) {
+                        this.c = a;
+                        return a;
+                    }
+                }
+                return null;
+            } else {
                 return null;
             }
-            int i2 = R.layout.obfuscated_res_0x7f0d00a4;
-            if (i != 1 && i == 2) {
-                i2 = R.layout.obfuscated_res_0x7f0d00a5;
-            }
-            return (FullScreenFloatView) LayoutInflater.from(context.getApplicationContext()).inflate(i2, (ViewGroup) null);
         }
-        return (FullScreenFloatView) invokeLI.objValue;
+        return (jy2) invokeL.objValue;
+    }
+
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            Context context = this.d;
+            if (context instanceof Activity) {
+                Activity activity = (Activity) context;
+                if (iy2.f(activity) && this.b.getFitsSystemWindows()) {
+                    Rect rect = new Rect();
+                    this.b.getWindowVisibleDisplayFrame(rect);
+                    i2 = rect.bottom - rect.top;
+                    if (e) {
+                        Log.d("SPSwitchRootLayout", "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
+                    }
+                }
+                if (iy2.e(activity) && this.b.getFitsSystemWindows()) {
+                    Rect rect2 = new Rect();
+                    this.b.getWindowVisibleDisplayFrame(rect2);
+                    i2 = rect2.bottom - rect2.top;
+                    if (e) {
+                        Log.d("SPSwitchRootLayout", "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
+                    }
+                }
+            }
+            if (e) {
+                Log.d("SPSwitchRootLayout", "onMeasure, width: " + i + " height: " + i2);
+            }
+            if (i2 < 0) {
+                return;
+            }
+            int i3 = this.a;
+            if (i3 < 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "onMeasure, oldHeight < 0, oldHeight: " + this.a);
+                }
+                this.a = i2;
+                return;
+            }
+            int i4 = i3 - i2;
+            if (i4 == 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset == 0, break;");
+                    return;
+                }
+                return;
+            }
+            this.a = i2;
+            jy2 a = a(this.b);
+            if (a == null) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "cannot find the valid panel layout, give up!");
+                    return;
+                }
+                return;
+            }
+            int visibility = ((LinearLayout) a).getVisibility();
+            if (e) {
+                Log.d("SPSwitchRootLayout", "panel visibility: " + visibility);
+            }
+            if (Math.abs(i4) < gy2.g(this.b.getContext())) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "layout change min, not caused by softinput/panel switch!");
+                }
+            } else if (Math.abs(i4) > gy2.e(this.b.getContext())) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "layout change max , but not caused by softinput/panel switch!");
+                }
+            } else if (i4 > 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset > 0, offset : " + i4 + ", panel->handleHide...");
+                }
+                a.handleHide();
+            } else {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset < 0, offset : " + i4 + ", panel->handleShow...");
+                }
+                a.handleShow();
+            }
+        }
     }
 }

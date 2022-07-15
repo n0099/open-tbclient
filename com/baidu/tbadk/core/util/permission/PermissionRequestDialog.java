@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,10 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cr4;
 import com.repackage.d9;
-import com.repackage.nq4;
 /* loaded from: classes3.dex */
-public class PermissionRequestDialog extends nq4 {
+public class PermissionRequestDialog extends cr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -64,21 +65,21 @@ public class PermissionRequestDialog extends nq4 {
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0228, (ViewGroup) null);
             this.mRootView = viewGroup;
-            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921cf);
-            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921ce);
-            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921cc);
+            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092274);
+            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092273);
+            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092271);
             this.mCloseView = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f03e1);
-            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921cd);
+            textView.setText(R.string.obfuscated_res_0x7f0f03e8);
+            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092272);
             this.mContinueView = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f07b6);
+            textView2.setText(R.string.obfuscated_res_0x7f0f07c0);
             onChangeSkinType();
             setContentView(this.mRootView);
         }
     }
 
-    @Override // com.repackage.nq4
-    public nq4 create(d9<?> d9Var) {
+    @Override // com.repackage.cr4
+    public cr4 create(d9<?> d9Var) {
         InterceptResult invokeL;
         char c;
         String string;
@@ -88,7 +89,7 @@ public class PermissionRequestDialog extends nq4 {
             String str = this.mRequestPermission;
             int hashCode = str.hashCode();
             if (hashCode == -63024214) {
-                if (str.equals("android.permission.ACCESS_COARSE_LOCATION")) {
+                if (str.equals(PermissionChecker.ACCESS_COARSE_LOCATION)) {
                     c = 2;
                 }
                 c = 65535;
@@ -105,16 +106,16 @@ public class PermissionRequestDialog extends nq4 {
             }
             String str2 = null;
             if (c == 0) {
-                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f0fe9);
-                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0fe3);
+                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f0fe4);
+                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0fde);
             } else if (c == 1) {
-                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f0feb);
-                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0fe5);
+                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f0fe6);
+                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0fe0);
             } else if (c != 2) {
                 string = null;
             } else {
-                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f0fea);
-                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0fe4);
+                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f0fe5);
+                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0fdf);
             }
             this.mTitleView.setText(str2);
             this.mDetailView.setText(string);
@@ -184,7 +185,7 @@ public class PermissionRequestDialog extends nq4 {
             });
             return this;
         }
-        return (nq4) invokeL.objValue;
+        return (cr4) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

@@ -1,191 +1,33 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.SparseArray;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
+import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.KeyEventDealContainerView;
-import com.baidu.tbadk.core.view.MorePopupWindow;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.tab.HorizontalTabView;
-import com.baidu.tieba.frs.tab.TabItemView;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class yn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout a;
-    public be6 b;
-    public MorePopupWindow c;
-    public View d;
-    public SparseArray<un6> e;
-    public Context f;
-    public un6 g;
-    public e h;
-    public d i;
+    public final FrsFragment a;
+    public we6 b;
+    public TextView c;
+    public boolean d;
+    public int e;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yn6 a;
-
-        public a(yn6 yn6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yn6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yn6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sg.c(this.a.c);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements KeyEventDealContainerView.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yn6 a;
-
-        public b(yn6 yn6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yn6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yn6Var;
-        }
-
-        @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.c == null) {
-                return;
-            }
-            sg.c(this.a.c);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements PopupWindow.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TabItemView a;
-        public final /* synthetic */ yn6 b;
-
-        public c(yn6 yn6Var, TabItemView tabItemView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yn6Var, tabItemView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yn6Var;
-            this.a = tabItemView;
-        }
-
-        @Override // android.widget.PopupWindow.OnDismissListener
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.i == null) {
-                return;
-            }
-            this.b.i.a(this.a);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        void a(TabItemView tabItemView);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface e {
-        void a(int i);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public ImageView b;
-        public View c;
-        public View d;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public yn6(Context context, e eVar, d dVar) {
+    public yn6(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, eVar, dVar};
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -195,88 +37,94 @@ public class yn6 {
                 return;
             }
         }
-        this.f = context;
-        this.h = eVar;
-        this.i = dVar;
-        this.e = new SparseArray<>();
-        LinearLayout linearLayout = new LinearLayout(context);
-        this.a = linearLayout;
-        linearLayout.setOrientation(1);
-        this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        View view2 = new View(context);
-        this.d = view2;
-        view2.setOnClickListener(new a(this));
+        this.e = -1;
+        if (frsFragment != null) {
+            this.a = frsFragment;
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                UtilHelper.getStatusBarHeight();
+                return;
+            }
+            return;
+        }
+        throw new NullPointerException("FrsFragment is null");
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (i >= 0) {
+                d(true);
+                e(i);
+                return;
+            }
+            d(false);
+            e(i);
+        }
+    }
+
+    public void b() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.d && (i = this.e) >= 0) {
+                f(i);
+            }
+            this.d = false;
+        }
     }
 
     public void c() {
-        MorePopupWindow morePopupWindow;
+        we6 we6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (morePopupWindow = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (we6Var = this.b) == null) {
             return;
         }
-        try {
-            morePopupWindow.dismiss();
-        } catch (Exception e2) {
-            BdLog.e(e2);
+        we6Var.e();
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
         }
     }
 
-    public e d() {
-        InterceptResult invokeV;
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (e) invokeV.objValue;
-    }
-
-    public final void e(Activity activity, View view2, TabItemView tabItemView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, view2, tabItemView) == null) {
-            if (this.c == null) {
-                this.c = new MorePopupWindow(activity, this.a, view2, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081224), new b(this));
-            }
-            this.c.setOnDismissListener(new c(this, tabItemView));
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.e = i;
         }
     }
 
-    public void f(Activity activity, View view2, TabItemView tabItemView, be6 be6Var) {
+    public final void f(int i) {
+        id6 l1;
+        FrameLayout frameLayout;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, view2, tabItemView, be6Var) == null) {
-            this.b = be6Var;
-            un6 un6Var = this.e.get(be6Var.a);
-            this.g = un6Var;
-            if (un6Var == null) {
-                un6 a2 = bo6.a(this.b.a);
-                this.g = a2;
-                a2.a(this.f, this);
-                this.e.put(this.b.a, this.g);
-            }
-            this.g.setData(be6Var.b);
-            if (view2 instanceof HorizontalTabView) {
-                HorizontalTabView horizontalTabView = (HorizontalTabView) view2;
-                if (horizontalTabView.getmShowMenuCallBack() != null) {
-                    int[] iArr = new int[2];
-                    horizontalTabView.getLocationInWindow(iArr);
-                    pi.y(horizontalTabView.getContext());
-                    int i = pi.i(horizontalTabView.getContext());
-                    int b2 = this.g.b();
-                    int measuredHeight = (i - iArr[1]) - horizontalTabView.getMeasuredHeight();
-                    if (measuredHeight < b2) {
-                        horizontalTabView.getmShowMenuCallBack().b(b2 - measuredHeight);
-                    }
-                }
-            }
-            this.a.removeAllViews();
-            this.a.addView(this.g.getView());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            SkinManager.setBackgroundResource(this.d, R.color.common_color_10050);
-            this.a.addView(this.d, layoutParams);
-            e(activity, view2, tabItemView);
-            MorePopupWindow morePopupWindow = this.c;
-            if (morePopupWindow != null) {
-                morePopupWindow.refresh();
-                this.c.setWidthAsWidthOfDeviceScreen(activity);
-                this.c.setHeight(-1);
-                this.c.showWindowInCustomPosition(0, 0);
-            }
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (l1 = this.a.l1()) == null || l1.d0() == null || (frameLayout = (FrameLayout) l1.W()) == null) {
+            return;
         }
+        if (this.c == null && this.a.getPageContext() != null) {
+            TextView textView = new TextView(this.a.getPageContext().getPageActivity());
+            this.c = textView;
+            textView.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
+            this.c.setGravity(17);
+        }
+        if (this.c != null) {
+            if (i > 0) {
+                string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f85), Integer.valueOf(i));
+            } else {
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11bf);
+            }
+            this.c.setText(string);
+        }
+        SkinManager.setBackgroundResource(this.c, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0112);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702df));
+        if (this.b == null) {
+            this.b = new we6();
+        }
+        this.b.h(this.c, frameLayout, layoutParams, 2000);
+        this.e = -1;
     }
 }

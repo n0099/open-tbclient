@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f47;
 import com.repackage.pi;
-import com.repackage.rx4;
+import com.repackage.py4;
+import com.repackage.v47;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
-public class OfficialBarTipListAdapter extends f47 {
+public class OfficialBarTipListAdapter extends v47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,7 +40,7 @@ public class OfficialBarTipListAdapter extends f47 {
         }
     }
 
-    @Override // com.repackage.f47
+    @Override // com.repackage.v47
     public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class OfficialBarTipListAdapter extends f47 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.f47
+    @Override // com.repackage.v47
     public boolean f(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -60,8 +60,8 @@ public class OfficialBarTipListAdapter extends f47 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.f47
-    public void h(f47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.v47
+    public void h(v47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.b.setVisibility(8);
@@ -80,16 +80,16 @@ public class OfficialBarTipListAdapter extends f47 {
         }
     }
 
-    @Override // com.repackage.f47
-    public void l(f47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.v47
+    public void l(v47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03c0, imMessageCenterShowItemData.getFriendName()));
+            aVar.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03c7, imMessageCenterShowItemData.getFriendName()));
         }
     }
 
-    @Override // com.repackage.f47
-    public void p(f47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.v47
+    public void p(v47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.h.setVisibility(8);
@@ -99,14 +99,14 @@ public class OfficialBarTipListAdapter extends f47 {
         }
     }
 
-    @Override // com.repackage.f47
+    @Override // com.repackage.v47
     public BasicNameValuePair t(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, imMessageCenterShowItemData, i, str)) == null) {
             String str2 = "";
             int i2 = 0;
-            if (!rx4.d().n()) {
+            if (!py4.d().n()) {
                 str = "";
                 i = 0;
             }

@@ -1,33 +1,38 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.Camera;
-import android.view.MotionEvent;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ls1 {
+public class ls1 extends e23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String c;
 
     /* loaded from: classes6.dex */
-    public static class a implements Camera.AutoFocusCallback {
+    public class a implements ks1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ ls1 b;
 
-        public a(String str) {
+        public a(ls1 ls1Var, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {ls1Var, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,77 +42,88 @@ public class ls1 {
                     return;
                 }
             }
-            this.a = str;
+            this.b = ls1Var;
+            this.a = callbackHandler;
         }
 
-        @Override // android.hardware.Camera.AutoFocusCallback
-        public void onAutoFocus(boolean z, Camera camera) {
-            Camera.Parameters parameters;
+        @Override // com.repackage.ks1
+        public void a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, camera) == null) || camera == null || (parameters = camera.getParameters()) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                if (str == null) {
+                    str = "";
+                    str3 = str;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    if (str2 == null) {
+                        str2 = "";
+                    }
+                    jSONObject.put("scanType", str2);
+                    jSONObject.put("charSet", str3);
+                    jSONObject.put("result", str);
+                    hx1.i("scanCode", jSONObject.toString());
+                    this.a.handleSchemeDispatchCallback(this.b.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                } catch (JSONException e) {
+                    if (e23.b) {
+                        e.printStackTrace();
+                    }
+                    hx1.i("scanCode", "scanCode exec fail");
+                    this.a.handleSchemeDispatchCallback(this.b.c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ls1(e13 e13Var) {
+        super(e13Var, "/swanAPI/scanCode");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            parameters.setFocusMode(this.a);
-            camera.setParameters(parameters);
         }
     }
 
-    public static Rect a(float f, float f2, float f3, int i, int i2) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int i3 = (int) (((f / i) * 2000.0f) - 1000.0f);
-            int i4 = (int) (((f2 / i2) * 2000.0f) - 1000.0f);
-            int intValue = Float.valueOf(f3 * 300.0f).intValue() / 2;
-            RectF rectF = new RectF(b(i3 - intValue, -1000, 1000), b(i4 - intValue, -1000, 1000), b(i3 + intValue, -1000, 1000), b(i4 + intValue, -1000, 1000));
-            return new Rect(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
-        }
-        return (Rect) invokeCommon.objValue;
-    }
-
-    public static int b(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
-    }
-
-    public static String c(Camera.Parameters parameters) {
-        InterceptResult invokeL;
-        List<String> supportedFocusModes;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, parameters)) == null) {
-            if (parameters != null && (supportedFocusModes = parameters.getSupportedFocusModes()) != null) {
-                if (supportedFocusModes.contains("macro")) {
-                    return "macro";
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (h03Var == null) {
+                hx1.i("scanCode", "swanApp is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
+            } else if (h03Var.n0()) {
+                if (e23.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
-                if (supportedFocusModes.contains("continuous-picture")) {
-                    return "continuous-picture";
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
+            } else {
+                String optString = hd3.d(unitedSchemeEntity.getParam("params")).optString("cb");
+                this.c = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    hx1.i("scanCode", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
                 }
+                oj2.b0().a(h03Var.w(), new a(this, callbackHandler));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
-            return "auto";
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(MotionEvent motionEvent, Camera camera, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65539, null, motionEvent, camera, i, i2) == null) || motionEvent == null || camera == null) {
-            return;
-        }
-        Rect a2 = a(motionEvent.getX(), motionEvent.getY(), 1.0f, i, i2);
-        camera.cancelAutoFocus();
-        Camera.Parameters parameters = camera.getParameters();
-        if (parameters == null) {
-            return;
-        }
-        if (parameters.getMaxNumFocusAreas() > 0) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new Camera.Area(a2, 800));
-            parameters.setFocusAreas(arrayList);
-        }
-        String focusMode = parameters.getFocusMode();
-        parameters.setFocusMode(c(parameters));
-        camera.setParameters(parameters);
-        camera.autoFocus(new a(focusMode));
+        return invokeLLLL.booleanValue;
     }
 }

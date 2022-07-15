@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h87;
+import com.repackage.z87;
 import com.squareup.wire.Wire;
 import protobuf.BlockInfo;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
@@ -59,7 +59,7 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
             }
             long longValue = dataRes.msgId.longValue();
             setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-            setMsgId(h87.a(longValue));
+            setMsgId(z87.a(longValue));
             setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
             setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));

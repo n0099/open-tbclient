@@ -1,143 +1,133 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import tbclient.AlaLiveInfo;
-import tbclient.DislikeInfo;
+import com.repackage.te;
 /* loaded from: classes7.dex */
-public class zt7 implements nn {
+public class zt7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId o;
+    public static zt7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
-    public String e;
-    public MetaData f;
-    public HashMap<String, MetaData> g;
-    public boolean h;
-    public String i;
-    public String j;
-    public boolean k;
-    public boolean l;
-    public vo4 m;
-    public YyExtData n;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755100396, "Lcom/repackage/zt7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755100396, "Lcom/repackage/zt7;");
-                return;
-            }
-        }
-        o = BdUniqueId.gen();
-    }
+    public te<byte[]> a;
+    public te<byte[]> b;
 
     public zt7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = false;
+        this.a = null;
+        this.b = null;
+        c();
     }
 
-    public void a(AlaLiveInfo alaLiveInfo) {
-        HashMap<String, MetaData> hashMap;
-        MetaData metaData;
+    public static synchronized zt7 b() {
+        InterceptResult invokeV;
+        zt7 zt7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) {
-            if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
-                this.a = alaLiveInfo.user_info.user_name;
-                this.b = alaLiveInfo.live_status.intValue();
-                this.c = alaLiveInfo.audience_count.intValue();
-                this.d = alaLiveInfo.description;
-                String str = alaLiveInfo.cover_wide;
-                this.e = str;
-                if (str == null || TextUtils.isEmpty(str)) {
-                    this.e = alaLiveInfo.cover;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (zt7.class) {
+                if (c == null) {
+                    c = new zt7();
                 }
-                alaLiveInfo.live_id.longValue();
-                this.h = alaLiveInfo.live_from.intValue() == 1;
-                this.i = alaLiveInfo.third_live_type;
-                this.j = alaLiveInfo.third_room_id;
-                String str2 = alaLiveInfo.router_type;
-                YyExtData yyExtData = new YyExtData();
-                this.n = yyExtData;
-                yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
-                Long l = alaLiveInfo.user_info.user_id;
-                if (l != null && l.longValue() > 0 && (hashMap = this.g) != null && (metaData = hashMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
-                    this.f = metaData;
+                zt7Var = c;
+            }
+            return zt7Var;
+        }
+        return (zt7) invokeV.objValue;
+    }
+
+    public byte[] a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        te.b<byte[]> h;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (z) {
+                te<byte[]> teVar = this.a;
+                if (teVar != null && str != null) {
+                    h = teVar.h(str);
                 }
-                List<DislikeInfo> list = alaLiveInfo.dislike_info;
-                if (ListUtils.getCount(list) > 0) {
-                    SparseArray<String> sparseArray = new SparseArray<>();
-                    SparseArray<String> sparseArray2 = new SparseArray<>();
-                    for (DislikeInfo dislikeInfo : list) {
-                        if (dislikeInfo != null) {
-                            sparseArray.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.dislike_reason);
-                            sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
-                        }
-                    }
-                    vo4 vo4Var = new vo4();
-                    this.m = vo4Var;
-                    vo4Var.j(sparseArray);
-                    this.m.g = sparseArray2;
-                } else {
-                    this.m = null;
+                h = null;
+            } else {
+                te<byte[]> teVar2 = this.b;
+                if (teVar2 != null && str != null) {
+                    h = teVar2.h(str);
                 }
-                this.k = true;
+                h = null;
+            }
+            if (h == null || (bArr = h.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLZ.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                br4.f();
+                this.a = br4.d("tb.pb_mark");
+            }
+            if (this.b == null) {
+                br4.f();
+                this.b = br4.d("tb.pb_normal");
+            }
+        }
+    }
+
+    public void d(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            if (z) {
+                te<byte[]> teVar = this.a;
+                if (teVar == null || str == null) {
+                    return;
+                }
+                teVar.i(str, new byte[0], 0L);
                 return;
             }
-            this.k = false;
+            te<byte[]> teVar2 = this.b;
+            if (teVar2 == null || str == null) {
+                return;
+            }
+            teVar2.i(str, new byte[0], 0L);
         }
     }
 
-    public void b(HashMap<String, MetaData> hashMap) {
+    public void e(String str, boolean z, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
-            this.g = hashMap;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) || str == null) {
+            return;
+        }
+        c();
+        if (z) {
+            this.a.e(str, bArr, 604800000L);
+        } else {
+            this.b.e(str, bArr, 86400000L);
         }
     }
 
-    @Override // com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void f(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? o : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) || bArr == null || str == null) {
+            return;
+        }
+        c();
+        this.a.e(str, bArr, 2592000000L);
     }
 }

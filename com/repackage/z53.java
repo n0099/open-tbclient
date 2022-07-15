@@ -1,149 +1,83 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.ubc.Flow;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.swan.apps.so.SoUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p63;
+import java.io.File;
+import java.util.Arrays;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public class z53 {
+public class z53 implements SoUtils.a {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static y53 a(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755161063, "Lcom/repackage/z53;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755161063, "Lcom/repackage/z53;");
+                return;
+            }
+        }
+        a = rg1.a;
+    }
+
+    public z53() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return new y53(g() ? zi2.A0().beginFlow(str) : null, we4.d(str));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(oj2.c(), str);
+            return String.format(Locale.CHINA, "[%s:%s,size:%d]", str, findSoFilesInLibrary == null ? null : findSoFilesInLibrary.getAbsolutePath(), Long.valueOf(findSoFilesInLibrary == null ? 0L : findSoFilesInLibrary.length()));
         }
-        return (y53) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void b(@NonNull y53 y53Var) {
+    @Override // com.baidu.swan.apps.so.SoUtils.a
+    public void onEvent(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, y53Var) == null) {
-            if (g()) {
-                zi2.A0().b(y53Var.b());
-            }
-            Flow a = y53Var.a();
-            if (a != null) {
-                a.cancel();
-            }
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
+            return;
         }
-    }
-
-    public static void c(@NonNull y53 y53Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, y53Var) == null) {
-            if (g()) {
-                zi2.A0().c(y53Var.b());
-            }
-            Flow a = y53Var.a();
-            if (a != null) {
-                a.end();
-            }
+        String[] strArr = {Build.CPU_ABI, Build.CPU_ABI2};
+        String str3 = Arrays.toString(strArr) + "\n" + sg1.a() + "\n" + a("v8.engine") + "\n" + a("zeusv8") + "\n" + str2;
+        if (a) {
+            Log.d("SoUbcDefaultImpl", "reportSoLoadInfo: " + str3);
         }
-    }
-
-    public static void d(@NonNull y53 y53Var, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, y53Var, str, str2) == null) {
-            if (g()) {
-                zi2.A0().a(y53Var.b(), str, str2);
-            }
-            Flow a = y53Var.a();
-            if (a != null) {
-                a.addEvent(str, str2);
-            }
-        }
-    }
-
-    public static void e(@NonNull y53 y53Var, String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{y53Var, str, str2, Long.valueOf(j)}) == null) {
-            if (g()) {
-                zi2.A0().g(y53Var.b(), str, str2, j);
-            }
-            Flow a = y53Var.a();
-            if (a != null) {
-                a.addEvent(str, str2, j);
-            }
-        }
-    }
-
-    public static void f(@NonNull y53 y53Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, y53Var, str) == null) {
-            if (g()) {
-                zi2.A0().h(y53Var.b(), str);
-            }
-            Flow a = y53Var.a();
-            if (a != null) {
-                a.setValueWithDuration(str);
-            }
-        }
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? zi2.A0().e() : invokeV.booleanValue;
-    }
-
-    public static void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
-            if (g()) {
-                zi2.A0().i(str, str2);
-            }
-            we4.h(str, str2);
-        }
-    }
-
-    public static void i(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, jSONObject) == null) {
-            if (g()) {
-                zi2.A0().f(str, jSONObject);
-            }
-            we4.l(str2, jSONObject);
-        }
-    }
-
-    public static void j(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, map) == null) {
-            if (g()) {
-                zi2.A0().d(str, map);
-            }
-            we4.j(str, map);
-        }
-    }
-
-    public static void k(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, jSONObject) == null) {
-            if (g()) {
-                zi2.A0().f(str, jSONObject);
-            }
-            we4.l(str, jSONObject);
-        }
-    }
-
-    public static void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
-            zi2.A0().i(str, str2);
-        }
-    }
-
-    public static void m(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, jSONObject) == null) {
-            zi2.A0().f(str, jSONObject);
-        }
+        p63.b bVar = new p63.b(10007);
+        bVar.j(str);
+        bVar.i(str3);
+        bVar.h(h03.g0());
+        bVar.m();
     }
 }

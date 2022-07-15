@@ -87,7 +87,13 @@ public class FieldUtils {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, str)) == null) {
-            return cls.toString() + "#" + str;
+            StringBuilder sb = new StringBuilder();
+            sb.append(cls.toString());
+            sb.append("#");
+            sb.append(str);
+            sb.append("#");
+            sb.append(cls.getClassLoader() != null ? Integer.valueOf(cls.getClassLoader().hashCode()) : "");
+            return sb.toString();
         }
         return (String) invokeLL.objValue;
     }

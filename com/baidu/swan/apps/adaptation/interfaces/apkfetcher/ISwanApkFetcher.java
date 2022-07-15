@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a03;
-import com.repackage.ul1;
+import com.repackage.jm1;
+import com.repackage.p03;
 /* loaded from: classes2.dex */
 public interface ISwanApkFetcher {
 
@@ -97,7 +97,7 @@ public interface ISwanApkFetcher {
     }
 
     /* loaded from: classes2.dex */
-    public static class b extends a03 implements ISwanApkFetcher {
+    public static class b extends p03 implements ISwanApkFetcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -133,23 +133,23 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void d(@NonNull String str, @NonNull ul1 ul1Var) {
+        public void d(@NonNull String str, @NonNull jm1 jm1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, ul1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jm1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void e(@NonNull String str, @NonNull ul1 ul1Var) {
+        public void e(@NonNull String str, @NonNull jm1 jm1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, ul1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048579, this, str, jm1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void f(@NonNull String str, @NonNull ul1 ul1Var) {
+        public void f(@NonNull String str, @NonNull jm1 jm1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, str, ul1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048580, this, str, jm1Var) == null) {
             }
         }
 
@@ -161,16 +161,16 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void h(@NonNull String str, @NonNull ul1 ul1Var) {
+        public void h(@NonNull String str, @NonNull jm1 jm1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, str, ul1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048582, this, str, jm1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void j(@NonNull String str, @NonNull ul1 ul1Var) {
+        public void j(@NonNull String str, @NonNull jm1 jm1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, str, ul1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048583, this, str, jm1Var) == null) {
             }
         }
 
@@ -186,17 +186,17 @@ public interface ISwanApkFetcher {
 
     void F(@NonNull String str, @Nullable a aVar);
 
-    void d(@NonNull String str, @NonNull ul1 ul1Var);
+    void d(@NonNull String str, @NonNull jm1 jm1Var);
 
-    void e(@NonNull String str, @NonNull ul1 ul1Var);
+    void e(@NonNull String str, @NonNull jm1 jm1Var);
 
-    void f(@NonNull String str, @NonNull ul1 ul1Var);
+    void f(@NonNull String str, @NonNull jm1 jm1Var);
 
     void g(@NonNull String str, @Nullable a aVar);
 
-    void h(@NonNull String str, @NonNull ul1 ul1Var);
+    void h(@NonNull String str, @NonNull jm1 jm1Var);
 
-    void j(@NonNull String str, @NonNull ul1 ul1Var);
+    void j(@NonNull String str, @NonNull jm1 jm1Var);
 
     void release();
 }

@@ -53,7 +53,7 @@ public class EditorInfoView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702ce));
+            setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702cd));
         }
     }
 
@@ -98,8 +98,8 @@ public class EditorInfoView extends TextView {
             }
         }
         this.a = 3;
-        this.b = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070263);
-        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702e9);
+        this.b = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070262);
+        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702e8);
         this.c = dimension;
         int i4 = this.b;
         setPadding(i4, dimension, i4, dimension);

@@ -14,6 +14,8 @@ public final class AdDownloadAction {
     public static /* synthetic */ Interceptable $ic;
     public static final AdDownloadAction COMPLETE;
     public static final AdDownloadAction FAIL;
+    public static final AdDownloadAction FAIL_PERMISSION_DENY;
+    public static final AdDownloadAction FAIL_RETRY;
     public static final AdDownloadAction INSTALL_FINISH;
     public static final AdDownloadAction INSTALL_START;
     public static final AdDownloadAction OPEN;
@@ -47,9 +49,11 @@ public final class AdDownloadAction {
         INSTALL_FINISH = new AdDownloadAction("INSTALL_FINISH", 6, 7);
         REMOVE = new AdDownloadAction("REMOVE", 7, 8);
         OPEN = new AdDownloadAction("OPEN", 8, 9);
-        AdDownloadAction adDownloadAction = new AdDownloadAction("FAIL", 9, 10);
-        FAIL = adDownloadAction;
-        $VALUES = new AdDownloadAction[]{START, PAUSE, RESUME, PROGRESS_UPDATE, COMPLETE, INSTALL_START, INSTALL_FINISH, REMOVE, OPEN, adDownloadAction};
+        FAIL = new AdDownloadAction("FAIL", 9, 10);
+        FAIL_RETRY = new AdDownloadAction("FAIL_RETRY", 10, 11);
+        AdDownloadAction adDownloadAction = new AdDownloadAction("FAIL_PERMISSION_DENY", 11, 12);
+        FAIL_PERMISSION_DENY = adDownloadAction;
+        $VALUES = new AdDownloadAction[]{START, PAUSE, RESUME, PROGRESS_UPDATE, COMPLETE, INSTALL_START, INSTALL_FINISH, REMOVE, OPEN, FAIL, FAIL_RETRY, adDownloadAction};
     }
 
     public AdDownloadAction(String str, int i, int i2) {

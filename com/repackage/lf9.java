@@ -1,43 +1,37 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdInteractionListener;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class lf9 extends ReporterPidLoader<we9> {
+public class lf9 extends fe9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements gf9 {
+    public class a implements TTAdNative.FeedAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ we9 c;
-        public final /* synthetic */ lf9 d;
+        public final /* synthetic */ lf9 a;
 
-        public a(lf9 lf9Var, we9 we9Var) {
+        public a(lf9 lf9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lf9Var, we9Var};
+                Object[] objArr = {lf9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,130 +41,40 @@ public class lf9 extends ReporterPidLoader<we9> {
                     return;
                 }
             }
-            this.d = lf9Var;
-            this.c = we9Var;
+            this.a = lf9Var;
         }
 
-        @Override // com.repackage.gf9
-        public void a(String str, int i) {
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.d.onError(i, str);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("CSJNative onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
             }
         }
 
-        @Override // com.repackage.gf9
-        public void onClicked() {
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener
+        public void onFeedAdLoad(List<TTFeedAd> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 LogPrinter.d();
-                this.d.onAdClicked(this.b, new String[0]);
-                this.b = true;
-            }
-        }
-
-        @Override // com.repackage.gf9
-        public void onDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow(this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.repackage.gf9
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.d.onAdLoaded((lf9) this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements gf9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public FunAdInteractionListener a;
-        public final String b;
-        public final we9 c;
-        public boolean d;
-        public boolean e;
-        public final /* synthetic */ lf9 f;
-
-        public b(lf9 lf9Var, String str, we9 we9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lf9Var, str, we9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
+                    onError(0, "NoFill");
                     return;
                 }
-            }
-            this.f = lf9Var;
-            this.b = str;
-            this.c = we9Var;
-        }
-
-        @Override // com.repackage.gf9
-        public void a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.f.onError(i, str);
-            }
-        }
-
-        @Override // com.repackage.gf9
-        public void onClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-                this.f.onAdClicked(this.e, new String[0]);
-                this.e = true;
-                FunAdInteractionListener funAdInteractionListener = this.a;
-                if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdClicked(this.b, this.f.mPid.ssp.type, this.f.mPid.pid);
+                ArrayList arrayList = new ArrayList();
+                for (TTFeedAd tTFeedAd : list) {
+                    arrayList.add(new se9(tTFeedAd));
                 }
-            }
-        }
-
-        @Override // com.repackage.gf9
-        public void onDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.f.onAdShow(this.c, this.d, new String[0]);
-                this.d = true;
-                FunAdInteractionListener funAdInteractionListener = this.a;
-                if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdShow(this.b, this.f.mPid.ssp.type, this.f.mPid.pid);
-                }
-            }
-        }
-
-        @Override // com.repackage.gf9
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.f.onAdLoaded((lf9) this.c);
+                this.a.onAdLoaded((List) arrayList);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lf9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,56 +93,13 @@ public class lf9 extends ReporterPidLoader<we9> {
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        we9 we9Var;
+    @Override // com.repackage.fe9
+    public void h(FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (we9Var = (we9) obj) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
+            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true);
+            Ssp.Pid pid = this.mPid;
+            this.e.loadFeedAd(supportDeepLink.setImageAcceptedSize(pid.width, pid.height).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
         }
-        we9Var.a();
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, obj)) == null) {
-            we9 we9Var = (we9) obj;
-            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, we9Var, new mf9(this, str, we9Var));
-        }
-        return (FunNativeAd2) invokeLLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            we9 we9Var = (we9) te9.a(context, this.mPid);
-            onLoadStart(funAdSlot);
-            if (we9Var == null) {
-                onError(0, "jy drawvideo广告创建失败");
-                return;
-            }
-            we9Var.c(new a(this, we9Var));
-            we9Var.b();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            onShowStart();
-            View d = ((we9) obj).d();
-            if (d.getParent() != null) {
-                ((ViewGroup) d.getParent()).removeView(d);
-            }
-            viewGroup.removeAllViews();
-            viewGroup.addView(d);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
     }
 }

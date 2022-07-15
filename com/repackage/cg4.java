@@ -1,80 +1,74 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.TextUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class cg4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile cg4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bg4<String> a;
-    public String b;
 
-    @SuppressLint({"BDThrowableCheck"})
-    public cg4(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        bg4<String> bg4Var = new bg4<>();
-        this.a = bg4Var;
-        if (context == null) {
-            return;
-        }
-        bg4Var.a(new fg4(context));
-        this.a.a(new hg4(context));
-        this.a.a(new gg4(context));
-        this.a.a(new jg4(context));
-        this.a.a(new dg4(context));
-        this.a.a(new ig4(context));
-    }
-
-    public static cg4 b(Context context) {
+    public static NetworkInfo a(Context context) {
         InterceptResult invokeL;
+        ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (c == null) {
-                synchronized (cg4.class) {
-                    if (c == null) {
-                        c = new cg4(context);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
+                return null;
             }
-            return c;
+            return connectivityManager.getActiveNetworkInfo();
         }
-        return (cg4) invokeL.objValue;
+        return (NetworkInfo) invokeL.objValue;
     }
 
-    public String a() {
+    public static String b(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            switch (i) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return "2g";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return "3g";
+                case 13:
+                case 18:
+                case 19:
+                    return "4g";
+                case 20:
+                    return "5g";
+                default:
+                    return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "4g";
+            }
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                synchronized (this) {
-                    if (TextUtils.isEmpty(this.b)) {
-                        String b = this.a.b();
-                        this.b = b;
-                        this.a.d(b);
-                    }
-                }
-            }
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            NetworkInfo a = a(AppRuntime.getAppContext());
+            return (a == null || !a.isConnected()) ? "no" : a.getType() == 1 ? "wifi" : a.getType() == 0 ? b(a.getSubtype(), a.getSubtypeName()) : "unknown";
         }
         return (String) invokeV.objValue;
     }

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_DISTANCE = -1;
@@ -32,7 +32,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface GravityFlag {
     }
 
@@ -126,7 +126,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
             int i = this.slideDistance;
-            return i != -1 ? i : context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070482);
+            return i != -1 ? i : context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e7);
         }
         return invokeL.intValue;
     }

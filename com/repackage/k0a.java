@@ -1,215 +1,203 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.graphics.Rect;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.widget.FrameLayout;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.RevenueConfig;
+import com.yy.mobile.framework.revenuesdk.RevenueConfigCenter;
+import com.yy.mobile.framework.revenuesdk.RevenueSdk;
+import com.yy.mobile.framework.revenuesdk.baseapi.Env;
+import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
+import com.yy.mobile.framework.revenuesdk.baseapi.data.DataSenderConfig;
+import com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter;
+import com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.baseapi.utils.XorUtil;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.utils.HiidoUtils;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleReportConfig;
+import tv.athena.revenue.api.MiddleRevenueConfig;
 /* loaded from: classes6.dex */
-public class k0a {
+public class k0a implements tw9 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, MiddleRevenueConfig> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Window b;
-    public View c;
-    public View d;
-    public View e;
-    public h0a f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public boolean o;
-    public ViewTreeObserver.OnGlobalLayoutListener p;
 
-    /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k0a a;
-
-        public a(k0a k0aVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755611307, "Lcom/repackage/k0a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k0aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = k0aVar;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            int i;
-            int i2;
-            int i3;
-            int height;
-            int i4;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.o) {
-                Rect rect = new Rect();
-                this.a.c.getWindowVisibleDisplayFrame(rect);
-                if (this.a.f.x) {
-                    int height2 = (this.a.d.getHeight() - rect.bottom) - this.a.n;
-                    if (this.a.f.z != null) {
-                        this.a.f.z.a(height2 > this.a.n, height2);
-                    }
-                } else if (this.a.e != null) {
-                    if (this.a.f.s) {
-                        height = this.a.d.getHeight() + this.a.l + this.a.m;
-                        i4 = rect.bottom;
-                    } else if (this.a.f.n) {
-                        height = this.a.d.getHeight() + this.a.l;
-                        i4 = rect.bottom;
-                    } else {
-                        height = this.a.d.getHeight();
-                        i4 = rect.bottom;
-                    }
-                    int i5 = height - i4;
-                    int i6 = this.a.f.e ? i5 - this.a.n : i5;
-                    if (this.a.f.e && i5 == this.a.n) {
-                        i5 -= this.a.n;
-                    }
-                    if (i6 != this.a.k) {
-                        this.a.d.setPadding(this.a.g, this.a.h, this.a.i, i5 + this.a.j);
-                        this.a.k = i6;
-                        if (this.a.f.z != null) {
-                            this.a.f.z.a(i6 > this.a.n, i6);
-                        }
-                    }
-                } else {
-                    int height3 = this.a.d.getHeight() - rect.bottom;
-                    if (this.a.f.v && this.a.f.w) {
-                        if (Build.VERSION.SDK_INT == 19 || l0a.i()) {
-                            i2 = this.a.n;
-                        } else if (!this.a.f.e) {
-                            i3 = height3;
-                            if (this.a.f.e && height3 == this.a.n) {
-                                height3 -= this.a.n;
-                            }
-                            int i7 = height3;
-                            height3 = i3;
-                            i = i7;
-                        } else {
-                            i2 = this.a.n;
-                        }
-                        i3 = height3 - i2;
-                        if (this.a.f.e) {
-                            height3 -= this.a.n;
-                        }
-                        int i72 = height3;
-                        height3 = i3;
-                        i = i72;
-                    } else {
-                        i = height3;
-                    }
-                    if (height3 != this.a.k) {
-                        if (this.a.f.s) {
-                            this.a.d.setPadding(0, this.a.l + this.a.m, 0, i);
-                        } else if (this.a.f.n) {
-                            this.a.d.setPadding(0, this.a.l, 0, i);
-                        } else {
-                            this.a.d.setPadding(0, 0, 0, i);
-                        }
-                        this.a.k = height3;
-                        if (this.a.f.z != null) {
-                            this.a.f.z.a(height3 > this.a.n, height3);
-                        }
-                    }
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755611307, "Lcom/repackage/k0a;");
+                return;
             }
         }
+        a = new HashMap();
     }
 
-    public k0a(Activity activity, Window window) {
+    public k0a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, window};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.p = new a(this);
-        this.a = activity;
-        this.b = window;
-        View decorView = window.getDecorView();
-        this.c = decorView;
-        FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
-        if (frameLayout == null) {
-            return;
+    }
+
+    public static String a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            return i + "-" + i2;
         }
-        View childAt = frameLayout.getChildAt(0);
-        this.e = childAt;
-        frameLayout = childAt != null ? childAt : frameLayout;
-        this.d = frameLayout;
-        this.g = frameLayout.getPaddingLeft();
-        this.h = this.d.getPaddingTop();
-        this.i = this.d.getPaddingRight();
-        this.j = this.d.getPaddingBottom();
-        g0a g0aVar = new g0a(this.a);
-        this.l = g0aVar.i();
-        this.n = g0aVar.d();
-        this.m = g0aVar.a();
-        this.o = g0aVar.l();
+        return (String) invokeII.objValue;
     }
 
-    public static k0a q(Activity activity, Window window) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.tw9
+    public synchronized void addLogDelegate(IRLogDelegate iRLogDelegate) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, activity, window)) == null) ? new k0a(activity, window) : (k0a) invokeLL.objValue;
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                this.b.setSoftInputMode(i);
-                this.c.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
+        if (interceptable == null || interceptable.invokeL(1048576, this, iRLogDelegate) == null) {
+            synchronized (this) {
+                RLog.debug("RevenueService", "addLogDelegate");
+                RevenueSdk.addLogDelegate(iRLogDelegate);
             }
-            this.a = null;
         }
     }
 
-    public void p(int i) {
+    @Override // com.repackage.tw9
+    public synchronized void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || Build.VERSION.SDK_INT < 19) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, middleRevenueConfig) == null) {
+            synchronized (this) {
+                if (middleRevenueConfig == null) {
+                    RLog.debug("RevenueService", "addRevenueConfig fail! config == null");
+                    return;
+                }
+                RLog.info("RevenueService", "addRevenueConfig versionName:4.3.9-bdpay212004-SNAPSHOT config:" + middleRevenueConfig.toString());
+                String a2 = a(middleRevenueConfig.getAppId(), middleRevenueConfig.getUseChannel());
+                if (a.get(a2) != null) {
+                    RLog.error("RevenueService", "addRevenueConfig fail! duplicate init revenue  appId:" + middleRevenueConfig.getAppId() + " usechanel:" + middleRevenueConfig.getUseChannel(), new Object[0]);
+                    return;
+                }
+                a.put(a2, middleRevenueConfig);
+                RLog.debug("RevenueService", "addRevenueConfig mapKey=" + a2 + " mapSize=" + a.size());
+                Env.instance().init(middleRevenueConfig.isTestEnv(), middleRevenueConfig.getHttpUrl());
+                c(middleRevenueConfig.getAppId(), middleRevenueConfig.getAppContext(), middleRevenueConfig.getUid(), middleRevenueConfig.getUseChannel(), middleRevenueConfig.getCurrencyType(), middleRevenueConfig.getCountry(), middleRevenueConfig.getLanguage(), middleRevenueConfig.getPackageName(), middleRevenueConfig.getVersion(), middleRevenueConfig.isOpenRisk(), middleRevenueConfig.getAuthType(), middleRevenueConfig.getProtoType(), b(middleRevenueConfig), middleRevenueConfig.getReportConfig());
+            }
+        }
+    }
+
+    public final IDataSenderAdapter b(MiddleRevenueConfig middleRevenueConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, middleRevenueConfig)) == null) {
+            sw9 sw9Var = new sw9(middleRevenueConfig.getDataSender());
+            DataSenderConfig dataSenderConfig = new DataSenderConfig();
+            dataSenderConfig.hostId = middleRevenueConfig.getHostId();
+            dataSenderConfig.pakageName = middleRevenueConfig.getPackageName();
+            dataSenderConfig.version = middleRevenueConfig.getVersion();
+            dataSenderConfig.httpUrl = Env.instance().REVENUE_HTTP_URL;
+            dataSenderConfig.protoType = middleRevenueConfig.getProtoType();
+            dataSenderConfig.authType = middleRevenueConfig.getAuthType();
+            dataSenderConfig.appContext = middleRevenueConfig.getAppContext();
+            dataSenderConfig.gslbAppId = middleRevenueConfig.getGslbAppId();
+            dataSenderConfig.hdid = HiidoUtils.getHdid(middleRevenueConfig.getAppContext());
+            sw9Var.init(dataSenderConfig);
+            return sw9Var;
+        }
+        return (IDataSenderAdapter) invokeL.objValue;
+    }
+
+    public final IRevenue c(int i, Context context, long j, int i2, int i3, String str, String str2, String str3, String str4, boolean z, int i4, ProtocolType protocolType, IRevenueDataSender iRevenueDataSender, MiddleReportConfig middleReportConfig) {
+        InterceptResult invokeCommon;
+        IAppPayService appPayService;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), context, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, str4, Boolean.valueOf(z), Integer.valueOf(i4), protocolType, iRevenueDataSender, middleReportConfig})) == null) {
+            RLog.info("RevenueService", "initRevenue: appId = %d, uid = %s, usedChannel = %d, currencyType = %d, authType = %s", Integer.valueOf(i), XorUtil.encode(String.valueOf(j)), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4));
+            IRevenue addRevenueConfig = RevenueSdk.addRevenueConfig(i, i2, RevenueConfig.RevenueConfigBuilder.aRevenueConfig().setUid(j).setAppId(i).setUsedChannel(i2).setCurrencyType(i3).setCountryCode(str).setLanguage(str2).setDataSender(iRevenueDataSender).setContext(context).setIsOpenRisk(z).setProtoType(protocolType).setPakageName(str3).setClientVersion(str4).setReportConfig(middleReportConfig).setAuthType(i4).build());
+            if (addRevenueConfig != null && (appPayService = addRevenueConfig.getAppPayService()) != null) {
+                appPayService.addPayListener(j0a.a);
+            }
+            return addRevenueConfig;
+        }
+        return (IRevenue) invokeCommon.objValue;
+    }
+
+    @Override // com.repackage.tw9
+    public List<IRevenue> getAllRevenue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? RevenueSdk.getAllRevenue() : (List) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tw9
+    public synchronized IMiddleRevenue getMiddleRevenue(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) {
+            synchronized (this) {
+                MiddleRevenueConfig middleRevenueConfig = a.get(a(i, i2));
+                if (middleRevenueConfig == null) {
+                    RLog.info("RevenueService", "getMiddleRevenue fail,not yet config appId:" + i + " usechanel:" + i2);
+                    return null;
+                }
+                return new ax9(middleRevenueConfig, getRevenue(middleRevenueConfig.getAppId(), middleRevenueConfig.getUseChannel()));
+            }
+        }
+        return (IMiddleRevenue) invokeII.objValue;
+    }
+
+    @Override // com.repackage.tw9
+    public IRevenue getRevenue(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i, i2)) == null) ? RevenueSdk.getRevenue(i, i2) : (IRevenue) invokeII.objValue;
+    }
+
+    @Override // com.repackage.tw9
+    public synchronized void removeRevenueConfig(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            synchronized (this) {
+                String a2 = a(i, i2);
+                a.remove(a2);
+                RLog.info("RevenueService", "removeRevenueConfig mapKey=" + a2 + " mapSize:" + a.size());
+                RevenueSdk.removeRevenueConfig(i, i2);
+            }
+        }
+    }
+
+    @Override // com.repackage.tw9
+    public void updateMiddleRevenueConfig(int i, int i2, Long l, String str) {
+        RevenueConfig config;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), l, str}) == null) || (config = RevenueConfigCenter.getConfig(i, i2)) == null) {
             return;
         }
-        this.b.setSoftInputMode(i);
-        this.c.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
-    }
-
-    public void r(h0a h0aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h0aVar) == null) {
-            this.f = h0aVar;
-        }
+        config.setCountryCode(str);
+        config.setUid(l.longValue());
+        getRevenue(i, i2).updateConfig(config);
     }
 }

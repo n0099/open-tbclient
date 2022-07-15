@@ -15,7 +15,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Locale;
@@ -26,7 +25,7 @@ public class m {
     public static volatile int a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Map<String, q> f811a = null;
+    public static Map<String, q> f1538a = null;
     public static int b = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,7 +62,7 @@ public class m {
                     com.xiaomi.channel.commonutils.logger.b.a("get isMIUI failed", th);
                     a = 0;
                 }
-                if (TextUtils.isEmpty(m553a("ro.miui.ui.version.code")) && TextUtils.isEmpty(m553a("ro.miui.ui.version.name"))) {
+                if (TextUtils.isEmpty(m1496a("ro.miui.ui.version.code")) && TextUtils.isEmpty(m1496a("ro.miui.ui.version.name"))) {
                     z = false;
                     if (z) {
                         i = 2;
@@ -86,11 +85,11 @@ public class m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String m553a = m553a("ro.miui.ui.version.code");
-            if (TextUtils.isEmpty(m553a) || !TextUtils.isDigitsOnly(m553a)) {
+            String m1496a = m1496a("ro.miui.ui.version.code");
+            if (TextUtils.isEmpty(m1496a) || !TextUtils.isDigitsOnly(m1496a)) {
                 return 0;
             }
-            return Integer.parseInt(m553a);
+            return Integer.parseInt(m1496a);
         }
         return invokeL.intValue;
     }
@@ -106,12 +105,12 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m552a() {
+    public static String m1495a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             int a2 = v.a();
-            return (!m555a() || a2 <= 0) ? "" : a2 < 2 ? AnimationProperty.OPACITY : a2 < 3 ? "development" : "stable";
+            return (!m1498a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
         }
         return (String) invokeV.objValue;
     }
@@ -182,7 +181,7 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m553a(String str) {
+    public static String m1496a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
@@ -201,76 +200,76 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m554a() {
+    public static void m1497a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && f811a == null) {
+        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && f1538a == null) {
             HashMap hashMap = new HashMap();
-            f811a = hashMap;
+            f1538a = hashMap;
             hashMap.put("CN", q.a);
-            f811a.put("FI", q.c);
-            f811a.put("SE", q.c);
-            f811a.put(HlsPlaylistParser.BOOLEAN_FALSE, q.c);
-            f811a.put("FO", q.c);
-            f811a.put("EE", q.c);
-            f811a.put("LV", q.c);
-            f811a.put("LT", q.c);
-            f811a.put("BY", q.c);
-            f811a.put("MD", q.c);
-            f811a.put("UA", q.c);
-            f811a.put("PL", q.c);
-            f811a.put("CZ", q.c);
-            f811a.put("SK", q.c);
-            f811a.put("HU", q.c);
-            f811a.put("DE", q.c);
-            f811a.put("AT", q.c);
-            f811a.put("CH", q.c);
-            f811a.put("LI", q.c);
-            f811a.put("GB", q.c);
-            f811a.put("IE", q.c);
-            f811a.put("NL", q.c);
-            f811a.put("BE", q.c);
-            f811a.put("LU", q.c);
-            f811a.put("FR", q.c);
-            f811a.put("RO", q.c);
-            f811a.put("BG", q.c);
-            f811a.put("RS", q.c);
-            f811a.put("MK", q.c);
-            f811a.put("AL", q.c);
-            f811a.put("GR", q.c);
-            f811a.put("SI", q.c);
-            f811a.put("HR", q.c);
-            f811a.put("IT", q.c);
-            f811a.put("SM", q.c);
-            f811a.put("MT", q.c);
-            f811a.put("ES", q.c);
-            f811a.put("PT", q.c);
-            f811a.put("AD", q.c);
-            f811a.put("CY", q.c);
-            f811a.put("DK", q.c);
-            f811a.put("IS", q.c);
-            f811a.put("UK", q.c);
-            f811a.put("EL", q.c);
-            f811a.put("RU", q.d);
-            f811a.put("IN", q.e);
+            f1538a.put("FI", q.c);
+            f1538a.put("SE", q.c);
+            f1538a.put(HlsPlaylistParser.BOOLEAN_FALSE, q.c);
+            f1538a.put("FO", q.c);
+            f1538a.put("EE", q.c);
+            f1538a.put("LV", q.c);
+            f1538a.put("LT", q.c);
+            f1538a.put("BY", q.c);
+            f1538a.put("MD", q.c);
+            f1538a.put("UA", q.c);
+            f1538a.put("PL", q.c);
+            f1538a.put("CZ", q.c);
+            f1538a.put("SK", q.c);
+            f1538a.put("HU", q.c);
+            f1538a.put("DE", q.c);
+            f1538a.put("AT", q.c);
+            f1538a.put("CH", q.c);
+            f1538a.put("LI", q.c);
+            f1538a.put("GB", q.c);
+            f1538a.put("IE", q.c);
+            f1538a.put("NL", q.c);
+            f1538a.put("BE", q.c);
+            f1538a.put("LU", q.c);
+            f1538a.put("FR", q.c);
+            f1538a.put("RO", q.c);
+            f1538a.put("BG", q.c);
+            f1538a.put("RS", q.c);
+            f1538a.put("MK", q.c);
+            f1538a.put("AL", q.c);
+            f1538a.put("GR", q.c);
+            f1538a.put("SI", q.c);
+            f1538a.put("HR", q.c);
+            f1538a.put("IT", q.c);
+            f1538a.put("SM", q.c);
+            f1538a.put("MT", q.c);
+            f1538a.put("ES", q.c);
+            f1538a.put("PT", q.c);
+            f1538a.put("AD", q.c);
+            f1538a.put("CY", q.c);
+            f1538a.put("DK", q.c);
+            f1538a.put("IS", q.c);
+            f1538a.put("UK", q.c);
+            f1538a.put("EL", q.c);
+            f1538a.put("RU", q.d);
+            f1538a.put("IN", q.e);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m555a() {
+    public static boolean m1498a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? a() == 1 : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m556a(Context context) {
+    public static boolean m1499a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) ? context != null && m557a(context.getPackageName()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) ? context != null && m1500a(context.getPackageName()) : invokeL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m557a(String str) {
+    public static boolean m1500a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? "com.xiaomi.xmsf".equals(str) : invokeL.booleanValue;
@@ -293,8 +292,8 @@ public class m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            m554a();
-            return f811a.get(str.toUpperCase());
+            m1497a();
+            return f1538a.get(str.toUpperCase());
         }
         return (q) invokeL.objValue;
     }
@@ -320,7 +319,7 @@ public class m {
                 a2 = u.a("ro.csc.countryiso_code", "");
             }
             if (TextUtils.isEmpty(a2)) {
-                a2 = m558b(u.a("ro.product.country.region", ""));
+                a2 = m1501b(u.a("ro.product.country.region", ""));
             }
             if (TextUtils.isEmpty(a2)) {
                 a2 = u.a("gsm.vivo.countrycode", "");
@@ -335,11 +334,11 @@ public class m {
                 a2 = u.a("persist.sys.country", "");
             }
             if (!TextUtils.isEmpty(a2)) {
-                com.xiaomi.channel.commonutils.logger.b.m84a("get region from system, region = " + a2);
+                com.xiaomi.channel.commonutils.logger.b.m1027a("get region from system, region = " + a2);
             }
             if (TextUtils.isEmpty(a2)) {
                 String country = Locale.getDefault().getCountry();
-                com.xiaomi.channel.commonutils.logger.b.m84a("locale.default.country = " + country);
+                com.xiaomi.channel.commonutils.logger.b.m1027a("locale.default.country = " + country);
                 return country;
             }
             return a2;
@@ -348,7 +347,7 @@ public class m {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m558b(String str) {
+    public static String m1501b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
@@ -362,7 +361,7 @@ public class m {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m559b() {
+    public static boolean m1502b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? a() == 2 : invokeV.booleanValue;
@@ -371,16 +370,16 @@ public class m {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? m553a("ro.miui.ui.version.name") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? m1496a("ro.miui.ui.version.name") : (String) invokeV.objValue;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static boolean m560c() {
+    public static boolean m1503c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
             if (b < 0) {
-                b = !m562e() ? 1 : 0;
+                b = !m1505e() ? 1 : 0;
             }
             return b > 0;
         }
@@ -390,11 +389,11 @@ public class m {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? m553a("ro.build.characteristics") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? m1496a("ro.build.characteristics") : (String) invokeV.objValue;
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public static boolean m561d() {
+    public static boolean m1504d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? !q.a.name().equalsIgnoreCase(a(b()).name()) : invokeV.booleanValue;
@@ -403,11 +402,11 @@ public class m {
     public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? m553a(com.kuaishou.weapon.un.g.q) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? m1496a("ro.product.manufacturer") : (String) invokeV.objValue;
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public static boolean m562e() {
+    public static boolean m1505e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {

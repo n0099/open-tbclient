@@ -8,8 +8,8 @@ import com.kwad.sdk.core.imageloader.core.assist.ImageScaleType;
 import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.ImageSizeUtils;
-import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import com.kwad.sdk.core.imageloader.utils.L;
+import com.kwad.sdk.crash.utils.b;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
@@ -102,7 +102,7 @@ public class BaseImageDecoder implements ImageDecoder {
                 ImageFileInfo defineImageSizeAndRotation = defineImageSizeAndRotation(imageStream, imageDecodingInfo);
                 imageStream = resetStream(imageStream, imageDecodingInfo);
                 decodedResult.mBitmap = BitmapFactory.decodeStream(imageStream, null, prepareDecodingOptions(defineImageSizeAndRotation.imageSize, imageDecodingInfo));
-                IoUtils.closeSilently(imageStream);
+                b.a(imageStream);
                 if (decodedResult.mBitmap == null && decodedResult.mFrameSequence == null) {
                     L.e(ERROR_CANT_DECODE_IMAGE, imageDecodingInfo.getImageKey());
                 } else {
@@ -114,31 +114,30 @@ public class BaseImageDecoder implements ImageDecoder {
             }
             return decodedResult;
         } finally {
-            IoUtils.closeSilently(imageStream);
+            b.a(imageStream);
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: boolean */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: boolean */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: boolean */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: boolean */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v10, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v12, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v8, resolved type: boolean */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Multi-variable type inference failed */
     public ExifInfo defineExifOrientation(String str) {
+        boolean z;
         int i = 0;
-        boolean z = 1;
+        boolean z2 = true;
         try {
         } catch (IOException unused) {
             L.w("Can't read EXIF tags from file [%s]", str);
         }
         switch (new ExifInterface(ImageDownloader.Scheme.FILE.crop(str)).getAttributeInt("Orientation", 1)) {
             case 1:
-            default:
-                z = 0;
+                z2 = false;
+                z = z2;
                 break;
             case 2:
+                z = z2;
                 break;
             case 3:
                 z = i;
@@ -166,6 +165,9 @@ public class BaseImageDecoder implements ImageDecoder {
             case 8:
                 z = i;
                 i = 270;
+                break;
+            default:
+                z = false;
                 break;
         }
         return new ExifInfo(i, z);
@@ -210,7 +212,7 @@ public class BaseImageDecoder implements ImageDecoder {
             } catch (IOException unused) {
             }
         }
-        IoUtils.closeSilently(inputStream);
+        b.a(inputStream);
         return getImageStream(imageDecodingInfo);
     }
 }

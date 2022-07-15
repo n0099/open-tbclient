@@ -1,36 +1,26 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.utils.FileUtils;
 /* loaded from: classes6.dex */
-public abstract class pv8 {
+public class pv8 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public View c;
-    public a d;
-    public int e;
-    public Rect f;
-    public Rect g;
+    public Bitmap a;
+    public String b;
+    public String c;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(int i);
-    }
-
-    public pv8(Context context, jv8 jv8Var) {
+    public pv8(String str, String str2, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, jv8Var};
+            Object[] objArr = {str, str2, bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,53 +30,18 @@ public abstract class pv8 {
                 return;
             }
         }
-        this.e = 4;
-        this.f = new Rect();
-        this.g = new Rect();
-        this.a = context;
+        this.b = str;
+        this.c = str2;
+        this.a = bitmap;
     }
 
-    public void a(View view2, View view3) {
+    @Override // java.lang.Runnable
+    public void run() {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, view3) == null) {
-            this.b = view2;
-            this.c = view3;
-            if (view3 != null) {
-                view3.getGlobalVisibleRect(this.f);
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || (bitmap = this.a) == null || bitmap.isRecycled()) {
+            return;
         }
+        FileUtils.saveBitmap2JPG(this.b, gv8.a(this.c), this.a, 100);
     }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                h();
-            } else {
-                c();
-            }
-        }
-    }
-
-    public abstract void c();
-
-    public abstract void d();
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.d = aVar;
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g();
-        }
-    }
-
-    public abstract void g();
-
-    public abstract void h();
 }

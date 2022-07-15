@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import com.kuaishou.weapon.un.w0;
+import com.kuaishou.weapon.p0.C0294;
 import dalvik.system.BaseDexClassLoader;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -591,7 +591,7 @@ public class o {
                 str2 = "armv6";
             } else {
                 if (!p.contains("ARMv7")) {
-                    if (p.contains(w0.o1)) {
+                    if (p.contains("Intel")) {
                         str2 = "x86";
                     } else if (!p.contains("AArch64")) {
                         if (TextUtils.isEmpty(Build.CPU_ABI)) {
@@ -785,12 +785,12 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
             if (Build.CPU_ABI.equalsIgnoreCase("x86")) {
-                return w0.o1;
+                return "Intel";
             }
             String str = "";
             try {
                 byte[] bArr = new byte[1024];
-                RandomAccessFile randomAccessFile = new RandomAccessFile("/proc/cpuinfo", "r");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(C0294.f19, "r");
                 randomAccessFile.read(bArr);
                 String str2 = new String(bArr);
                 int indexOf = str2.indexOf(0);

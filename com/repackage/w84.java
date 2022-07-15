@@ -1,352 +1,250 @@
 package com.repackage;
 
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.UriMatcher;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.pms.constants.ErrorConstant;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.swan.pms.model.PMSPkgStatus;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z84;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes7.dex */
-public abstract class w84<T> implements z84.a {
+public class w84 {
     public static /* synthetic */ Interceptable $ic;
+    public static final hd4 b;
+    public static final String c;
+    public static final Uri d;
+    public static final Uri e;
+    public static final Uri f;
+    public static final Uri g;
+    public static final Uri h;
+    public static final Uri i;
+    public static final Uri j;
+    public static UriMatcher k;
     public transient /* synthetic */ FieldHolder $fh;
-    public l74 a;
-    public wa4 b;
-    public String c;
+    public Context a;
 
-    public w84(l74 l74Var, wa4 wa4Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755247522, "Lcom/repackage/w84;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755247522, "Lcom/repackage/w84;");
+                return;
+            }
+        }
+        b = hd4.c();
+        c = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+        d = Uri.parse("content://" + c + "/framework");
+        e = Uri.parse("content://" + c + "/swan_app");
+        f = Uri.parse("content://" + c + "/pkg_main");
+        g = Uri.parse("content://" + c + "/pkg_sub");
+        h = Uri.parse("content://" + c + "/" + ETAG.KEY_EXTENSION);
+        i = Uri.parse("content://" + c + "/swan_plugin");
+        j = Uri.parse("content://" + c + "/so_lib");
+        UriMatcher uriMatcher = new UriMatcher(-1);
+        k = uriMatcher;
+        uriMatcher.addURI(c, "framework", 2);
+        k.addURI(c, "pkg_main", 0);
+        k.addURI(c, "pkg_sub", 1);
+        k.addURI(c, ETAG.KEY_EXTENSION, 3);
+        k.addURI(c, "swan_app", 4);
+        k.addURI(c, "swan_plugin", 5);
+        k.addURI(c, "so_lib", 7);
+    }
+
+    public w84(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l74Var, wa4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = l74Var;
-        this.b = wa4Var;
+        this.a = context;
     }
 
-    public void a(k84 k84Var, String str, String str2, String str3) {
+    public SQLiteOpenHelper a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, k84Var, str, str2, str3) == null) {
-            d(k84Var, str, str2, str3, null);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? v84.c() : (SQLiteOpenHelper) invokeV.objValue;
     }
 
-    @Override // com.repackage.z84.a
-    public void b(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) {
-            l74 l74Var = this.a;
-            if (l74Var != null) {
-                l74Var.I(str, str2, jSONObject);
-            }
-            this.c = str;
-        }
-    }
-
-    @Override // com.repackage.z84.a
-    public void c(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            l74 l74Var = this.a;
-            if (l74Var != null) {
-                l74Var.H(str, i);
-            }
-            if (i != 200) {
-                k84 k84Var = new k84(2104, ErrorConstant.ErrorMsg.META_ERROR_CONNECTION + i);
-                k84Var.f = i;
-                l74 l74Var2 = this.a;
-                if (l74Var2 != null) {
-                    l74Var2.C(k84Var);
-                }
-                a(k84Var, str, String.valueOf(i), String.valueOf(this.b.b()));
-                return;
-            }
-            v84 a = v84.a(str);
-            if (a == null) {
-                JSONObject p = xc4.p(str);
-                k84 k84Var2 = new k84(2103, "metadata : parse response error - ,errmsg:" + p.toString());
-                l74 l74Var3 = this.a;
-                if (l74Var3 != null) {
-                    l74Var3.C(k84Var2);
-                }
-                a(k84Var2, str, String.valueOf(i), String.valueOf(this.b.b()));
-                return;
-            }
-            T u = u(a.c());
-            if (s(u, i)) {
-                return;
-            }
-            int d = a.d();
-            if (d != 0) {
-                k84 k84Var3 = new k84(d, a.e(), a.g(), i(a));
-                l74 l74Var4 = this.a;
-                if (l74Var4 != null) {
-                    l74Var4.C(k84Var3);
-                }
-                if (a.d() != 1010) {
-                    d(k84Var3, str, String.valueOf(i), String.valueOf(this.b.b()), a);
-                }
-            } else if (u == null) {
-                k84 k84Var4 = new k84(2102, "response data empty");
-                l74 l74Var5 = this.a;
-                if (l74Var5 != null) {
-                    l74Var5.C(k84Var4);
-                }
-                d(k84Var4, str, String.valueOf(i), String.valueOf(this.b.b()), a);
-            } else {
-                k84 e = e(str, u);
-                if (e != null) {
-                    l74 l74Var6 = this.a;
-                    if (l74Var6 != null) {
-                        l74Var6.C(e);
-                    }
-                    d(e, str, String.valueOf(i), String.valueOf(this.b.b()), a);
-                    return;
-                }
-                t(u);
-            }
-        }
-    }
-
-    public void d(k84 k84Var, String str, String str2, String str3, @Nullable v84 v84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, k84Var, str, str2, str3, v84Var) == null) {
-            JSONObject jSONObject = new JSONObject();
-            int i = 0;
-            if (k84Var != null) {
-                try {
-                    if (k84Var.a != 0) {
-                        i = k84Var.a;
-                        jSONObject.put("response", str);
-                        if (!TextUtils.isEmpty(str2)) {
-                            jSONObject.put("statusCode", str2);
-                        }
-                        if (!TextUtils.isEmpty(str3)) {
-                            jSONObject.put("downloadType", str3);
-                        }
-                        if (!TextUtils.isEmpty(this.c) && k84Var.a != 2000) {
-                            jSONObject.put("request_url", this.c);
-                        }
-                        jSONObject.put("hostName", b74.b().c());
-                        jSONObject.put("network", rf4.e());
-                    }
-                } catch (JSONException unused) {
-                }
-            }
-            if (this.b instanceof sa4) {
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, ((sa4) this.b).g());
-            }
-            if (v84Var != null && v84Var.f() != 0) {
-                jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, v84Var.f());
-            }
-            z64 b = b74.b();
-            if (b != null && b.u() != null) {
-                jSONObject.put("launchid", b.u());
-            }
-            qc4.a(this.b.a(), "cs_protocol", h(), i, jSONObject);
-        }
-    }
-
-    @CallSuper
-    public k84 e(String str, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, t)) == null) {
-            if (f(t)) {
-                return null;
-            }
-            return new k84(2103, str);
-        }
-        return (k84) invokeLL.objValue;
-    }
-
-    public abstract boolean f(T t);
-
-    @Nullable
-    public List<r84> g(@Nullable List<r84> list) {
+    public final String b(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (r84 r84Var : list) {
-                if (r84Var != null && !arrayList.contains(r84Var)) {
-                    n74 i = n74.i();
-                    String str = r84Var.g;
-                    long j = r84Var.i;
-                    if (!b74.b().r(i.q(str, j, j))) {
-                        arrayList.add(r84Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
+            int match = k.match(uri);
+            if (match != 0) {
+                if (match != 1) {
+                    if (match != 2) {
+                        if (match != 3) {
+                            if (match != 4) {
+                                if (match != 5) {
+                                    if (match != 7) {
+                                        return null;
+                                    }
+                                    return "so_lib";
+                                }
+                                return "swan_plugin";
+                            }
+                            return "swan_app";
+                        }
+                        return ETAG.KEY_EXTENSION;
                     }
+                    return "framework";
                 }
+                return "pkg_sub";
             }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public abstract String h();
-
-    @Nullable
-    public final String i(v84 v84Var) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v84Var)) == null) {
-            if (v84Var == null || v84Var.c() == null || (optJSONObject = v84Var.c().optJSONObject("app_info")) == null) {
-                return null;
-            }
-            return optJSONObject.toString();
+            return "pkg_main";
         }
         return (String) invokeL.objValue;
     }
 
-    public k84 j(Exception exc, JSONObject jSONObject) {
+    @Nullable
+    public Cursor c(@NonNull Uri uri, @Nullable String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, exc, jSONObject)) == null) {
-            if (jSONObject != null) {
-                return new k84(jSONObject.optInt("errno"), jSONObject.toString());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, str)) == null) {
+            if (!TextUtils.isEmpty(b(uri))) {
+                try {
+                    return a().getReadableDatabase().rawQuery(str, null);
+                } catch (SQLException e2) {
+                    b.g("PMSDBProvider", "#rawQuery error", e2);
+                }
             }
-            return new k84(2101, Log.getStackTraceString(exc));
+            return null;
         }
-        return (k84) invokeLL.objValue;
+        return (Cursor) invokeLL.objValue;
     }
 
-    public JSONObject k(String str) {
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, uri, str, strArr)) == null) {
+            String b2 = b(uri);
+            if (TextUtils.isEmpty(b2)) {
+                return 0;
+            }
+            hd4 hd4Var = b;
+            hd4Var.i("PMSDBProvider", "#delete tableName=" + b2 + " selection=" + str);
+            try {
+                int delete = a().getWritableDatabase().delete(b2, str, strArr);
+                if (delete > 0) {
+                    this.a.getContentResolver().notifyChange(uri, null);
+                }
+                return delete;
+            } catch (SQLException e2) {
+                b.g("PMSDBProvider", "#delete error", e2);
+                return 0;
+            }
+        }
+        return invokeLLL.intValue;
+    }
+
+    @Nullable
+    public String getType(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, contentValues)) == null) {
+            String b2 = b(uri);
+            if (!TextUtils.isEmpty(b2) && contentValues != null) {
+                hd4 hd4Var = b;
+                hd4Var.i("PMSDBProvider", "#insert values=" + contentValues);
+                try {
+                    long insertWithOnConflict = a().getWritableDatabase().insertWithOnConflict(b2, null, contentValues, 5);
+                    if (insertWithOnConflict > 0) {
+                        Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
+                        this.a.getContentResolver().notifyChange(withAppendedId, null);
+                        return withAppendedId;
+                    }
+                    return uri;
+                } catch (SQLException e2) {
+                    b.g("PMSDBProvider", "#insert error", e2);
+                }
+            }
+            return null;
+        }
+        return (Uri) invokeLL.objValue;
+    }
+
+    @Nullable
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
+            if (uri.getQueryParameter("rawQuery") != null) {
+                return c(uri, str);
+            }
+            String b2 = b(uri);
+            if (TextUtils.isEmpty(b2)) {
                 return null;
             }
             try {
-                String[] split = str.split("request fail : ");
-                if (split.length > 1) {
-                    return new JSONObject(split[1]);
-                }
-                return null;
-            } catch (Exception unused) {
+                return a().getReadableDatabase().query(b2, strArr, str, strArr2, null, null, str2, null);
+            } catch (SQLException e2) {
+                b.g("PMSDBProvider", "#query error", e2);
                 return null;
             }
         }
-        return (JSONObject) invokeL.objValue;
+        return (Cursor) invokeLLLLL.objValue;
     }
 
-    public void l(l84 l84Var, yc4 yc4Var) {
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, l84Var, yc4Var) == null) || l84Var == null) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {
+            String b2 = b(uri);
+            if (TextUtils.isEmpty(b2)) {
+                return 0;
+            }
+            hd4 hd4Var = b;
+            hd4Var.i("PMSDBProvider", "#update tableName=" + b2 + " selection=" + str);
+            try {
+                int update = a().getWritableDatabase().update(b2, contentValues, str, strArr);
+                if (update > 0) {
+                    this.a.getContentResolver().notifyChange(uri, null);
+                }
+                return update;
+            } catch (SQLException e2) {
+                b.g("PMSDBProvider", "#update error", e2);
+                return 0;
+            }
         }
-        yc4Var.a(l84Var, PMSPkgStatus.WAIT);
+        return invokeLLLL.intValue;
     }
-
-    public void m(n84 n84Var, yc4 yc4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, n84Var, yc4Var) == null) || n84Var == null) {
-            return;
-        }
-        yc4Var.a(n84Var, PMSPkgStatus.WAIT);
-    }
-
-    public void n(List<r84> list, yc4 yc4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, list, yc4Var) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        for (r84 r84Var : list) {
-            yc4Var.a(r84Var, PMSPkgStatus.WAIT);
-        }
-    }
-
-    public void o(p84 p84Var, yc4 yc4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048590, this, p84Var, yc4Var) == null) || p84Var == null) {
-            return;
-        }
-        yc4Var.a(p84Var, PMSPkgStatus.WAIT);
-    }
-
-    @Override // com.repackage.z84.a
-    public void onFail(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, exc) == null) {
-            k84 j = j(exc, k(exc.getMessage()));
-            this.a.C(j);
-            a(j, exc.getMessage(), null, String.valueOf(this.b.b()));
-        }
-    }
-
-    @Override // com.repackage.z84.a
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            a(new k84(2000, "send request"), null, null, String.valueOf(this.b.b()));
-        }
-    }
-
-    public void p(List<q84> list, yc4 yc4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048593, this, list, yc4Var) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        for (q84 q84Var : list) {
-            yc4Var.a(q84Var, PMSPkgStatus.WAIT);
-        }
-    }
-
-    public void q(r84 r84Var, yc4 yc4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048594, this, r84Var, yc4Var) == null) || r84Var == null) {
-            return;
-        }
-        yc4Var.a(r84Var, PMSPkgStatus.WAIT);
-    }
-
-    public void r(PMSAppInfo pMSAppInfo) {
-        k74 p;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, pMSAppInfo) == null) || pMSAppInfo == null || (p = this.a.p()) == null) {
-            return;
-        }
-        p.a(pMSAppInfo);
-    }
-
-    public boolean s(T t, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, t, i)) == null) {
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public abstract k84 t(T t);
-
-    public abstract T u(JSONObject jSONObject);
 }

@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a46;
+import com.repackage.y46;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a46 adData;
+    public y46 adData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EnterForumAdResponsedMessage() {
@@ -39,9 +39,9 @@ public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            a46 a46Var = new a46();
-            this.adData = a46Var;
-            a46Var.b(jSONObject);
+            y46 y46Var = new y46();
+            this.adData = y46Var;
+            y46Var.b(jSONObject);
             if (this.adData.a()) {
                 return;
             }
@@ -49,9 +49,9 @@ public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public a46 getAdData() {
+    public y46 getAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.adData : (a46) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.adData : (y46) invokeV.objValue;
     }
 }

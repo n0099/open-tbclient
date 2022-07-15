@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.j8;
 import com.repackage.q7;
-import com.tachikoma.core.utility.FileUtil;
 import java.util.regex.Pattern;
 import kotlin.text.Typography;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -92,7 +91,7 @@ public final class JsonWriter$OutputType {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             j8 j8Var = new j8(str);
-            j8Var.G(FileUtil.WINDOWS_SEPARATOR, "\\\\");
+            j8Var.G('\\', "\\\\");
             j8Var.G('\r', "\\r");
             j8Var.G('\n', "\\n");
             j8Var.G('\t', "\\t");
@@ -128,7 +127,7 @@ public final class JsonWriter$OutputType {
                 return obj2;
             }
             j8 j8Var = new j8(obj2);
-            j8Var.G(FileUtil.WINDOWS_SEPARATOR, "\\\\");
+            j8Var.G('\\', "\\\\");
             j8Var.G('\r', "\\r");
             j8Var.G('\n', "\\n");
             j8Var.G('\t', "\\t");

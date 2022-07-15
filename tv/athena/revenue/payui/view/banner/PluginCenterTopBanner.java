@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a3a;
+import com.repackage.xz9;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
 import java.util.ArrayList;
 import java.util.List;
@@ -110,7 +110,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         @Override // android.widget.AdapterView.OnItemSelectedListener
         public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || i >= a3a.a.a(PluginCenterTopBanner.c(this.a).getData())) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || i >= xz9.a.a(PluginCenterTopBanner.c(this.a).getData())) {
                 return;
             }
             RadioGroup radioGroup = this.a.b;
@@ -201,7 +201,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
                 radioButton.setId(i + 4660);
                 Context context = getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context, "context");
-                radioButton.setButtonDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ea5));
+                radioButton.setButtonDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e24));
                 RadioGroup radioGroup2 = this.b;
                 if (radioGroup2 == null) {
                     Intrinsics.throwNpe();
@@ -220,7 +220,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int dimension = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070593);
+            int dimension = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0705f8);
             return new RadioGroup.LayoutParams(dimension + 12, dimension);
         }
         return (RadioGroup.LayoutParams) invokeV.objValue;
@@ -229,17 +229,17 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public final void g(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404d9}, i, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404dd}, i, 0);
             this.e = obtainStyledAttributes.getFloat(0, 0.0f);
             obtainStyledAttributes.recycle();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0651, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0911bc);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d066d, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09125d);
             if (findViewById != null) {
                 this.a = (PluginCenterBannerGallery) findViewById;
-                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0911bb);
+                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09125c);
                 if (findViewById2 != null) {
                     this.b = (RadioGroup) findViewById2;
-                    this.d = findViewById(R.id.obfuscated_res_0x7f090305);
+                    this.d = findViewById(R.id.obfuscated_res_0x7f090307);
                     PluginCenterBannerGallery pluginCenterBannerGallery = this.a;
                     if (pluginCenterBannerGallery == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mGallery");

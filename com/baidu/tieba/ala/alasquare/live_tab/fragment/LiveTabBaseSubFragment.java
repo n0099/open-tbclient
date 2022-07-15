@@ -2,7 +2,6 @@ package com.baidu.tieba.ala.alasquare.live_tab.fragment;
 
 import android.content.Context;
 import android.widget.LinearLayout;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -11,18 +10,16 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i45;
-import com.repackage.oi;
+import com.repackage.k55;
 /* loaded from: classes3.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public LinearLayout b;
-    public i45 c;
+    public k55 c;
     public boolean d;
     public boolean e;
     public int f;
@@ -86,63 +83,51 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         this.i = new a(this, 2921442);
     }
 
-    public abstract void a();
-
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            i45 i45Var = this.c;
-            if (i45Var != null) {
-                i45Var.onChangeSkinType();
+            k55 k55Var = this.c;
+            if (k55Var != null) {
+                k55Var.onChangeSkinType();
             }
-        }
-    }
-
-    public void r1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.setVisibility(8);
         }
     }
 
     public void s1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.setVisibility(8);
+        }
+    }
+
+    public void t1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, Boolean.FALSE));
             this.e = true;
         }
     }
 
-    public abstract void t();
-
-    public boolean t1() {
-        InterceptResult invokeV;
+    public void u1(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (oi.isEmpty(this.g) || oi.isEmpty(this.h)) ? false : true : invokeV.booleanValue;
-    }
-
-    public abstract void u1();
-
-    public void v1(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             this.g = str;
             this.h = str2;
         }
     }
 
-    public void w1() {
+    public void v1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setVisibility(0);
             if (this.c == null) {
-                this.c = new i45(this.a, null);
+                this.c = new k55(this.a, null);
             }
             this.c.e();
             this.c.i(R.drawable.new_pic_emotion_03);
-            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c50));
+            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c44));
             this.c.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             if (this.c.b() == null || this.c.b().getParent() != null) {

@@ -14,8 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.z;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -96,7 +94,7 @@ public class DeviceInfoUtils {
                 strArr[0] = String.valueOf(registerReceiver.getIntExtra("health", 1));
                 strArr[1] = String.valueOf(registerReceiver.getIntExtra("status", 1));
                 strArr[2] = String.valueOf(registerReceiver.getIntExtra("level", 0));
-                strArr[3] = String.valueOf(registerReceiver.getIntExtra(AnimationProperty.SCALE, 0));
+                strArr[3] = String.valueOf(registerReceiver.getIntExtra("scale", 0));
                 strArr[4] = String.valueOf(registerReceiver.getIntExtra("voltage", 0));
                 strArr[5] = String.valueOf(registerReceiver.getIntExtra("temperature", 0));
                 strArr[6] = registerReceiver.getStringExtra("technology");
@@ -126,7 +124,7 @@ public class DeviceInfoUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             if (registerReceiver != null) {
-                return String.valueOf(registerReceiver.getIntExtra(AnimationProperty.SCALE, 0));
+                return String.valueOf(registerReceiver.getIntExtra("scale", 0));
             }
             return null;
         }
@@ -309,7 +307,7 @@ public class DeviceInfoUtils {
                 return str2;
             }
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.b).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq").start().getInputStream();
                 String str3 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str3 = str3 + new String(bArr);
@@ -388,7 +386,7 @@ public class DeviceInfoUtils {
                 return str2;
             }
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.c).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq").start().getInputStream();
                 String str3 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str3 = str3 + new String(bArr);

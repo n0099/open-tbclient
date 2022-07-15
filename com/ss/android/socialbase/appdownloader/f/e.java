@@ -115,8 +115,8 @@ public class e {
     @WorkerThread
     public static boolean c() {
         try {
-            InetAddress.getByName("127.0.0.1");
-            new Socket("127.0.0.1", Integer.parseInt(a("3237303432")));
+            InetAddress.getByName(a("3132372e302e302e31"));
+            new Socket(a("3132372e302e302e31"), Integer.parseInt(a("3237303432")));
             return true;
         } catch (IOException unused) {
             return false;

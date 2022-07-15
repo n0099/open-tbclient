@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vl4;
-import com.repackage.yt4;
+import com.repackage.km4;
+import com.repackage.vu4;
 /* loaded from: classes4.dex */
 public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +32,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public View i;
     public String j;
     public View.OnClickListener k;
-    public final vl4 l;
+    public final km4 l;
     public NavigationBarCoverTip.e m;
 
     /* loaded from: classes4.dex */
@@ -74,7 +74,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends vl4 {
+    public class b extends km4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DefaultNavigationBarCoverTip a;
@@ -97,7 +97,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             this.a = defaultNavigationBarCoverTip;
         }
 
-        @Override // com.repackage.vl4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.repackage.km4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.a.h) {
@@ -196,14 +196,14 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             }
             Context context = getContext();
             this.j = str2;
-            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d08c4, null);
+            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d08e5, null);
             this.i = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09246b);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f091c9d);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092538);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f091d41);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            yt4 yt4Var = new yt4();
-            yt4Var.s();
-            tBSpecificationBtn.setConfig(yt4Var);
+            vu4 vu4Var = new vu4();
+            vu4Var.s();
+            tBSpecificationBtn.setConfig(vu4Var);
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);
@@ -212,7 +212,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 tBSpecificationBtn.setVisibility(8);
             } else {
                 tBSpecificationBtn.setVisibility(0);
-                tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f0990));
+                tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f099b));
             }
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
             tBSpecificationBtn.k();

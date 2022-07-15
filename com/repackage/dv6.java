@@ -1,83 +1,65 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.NoDataItemViewHolder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.RecomVertical.DataRes;
+import tbclient.RecomVertical.DislikeReason;
+import tbclient.RecomVertical.ThreadPersonalized;
 /* loaded from: classes5.dex */
-public class dv6 extends an<wn, NoDataItemViewHolder> {
+public class dv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dv6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), wn.c);
+    public static void a(DataRes dataRes, List<nn> list) {
+        ny5 ny5Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, dataRes, list) == null) || dataRes == null || list == null) {
+            return;
+        }
+        LongSparseArray longSparseArray = new LongSparseArray();
+        for (ThreadPersonalized threadPersonalized2 : dataRes.thread_personalized) {
+            if (threadPersonalized2 != null) {
+                longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
             }
         }
-        this.i = 3;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, wn wnVar, NoDataItemViewHolder noDataItemViewHolder) {
-        a0(i, view2, viewGroup, wnVar, noDataItemViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public NoDataItemViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0072, viewGroup, false);
-            inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            return new NoDataItemViewHolder(inflate);
-        }
-        return (NoDataItemViewHolder) invokeL.objValue;
-    }
-
-    public View a0(int i, View view2, ViewGroup viewGroup, wn wnVar, NoDataItemViewHolder noDataItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wnVar, noDataItemViewHolder})) == null) {
-            noDataItemViewHolder.a.setText(wnVar.a);
-            if (this.i != TbadkCoreApplication.getInst().getSkinType()) {
-                SkinManager.setImageResource(noDataItemViewHolder.b, wnVar.b);
-                SkinManager.setViewTextColor(noDataItemViewHolder.a, (int) R.color.CAM_X0109);
-                this.i = TbadkCoreApplication.getInst().getSkinType();
+        int count = ListUtils.getCount(list);
+        for (int i = 0; i < count; i++) {
+            nn nnVar = (nn) ListUtils.getItem(list, i);
+            if ((nnVar instanceof ny5) && (threadData = (ny5Var = (ny5) nnVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(ng.g(threadData.getTid(), 0L))) != null) {
+                ny5Var.J(threadPersonalized.source);
+                ny5Var.M(threadPersonalized.weight);
+                ny5Var.F(threadPersonalized.abtest_tag);
+                threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                threadData.mRecomSource = threadPersonalized.source;
+                threadData.mRecomWeight = threadPersonalized.weight;
+                if (threadData.getThreadVideoInfo() != null) {
+                    ny5Var.H(threadData.getThreadVideoInfo().is_vertical);
+                }
+                List<DislikeReason> list2 = threadPersonalized.dislike_resource;
+                if (list2 != null) {
+                    SparseArray<String> sparseArray = new SparseArray<>();
+                    for (DislikeReason dislikeReason : list2) {
+                        int intValue = dislikeReason.dislike_id.intValue();
+                        sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                    }
+                    ny5Var.feedBackReasonMap = sparseArray;
+                    ny5Var.G(threadPersonalized.extra);
+                }
             }
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public static void b(DataRes dataRes, List<nn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, dataRes, list) == null) {
+            a(dataRes, list);
+        }
     }
 }

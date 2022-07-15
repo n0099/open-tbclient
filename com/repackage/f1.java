@@ -1,5 +1,5 @@
 package com.repackage;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface f1 {
     boolean a(int i, int i2, int i3, int i4);
 

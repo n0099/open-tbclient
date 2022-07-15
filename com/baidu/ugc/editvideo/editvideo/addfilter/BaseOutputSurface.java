@@ -23,7 +23,7 @@ import com.baidu.ugc.editvideo.faceunity.gles.OffscreenSurface;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.faceunity.gles.WindowSurface;
 import com.faceunity.gles.GeneratedTexture;
-import com.repackage.x79;
+import com.repackage.w89;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -104,7 +104,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 this.mPboNextIndex = (i3 + 1) % 2;
                 return createBitmap;
             } catch (OutOfMemoryError e) {
-                x79.g(e);
+                w89.g(e);
                 return null;
             }
         }
@@ -163,7 +163,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 }, null);
                 new WindowSurface(this.mEglCore, newInstance.getSurface(), true).makeCurrent();
             } catch (OutOfMemoryError e) {
-                x79.g(e);
+                w89.g(e);
             }
             return null;
         }
@@ -217,7 +217,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
             if (glGetError == 0) {
                 return;
             }
-            x79.d(str + ": glError " + glGetError);
+            w89.d(str + ": glError " + glGetError);
         }
     }
 
@@ -257,7 +257,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 System.currentTimeMillis();
                 return createBitmap;
             } catch (OutOfMemoryError e) {
-                x79.g(e);
+                w89.g(e);
                 return null;
             }
         }

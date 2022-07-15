@@ -1,7 +1,9 @@
 package com.repackage;
+
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface al4 {
-    float a();
+    void a(List<yk4> list);
 
-    int b();
+    void onPreLoad();
 }

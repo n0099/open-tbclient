@@ -1,27 +1,63 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
-import java.util.Map;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface z45 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
+public class z45 extends v45 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public float a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a();
-
-        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
+    public z45() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    z45 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
+    @Override // com.repackage.v45
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "round_corner" : (String) invokeV.objValue;
+    }
 
-    void b(int i, zo4 zo4Var, long j);
+    @Override // com.repackage.v45
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            if (this.a <= 0.0f) {
+                return bitmap;
+            }
+            l45.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.getRoundedCornerBitmap(bitmap, this.a, z);
+        }
+        return (Bitmap) invokeLZ.objValue;
+    }
 
-    void c(@Nullable a aVar);
+    @Override // com.repackage.v45
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null) {
+            return;
+        }
+        this.a = ng.d(str, 0.0f);
+    }
 }

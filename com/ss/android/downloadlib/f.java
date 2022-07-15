@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.ss.android.download.api.config.IDownloadButtonClickListener;
-import com.ss.android.download.api.config.u;
+import com.ss.android.download.api.config.OnItemClickListener;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
@@ -159,12 +159,16 @@ public class f {
         a(str, j, i, downloadEventConfig, downloadController, null, null);
     }
 
-    public void a(String str, long j, int i, DownloadEventConfig downloadEventConfig, DownloadController downloadController, u uVar, IDownloadButtonClickListener iDownloadButtonClickListener) {
+    public void a(String str, long j, int i, DownloadEventConfig downloadEventConfig, DownloadController downloadController, IDownloadButtonClickListener iDownloadButtonClickListener) {
+        a(str, j, i, downloadEventConfig, downloadController, null, iDownloadButtonClickListener);
+    }
+
+    public void a(String str, long j, int i, DownloadEventConfig downloadEventConfig, DownloadController downloadController, OnItemClickListener onItemClickListener, IDownloadButtonClickListener iDownloadButtonClickListener) {
         com.ss.android.downloadlib.addownload.f fVar;
         if (TextUtils.isEmpty(str) || (fVar = this.d.get(str)) == null) {
             return;
         }
-        fVar.a(j).b(downloadEventConfig).b(downloadController).a(uVar).a(iDownloadButtonClickListener).b(i);
+        fVar.a(j).b(downloadEventConfig).b(downloadController).a(onItemClickListener).a(iDownloadButtonClickListener).b(i);
     }
 
     public void a(com.ss.android.download.api.download.a.a aVar) {

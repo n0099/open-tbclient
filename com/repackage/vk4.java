@@ -1,8 +1,22 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +24,86 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wk4;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class vk4 {
     public static /* synthetic */ Interceptable $ic;
-    public static wk4 a;
-    public static vk4 b;
-    public static boolean c;
+    public static View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null || view2.getTag() == null || !(view2.getTag() instanceof tk4)) {
+                return;
+            }
+            if (!ni.z()) {
+                pi.N(view2.getContext(), R.string.obfuscated_res_0x7f0f0c64);
+                return;
+            }
+            tk4 tk4Var = (tk4) view2.getTag();
+            AlaUserInfoData alaUserInfoData = tk4Var.a;
+            if (alaUserInfoData == null) {
+                return;
+            }
+            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+            long j = alaUserInfoData.anchor_live;
+            if (j != 0) {
+                alaLiveInfoCoreData.liveID = j;
+            } else {
+                long j2 = alaUserInfoData.enter_live;
+                if (j2 != 0) {
+                    alaLiveInfoCoreData.liveID = j2;
+                } else {
+                    long j3 = alaUserInfoData.live_id;
+                    if (j3 == 0) {
+                        return;
+                    }
+                    alaLiveInfoCoreData.liveID = j3;
+                }
+            }
+            int i = tk4Var.b;
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (i == 1) {
+                TiebaStatic.log(new StatisticItem("c11850").param("uid", currentAccount));
+            } else if (i == 2 || i == 3 || i == 4) {
+                TiebaStatic.log(new StatisticItem("c11851").param("uid", currentAccount));
+            } else if (i == 5) {
+                TiebaStatic.log(new StatisticItem("c11852").param("uid", currentAccount));
+            } else if (i == 7) {
+                if (alaUserInfoData.ala_id != 0) {
+                    TiebaStatic.log(new StatisticItem("c11855").param("uid", currentAccount).param("click_uid", alaUserInfoData.ala_id).param(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS, alaUserInfoData.live_status));
+                }
+                TiebaStatic.log(new StatisticItem("c12542"));
+                if (tk4Var.c && !StringUtils.isNull(alaUserInfoData.sex)) {
+                    BdToast b = BdToast.b(view2.getContext(), String.format(view2.getContext().getString(R.string.obfuscated_res_0x7f0f0e4d), alaUserInfoData.sex));
+                    b.f(BdToast.ToastIcon.FAILURE);
+                    b.h();
+                    return;
+                }
+            }
+            int i2 = tk4Var.b;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2911003, new AlaLiveRoomActivityConfig(view2.getContext(), alaLiveInfoCoreData, i2 == 5 ? AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION : i2 == 7 ? AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY : AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT, null, false, "")));
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,196 +118,20 @@ public class vk4 {
                 return;
             }
         }
-        new ArrayList(5);
+        a = new a();
     }
 
-    public vk4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static vk4 a(BaseFragmentActivity baseFragmentActivity) {
+    public static TextView a(Context context) {
         InterceptResult invokeL;
-        wk4 wk4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            if (b == null) {
-                synchronized (vk4.class) {
-                    if (b == null) {
-                        b = new vk4();
-                        a = wk4.a(baseFragmentActivity);
-                    }
-                }
-            } else {
-                wk4 wk4Var2 = a;
-                if (wk4Var2 != null) {
-                    wk4Var2.j(baseFragmentActivity.getPageContext());
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null || MessageManager.getInstance().findTask(2911003) == null) {
+                return null;
             }
-            if (c && (wk4Var = a) != null) {
-                wk4Var.d();
-                a.c();
-                c = false;
-            }
-            return b;
+            TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d010c, (ViewGroup) null);
+            textView.setOnClickListener(a);
+            return textView;
         }
-        return (vk4) invokeL.objValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                if (a != null) {
-                    if (b != null) {
-                        b.j();
-                    }
-                    a.e();
-                    a.i();
-                    a = null;
-                }
-                if (b != null) {
-                    b = null;
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b();
-            wk4 wk4Var = a;
-            if (wk4Var != null) {
-                wk4Var.d();
-                c = false;
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b();
-            wk4 wk4Var = a;
-            if (wk4Var != null) {
-                wk4Var.c();
-                c = false;
-            }
-        }
-    }
-
-    public void e(boolean z, boolean z2, boolean z3, wk4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
-            b();
-            if (z) {
-                c();
-            }
-            if (z2) {
-                d();
-            }
-            l(z3);
-            k(aVar);
-        }
-    }
-
-    public void f(wk4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            b();
-            wk4 wk4Var = a;
-            if (wk4Var != null) {
-                if (wk4Var.b()) {
-                    a.k(aVar);
-                }
-                a.f();
-            }
-        }
-    }
-
-    public void g(int i, wk4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
-            b();
-            wk4 wk4Var = a;
-            if (wk4Var != null) {
-                if (wk4Var.b()) {
-                    a.k(aVar);
-                }
-                a.g(i);
-            }
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b();
-            wk4 wk4Var = a;
-            if (wk4Var != null) {
-                wk4Var.h();
-            }
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            b();
-            i();
-            m();
-        }
-    }
-
-    public void k(wk4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            b();
-            wk4 wk4Var = a;
-            if (wk4Var != null) {
-                wk4Var.k(aVar);
-            }
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            b();
-            wk4 wk4Var = a;
-            if (wk4Var != null) {
-                wk4Var.l(z);
-            }
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            b();
-            wk4 wk4Var = a;
-            if (wk4Var != null) {
-                wk4Var.m();
-                c = true;
-            }
-        }
+        return (TextView) invokeL.objValue;
     }
 }

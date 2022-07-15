@@ -1,152 +1,273 @@
 package com.repackage;
 
-import android.util.Pair;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import kotlin.UShort;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class r40 {
+public class r40 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] g;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public boolean b;
+    public Set<String> c;
+    public String d;
+    public Context e;
+    public int f;
 
-    public static int a(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) ? byteBuffer.getShort(i) & UShort.MAX_VALUE : invokeLI.intValue;
-    }
-
-    public static Pair<ByteBuffer, Long> b(RandomAccessFile randomAccessFile) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, randomAccessFile)) == null) {
-            if (randomAccessFile.length() < 22) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755400445, "Lcom/repackage/r40;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            Pair<ByteBuffer, Long> c = c(randomAccessFile, 0);
-            return c != null ? c : c(randomAccessFile, 65535);
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static Pair<ByteBuffer, Long> c(RandomAccessFile randomAccessFile, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, randomAccessFile, i)) == null) {
-            if (i < 0 || i > 65535) {
-                throw new IllegalArgumentException("maxCommentSize: " + i);
-            }
-            long length = randomAccessFile.length();
-            if (length < 22) {
-                return null;
-            }
-            ByteBuffer allocate = ByteBuffer.allocate(((int) Math.min(i, length - 22)) + 22);
-            allocate.order(ByteOrder.LITTLE_ENDIAN);
-            long capacity = length - allocate.capacity();
-            randomAccessFile.seek(capacity);
-            randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
-            int h = h(allocate);
-            if (h == -1) {
-                return null;
-            }
-            allocate.position(h);
-            ByteBuffer slice = allocate.slice();
-            slice.order(ByteOrder.LITTLE_ENDIAN);
-            return Pair.create(slice, Long.valueOf(capacity + h));
-        }
-        return (Pair) invokeLI.objValue;
-    }
-
-    public static void d(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, byteBuffer) == null) && byteBuffer.order() != ByteOrder.LITTLE_ENDIAN) {
-            throw new IllegalArgumentException("ByteBuffer byte order must be little endian");
-        }
-    }
-
-    public static void e(ByteBuffer byteBuffer, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (j >= 0 && j <= 4294967295L) {
-                byteBuffer.putInt(byteBuffer.position() + i, (int) j);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755400445, "Lcom/repackage/r40;");
                 return;
             }
-            throw new IllegalArgumentException("uint32 value of out range: " + j);
+        }
+        g = new byte[]{77, 73, 78, 71};
+    }
+
+    public r40() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static void f(ByteBuffer byteBuffer, long j) {
+    public static boolean e(String str, Context context, JSONObject jSONObject, Set<String> set) throws JSONException, PackageManager.NameNotFoundException {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65541, null, byteBuffer, j) == null) {
-            d(byteBuffer);
-            e(byteBuffer, byteBuffer.position() + 16, j);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, context, jSONObject, set)) == null) {
+            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
+            int length = jSONArray.length();
+            String[] strArr = new String[length];
+            for (int i = 0; i < length; i++) {
+                strArr[i] = jSONArray.getString(i);
+            }
+            String[] h = h(context.getPackageManager().getPackageInfo(str, 64).signatures);
+            if (h != null && h.length > 0) {
+                Collections.addAll(set, h);
+            }
+            return g(strArr, h);
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static final boolean g(RandomAccessFile randomAccessFile, long j) throws IOException {
-        InterceptResult invokeLJ;
+    public static boolean g(String[] strArr, String[] strArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, randomAccessFile, j)) == null) {
-            long j2 = j - 20;
-            if (j2 < 0) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strArr, strArr2)) == null) {
+            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
                 return false;
             }
-            randomAccessFile.seek(j2);
-            return randomAccessFile.readInt() == 1347094023;
+            HashSet hashSet = new HashSet();
+            for (String str : strArr) {
+                hashSet.add(str);
+            }
+            HashSet hashSet2 = new HashSet();
+            for (String str2 : strArr2) {
+                hashSet2.add(str2);
+            }
+            return hashSet.equals(hashSet2);
         }
-        return invokeLJ.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public static int h(ByteBuffer byteBuffer) {
+    public static String[] h(Signature[] signatureArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) {
-            d(byteBuffer);
-            int capacity = byteBuffer.capacity();
-            if (capacity < 22) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, signatureArr)) == null) {
+            int length = signatureArr.length;
+            String[] strArr = new String[length];
+            for (int i = 0; i < length; i++) {
+                strArr[i] = b40.c(signatureArr[i].toByteArray());
             }
-            int i = capacity - 22;
-            int min = Math.min(i, 65535);
-            for (int i2 = 0; i2 < min; i2++) {
-                int i3 = i - i2;
-                if (byteBuffer.getInt(i3) == 101010256 && a(byteBuffer, i3 + 20) == i2) {
-                    return i3;
+            return strArr;
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    public Set<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (Set) invokeV.objValue;
+    }
+
+    public final void b(Bundle bundle, v30 v30Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, v30Var) == null) {
+            try {
+                if (v30Var == null) {
+                    this.f |= 16;
+                    return;
+                }
+                String string = bundle.getString("helios_data");
+                if (TextUtils.isEmpty(string)) {
+                    this.f |= 1;
+                    return;
+                }
+                String string2 = bundle.getString("helios_sf");
+                if (TextUtils.isEmpty(string2)) {
+                    this.f |= 2;
+                    return;
+                }
+                byte[] decode = Base64.decode(string.getBytes(IMAudioTransRequest.CHARSET), 1);
+                for (int i = 0; i < decode.length; i++) {
+                    decode[i] = (byte) (decode[i] ^ g[i % g.length]);
+                }
+                JSONObject jSONObject = new JSONObject(new String(decode));
+                if (f(jSONObject)) {
+                    HashSet hashSet = new HashSet();
+                    this.c = hashSet;
+                    if (!e(this.d, this.e, jSONObject, hashSet)) {
+                        this.f |= 4;
+                    } else if (!Arrays.equals(c40.a(Base64.decode(string2, 0), v30Var), b40.b(decode))) {
+                        this.f |= 8;
+                    } else {
+                        this.a = jSONObject.getLong("priority");
+                        this.b = true;
+                    }
+                }
+            } catch (Exception e) {
+                this.f |= 256;
+                Log.getStackTraceString(e);
+            }
+        }
+    }
+
+    public void c(v30 v30Var, boolean z) {
+        PackageInfo packageInfo;
+        ActivityInfo[] activityInfoArr;
+        ActivityInfo activityInfo;
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, v30Var, z) == null) {
+            PackageManager packageManager = this.e.getPackageManager();
+            try {
+                packageInfo = packageManager.getPackageInfo(this.d, 2);
+            } catch (PackageManager.NameNotFoundException unused) {
+                packageInfo = null;
+            }
+            if (packageInfo == null || (activityInfoArr = packageInfo.receivers) == null || activityInfoArr.length <= 0) {
+                return;
+            }
+            for (ActivityInfo activityInfo2 : activityInfoArr) {
+                if ("com.baidu.helios.DummyProvider".equals(activityInfo2.name)) {
+                    try {
+                        activityInfo = packageManager.getReceiverInfo(new ComponentName(activityInfo2.packageName, activityInfo2.name), 128);
+                    } catch (PackageManager.NameNotFoundException unused2) {
+                        activityInfo = null;
+                    }
+                    if (activityInfo != null && (bundle = activityInfo.metaData) != null && bundle.containsKey("helios") && z) {
+                        b(bundle, v30Var);
+                    }
                 }
             }
-            return -1;
         }
-        return invokeL.intValue;
     }
 
-    public static long i(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
+    public void d(String str, Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, byteBuffer, i)) == null) ? byteBuffer.getInt(i) & 4294967295L : invokeLI.longValue;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, context) == null) {
+            this.d = str;
+            this.e = context;
+        }
     }
 
-    public static long j(ByteBuffer byteBuffer) {
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0041, code lost:
+        if (r10.equals(r9.d) == false) goto L15;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0056, code lost:
+        if (r0.startsWith(r10) != false) goto L16;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean f(JSONObject jSONObject) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, byteBuffer)) == null) {
-            d(byteBuffer);
-            return i(byteBuffer, byteBuffer.position() + 16);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            a40 a40Var = new a40();
+            a40Var.b(jSONObject.optLong("flags"));
+            String optString = jSONObject.optString("package", "");
+            long a = a40Var.a(7L);
+            if (!optString.equals("") || a == 4) {
+                if (a != 0) {
+                    if (a == 1) {
+                        String str = this.d;
+                        if (str != null) {
+                        }
+                        i = this.f | 32;
+                        this.f = i;
+                        return false;
+                    } else if (a == 2) {
+                        try {
+                            if (!Pattern.compile(optString).matcher(this.d).matches()) {
+                                this.f |= 32;
+                                return false;
+                            }
+                        } catch (Exception unused) {
+                            i = this.f | 128;
+                        }
+                    } else if (a == 4) {
+                        return true;
+                    }
+                    return true;
+                }
+            }
+            i = this.f | 64;
+            this.f = i;
+            return false;
         }
-        return invokeL.longValue;
+        return invokeL.booleanValue;
     }
 
-    public static long k(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
+    public long i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, byteBuffer)) == null) {
-            d(byteBuffer);
-            return i(byteBuffer, byteBuffer.position() + 12);
-        }
-        return invokeL.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.booleanValue;
     }
 }

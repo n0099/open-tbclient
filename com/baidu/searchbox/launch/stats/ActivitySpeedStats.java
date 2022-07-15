@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -172,7 +171,7 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
                 case 3006:
                     this.mLogoActivityEndTimeStamp = j;
                     return;
-                case w0.d3 /* 3007 */:
+                case 3007:
                 case 3008:
                 case 3009:
                 case 3010:

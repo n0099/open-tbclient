@@ -1,7 +1,5 @@
 package com.repackage;
-
-import com.baidu.swan.menu.BaseMenuView;
 /* loaded from: classes7.dex */
 public interface s54 {
-    void a(BaseMenuView baseMenuView);
+    void e(t54 t54Var);
 }

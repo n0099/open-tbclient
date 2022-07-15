@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cg1;
-import com.repackage.jd3;
+import com.repackage.rg1;
+import com.repackage.yd3;
 /* loaded from: classes2.dex */
 public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -78,7 +78,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        k = cg1.a;
+        k = rg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -176,7 +176,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
             if (view2 != null) {
                 return view2.getHeight();
             }
-            return jd3.f(getContext(), 50.0f);
+            return yd3.f(getContext(), 50.0f);
         }
         return invokeV.intValue;
     }
@@ -258,8 +258,8 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f09150c);
-            int f = jd3.f(getContext(), 29.0f);
+            this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f0915b5);
+            int f = yd3.f(getContext(), 29.0f);
             this.e = f;
             this.f = (int) (f * 2.4f);
             int i = (int) (f * 1.5f);

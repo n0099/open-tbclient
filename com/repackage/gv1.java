@@ -1,153 +1,141 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.util.Base64;
+import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gv1 extends iv1 {
+public class gv1 extends ev1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public JSONObject j;
     public int k;
     public int l;
     public int m;
     public int n;
-    public JSONArray o;
-    public float p;
-    @Nullable
-    public JSONObject q;
-    public long r;
-    public String s;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gv1(String str, @NonNull String str2) {
-        super(str, str2);
+    public gv1(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 0;
-        this.m = 0;
-        this.p = -1.0f;
-        this.s = "";
-    }
-
-    @Override // com.repackage.iv1, com.repackage.rp2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.j = jSONObject.optJSONObject("style");
-        this.q = jSONObject.optJSONObject(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-        i();
-        h();
-    }
-
-    @Override // com.repackage.iv1
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            gv1 gv1Var = (gv1) super.clone();
-            if (this.j != null) {
-                try {
-                    gv1Var.j = new JSONObject(this.j.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (this.o != null) {
-                try {
-                    gv1Var.o = new JSONArray(this.o.toString());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (this.q != null) {
-                try {
-                    gv1Var.q = new JSONObject(this.q.toString());
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                }
-            }
-            return gv1Var;
-        }
-        return invokeV.objValue;
-    }
-
-    @Override // com.repackage.iv1
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            super.g(jSONObject);
-            i();
-            h();
-        }
-    }
-
-    public final void h() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (jSONObject = this.q) == null) {
-            return;
-        }
         try {
-            this.r = Long.parseLong(jSONObject.optString("duration"));
-        } catch (Exception unused) {
-            sw1.b("Component-Model-View", "duration occurs exception");
-            this.r = 0L;
+            JSONObject jSONObject = new JSONObject(str);
+            this.k = yd3.g((float) jSONObject.optDouble("x"));
+            this.l = yd3.g((float) jSONObject.optDouble("y"));
+            this.m = yd3.g((float) jSONObject.optDouble("width"));
+            this.n = yd3.g((float) jSONObject.optDouble("height"));
+        } catch (Exception e) {
+            hx1.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
         }
-        this.s = this.q.optString("easing");
     }
 
-    public final void i() {
-        JSONObject jSONObject;
+    public final byte[] h(@NonNull Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (jSONObject = this.j) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            int i = width * height;
+            int[] iArr = new int[i];
+            bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+            byte[] bArr = new byte[i * 4];
+            for (int i2 = 0; i2 < i; i2++) {
+                int i3 = iArr[i2];
+                int i4 = i2 * 4;
+                bArr[i4] = (byte) Color.red(i3);
+                bArr[i4 + 1] = (byte) Color.green(i3);
+                bArr[i4 + 2] = (byte) Color.blue(i3);
+                bArr[i4 + 3] = (byte) Color.alpha(i3);
+            }
+            return bArr;
         }
-        try {
-            this.k = Color.parseColor(jSONObject.optString("bgColor"));
-        } catch (Exception unused) {
-            sw1.b("Component-Model-View", "backgroundColor occurs exception");
-            this.k = 0;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public JSONObject i(@NonNull View view2) {
+        InterceptResult invokeL;
+        String str;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            int measuredWidth = view2.getMeasuredWidth();
+            int measuredHeight = view2.getMeasuredHeight();
+            int i2 = 0;
+            if (measuredWidth > 0 && measuredHeight > 0) {
+                int i3 = this.k;
+                this.k = (i3 < 0 || i3 >= measuredWidth) ? 0 : 0;
+                int i4 = this.l;
+                this.l = (i4 < 0 || i4 >= measuredHeight) ? 0 : 0;
+                int i5 = this.m;
+                if (i5 <= 0 || this.k + i5 > measuredWidth) {
+                    i5 = measuredWidth - this.k;
+                }
+                this.m = i5;
+                int i6 = this.n;
+                if (i6 <= 0 || this.l + i6 > measuredHeight) {
+                    i6 = measuredHeight - this.l;
+                }
+                this.n = i6;
+                Bitmap createBitmap = Bitmap.createBitmap(this.m, i6, Bitmap.Config.ARGB_4444);
+                Canvas canvas = new Canvas(createBitmap);
+                canvas.drawARGB(0, 0, 0, 0);
+                canvas.translate(-this.k, -this.l);
+                view2.draw(canvas);
+                Bitmap j = j(createBitmap);
+                str = Base64.encodeToString(h(j), 2);
+                i2 = j.getWidth();
+                i = j.getHeight();
+            } else {
+                hx1.b("canvasGetImageData", "canvas size is invalid.");
+                str = "";
+                i = 0;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("width", i2);
+                jSONObject.put("height", i);
+                jSONObject.put("data", str);
+            } catch (Exception e) {
+                hx1.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
+            }
+            return jSONObject;
         }
-        this.l = this.j.optInt("borderWidth");
-        try {
-            this.m = Color.parseColor(this.j.optString("borderColor"));
-        } catch (Exception unused2) {
-            sw1.b("Component-Model-View", "borderColor occurs exception");
-            this.m = 0;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @NonNull
+    public final Bitmap j(@NonNull Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) {
+            float l = 1.0f / yd3.l(oj2.c());
+            Matrix matrix = new Matrix();
+            matrix.postScale(l, l);
+            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         }
-        this.n = jd3.g(this.j.optInt("borderRadius"));
-        this.p = sc3.b(this.j, NativeConstants.OPACITY, -1.0f);
-        this.o = this.j.optJSONArray(CriusAttrConstants.PADDING);
+        return (Bitmap) invokeL.objValue;
     }
 }

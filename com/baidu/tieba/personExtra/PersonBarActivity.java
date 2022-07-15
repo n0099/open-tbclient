@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q18;
+import com.repackage.l28;
 /* loaded from: classes3.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -36,12 +36,12 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public BasePersonInfoAdapter C0(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
+    public BasePersonInfoAdapter B0(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, basePersonInfoActivity, z)) == null) {
             if (this.u == null) {
-                this.u = new PersonBarAdapter(this, G0());
+                this.u = new PersonBarAdapter(this, F0());
             }
             return this.u;
         }
@@ -49,49 +49,49 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String D0() {
+    public String C0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e06) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0dfc) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String F0() {
+    public String E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "common_forum" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
+    public String L0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e01) : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String M0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e0b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0dfd) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String N0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e07) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f02ab) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
     public String O0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f02a8) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e00) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public String P0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getPageContext().getString(R.string.obfuscated_res_0x7f0f0e0a) : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity
-    public int S0() {
+    public int P0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -100,13 +100,13 @@ public class PersonBarActivity extends BasePersonInfoActivity {
         return invokeV.intValue;
     }
 
-    public PersonBarModel b1() {
+    public PersonBarModel a1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.v : (PersonBarModel) invokeV.objValue;
     }
 
-    public int c1() {
+    public int b1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.m : invokeV.intValue;
@@ -120,10 +120,10 @@ public class PersonBarActivity extends BasePersonInfoActivity {
             if (this.i && this.m != 23011) {
                 setSwipeBackEnabled(false);
             }
-            PersonBarModel personBarModel = new PersonBarModel(getPageContext(), G0());
+            PersonBarModel personBarModel = new PersonBarModel(getPageContext(), F0());
             this.v = personBarModel;
-            personBarModel.setSex(U0());
-            this.v.F(V0());
+            personBarModel.setSex(T0());
+            this.v.G(U0());
             this.v.setUniqueId(getUniqueId());
         }
     }
@@ -131,16 +131,16 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        q18 W1;
+        l28 X1;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             super.onPageSelected(i);
             PersonBarAdapter personBarAdapter = this.u;
-            if (personBarAdapter == null || personBarAdapter.getItem(i) == null || (baseFragment = (BaseFragment) this.u.getItem(i)) == null || !(baseFragment instanceof PersonBarFragment) || (W1 = ((PersonBarFragment) baseFragment).W1()) == null) {
+            if (personBarAdapter == null || personBarAdapter.getItem(i) == null || (baseFragment = (BaseFragment) this.u.getItem(i)) == null || !(baseFragment instanceof PersonBarFragment) || (X1 = ((PersonBarFragment) baseFragment).X1()) == null) {
                 return;
             }
-            W1.f(false);
-            W1.notifyDataSetChanged();
+            X1.f(false);
+            X1.notifyDataSetChanged();
         }
     }
 }

@@ -17,10 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eu8;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.repackage.bv8;
 /* loaded from: classes4.dex */
-public class CaptureRecordButton extends FrameLayout implements eu8 {
+public class CaptureRecordButton extends FrameLayout implements bv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -89,7 +88,7 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -97,7 +96,7 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -107,19 +106,19 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0471, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091a07);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091a0a);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0489, this);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091aaf);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091ab2);
             this.c = findViewById;
             findViewById.setAlpha(0.0f);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091a08);
-            this.d = (RecordCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f091a0b);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091ab0);
+            this.d = (RecordCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f091ab3);
             AnimatorSet animatorSet = new AnimatorSet();
             this.g = animatorSet;
-            animatorSet.play(ObjectAnimator.ofFloat(this.a, AnimationProperty.SCALE_X, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.a, AnimationProperty.SCALE_Y, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.b, AnimationProperty.SCALE_X, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.b, AnimationProperty.SCALE_Y, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.b, AnimationProperty.OPACITY, 1.0f, 0.66f));
+            animatorSet.play(ObjectAnimator.ofFloat(this.a, "scaleX", 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.a, "scaleY", 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.b, "scaleX", 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.b, "scaleY", 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.b, "alpha", 1.0f, 0.66f));
             AnimatorSet animatorSet2 = new AnimatorSet();
             this.h = animatorSet2;
-            animatorSet2.play(ObjectAnimator.ofFloat(this.a, AnimationProperty.OPACITY, 1.0f, 0.0f)).with(ObjectAnimator.ofFloat(this.c, AnimationProperty.OPACITY, 0.0f, 1.0f));
+            animatorSet2.play(ObjectAnimator.ofFloat(this.a, "alpha", 1.0f, 0.0f)).with(ObjectAnimator.ofFloat(this.c, "alpha", 0.0f, 1.0f));
         }
     }
 
@@ -161,7 +160,7 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -174,14 +173,14 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d.getProgress() : invokeV.floatValue;
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -207,7 +206,7 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
                 this.e.cancel();
             }
             if (this.e == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.b, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 1.0f, 0.9f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 1.0f, 0.9f));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.b, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
                 this.e = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration(200L);
             }
@@ -241,7 +240,7 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
                 return;
             }
             if (this.f == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.b, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 0.9f, 1.0f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 0.9f, 1.0f));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.b, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
                 this.f = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration(200L);
             }
@@ -249,7 +248,7 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
@@ -257,7 +256,7 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void setMaxDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
@@ -265,7 +264,7 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void setMinDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
@@ -273,15 +272,15 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
         }
     }
 
-    @Override // com.repackage.eu8
-    public void setOnProgressListener(eu8.a aVar) {
+    @Override // com.repackage.bv8
+    public void setOnProgressListener(bv8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, aVar) == null) {
             this.d.setOnProgressListener(aVar);
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void setProgress(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
@@ -289,7 +288,7 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
@@ -297,7 +296,7 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
@@ -305,7 +304,7 @@ public class CaptureRecordButton extends FrameLayout implements eu8 {
         }
     }
 
-    @Override // com.repackage.eu8
+    @Override // com.repackage.bv8
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {

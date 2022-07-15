@@ -1,177 +1,96 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.DLauncher;
-import com.baidu.tbadk.editortools.view.CommonTabContentView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v25;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class p05 extends v25 {
+public class p05 implements nn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<o05> m;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public String f;
+    public String g;
+    public List<o05> h;
+    public String i;
+    public boolean j;
+    public int k;
 
-    /* loaded from: classes6.dex */
-    public class a implements v25.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p05 a;
-
-        public a(p05 p05Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755463716, "Lcom/repackage/p05;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p05Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = p05Var;
-        }
-
-        @Override // com.repackage.v25.a
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
-                DLauncher E = this.a.E(i);
-                if (E.getLayoutParams() == null) {
-                    E.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-                }
-                return E;
-            }
-            return (View) invokeILL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements CommonTabContentView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p05 a;
-
-        public b(p05 p05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p05Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p05Var;
-        }
-
-        @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
-        public void a(View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && view2.isEnabled() && (view2 instanceof DLauncher) && this.a.j != null) {
-                this.a.j.x(view2);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755463716, "Lcom/repackage/p05;");
+                return;
             }
         }
+        l = BdUniqueId.gen();
     }
 
     public p05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.i05
-    public void C(h05 h05Var) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, h05Var) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public void D(LinkedList<o05> linkedList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList) == null) {
-            this.m = linkedList;
-        }
-    }
-
-    public final DLauncher E(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i < 0 || i >= c()) {
-                return null;
+        this.a = jSONObject.optString("user_id");
+        this.b = jSONObject.optString("name_show");
+        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
+        this.d = jSONObject.optInt("user_gender");
+        this.e = jSONObject.optInt("user_age", 0);
+        this.f = jSONObject.optString("user_constellation");
+        this.g = jSONObject.optString("distance");
+        JSONArray optJSONArray = jSONObject.optJSONArray("favorite_forum_list");
+        if (optJSONArray != null && optJSONArray.length() != 0) {
+            this.h = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                o05 o05Var = new o05();
+                o05Var.a(optJSONArray.optJSONObject(i));
+                this.h.add(o05Var);
             }
-            return (DLauncher) this.m.get(i);
         }
-        return (DLauncher) invokeI.objValue;
+        this.i = jSONObject.optString("user_slogan");
+        this.j = jSONObject.optInt("is_friend", 0) == 1;
+        this.k = jSONObject.optInt("active_status", 0);
     }
 
-    @Override // com.repackage.v25
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinkedList<o05> linkedList = this.m;
-            if (linkedList != null) {
-                linkedList.clear();
-            }
-            this.m = null;
-        }
-    }
-
-    @Override // com.repackage.v25
-    public int c() {
+    @Override // com.repackage.nn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinkedList<o05> linkedList = this.m;
-            if (linkedList != null) {
-                return linkedList.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.v25
-    public void n(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
-            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            v(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            o(4);
-            w(2);
-            y(new a(this));
-            h().b(this);
-            t(new b(this));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? l : (BdUniqueId) invokeV.objValue;
     }
 }

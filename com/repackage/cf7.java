@@ -1,179 +1,236 @@
 package com.repackage;
 
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.mainentrance.ForumSuggestModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AlaLiveInfo;
-import tbclient.AlaUserInfo;
-import tbclient.SugLiveInfo;
-import tbclient.YyExt;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class cf7 implements nn {
+public class cf7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
-    public int d;
-    public int e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public int j;
-    public long k;
+    public final BaseActivity<?> a;
+    public final boolean b;
+    public ArrayList<ForumSuggestModel.Forum> c;
+    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755799043, "Lcom/repackage/cf7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755799043, "Lcom/repackage/cf7;");
-                return;
-            }
-        }
-        l = BdUniqueId.gen();
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public cf7() {
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+        public TextView b;
+        public BarImageView c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
+
+        public b(cf7 cf7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cf7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(cf7 cf7Var, a aVar) {
+            this(cf7Var);
+        }
+    }
+
+    public cf7(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, arrayList};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
+        this.a = baseActivity;
+        this.b = true;
+        this.c = arrayList;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ForumSuggestModel.Forum getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int count = getCount();
+            if (count <= 0 || i >= count) {
+                return null;
+            }
+            return this.c.get(i);
+        }
+        return (ForumSuggestModel.Forum) invokeI.objValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : invokeV.longValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 100000) {
+                return String.valueOf(i / 10000) + this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0aa4);
+            }
+            return String.valueOf(i);
+        }
+        return (String) invokeI.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void c(TextView textView, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? l : (BdUniqueId) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public void n(SugLiveInfo sugLiveInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, sugLiveInfo) == null) || sugLiveInfo == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, str) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.d)) {
             return;
         }
-        this.a = sugLiveInfo.word;
-        AlaLiveInfo alaLiveInfo = sugLiveInfo.ala_info;
-        if (alaLiveInfo != null) {
-            this.k = alaLiveInfo.room_id.longValue();
-            this.d = sugLiveInfo.ala_info.live_type.intValue();
-            AlaUserInfo alaUserInfo = sugLiveInfo.ala_info.user_info;
-            if (alaUserInfo != null) {
-                this.c = alaUserInfo.user_id.longValue();
-            }
-            YyExt yyExt = sugLiveInfo.ala_info.yy_ext;
-            if (yyExt != null) {
-                this.f = yyExt.sid;
-                this.g = yyExt.ssid;
-                this.h = yyExt.template_id;
-                this.i = yyExt.yy_uid;
-                int intValue = yyExt.is_yy_game.intValue();
-                this.e = intValue;
-                this.j = q(this.d, intValue);
+        String lowerCase = str.toLowerCase();
+        String lowerCase2 = this.d.toLowerCase();
+        if (!lowerCase.contains(lowerCase2)) {
+            textView.setText(str);
+            return;
+        }
+        int indexOf = lowerCase.indexOf(lowerCase2);
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.d.length() + indexOf, 33);
+        textView.setText(spannableStringBuilder);
+    }
+
+    public void d(ArrayList<ForumSuggestModel.Forum> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.c = arrayList;
+            if (arrayList != null) {
+                notifyDataSetChanged();
             }
         }
     }
 
-    public void o(String str) {
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public final int q(int i, int i2) {
-        InterceptResult invokeII;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048588, this, i, i2)) == null) {
-            if (i == 1) {
-                return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList<ForumSuggestModel.Forum> arrayList = this.c;
+            if (arrayList == null) {
+                return 0;
             }
-            if (i == 0) {
-                return 4;
-            }
-            if (i == 3 && i2 == 0) {
-                return 2;
-            }
-            return (i == 3 && i2 == 1) ? 3 : 5;
+            return arrayList.size();
         }
-        return invokeII.intValue;
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0799, (ViewGroup) null);
+                bVar = new b(this, null);
+                BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909fc);
+                bVar.c = barImageView;
+                barImageView.setGifIconSupport(false);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09155e);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a3b);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a67);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dbb);
+                bVar.a = view2.findViewById(R.id.obfuscated_res_0x7f091645);
+                view2.setTag(bVar);
+            } else {
+                bVar = (b) view2.getTag();
+            }
+            ForumSuggestModel.Forum item = getItem(i);
+            if (item == null) {
+                return view2;
+            }
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str2 = item.avatar;
+            bVar.c.setTag(str2);
+            bVar.c.J(str2, 10, false);
+            bVar.c.invalidate();
+            if (this.b) {
+                str = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f03c7, new Object[]{item.forum_name});
+            } else {
+                str = item.forum_name;
+            }
+            c(bVar.b, str);
+            bVar.c.setTag(item.avatar);
+            TextView textView = bVar.d;
+            textView.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02a7) + " " + b(item.member_num));
+            TextView textView2 = bVar.e;
+            textView2.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13c6) + " " + b(item.thread_num));
+            if (!this.b && TextUtils.isEmpty(item.slogan)) {
+                bVar.f.setVisibility(8);
+            } else {
+                bVar.f.setVisibility(0);
+                bVar.f.setText(item.slogan);
+            }
+            if (item.is_offical == 1) {
+                bVar.a.setVisibility(0);
+                SkinManager.setBackgroundResource(bVar.a, R.drawable.icon_search_official);
+            } else {
+                bVar.a.setVisibility(8);
+            }
+            this.a.getLayoutMode().k(skinType == 1);
+            this.a.getLayoutMode().j(view2);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

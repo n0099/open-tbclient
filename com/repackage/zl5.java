@@ -1,142 +1,191 @@
 package com.repackage;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.AccountRealNameCallback;
-import com.baidu.sapi2.callback.SapiCallback;
-import com.baidu.sapi2.dto.RealNameDTO;
-import com.baidu.sapi2.result.AccountRealNameResult;
-import com.baidu.sapi2.result.CheckUserFaceIdResult;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bt3;
-import java.util.HashMap;
-@Singleton
-@Service
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes7.dex */
-public class zl5 extends ActivityDelegation implements yw3 {
+public class zl5 extends dc1<mh0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements SapiCallback<CheckUserFaceIdResult> {
+    public class a implements mh0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bt3.d a;
-        public final /* synthetic */ zl5 b;
+        public final /* synthetic */ zl5 c;
 
-        public a(zl5 zl5Var, bt3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zl5Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        /* renamed from: com.repackage.zl5$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0788a implements oh0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a f;
+
+            public C0788a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
                 }
+                this.f = aVar;
             }
-            this.b = zl5Var;
-            this.a = dVar;
-        }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: a */
-        public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) {
-                this.a.onFail(checkUserFaceIdResult.getResultMsg());
+            @Override // com.repackage.oh0
+            public String a() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? am5.h().a() : (String) invokeV.objValue;
             }
-        }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: b */
-        public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, checkUserFaceIdResult) == null) {
-                if (!"advanced_cert_face_match".equals(checkUserFaceIdResult.action) && !"cert_face_match".equals(checkUserFaceIdResult.action)) {
-                    this.b.f(null, null, this.a);
-                } else {
-                    this.a.onSuccess();
+            @Override // com.repackage.oh0
+            public String b() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? am5.h().d() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String c() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? am5.h().l() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String d() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? am5.h().o() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String e() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? am5.h().f() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String g() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? am5.h().b() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String h() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f.c.c() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String i() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? am5.h().n() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String j() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? am5.h().j() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String k() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "tieba" : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String l() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "2" : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String m() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? am5.h().p() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            @NonNull
+            public String o() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? am5.h().e() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String p() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? am5.h().g() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String packageName() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? am5.h().m() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String q() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? am5.h().c() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String t() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? am5.h().i() : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public String u() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? "Tieba" : (String) invokeV.objValue;
+            }
+
+            @Override // com.repackage.oh0
+            public boolean v() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                    return true;
                 }
+                return invokeV.booleanValue;
             }
         }
 
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends AccountRealNameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bt3.d a;
-
-        public b(zl5 zl5Var, bt3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zl5Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.sapi2.callback.AccountRealNameCallback
-        public void onFinish(AccountRealNameResult accountRealNameResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
-                super.onFinish(accountRealNameResult);
-                if (accountRealNameResult.getResultCode() == 0) {
-                    this.a.onSuccess();
-                } else {
-                    this.a.onFail(accountRealNameResult.getResultMsg());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements bt3.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zl5 a;
-
-        public c(zl5 zl5Var) {
+        public a(zl5 zl5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,25 +200,15 @@ public class zl5 extends ActivityDelegation implements yw3 {
                     return;
                 }
             }
-            this.a = zl5Var;
+            this.c = zl5Var;
         }
 
-        @Override // com.repackage.bt3.d
-        public void onFail(String str) {
+        @Override // com.repackage.mh0
+        @NonNull
+        public oh0 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.mResult.putString("bundle_fail", "real_name_success");
-                this.a.finish();
-            }
-        }
-
-        @Override // com.repackage.bt3.d
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.mResult.putString("bundle_success", "real_name_success");
-                this.a.finish();
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0788a(this) : (oh0) invokeV.objValue;
         }
     }
 
@@ -187,44 +226,46 @@ public class zl5 extends ActivityDelegation implements yw3 {
         }
     }
 
-    @Override // com.repackage.yw3
-    public void b(bt3.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                dVar.onFail("pass没有初始化");
-                return;
-            }
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            HashMap hashMap = new HashMap();
-            hashMap.put("scene", "baidugame");
-            SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new a(this, dVar), session.bduss, hashMap);
-        }
-    }
-
-    public final void f(Context context, String str, bt3.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, dVar) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                dVar.onFail("pass没有初始化");
-                return;
-            }
-            RealNameDTO realNameDTO = new RealNameDTO();
-            realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
-            realNameDTO.scene = "baidugame";
-            realNameDTO.needCbKey = true;
-            PassportSDK.getInstance().loadAccountRealName(fl2.U().getActivity(), new b(this, dVar), realNameDTO);
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.dc1
+    /* renamed from: b */
+    public mh0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f(getAgent(), rc3.g(this.mParams, "swanAppId"), new c(this));
-            return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (mh0) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        byte[] b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = "";
+            String q = xt4.k().q("key_last_cached_real_oid", "");
+            if (StringUtils.isNull(q)) {
+                String k = am5.h().k();
+                if (StringUtils.isNull(k)) {
+                    return "";
+                }
+                String[] split = k.split("-");
+                if (split != null && split.length > 1) {
+                    String str2 = split[1];
+                    if (StringUtils.isNull(str2) || (b = new x30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+                        return "";
+                    }
+                    try {
+                        str = new String(b, "UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    if (!StringUtils.isNull(str)) {
+                        xt4.k().y("key_last_cached_real_oid", str);
+                    }
+                }
+                return str;
+            }
+            return q;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rh0;
+import com.repackage.ai0;
 /* loaded from: classes2.dex */
-public class NadCriusMiniVideoDownloadView extends NadEnhanceButtonDownloadView implements rh0 {
+public class NadCriusMiniVideoDownloadView extends NadEnhanceButtonDownloadView implements ai0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

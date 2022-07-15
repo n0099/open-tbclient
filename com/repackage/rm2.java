@@ -1,173 +1,52 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class rm2 {
+public class rm2 extends tm2 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<qm2> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755345606, "Lcom/repackage/rm2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755345606, "Lcom/repackage/rm2;");
+    public rm2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayList<>();
+        this.z = "";
     }
 
-    public static void a(qm2 qm2Var) {
+    @Override // com.repackage.tm2, com.repackage.xv1, com.repackage.gq2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, qm2Var) == null) || qm2Var == null || a.contains(qm2Var)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        a.add(qm2Var);
+        super.a(jSONObject);
+        this.z = jSONObject.optString("cb");
+        jSONObject.optDouble("latitude");
+        jSONObject.optDouble("longitude");
     }
 
-    public static void b() {
+    @Override // com.repackage.xv1, com.repackage.gq2
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a.clear();
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                qm2 qm2Var = a.get(size);
-                if (qm2Var != null) {
-                    qm2Var.onDestroy();
-                }
-            }
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            qm2 qm2Var = a.get(size);
-            if (qm2Var != null && TextUtils.equals(str, qm2Var.b())) {
-                qm2Var.onDestroy();
-            }
-        }
-    }
-
-    public static qm2 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                qm2 qm2Var = a.get(size);
-                if (qm2Var != null && TextUtils.equals(str, qm2Var.c())) {
-                    return qm2Var;
-                }
-            }
-            return null;
-        }
-        return (qm2) invokeL.objValue;
-    }
-
-    public static qm2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                qm2 qm2Var = a.get(size);
-                if (qm2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, qm2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, qm2Var.f())) || TextUtils.equals(str3, qm2Var.c())))) {
-                    return qm2Var;
-                }
-            }
-            return null;
-        }
-        return (qm2) invokeLLL.objValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                qm2 qm2Var = a.get(size);
-                if (qm2Var != null && TextUtils.equals(str, qm2Var.b()) && qm2Var.onBackPressed()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                qm2 qm2Var = a.get(size);
-                if (qm2Var != null) {
-                    qm2Var.j(z);
-                }
-            }
-        }
-    }
-
-    public static void i(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65545, null, str, z) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            qm2 qm2Var = a.get(size);
-            if (qm2Var != null && TextUtils.equals(str, qm2Var.b())) {
-                qm2Var.k(z);
-            }
-        }
-    }
-
-    public static void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                qm2 qm2Var = a.get(size);
-                if (qm2Var != null) {
-                    qm2Var.k(z);
-                }
-            }
-        }
-    }
-
-    public static void k(qm2 qm2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, qm2Var) == null) || qm2Var == null) {
-            return;
-        }
-        a.remove(qm2Var);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.z) : invokeV.booleanValue;
     }
 }

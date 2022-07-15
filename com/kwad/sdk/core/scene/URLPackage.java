@@ -3,14 +3,18 @@ package com.kwad.sdk.core.scene;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.utils.t;
+import com.ksad.json.annotation.KsJson;
+import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.core.response.kwai.a;
+import com.kwad.sdk.utils.s;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
+@KsJson
 /* loaded from: classes5.dex */
-public class URLPackage extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+public class URLPackage extends a implements Serializable {
     public static final String KEY_AUTHOR_ID = "authorId";
-    public static final String KEY_TREND_ID = "trendId";
+    public static final String KEY_CHANNEL_ID = "channelId";
     public static final String KEY_TUBE_ID = "tubeId";
     public static final long serialVersionUID = -7365796297335816787L;
     public String identity;
@@ -38,7 +42,7 @@ public class URLPackage extends com.kwad.sdk.core.response.kwai.a implements Ser
         try {
             this.mJsonObjectParams = new JSONObject(optString);
         } catch (JSONException e) {
-            com.kwad.sdk.core.d.a.a(e);
+            b.a(e);
         }
     }
 
@@ -47,7 +51,7 @@ public class URLPackage extends com.kwad.sdk.core.response.kwai.a implements Ser
         super.afterToJson(jSONObject);
         JSONObject jSONObject2 = this.mJsonObjectParams;
         if (jSONObject2 != null) {
-            t.a(jSONObject, "params", jSONObject2.toString());
+            s.a(jSONObject, "params", jSONObject2.toString());
         }
     }
 
@@ -55,6 +59,6 @@ public class URLPackage extends com.kwad.sdk.core.response.kwai.a implements Ser
         if (this.mJsonObjectParams == null) {
             this.mJsonObjectParams = new JSONObject();
         }
-        t.a(this.mJsonObjectParams, str, j);
+        s.a(this.mJsonObjectParams, str, j);
     }
 }

@@ -1,9 +1,14 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,249 +16,243 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class a44 {
+public final class a44 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final String c;
-    public static volatile a44 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<yl1, z34> a;
+    public a a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755906768, "Lcom/repackage/a44;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
+
+        void b();
+
+        void c();
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-576950030, "Lcom/repackage/a44$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-576950030, "Lcom/repackage/a44$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755906768, "Lcom/repackage/a44;");
-                return;
-            }
-        }
-        b = cg1.a;
-        c = a44.class.getSimpleName();
-    }
-
-    public a44() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        y34.a();
-        this.a = new HashMap();
-    }
-
-    public static a44 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (a44.class) {
-                    if (d == null) {
-                        d = new a44();
-                    }
-                }
-            }
-            return d;
-        }
-        return (a44) invokeV.objValue;
-    }
-
-    public static void d(yl1 yl1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, yl1Var) == null) {
-            synchronized (a44.class) {
-                if (d != null) {
-                    d.c(yl1Var).h();
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
-    }
 
-    public static void e(yl1 yl1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, yl1Var) == null) {
-            synchronized (a44.class) {
-                if (d != null) {
-                    d.f(yl1Var);
-                } else if (b) {
-                    Log.v(c, "未初始化，无需执行release");
-                }
-            }
-        }
-    }
-
-    public static void h(yl1 yl1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, yl1Var) == null) {
-            synchronized (a44.class) {
-                if (d != null) {
-                    d.c(yl1Var).k();
-                }
-            }
-        }
-    }
-
-    public boolean a(Context context, em2 em2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, em2Var)) == null) {
-            sw1.i("map", "map create start");
-            if (md3.m(em2Var.c) != null && em2Var.isValid()) {
-                am1 A = fl2.U().A(em2Var.c);
-                if (!(A instanceof yl1)) {
-                    sw1.c("map", "WebViewManager is null");
+        @Override // android.view.View.OnTouchListener
+        public final boolean onTouch(View v, MotionEvent event) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, v, event)) == null) {
+                Intrinsics.checkNotNullExpressionValue(event, "event");
+                int action = event.getAction();
+                if (action == 0) {
+                    Intrinsics.checkNotNullExpressionValue(v, "v");
+                    v.setAlpha(0.2f);
                     return false;
-                }
-                z34 c2 = c((yl1) A);
-                if (c2.d(em2Var.b) != null) {
-                    sw1.c("map", "map with id " + em2Var.b + " exist");
+                } else if (action == 1 || action == 3) {
+                    Intrinsics.checkNotNullExpressionValue(v, "v");
+                    v.setAlpha(1.0f);
                     return false;
-                }
-                b54 K = b54.K(context, em2Var);
-                if (K == null) {
-                    sw1.c("map", "map with id " + em2Var.b + " model is invalid");
-                    return false;
-                }
-                jv1 insert = K.insert();
-                if (!insert.a()) {
-                    sw1.c("map", "map with id " + em2Var.b + " create fail: " + insert.b);
-                    return false;
-                } else if (c2.insert(K)) {
-                    sw1.i("map", "map with id " + em2Var.b + " init start");
-                    u44.a(context, K, em2Var, c2);
-                    sw1.i("map", "map with id " + em2Var.b + " init end");
-                    sw1.i("map", "map create end");
-                    return true;
                 } else {
                     return false;
                 }
             }
-            sw1.c("map", "model data is invalid");
-            return false;
+            return invokeLL.booleanValue;
         }
-        return invokeLL.booleanValue;
     }
 
-    public synchronized z34 c(yl1 yl1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yl1Var)) == null) {
-            synchronized (this) {
-                if (yl1Var == null) {
-                    return null;
-                }
-                z34 z34Var = this.a.get(yl1Var);
-                if (z34Var == null) {
-                    z34Var = new z34();
-                    this.a.put(yl1Var, z34Var);
-                }
-                return z34Var;
-            }
-        }
-        return (z34) invokeL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static final class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a44 a;
 
-    public final synchronized void f(yl1 yl1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yl1Var) == null) {
-            synchronized (this) {
-                if (yl1Var == null) {
+        public c(a44 a44Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a44Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                z34 remove = this.a.remove(yl1Var);
-                if (remove != null) {
-                    remove.i();
-                }
             }
+            this.a = a44Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.a.a) == null) {
+                return;
+            }
+            aVar.c();
         }
     }
 
-    public boolean g(em2 em2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, em2Var)) == null) {
-            sw1.i("map", "map remove start");
-            if (md3.m(em2Var.c) == null) {
-                sw1.c("map", "webView is null or mapModel is null");
-                return false;
-            }
-            am1 A = fl2.U().A(em2Var.c);
-            if (!(A instanceof yl1)) {
-                sw1.c("map", "WebViewManager is null");
-                return false;
-            }
-            z34 c2 = c((yl1) A);
-            b54 d2 = c2.d(em2Var.b);
-            if (d2 == null) {
-                sw1.c("map", "remove map with id " + em2Var.b + " not exist");
-                return false;
-            } else if (c2.j(em2Var.b)) {
-                sw1.i("map", "map remove end");
-                if (fw1.a(em2Var) == null) {
-                    lw1.a("map", "remove with a null map component");
+    /* loaded from: classes5.dex */
+    public static final class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a44 a;
+
+        public d(a44 a44Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a44Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                jv1 B = d2.B();
-                boolean a = B.a();
-                if (!a) {
-                    String str = c;
-                    sw1.c(str, "map remove fail: " + B.b);
-                }
-                return a;
-            } else {
-                return false;
             }
+            this.a = a44Var;
         }
-        return invokeL.booleanValue;
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.a.a) == null) {
+                return;
+            }
+            aVar.b();
+        }
     }
 
-    public boolean update(Context context, em2 em2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, em2Var)) == null) {
-            sw1.i("map", "map update start");
-            if (md3.m(em2Var.c) == null) {
-                sw1.c("map", "webView is null or mapModel is null");
-                return false;
+    /* loaded from: classes5.dex */
+    public static final class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a44 a;
+
+        public e(a44 a44Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a44Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            am1 A = fl2.U().A(em2Var.c);
-            if (A != null && (A instanceof yl1)) {
-                z34 c2 = c((yl1) A);
-                b54 d2 = c2.d(em2Var.b);
-                if (d2 == null) {
-                    sw1.c("map", "remove map with id " + em2Var.b + " not exist");
-                    return false;
-                }
-                d2.F();
-                u44.b(context, d2, em2Var, c2, true);
-                sw1.i("map", "map update end");
-                if (fw1.a(em2Var) == null) {
-                    lw1.a("map", "update with a null map component");
-                }
-                jv1 update = d2.update((b54) em2Var);
-                boolean a = update.a();
-                if (!a) {
-                    String str = c;
-                    sw1.c(str, "map update fail: " + update.b);
-                }
-                return a;
-            }
-            sw1.c("map", "WebViewManager is null");
-            return false;
+            this.a = a44Var;
         }
-        return invokeLL.booleanValue;
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.a.a) == null) {
+                return;
+            }
+            aVar.a();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a44(Context context) {
+        super(context, R.style.obfuscated_res_0x7f1001a7);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        c();
+    }
+
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final View.OnTouchListener b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a : (View.OnTouchListener) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d00be);
+            setCanceledOnTouchOutside(false);
+            d();
+        }
+    }
+
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0908f6)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0908f6)).setOnClickListener(new c(this));
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090e38)).setOnTouchListener(b());
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090e38)).setOnClickListener(new d(this));
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0906c4)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0906c4)).setOnClickListener(new e(this));
+        }
+    }
+
+    public final void e(a onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            Intrinsics.checkNotNullParameter(onClickListener, "onClickListener");
+            this.a = onClickListener;
+        }
     }
 }

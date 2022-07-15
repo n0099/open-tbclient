@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cg1;
-import com.repackage.jd3;
-import com.repackage.mc3;
+import com.repackage.bd3;
+import com.repackage.rg1;
+import com.repackage.yd3;
 /* loaded from: classes2.dex */
 public class NeutralRefreshAnimView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -310,10 +310,10 @@ public class NeutralRefreshAnimView extends View {
                 return;
             }
         }
-        s = cg1.a;
-        t = jd3.g(3.5f);
+        s = rg1.a;
+        t = yd3.g(3.5f);
         u = Color.parseColor("#000000");
-        int g = jd3.g(18.0f);
+        int g = yd3.g(18.0f);
         v = g;
         w = g >> 1;
     }
@@ -417,7 +417,7 @@ public class NeutralRefreshAnimView extends View {
             if (i <= 0 || i2 <= 0) {
                 return;
             }
-            mc3.j(new a(this, i, i2), "CreateBitmapOnSizeChanged");
+            bd3.j(new a(this, i, i2), "CreateBitmapOnSizeChanged");
         }
     }
 

@@ -2,36 +2,114 @@ package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.ActivityPage.ActivityPageResIdl;
-import tbclient.ActivityPage.DataRes;
-import tbclient.ActivityPage.HotTopic;
-import tbclient.ActivityPage.RecommendForumList;
-import tbclient.ActivityPage.RecommendUserList;
-import tbclient.ActivityPage.SpecialColumnList;
-import tbclient.BannerImage;
-import tbclient.Error;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cs6 extends ka5<ActivityPageResIdl> {
+public class cs6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ha5 c;
-    public List<ThreadData> d;
-    public List<ym4> e;
-    public mn4 f;
-    public ko4 g;
+    public String a;
+    public String b;
+    public b c;
+    public String d;
+    public String e;
+    public List<a> f;
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        }
+
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.a = str;
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        }
+
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                this.a = str;
+            }
+        }
+
+        public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.b = str;
+            }
+        }
+
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            }
+        }
+    }
 
     public cs6() {
         Interceptable interceptable = $ic;
@@ -43,142 +121,207 @@ public class cs6 extends ka5<ActivityPageResIdl> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = new ha5();
-    }
-
-    @Override // com.repackage.na5
-    public final void a(int i, byte[] bArr) throws Exception {
-        DataRes dataRes;
-        String str;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
-            ActivityPageResIdl activityPageResIdl = (ActivityPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ActivityPageResIdl.class);
-            Error error = activityPageResIdl.error;
-            if (error != null && (num = error.errorno) != null) {
-                b(num.intValue());
-                c(activityPageResIdl.error.errmsg);
-            }
-            Error error2 = activityPageResIdl.error;
-            if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
-                b(activityPageResIdl.error.errorno.intValue());
-                c(activityPageResIdl.error.errmsg);
-            }
-            if (getErrorCode() == 0 && (dataRes = activityPageResIdl.data) != null) {
-                j(dataRes);
             }
         }
     }
 
-    @Override // com.repackage.ka5
-    public List<ym4> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (List) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ka5
-    public List<ThreadData> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (List) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ka5, com.repackage.na5
-    public ha5 getPageInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (ha5) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ka5
-    public List<nn> i(List<? extends nn> list) {
+    public static cs6 g(JSONObject jSONObject) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) ? db5.a(list) : (List) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            cs6 cs6Var = new cs6();
+            cs6Var.h(jSONObject.optString("commission"));
+            cs6Var.i(jSONObject.optString("coupon"));
+            cs6Var.j(jSONObject.optString("goodsId"));
+            cs6Var.k(jSONObject.optString("goodsStatus"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("imageList");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    a aVar = new a();
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        aVar.b(optJSONObject.optString("src"));
+                        arrayList.add(aVar);
+                    }
+                }
+                cs6Var.l(arrayList);
+            }
+            cs6Var.m(jSONObject.optString("isBindingVideo"));
+            cs6Var.n(jSONObject.optBoolean("isSelected"));
+            cs6Var.o(jSONObject.optString("nid"));
+            cs6Var.p(jSONObject.optString("originalGoodsId"));
+            cs6Var.q(jSONObject.optString("originalPrice"));
+            cs6Var.r(jSONObject.optString("originalTitle"));
+            cs6Var.x(jSONObject.optString("tpName"));
+            cs6Var.s(jSONObject.optString("price"));
+            cs6Var.t(jSONObject.optString("saleNum"));
+            cs6Var.u(jSONObject.optString("shareStatus"));
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("slink");
+            if (optJSONObject2 != null) {
+                b bVar = new b();
+                bVar.c(optJSONObject2.optString("Android"));
+                bVar.e(optJSONObject2.optString("IOS"));
+                bVar.d(optJSONObject2.optString("h5"));
+                cs6Var.v(bVar);
+            }
+            cs6Var.w(jSONObject.optString("title"));
+            cs6Var.y(jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME));
+            return cs6Var;
+        }
+        return (cs6) invokeL.objValue;
     }
 
-    public final void j(DataRes dataRes) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, dataRes) == null) {
-            m(dataRes);
-            n(dataRes);
-            l(dataRes);
-            k(dataRes);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public List<a> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (List) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public b e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (b) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
         }
     }
 
-    public final void k(DataRes dataRes) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
-            ArrayList arrayList = new ArrayList();
-            RecommendForumList recommendForumList = dataRes.recommend_forum;
-            if (recommendForumList != null && ListUtils.getCount(recommendForumList.forum_list) >= 5) {
-                op4 op4Var = new op4();
-                op4Var.j(recommendForumList.forum_list);
-                op4Var.f = recommendForumList.class_name;
-                op4Var.floorPosition = recommendForumList.floor_position.intValue();
-                op4Var.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f81);
-                op4Var.e = R.color.CAM_X0108;
-                arrayList.add(op4Var);
-            }
-            RecommendUserList recommendUserList = dataRes.recommend_user;
-            if (recommendUserList != null && ListUtils.getCount(recommendUserList.user_list) >= 4) {
-                sp4 sp4Var = new sp4();
-                sp4Var.f(recommendUserList.user_list);
-                sp4Var.floorPosition = recommendUserList.floor_position.intValue();
-                sp4Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f99);
-                sp4Var.b = R.color.CAM_X0108;
-                arrayList.add(sp4Var);
-            }
-            HotTopic hotTopic = dataRes.hot_topic;
-            if (hotTopic != null && ListUtils.getCount(hotTopic.topic_list) >= 4) {
-                e07 e07Var = new e07();
-                e07Var.h(hotTopic);
-                arrayList.add(e07Var);
-            }
-            SpecialColumnList specialColumnList = dataRes.special_column;
-            if (specialColumnList != null && ListUtils.getCount(specialColumnList.item_list) >= 3) {
-                SpecialColumnListData specialColumnListData = new SpecialColumnListData();
-                specialColumnListData.parserProtobuf(specialColumnList);
-                arrayList.add(specialColumnListData);
-            }
-            this.e = arrayList;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
         }
     }
 
-    public final void l(DataRes dataRes) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) {
-            List<BannerImage> list = dataRes.banner_image;
-            if (!ListUtils.isEmpty(list)) {
-                mn4 mn4Var = new mn4();
-                this.f = mn4Var;
-                mn4Var.parserProtobuf(list);
-            }
-            List<BannerImage> list2 = dataRes.grid;
-            if (ListUtils.getCount(list2) >= 4) {
-                ko4 ko4Var = new ko4();
-                this.g = ko4Var;
-                ko4Var.parserProtobuf(list2);
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.e = str;
         }
     }
 
-    public final void m(DataRes dataRes) {
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataRes) == null) {
-            this.c.a(dataRes.page_info);
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
         }
     }
 
-    public final void n(DataRes dataRes) {
+    public void l(List<a> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, dataRes) == null) {
-            this.d = db5.c(dataRes.thread_list);
+        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
+            this.f = list;
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        }
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void s(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+        }
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+        }
+    }
+
+    public void v(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    public void w(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+        }
+    }
+
+    public void x(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
         }
     }
 }

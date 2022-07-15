@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.util.SparseIntArray;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,13 +8,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bg4<T> {
+public class bg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<eg4<T>> a;
+    public JSONArray a;
+    public SparseIntArray b;
+    public ArrayList<String> c;
+    public long d;
+    public long e;
+    public String f;
+    public boolean g;
 
     public bg4() {
         Interceptable interceptable = $ic;
@@ -28,77 +35,67 @@ public class bg4<T> {
                 return;
             }
         }
-        this.a = new ArrayList(6);
+        this.g = false;
+        this.a = new JSONArray();
+        this.b = new SparseIntArray();
+        this.c = new ArrayList<>();
+        this.d = 0L;
+        this.e = 0L;
+        this.f = "0";
     }
 
-    public void a(eg4<T> eg4Var) {
+    public final void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, eg4Var) == null) || eg4Var == null || this.a.contains(eg4Var)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.a.put(jSONObject);
         }
-        this.a.add(eg4Var);
     }
 
-    public T b() {
+    public boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.a.toString().getBytes().length >= i : invokeI.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.clear();
+            this.c.clear();
+            this.a = null;
+        }
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<eg4> arrayList = new ArrayList();
-            Iterator<eg4<T>> it = this.a.iterator();
-            T t = null;
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                eg4<T> next = it.next();
-                T t2 = next.get();
-                if (c(t2)) {
-                    t = t2;
-                    break;
-                }
-                arrayList.add(next);
-                t = t2;
-            }
-            if (arrayList.size() > 0) {
-                for (eg4 eg4Var : arrayList) {
-                    eg4Var.put(t);
-                }
-            }
-            return t;
-        }
-        return (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.length() == 0 : invokeV.booleanValue;
     }
 
-    public final boolean c(T t) {
-        InterceptResult invokeL;
-        char[] charArray;
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            if (t != null && (t instanceof String)) {
-                String str = (String) t;
-                if (str.length() != 32) {
-                    return false;
-                }
-                for (char c : str.toCharArray()) {
-                    if ((c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void d(T t) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || c(t)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.c.contains(str)) {
             return;
         }
-        for (eg4<T> eg4Var : this.a) {
-            if (eg4Var.a()) {
-                eg4Var.put(t);
+        this.c.add(str);
+    }
+
+    public final void f(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            this.b.put(i, i2);
+        }
+    }
+
+    public final void g(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            long j3 = this.d;
+            if ((j < j3 || j3 == 0) && j != 0) {
+                this.d = j;
+            }
+            if (j2 > this.e) {
+                this.e = j2;
             }
         }
     }

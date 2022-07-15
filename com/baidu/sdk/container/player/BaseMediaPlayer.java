@@ -15,9 +15,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
-import com.kuaishou.weapon.un.w0;
-import com.repackage.ad1;
-import com.repackage.j01;
+import com.repackage.pd1;
+import com.repackage.x01;
 /* loaded from: classes2.dex */
 public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnSeekCompleteListener {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +24,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     public MediaPlayer a;
     public Surface b;
     public SurfaceHolder c;
-    public ad1 d;
+    public pd1 d;
     public State e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -192,12 +191,12 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     }
 
     public final void f(int i) {
-        ad1 ad1Var;
+        pd1 pd1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (ad1Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (pd1Var = this.d) == null) {
             return;
         }
-        ad1Var.a(i);
+        pd1Var.a(i);
     }
 
     public void g() {
@@ -271,10 +270,10 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         }
     }
 
-    public void m(ad1 ad1Var) {
+    public void m(pd1 pd1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, ad1Var) == null) {
-            this.d = ad1Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, pd1Var) == null) {
+            this.d = pd1Var;
         }
     }
 
@@ -328,7 +327,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
                 f(260);
                 return false;
             } else if (i == 701) {
-                f(w0.F);
+                f(261);
                 return false;
             } else if (i != 702) {
                 return false;
@@ -383,7 +382,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
 
     public void r(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048598, this, context, i) == null) || this.a == null || context == null || !j01.a(context, "android.permission.WAKE_LOCK")) {
+        if (!(interceptable == null || interceptable.invokeLI(1048598, this, context, i) == null) || this.a == null || context == null || !x01.a(context, "android.permission.WAKE_LOCK")) {
             return;
         }
         this.a.setWakeMode(context.getApplicationContext(), i);

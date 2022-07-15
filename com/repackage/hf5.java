@@ -1,96 +1,92 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
+import android.util.SparseArray;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class hf5 implements gf5 {
+public class hf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashSet<LoadingLayout> a;
+    public SparseArray<WeakReference<View>> a;
+    public View b;
 
-    public hf5() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public hf5(View view2) {
+        this(view2, -1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((View) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashSet<>();
     }
 
-    public void a(LoadingLayout loadingLayout) {
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, loadingLayout) == null) || loadingLayout == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public <T extends View> T b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            WeakReference<View> weakReference = this.a.get(i);
+            if (weakReference == null) {
+                T t = (T) this.b.findViewById(i);
+                if (t != null) {
+                    this.a.put(i, new WeakReference<>(t));
+                    return t;
+                }
+                return t;
+            }
+            return (T) weakReference.get();
         }
-        this.a.add(loadingLayout);
+        return (T) invokeI.objValue;
     }
 
-    @Override // com.repackage.gf5
-    public void setLastUpdatedLabel(CharSequence charSequence) {
+    public hf5 c(View.OnClickListener onClickListener) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setLastUpdatedLabel(charSequence);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener)) == null) {
+            this.b.setOnClickListener(onClickListener);
+            return this;
+        }
+        return (hf5) invokeL.objValue;
+    }
+
+    public hf5(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.repackage.gf5
-    public void setLoadingDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setLoadingDrawable(drawable);
-            }
-        }
-    }
-
-    @Override // com.repackage.gf5
-    public void setPullLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setPullLabel(charSequence);
-            }
-        }
-    }
-
-    @Override // com.repackage.gf5
-    public void setRefreshingLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setRefreshingLabel(charSequence);
-            }
-        }
-    }
-
-    @Override // com.repackage.gf5
-    public void setReleaseLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setReleaseLabel(charSequence);
-            }
-        }
+        this.b = view2;
+        this.a = new SparseArray<>();
     }
 }

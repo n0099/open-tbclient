@@ -8,27 +8,27 @@ public final class UByteKt {
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final byte toUByte(byte b) {
-        return UByte.m711constructorimpl(b);
+        return UByte.m1654constructorimpl(b);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final byte toUByte(short s) {
-        return UByte.m711constructorimpl((byte) s);
+        return UByte.m1654constructorimpl((byte) s);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final byte toUByte(int i) {
-        return UByte.m711constructorimpl((byte) i);
+        return UByte.m1654constructorimpl((byte) i);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final byte toUByte(long j) {
-        return UByte.m711constructorimpl((byte) j);
+        return UByte.m1654constructorimpl((byte) j);
     }
 }

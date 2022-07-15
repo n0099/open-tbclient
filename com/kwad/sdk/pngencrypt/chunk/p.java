@@ -1,11 +1,31 @@
 package com.kwad.sdk.pngencrypt.chunk;
 /* loaded from: classes5.dex */
-public class p extends aa {
-    public p(com.kwad.sdk.pngencrypt.k kVar) {
-        super("IEND", kVar);
+public abstract class p extends PngChunk {
+    public p(String str, com.kwad.sdk.pngencrypt.k kVar) {
+        super(str, kVar);
     }
 
-    @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
-    public void a(d dVar) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj != null && getClass() == obj.getClass()) {
+            String str = this.a;
+            String str2 = ((p) obj).a;
+            if (str == null) {
+                if (str2 != null) {
+                    return false;
+                }
+            } else if (!str.equals(str2)) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        String str = this.a;
+        return (str == null ? 0 : str.hashCode()) + 31;
     }
 }

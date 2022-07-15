@@ -7,6 +7,7 @@ import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +110,7 @@ public class Enums {
             ONEKEYLOGIN_CM = new LastLoginType("ONEKEYLOGIN_CM", 17, "onekeylogin_cm", 16);
             ONEKEYLOGIN_CU = new LastLoginType("ONEKEYLOGIN_CU", 18, "onekeylogin_cu", 17);
             ONEKEYLOGIN_CT = new LastLoginType("ONEKEYLOGIN_CT", 19, "onekeylogin_ct", 18);
-            SWITCH = new LastLoginType("SWITCH", 20, "switch", 19);
+            SWITCH = new LastLoginType("SWITCH", 20, SetImageWatermarkTypeReqMsg.SWITCH, 19);
             QR = new LastLoginType("QR", 21, "qr", 20);
             HISTORY = new LastLoginType("HISTORY", 22, "history", 21);
             IQIYI = new LastLoginType("IQIYI", 23, "iqiyi", 22);

@@ -1,42 +1,50 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.live.mode.LiveInfo;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
+import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class en implements com.kwad.sdk.core.d<LiveInfo.User> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(LiveInfo.User user, JSONObject jSONObject) {
+public final class en implements com.kwad.sdk.core.d<AdMatrixInfo.ShakeInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdMatrixInfo.ShakeInfo shakeInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        user.headurls = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("headurls");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                LiveInfo.User.HeadUrl headUrl = new LiveInfo.User.HeadUrl();
-                headUrl.parseJson(optJSONArray.optJSONObject(i));
-                user.headurls.add(headUrl);
-            }
+        shakeInfo.title = jSONObject.optString("title");
+        if (jSONObject.opt("title") == JSONObject.NULL) {
+            shakeInfo.title = "";
         }
-        user.user_id = jSONObject.optLong("user_id");
-        user.user_name = jSONObject.optString("user_name");
-        if (jSONObject.opt("user_name") == JSONObject.NULL) {
-            user.user_name = "";
+        shakeInfo.subtitle = jSONObject.optString(SubtitleLog.TAG);
+        if (jSONObject.opt(SubtitleLog.TAG) == JSONObject.NULL) {
+            shakeInfo.subtitle = "";
         }
+        shakeInfo.acceleration = jSONObject.optInt("acceleration");
+        shakeInfo.clickDisabled = jSONObject.optBoolean("clickDisabled");
+        shakeInfo.componentIndex = jSONObject.optInt("componentIndex");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(LiveInfo.User user, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdMatrixInfo.ShakeInfo shakeInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "headurls", user.headurls);
-        com.kwad.sdk.utils.t.a(jSONObject, "user_id", user.user_id);
-        com.kwad.sdk.utils.t.a(jSONObject, "user_name", user.user_name);
+        com.kwad.sdk.utils.r.a(jSONObject, "title", shakeInfo.title);
+        com.kwad.sdk.utils.r.a(jSONObject, SubtitleLog.TAG, shakeInfo.subtitle);
+        com.kwad.sdk.utils.r.a(jSONObject, "acceleration", shakeInfo.acceleration);
+        com.kwad.sdk.utils.r.a(jSONObject, "clickDisabled", shakeInfo.clickDisabled);
+        com.kwad.sdk.utils.r.a(jSONObject, "componentIndex", shakeInfo.componentIndex);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.ShakeInfo shakeInfo, JSONObject jSONObject) {
+        a2(shakeInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.ShakeInfo shakeInfo, JSONObject jSONObject) {
+        return b2(shakeInfo, jSONObject);
     }
 }

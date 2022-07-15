@@ -20,7 +20,6 @@ import android.widget.ListView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -383,7 +382,7 @@ public class CompatibleUtile {
                 return;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(Config.LAUNCH_REFERER, TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS);
+            hashMap.put(Config.LAUNCH_REFERER, "http://c.tieba.baidu.com/");
             webView.loadUrl(str, hashMap);
         }
 

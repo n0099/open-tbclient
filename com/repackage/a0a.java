@@ -1,9 +1,20 @@
 package com.repackage;
 
+import android.animation.ObjectAnimator;
+import android.app.Dialog;
 import android.content.Context;
-import android.os.SystemClock;
-import android.text.TextUtils;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.animation.LinearInterpolator;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,253 +22,416 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.DnsResultInfo;
-import com.yy.gslbsdk.GslbEvent;
-import com.yy.gslbsdk.HttpDnsService;
-import com.yy.gslbsdk.thread.ThreadPoolMgr;
-import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import okhttp3.Dns;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.model.PayViewInfo;
+import tv.athena.revenue.payui.view.IViewEventListener;
+import tv.athena.revenue.payui.view.dialog.CancelType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public class a0a implements Dns {
-    public static /* synthetic */ Interceptable $ic;
+public final class a0a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "BottomDialogManager";
+    public static final a0a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpDnsService a;
-    public volatile boolean b;
 
     /* loaded from: classes5.dex */
-    public class a implements GslbEvent.GslbEventListener {
+    public static final class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PayDialogType a;
+        public final /* synthetic */ c0a b;
+        public final /* synthetic */ Dialog c;
+        public final /* synthetic */ IViewEventListener d;
 
-        public a(a0a a0aVar) {
+        public a(PayDialogType payDialogType, c0a c0aVar, Dialog dialog, IViewEventListener iViewEventListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a0aVar};
+                Object[] objArr = {payDialogType, c0aVar, dialog, iViewEventListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = payDialogType;
+            this.b = c0aVar;
+            this.c = dialog;
+            this.d = iViewEventListener;
         }
 
-        @Override // com.yy.gslbsdk.GslbEvent.GslbEventListener
-        public void onMessage(String str) {
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                RLog.debug(HttpDnsService.TAG, "OkHttpDns onMessage msg:" + str);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                a0a a0aVar = a0a.b;
+                String str = a0a.a;
+                RLog.info(str, "empty click payDialogType:" + this.a.name());
+                c0a c0aVar = this.b;
+                if (c0aVar != null) {
+                    if (c0aVar == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    if (c0aVar.b(this.c)) {
+                        a0a a0aVar2 = a0a.b;
+                        String str2 = a0a.a;
+                        RLog.info(str2, "empty click intercept " + this.a.name());
+                        return;
+                    }
+                }
+                PayViewInfo payViewInfo = new PayViewInfo();
+                payViewInfo.clickArea = CancelType.EMPTY_AREA_CLICK;
+                payViewInfo.payDialogType = this.a;
+                payViewInfo.viewDialog = this.c;
+                IViewEventListener iViewEventListener = this.d;
+                if (iViewEventListener != null && iViewEventListener.onInterceptView(payViewInfo)) {
+                    a0a a0aVar3 = a0a.b;
+                    String str3 = a0a.a;
+                    RLog.info(str3, "empty click onInterceptView " + this.a.name());
+                    return;
+                }
+                c0a c0aVar2 = this.b;
+                if (c0aVar2 != null) {
+                    c0aVar2.a(CancelType.EMPTY_AREA_CLICK);
+                }
+                this.c.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static final class b {
+    public static final class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final a0a a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PayDialogType a;
+        public final /* synthetic */ c0a b;
+        public final /* synthetic */ Dialog c;
+        public final /* synthetic */ IViewEventListener d;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-579303519, "Lcom/repackage/a0a$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-579303519, "Lcom/repackage/a0a$b;");
+        public b(PayDialogType payDialogType, c0a c0aVar, Dialog dialog, IViewEventListener iViewEventListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {payDialogType, c0aVar, dialog, iViewEventListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new a0a(null);
+            this.a = payDialogType;
+            this.b = c0aVar;
+            this.c = dialog;
+            this.d = iViewEventListener;
         }
-    }
 
-    public /* synthetic */ a0a(a aVar) {
-        this();
-    }
-
-    public static a0a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (a0a) invokeV.objValue;
-    }
-
-    public List<String> a(String str) throws UnknownHostException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a == null) {
-                RLog.error("YYPayHttpDns", "getIPListByHost error mHttpDnsService null", new Object[0]);
-                return null;
-            }
-            long uptimeMillis = SystemClock.uptimeMillis();
-            DnsResultInfo ipsByHost = this.a.getIpsByHost(str);
-            if (ipsByHost != null) {
-                ArrayList arrayList = new ArrayList();
-                String[] strArr = ipsByHost.mIpsV6;
-                if (strArr != null) {
-                    arrayList.addAll(c(strArr));
-                    if (ipsByHost.mIpsV6.length == 0) {
-                        RLog.error("YYPayHttpDns", "getIPListByHost IpsV6 empty hostname:" + str + " code:" + ipsByHost.mErrorCode, new Object[0]);
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                a0a a0aVar = a0a.b;
+                String str = a0a.a;
+                RLog.info(str, "btn close payDialogType:" + this.a.name());
+                c0a c0aVar = this.b;
+                if (c0aVar != null) {
+                    if (c0aVar == null) {
+                        Intrinsics.throwNpe();
                     }
-                } else {
-                    RLog.error("YYPayHttpDns", "getIPListByHost IpsV6 null hostname:" + str + " code:" + ipsByHost.mErrorCode, new Object[0]);
-                }
-                String[] strArr2 = ipsByHost.mIpsV4;
-                if (strArr2 != null) {
-                    arrayList.addAll(c(strArr2));
-                    if (ipsByHost.mIpsV4.length == 0) {
-                        RLog.error("YYPayHttpDns", "getIPListByHost IpsV4 empty hostname:" + str + " code:" + ipsByHost.mErrorCode, new Object[0]);
-                    }
-                } else {
-                    RLog.error("YYPayHttpDns", "getIPListByHost IpsV4 null hostname:" + str + " code:" + ipsByHost.mErrorCode, new Object[0]);
-                }
-                RLog.info("YYPayHttpDns", "hostname:" + str + " mDataSource:" + ipsByHost.mDataSource + " code:" + ipsByHost.mErrorCode + " res.IPList:" + arrayList + " use duration:" + (SystemClock.uptimeMillis() - uptimeMillis));
-                return arrayList;
-            }
-            RLog.info("YYPayHttpDns", "getIPListByDns host:" + str + "  use duration:" + (SystemClock.uptimeMillis() - uptimeMillis));
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public List<String> c(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-            ArrayList arrayList = new ArrayList(strArr.length);
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str)) {
-                    arrayList.add(str);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public List<InetAddress> d(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        arrayList.add(InetAddress.getByName(str));
-                    } catch (UnknownHostException e) {
-                        RLog.error("YYPayHttpDns", "getByName(" + str + ") error", e);
+                    if (c0aVar.b(this.c)) {
+                        a0a a0aVar2 = a0a.b;
+                        String str2 = a0a.a;
+                        RLog.info(str2, "btn close intercept :" + this.a.name());
+                        return;
                     }
                 }
+                PayViewInfo payViewInfo = new PayViewInfo();
+                payViewInfo.clickArea = CancelType.BUTTOM_AREA_CLICK;
+                payViewInfo.payDialogType = this.a;
+                payViewInfo.viewDialog = this.c;
+                IViewEventListener iViewEventListener = this.d;
+                if (iViewEventListener != null && iViewEventListener.onInterceptView(payViewInfo)) {
+                    a0a a0aVar3 = a0a.b;
+                    String str3 = a0a.a;
+                    RLog.info(str3, "btn close onInterceptView :" + this.a.name());
+                    return;
+                }
+                c0a c0aVar2 = this.b;
+                if (c0aVar2 != null) {
+                    c0aVar2.a(CancelType.BUTTOM_AREA_CLICK);
+                }
+                this.c.dismiss();
             }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
     }
 
-    public synchronized void e(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, str, str2) == null) {
-            synchronized (this) {
-                if (!this.b) {
-                    RLog.warn("YYPayHttpDns", "tryInitHttpDns but not enable appId:" + str + " hdid:" + str2);
-                } else if (this.a != null) {
-                    RLog.warn("YYPayHttpDns", "tryInitHttpDns but mHttpDnsService exit appId:" + str + " hdid:" + str2);
-                } else if (context == null) {
-                    RLog.error("YYPayHttpDns", "tryInitHttpDns error context params null", new Object[0]);
-                } else {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    HttpDnsService service = HttpDnsService.getService(context, str, (ThreadPoolMgr.ITaskExecutor) null, str2, "CN");
-                    this.a = service;
-                    service.setLogEnabled(Env.instance().isTestEnv());
-                    this.a.setGslbEventMessager(new a(this));
-                    this.a.setHttpsEnable(true);
-                    this.a.setNetworkStatus(3);
-                    ArrayList<String> arrayList = new ArrayList<>();
-                    arrayList.add(Env.instance().REVENUE_HTTP_URL);
-                    if (!Env.instance().isTestEnv()) {
-                        arrayList.addAll(Arrays.asList(Env.instance().BACKUP_DOMAIN_POOL));
-                    }
-                    RLog.info("YYPayHttpDns", "PreResolveHost hosts:" + arrayList.toString());
-                    this.a.setPreResolveHosts(arrayList);
-                    RLog.info("YYPayHttpDns", "dns init success cost time = " + (System.currentTimeMillis() - currentTimeMillis) + " appId:" + str + " hdid:" + str2);
+    /* loaded from: classes5.dex */
+    public static final class c implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c0a a;
+        public final /* synthetic */ f0a b;
+
+        public c(c0a c0aVar, f0a f0aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c0aVar, f0aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = c0aVar;
+            this.b = f0aVar;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public final void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                c0a c0aVar = this.a;
+                if (c0aVar != null) {
+                    c0aVar.a(CancelType.ON_DIALOG_DISMISS);
+                }
+                a0a.b.b(this.b);
+            }
         }
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(8:3|(5:7|8|9|(3:18|19|20)|(2:14|15)(1:17))|27|(1:11)|18|19|20|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x004d, code lost:
-        r5 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004e, code lost:
-        com.yy.mobile.framework.revenuesdk.baseapi.log.RLog.error("YYPayHttpDns", "System lookup dns error", r5);
-     */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0055  */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    @Override // okhttp3.Dns
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public List<InetAddress> lookup(String str) {
-        InterceptResult invokeL;
-        List<InetAddress> list;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, str)) != null) {
-            return (List) invokeL.objValue;
-        }
-        if (this.b && this.a != null) {
-            RLog.info("YYPayHttpDns", "httpdns lookup ");
-            try {
-                list = d(a(str));
-            } catch (Exception e) {
-                RLog.error("YYPayHttpDns", "lookup exception:" + e.getLocalizedMessage(), new Object[0]);
+    /* loaded from: classes5.dex */
+    public static final class d implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c0a a;
+        public final /* synthetic */ f0a b;
+
+        public d(c0a c0aVar, f0a f0aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c0aVar, f0aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (list != null || list.isEmpty()) {
-                RLog.info("YYPayHttpDns", "system lookup");
-                list = Dns.SYSTEM.lookup(str);
+            this.a = c0aVar;
+            this.b = f0aVar;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public final void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                c0a c0aVar = this.a;
+                if (c0aVar != null) {
+                    c0aVar.a(CancelType.ON_DIALOG_CANCEL);
+                }
+                a0a.b.b(this.b);
             }
-            return list != null ? Collections.emptyList() : list;
         }
-        list = null;
-        if (list != null) {
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class e implements DialogInterface.OnKeyListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PayDialogType a;
+        public final /* synthetic */ c0a b;
+
+        public e(PayDialogType payDialogType, c0a c0aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {payDialogType, c0aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = payDialogType;
+            this.b = c0aVar;
         }
-        RLog.info("YYPayHttpDns", "system lookup");
-        list = Dns.SYSTEM.lookup(str);
-        if (list != null) {
+
+        @Override // android.content.DialogInterface.OnKeyListener
+        public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+            InterceptResult invokeLIL;
+            c0a c0aVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) {
+                a0a a0aVar = a0a.b;
+                String str = a0a.a;
+                RLog.info(str, "onKey keyCode:" + i + " dialogType:" + this.a.name());
+                if (keyEvent.getAction() == 0 && i == 4 && (c0aVar = this.b) != null) {
+                    if (c0aVar == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    if (c0aVar.b(dialogInterface)) {
+                        a0a a0aVar2 = a0a.b;
+                        String str2 = a0a.a;
+                        RLog.info(str2, "onKey intercept " + this.a.name());
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return invokeLIL.booleanValue;
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755909217, "Lcom/repackage/a0a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755909217, "Lcom/repackage/a0a;");
+                return;
+            }
+        }
+        b = new a0a();
     }
 
     public a0a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = null;
-        this.b = true;
-        RLog.warn("YYPayHttpDns", "new OkHttpDns:" + toString());
+    }
+
+    public final void b(Dialog dialog) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) || dialog == null) {
+            return;
+        }
+        Window window = dialog.getWindow();
+        Intrinsics.checkExpressionValueIsNotNull(window, "dialog.getWindow()");
+        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091b6b);
+        ImageView imageView = (ImageView) window.findViewById(R.id.obfuscated_res_0x7f090faa);
+        if (viewGroup == null || imageView == null) {
+            return;
+        }
+        viewGroup.setVisibility(8);
+        Object tag = imageView.getTag();
+        if (!(tag instanceof ObjectAnimator)) {
+            tag = null;
+        }
+        ObjectAnimator objectAnimator = (ObjectAnimator) tag;
+        if (objectAnimator != null) {
+            objectAnimator.cancel();
+            imageView.setTag(null);
+            RLog.debug(a, "hideDialogLoading oldRotateAnimator cancel()");
+        }
+    }
+
+    public final void c(Context context, String str, View view2, c0a c0aVar, IViewEventListener iViewEventListener, PayDialogType payDialogType, Dialog dialog) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, view2, c0aVar, iViewEventListener, payDialogType, dialog}) == null) {
+            Window window = dialog.getWindow();
+            Intrinsics.checkExpressionValueIsNotNull(window, "bottomDialog.getWindow()");
+            window.setGravity(80);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            Intrinsics.checkExpressionValueIsNotNull(attributes, "window.getAttributes()");
+            attributes.width = -1;
+            attributes.height = -2;
+            window.setAttributes(attributes);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f10014b);
+            window.setContentView(R.layout.obfuscated_res_0x7f0d0659);
+            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f0922a1);
+            Intrinsics.checkExpressionValueIsNotNull(findViewById, "window.findViewById<TextView>(R.id.tv_title)");
+            ((TextView) findViewById).setText(str);
+            window.findViewById(R.id.obfuscated_res_0x7f091b5b).setOnClickListener(new a(payDialogType, c0aVar, dialog, iViewEventListener));
+            ((Button) window.findViewById(R.id.obfuscated_res_0x7f090409)).setOnClickListener(new b(payDialogType, c0aVar, dialog, iViewEventListener));
+            ((ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f0906a0)).addView(view2);
+        }
+    }
+
+    public final Dialog d(Context context, String str, View view2, c0a c0aVar, IViewEventListener iViewEventListener, PayDialogType payDialogType, PayFlowType payFlowType) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, view2, c0aVar, iViewEventListener, payDialogType, payFlowType})) == null) {
+            if (!pz9.a.a(context)) {
+                RLog.info(a, "showSimpleNumberInputDialog ActivityInvalid....");
+                return null;
+            }
+            f0a f0aVar = new f0a(context, R.style.obfuscated_res_0x7f10014f, payFlowType);
+            f0aVar.setCancelable(true);
+            f0aVar.setCanceledOnTouchOutside(true);
+            f0aVar.show();
+            f0aVar.setOnDismissListener(new c(c0aVar, f0aVar));
+            f0aVar.setOnCancelListener(new d(c0aVar, f0aVar));
+            f0aVar.setOnKeyListener(new e(payDialogType, c0aVar));
+            c(context, str, view2, c0aVar, iViewEventListener, payDialogType, f0aVar);
+            return f0aVar;
+        }
+        return (Dialog) invokeCommon.objValue;
+    }
+
+    public final void e(Dialog dialog) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, dialog) == null) || dialog == null) {
+            return;
+        }
+        Window window = dialog.getWindow();
+        Intrinsics.checkExpressionValueIsNotNull(window, "dialog.getWindow()");
+        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091b6b);
+        ImageView imageView = (ImageView) window.findViewById(R.id.obfuscated_res_0x7f090faa);
+        if (viewGroup == null || imageView == null) {
+            return;
+        }
+        Object tag = imageView.getTag();
+        if (!(tag instanceof ObjectAnimator)) {
+            tag = null;
+        }
+        ObjectAnimator objectAnimator = (ObjectAnimator) tag;
+        if (objectAnimator != null) {
+            objectAnimator.cancel();
+            imageView.setTag(null);
+            RLog.debug(a, "showDialogLoading oldRotateAnimator cancel()");
+        }
+        viewGroup.setVisibility(0);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "rotation", 0.0f, 360.0f);
+        Intrinsics.checkExpressionValueIsNotNull(ofFloat, "ObjectAnimator.ofFloat(i…le, \"rotation\", 0f, 360f)");
+        ofFloat.setDuration(1000L);
+        ofFloat.setInterpolator(new LinearInterpolator());
+        ofFloat.setRepeatCount(-1);
+        ofFloat.start();
+        imageView.setTag(ofFloat);
+        RLog.debug(a, "showDialogLoading mRotateAnimator start()");
     }
 }

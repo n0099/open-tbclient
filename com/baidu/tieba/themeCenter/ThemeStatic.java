@@ -38,9 +38,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
-import com.repackage.ht4;
 import com.repackage.ng;
+import com.repackage.wh8;
+import com.repackage.xt4;
 /* loaded from: classes4.dex */
 public class ThemeStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -123,7 +123,7 @@ public class ThemeStatic {
                             indexOf = substring.length();
                         }
                         int e = ng.e(substring.substring(0, indexOf), 0);
-                        ht4 k = ht4.k();
+                        xt4 k = xt4.k();
                         StringBuilder sb = new StringBuilder();
                         sb.append("current_used_personal_background_");
                         sb.append(TbadkCoreApplication.getCurrentAccount());
@@ -274,8 +274,8 @@ public class ThemeStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardCategoryActivityConfig.class, PersonalCardCategoryActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardDetailActivityConfig.class, PersonalCardDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AvatarPendantActivityConfig.class, AvatarPendantActivity.class);
-        bh8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-        bh8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        wh8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+        wh8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
     public ThemeStatic() {

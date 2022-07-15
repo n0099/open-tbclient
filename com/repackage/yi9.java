@@ -1,117 +1,315 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Debug;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
+import com.github.anrwatchdog.ANRError;
 /* loaded from: classes7.dex */
-public final class yi9 extends Drawable {
+public class yi9 extends Thread {
     public static /* synthetic */ Interceptable $ic;
+    public static final f o;
+    public static final e p;
+    public static final g q;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public ImageView.ScaleType c;
-    public final dj9 d;
-    public final SVGAVideoEntity e;
-    public final zi9 f;
+    public f a;
+    public e b;
+    public g c;
+    public final Handler d;
+    public final int e;
+    public String f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public zi9 k;
+    public volatile long l;
+    public volatile boolean m;
+    public final Runnable n;
 
-    public yi9(SVGAVideoEntity sVGAVideoEntity, zi9 zi9Var) {
+    /* loaded from: classes7.dex */
+    public static class a implements f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.yi9.f
+        public void onAppNotResponding(ANRError aNRError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
+                throw aNRError;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.yi9.e
+        public long a(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                return 0L;
+            }
+            return invokeJ.longValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.yi9.g
+        public void a(InterruptedException interruptedException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, interruptedException) == null) {
+                Log.w("ANRWatchdog", "Interrupted: " + interruptedException.getMessage());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yi9 a;
+
+        public d(yi9 yi9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yi9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yi9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.l = 0L;
+                this.a.m = false;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface e {
+        long a(long j);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface f {
+        void onAppNotResponding(ANRError aNRError);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface g {
+        void a(InterruptedException interruptedException);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755140696, "Lcom/repackage/yi9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755140696, "Lcom/repackage/yi9;");
+                return;
+            }
+        }
+        o = new a();
+        p = new b();
+        q = new c();
+    }
+
+    public yi9(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity, zi9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = sVGAVideoEntity;
-        this.f = zi9Var;
-        this.a = true;
-        this.c = ImageView.ScaleType.MATRIX;
-        this.d = new dj9(sVGAVideoEntity, zi9Var);
+        this.a = o;
+        this.b = p;
+        this.c = q;
+        this.d = new Handler(Looper.getMainLooper());
+        this.f = "";
+        this.g = false;
+        this.h = true;
+        this.i = false;
+        this.j = false;
+        this.k = null;
+        this.l = 0L;
+        this.m = false;
+        this.n = new d(this);
+        this.e = i;
     }
 
-    public final int a() {
+    public yi9 c(f fVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
+            if (fVar == null) {
+                this.a = o;
+            } else {
+                this.a = fVar;
+            }
+            return this;
+        }
+        return (yi9) invokeL.objValue;
+    }
+
+    public yi9 d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            this.i = z;
+            return this;
+        }
+        return (yi9) invokeZ.objValue;
+    }
+
+    public yi9 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final SVGAVideoEntity b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (SVGAVideoEntity) invokeV.objValue;
-    }
-
-    public final void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.a == z) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            this.f = null;
+            return this;
         }
-        this.a = z;
-        invalidateSelf();
+        return (yi9) invokeV.objValue;
     }
 
-    public final void d(int i) {
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.b == i) {
-            return;
-        }
-        this.b = i;
-        invalidateSelf();
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.a || canvas == null) {
-            return;
-        }
-        this.d.a(canvas, this.b, this.c);
-    }
-
-    public final void e(ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
-            this.c = scaleType;
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return -2;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorFilter) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            setName("|ANR-WatchDog|");
+            long j = this.e;
+            long j2 = 0;
+            while (!isInterrupted()) {
+                boolean z = this.l == 0;
+                this.l += j;
+                if (z) {
+                    this.d.post(this.n);
+                }
+                try {
+                    Thread.sleep(j);
+                    if (this.i && this.j) {
+                        if (this.k == null) {
+                            this.k = new zi9();
+                        }
+                        if (this.l == 0 && !this.m) {
+                            this.j = false;
+                            ANRError NewMainAllStackTrace = ANRError.NewMainAllStackTrace(this.k.b(), j2);
+                            if (NewMainAllStackTrace != null) {
+                                this.a.onAppNotResponding(NewMainAllStackTrace);
+                            }
+                        } else {
+                            j2 = this.l;
+                            this.k.a();
+                        }
+                    }
+                    if (this.l != 0 && !this.m) {
+                        if (!this.h && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
+                            Log.w("ANRWatchdog", "An ANR was detected but ignored because the debugger is connected (you can prevent this with setIgnoreDebugger(true))");
+                            this.m = true;
+                        } else {
+                            j = this.b.a(this.l);
+                            if (j <= 0) {
+                                if (this.f != null) {
+                                    this.a.onAppNotResponding(ANRError.New(this.l, this.f, this.g));
+                                } else if (this.i) {
+                                    this.j = true;
+                                    zi9 zi9Var = new zi9();
+                                    this.k = zi9Var;
+                                    zi9Var.a();
+                                } else {
+                                    this.a.onAppNotResponding(ANRError.NewMainOnly(this.l));
+                                }
+                                j = this.e;
+                                this.m = true;
+                            }
+                        }
+                    }
+                } catch (InterruptedException e2) {
+                    this.c.a(e2);
+                    return;
+                }
+            }
         }
     }
 }

@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hr7;
+import com.repackage.zr7;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
 /* loaded from: classes3.dex */
 public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hr7 pbFloorData;
+    public zr7 pbFloorData;
     public boolean treatDelPage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,13 +49,13 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             if (extra != null && (extra instanceof SubPbRequestMessage)) {
                 this.treatDelPage = ((SubPbRequestMessage) extra).isTreatDelPage();
             }
-            hr7 hr7Var = null;
+            zr7 zr7Var = null;
             try {
                 PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
                 if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                    hr7Var = hr7.w(pbFloorResIdl.data);
-                    if (hr7Var != null) {
-                        hr7Var.m = pbFloorResIdl.error;
+                    zr7Var = zr7.w(pbFloorResIdl.data);
+                    if (zr7Var != null) {
+                        zr7Var.m = pbFloorResIdl.error;
                     } else if (pbFloorResIdl.error != null) {
                         if (pbFloorResIdl.error.errorno != null) {
                             setError(pbFloorResIdl.error.errorno.intValue());
@@ -66,8 +66,8 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            this.pbFloorData = hr7Var;
-            return hr7Var;
+            this.pbFloorData = zr7Var;
+            return zr7Var;
         }
         return invokeIL.objValue;
     }

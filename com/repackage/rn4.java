@@ -1,21 +1,20 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class rn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile rn4 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+    public float a;
+    public float b;
+    public float c;
+    public boolean d;
 
     public rn4() {
         Interceptable interceptable = $ic;
@@ -31,48 +30,53 @@ public class rn4 {
         }
     }
 
-    public void a(String str) {
+    public static rn4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (rn4.class) {
+                    if (e == null) {
+                        e = new rn4();
+                    }
                 }
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
+            return e;
         }
+        return (rn4) invokeV.objValue;
     }
 
-    public final void b(JSONObject jSONObject) {
+    public float b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.optInt("switch");
-            JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
-            if (optJSONObject != null) {
-                this.c = optJSONObject.optInt("num");
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
-            if (optJSONObject2 != null) {
-                this.b = optJSONObject2.optInt("time");
-                this.a = optJSONObject2.optInt("num");
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
-            if (optJSONObject3 != null) {
-                optJSONObject3.optInt("succ");
-                optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                optJSONObject3.optInt("slow");
-            }
-            if (this.b <= 0 || this.a <= 0) {
-                return;
-            }
-            int i = this.c;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.floatValue;
+    }
+
+    public float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.floatValue;
+    }
+
+    public float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.floatValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public void f(float f, float f2, float f3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)}) == null) {
+            this.a = f;
+            this.b = f2;
+            this.c = f3;
+            this.d = z;
         }
     }
 }

@@ -199,11 +199,11 @@ public class bv {
         layoutParams.height = -2;
         layoutParams.width = -2;
         layoutParams.format = -3;
-        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f100410;
+        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f100413;
         layoutParams.type = 2005;
         layoutParams.setTitle("Toast");
         WindowManager.LayoutParams layoutParams2 = this.f;
-        layoutParams2.flags = com.kuaishou.weapon.un.w0.d0;
+        layoutParams2.flags = 168;
         layoutParams2.gravity = 81;
         layoutParams2.y = -30;
         this.c = 2;

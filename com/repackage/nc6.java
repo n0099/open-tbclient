@@ -1,68 +1,72 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SearchPostForum.DataRes;
+import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes6.dex */
-public class nc6 implements nn {
+public class nc6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public SearchForum a;
+    public List<SearchForum> b;
+    public ArrayList<nn> c;
+    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755474256, "Lcom/repackage/nc6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755474256, "Lcom/repackage/nc6;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public nc6() {
+    public nc6(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = str;
     }
 
-    public int a() {
+    public ArrayList<nn> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
     }
 
-    public void b(int i) {
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        this.a = dataRes.exact_match;
+        this.b = dataRes.fuzzy_match;
+        this.c = new ArrayList<>();
+        mc6 mc6Var = new mc6(this.d);
+        SearchForum searchForum = this.a;
+        if (searchForum != null) {
+            mc6Var.s(searchForum);
+            this.c.add(mc6Var);
+        }
+        List<SearchForum> list = this.b;
+        if (list == null) {
+            return;
+        }
+        for (SearchForum searchForum2 : list) {
+            if (searchForum2 != null) {
+                mc6 mc6Var2 = new mc6(this.d);
+                mc6Var2.s(searchForum2);
+                this.c.add(mc6Var2);
+            }
+        }
     }
 }

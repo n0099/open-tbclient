@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p18;
+import com.repackage.k28;
 /* loaded from: classes3.dex */
 public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p18 mData;
+    public k28 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonBarByUidLocalMessage() {
@@ -32,16 +32,16 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<S
         }
     }
 
-    public p18 getPersonBarData() {
+    public k28 getPersonBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (p18) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (k28) invokeV.objValue;
     }
 
-    public void setPersonBarData(p18 p18Var) {
+    public void setPersonBarData(k28 k28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, p18Var) == null) {
-            this.mData = p18Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, k28Var) == null) {
+            this.mData = k28Var;
         }
     }
 
@@ -70,9 +70,9 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<S
     public void decodeInBackGround(int i, String str) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            p18 p18Var = new p18();
-            this.mData = p18Var;
-            p18Var.n(str);
+            k28 k28Var = new k28();
+            this.mData = k28Var;
+            k28Var.n(str);
         }
     }
 }

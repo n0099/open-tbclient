@@ -1,76 +1,94 @@
 package com.repackage;
 
+import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
 /* loaded from: classes7.dex */
-public class ze3 {
+public final class ze3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("slaveId", str);
-                jSONObject.put("type", str2);
-            } catch (JSONException e) {
-                if (cg1.a) {
-                    e.printStackTrace();
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ af3 a;
+        public final /* synthetic */ Object b;
+
+        public a(af3 af3Var, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {af3Var, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return jSONObject;
+            this.a = af3Var;
+            this.b = obj;
         }
-        return (JSONObject) invokeLL.objValue;
-    }
 
-    public static JSONObject b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("id", str2);
-                jSONObject3.put("action", str4);
-                jSONObject3.put("e", jSONObject);
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("type", str3);
-                jSONObject4.put("params", jSONObject3);
-                jSONObject2.put("slaveId", str);
-                jSONObject2.put("type", "abilityMessage");
-                jSONObject2.put("value", jSONObject4);
-            } catch (JSONException e) {
-                if (cg1.a) {
-                    e.printStackTrace();
-                }
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(this.b);
             }
-            return jSONObject2;
-        }
-        return (JSONObject) invokeLLLLL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r4v1, types: [org.json.JSONObject, T] */
-    public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject) == null) {
-            y92 y92Var = new y92();
-            y92Var.c = b(str, str2, str3, str4, jSONObject);
-            fl2.U().u(y92Var);
         }
     }
 
-    /* JADX WARN: Type inference failed for: r5v1, types: [org.json.JSONObject, T] */
-    public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+    public static <T> void a(Handler handler, af3<T> af3Var, Collection<T> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jSONObject) == null) {
-            y92 y92Var = new y92();
-            y92Var.c = b(str, str2, str3, str4, jSONObject);
-            fl2.U().m(str, y92Var);
+        if (!(interceptable == null || interceptable.invokeLLL(65536, null, handler, af3Var, collection) == null) || af3Var == null || collection == null || collection.isEmpty()) {
+            return;
+        }
+        for (T t : collection) {
+            e(handler, af3Var, t);
+        }
+    }
+
+    public static <T> void b(Handler handler, af3<T> af3Var, T... tArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, handler, af3Var, tArr) == null) || af3Var == null || tArr == null || tArr.length < 1) {
+            return;
+        }
+        for (T t : tArr) {
+            e(handler, af3Var, t);
+        }
+    }
+
+    public static <T> void c(af3<T> af3Var, Collection<T> collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, af3Var, collection) == null) {
+            a(null, af3Var, collection);
+        }
+    }
+
+    public static <T> void d(af3<T> af3Var, T... tArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, af3Var, tArr) == null) {
+            b(null, af3Var, tArr);
+        }
+    }
+
+    public static <T> void e(Handler handler, af3<T> af3Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, handler, af3Var, t) == null) {
+            if (handler == null) {
+                af3Var.a(t);
+            } else {
+                handler.post(new a(af3Var, t));
+            }
         }
     }
 }

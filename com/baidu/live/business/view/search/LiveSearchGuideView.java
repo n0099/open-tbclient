@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.za0;
+import com.repackage.eb0;
 /* loaded from: classes2.dex */
 public class LiveSearchGuideView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -48,9 +48,9 @@ public class LiveSearchGuideView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0500, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091268);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091269);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d051a, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091309);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09130a);
         }
     }
 
@@ -60,13 +60,13 @@ public class LiveSearchGuideView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (textView = this.b) == null) {
             return;
         }
-        textView.setTextColor(za0.e().a(getContext(), false, "color_search_guide"));
+        textView.setTextColor(eb0.e().a(getContext(), false, "color_search_guide"));
         if (Config.TRACE_VISIT_RECENT_DAY.equals(str)) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d35);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d33);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cb2);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cb0);
         } else if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str)) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d36);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d34);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cb3);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cb1);
             this.b.setTextColor(-1);
         }
     }

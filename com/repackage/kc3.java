@@ -1,34 +1,69 @@
 package com.repackage;
 
-import android.util.Base64;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.CheckResult;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.jc3;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.KeyFactory;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kc3 {
+public class kc3 extends ko1 implements jc3.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
+    public String f;
+    public String g;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bq2 a;
+        public final /* synthetic */ kc3 b;
+
+        public a(kc3 kc3Var, bq2 bq2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kc3Var, bq2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = kc3Var;
+            this.a = bq2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (oj2.h().a(this.b.f, this.a)) {
+                    this.b.A(this.a);
+                    return;
+                }
+                kc3 kc3Var = this.b;
+                kc3Var.d(kc3Var.g, new hs1(2003, "upload fail"));
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -43,156 +78,135 @@ public class kc3 {
                 return;
             }
         }
-        a = cg1.a;
+        h = rg1.a;
     }
 
-    @NonNull
-    @CheckResult
-    public static String a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
-        InterceptResult invokeLLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kc3(@NonNull io1 io1Var) {
+        super(io1Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, str4)) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {io1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((io1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public final void A(bq2 bq2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bq2Var) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                Cipher cipher = Cipher.getInstance(str3);
-                cipher.init(1, new SecretKeySpec(str.getBytes(IMAudioTransRequest.CHARSET), "AES"), new IvParameterSpec(str4.getBytes(IMAudioTransRequest.CHARSET)));
-                return Base64.encodeToString(cipher.doFinal(str2.getBytes(IMAudioTransRequest.CHARSET)), 2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.e("SwanAppEncryptUtils", "aesEncrypt", e);
-                    return "";
+                jSONObject.put("bosUrl", bq2Var.e);
+                d(this.g, new hs1(0, jSONObject));
+            } catch (JSONException e) {
+                if (h) {
+                    e.printStackTrace();
                 }
-                return "";
+                d(this.g, new hs1(2003, "upload fail"));
             }
-        }
-        return (String) invokeLLLL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0034 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    public static String b(String str, File file, boolean z) {
-        InterceptResult invokeLLZ;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65538, null, str, file, z)) != null) {
-            return (String) invokeLLZ.objValue;
-        }
-        ?? r0 = 0;
-        try {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance(str);
-                messageDigest.reset();
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read > 0) {
-                            messageDigest.update(bArr, 0, read);
-                        } else {
-                            String e = e(messageDigest.digest(), "", z);
-                            uf4.d(fileInputStream);
-                            return e;
-                        }
-                    }
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    uf4.d(fileInputStream);
-                    return null;
-                } catch (IOException e3) {
-                    e = e3;
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    uf4.d(fileInputStream);
-                    return null;
-                } catch (NoSuchAlgorithmException e4) {
-                    e = e4;
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    uf4.d(fileInputStream);
-                    return null;
-                }
-            } catch (Throwable th) {
-                th = th;
-                r0 = interceptable;
-                uf4.d(r0);
-                throw th;
-            }
-        } catch (FileNotFoundException e5) {
-            e = e5;
-            fileInputStream = null;
-        } catch (IOException e6) {
-            e = e6;
-            fileInputStream = null;
-        } catch (NoSuchAlgorithmException e7) {
-            e = e7;
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            uf4.d(r0);
-            throw th;
         }
     }
 
-    public static String c(String str, byte[] bArr, boolean z) throws NoSuchAlgorithmException {
-        InterceptResult invokeLLZ;
+    public final boolean B(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, bArr, z)) == null) {
-            MessageDigest messageDigest = MessageDigest.getInstance(str);
-            messageDigest.reset();
-            messageDigest.update(bArr);
-            return e(messageDigest.digest(), "", z);
-        }
-        return (String) invokeLLZ.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) ? file.length() > 52428800 : invokeL.booleanValue;
     }
 
-    @NonNull
-    @CheckResult
-    public static String d(@NonNull String str, @NonNull String str2, @NonNull String str3) {
-        InterceptResult invokeLLL;
+    public hs1 C(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
-            try {
-                PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
-                Cipher cipher = Cipher.getInstance(str3);
-                cipher.init(1, generatePublic);
-                return Base64.encodeToString(cipher.doFinal(str2.getBytes(IMAudioTransRequest.CHARSET)), 2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.e("SwanAppEncryptUtils", "rsaEncrypt", e);
-                    return "";
-                }
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#uploadBosFile", false);
+            if (h) {
+                Log.d("UploadBosApi", "#uploadBosFile params=" + str);
             }
+            Pair<hs1, JSONObject> s = s(str);
+            hs1 hs1Var = (hs1) s.first;
+            if (hs1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("cb");
+                this.g = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    return new hs1(202);
+                }
+                String optString2 = jSONObject.optString("filePath");
+                if (TextUtils.isEmpty(optString2)) {
+                    return new hs1(202);
+                }
+                ul2 U = ul2.U();
+                String i = U.G().i(optString2);
+                this.f = i;
+                if (TextUtils.isEmpty(i)) {
+                    return new hs1(2001, "file not found");
+                }
+                File file = new File(this.f);
+                if (file.exists() && file.isFile()) {
+                    if (B(file)) {
+                        return new hs1(2002, "file over size");
+                    }
+                    if (!g03.K().q().N().e(U.getActivity())) {
+                        return new hs1(10004, "user not logged in");
+                    }
+                    oj2.h().b(U.getActivity(), this.f, this);
+                    return hs1.f();
+                }
+                return new hs1(2001, "file not found");
+            }
+            return hs1Var;
         }
-        return (String) invokeLLL.objValue;
+        return (hs1) invokeL.objValue;
     }
 
-    public static String e(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.repackage.jc3.a
+    public void c(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, str) == null) {
+            if (jSONObject == null) {
+                d(this.g, new hs1(2003, "upload fail"));
+                return;
             }
-            return sb.toString();
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                d(this.g, new hs1(2003, "upload fail"));
+                return;
+            }
+            String optString = jSONObject.optString("errno");
+            if (!TextUtils.isEmpty(optString) && TextUtils.equals(optString, "0")) {
+                bq2 a2 = bq2.a(optJSONObject, str);
+                if (TextUtils.isEmpty(a2.e)) {
+                    d(this.g, new hs1(2003, "upload fail"));
+                    return;
+                } else {
+                    ExecutorUtilsExt.postOnElastic(new a(this, a2), "doBosUpload", 2);
+                    return;
+                }
+            }
+            d(this.g, new hs1(2003, "upload fail"));
         }
-        return (String) invokeLLZ.objValue;
+    }
+
+    @Override // com.repackage.ko1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "PrivateFile" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ko1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "UploadBosApi" : (String) invokeV.objValue;
     }
 }

@@ -1,6 +1,8 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.SystemClock;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,42 +11,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.av9;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.schedulers.ScheduledAction;
-import rx.internal.util.RxThreadFactory;
+import com.yy.gslbsdk.DnsResultInfo;
+import com.yy.gslbsdk.GslbEvent;
+import com.yy.gslbsdk.HttpDnsService;
+import com.yy.gslbsdk.thread.ThreadPoolMgr;
+import com.yy.mobile.framework.revenuesdk.baseapi.Env;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import okhttp3.Dns;
 /* loaded from: classes7.dex */
-public class xw9 extends av9.a implements ev9 {
+public class xw9 implements Dns {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final int d;
-    public static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> e;
-    public static final AtomicReference<ScheduledExecutorService> f;
-    public static volatile Object g;
-    public static final Object h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ScheduledExecutorService a;
+    public HttpDnsService a;
     public volatile boolean b;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public class a implements GslbEvent.GslbEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
+        public a(xw9 xw9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,249 +52,212 @@ public class xw9 extends av9.a implements ev9 {
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.yy.gslbsdk.GslbEvent.GslbEventListener
+        public void onMessage(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                xw9.f();
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                RLog.debug(HttpDnsService.TAG, "OkHttpDns onMessage msg:" + str);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755157033, "Lcom/repackage/xw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final xw9 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(143545305, "Lcom/repackage/xw9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(143545305, "Lcom/repackage/xw9$b;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755157033, "Lcom/repackage/xw9;");
-                return;
-            }
+            a = new xw9(null);
         }
-        h = new Object();
-        e = new ConcurrentHashMap<>();
-        f = new AtomicReference<>();
-        d = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
-        boolean z = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
-        int a2 = fx9.a();
-        c = !z && (a2 == 0 || a2 >= 21);
     }
 
-    public xw9(ThreadFactory threadFactory) {
+    public /* synthetic */ xw9(a aVar) {
+        this();
+    }
+
+    public static xw9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (xw9) invokeV.objValue;
+    }
+
+    public List<String> a(String str) throws UnknownHostException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a == null) {
+                RLog.error("YYPayHttpDns", "getIPListByHost error mHttpDnsService null", new Object[0]);
+                return null;
+            }
+            long uptimeMillis = SystemClock.uptimeMillis();
+            DnsResultInfo ipsByHost = this.a.getIpsByHost(str);
+            if (ipsByHost != null) {
+                ArrayList arrayList = new ArrayList();
+                String[] strArr = ipsByHost.mIpsV6;
+                if (strArr != null) {
+                    arrayList.addAll(c(strArr));
+                    if (ipsByHost.mIpsV6.length == 0) {
+                        RLog.error("YYPayHttpDns", "getIPListByHost IpsV6 empty hostname:" + str + " code:" + ipsByHost.mErrorCode, new Object[0]);
+                    }
+                } else {
+                    RLog.error("YYPayHttpDns", "getIPListByHost IpsV6 null hostname:" + str + " code:" + ipsByHost.mErrorCode, new Object[0]);
+                }
+                String[] strArr2 = ipsByHost.mIpsV4;
+                if (strArr2 != null) {
+                    arrayList.addAll(c(strArr2));
+                    if (ipsByHost.mIpsV4.length == 0) {
+                        RLog.error("YYPayHttpDns", "getIPListByHost IpsV4 empty hostname:" + str + " code:" + ipsByHost.mErrorCode, new Object[0]);
+                    }
+                } else {
+                    RLog.error("YYPayHttpDns", "getIPListByHost IpsV4 null hostname:" + str + " code:" + ipsByHost.mErrorCode, new Object[0]);
+                }
+                RLog.info("YYPayHttpDns", "hostname:" + str + " mDataSource:" + ipsByHost.mDataSource + " code:" + ipsByHost.mErrorCode + " res.IPList:" + arrayList + " use duration:" + (SystemClock.uptimeMillis() - uptimeMillis));
+                return arrayList;
+            }
+            RLog.info("YYPayHttpDns", "getIPListByDns host:" + str + "  use duration:" + (SystemClock.uptimeMillis() - uptimeMillis));
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List<String> c(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+            ArrayList arrayList = new ArrayList(strArr.length);
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str)) {
+                    arrayList.add(str);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List<InetAddress> d(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            if (list == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(list.size());
+            for (String str : list) {
+                if (!TextUtils.isEmpty(str)) {
+                    try {
+                        arrayList.add(InetAddress.getByName(str));
+                    } catch (UnknownHostException e) {
+                        RLog.error("YYPayHttpDns", "getByName(" + str + ") error", e);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public synchronized void e(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, str, str2) == null) {
+            synchronized (this) {
+                if (!this.b) {
+                    RLog.warn("YYPayHttpDns", "tryInitHttpDns but not enable appId:" + str + " hdid:" + str2);
+                } else if (this.a != null) {
+                    RLog.warn("YYPayHttpDns", "tryInitHttpDns but mHttpDnsService exit appId:" + str + " hdid:" + str2);
+                } else if (context == null) {
+                    RLog.error("YYPayHttpDns", "tryInitHttpDns error context params null", new Object[0]);
+                } else {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    HttpDnsService service = HttpDnsService.getService(context, str, (ThreadPoolMgr.ITaskExecutor) null, str2, "CN");
+                    this.a = service;
+                    service.setLogEnabled(Env.instance().isTestEnv());
+                    this.a.setGslbEventMessager(new a(this));
+                    this.a.setHttpsEnable(true);
+                    this.a.setNetworkStatus(3);
+                    ArrayList<String> arrayList = new ArrayList<>();
+                    arrayList.add(Env.instance().REVENUE_HTTP_URL);
+                    if (!Env.instance().isTestEnv()) {
+                        arrayList.addAll(Arrays.asList(Env.instance().BACKUP_DOMAIN_POOL));
+                    }
+                    RLog.info("YYPayHttpDns", "PreResolveHost hosts:" + arrayList.toString());
+                    this.a.setPreResolveHosts(arrayList);
+                    RLog.info("YYPayHttpDns", "dns init success cost time = " + (System.currentTimeMillis() - currentTimeMillis) + " appId:" + str + " hdid:" + str2);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(8:3|(5:7|8|9|(3:18|19|20)|(2:14|15)(1:17))|27|(1:11)|18|19|20|(0)(0)) */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x004d, code lost:
+        r5 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x004e, code lost:
+        com.yy.mobile.framework.revenuesdk.baseapi.log.RLog.error("YYPayHttpDns", "System lookup dns error", r5);
+     */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0055  */
+    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
+    @Override // okhttp3.Dns
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public List<InetAddress> lookup(String str) {
+        InterceptResult invokeL;
+        List<InetAddress> list;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, str)) != null) {
+            return (List) invokeL.objValue;
+        }
+        if (this.b && this.a != null) {
+            RLog.info("YYPayHttpDns", "httpdns lookup ");
+            try {
+                list = d(a(str));
+            } catch (Exception e) {
+                RLog.error("YYPayHttpDns", "lookup exception:" + e.getLocalizedMessage(), new Object[0]);
+            }
+            if (list != null || list.isEmpty()) {
+                RLog.info("YYPayHttpDns", "system lookup");
+                list = Dns.SYSTEM.lookup(str);
+            }
+            return list != null ? Collections.emptyList() : list;
+        }
+        list = null;
+        if (list != null) {
+        }
+        RLog.info("YYPayHttpDns", "system lookup");
+        list = Dns.SYSTEM.lookup(str);
+        if (list != null) {
+        }
+    }
+
+    public xw9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadFactory};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, threadFactory);
-        if (!k(newScheduledThreadPool) && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
-            g((ScheduledThreadPoolExecutor) newScheduledThreadPool);
-        }
-        this.a = newScheduledThreadPool;
-    }
-
-    public static void d(ScheduledExecutorService scheduledExecutorService) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, scheduledExecutorService) == null) {
-            e.remove(scheduledExecutorService);
-        }
-    }
-
-    public static Method e(ScheduledExecutorService scheduledExecutorService) {
-        InterceptResult invokeL;
-        Method[] methods;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, scheduledExecutorService)) == null) {
-            for (Method method : scheduledExecutorService.getClass().getMethods()) {
-                if (method.getName().equals("setRemoveOnCancelPolicy")) {
-                    Class<?>[] parameterTypes = method.getParameterTypes();
-                    if (parameterTypes.length == 1 && parameterTypes[0] == Boolean.TYPE) {
-                        return method;
-                    }
-                }
-            }
-            return null;
-        }
-        return (Method) invokeL.objValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                Iterator<ScheduledThreadPoolExecutor> it = e.keySet().iterator();
-                while (it.hasNext()) {
-                    ScheduledThreadPoolExecutor next = it.next();
-                    if (!next.isShutdown()) {
-                        next.purge();
-                    } else {
-                        it.remove();
-                    }
-                }
-            } catch (Throwable th) {
-                jv9.e(th);
-                ez9.j(th);
-            }
-        }
-    }
-
-    public static void g(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, scheduledThreadPoolExecutor) == null) {
-            while (true) {
-                if (f.get() != null) {
-                    break;
-                }
-                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
-                if (f.compareAndSet(null, newScheduledThreadPool)) {
-                    a aVar = new a();
-                    int i = d;
-                    newScheduledThreadPool.scheduleAtFixedRate(aVar, i, i, TimeUnit.MILLISECONDS);
-                    break;
-                }
-                newScheduledThreadPool.shutdownNow();
-            }
-            e.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
-        }
-    }
-
-    public static boolean k(ScheduledExecutorService scheduledExecutorService) {
-        InterceptResult invokeL;
-        Method e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, scheduledExecutorService)) == null) {
-            if (c) {
-                if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
-                    Object obj = g;
-                    if (obj == h) {
-                        return false;
-                    }
-                    if (obj == null) {
-                        e2 = e(scheduledExecutorService);
-                        g = e2 != null ? e2 : h;
-                    } else {
-                        e2 = (Method) obj;
-                    }
-                } else {
-                    e2 = e(scheduledExecutorService);
-                }
-                if (e2 != null) {
-                    try {
-                        e2.invoke(scheduledExecutorService, Boolean.TRUE);
-                        return true;
-                    } catch (IllegalAccessException e3) {
-                        ez9.j(e3);
-                    } catch (IllegalArgumentException e4) {
-                        ez9.j(e4);
-                    } catch (InvocationTargetException e5) {
-                        ez9.j(e5);
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.av9.a
-    public ev9 b(kv9 kv9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kv9Var)) == null) ? c(kv9Var, 0L, null) : (ev9) invokeL.objValue;
-    }
-
-    @Override // com.repackage.av9.a
-    public ev9 c(kv9 kv9Var, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{kv9Var, Long.valueOf(j), timeUnit})) == null) {
-            if (this.b) {
-                return uz9.c();
-            }
-            return h(kv9Var, j, timeUnit);
-        }
-        return (ev9) invokeCommon.objValue;
-    }
-
-    public ScheduledAction h(kv9 kv9Var, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{kv9Var, Long.valueOf(j), timeUnit})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(ez9.q(kv9Var));
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
-            }
-            scheduledAction.add(schedule);
-            return scheduledAction;
-        }
-        return (ScheduledAction) invokeCommon.objValue;
-    }
-
-    public ScheduledAction i(kv9 kv9Var, long j, TimeUnit timeUnit, ix9 ix9Var) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{kv9Var, Long.valueOf(j), timeUnit, ix9Var})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(ez9.q(kv9Var), ix9Var);
-            ix9Var.a(scheduledAction);
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
-            }
-            scheduledAction.add(schedule);
-            return scheduledAction;
-        }
-        return (ScheduledAction) invokeCommon.objValue;
-    }
-
-    @Override // com.repackage.ev9
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public ScheduledAction j(kv9 kv9Var, long j, TimeUnit timeUnit, rz9 rz9Var) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{kv9Var, Long.valueOf(j), timeUnit, rz9Var})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(ez9.q(kv9Var), rz9Var);
-            rz9Var.a(scheduledAction);
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
-            }
-            scheduledAction.add(schedule);
-            return scheduledAction;
-        }
-        return (ScheduledAction) invokeCommon.objValue;
-    }
-
-    @Override // com.repackage.ev9
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
-            this.a.shutdownNow();
-            d(this.a);
-        }
+        this.a = null;
+        this.b = true;
+        RLog.warn("YYPayHttpDns", "new OkHttpDns:" + toString());
     }
 }

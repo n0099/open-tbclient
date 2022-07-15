@@ -1,46 +1,47 @@
 package com.repackage;
 
-import android.util.Log;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
 /* loaded from: classes7.dex */
-public final class ri9 implements Runnable {
+public class ri9 implements FunSplashAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ qi9 b;
 
-    public ri9(qi9 qi9Var, AtomicBoolean atomicBoolean) {
+    public ri9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qi9Var, atomicBoolean};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = qi9Var;
-        this.a = atomicBoolean;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // com.fun.ad.sdk.FunSplashAd
+    public void removeMiniWindow() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.getAndSet(true)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-        qi9 qi9Var = this.b;
-        li9 li9Var = qi9Var.c;
-        li9.n(qi9Var.a, qi9Var.b);
+    }
+
+    @Override // com.fun.ad.sdk.FunSplashAd
+    public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 }

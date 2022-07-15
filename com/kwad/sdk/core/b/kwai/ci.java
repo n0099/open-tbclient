@@ -1,33 +1,44 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.live.mode.LiveInfo;
+import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ci implements com.kwad.sdk.core.d<LiveInfo.LiveStreamPlayCDNNode> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(LiveInfo.LiveStreamPlayCDNNode liveStreamPlayCDNNode, JSONObject jSONObject) {
+public final class ci implements com.kwad.sdk.core.d<AdInfo.H5Config> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdInfo.H5Config h5Config, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        liveStreamPlayCDNNode.cdn = jSONObject.optString("cdn");
-        if (jSONObject.opt("cdn") == JSONObject.NULL) {
-            liveStreamPlayCDNNode.cdn = "";
-        }
-        liveStreamPlayCDNNode.url = jSONObject.optString("url");
-        if (jSONObject.opt("url") == JSONObject.NULL) {
-            liveStreamPlayCDNNode.url = "";
+        h5Config.apiMisTouch = jSONObject.optInt("apiMisTouch");
+        h5Config.apiAdTag = jSONObject.optInt("apiAdTag");
+        h5Config.apiBreathLamp = jSONObject.optInt("apiBreathLamp");
+        h5Config.tagTip = jSONObject.optString("tagTip");
+        if (jSONObject.opt("tagTip") == JSONObject.NULL) {
+            h5Config.tagTip = "";
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(LiveInfo.LiveStreamPlayCDNNode liveStreamPlayCDNNode, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdInfo.H5Config h5Config, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "cdn", liveStreamPlayCDNNode.cdn);
-        com.kwad.sdk.utils.t.a(jSONObject, "url", liveStreamPlayCDNNode.url);
+        com.kwad.sdk.utils.r.a(jSONObject, "apiMisTouch", h5Config.apiMisTouch);
+        com.kwad.sdk.utils.r.a(jSONObject, "apiAdTag", h5Config.apiAdTag);
+        com.kwad.sdk.utils.r.a(jSONObject, "apiBreathLamp", h5Config.apiBreathLamp);
+        com.kwad.sdk.utils.r.a(jSONObject, "tagTip", h5Config.tagTip);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdInfo.H5Config h5Config, JSONObject jSONObject) {
+        a2(h5Config, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.H5Config h5Config, JSONObject jSONObject) {
+        return b2(h5Config, jSONObject);
     }
 }

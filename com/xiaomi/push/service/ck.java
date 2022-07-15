@@ -44,10 +44,10 @@ public class ck extends XMPushService.j {
     @Override // com.xiaomi.push.service.XMPushService.j
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f837a == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f1564a == null) {
             return;
         }
-        this.a.f837a.b(15, (Exception) null);
-        this.a.f837a = null;
+        this.a.f1564a.b(15, (Exception) null);
+        this.a.f1564a = null;
     }
 }

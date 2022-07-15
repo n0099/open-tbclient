@@ -1,6 +1,7 @@
 package com.vivo.push.d;
 
 import com.baidu.android.imsdk.IMConstants;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -90,9 +91,9 @@ public final class ag {
                             case 2004:
                             case 2005:
                             case 2008:
-                            case 2009:
+                            case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE /* 2009 */:
                             case 2010:
-                            case 2011:
+                            case IMConstants.IM_MSG_TYPE_SHIELD /* 2011 */:
                             case IMConstants.IM_MSG_TYPE_SHIELD_ME /* 2012 */:
                             case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME /* 2013 */:
                             case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL /* 2014 */:

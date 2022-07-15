@@ -1,19 +1,21 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.GetForumSquare.DataRes;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
 public class g56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public List<RecommendForumInfo> a;
+    public List<String> b;
+    public Page c;
+    public String d;
 
     public g56() {
         Interceptable interceptable = $ic;
@@ -29,51 +31,14 @@ public class g56 {
         }
     }
 
-    public static g56 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            g56 g56Var = new g56();
-            g56Var.d(h56.a(jSONObject.optJSONObject(Config.TRACE_VISIT_RECENT_DAY)));
-            g56Var.c(h56.a(jSONObject.optJSONObject("dark")));
-            g56Var.f(h56.a(jSONObject.optJSONObject(SkinManager.SKIN_TYPE_STR_NIGHT)));
-            g56Var.e(jSONObject.toString());
-            return g56Var;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-        return (g56) invokeL.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void c(h56 h56Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h56Var) == null) {
-        }
-    }
-
-    public void d(h56 h56Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h56Var) == null) {
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void f(h56 h56Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, h56Var) == null) {
-        }
+        this.d = dataRes.class_name;
+        this.c = dataRes.page;
+        this.b = dataRes.page_structure;
+        this.a = dataRes.forum_info;
     }
 }

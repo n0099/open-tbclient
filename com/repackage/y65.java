@@ -1,56 +1,44 @@
 package com.repackage;
 
+import com.baidu.tbadk.core.util.CurrentPageTypeHelper;
+import com.baidu.tbadk.mutiprocess.currentpagetype.CurrentPageTypeEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class y65<T> extends z65<T> {
+public class y65 implements l65<CurrentPageTypeEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
-    public Class<T> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y65(int i, String str, Class<T> cls) {
-        super(i);
+    public y65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = str;
-        this.c = cls;
     }
 
-    public T a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.l65
+    /* renamed from: a */
+    public boolean onEvent(CurrentPageTypeEvent currentPageTypeEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return this.c.newInstance();
-            } catch (ExceptionInInitializerError e) {
-                e.printStackTrace();
-                return null;
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-                return null;
-            } catch (InstantiationException e3) {
-                e3.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, currentPageTypeEvent)) == null) {
+            if (currentPageTypeEvent == null) {
+                return false;
             }
+            CurrentPageTypeHelper.currentPageType = currentPageTypeEvent.currentPageType;
+            return true;
         }
-        return (T) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

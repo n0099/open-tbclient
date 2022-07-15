@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
+import com.repackage.wh8;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class ForumRankActivityStatic {
@@ -300,8 +300,8 @@ public class ForumRankActivityStatic {
         CustomMessageTask customMessageTask5 = new CustomMessageTask(2902029, new e());
         customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask5);
-        bh8.h(309097, SquareForumListResSocketMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SQUARE_FORUM_LIST, bh8.a("c/f/forumsquare/getForumsFromForumClass", 309097));
+        wh8.h(309097, SquareForumListResSocketMsg.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SQUARE_FORUM_LIST, wh8.a("c/f/forumsquare/getForumsFromForumClass", 309097));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

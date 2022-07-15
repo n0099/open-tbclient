@@ -1,68 +1,45 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.PhotoInfo;
-import com.kwad.sdk.core.scene.URLPackage;
+import com.kwad.sdk.core.response.model.AdInfo;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ac implements com.kwad.sdk.core.d<PhotoInfo.AuthorInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(PhotoInfo.AuthorInfo authorInfo, JSONObject jSONObject) {
+public final class ac implements com.kwad.sdk.core.d<AdInfo.AdTrackInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdInfo.AdTrackInfo adTrackInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        authorInfo.authorId = jSONObject.optLong(URLPackage.KEY_AUTHOR_ID);
-        authorInfo.kwaiId = jSONObject.optString("kwaiId");
-        if (jSONObject.opt("kwaiId") == JSONObject.NULL) {
-            authorInfo.kwaiId = "";
+        adTrackInfo.type = jSONObject.optInt("type");
+        adTrackInfo.urls = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("url");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                adTrackInfo.urls.add((String) optJSONArray.opt(i));
+            }
         }
-        authorInfo.authorName = jSONObject.optString("authorName");
-        if (jSONObject.opt("authorName") == JSONObject.NULL) {
-            authorInfo.authorName = "";
-        }
-        authorInfo.rawAuthorName = jSONObject.optString("rawAuthorName");
-        if (jSONObject.opt("rawAuthorName") == JSONObject.NULL) {
-            authorInfo.rawAuthorName = "";
-        }
-        authorInfo.authorIcon = jSONObject.optString("authorIcon");
-        if (jSONObject.opt("authorIcon") == JSONObject.NULL) {
-            authorInfo.authorIcon = "";
-        }
-        authorInfo.authorGender = jSONObject.optString("authorGender");
-        if (jSONObject.opt("authorGender") == JSONObject.NULL) {
-            authorInfo.authorGender = "";
-        }
-        authorInfo.authorText = jSONObject.optString("authorText");
-        if (jSONObject.opt("authorText") == JSONObject.NULL) {
-            authorInfo.authorText = "";
-        }
-        authorInfo.authorIconGuide = jSONObject.optString("authorIconGuide");
-        if (jSONObject.opt("authorIconGuide") == JSONObject.NULL) {
-            authorInfo.authorIconGuide = "";
-        }
-        authorInfo.authorEid = jSONObject.optString("authorEid");
-        if (jSONObject.opt("authorEid") == JSONObject.NULL) {
-            authorInfo.authorEid = "";
-        }
-        authorInfo.isJoinedBlacklist = jSONObject.optBoolean("isJoinedBlacklist");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(PhotoInfo.AuthorInfo authorInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdInfo.AdTrackInfo adTrackInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, URLPackage.KEY_AUTHOR_ID, authorInfo.authorId);
-        com.kwad.sdk.utils.t.a(jSONObject, "kwaiId", authorInfo.kwaiId);
-        com.kwad.sdk.utils.t.a(jSONObject, "authorName", authorInfo.authorName);
-        com.kwad.sdk.utils.t.a(jSONObject, "rawAuthorName", authorInfo.rawAuthorName);
-        com.kwad.sdk.utils.t.a(jSONObject, "authorIcon", authorInfo.authorIcon);
-        com.kwad.sdk.utils.t.a(jSONObject, "authorGender", authorInfo.authorGender);
-        com.kwad.sdk.utils.t.a(jSONObject, "authorText", authorInfo.authorText);
-        com.kwad.sdk.utils.t.a(jSONObject, "authorIconGuide", authorInfo.authorIconGuide);
-        com.kwad.sdk.utils.t.a(jSONObject, "authorEid", authorInfo.authorEid);
-        com.kwad.sdk.utils.t.a(jSONObject, "isJoinedBlacklist", authorInfo.isJoinedBlacklist);
+        com.kwad.sdk.utils.r.a(jSONObject, "type", adTrackInfo.type);
+        com.kwad.sdk.utils.r.a(jSONObject, "url", adTrackInfo.urls);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(AdInfo.AdTrackInfo adTrackInfo, JSONObject jSONObject) {
+        a2(adTrackInfo, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.AdTrackInfo adTrackInfo, JSONObject jSONObject) {
+        return b2(adTrackInfo, jSONObject);
     }
 }

@@ -249,8 +249,8 @@ public class BottomNavigationView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
             View view2 = new View(context);
-            view2.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606dc));
-            view2.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701ff)));
+            view2.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606de));
+            view2.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fe)));
             addView(view2);
         }
     }
@@ -673,14 +673,14 @@ public class BottomNavigationView extends FrameLayout {
         this.menuView.setPresenter(this.presenter);
         this.menu.addMenuPresenter(this.presenter);
         this.presenter.initForMenu(getContext(), this.menu);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040319, R.attr.obfuscated_res_0x7f04031c, R.attr.obfuscated_res_0x7f04031e, R.attr.obfuscated_res_0x7f04031f, R.attr.obfuscated_res_0x7f040322, R.attr.obfuscated_res_0x7f04032e, R.attr.obfuscated_res_0x7f04032f, R.attr.obfuscated_res_0x7f040330, R.attr.obfuscated_res_0x7f0403bd, R.attr.obfuscated_res_0x7f04046c}, i, R.style.obfuscated_res_0x7f100324, 8, 7);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040317, R.attr.obfuscated_res_0x7f04031a, R.attr.obfuscated_res_0x7f04031c, R.attr.obfuscated_res_0x7f04031d, R.attr.obfuscated_res_0x7f040320, R.attr.obfuscated_res_0x7f04032c, R.attr.obfuscated_res_0x7f04032d, R.attr.obfuscated_res_0x7f04032e, R.attr.obfuscated_res_0x7f0403c5, R.attr.obfuscated_res_0x7f040470}, i, R.style.obfuscated_res_0x7f100324, 8, 7);
         if (obtainTintedStyledAttributes.hasValue(5)) {
             this.menuView.setIconTintList(obtainTintedStyledAttributes.getColorStateList(5));
         } else {
             BottomNavigationMenuView bottomNavigationMenuView = this.menuView;
             bottomNavigationMenuView.setIconTintList(bottomNavigationMenuView.createDefaultColorStateList(16842808));
         }
-        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fb)));
+        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fa)));
         if (obtainTintedStyledAttributes.hasValue(8)) {
             setItemTextAppearanceInactive(obtainTintedStyledAttributes.getResourceId(8, 0));
         }

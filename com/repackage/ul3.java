@@ -1,50 +1,38 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes7.dex */
-public class ul3 {
+public class ul3 implements xj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public ul3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (!SwanAppInitHelper.entranceOK()) {
-                Log.w("SwanAppLaunchHelper", "entrance not open");
-                kz2.g(AppRuntime.getAppContext(), "not support for this android version").G();
-            } else if (TextUtils.isEmpty(str)) {
-                kz2.g(AppRuntime.getAppContext(), "url is empty").G();
-            } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
-                b(str);
-            } else if (str.startsWith("bdswan")) {
-                b(str.replace("bdswan", SchemeConfig.getSchemeHead()));
-            } else if (!str.startsWith("https") && !str.startsWith("http")) {
-                kz2.g(AppRuntime.getAppContext(), "not support this uri").G();
-            } else {
-                c(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(String str) {
+    @Override // com.repackage.xj1
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), Uri.parse(str));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
         }
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            tl3.e(str);
-        }
+        return invokeV.booleanValue;
     }
 }

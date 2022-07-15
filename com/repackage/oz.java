@@ -3,82 +3,59 @@ package com.repackage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import javax.crypto.ShortBufferException;
+import java.security.InvalidKeyException;
 /* loaded from: classes6.dex */
-public final class oz implements pz {
+public abstract class oz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public final kz a;
+    public final int b;
+    public byte[] c;
 
-    public oz(int i) {
+    public oz(kz kzVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {kzVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.a = kzVar;
+        this.b = kzVar.a();
     }
 
-    @Override // com.repackage.pz
-    public int a(int i) {
-        InterceptResult invokeI;
+    public abstract void a(boolean z, String str, byte[] bArr, byte[] bArr2) throws InvalidKeyException;
+
+    public abstract void b(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
+
+    public void c(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int i2 = this.a;
-            return i2 - (i % i2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            b(bArr, i, i2, bArr2, i3);
         }
-        return invokeI.intValue;
     }
 
-    @Override // com.repackage.pz
-    public int a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        int i3;
+    public abstract void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
+
+    public void e(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
-            if (bArr == null || i2 == 0) {
-                return 0;
-            }
-            int i4 = i2 + i;
-            int i5 = bArr[i4 - 1];
-            int i6 = i5 & 255;
-            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
-                return -1;
-            }
-            for (int i7 = 0; i7 < i6; i7++) {
-                if (bArr[i3 + i7] != i5) {
-                    return -1;
-                }
-            }
-            return i3;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            d(bArr, i, i2, bArr2, i3);
         }
-        return invokeLII.intValue;
     }
 
-    @Override // com.repackage.pz
-    public void b(byte[] bArr, int i, int i2) throws ShortBufferException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) || bArr == null) {
-            return;
-        }
-        if (i + i2 > bArr.length) {
-            throw new ShortBufferException("Buffer too small to hold padding");
-        }
-        byte b = (byte) (i2 & 255);
-        for (int i3 = 0; i3 < i2; i3++) {
-            bArr[i3 + i] = b;
-        }
-    }
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h();
 }

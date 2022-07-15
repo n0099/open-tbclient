@@ -1,12 +1,7 @@
 package com.repackage;
 
-import java.io.File;
-import java.io.InputStream;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public interface v32 {
-    void a(String str, File file, w32 w32Var);
-
-    InputStream get(String str);
-
-    boolean isClosed();
+public interface v32 extends o94 {
+    public static final long b0 = TimeUnit.SECONDS.toMillis(15);
 }

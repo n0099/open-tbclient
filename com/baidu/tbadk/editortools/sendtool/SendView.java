@@ -18,15 +18,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c15;
-import com.repackage.h05;
-import com.repackage.u05;
-import com.repackage.xf8;
+import com.repackage.d25;
+import com.repackage.j15;
+import com.repackage.sg8;
+import com.repackage.v15;
 /* loaded from: classes3.dex */
-public class SendView extends TextView implements u05 {
+public class SendView extends TextView implements v15 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int f = 1;
-    public static int g;
+    public static int f = 2;
+    public static int g = 1;
+    public static int h;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
     public int b;
@@ -62,7 +63,7 @@ public class SendView extends TextView implements u05 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.L(new h05(8, -1, null));
+                this.a.L(new j15(8, -1, null));
             }
         }
     }
@@ -102,26 +103,26 @@ public class SendView extends TextView implements u05 {
         }
         this.c = new boolean[]{false, false, false, false, false};
         this.d = new int[]{0, 0};
-        this.e = g;
-        setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025c), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070234), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
+        this.e = h;
+        setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025b), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
         setGravity(17);
         setIncludeFontPadding(false);
         setEnabled(false);
         setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
         setTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
-        setText(R.string.obfuscated_res_0x7f0f111e);
+        setText(R.string.obfuscated_res_0x7f0f1115);
         setOnClickListener(new a(this));
     }
 
-    @Override // com.repackage.i05
-    public void C(h05 h05Var) {
+    @Override // com.repackage.k15
+    public void C(j15 j15Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, h05Var) == null) || h05Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, j15Var) == null) || j15Var == null) {
             return;
         }
-        int i = h05Var.a;
+        int i = j15Var.a;
         if (i == 4) {
-            Object obj = h05Var.c;
+            Object obj = j15Var.c;
             if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
                 this.c[0] = true;
             } else {
@@ -149,13 +150,13 @@ public class SendView extends TextView implements u05 {
                     this.c[2] = false;
                     break;
                 case 12:
-                    Object obj2 = h05Var.c;
-                    if (obj2 instanceof c15) {
-                        c15 c15Var = (c15) obj2;
-                        WriteImagesInfo writeImagesInfo = c15Var.a;
+                    Object obj2 = j15Var.c;
+                    if (obj2 instanceof d25) {
+                        d25 d25Var = (d25) obj2;
+                        WriteImagesInfo writeImagesInfo = d25Var.a;
                         if (writeImagesInfo != null) {
                             if (writeImagesInfo.getChosedFiles() != null) {
-                                this.d[0] = c15Var.a.getChosedFiles().size();
+                                this.d[0] = d25Var.a.getChosedFiles().size();
                             } else {
                                 this.d[0] = 0;
                             }
@@ -187,27 +188,27 @@ public class SendView extends TextView implements u05 {
         a(this.e);
     }
 
-    @Override // com.repackage.u05
-    public void L(h05 h05Var) {
+    @Override // com.repackage.v15
+    public void L(j15 j15Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h05Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j15Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(h05Var);
+        editorTools.A(j15Var);
     }
 
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            if (i == g) {
+            if (i == h) {
                 boolean[] zArr = this.c;
                 if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
                     setEnabled(false);
                 } else {
                     setEnabled(true);
                 }
-            } else if (i == f) {
+            } else if (i == g) {
                 if (this.c[1]) {
                     setEnabled(true);
                 } else {
@@ -217,14 +218,14 @@ public class SendView extends TextView implements u05 {
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -232,7 +233,7 @@ public class SendView extends TextView implements u05 {
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -240,16 +241,16 @@ public class SendView extends TextView implements u05 {
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             int color = SkinManager.getColor(i, (int) R.color.CAM_X0302);
-            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{xf8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), xf8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{sg8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), sg8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -257,7 +258,7 @@ public class SendView extends TextView implements u05 {
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
@@ -265,7 +266,7 @@ public class SendView extends TextView implements u05 {
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {

@@ -1,28 +1,35 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.webview.jshandler.b;
+import com.kwad.components.core.webview.jshandler.r;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cj implements com.kwad.sdk.core.d<b.C0321b> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(b.C0321b c0321b, JSONObject jSONObject) {
+public final class cj implements com.kwad.sdk.core.d<r.b> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(r.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        c0321b.a = jSONObject.optString("payload");
-        if (jSONObject.opt("payload") == JSONObject.NULL) {
-            c0321b.a = "";
-        }
+        bVar.a = jSONObject.optLong("creativeId", new Long("-1").longValue());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(b.C0321b c0321b, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(r.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "payload", c0321b.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "creativeId", bVar.a);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(r.b bVar, JSONObject jSONObject) {
+        a2(bVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(r.b bVar, JSONObject jSONObject) {
+        return b2(bVar, jSONObject);
     }
 }

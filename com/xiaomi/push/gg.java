@@ -11,7 +11,7 @@ public class gg implements Runnable {
     public final /* synthetic */ gd a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f420a;
+    public final /* synthetic */ String f1147a;
 
     public gg(gd gdVar, String str) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class gg implements Runnable {
             }
         }
         this.a = gdVar;
-        this.f420a = str;
+        this.f1147a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cv.a().a(this.f420a, true);
+            cv.a().a(this.f1147a, true);
         }
     }
 }

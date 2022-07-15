@@ -1,46 +1,21 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes7.dex */
 public class tz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-
-    /* loaded from: classes7.dex */
-    public static class a implements Comparator<tz3> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(tz3 tz3Var, tz3 tz3Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tz3Var, tz3Var2)) == null) ? (int) (tz3Var.a - tz3Var2.a) : invokeLL.intValue;
-        }
-    }
+    @V8JavascriptField
+    public String key;
+    @V8JavascriptField
+    public String value;
 
     public tz3() {
         Interceptable interceptable = $ic;
@@ -56,35 +31,50 @@ public class tz3 {
         }
     }
 
-    public static long[] a(tz3 tz3Var) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tz3Var)) == null) {
-            if (tz3Var == null) {
-                return null;
-            }
-            return new long[]{tz3Var.a, tz3Var.b};
-        }
-        return (long[]) invokeL.objValue;
-    }
-
-    public boolean b(tz3 tz3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tz3Var)) == null) {
-            long j = this.a;
-            if (j <= tz3Var.b) {
-                long j2 = this.b;
-                long j3 = tz3Var.a;
-                if (j2 < j3) {
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                if (this.key != null) {
+                    if (this.key.getBytes("UTF-8").length <= 128) {
+                        return true;
+                    }
                 }
-                this.a = Math.min(j, j3);
-                this.b = Math.max(this.b, tz3Var.b);
+                return false;
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return true;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                if (this.key != null && this.value != null) {
+                    if (this.key.getBytes("UTF-8").length + this.value.getBytes("UTF-8").length <= 1024) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.key + ":" + this.value;
+        }
+        return (String) invokeV.objValue;
     }
 }

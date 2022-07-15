@@ -1,113 +1,63 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.NativeExpressADView;
-import com.qq.e.ads.nativ.NativeExpressMediaListener;
-import com.qq.e.comm.util.AdError;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
+import com.repackage.ae9;
 /* loaded from: classes5.dex */
-public class be9 implements NativeExpressMediaListener {
+public class be9 extends ae9.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ ke9 f;
 
-    public be9(zd9 zd9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public be9(ae9 ae9Var, ef9 ef9Var, String str, ke9 ke9Var) {
+        super(ae9Var, ef9Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zd9Var};
+            Object[] objArr = {ae9Var, ef9Var, str, ke9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ae9) objArr2[0], (ef9) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = ke9Var;
+    }
+
+    @Override // com.repackage.ae9.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+    public void onAdClicked(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            super.onAdClicked(view2, i);
+            ke9 ke9Var = this.f;
+            String str = this.b;
+            FunSplashAdInteractionListener funSplashAdInteractionListener = ke9Var.j;
+            if (funSplashAdInteractionListener != null) {
+                funSplashAdInteractionListener.onAdClicked(str);
             }
         }
     }
 
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoCached(NativeExpressADView nativeExpressADView) {
+    @Override // com.repackage.ae9.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+    public void onAdShow(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoComplete(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoError(NativeExpressADView nativeExpressADView, AdError adError) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressADView, adError) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoInit(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoLoading(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPageClose(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPageOpen(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPause(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoReady(NativeExpressADView nativeExpressADView, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, nativeExpressADView, j) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoStart(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, nativeExpressADView) == null) {
-            LogPrinter.d();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            super.onAdShow(view2, i);
+            ke9 ke9Var = this.f;
+            ke9Var.g = ke9Var.b.getWidth();
+            ke9Var.h = ke9Var.b.getHeight();
         }
     }
 }

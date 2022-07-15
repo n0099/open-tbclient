@@ -1,48 +1,80 @@
 package com.repackage;
 
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ee0;
 /* loaded from: classes5.dex */
-public final class ce0 {
+public abstract class ce0 implements ee0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public ee0.a b;
 
-    public static void a(String str, String str2) {
+    public ce0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            if (str2.length() > 2001) {
-                int i = 0;
-                while (i < str2.length()) {
-                    int i2 = i + 2001;
-                    if (i2 < str2.length()) {
-                        b(3, str, str2.substring(i, i2));
-                    } else {
-                        b(3, str, str2.substring(i));
-                    }
-                    i = i2;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            b(3, str, str2);
+        }
+        this.a = 0;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public abstract void b();
+
+    public void c(ee0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.b = aVar;
+            if (aVar != null) {
+                aVar.a(a(), this);
+            }
         }
     }
 
-    public static void b(int i, String str, String str2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65537, null, i, str, str2) == null) {
-            if (i == 2) {
-                Log.v(str, str2);
-            } else if (i == 3) {
-                Log.d(str, str2);
-            } else if (i == 4) {
-                Log.i(str, str2);
-            } else if (i == 5) {
-                Log.w(str, str2);
-            } else if (i != 6) {
-                Log.d(str, str2);
-            } else {
-                Log.e(str, str2);
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        ee0.a aVar = this.b;
+        if (aVar != null) {
+            aVar.a(i, this);
+        }
+    }
+
+    public void e(ee0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            int i = this.a;
+            if (i != 0 && 3 != i && 2 != i) {
+                c(aVar);
+                return;
+            }
+            d(1);
+            c(aVar);
+            try {
+                b();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                d(3);
             }
         }
     }

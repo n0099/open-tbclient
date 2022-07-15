@@ -1,171 +1,150 @@
 package com.repackage;
 
-import android.graphics.Color;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.bubble.BubbleManager;
-import com.baidu.nadcore.widget.bubble.BubblePosition;
+import com.baidu.nadcore.widget.LoadingProgressBar;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class p31 extends n31 {
+public class p31 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t31 c;
+    public Context a;
+    public View b;
+    public LoadingProgressBar c;
+    public TextView d;
+    public String e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public p31() {
-        this(new t31());
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p31(@NonNull Context context) {
+        super(context, R.style.obfuscated_res_0x7f100131);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this((t31) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = "";
+        this.g = false;
+        this.h = false;
+        this.a = context;
+        this.f = a(context);
     }
 
-    public t31 h() {
-        InterceptResult invokeV;
+    public final boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (t31) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? context instanceof Activity : invokeL.booleanValue;
     }
 
-    public p31 i(boolean z) {
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = findViewById(R.id.obfuscated_res_0x7f091b64);
+            this.c = (LoadingProgressBar) findViewById(R.id.obfuscated_res_0x7f091370);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091468);
+            this.d = textView;
+            textView.setText(this.e);
+            setCancelable(this.g);
+            setCanceledOnTouchOutside(this.h);
+            f();
+        }
+    }
+
+    public p31 c(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            super.a(z);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.g = z;
             return this;
         }
         return (p31) invokeZ.objValue;
     }
 
-    public p31 j(View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
+    public p31 d(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, viewGroup)) == null) {
-            super.b(view2, viewGroup);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.h = z;
             return this;
         }
-        return (p31) invokeLL.objValue;
+        return (p31) invokeZ.objValue;
     }
 
-    public p31 k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            super.c(i);
-            return this;
-        }
-        return (p31) invokeI.objValue;
-    }
-
-    public p31 l(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
-            super.d(i, i2);
-            return this;
-        }
-        return (p31) invokeII.objValue;
-    }
-
-    public p31 m(int i, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
-            this.c.s(i, f);
-            return this;
-        }
-        return (p31) invokeCommon.objValue;
-    }
-
-    public p31 n(BubblePosition bubblePosition) {
+    public p31 e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bubblePosition)) == null) {
-            super.e(bubblePosition);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.e = str;
             return this;
         }
         return (p31) invokeL.objValue;
     }
 
-    public p31 o(BubbleManager.b bVar) {
-        InterceptResult invokeL;
+    public final void f() {
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bVar)) == null) {
-            super.f(bVar);
-            return this;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (context = this.a) == null) {
+            return;
         }
-        return (p31) invokeL.objValue;
+        Resources resources = context.getResources();
+        View view2 = this.b;
+        if (view2 != null) {
+            view2.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080d53));
+        }
+        LoadingProgressBar loadingProgressBar = this.c;
+        if (loadingProgressBar != null) {
+            loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080d56));
+        }
+        TextView textView = this.d;
+        if (textView != null) {
+            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0607fa));
+        }
     }
 
-    public p31 p(float f) {
-        InterceptResult invokeF;
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
-            super.g(f);
-            return this;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d05a2);
+            b();
         }
-        return (p31) invokeF.objValue;
     }
 
-    public p31 q(CharSequence charSequence) {
-        InterceptResult invokeL;
+    @Override // android.app.Dialog
+    public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, charSequence)) == null) {
-            this.c.f().D(charSequence);
-            return this;
-        }
-        return (p31) invokeL.objValue;
-    }
-
-    public p31 r(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f) {
             try {
-                this.c.f().E(i, i2);
-                return this;
+                super.show();
             } catch (Exception e) {
-                th0.h("BubbleTextBuilder", "", e);
-                this.c.f().E(Color.parseColor("#CC000000"), Color.parseColor("#CC000000"));
-                return this;
+                e.printStackTrace();
             }
         }
-        return (p31) invokeII.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p31(t31 t31Var) {
-        super(t31Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t31Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((q31) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = t31Var;
     }
 }

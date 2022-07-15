@@ -1,14 +1,14 @@
 package com.repackage;
 
-import com.baidu.searchbox.live.interfaces.net.INetWork;
-import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.PayChannelService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mg7 implements NetworkAgentService {
+public class mg7 extends dc1<PayChannelService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,12 @@ public class mg7 implements NetworkAgentService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.NetworkAgentService
-    public INetWork buildNetworkInstance() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.dc1
+    /* renamed from: a */
+    public PayChannelService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ng7() : (INetWork) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ng7() : (PayChannelService) invokeV.objValue;
     }
 }

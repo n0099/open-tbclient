@@ -1,73 +1,143 @@
 package com.repackage;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import tbclient.AlaLiveInfo;
+import tbclient.DislikeInfo;
 /* loaded from: classes7.dex */
-public class ru7 {
+public class ru7 implements nn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId o;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public boolean b;
-    public ep4 c;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public MetaData f;
+    public HashMap<String, MetaData> g;
+    public boolean h;
+    public String i;
+    public String j;
+    public boolean k;
+    public boolean l;
+    public kp4 m;
+    public YyExtData n;
 
-    public ru7(TbPageContext tbPageContext) {
-        Uri uri;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755337763, "Lcom/repackage/ru7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755337763, "Lcom/repackage/ru7;");
+                return;
+            }
+        }
+        o = BdUniqueId.gen();
+    }
+
+    public ru7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.a = tbPageContext;
-        if (tbPageContext.getPageActivity() == null || this.a.getPageActivity().getIntent() == null || (uri = (Uri) this.a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) == null) {
-            return;
-        }
-        String queryParameter = uri.getQueryParameter("tid");
-        uri.getQueryParameter(TiebaStatic.Params.EQID);
-        ep4 ep4Var = new ep4();
-        this.c = ep4Var;
-        ep4Var.a = uri.getQueryParameter("tid");
-        this.c.b = uri.getQueryParameter(TiebaStatic.Params.EQID);
-        if (TextUtils.isEmpty(queryParameter) || z8.g().h() > 3) {
-            return;
-        }
-        this.b = true;
+        this.l = false;
     }
 
-    public void a(PbModel pbModel) {
+    public void a(AlaLiveInfo alaLiveInfo) {
+        HashMap<String, MetaData> hashMap;
+        MetaData metaData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) || !this.b || this.c == null || pbModel == null || pbModel.Q1() == null || pbModel.Q1().l() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) {
+            if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
+                this.a = alaLiveInfo.user_info.user_name;
+                this.b = alaLiveInfo.live_status.intValue();
+                this.c = alaLiveInfo.audience_count.intValue();
+                this.d = alaLiveInfo.description;
+                String str = alaLiveInfo.cover_wide;
+                this.e = str;
+                if (str == null || TextUtils.isEmpty(str)) {
+                    this.e = alaLiveInfo.cover;
+                }
+                alaLiveInfo.live_id.longValue();
+                this.h = alaLiveInfo.live_from.intValue() == 1;
+                this.i = alaLiveInfo.third_live_type;
+                this.j = alaLiveInfo.third_room_id;
+                String str2 = alaLiveInfo.router_type;
+                YyExtData yyExtData = new YyExtData();
+                this.n = yyExtData;
+                yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
+                Long l = alaLiveInfo.user_info.user_id;
+                if (l != null && l.longValue() > 0 && (hashMap = this.g) != null && (metaData = hashMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
+                    this.f = metaData;
+                }
+                List<DislikeInfo> list = alaLiveInfo.dislike_info;
+                if (ListUtils.getCount(list) > 0) {
+                    SparseArray<String> sparseArray = new SparseArray<>();
+                    SparseArray<String> sparseArray2 = new SparseArray<>();
+                    for (DislikeInfo dislikeInfo : list) {
+                        if (dislikeInfo != null) {
+                            sparseArray.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.dislike_reason);
+                            sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
+                        }
+                    }
+                    kp4 kp4Var = new kp4();
+                    this.m = kp4Var;
+                    kp4Var.j(sparseArray);
+                    this.m.g = sparseArray2;
+                } else {
+                    this.m = null;
+                }
+                this.k = true;
+                return;
+            }
+            this.k = false;
         }
-        ForumData l = pbModel.Q1().l();
-        this.c.c = l.getFirst_class();
-        this.c.d = l.getSecond_class();
-        TbSingleton.getInstance().setPbToHomeUpdateData(this.c);
-        if (z8.g().i("MainTabActivity")) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
-        } else {
-            TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
+    }
+
+    public void b(HashMap<String, MetaData> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
+            this.g = hashMap;
         }
+    }
+
+    @Override // com.repackage.nn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? o : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : invokeV.booleanValue;
     }
 }

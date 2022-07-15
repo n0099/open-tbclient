@@ -1,55 +1,42 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public class pp9 implements al9 {
+public class pp9 extends lp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ tp9 a;
 
-    public pp9(tp9 tp9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pp9() {
+        super(Framedata.Opcode.TEXT);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tp9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tp9Var;
     }
 
-    @Override // com.repackage.al9
-    public void a() {
+    @Override // com.repackage.lp9, com.repackage.mp9
+    public void h() throws InvalidDataException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.al9
-    public void onLoaded() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.k.removeMessages(11);
-            this.a.c = true;
-            un9 a = yn9.a(this.a.b);
-            a.e(new co9(this.a.f), 200, System.currentTimeMillis() - this.a.j);
-            a.m();
-            tp9 tp9Var = this.a;
-            if (tp9Var.e) {
-                return;
+            super.h();
+            if (!dq9.b(a())) {
+                throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
             }
-            tp9Var.h.onLoaded();
         }
     }
 }

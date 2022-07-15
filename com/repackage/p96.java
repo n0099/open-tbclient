@@ -1,27 +1,36 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.widget.BaseAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionCategoryAdapter;
+import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionHorizontalAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import tbclient.BawuRoleInfoPub;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class p96 implements w96 {
+public class p96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<BawuRoleInfoPub> a;
-    public boolean b;
-    public boolean c;
-    public String d;
+    public d9 a;
+    public BdTypeListView b;
+    public final List<an> c;
+    public EmotionCategoryAdapter d;
+    public EmotionHorizontalAdapter e;
+    public List<nn> f;
 
-    public p96() {
+    public p96(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,70 +40,75 @@ public class p96 implements w96 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = false;
-        this.c = false;
+        this.c = new ArrayList();
+        this.f = new ArrayList();
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        b();
     }
 
-    @Override // com.repackage.w96
-    public int a() {
-        InterceptResult invokeV;
+    public void a(List<nn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        return invokeV.intValue;
+        if (this.b != null) {
+            this.f.addAll(list);
+            this.b.setData(this.f);
+        }
+        c();
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public ArrayList<BawuRoleInfoPub> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = new EmotionCategoryAdapter((TbPageContext) this.a, q96.a);
+            this.e = new EmotionHorizontalAdapter((TbPageContext) this.a, r96.b);
+            this.c.add(this.d);
+            this.c.add(this.e);
+            this.b.a(this.c);
         }
     }
 
-    public void g(boolean z) {
+    public void c() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.b = z;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeListView = this.b) == null || bdTypeListView.getAdapter2() == null || !(this.b.getAdapter2() instanceof BaseAdapter)) {
+            return;
         }
+        this.b.getAdapter2().notifyDataSetChanged();
     }
 
-    public void h(ArrayList<BawuRoleInfoPub> arrayList) {
+    public void d(List<nn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
-            this.a = arrayList;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
         }
+        if (!ListUtils.isEmpty(this.f)) {
+            this.f.clear();
+        }
+        BdTypeListView bdTypeListView = this.b;
+        if (bdTypeListView != null) {
+            bdTypeListView.setData(list);
+            this.f.addAll(list);
+        }
+        c();
     }
 
-    public void i(String str) {
+    public void e(EmotionPackageData emotionPackageData) {
+        r96 r96Var;
+        EmotionPackageData emotionPackageData2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.d = str;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, emotionPackageData) == null) || emotionPackageData == null || ListUtils.isEmpty(this.f)) {
+            return;
+        }
+        for (nn nnVar : this.f) {
+            if ((nnVar instanceof r96) && (r96Var = (r96) nnVar) != null && (emotionPackageData2 = r96Var.a) != null && emotionPackageData2.id == emotionPackageData.id) {
+                emotionPackageData2.download = emotionPackageData.download;
+                emotionPackageData2.share = emotionPackageData.share;
+                c();
+                return;
+            }
         }
     }
 }

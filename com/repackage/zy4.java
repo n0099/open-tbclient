@@ -1,116 +1,33 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.rp.service.Service;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.message.PingMessage;
-import com.baidu.tbadk.coreExtra.message.ResponsedPingMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zy4 extends Handler implements x9 {
+public class zy4 {
     public static /* synthetic */ Interceptable $ic;
-    public static zy4 f;
+    public static String a;
+    public static Map<String, String> b;
+    public static boolean c;
+    public static boolean d;
+    public static int e;
+    public static int f;
+    public static boolean g;
+    public static String h;
+    public static Map<String, String> i;
+    public static int j;
+    public static int k;
+    public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public int c;
-    public int d;
-    public PingMessage e;
-
-    /* loaded from: classes7.dex */
-    public class a extends bb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zy4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(zy4 zy4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zy4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zy4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) || socketResponsedMessage == null) {
-                return;
-            }
-            this.a.l(socketResponsedMessage);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zy4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(zy4 zy4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zy4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zy4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
-                return;
-            }
-            this.a.h((BackgroundSwitchMessage) customResponsedMessage);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -127,183 +44,112 @@ public class zy4 extends Handler implements x9 {
         }
     }
 
-    public zy4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0L;
-        this.b = TiebaStatic.MAX_COST_VALUE;
-        this.c = 900000;
-        this.d = 900000;
-        this.e = null;
-    }
-
-    public static zy4 j() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f == null) {
-                synchronized (zy4.class) {
-                    if (f == null) {
-                        f = new zy4();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!c) {
+                return xt4.k().l("video_report_config_upload_number", 5);
             }
             return f;
-        }
-        return (zy4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.x9
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            removeMessages(1);
-        }
-    }
-
-    @Override // com.repackage.x9
-    public boolean b(boolean z, String str) {
-        InterceptResult invokeZL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
-            if ((z || System.currentTimeMillis() - this.a >= Service.TRIGGER_INTERVAL) && BdSocketLinkService.isOpen()) {
-                this.a = System.currentTimeMillis();
-                MessageManager.getInstance().sendMessage(this.e);
-                PingMessage pingMessage = this.e;
-                StringBuilder sb = new StringBuilder();
-                sb.append(str);
-                sb.append("-");
-                sb.append(this.d == this.c ? "back" : "fore");
-                ea.c("PingManager", pingMessage, 0, "send_ping", 0, sb.toString());
-                return true;
-            }
-            return false;
-        }
-        return invokeZL.booleanValue;
-    }
-
-    @Override // com.repackage.x9
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1003;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.x9
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            if (BdSocketLinkService.isClose()) {
-                a45.b(0, 0, 0, 1, 10);
-                BdSocketLinkService.startService(false, str);
-            } else if (BdSocketLinkService.isOpen()) {
-                b(false, str);
-            }
-        }
-    }
-
-    @Override // com.repackage.x9
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            removeMessages(1);
-            sendMessageDelayed(obtainMessage(1), this.d);
-            this.a = System.currentTimeMillis();
-        }
-    }
-
-    public final void h(BackgroundSwitchMessage backgroundSwitchMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, backgroundSwitchMessage) == null) || backgroundSwitchMessage == null) {
-            return;
-        }
-        if (backgroundSwitchMessage.getData().booleanValue()) {
-            this.d = this.c;
-            return;
-        }
-        this.d = this.b;
-        d("switchToForeground");
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, message) == null) && message.what == 1) {
-            e();
-            b(true, "regular time send");
-        }
-    }
-
-    public int i() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            j95 j95Var = new j95(1003);
-            j95Var.setResponsedClass(ResponsedPingMessage.class);
-            j95Var.h(false);
-            j95Var.setPriority(-3);
-            j95Var.f(SocketMessageTask.DupLicateMode.REMOVE_ME);
-            j95Var.e(false);
-            MessageManager.getInstance().registerTask(j95Var);
-            this.e = new PingMessage();
-            m();
-            a aVar = new a(this, 1003);
-            MessageManager.getInstance().registerListener(new b(this, 2001011));
-            MessageManager.getInstance().registerListener(aVar);
-        }
-    }
-
-    public final void l(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, responsedMessage) == null) || responsedMessage == null) {
-            return;
-        }
-        int error = responsedMessage.getError();
-        if (error == 0) {
-            com.baidu.adp.framework.message.Message<?> orginalMessage = responsedMessage.getOrginalMessage();
-            int i = im4.a;
-            ea.c("PingManager", orginalMessage, 0, "ping_succ", i, "costtime:" + String.valueOf(System.currentTimeMillis() - this.a));
-            return;
-        }
-        BdSocketLinkService.close(7, "ping error");
-        int cmd = this.e.getCmd();
-        long clientLogID = this.e.getClientLogID();
-        ea.b("PingManager", cmd, clientLogID, 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.a));
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            int[] socketHeartBeatStratgy = TbadkCoreApplication.getInst().getSocketHeartBeatStratgy();
-            if (socketHeartBeatStratgy.length == 2) {
-                int i = socketHeartBeatStratgy[0] * 1000;
-                this.b = i;
-                this.c = socketHeartBeatStratgy[1] * 1000;
-                if (i < 180000) {
-                    this.b = TiebaStatic.MAX_COST_VALUE;
-                }
-                if (this.c < 180000) {
-                    this.c = TiebaStatic.MAX_COST_VALUE;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!c) {
+                return xt4.k().l("video_report_config_upload_type", 0);
             }
+            return e;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!c) {
+                return xt4.k().h("video_report_config_switch", true);
+            }
+            return d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void d(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        c = true;
+        d = jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 1) != 0;
+        xt4.k().u("video_report_config_switch", d);
+        e = jSONObject.optInt("upload_type", 0);
+        xt4.k().w("video_report_config_upload_type", e);
+        f = jSONObject.optInt("upload_number", 5);
+        xt4.k().w("video_report_config_upload_number", f);
+        j = jSONObject.optInt("prepare_max_wait_time", 10000);
+        xt4.k().w("video_report_prepare_max_wait_time", j);
+        k = jSONObject.optInt("prepare_max_loading_time", 3000);
+        xt4.k().w("video_report_prepare_max_loading_time", k);
+        l = jSONObject.optInt("is_open_prepare_time", 0) == 1;
+        xt4.k().u("video_report_is_open_prepare_time", l);
+        g = jSONObject.optInt("moov_check", 0) != 0;
+        xt4.k().u("video_report_config_moov_check", g);
+        String optString = jSONObject.optString("android_debug_type");
+        h = optString;
+        if (!StringUtils.isNull(optString)) {
+            xt4.k().y("video_report_config_debug_type", h);
+            e(h);
+        }
+        String optString2 = jSONObject.optString("step_cache_strategy");
+        a = optString2;
+        if (StringUtils.isNull(optString2)) {
+            return;
+        }
+        xt4.k().y("video_report_config_step_cache_strategy", a);
+        f(a);
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (i == null) {
+            i = new HashMap();
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            i.put("debug_avformat_open_input", jSONObject.optString("debug_avformat_open_input"));
+            i.put("debug_dns_strategy", jSONObject.optString("debug_dns_strategy"));
+            i.put("debug_url_null_strategy", jSONObject.optString("debug_url_null_strategy"));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (b == null) {
+            b = new HashMap();
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            b.put("step_cache_force_use_proxy", jSONObject.optString("step_cache_force_use_proxy"));
+            b.put("step_cache_switch", jSONObject.optString("step_cache_switch"));
+            b.put("step_cache_rush_hour", jSONObject.optString("step_cache_rush_hour"));
+            b.put("step_cache_rush_hour_cache_duration", jSONObject.optString("step_cache_rush_hour_cache_duration"));
+            b.put("step_cache_normol_cache_duration", jSONObject.optString("step_cache_normol_cache_duration"));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 }

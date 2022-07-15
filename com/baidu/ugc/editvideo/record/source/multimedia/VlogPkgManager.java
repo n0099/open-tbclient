@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.entity.TemplateInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.utils.FileUtils;
-import com.repackage.c89;
-import com.repackage.r89;
-import com.repackage.re0;
+import com.repackage.b99;
+import com.repackage.q99;
+import com.repackage.we0;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,7 +70,7 @@ public class VlogPkgManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (r89.a(str) || this.mTemplateInfoMap.get(str) == null) {
+            if (q99.a(str) || this.mTemplateInfoMap.get(str) == null) {
                 return null;
             }
             return this.mTemplateInfoMap.get(str);
@@ -82,13 +82,13 @@ public class VlogPkgManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaTrackConfig)) == null) {
-            if (mediaTrackConfig == null || c89.e(mediaTrackConfig.mediaTracks) || !TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE)) {
+            if (mediaTrackConfig == null || b99.e(mediaTrackConfig.mediaTracks) || !TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             for (MediaTrack mediaTrack : mediaTrackConfig.mediaTracks) {
-                if (re0.m(mediaTrack, "input") || re0.m(mediaTrack, "multi_input")) {
-                    if (c89.e(mediaTrack.mediaSegments)) {
+                if (we0.m(mediaTrack, "input") || we0.m(mediaTrack, "multi_input")) {
+                    if (b99.e(mediaTrack.mediaSegments)) {
                         return null;
                     }
                     for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
@@ -96,7 +96,7 @@ public class VlogPkgManager {
                             arrayList.add(mediaSegment);
                         }
                     }
-                } else if (!c89.e(mediaTrack.mediaSegments)) {
+                } else if (!b99.e(mediaTrack.mediaSegments)) {
                     for (MediaSegment mediaSegment2 : mediaTrack.mediaSegments) {
                         if (mediaSegment2 != null && ("input".equals(mediaSegment2.type) || "multi_input".equals(mediaSegment2.type))) {
                             arrayList.add(mediaSegment2);

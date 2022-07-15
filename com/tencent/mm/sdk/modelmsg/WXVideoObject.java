@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WXVideoObject implements WXMediaMessage.IMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LENGTH_LIMIT = 10240;

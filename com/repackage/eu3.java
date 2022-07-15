@@ -1,15 +1,16 @@
 package com.repackage;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class eu3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
@@ -28,52 +29,58 @@ public class eu3 {
                 return;
             }
         }
-        a = cg1.a;
+        a = rg1.a;
     }
 
-    @NonNull
-    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    public eu3(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (((str.hashCode() == -1253235525 && str.equals("gamejs")) ? (char) 0 : (char) 65535) != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                cu3 a2 = du3.a();
-                codeCacheSetting.maxCount = a2.a;
-                codeCacheSetting.sizeLimit = a2.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = a2.c;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        os1 F = os1.F(jsObject);
+        if (F == null) {
+            return;
+        }
+        h03 M = h03.M();
+        if (M == null) {
+            a(F, false, b("internal error"));
+            return;
+        }
+        try {
+            boolean m = F.m("mixWithOther", false);
+            M.U().h("key_audio_is_mix_with_other", Boolean.valueOf(m));
             if (a) {
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cachePath: " + str2);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting diskCodeCacheSizeThreshold: " + codeCacheSetting.diskCodeCacheSizeThreshold);
+                Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + m);
             }
-            return codeCacheSetting;
+            a(F, true, "setInnerAudioOption:ok");
+        } catch (Exception unused) {
+            hx1.c("InnerAudioOptionApi", "set swanApp global var error");
+            a(F, false, b("internal error"));
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
     }
 
-    public static int b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public final void a(os1 os1Var, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z && z2) {
-                return 3;
-            }
-            if (z) {
-                return 1;
-            }
-            return z2 ? 2 : 0;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{os1Var, Boolean.valueOf(z), str}) == null) {
+            pu3 pu3Var = new pu3();
+            pu3Var.errMsg = str;
+            s24.call(os1Var, z, pu3Var);
         }
-        return invokeCommon.intValue;
+    }
+
+    public final String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? String.format("setInnerAudioOption:fail %s", str) : (String) invokeL.objValue;
     }
 }

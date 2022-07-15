@@ -22,29 +22,29 @@ public abstract class b {
     public static int a = 2;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Context f3a;
+    public static Context f730a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static LoggerInterface f4a;
+    public static LoggerInterface f731a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Integer f5a;
+    public static final Integer f732a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f6a;
+    public static String f733a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final HashMap<Integer, Long> f7a;
+    public static final HashMap<Integer, Long> f734a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static AtomicInteger f8a;
+    public static AtomicInteger f735a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static boolean f9a;
+    public static boolean f736a;
     public static final HashMap<Integer, String> b;
 
     /* renamed from: b  reason: collision with other field name */
-    public static boolean f10b;
+    public static boolean f737b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -66,7 +66,7 @@ public abstract class b {
                     return;
                 }
             }
-            this.a = b.f6a;
+            this.a = b.f733a;
         }
 
         @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
@@ -107,12 +107,12 @@ public abstract class b {
                 return;
             }
         }
-        f6a = "XMPush-" + Process.myPid();
-        f4a = new a();
-        f7a = new HashMap<>();
+        f733a = "XMPush-" + Process.myPid();
+        f731a = new a();
+        f734a = new HashMap<>();
         b = new HashMap<>();
-        f5a = -1;
-        f8a = new AtomicInteger(1);
+        f732a = -1;
+        f735a = new AtomicInteger(1);
     }
 
     public static int a() {
@@ -126,20 +126,20 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (a <= 1) {
-                Integer valueOf = Integer.valueOf(f8a.incrementAndGet());
-                f7a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
+                Integer valueOf = Integer.valueOf(f735a.incrementAndGet());
+                f734a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
                 b.put(valueOf, str);
-                LoggerInterface loggerInterface = f4a;
+                LoggerInterface loggerInterface = f731a;
                 loggerInterface.log(str + " starts");
                 return valueOf;
             }
-            return f5a;
+            return f732a;
         }
         return (Integer) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m83a(String str) {
+    public static String m1026a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -172,7 +172,7 @@ public abstract class b {
         if (!(interceptable == null || interceptable.invokeIL(65543, null, i, str) == null) || i < a) {
             return;
         }
-        f4a.log(str);
+        f731a.log(str);
     }
 
     public static void a(int i, String str, Throwable th) {
@@ -180,7 +180,7 @@ public abstract class b {
         if (!(interceptable == null || interceptable.invokeILL(65544, null, i, str, th) == null) || i < a) {
             return;
         }
-        f4a.log(str, th);
+        f731a.log(str, th);
     }
 
     public static void a(int i, Throwable th) {
@@ -188,18 +188,18 @@ public abstract class b {
         if (!(interceptable == null || interceptable.invokeIL(65545, null, i, th) == null) || i < a) {
             return;
         }
-        f4a.log("", th);
+        f731a.log("", th);
     }
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
-            f3a = context;
-            if (m.m556a(context)) {
-                f9a = true;
+            f730a = context;
+            if (m.m1499a(context)) {
+                f736a = true;
             }
-            if (m.m555a()) {
-                f10b = true;
+            if (m.m1498a()) {
+                f737b = true;
             }
         }
     }
@@ -207,29 +207,29 @@ public abstract class b {
     public static void a(LoggerInterface loggerInterface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, loggerInterface) == null) {
-            f4a = loggerInterface;
+            f731a = loggerInterface;
         }
     }
 
     public static void a(Integer num) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, null, num) == null) && a <= 1 && f7a.containsKey(num)) {
-            long currentTimeMillis = System.currentTimeMillis() - f7a.remove(num).longValue();
-            LoggerInterface loggerInterface = f4a;
+        if ((interceptable == null || interceptable.invokeL(65548, null, num) == null) && a <= 1 && f734a.containsKey(num)) {
+            long currentTimeMillis = System.currentTimeMillis() - f734a.remove(num).longValue();
+            LoggerInterface loggerInterface = f731a;
             loggerInterface.log(b.remove(num) + " ends in " + currentTimeMillis + " ms");
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m84a(String str) {
+    public static void m1027a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
-            a(2, m83a(str));
+            a(2, m1026a(str));
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m85a(String str, String str2) {
+    public static void m1028a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) {
             a(2, b(str, str2));
@@ -239,7 +239,7 @@ public abstract class b {
     public static void a(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, str, th) == null) {
-            a(4, m83a(str), th);
+            a(4, m1026a(str), th);
         }
     }
 
@@ -271,34 +271,34 @@ public abstract class b {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            a(0, m83a(str));
+            a(0, m1026a(str));
         }
     }
 
     public static void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, null, str) == null) {
-            a(1, m83a(str));
+            a(1, m1026a(str));
         }
     }
 
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
-            a(4, m83a(str));
+            a(4, m1026a(str));
         }
     }
 
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, null, str) == null) {
-            if (!f9a) {
-                Log.w(f6a, m83a(str));
-                if (f10b) {
+            if (!f736a) {
+                Log.w(f733a, m1026a(str));
+                if (f737b) {
                     return;
                 }
             }
-            m84a(str);
+            m1027a(str);
         }
     }
 }

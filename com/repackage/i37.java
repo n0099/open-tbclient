@@ -1,47 +1,60 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Hottopic.UserInfo;
 /* loaded from: classes6.dex */
 public class i37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    public static i95 a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        InterceptResult invokeIL;
+    public i37() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, cls)) == null) {
-            try {
-                i95 i95Var = new i95(i, cls.newInstance());
-                MessageManager.getInstance().registerTask(i95Var);
-                return i95Var;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (i95) invokeIL.objValue;
     }
 
-    public static j95 b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        InterceptResult invokeCommon;
+    public void a(UserInfo userInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
-            j95 j95Var = new j95(i);
-            j95Var.setResponsedClass(cls);
-            j95Var.h(z);
-            j95Var.setParallel(TiebaIMConfig.getParallel());
-            MessageManager.getInstance().registerTask(j95Var);
-            return j95Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, userInfo) == null) {
+            this.a = userInfo.user_id.longValue();
+            String str = userInfo.user_name;
+            String str2 = userInfo.portrait;
         }
-        return (j95) invokeCommon.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            return obj != null && i37.class == obj.getClass() && this.a == ((i37) obj).a;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long j = this.a;
+            return (int) (j ^ (j >>> 32));
+        }
+        return invokeV.intValue;
     }
 }

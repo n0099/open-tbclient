@@ -1,6 +1,6 @@
 package com.kwad.sdk.pngencrypt;
 /* loaded from: classes5.dex */
-public class e {
+public final class e {
     public final k a;
     public int b;
     public int c;
@@ -21,11 +21,53 @@ public class e {
         this.o = false;
         this.a = kVar;
         this.o = false;
-        a(1);
-        c(0);
+        b(1);
+        a(0);
     }
 
-    public static byte[] b(int i) {
+    private void a(int i) {
+        this.l = i;
+        int i2 = (i * this.b) + this.d;
+        this.m = i2;
+        if (i2 < 0 || i2 >= this.a.b) {
+            throw new PngjException("bad row - this should not happen");
+        }
+    }
+
+    private void b(int i) {
+        int i2;
+        if (this.i == i) {
+            return;
+        }
+        this.i = i;
+        byte[] c = c(i);
+        this.c = c[0];
+        byte b = c[1];
+        this.b = b;
+        this.e = c[2];
+        byte b2 = c[3];
+        this.d = b2;
+        int i3 = this.a.b;
+        this.j = i3 > b2 ? (((i3 + b) - 1) - b2) / b : 0;
+        int i4 = this.a.a;
+        int i5 = this.e;
+        if (i4 > i5) {
+            int i6 = this.c;
+            i2 = (((i4 + i6) - 1) - i5) / i6;
+        } else {
+            i2 = 0;
+        }
+        this.k = i2;
+        if (i2 == 0) {
+            this.j = 0;
+        }
+        int i7 = this.c;
+        int i8 = this.a.d;
+        this.g = i7 * i8;
+        this.f = this.e * i8;
+    }
+
+    public static byte[] c(int i) {
         switch (i) {
             case 1:
                 return new byte[]{8, 8, 0, 0};
@@ -46,95 +88,56 @@ public class e {
         }
     }
 
-    private void c(int i) {
-        this.l = i;
-        int i2 = (i * this.b) + this.d;
-        this.m = i2;
-        if (i2 < 0 || i2 >= this.a.b) {
-            throw new PngjException("bad row - this should not happen");
-        }
+    private int h() {
+        return f();
     }
 
-    public void a(int i) {
-        int i2;
-        if (this.i == i) {
-            return;
-        }
-        this.i = i;
-        byte[] b = b(i);
-        this.c = b[0];
-        byte b2 = b[1];
-        this.b = b2;
-        this.e = b[2];
-        byte b3 = b[3];
-        this.d = b3;
-        int i3 = this.a.b;
-        this.j = i3 > b3 ? (((i3 + b2) - 1) - b3) / b2 : 0;
-        int i4 = this.a.a;
-        int i5 = this.e;
-        if (i4 > i5) {
-            int i6 = this.c;
-            i2 = (((i4 + i6) - 1) - i5) / i6;
-        } else {
-            i2 = 0;
-        }
-        this.k = i2;
-        if (i2 == 0) {
-            this.j = 0;
-        }
-        int i7 = this.c;
-        int i8 = this.a.d;
-        this.g = i7 * i8;
-        this.f = this.e * i8;
-    }
-
-    public boolean a() {
+    public final boolean a() {
         int i;
-        this.n++;
-        int i2 = this.j;
-        if (i2 == 0 || (i = this.l) >= i2 - 1) {
+        while (true) {
+            this.n++;
+            int i2 = this.j;
+            if (i2 != 0 && (i = this.l) < i2 - 1) {
+                a(i + 1);
+                break;
+            }
             int i3 = this.i;
-            if (i3 == 7) {
+            if (i3 != 7) {
+                b(i3 + 1);
+                if (this.j != 0) {
+                    a(0);
+                    break;
+                }
+                this.n--;
+            } else {
                 this.o = true;
                 return false;
             }
-            a(i3 + 1);
-            if (this.j == 0) {
-                this.n--;
-                return a();
-            }
-            c(0);
-        } else {
-            c(i + 1);
         }
         return true;
     }
 
-    public int b() {
+    public final int b() {
         return this.l;
     }
 
-    public int c() {
+    public final int c() {
         return this.m;
     }
 
-    public int d() {
+    public final int d() {
         return this.i;
     }
 
-    public int e() {
+    public final int e() {
         return this.j;
     }
 
-    public int f() {
+    public final int f() {
         return this.k;
     }
 
-    public int g() {
-        return f();
-    }
-
-    public int h() {
-        return ((this.a.i * g()) + 7) / 8;
+    public final int g() {
+        return ((this.a.i * h()) + 7) / 8;
     }
 }

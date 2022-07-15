@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.Fragment;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,6 +23,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.receiver.PluginBroadcastReceiver;
 import com.bytedance.pangle.receiver.c;
+import com.bytedance.pangle.util.MethodUtils;
+import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
@@ -67,9 +70,64 @@ public class ComponentManager {
         }
     }
 
+    public static void realStartActivity(Object obj, Context context, Intent intent, Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65538, null, obj, context, intent, bundle, str) == null) {
+            if (context instanceof PluginContext) {
+                context = ((PluginContext) context).mOriginContext;
+            }
+            if (intent.getComponent() != null) {
+                String className = intent.getComponent().getClassName();
+                Zeus.loadPlugin(str);
+                String str2 = targetString2StubActivity.get(className);
+                if (!TextUtils.isEmpty(str2)) {
+                    intent.setComponent(new ComponentName(context, str2));
+                    intent.putExtra("targetPlugin", className);
+                }
+            }
+            try {
+                if (obj instanceof Fragment) {
+                    ((Fragment) obj).startActivity(intent, bundle);
+                } else if (obj instanceof android.app.Fragment) {
+                    ((android.app.Fragment) obj).startActivity(intent, bundle);
+                } else {
+                    context.startActivity(intent, bundle);
+                }
+            } catch (Throwable th) {
+                throw new RuntimeException("component = " + intent.getComponent(), th);
+            }
+        }
+    }
+
+    public static void realStartActivityForResult(Object obj, Activity activity, Intent intent, int i, Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{obj, activity, intent, Integer.valueOf(i), bundle, str}) == null) {
+            if (intent.getComponent() != null) {
+                String className = intent.getComponent().getClassName();
+                Zeus.loadPlugin(str);
+                String str2 = targetString2StubActivity.get(className);
+                if (!TextUtils.isEmpty(str2)) {
+                    intent.setComponent(new ComponentName(activity, str2));
+                    intent.putExtra("targetPlugin", className);
+                }
+            }
+            try {
+                if (obj instanceof Fragment) {
+                    ((Fragment) obj).startActivityForResult(intent, i, bundle);
+                } else if (obj instanceof android.app.Fragment) {
+                    ((android.app.Fragment) obj).startActivityForResult(intent, i, bundle);
+                } else {
+                    activity.startActivityForResult(intent, i, bundle);
+                }
+            } catch (Throwable th) {
+                throw new RuntimeException("component =  " + intent.getComponent(), th);
+            }
+        }
+    }
+
     public static void registerActivity(String str, String str2, String... strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, strArr) == null) || strArr == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, strArr) == null) || strArr == null) {
             return;
         }
         for (String str3 : strArr) {
@@ -87,7 +145,7 @@ public class ComponentManager {
     public static Intent registerReceiver(Context context, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, pluginBroadcastReceiver, intentFilter, str)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, context, pluginBroadcastReceiver, intentFilter, str)) == null) {
             Zeus.loadPlugin(str);
             if (pluginBroadcastReceiver != null) {
                 com.bytedance.pangle.receiver.c a = com.bytedance.pangle.receiver.c.a();
@@ -104,24 +162,48 @@ public class ComponentManager {
         return (Intent) invokeLLLL.objValue;
     }
 
-    public static void startActivity(Context context, Intent intent, String str) {
+    public static void startActivity(Object obj, Intent intent, Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, context, intent, str) == null) {
-            startActivity(context, intent, null, str);
+        if (interceptable == null || interceptable.invokeLLLL(65547, null, obj, intent, bundle, str) == null) {
+            if (obj instanceof Context) {
+                realStartActivity(null, (Context) obj, intent, bundle, str);
+            } else if (obj instanceof Fragment) {
+                realStartActivity(obj, ((Fragment) obj).getActivity(), intent, bundle, str);
+            } else if (obj instanceof android.app.Fragment) {
+                realStartActivity(obj, ((android.app.Fragment) obj).getActivity(), intent, bundle, str);
+            } else {
+                try {
+                    MethodUtils.invokeMethod(obj, WBConstants.SHARE_START_ACTIVITY, new Object[]{intent, bundle}, new Class[]{Intent.class, Bundle.class});
+                } catch (Throwable th) {
+                    throw new RuntimeException(th);
+                }
+            }
         }
     }
 
-    public static void startActivityForResult(Activity activity, Intent intent, int i, String str) {
+    public static void startActivityForResult(Object obj, Intent intent, int i, Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65546, null, activity, intent, i, str) == null) {
-            startActivityForResult(activity, intent, i, null, str);
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{obj, intent, Integer.valueOf(i), bundle, str}) == null) {
+            if (obj instanceof Activity) {
+                realStartActivityForResult(null, (Activity) obj, intent, i, null, str);
+            } else if (obj instanceof Fragment) {
+                realStartActivityForResult(obj, ((Fragment) obj).getActivity(), intent, i, null, str);
+            } else if (obj instanceof android.app.Fragment) {
+                realStartActivityForResult(obj, ((android.app.Fragment) obj).getActivity(), intent, i, null, str);
+            } else {
+                try {
+                    MethodUtils.invokeMethod(obj, "startActivityForResult", new Object[]{intent, Integer.valueOf(i), bundle}, new Class[]{Intent.class, Integer.TYPE, Bundle.class});
+                } catch (Throwable th) {
+                    throw new RuntimeException(th);
+                }
+            }
         }
     }
 
     public static void unregisterReceiver(Context context, PluginBroadcastReceiver pluginBroadcastReceiver) {
         boolean remove;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65547, null, context, pluginBroadcastReceiver) == null) || pluginBroadcastReceiver == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65550, null, context, pluginBroadcastReceiver) == null) || pluginBroadcastReceiver == null) {
             return;
         }
         com.bytedance.pangle.receiver.c a = com.bytedance.pangle.receiver.c.a();
@@ -149,57 +231,10 @@ public class ComponentManager {
         }
     }
 
-    public static void startActivity(Context context, Intent intent, Bundle bundle, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65543, null, context, intent, bundle, str) == null) {
-            if (context instanceof PluginContext) {
-                context = ((PluginContext) context).mOriginContext;
-            }
-            if (intent.getComponent() != null) {
-                String className = intent.getComponent().getClassName();
-                Zeus.loadPlugin(str);
-                String str2 = targetString2StubActivity.get(className);
-                if (!TextUtils.isEmpty(str2)) {
-                    intent.setComponent(new ComponentName(context, str2));
-                    intent.putExtra("targetPlugin", className);
-                }
-                context.startActivity(intent, bundle);
-                return;
-            }
-            try {
-                context.startActivity(intent, bundle);
-            } catch (Throwable th) {
-                throw new RuntimeException("隐式意图 todo", th);
-            }
-        }
-    }
-
-    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{activity, intent, Integer.valueOf(i), bundle, str}) == null) {
-            if (intent.getComponent() != null) {
-                String className = intent.getComponent().getClassName();
-                Zeus.loadPlugin(str);
-                String str2 = targetString2StubActivity.get(className);
-                if (!TextUtils.isEmpty(str2)) {
-                    intent.setComponent(new ComponentName(activity, str2));
-                    intent.putExtra("targetPlugin", className);
-                }
-                activity.startActivityForResult(intent, i, bundle);
-                return;
-            }
-            try {
-                activity.startActivityForResult(intent, i, bundle);
-            } catch (Throwable th) {
-                throw new RuntimeException("隐式意图 todo", th);
-            }
-        }
-    }
-
     public static Intent registerReceiver(Context context, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str, Handler handler, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, pluginBroadcastReceiver, intentFilter, str, handler, str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, pluginBroadcastReceiver, intentFilter, str, handler, str2})) == null) {
             Zeus.loadPlugin(str2);
             if (pluginBroadcastReceiver != null) {
                 com.bytedance.pangle.receiver.c a = com.bytedance.pangle.receiver.c.a();
@@ -219,10 +254,31 @@ public class ComponentManager {
         return (Intent) invokeCommon.objValue;
     }
 
+    public static void startActivity(Context context, Intent intent, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, context, intent, str) == null) {
+            realStartActivity(null, context, intent, null, str);
+        }
+    }
+
+    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{activity, intent, Integer.valueOf(i), bundle, str}) == null) {
+            realStartActivityForResult(null, activity, intent, i, bundle, str);
+        }
+    }
+
+    public static void startActivity(Context context, Intent intent, Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65545, null, context, intent, bundle, str) == null) {
+            realStartActivity(null, context, intent, bundle, str);
+        }
+    }
+
     public static Intent registerReceiver(Context context, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, int i, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, pluginBroadcastReceiver, intentFilter, Integer.valueOf(i), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, pluginBroadcastReceiver, intentFilter, Integer.valueOf(i), str})) == null) {
             Zeus.loadPlugin(str);
             if (pluginBroadcastReceiver != null) {
                 com.bytedance.pangle.receiver.c a = com.bytedance.pangle.receiver.c.a();
@@ -242,7 +298,7 @@ public class ComponentManager {
     public static Intent registerReceiver(Context context, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str, Handler handler, int i, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, pluginBroadcastReceiver, intentFilter, str, handler, Integer.valueOf(i), str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, pluginBroadcastReceiver, intentFilter, str, handler, Integer.valueOf(i), str2})) == null) {
             Zeus.loadPlugin(str2);
             if (pluginBroadcastReceiver != null) {
                 com.bytedance.pangle.receiver.c a = com.bytedance.pangle.receiver.c.a();

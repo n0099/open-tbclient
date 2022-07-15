@@ -2,6 +2,7 @@ package com.repackage;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class au1 extends ys1 {
+public class au1 extends nt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Join a;
+    public String a;
+    public int b;
+    public int c;
 
     public au1() {
         Interceptable interceptable = $ic;
@@ -29,29 +32,42 @@ public class au1 extends ys1 {
         }
     }
 
-    @Override // com.repackage.ys1
-    public void a(zs1 zs1Var, Canvas canvas) {
-        Paint.Join join;
+    @Override // com.repackage.nt1
+    public void a(ot1 ot1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, zs1Var, canvas) == null) || (join = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) || TextUtils.isEmpty(this.a)) {
             return;
         }
-        zs1Var.c.setStrokeJoin(join);
+        TextPaint textPaint = ot1Var.e;
+        int i = ot1Var.k;
+        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+        float f = fontMetrics.top;
+        int i2 = this.c;
+        float f2 = i2 + f;
+        float f3 = fontMetrics.ascent + i2;
+        float f4 = fontMetrics.bottom;
+        float f5 = i != 1 ? i != 2 ? i != 3 ? i2 : i2 - (f3 - f2) : (i2 + ((f4 - f) / 2.0f)) - f4 : i2 + (((i2 + f4) - f2) / 2.0f) + (f3 - f2);
+        int alpha = textPaint.getAlpha();
+        ot1Var.c(textPaint);
+        canvas.drawText(this.a, this.b, f5, textPaint);
+        textPaint.setAlpha(alpha);
     }
 
-    @Override // com.repackage.ys1
+    @Override // com.repackage.nt1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
-            return;
-        }
-        String optString = jSONArray.optString(0);
-        if (TextUtils.equals(optString, "bevel")) {
-            this.a = Paint.Join.BEVEL;
-        } else if (TextUtils.equals(optString, "round")) {
-            this.a = Paint.Join.ROUND;
-        } else if (TextUtils.equals(optString, "miter")) {
-            this.a = Paint.Join.MITER;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 2) {
+                    this.a = jSONArray.optString(0);
+                    this.b = yd3.g((float) jSONArray.optDouble(1));
+                    this.c = yd3.g((float) jSONArray.optDouble(2));
+                }
+            } catch (Exception e) {
+                if (rg1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

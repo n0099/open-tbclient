@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.Locale;
 /* loaded from: classes5.dex */
-public class e extends k {
+public final class e extends j {
     public final h a;
     public final com.kwad.sdk.core.videocache.kwai.b b;
     public b c;
@@ -17,7 +17,7 @@ public class e extends k {
         this.a = hVar;
     }
 
-    private String a(String str, Object... objArr) {
+    public static String a(String str, Object... objArr) {
         return String.format(Locale.US, str, objArr);
     }
 
@@ -75,19 +75,19 @@ public class e extends k {
         }
     }
 
-    @Override // com.kwad.sdk.core.videocache.k
-    public void a(int i) {
+    @Override // com.kwad.sdk.core.videocache.j
+    public final void a(int i) {
         b bVar = this.c;
         if (bVar != null) {
-            bVar.a(this.b.a, this.a.d(), i);
+            bVar.a(this.b.a, i);
         }
     }
 
-    public void a(b bVar) {
+    public final void a(b bVar) {
         this.c = bVar;
     }
 
-    public void a(d dVar, Socket socket) {
+    public final void a(d dVar, Socket socket) {
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(socket.getOutputStream());
         bufferedOutputStream.write(b(dVar).getBytes("UTF-8"));
         long j = dVar.b;

@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cg1;
-import com.repackage.jd3;
-import com.repackage.md3;
-import com.repackage.rc3;
-import com.repackage.rz2;
-import com.repackage.tu2;
+import com.repackage.be3;
+import com.repackage.g03;
+import com.repackage.gd3;
+import com.repackage.iv2;
+import com.repackage.rg1;
+import com.repackage.yd3;
 @Autowired
 /* loaded from: classes2.dex */
 public class SwanAppLauncherActivity extends Activity {
@@ -31,7 +31,7 @@ public class SwanAppLauncherActivity extends Activity {
     public Object a;
 
     /* loaded from: classes2.dex */
-    public class a implements tu2.b {
+    public class a implements iv2.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppLauncherActivity a;
@@ -101,7 +101,7 @@ public class SwanAppLauncherActivity extends Activity {
                 return;
             }
         }
-        b = cg1.a;
+        b = rg1.a;
     }
 
     public SwanAppLauncherActivity() {
@@ -119,17 +119,17 @@ public class SwanAppLauncherActivity extends Activity {
     }
 
     @Inject(force = false)
-    public tu2 a() {
+    public iv2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? tu2.a : (tu2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? iv2.a : (iv2) invokeV.objValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SwanLauncher.j().m(getIntent().getExtras());
-            rz2.M().post(new b(this));
+            g03.M().post(new b(this));
         }
     }
 
@@ -138,14 +138,14 @@ public class SwanAppLauncherActivity extends Activity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            int c0 = md3.c0(this);
+            int c0 = be3.c0(this);
             super.onCreate(bundle);
-            md3.g(this, c0);
-            jd3.b(this);
+            be3.g(this, c0);
+            yd3.b(this);
             if (b) {
                 Log.d("SwanAppLauncherActivity", "onCreate");
             }
-            if (rc3.a(this)) {
+            if (gd3.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }

@@ -1,92 +1,64 @@
 package com.repackage;
 
-import android.content.Intent;
-import com.baidu.tbadk.mutiprocess.DataType;
-import com.baidu.tbadk.mutiprocess.ParcelableEvent;
-import com.baidu.tbadk.mutiprocess.SerializableEvent;
-import com.baidu.tbadk.mutiprocess.StickyEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class r55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<p55> a;
+    public Context b;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-89301182, "Lcom/repackage/r55$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-89301182, "Lcom/repackage/r55$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[DataType.values().length];
-            a = iArr;
-            try {
-                iArr[DataType.ORM.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[DataType.PARCELABLE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[DataType.SERIALIZABLE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
-
-    public r55() {
+    public r55(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
+        this.b = context;
     }
 
-    public i55 a(Intent intent) {
-        InterceptResult invokeL;
+    public void a(p55 p55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            int intExtra = intent.getIntExtra("value_type", -1);
-            if (intExtra < 0) {
-                return null;
-            }
-            int i = a.a[DataType.values()[intExtra].ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return (SerializableEvent) intent.getSerializableExtra("value");
-                }
-                return (ParcelableEvent) intent.getParcelableExtra("value");
-            }
-            return (StickyEvent) intent.getSerializableExtra("value");
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) || p55Var == null || p55Var.b() == null) {
+            return;
         }
-        return (i55) invokeL.objValue;
+        Iterator<p55> it = this.a.iterator();
+        while (it.hasNext()) {
+            p55 next = it.next();
+            if (next != null && next.b() != null && next.b().e == p55Var.b().e) {
+                return;
+            }
+        }
+        this.a.add(p55Var);
+    }
+
+    public ArrayList<p55> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (Context) invokeV.objValue;
     }
 }

@@ -1,9 +1,10 @@
 package com.kwad.sdk.core.diskcache.a;
 
 import android.content.Context;
+import com.kwad.sdk.utils.aj;
 import java.io.File;
 /* loaded from: classes5.dex */
-public class b {
+public final class b {
     public Context a;
     public int b;
     public long c;
@@ -20,30 +21,24 @@ public class b {
             this.a = context.getApplicationContext();
         }
 
-        public a a(int i) {
-            if (i > 0) {
-                this.b = i;
-                return this;
-            }
-            throw new IllegalArgumentException("appVersion <= 0");
+        public final a a(int i) {
+            this.b = 1;
+            return this;
         }
 
-        public a a(long j) {
-            if (j > 0) {
-                this.c = j;
-                return this;
-            }
-            throw new IllegalArgumentException("maxSize <= 0");
+        public final a a(long j) {
+            this.c = 200L;
+            return this;
         }
 
-        public a a(File file) {
-            d.a(file, "directory is not allow null");
+        public final a a(File file) {
+            aj.a(file, "directory is not allow null");
             this.d = file;
             return this;
         }
 
-        public b a() {
-            b bVar = new b();
+        public final b a() {
+            b bVar = new b((byte) 0);
             bVar.a = this.a;
             bVar.b = this.b;
             bVar.c = this.c;
@@ -53,5 +48,9 @@ public class b {
     }
 
     public b() {
+    }
+
+    public /* synthetic */ b(byte b) {
+        this();
     }
 }

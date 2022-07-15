@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
+import com.bytedance.sdk.openadsdk.TTAdManager;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
 import com.bytedance.sdk.openadsdk.TTAppContextHolder;
 import com.bytedance.sdk.openadsdk.TTDownloadEventLogger;
@@ -24,6 +25,7 @@ import com.bytedance.sdk.openadsdk.downloadnew.core.ITTDownloadVisitor;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ITTHttpCallback;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ITTPermissionCallback;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadEventModel;
+import com.ss.android.download.api.config.IDownloadButtonClickListener;
 import com.ss.android.download.api.config.g;
 import com.ss.android.download.api.config.h;
 import com.ss.android.download.api.config.k;
@@ -116,28 +118,28 @@ public class d {
         g = new com.ss.android.download.api.download.a.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.6
             @Override // com.ss.android.download.api.download.a.a
             public void a(DownloadModel downloadModel, DownloadController downloadController, DownloadEventConfig downloadEventConfig) {
-                com.bytedance.sdk.openadsdk.api.b.d.a("TTDownloadVisitor", "completeListener: onDownloadStart");
+                com.bytedance.sdk.openadsdk.api.a.b("TTDownloadVisitor", "completeListener: onDownloadStart");
             }
 
             @Override // com.ss.android.download.api.download.a.a
             public void b(DownloadInfo downloadInfo, String str) {
-                com.bytedance.sdk.openadsdk.api.b.d.a("TTDownloadVisitor", "completeListener: onInstalled");
+                com.bytedance.sdk.openadsdk.api.a.b("TTDownloadVisitor", "completeListener: onInstalled");
                 d.c(str);
             }
 
             @Override // com.ss.android.download.api.download.a.a
             public void a(DownloadInfo downloadInfo, String str) {
-                com.bytedance.sdk.openadsdk.api.b.d.a("TTDownloadVisitor", "completeListener: onDownloadFinished");
+                com.bytedance.sdk.openadsdk.api.a.b("TTDownloadVisitor", "completeListener: onDownloadFinished");
             }
 
             @Override // com.ss.android.download.api.download.a.a
             public void a(DownloadInfo downloadInfo, BaseException baseException, String str) {
-                com.bytedance.sdk.openadsdk.api.b.d.a("TTDownloadVisitor", "completeListener: onDownloadFailed");
+                com.bytedance.sdk.openadsdk.api.a.b("TTDownloadVisitor", "completeListener: onDownloadFailed");
             }
 
             @Override // com.ss.android.download.api.download.a.a
             public void a(DownloadInfo downloadInfo) {
-                com.bytedance.sdk.openadsdk.api.b.d.a("TTDownloadVisitor", "completeListener: onCanceled");
+                com.bytedance.sdk.openadsdk.api.a.b("TTDownloadVisitor", "completeListener: onCanceled");
             }
         };
     }
@@ -153,7 +155,14 @@ public class d {
 
     public static ITTDownloadVisitor e() {
         ITTDownloadVisitor iTTDownloadVisitor = c;
-        return iTTDownloadVisitor == null ? (ITTDownloadVisitor) TTAdSdk.getAdManager().getExtra(ITTDownloadVisitor.class, com.bytedance.sdk.openadsdk.downloadnew.b.a(1)) : iTTDownloadVisitor;
+        if (iTTDownloadVisitor == null) {
+            TTAdManager adManager = TTAdSdk.getAdManager();
+            if (adManager == null) {
+                return null;
+            }
+            return (ITTDownloadVisitor) adManager.getExtra(ITTDownloadVisitor.class, com.bytedance.sdk.openadsdk.downloadnew.b.a(1));
+        }
+        return iTTDownloadVisitor;
     }
 
     public static Context getContext() {
@@ -167,7 +176,8 @@ public class d {
             if (cVar == null) {
                 return;
             }
-            TTDownloadEventModel label = TTDownloadEventModel.builder().setTag(cVar.b()).setExtJson(cVar.h()).setLabel(cVar.c());
+            Object l = cVar.l();
+            TTDownloadEventModel label = TTDownloadEventModel.builder().setTag(cVar.b()).setExtJson(cVar.h()).setMaterialMeta(l instanceof JSONObject ? (JSONObject) l : null).setLabel(cVar.c());
             boolean z = "download_notification".equals(cVar.b()) || "landing_h5_download_ad_button".equals(cVar.b());
             if (d.e() != null) {
                 d.e().executeLogUpload(label, z);
@@ -176,13 +186,13 @@ public class d {
 
         @Override // com.ss.android.download.api.config.f
         public void a(com.ss.android.download.api.model.c cVar) {
-            com.bytedance.sdk.openadsdk.api.b.d.a("LibEventLogger", "onV3Event");
+            com.bytedance.sdk.openadsdk.api.a.b("LibEventLogger", "onV3Event");
             a(cVar, true);
         }
 
         @Override // com.ss.android.download.api.config.f
         public void b(com.ss.android.download.api.model.c cVar) {
-            com.bytedance.sdk.openadsdk.api.b.d.a("LibEventLogger", "onEvent called");
+            com.bytedance.sdk.openadsdk.api.a.b("LibEventLogger", "onEvent called");
             a(cVar, false);
             c(cVar);
         }
@@ -349,18 +359,18 @@ public class d {
             return DialogBuilder.builder().setTitle(bVar.b).setMessage(bVar.c).setNegativeBtnText(bVar.e).setPositiveBtnText(bVar.d).setIcon(bVar.g).setDialogStatusChangedListener(new IDialogStatusChangedListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.d.1
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.InterfaceC0587b interfaceC0587b = bVar.h;
-                    if (interfaceC0587b != null) {
-                        interfaceC0587b.c(dialogInterface);
+                    b.InterfaceC0793b interfaceC0793b = bVar.h;
+                    if (interfaceC0793b != null) {
+                        interfaceC0793b.c(dialogInterface);
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onNegativeBtnClick(DialogInterface dialogInterface) {
-                    b.InterfaceC0587b interfaceC0587b = bVar.h;
-                    if (interfaceC0587b != null) {
+                    b.InterfaceC0793b interfaceC0793b = bVar.h;
+                    if (interfaceC0793b != null) {
                         try {
-                            interfaceC0587b.b(dialogInterface);
+                            interfaceC0793b.b(dialogInterface);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -369,9 +379,9 @@ public class d {
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onPositiveBtnClick(DialogInterface dialogInterface) {
-                    b.InterfaceC0587b interfaceC0587b = bVar.h;
-                    if (interfaceC0587b != null) {
-                        interfaceC0587b.a(dialogInterface);
+                    b.InterfaceC0793b interfaceC0793b = bVar.h;
+                    if (interfaceC0793b != null) {
+                        interfaceC0793b.a(dialogInterface);
                     }
                 }
             });
@@ -433,7 +443,7 @@ public class d {
                 }
                 return false;
             }
-        }).a(new a.C0586a().b("143").a(TTAdConstant.APP_NAME).c("4.0.2.2").d(String.valueOf(4022)).a()).a(new p() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.1
+        }).a(new a.C0792a().b("143").a(TTAdConstant.APP_NAME).c("4.5.2.6").d(String.valueOf(4526)).a()).a(new p() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.1
             @Override // com.ss.android.download.api.config.p
             public byte[] a(byte[] bArr, int i) {
                 return new byte[0];
@@ -466,6 +476,10 @@ public class d {
     public static com.ss.android.downloadlib.g a() {
         a(getContext());
         return com.ss.android.downloadlib.g.a(getContext());
+    }
+
+    public static boolean a(Context context, Uri uri, DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController, IDownloadButtonClickListener iDownloadButtonClickListener) {
+        return a().e().a(context, uri, downloadModel, downloadEventConfig, downloadController, iDownloadButtonClickListener);
     }
 
     public static boolean a(Context context, Uri uri, DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController) {
@@ -561,8 +575,8 @@ public class d {
     }
 
     public static boolean a(Activity activity, final ExitInstallListener exitInstallListener) {
-        return com.ss.android.downloadlib.addownload.a.a.a().a(activity, false, new a.InterfaceC0592a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.7
-            @Override // com.ss.android.downloadlib.addownload.a.a.InterfaceC0592a
+        return com.ss.android.downloadlib.addownload.a.a.a().a(activity, false, new a.InterfaceC0798a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.7
+            @Override // com.ss.android.downloadlib.addownload.a.a.InterfaceC0798a
             public void a() {
                 ExitInstallListener exitInstallListener2 = ExitInstallListener.this;
                 if (exitInstallListener2 != null) {

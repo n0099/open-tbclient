@@ -1,18 +1,17 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.content.ContentValues;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bz0 {
+public abstract class bz0 {
     public static /* synthetic */ Interceptable $ic;
-    public static bz0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public cz0 a;
 
     public bz0() {
         Interceptable interceptable = $ic;
@@ -24,36 +23,37 @@ public class bz0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new zy0();
-        if (sy0.a()) {
-            return;
-        }
-        this.a = new az0();
     }
 
-    public static bz0 b() {
+    public ContentValues a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (bz0.class) {
-                    if (b == null) {
-                        b = new bz0();
-                    }
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? yy0.b(b().c()) : (ContentValues) invokeV.objValue;
+    }
+
+    public abstract az0 b();
+
+    public String toString() {
+        InterceptResult invokeV;
+        Column[] c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(getClass().getName());
+            sb.append("\n");
+            for (Column column : b().c()) {
+                sb.append("|");
+                sb.append(column.field.e);
+                sb.append("| ");
+                sb.append(column.isAssignedValue ? 1 : 0);
+                sb.append(" | ");
+                sb.append(column.stringValue());
+                sb.append("\n");
             }
-            return b;
+            return sb.toString();
         }
-        return (bz0) invokeV.objValue;
-    }
-
-    @NonNull
-    public cz0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (cz0) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

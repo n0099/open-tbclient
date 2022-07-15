@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.xf8;
+import com.repackage.sg8;
 /* loaded from: classes3.dex */
 public class NEGFeedBackReasonCheckBox extends CheckBox {
     public static /* synthetic */ Interceptable $ic;
@@ -127,12 +127,12 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
             this.d = gradientDrawable2;
             gradientDrawable2.setShape(0);
             this.d.setCornerRadius(f);
-            this.d.setStroke(i2, xf8.a(SkinManager.getColor(i4), SkinManager.RESOURCE_ALPHA_PRESS));
+            this.d.setStroke(i2, sg8.a(SkinManager.getColor(i4), SkinManager.RESOURCE_ALPHA_PRESS));
             GradientDrawable gradientDrawable3 = new GradientDrawable();
             this.e = gradientDrawable3;
             gradientDrawable3.setShape(0);
             this.e.setCornerRadius(f);
-            this.e.setStroke(i2, xf8.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.e.setStroke(i2, sg8.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_DISABLE));
             StateListDrawable stateListDrawable = new StateListDrawable();
             this.f = stateListDrawable;
             stateListDrawable.addState(new int[]{16842912}, this.d);

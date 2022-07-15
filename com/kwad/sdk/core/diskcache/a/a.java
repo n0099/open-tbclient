@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.diskcache.a.c;
+import com.kwad.sdk.utils.aj;
 import java.io.File;
 import java.io.IOException;
 /* loaded from: classes5.dex */
@@ -25,16 +26,20 @@ public class a {
         return a;
     }
 
-    private boolean d() {
-        if (this.b == null) {
-            com.kwad.sdk.core.d.a.e("DiskCache", "diskLruCache should be init before use");
-            return true;
+    private boolean c() {
+        return this.b == null;
+    }
+
+    @Nullable
+    private File d(String str) {
+        if (c() || TextUtils.isEmpty(str)) {
+            return null;
         }
-        return false;
+        return c.a(this.b, str);
     }
 
     @SuppressLint({"MissingPermission"})
-    public void a(b bVar) {
+    public final void a(b bVar) {
         if (this.b != null) {
             return;
         }
@@ -44,70 +49,65 @@ public class a {
                 bVar.d.mkdirs();
             }
             this.b = com.kwad.sdk.core.diskcache.kwai.a.a(bVar.d, bVar.b, 1, bVar.c * 1024 * 1024);
-        } catch (Throwable th) {
-            com.kwad.sdk.core.d.a.a(th);
+        } catch (Throwable unused) {
         }
     }
 
-    public void a(String str) {
-        if (d() || TextUtils.isEmpty(str)) {
+    public final void a(String str) {
+        if (c() || TextUtils.isEmpty(str)) {
             return;
         }
         c.a(this.b, str, d.a(str));
     }
 
-    public void a(String str, Object obj) {
-        if (d() || obj == null) {
-            return;
+    public final boolean a(String str, c.a aVar) {
+        File d;
+        if (!c() && !TextUtils.isEmpty(str)) {
+            String a2 = d.a(str);
+            if (c.a(this.b, str, a2, aVar) && (d = d(a2)) != null && d.exists()) {
+                return true;
+            }
         }
-        d.a(str, "key is not allowed empty");
-        e.a(this.b, d.a(str), obj);
+        return false;
     }
 
-    public boolean a(String str, c.a aVar) {
-        File b;
-        return (d() || TextUtils.isEmpty(str) || !c.a(this.b, str, d.a(str), aVar) || (b = b(str)) == null || !b.exists()) ? false : true;
-    }
-
-    public boolean a(String str, @NonNull String str2, c.a aVar) {
-        File b;
-        return (d() || TextUtils.isEmpty(str) || !c.a(this.b, str, d.a(str2), aVar) || (b = b(str2)) == null || !b.exists()) ? false : true;
-    }
-
-    public File b() {
-        return this.b.a();
+    public final boolean a(String str, @NonNull String str2, c.a aVar) {
+        File d;
+        if (!c() && !TextUtils.isEmpty(str)) {
+            String a2 = d.a(str2);
+            if (c.a(this.b, str, a2, aVar) && (d = d(a2)) != null && d.exists()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Nullable
-    public File b(String str) {
-        if (d() || TextUtils.isEmpty(str)) {
+    public final File b(String str) {
+        if (c() || TextUtils.isEmpty(str)) {
             return null;
         }
-        return new File(b(), d.a(str));
+        return d(d.a(str));
     }
 
-    public Object c(String str) {
-        if (d()) {
-            return null;
+    public final void b() {
+        if (c()) {
+            return;
         }
-        d.a(str, "key is not allowed empty");
-        return e.a(this.b, d.a(str));
-    }
-
-    public void c() {
         try {
-            this.b.c();
-        } catch (IOException e) {
-            com.kwad.sdk.core.d.a.a(e);
+            this.b.e();
+        } catch (IOException unused) {
         }
     }
 
-    public boolean d(String str) {
+    public final boolean c(String str) {
+        if (c()) {
+            return false;
+        }
         try {
-            d.a(str, "cacheKey is not allowed empty");
+            aj.a(str, "cacheKey is not allowed empty");
             return this.b.c(d.a(str));
-        } catch (IOException e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (IOException unused) {
             return false;
         }
     }

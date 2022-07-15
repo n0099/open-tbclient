@@ -45,7 +45,7 @@ import com.tencent.tauth.UiError;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TDialog extends b {
     public static /* synthetic */ Interceptable $ic;
     public static final FrameLayout.LayoutParams c;
@@ -62,7 +62,7 @@ public class TDialog extends b {
     public boolean m;
     public QQToken n;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class FbWebViewClient extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,7 +165,7 @@ public class TDialog extends b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class JsListener extends a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,7 +260,7 @@ public class TDialog extends b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class OnTimeListener extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -352,7 +352,7 @@ public class TDialog extends b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class THandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

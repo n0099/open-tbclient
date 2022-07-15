@@ -31,11 +31,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.fr4;
-import com.repackage.h55;
 import com.repackage.h9;
+import com.repackage.j65;
 import com.repackage.oi;
 import com.repackage.pi;
+import com.repackage.ur4;
 /* loaded from: classes4.dex */
 public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -213,7 +213,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             d();
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
-            fr4 d = fr4.d(this.b);
+            ur4 d = ur4.d(this.b);
             d.n(R.string.J_X05);
             d.l(R.dimen.L_X03);
             d.k(R.color.CAM_X0302);
@@ -228,9 +228,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             return;
         }
         if (z) {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808fa, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080903, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
         } else {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808fb, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080904, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
         }
     }
 
@@ -333,14 +333,14 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
     public void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06d3, (ViewGroup) this, true);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0923c0);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06ef, (ViewGroup) this, true);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092480);
             this.b = relativeLayout;
             relativeLayout.setOnClickListener(this);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091862);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091853);
-            this.f = (AudioAnimationView) findViewById(R.id.obfuscated_res_0x7f0902c9);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09191e);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09190b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0918fc);
+            this.f = (AudioAnimationView) findViewById(R.id.obfuscated_res_0x7f0902cb);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919c7);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);
@@ -405,9 +405,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             this.f.setCertainColumnCount(getAudioVoiceColumnCount());
             this.f.f();
             this.f.setVisibility(4);
-            if (h55.b().d()) {
-                h55.b().n(false);
-                h55.b().l(false);
+            if (j65.b().d()) {
+                j65.b().n(false);
+                j65.b().l(false);
             }
             f(false);
             if (i == 1) {
@@ -508,19 +508,19 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (interceptable == null || interceptable.invokeL(1048603, this, obj) == null) {
             if (obj != null && (obj instanceof TbRichTextVoiceInfo)) {
                 TbRichTextVoiceInfo tbRichTextVoiceInfo = (TbRichTextVoiceInfo) obj;
-                VoiceData.VoiceModel voiceModel = (VoiceData.VoiceModel) tbRichTextVoiceInfo.B();
+                VoiceData.VoiceModel voiceModel = (VoiceData.VoiceModel) tbRichTextVoiceInfo.C();
                 if (voiceModel == null) {
                     voiceModel = new VoiceData.VoiceModel();
-                    if (tbRichTextVoiceInfo.z() == 0) {
+                    if (tbRichTextVoiceInfo.A() == 0) {
                         voiceModel.from = TbadkCoreStatisticKey.PB_VOICE_PLAY;
                     } else {
                         voiceModel.from = TbadkCoreStatisticKey.FLOOR_VOICE_PLAY;
                     }
-                    voiceModel.voiceId = tbRichTextVoiceInfo.A();
+                    voiceModel.voiceId = tbRichTextVoiceInfo.B();
                     voiceModel.duration = tbRichTextVoiceInfo.getDuration();
-                    tbRichTextVoiceInfo.C(voiceModel);
+                    tbRichTextVoiceInfo.D(voiceModel);
                 }
-                tbRichTextVoiceInfo.z();
+                tbRichTextVoiceInfo.A();
                 setVoiceModel(voiceModel);
                 d();
                 obj = voiceModel;
@@ -582,7 +582,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             }
         }
         this.h = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404da});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404de});
         obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         h(context);

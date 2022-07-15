@@ -1,18 +1,14 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Base64;
 import android.util.Log;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.swan.pms.node.Node;
+import com.baidu.android.common.security.RSAUtil;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,94 +16,63 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ra4;
-import com.repackage.t84;
+import com.repackage.hj2;
+import com.repackage.ij2;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Set;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Singleton
-@Service
+import java.util.zip.GZIPInputStream;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes6.dex */
-public class gj2 implements z64 {
+public class gj2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final AtomicInteger b;
+    public static CharSequence c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ tb4 b;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ byte[] c;
+        public final /* synthetic */ AtomicInteger d;
+        public final /* synthetic */ AtomicInteger e;
 
-        /* renamed from: com.repackage.gj2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0436a extends m22 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ AtomicInteger a;
-            public final /* synthetic */ a b;
-
-            public C0436a(a aVar, AtomicInteger atomicInteger) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, atomicInteger};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = atomicInteger;
-            }
-
-            @Override // com.repackage.m22
-            public void d() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.get() == 0) {
-                    ub4.a().c(this.b.b);
-                }
-            }
-
-            @Override // com.repackage.m22
-            public void f(k84 k84Var) {
-                int i;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k84Var) == null) {
-                    super.f(k84Var);
-                    if (k84Var == null || (i = k84Var.a) == 1010 || i == 1015) {
-                        return;
-                    }
-                    this.a.incrementAndGet();
-                }
-            }
-
-            @Override // com.repackage.m22
-            public void h() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.get() == 0) {
-                    ub4.a().c(this.b.b);
-                }
-            }
-        }
-
-        public a(gj2 gj2Var, Set set, tb4 tb4Var) {
+        public a(File file, String str, byte[] bArr, AtomicInteger atomicInteger, AtomicInteger atomicInteger2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gj2Var, set, tb4Var};
+                Object[] objArr = {file, str, bArr, atomicInteger, atomicInteger2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -117,42 +82,61 @@ public class gj2 implements z64 {
                     return;
                 }
             }
-            this.a = set;
-            this.b = tb4Var;
+            this.a = file;
+            this.b = str;
+            this.c = bArr;
+            this.d = atomicInteger;
+            this.e = atomicInteger2;
         }
 
+        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
+        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ArrayList arrayList = new ArrayList();
-                AtomicInteger atomicInteger = new AtomicInteger(0);
-                for (String str : this.a) {
-                    if (!TextUtils.isEmpty(str)) {
-                        arrayList.add(new ra4.a(str, 0));
+                try {
+                    File file = new File(this.a, this.b);
+                    if (file.exists()) {
+                        if (file.length() == this.c.length) {
+                            return;
+                        }
                     }
+                    jg4.m(file.getParentFile());
+                    try {
+                        FileOutputStream fileOutputStream = new FileOutputStream(file);
+                        try {
+                            fileOutputStream.write(this.c);
+                            fileOutputStream.close();
+                        } finally {
+                        }
+                    } catch (Exception e) {
+                        if (this.d != null) {
+                            this.d.incrementAndGet();
+                        }
+                        hx1.l("BundleDecrypt", "write file fail - " + file.getAbsolutePath(), e);
+                    }
+                } finally {
+                    this.e.getAndDecrement();
                 }
-                if (arrayList.isEmpty()) {
-                    return;
-                }
-                iy1.b(arrayList, "3", new C0436a(this, atomicInteger));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a83 a;
-        public final /* synthetic */ JSONObject b;
+        public boolean a;
+        public String b;
 
-        public b(gj2 gj2Var, a83 a83Var, JSONObject jSONObject) {
+        public b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gj2Var, a83Var, jSONObject};
+                Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -162,31 +146,22 @@ public class gj2 implements z64 {
                     return;
                 }
             }
-            this.a = a83Var;
-            this.b = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                or2.g().q(this.a, this.b);
-            }
+            this.a = z;
+            this.b = "";
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements e12<Boolean> {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r84 a;
+        public BufferedInputStream a;
+        public int b;
 
-        public c(gj2 gj2Var, r84 r84Var) {
+        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gj2Var, r84Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -196,18 +171,7 @@ public class gj2 implements z64 {
                     return;
                 }
             }
-            this.a = r84Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.e12
-        /* renamed from: b */
-        public void a(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                kv2.b("download plugin result = " + bool);
-                lv2.b(this.a.g);
-            }
+            this.b = -1;
         }
     }
 
@@ -224,367 +188,820 @@ public class gj2 implements z64 {
                 return;
             }
         }
-        boolean z = cg1.a;
+        a = rg1.a;
+        b = new AtomicInteger(0);
+        c = "._";
+        oj2.g0().getSwitch("swan_pkg_unzip_quickly", false);
+        d = false;
     }
 
-    public gj2() {
+    public static void a(File file, String str, byte[] bArr, AtomicInteger atomicInteger, AtomicInteger atomicInteger2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, file, str, bArr, atomicInteger, atomicInteger2) == null) {
+            jj2.a(new a(file, str, bArr, atomicInteger, atomicInteger2));
+        }
+    }
+
+    public static boolean b(int i, @NonNull File file, int i2, @NonNull b bVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), file, Integer.valueOf(i2), bVar})) == null) {
+            if (i > 0) {
+                String str = i + " files write error";
+                bVar.b = str;
+                hx1.k("BundleDecrypt", str);
+                i73 i73Var = new i73();
+                ac3 ac3Var = new ac3();
+                ac3Var.k(4L);
+                ac3Var.i(52L);
+                i73Var.p(ac3Var);
+                i73Var.l("path", file.getAbsolutePath());
+                i73Var.l("eMsg", str);
+                i73Var.l("decryptType", String.valueOf(i2));
+                i73Var.l("stack", be3.z(30));
+                a73.R(i73Var);
+                return true;
             }
-        }
-    }
-
-    @Override // com.repackage.z64
-    public aa4 A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? zi2.r0() : (aa4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public int B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? rv2.t() : invokeV.intValue;
-    }
-
-    @Override // com.repackage.z64
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rd3.k().m();
-        }
-    }
-
-    @Override // com.repackage.z64
-    public void D(fb4 fb4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, fb4Var) == null) || fb4Var == null) {
-            return;
-        }
-        try {
-            JSONObject b2 = fb4Var.b();
-            JSONArray a2 = fb4Var.a();
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("threshold", b2.optInt("threshold"));
-            jSONObject.put("timeup", b2.optInt("timeup"));
-            jSONObject.put("item", a2.toString());
-            if (sz2.v) {
-                Log.d(Node.TAG, "ceres adapted config " + jSONObject);
-            }
-            if4 if4Var = new if4("0", jSONObject);
-            if4Var.e();
-            ff4.f().o(if4Var);
-        } catch (JSONException e) {
-            if (sz2.v) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.repackage.z64
-    public String E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? zi2.o().q() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public int F(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            zi2.g0().getSwitch(str, i);
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.repackage.z64
-    public void G(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, th) == null) {
-            sw1.l(str, str2, th);
-        }
-    }
-
-    @Override // com.repackage.z64
-    public void H(tb4 tb4Var) {
-        Set<String> b2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, tb4Var) == null) || tb4Var == null || (b2 = tb4Var.b()) == null || b2.size() <= 0) {
-            return;
-        }
-        ExecutorUtilsExt.postOnElastic(new a(this, b2, tb4Var), "preloadPkg", 2);
-    }
-
-    @Override // com.repackage.z64
-    public String I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ow1.m() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public String J(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? x83.h(i) : (String) invokeI.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public void K(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, str2, str3, Integer.valueOf(i), jSONObject, Boolean.valueOf(z)}) == null) {
-            x63.d(str, str2, str3, i, jSONObject, z);
-        }
-    }
-
-    @Override // com.repackage.z64
-    public void L(String str, String str2, String str3, @Nullable Throwable th, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, th, Boolean.valueOf(z)}) == null) {
-            sw1.e(str, str2, str3, th, z);
-        }
-    }
-
-    @Override // com.repackage.z64
-    public z84 M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? rz2.K().N() : (z84) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public float a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? zi2.m().a() : invokeV.floatValue;
-    }
-
-    @Override // com.repackage.z64
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? dg1.a() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? zi2.n().a() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public void d(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bArr) == null) {
-            zi2.e().d(bArr);
-        }
-    }
-
-    @Override // com.repackage.z64
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? cg4.b(AppRuntime.getAppContext()).a() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public CookieManager f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? zi2.q().a() : (CookieManager) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? zi2.h0().i(AppRuntime.getAppContext()) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? md3.D() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public sf4 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? g83.b("swan_app_pms_sp") : (sf4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public long j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) ? ba2.d(i) : invokeI.longValue;
-    }
-
-    @Override // com.repackage.z64
-    public void k(JSONArray jSONArray, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048599, this, jSONArray, str, str2) == null) {
-            f23.b().n(jSONArray, str, str2);
-        }
-    }
-
-    @Override // com.repackage.z64
-    public List<j84> l(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048600, this, str, j)) == null) ? zu2.e(str, j) : (List) invokeLJ.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public void m(String str, String str2, t84.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048601, this, str, str2, cVar) == null) {
-            zi2.e().f(str, str2, cVar);
-        }
-    }
-
-    @Override // com.repackage.z64
-    public z84 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? new e32(rz2.K()) : (z84) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public boolean o(boolean z, @NonNull JSONArray jSONArray) {
-        InterceptResult invokeZL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZL = interceptable.invokeZL(1048603, this, z, jSONArray)) == null) ? new de3(z).c(jSONArray) : invokeZL.booleanValue;
-    }
-
-    @Override // com.repackage.z64
-    public void p(String str, JSONObject jSONObject, p84 p84Var, List<q84> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048604, this, str, jSONObject, p84Var, list) == null) {
-            wp2.g(str, jSONObject, p84Var, list);
-        }
-    }
-
-    @Override // com.repackage.z64
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? zi2.g0().k() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public boolean r(@Nullable r84 r84Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, r84Var)) == null) {
-            File g = zu2.g(r84Var);
-            return g != null && g.exists();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.z64
-    public void s(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048607, this, pMSAppInfo, jSONObject, z) == null) {
-            if (pMSAppInfo == null) {
-                if (sz2.v) {
-                    Log.e("SwanAppUpdateManager", "pms app info is null");
-                    return;
-                }
-                return;
-            }
-            String str = pMSAppInfo.appKey;
-            if (!TextUtils.isEmpty(str) && jSONObject != null) {
-                int i = pMSAppInfo.type;
-                a83 b2 = g83.b(a73.u(str, i));
-                b2.putBoolean("swan_service_update_degraded", z);
-                sw1.k("SwanAppUpdateManager", "update async appKey = " + str + " ; type = " + i + " ; serviceDegraded = " + z);
-                mc3.l(new b(this, b2, jSONObject), "parseAccreditList");
-            } else if (sz2.v) {
-                Log.e("SwanAppUpdateManager", "appKey = " + str + " is empty or accredit list is null");
-            }
-        }
-    }
-
-    @Override // com.repackage.z64
-    public void t(ic4 ic4Var, yc4 yc4Var) {
-        Collection<r84> collection;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048608, this, ic4Var, yc4Var) == null) || ic4Var == null || (collection = ic4Var.e) == null || yc4Var == null) {
-            return;
-        }
-        for (r84 r84Var : collection) {
-            yu2 yu2Var = new yu2(r84Var.g, r84Var.j, r84Var.i, new c(this, r84Var));
-            ic4 ic4Var2 = new ic4();
-            ic4Var2.e = new ArrayList();
-            yc4 yc4Var2 = new yc4();
-            jc4.b(r84Var, yc4Var2);
-            yu2Var.G(yc4Var2);
-            ic4Var2.e.clear();
-            ic4Var2.e.add(r84Var);
-            b94.e(ic4Var2, yu2Var);
-        }
-    }
-
-    @Override // com.repackage.z64
-    public String u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? st2.b() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public String v(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i)) == null) ? ba2.e(i) : (String) invokeI.objValue;
-    }
-
-    @Override // com.repackage.z64
-    public long w(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) ? x83.f(i) : invokeI.longValue;
-    }
-
-    @Override // com.repackage.z64
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            kv2.c("线下调试需要禁用BDTLS");
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    @Override // com.repackage.z64
-    public void y(String str, String str2) {
+    @NonNull
+    public static Pair<Boolean, File> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048613, this, str, str2) == null) {
-            sw1.k(str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            File file = new File(oj2.c().getFilesDir(), "swan_tmp_unzip");
+            jg4.l(file);
+            File file2 = new File(file, System.nanoTime() + "_" + b.incrementAndGet());
+            boolean l = jg4.l(file2);
+            hx1.k("BundleDecrypt", "#createTmpUnzipDir tmpUnzipDir=" + file2 + " dirExist=" + l);
+            return new Pair<>(Boolean.valueOf(l), file2);
+        }
+        return (Pair) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:163:0x03a7  */
+    /* JADX WARN: Removed duplicated region for block: B:166:0x03c4  */
+    /* JADX WARN: Removed duplicated region for block: B:171:0x03f6  */
+    @NonNull
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static b d(BufferedInputStream bufferedInputStream, File file, int i) {
+        InterceptResult invokeLLI;
+        DataInputStream dataInputStream;
+        long j;
+        File file2;
+        DataInputStream dataInputStream2;
+        byte[] f;
+        DataInputStream dataInputStream3;
+        DataInputStream dataInputStream4;
+        AtomicInteger atomicInteger;
+        CountDownLatch countDownLatch;
+        String str;
+        ArrayList arrayList;
+        String str2;
+        String str3;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bufferedInputStream, file, i)) == null) {
+            String str5 = " 耗时(ms): ";
+            String str6 = "删除tmpUnzipDir ";
+            String str7 = "BundleDecrypt";
+            if (d) {
+                hx1.k("BundleDecrypt", "#decryptQuickly dstFolder=" + file + " type=" + i);
+                return g(bufferedInputStream, file, i);
+            }
+            long nanoTime = a ? System.nanoTime() : 0L;
+            b bVar = new b(false);
+            if (file == null || bufferedInputStream == null || i == 0) {
+                return bVar;
+            }
+            hj2 hj2Var = new hj2();
+            try {
+                dataInputStream2 = new DataInputStream(bufferedInputStream);
+                try {
+                    try {
+                        l(dataInputStream2);
+                        hj2Var.a = l(dataInputStream2);
+                        hj2Var.b = l(dataInputStream2);
+                        l(dataInputStream2);
+                        m(dataInputStream2);
+                        dataInputStream2.readFully(hj2Var.c);
+                        f = f(hj2Var.c);
+                    } catch (Throwable th) {
+                        th = th;
+                        dataInputStream = dataInputStream2;
+                        file2 = null;
+                        jg4.d(dataInputStream);
+                        if (file2 != null) {
+                            hx1.k(str7, str6 + file2.getAbsolutePath());
+                            jg4.L(file2);
+                        }
+                        throw th;
+                    }
+                } catch (Exception e) {
+                    e = e;
+                    j = nanoTime;
+                }
+                try {
+                } catch (Exception e2) {
+                    e = e2;
+                    dataInputStream = dataInputStream2;
+                    file2 = null;
+                    try {
+                        bVar.b = e.getLocalizedMessage();
+                        hx1.l(str7, "解压异常", e);
+                        jg4.d(dataInputStream);
+                        if (file2 != null) {
+                        }
+                        if (a) {
+                        }
+                        return bVar;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        jg4.d(dataInputStream);
+                        if (file2 != null) {
+                        }
+                        throw th;
+                    }
+                }
+            } catch (Exception e3) {
+                e = e3;
+                j = nanoTime;
+                dataInputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                dataInputStream = null;
+            }
+            if (f != null && f.length > 0) {
+                byte[] bArr = new byte[hj2Var.b];
+                dataInputStream2.readFully(bArr);
+                byte[] bArr2 = new byte[16];
+                byte[] bArr3 = new byte[16];
+                System.arraycopy(f, 0, bArr2, 0, 16);
+                System.arraycopy(f, 16, bArr3, 0, 16);
+                byte[] e4 = e(bArr, bArr2, bArr3);
+                if (e4 != null && e4.length > 0) {
+                    if (i == 2) {
+                        try {
+                            dataInputStream3 = new DataInputStream(oj2.j().a(new ByteArrayInputStream(e4)));
+                            dataInputStream4 = new DataInputStream(oj2.j().a(dataInputStream2));
+                        } catch (Exception e5) {
+                            e = e5;
+                            dataInputStream = dataInputStream2;
+                            j = nanoTime;
+                            file2 = null;
+                            bVar.b = e.getLocalizedMessage();
+                            hx1.l(str7, "解压异常", e);
+                            jg4.d(dataInputStream);
+                            if (file2 != null) {
+                            }
+                            if (a) {
+                            }
+                            return bVar;
+                        }
+                    } else {
+                        dataInputStream3 = new DataInputStream(new ByteArrayInputStream(e4));
+                        dataInputStream4 = new DataInputStream(new GZIPInputStream(dataInputStream2));
+                    }
+                    DataInputStream dataInputStream5 = dataInputStream3;
+                    DataInputStream dataInputStream6 = dataInputStream4;
+                    if (!jg4.l(file)) {
+                        String str8 = "解压目录创建失败 path=" + file.getAbsolutePath();
+                        hx1.k("BundleDecrypt", str8);
+                        bVar.b = str8;
+                        jg4.d(dataInputStream2);
+                        return bVar;
+                    }
+                    Pair<Boolean, File> c2 = c();
+                    if (!((Boolean) c2.first).booleanValue()) {
+                        String str9 = "临时目录创建失败 path=" + ((File) c2.second).getAbsolutePath();
+                        hx1.k("BundleDecrypt", str9);
+                        bVar.b = str9;
+                        jg4.d(dataInputStream2);
+                        return bVar;
+                    }
+                    File file3 = (File) c2.second;
+                    try {
+                        try {
+                            atomicInteger = new AtomicInteger(0);
+                            countDownLatch = new CountDownLatch(4);
+                            j = nanoTime;
+                            try {
+                                Handler[] handlerArr = new Handler[4];
+                                int i2 = 0;
+                                for (int i3 = 4; i2 < i3; i3 = 4) {
+                                    String str10 = str5;
+                                    try {
+                                        ij2 ij2Var = new ij2("BundleDecrypt" + i2, file3, countDownLatch, atomicInteger);
+                                        ij2Var.start();
+                                        handlerArr[i2] = ij2Var.d();
+                                        i2++;
+                                        str5 = str10;
+                                    } catch (Exception e6) {
+                                        e = e6;
+                                        dataInputStream = dataInputStream2;
+                                        file2 = file3;
+                                        str5 = str10;
+                                        bVar.b = e.getLocalizedMessage();
+                                        hx1.l(str7, "解压异常", e);
+                                        jg4.d(dataInputStream);
+                                        if (file2 != null) {
+                                            hx1.k(str7, str6 + file2.getAbsolutePath());
+                                            jg4.L(file2);
+                                        }
+                                        if (a) {
+                                        }
+                                        return bVar;
+                                    }
+                                }
+                                str = str5;
+                                try {
+                                    arrayList = new ArrayList();
+                                    int i4 = 0;
+                                    while (i4 < hj2Var.a) {
+                                        try {
+                                            hj2.a r = r(dataInputStream5);
+                                            hj2 hj2Var2 = hj2Var;
+                                            String str11 = str7;
+                                            try {
+                                                if (r.c.contains(c)) {
+                                                    dataInputStream6.skipBytes(r.a);
+                                                    str4 = str6;
+                                                } else {
+                                                    byte[] bArr4 = new byte[r.a];
+                                                    dataInputStream6.readFully(bArr4);
+                                                    Message obtain = Message.obtain();
+                                                    str4 = str6;
+                                                    try {
+                                                        ij2.b bVar2 = new ij2.b();
+                                                        bVar2.b = bArr4;
+                                                        bVar2.a = r.c;
+                                                        obtain.what = 100;
+                                                        obtain.obj = bVar2;
+                                                        handlerArr[i4 % 4].sendMessage(obtain);
+                                                        arrayList.add(r);
+                                                    } catch (Throwable th4) {
+                                                        th = th4;
+                                                        for (int i5 = 0; i5 < 4; i5++) {
+                                                            handlerArr[i5].sendEmptyMessage(200);
+                                                        }
+                                                        countDownLatch.await();
+                                                        jg4.d(dataInputStream5);
+                                                        jg4.d(dataInputStream6);
+                                                        throw th;
+                                                    }
+                                                }
+                                                i4++;
+                                                hj2Var = hj2Var2;
+                                                str7 = str11;
+                                                str6 = str4;
+                                            } catch (Throwable th5) {
+                                                th = th5;
+                                            }
+                                        } catch (Throwable th6) {
+                                            th = th6;
+                                        }
+                                    }
+                                    str2 = str6;
+                                    str3 = str7;
+                                    int i6 = 0;
+                                    for (int i7 = 4; i6 < i7; i7 = 4) {
+                                        try {
+                                            handlerArr[i6].sendEmptyMessage(200);
+                                            i6++;
+                                        } catch (Exception e7) {
+                                            e = e7;
+                                            dataInputStream = dataInputStream2;
+                                            file2 = file3;
+                                            str5 = str;
+                                            str7 = str3;
+                                            str6 = str2;
+                                            bVar.b = e.getLocalizedMessage();
+                                            hx1.l(str7, "解压异常", e);
+                                            jg4.d(dataInputStream);
+                                            if (file2 != null) {
+                                            }
+                                            if (a) {
+                                            }
+                                            return bVar;
+                                        } catch (Throwable th7) {
+                                            th = th7;
+                                            dataInputStream = dataInputStream2;
+                                            file2 = file3;
+                                            str7 = str3;
+                                            str6 = str2;
+                                            jg4.d(dataInputStream);
+                                            if (file2 != null) {
+                                            }
+                                            throw th;
+                                        }
+                                    }
+                                } catch (Exception e8) {
+                                    e = e8;
+                                    str5 = str;
+                                }
+                            } catch (Exception e9) {
+                                e = e9;
+                            }
+                        } catch (Throwable th8) {
+                            th = th8;
+                        }
+                    } catch (Exception e10) {
+                        e = e10;
+                        j = nanoTime;
+                    }
+                    try {
+                        countDownLatch.await();
+                        jg4.d(dataInputStream5);
+                        jg4.d(dataInputStream6);
+                    } catch (Exception e11) {
+                        e = e11;
+                        str5 = str;
+                        str7 = str3;
+                        str6 = str2;
+                        dataInputStream = dataInputStream2;
+                        file2 = file3;
+                        bVar.b = e.getLocalizedMessage();
+                        hx1.l(str7, "解压异常", e);
+                        jg4.d(dataInputStream);
+                        if (file2 != null) {
+                        }
+                        if (a) {
+                        }
+                        return bVar;
+                    } catch (Throwable th9) {
+                        th = th9;
+                        str7 = str3;
+                        str6 = str2;
+                        dataInputStream = dataInputStream2;
+                        file2 = file3;
+                        jg4.d(dataInputStream);
+                        if (file2 != null) {
+                        }
+                        throw th;
+                    }
+                    if (b(atomicInteger.get(), file, i, bVar)) {
+                        jg4.d(dataInputStream2);
+                        if (file3 != null) {
+                            hx1.k(str3, str2 + file3.getAbsolutePath());
+                            jg4.L(file3);
+                        }
+                        return bVar;
+                    }
+                    str7 = str3;
+                    str6 = str2;
+                    if (!n(arrayList, file3, i)) {
+                        String str12 = "解压后校验失败 tmpUnzipDir=" + file3;
+                        hx1.k(str7, str12);
+                        bVar.b = str12;
+                        jg4.d(dataInputStream2);
+                        if (file3 != null) {
+                            hx1.k(str7, str6 + file3.getAbsolutePath());
+                            jg4.L(file3);
+                        }
+                        return bVar;
+                    }
+                    long nanoTime2 = a ? System.nanoTime() : 0L;
+                    boolean q = q(file3, file, arrayList);
+                    if (a) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("#moveToDestDir dstFolder=");
+                        sb.append(file.getAbsolutePath());
+                        sb.append(" moveRes=");
+                        sb.append(q);
+                        sb.append(" fileCount=");
+                        sb.append(arrayList.size());
+                        str5 = str;
+                        sb.append(str5);
+                        sb.append((System.nanoTime() - nanoTime2) / 1000000.0d);
+                        Log.i(str7, sb.toString());
+                    } else {
+                        str5 = str;
+                    }
+                    if (!q) {
+                        String str13 = "解压后rename失败 dstFolder=" + file;
+                        hx1.k(str7, str13);
+                        bVar.b = str13;
+                        jg4.d(dataInputStream2);
+                        if (file3 != null) {
+                            hx1.k(str7, str6 + file3.getAbsolutePath());
+                            jg4.L(file3);
+                        }
+                        return bVar;
+                    }
+                    bVar.a = true;
+                    jg4.d(dataInputStream2);
+                    if (file3 != null) {
+                        hx1.k(str7, str6 + file3.getAbsolutePath());
+                        jg4.L(file3);
+                    }
+                    if (a) {
+                        Log.i(str7, "#decrypt dstFolder=" + file.getAbsolutePath() + str5 + ((System.nanoTime() - j) / 1000000.0d));
+                    }
+                    return bVar;
+                }
+                hx1.k("BundleDecrypt", "index array length <= 0");
+                bVar.b = "index array length <= 0";
+                jg4.d(dataInputStream2);
+                return bVar;
+            }
+            hx1.k("BundleDecrypt", "cipher is null");
+            bVar.b = "cipher is null";
+            jg4.d(dataInputStream2);
+            return bVar;
+        }
+        return (b) invokeLLI.objValue;
+    }
+
+    public static byte[] e(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, bArr, bArr2, bArr3)) == null) {
+            try {
+                Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+                cipher.init(2, new SecretKeySpec(bArr2, "AES"), new IvParameterSpec(bArr3));
+                return cipher.doFinal(bArr);
+            } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e) {
+                if (a) {
+                    Log.e("BundleDecrypt", "use key/iv decrypt AES fail", e);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public static byte[] f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            try {
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(2, o());
+                return cipher.doFinal(bArr);
+            } catch (InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e) {
+                if (a) {
+                    Log.e("BundleDecrypt", "decypt cipher fail", e);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static b g(BufferedInputStream bufferedInputStream, File file, int i) {
+        InterceptResult invokeLLI;
+        DataInputStream dataInputStream;
+        byte[] f;
+        DataInputStream dataInputStream2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, bufferedInputStream, file, i)) == null) {
+            b bVar = new b(false);
+            if (file == null || bufferedInputStream == null || i == 0) {
+                return bVar;
+            }
+            hj2 hj2Var = new hj2();
+            DataInputStream dataInputStream3 = null;
+            try {
+                try {
+                    dataInputStream = new DataInputStream(bufferedInputStream);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+            }
+            try {
+                l(dataInputStream);
+                hj2Var.a = l(dataInputStream);
+                hj2Var.b = l(dataInputStream);
+                l(dataInputStream);
+                m(dataInputStream);
+                dataInputStream.readFully(hj2Var.c);
+                f = f(hj2Var.c);
+            } catch (Exception e2) {
+                e = e2;
+                dataInputStream3 = dataInputStream;
+                bVar.b = e.getLocalizedMessage();
+                hx1.l("BundleDecrypt", "解压异常 dstFolder=" + file, e);
+                jg4.d(dataInputStream3);
+                return bVar;
+            } catch (Throwable th2) {
+                th = th2;
+                dataInputStream3 = dataInputStream;
+                jg4.d(dataInputStream3);
+                throw th;
+            }
+            if (f != null && f.length > 0) {
+                byte[] bArr = new byte[hj2Var.b];
+                dataInputStream.readFully(bArr);
+                byte[] bArr2 = new byte[16];
+                byte[] bArr3 = new byte[16];
+                System.arraycopy(f, 0, bArr2, 0, 16);
+                System.arraycopy(f, 16, bArr3, 0, 16);
+                byte[] e3 = e(bArr, bArr2, bArr3);
+                if (e3 != null && e3.length > 0) {
+                    if (i == 2) {
+                        dataInputStream3 = new DataInputStream(oj2.j().a(new ByteArrayInputStream(e3)));
+                        dataInputStream2 = new DataInputStream(oj2.j().a(dataInputStream));
+                    } else {
+                        dataInputStream3 = new DataInputStream(new ByteArrayInputStream(e3));
+                        dataInputStream2 = new DataInputStream(new GZIPInputStream(dataInputStream));
+                    }
+                    if (!jg4.m(file)) {
+                        String str = "解压目录创建失败 path=" + file.getAbsolutePath();
+                        hx1.k("BundleDecrypt", str);
+                        bVar.b = str;
+                        jg4.d(dataInputStream);
+                        return bVar;
+                    }
+                    AtomicInteger atomicInteger = new AtomicInteger(0);
+                    AtomicInteger atomicInteger2 = new AtomicInteger(hj2Var.a);
+                    ArrayList arrayList = new ArrayList();
+                    for (int i2 = 0; i2 < hj2Var.a; i2++) {
+                        try {
+                            hj2.a r = r(dataInputStream3);
+                            if (r.c.contains(c)) {
+                                atomicInteger2.getAndDecrement();
+                                dataInputStream2.skipBytes(r.a);
+                            } else {
+                                byte[] bArr4 = new byte[r.a];
+                                dataInputStream2.readFully(bArr4);
+                                a(file, r.c, bArr4, atomicInteger, atomicInteger2);
+                                arrayList.add(r);
+                            }
+                        } catch (Throwable th3) {
+                            atomicInteger2.set(0);
+                            jg4.d(dataInputStream3);
+                            jg4.d(dataInputStream2);
+                            throw th3;
+                        }
+                    }
+                    while (atomicInteger2.get() > 0) {
+                        TimeUnit.MILLISECONDS.sleep(1L);
+                    }
+                    atomicInteger2.set(0);
+                    jg4.d(dataInputStream3);
+                    jg4.d(dataInputStream2);
+                    if (b(atomicInteger.get(), file, i, bVar)) {
+                        jg4.d(dataInputStream);
+                        return bVar;
+                    } else if (!n(arrayList, file, i)) {
+                        String str2 = "解压后校验失败 dstFolder=" + file;
+                        hx1.k("BundleDecrypt", str2);
+                        bVar.b = str2;
+                        jg4.d(dataInputStream);
+                        return bVar;
+                    } else {
+                        bVar.a = true;
+                        jg4.d(dataInputStream);
+                        return bVar;
+                    }
+                }
+                hx1.k("BundleDecrypt", "index array length <= 0");
+                bVar.b = "index array length <= 0";
+                jg4.d(dataInputStream);
+                return bVar;
+            }
+            hx1.k("BundleDecrypt", "cipher is null");
+            bVar.b = "cipher is null";
+            jg4.d(dataInputStream);
+            return bVar;
+        }
+        return (b) invokeLLI.objValue;
+    }
+
+    public static void h(int i) {
+        FileWriter fileWriter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65544, null, i) == null) {
+            File file = new File(k());
+            FileWriter fileWriter2 = null;
+            try {
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    fileWriter = new FileWriter(file, true);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (IOException e) {
+                e = e;
+            }
+            try {
+                fileWriter.write(String.valueOf(i));
+                fileWriter.write(44);
+                jg4.d(fileWriter);
+            } catch (IOException e2) {
+                e = e2;
+                fileWriter2 = fileWriter;
+                if (a) {
+                    e.printStackTrace();
+                }
+                jg4.d(fileWriter2);
+            } catch (Throwable th2) {
+                th = th2;
+                fileWriter2 = fileWriter;
+                jg4.d(fileWriter2);
+                throw th;
+            }
         }
     }
 
-    @Override // com.repackage.z64
-    public void z(String str, String str2, String str3, boolean z) {
+    public static c i(@NonNull BufferedInputStream bufferedInputStream) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
-            sw1.j(str, str2, str3, z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bufferedInputStream)) == null) {
+            c cVar = new c();
+            cVar.a = bufferedInputStream;
+            bufferedInputStream.mark(8);
+            int read = (bufferedInputStream.read() << 8) | bufferedInputStream.read() | (bufferedInputStream.read() << 16) | (bufferedInputStream.read() << 24);
+            if (read == -1122498812) {
+                cVar.b = 1;
+            } else if (read == -1122434039) {
+                cVar.b = 2;
+            } else {
+                bufferedInputStream.reset();
+            }
+            return cVar;
         }
+        return (c) invokeL.objValue;
+    }
+
+    public static c j(File file) {
+        InterceptResult invokeL;
+        BufferedInputStream bufferedInputStream;
+        int read;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, file)) == null) {
+            c cVar = new c();
+            if (file != null && file.exists()) {
+                BufferedInputStream bufferedInputStream2 = null;
+                try {
+                    bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
+                } catch (IOException e) {
+                    e = e;
+                }
+                try {
+                    read = bufferedInputStream.read() | (bufferedInputStream.read() << 8) | (bufferedInputStream.read() << 16) | (bufferedInputStream.read() << 24);
+                } catch (IOException e2) {
+                    e = e2;
+                    bufferedInputStream2 = bufferedInputStream;
+                    if (a) {
+                        Log.e("BundleDecrypt", "bundle encryption check fail", e);
+                    }
+                    bufferedInputStream = bufferedInputStream2;
+                    jg4.d(bufferedInputStream);
+                    return cVar;
+                }
+                if (read == -1122498812) {
+                    cVar.a = bufferedInputStream;
+                    cVar.b = 1;
+                    return cVar;
+                }
+                if (read == -1122434039) {
+                    cVar.a = bufferedInputStream;
+                    cVar.b = 2;
+                    return cVar;
+                }
+                jg4.d(bufferedInputStream);
+            }
+            return cVar;
+        }
+        return (c) invokeL.objValue;
+    }
+
+    public static String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new File(zk2.d().get(0).a, "/decryptLog.csv").getAbsolutePath() : (String) invokeV.objValue;
+    }
+
+    public static int l(DataInputStream dataInputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, dataInputStream)) == null) {
+            byte[] bArr = new byte[4];
+            dataInputStream.readFully(bArr);
+            return ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN).getInt();
+        }
+        return invokeL.intValue;
+    }
+
+    public static long m(DataInputStream dataInputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, dataInputStream)) == null) {
+            byte[] bArr = new byte[8];
+            dataInputStream.readFully(bArr);
+            return ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN).getLong();
+        }
+        return invokeL.longValue;
+    }
+
+    public static boolean n(List<hj2.a> list, File file, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65550, null, list, file, i)) == null) {
+            long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
+            for (hj2.a aVar : list) {
+                File file2 = new File(file, aVar.c);
+                if (!file2.exists() || (file2.isFile() && file2.length() != aVar.a)) {
+                    hx1.k("BundleDecrypt", "decrypt：unpack file " + aVar.c + " fail");
+                    i73 i73Var = new i73();
+                    ac3 ac3Var = new ac3();
+                    ac3Var.k(4L);
+                    ac3Var.i(52L);
+                    i73Var.p(ac3Var);
+                    i73Var.l("path", file2.getAbsolutePath());
+                    i73Var.l("eMsg", "decrypt files not match encrypt content");
+                    i73Var.l("decryptType", String.valueOf(i));
+                    i73Var.l("stack", be3.z(30));
+                    a73.R(i73Var);
+                    return false;
+                }
+            }
+            if (a) {
+                Log.d("BundleDecrypt", "check all files valid cost - " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
+                return true;
+            }
+            return true;
+        }
+        return invokeLLI.booleanValue;
+    }
+
+    public static PublicKey o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            try {
+                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode("MEwwDQYJKoZIhvcNAQEBBQADOwAwOAIxAMrOpIWOfuGDG1bjUXV5aPU5UQr0vmOqJif4uJC+7/2B9Nm27SEGINei70QIW4x/vwIDAQAB".getBytes(IMAudioTransRequest.CHARSET), 0)));
+            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e) {
+                if (a) {
+                    Log.e("BundleDecrypt", e.getMessage());
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (PublicKey) invokeV.objValue;
+    }
+
+    public static boolean p(@NonNull File file, @NonNull File file2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, file, file2)) == null) {
+            if (file2.exists()) {
+                return file.length() == file2.length() || file.renameTo(file2);
+            }
+            file2.getParentFile().mkdirs();
+            return file.renameTo(file2);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean q(File file, File file2, List<hj2.a> list) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, null, file, file2, list)) == null) {
+            if (file == null || file2 == null || list == null || !file.isDirectory() || !file2.isDirectory()) {
+                return false;
+            }
+            for (hj2.a aVar : list) {
+                String str = aVar.c;
+                File file3 = new File(file, str);
+                File file4 = new File(file2, str);
+                if (!p(file3, file4)) {
+                    hx1.k("BundleDecrypt", "#moveFile fail src=" + file3.getAbsolutePath() + "dst=" + file4.getAbsolutePath());
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static hj2.a r(DataInputStream dataInputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, dataInputStream)) == null) {
+            hj2.a aVar = new hj2.a();
+            l(dataInputStream);
+            aVar.a = l(dataInputStream);
+            int l = l(dataInputStream);
+            aVar.b = l;
+            byte[] bArr = new byte[l];
+            dataInputStream.readFully(bArr);
+            aVar.c = new String(bArr, IMAudioTransRequest.CHARSET);
+            return aVar;
+        }
+        return (hj2.a) invokeL.objValue;
     }
 }

@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a66;
-import com.repackage.l65;
+import com.repackage.n75;
 import com.repackage.nn;
+import com.repackage.x66;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes3.dex */
-public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements l65 {
+public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements n75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a66 enterForumTabFeedData;
+    public x66 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -68,9 +68,9 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
             if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                a66 a66Var = new a66();
-                this.enterForumTabFeedData = a66Var;
-                a66Var.g(tabfeedlistResIdl.data);
+                x66 x66Var = new x66();
+                this.enterForumTabFeedData = x66Var;
+                x66Var.g(tabfeedlistResIdl.data);
             }
         }
     }

@@ -29,9 +29,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
 import com.repackage.pi;
-import com.repackage.uf5;
+import com.repackage.ur4;
+import com.repackage.xg5;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
@@ -610,8 +610,8 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         this.i = this.h.getAdapter().getCount();
         boolean z = false;
         for (int i = 0; i < this.i; i++) {
-            if (this.h.getAdapter() instanceof uf5) {
-                z = ((uf5) this.h.getAdapter()).a(i);
+            if (this.h.getAdapter() instanceof xg5) {
+                z = ((xg5) this.h.getAdapter()).a(i);
             }
             w(i, this.h.getAdapter().getPageTitle(i).toString(), z);
         }
@@ -959,7 +959,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             tabTextView.setHasRedDot(z);
             tabTextView.setText(str);
             if (this.i0 != 0) {
-                fr4.d(tabTextView).y(this.i0);
+                ur4.d(tabTextView).y(this.i0);
             }
             tabTextView.setGravity(17);
             tabTextView.setTextSize(0, this.I);
@@ -1089,7 +1089,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         this.I = 17;
         this.J = 17;
         this.T = 0;
-        this.U = R.drawable.obfuscated_res_0x7f080e7c;
+        this.U = R.drawable.obfuscated_res_0x7f080dfb;
         this.V = false;
         this.W = false;
         this.i0 = 0;

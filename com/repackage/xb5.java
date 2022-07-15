@@ -1,116 +1,75 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.repackage.ec5;
 /* loaded from: classes7.dex */
-public class xb5 {
+public class xb5 extends d55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NoDataView a;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xb5(Context context) {
+        super(new NoDataView(context));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = (NoDataView) getView();
+    }
 
-        public static a a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                if (StringUtils.isNull(str)) {
-                    return null;
-                }
-                a aVar = new a();
-                if (str.contains("#")) {
-                    String[] split = str.split("#");
-                    if (split.length == 1) {
-                        aVar.a = split[0];
-                    } else if (split.length == 2) {
-                        aVar.a = split[0];
-                        aVar.b = ng.e(split[1], -1);
-                    }
-                } else {
-                    aVar.a = str;
-                }
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (StringUtils.isNull(this.a)) {
-                    return "";
-                }
-                return this.a + "#" + this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = i;
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.f(h9.a(getView().getContext()), i);
         }
     }
 
-    public static String[] a() {
-        InterceptResult invokeV;
+    public void b(ec5.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String q = ht4.k().q("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
-            if (StringUtils.isNull(q)) {
-                return new String[0];
-            }
-            String[] split = q.split("\\^");
-            if (split == null || split.length <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (String str : split) {
-                a a2 = a.a(str);
-                if (a2 != null && !StringUtils.isNull(a2.a)) {
-                    arrayList.add(a2.a);
-                }
-            }
-            return (String[]) arrayList.toArray(new String[arrayList.size()]);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
+            return;
         }
-        return (String[]) invokeV.objValue;
+        this.a.setVisibility(0);
+        NoDataViewFactory.d.a aVar2 = new NoDataViewFactory.d.a();
+        aVar2.i(NoDataViewFactory.ImgType.LOCAL);
+        aVar2.h(aVar.c);
+        aVar2.j(aVar.g);
+        this.a.setImgOption(aVar2.f());
+        String str = (!aVar.b || TextUtils.isEmpty(aVar.a)) ? aVar.d : aVar.a;
+        NoDataViewFactory.e.a aVar3 = new NoDataViewFactory.e.a();
+        aVar3.g(str);
+        this.a.setTextOption(aVar3.f());
+        if (aVar.f && !TextUtils.isEmpty(aVar.e)) {
+            String str2 = aVar.e;
+            View.OnClickListener onClickListener = aVar.h;
+            NoDataViewFactory.c.a aVar4 = new NoDataViewFactory.c.a();
+            aVar4.f(new NoDataViewFactory.b(str2, onClickListener));
+            this.a.setButtonOption(aVar4.e());
+        } else {
+            this.a.setButtonOption(null);
+        }
+        a(TbadkCoreApplication.getInst().getSkinType());
     }
 }

@@ -1,58 +1,41 @@
 package com.repackage;
 
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.BookInfo;
-import tbclient.TbBookrack;
 /* loaded from: classes7.dex */
-public class vz7 {
+public class vz7 extends gu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public List<wz7> c;
-    public String d;
-    public String e;
-    public String f;
 
-    public vz7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vz7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(TbBookrack tbBookrack) {
+    @Override // com.repackage.fu4, com.repackage.cn
+    public View n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbBookrack) == null) || tbBookrack == null) {
-            return;
-        }
-        this.a = tbBookrack.booktown;
-        this.b = tbBookrack.num.intValue();
-        this.d = tbBookrack.title;
-        this.e = tbBookrack.icon;
-        this.f = tbBookrack.tip;
-        this.c = new ArrayList();
-        List<BookInfo> list = tbBookrack.book_list;
-        if (list != null) {
-            for (BookInfo bookInfo : list) {
-                if (bookInfo != null) {
-                    wz7 wz7Var = new wz7();
-                    wz7Var.a(bookInfo);
-                    this.c.add(wz7Var);
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.n() : (View) invokeV.objValue;
     }
 }

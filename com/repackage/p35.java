@@ -1,53 +1,61 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.TextUtils;
-import com.baidu.adp.base.BdBaseApplication;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.clientupdate.download.DownloadManager;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
+import com.baidu.tbadk.core.atomData.AtListActivityConfig;
+import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.editortools.pb.DataModel;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.LinkedList;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class p35 {
+public class p35 extends l15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public m35 a;
-    public boolean b;
-    public ImageFileInfo c;
-    public o35 d;
-    public o35 e;
-    public o35 f;
-    public o35 g;
+    public ForumData a;
+    public String b;
+    public String c;
+    public boolean d;
+    public DataModel<?> e;
 
     /* loaded from: classes6.dex */
-    public class a implements o35 {
+    public class a implements k15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p35 a;
+        public final /* synthetic */ n35 a;
+        public final /* synthetic */ EditorTools b;
+        public final /* synthetic */ p35 c;
 
-        public a(p35 p35Var) {
+        public a(p35 p35Var, n35 n35Var, EditorTools editorTools) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p35Var};
+                Object[] objArr = {p35Var, n35Var, editorTools};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,322 +65,320 @@ public class p35 {
                     return;
                 }
             }
-            this.a = p35Var;
+            this.c = p35Var;
+            this.a = n35Var;
+            this.b = editorTools;
         }
 
-        @Override // com.repackage.o35
-        public String a(ImageFileInfo imageFileInfo) {
-            InterceptResult invokeL;
-            String m;
+        @Override // com.repackage.k15
+        public void C(j15 j15Var) {
+            n35 n35Var;
+            int size;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
-                if (imageFileInfo == null) {
-                    return null;
-                }
-                if (this.a.a == null) {
-                    this.a.a = new m35();
-                }
-                String filePath = imageFileInfo.getFilePath();
-                LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
-                imageFileInfo.setPageActionsList(null);
-                if (filePath.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
-                    File file = new File(x45.b.d(imageFileInfo.getFilePath(), true));
-                    if (file.exists()) {
-                        return file.getAbsolutePath();
-                    }
-                }
-                ym c = this.a.a.c(imageFileInfo, true);
-                if (c != null) {
-                    m = this.a.m(c.p(), 5242880L, 100);
-                } else {
-                    Bitmap k = this.a.k(imageFileInfo);
-                    if (k == null) {
-                        return null;
-                    }
-                    int readPictureDegree = BitmapHelper.readPictureDegree(filePath);
-                    if (readPictureDegree != 0) {
-                        k = BitmapHelper.rotateBitmapBydegree(k, readPictureDegree);
-                    }
-                    m = this.a.m(k, 5242880L, 100);
-                }
-                imageFileInfo.setPageActionsList(pageActionsList);
-                return m;
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements o35 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p35 a;
-
-        public b(p35 p35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p35Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p35Var;
-        }
-
-        @Override // com.repackage.o35
-        public String a(ImageFileInfo imageFileInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
-                if (imageFileInfo == null) {
-                    return null;
-                }
-                return this.a.g(imageFileInfo.getFilePath());
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements o35 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p35 a;
-
-        public c(p35 p35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p35Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p35Var;
-        }
-
-        @Override // com.repackage.o35
-        public String a(ImageFileInfo imageFileInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
-                if (imageFileInfo == null) {
-                    return null;
-                }
-                return this.a.m(this.a.i(imageFileInfo.getFilePath()), 5242880L, 100);
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755460833, "Lcom/repackage/p35;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755460833, "Lcom/repackage/p35;");
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, j15Var) == null) || (n35Var = this.a) == null || n35Var.a() == null || j15Var == null) {
                 return;
             }
+            int i = j15Var.a;
+            if (i == 4) {
+                this.a.o0(j15Var.c.toString());
+                Object obj = j15Var.c;
+                if (obj instanceof SpanGroupManager) {
+                    this.a.t0((SpanGroupManager) obj);
+                }
+                this.c.d = false;
+            } else if (i == 5) {
+                if (this.b.u()) {
+                    return;
+                }
+                TiebaStatic.eventStat(this.b.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+            } else if (i == 7) {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d07);
+                this.c.d = true;
+            } else if (i == 8) {
+                if (!this.c.k(this.a.getContext(), 11001)) {
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 2).param("obj_type", 1).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
+                } else {
+                    this.a.M(null, null);
+                }
+            } else if (i == 10) {
+                Object obj2 = j15Var.c;
+                if (obj2 instanceof VoiceData.VoiceModel) {
+                    this.a.w0((VoiceData.VoiceModel) obj2);
+                    this.a.z(true, null);
+                }
+            } else if (i == 11) {
+                this.a.w0(null);
+            } else if (i == 18) {
+                boolean h = xt4.k().h("key_post_thread_has_request_location", false);
+                if (j15Var.c != null) {
+                    if (h) {
+                        this.a.R();
+                        return;
+                    }
+                    return;
+                }
+                int t = this.a.t();
+                if (t == 0) {
+                    this.a.J(h);
+                } else if (t != 2) {
+                } else {
+                    this.a.A();
+                }
+            } else if (i == 20) {
+                this.a.a().A(new j15(2, 7, null));
+                nj8.a().f(true);
+                MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
+            } else if (i == 29) {
+                this.a.a().A(new j15(2, 19, null));
+                this.a.a().A(new j15(1, 2, null));
+                this.a.m();
+            } else if (i == 32) {
+                this.a.a().A(new j15(1, 11, null));
+            } else if (i == 36) {
+                if (this.c.k(this.a.getContext(), 11040)) {
+                    this.a.a0();
+                }
+            } else if (i == 43) {
+                if (id5.c(this.a.getContext(), true, false)) {
+                    return;
+                }
+                HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.a.getContext().getPageActivity(), 25004, HotSelectActivityConfig.FROM_PB);
+                if (this.c.a != null) {
+                    hotSelectActivityConfig.setForumExtra(ng.g(this.c.a.getId(), 0L), this.c.a.getFirst_class(), this.c.a.getSecond_class());
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotSelectActivityConfig));
+            } else if (i != 67) {
+                switch (i) {
+                    case 14:
+                        AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.a.getContext().getPageActivity(), this.a.y().toJsonString(), true, true);
+                        if (!StringUtils.isNull(this.c.c, true)) {
+                            albumFloatActivityConfig.getIntent().putExtra("from", this.c.c);
+                        }
+                        if (this.c.a != null && !StringUtils.isNull(this.c.a.getId(), true)) {
+                            albumFloatActivityConfig.getIntent().putExtra("forum_id", this.c.a.getId());
+                        }
+                        albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+                        if (j35.a().b() == 1) {
+                            albumFloatActivityConfig.setRequestFrom(2);
+                            if (this.a.y() != null) {
+                                this.a.y().setMaxImagesAllowed(1);
+                            }
+                        } else if (this.a.y() != null) {
+                            this.a.y().setMaxImagesAllowed(9);
+                        }
+                        pi.x(this.a.getContext().getPageActivity(), this.a.getContext().getPageActivity().getCurrentFocus());
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
+                        return;
+                    case 15:
+                        int intValue = ((Integer) j15Var.c).intValue();
+                        if (this.a.y() != null && this.a.y().getChosedFiles() != null && (size = this.a.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.getContext().getPageActivity(), 12012, this.a.y(), intValue)));
+                            return;
+                        }
+                        return;
+                    case 16:
+                        if (this.c.d) {
+                            this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d07);
+                        }
+                        if (this.c.k(this.a.getContext(), 11025)) {
+                            AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getContext().getPageActivity(), 12004, true);
+                            if (this.a.x() != null) {
+                                atListActivityConfig.setSelectedAtList(this.a.x().u());
+                            }
+                            if (this.c.e != null) {
+                                atListActivityConfig.setFromTid(this.c.e.D());
+                                atListActivityConfig.setFromFid(this.c.e.getForumId());
+                            }
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
+                            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
+                            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+                            if (this.c.e != null) {
+                                statisticItem.addParam("tid", this.c.e.D());
+                                statisticItem.addParam("fid", this.c.e.getForumId());
+                            }
+                            TiebaStatic.log(statisticItem);
+                            return;
+                        }
+                        return;
+                    default:
+                        return;
+                }
+            } else {
+                Object obj3 = j15Var.c;
+                if (obj3 == null || !(obj3 instanceof Boolean)) {
+                    return;
+                }
+                this.a.r0(((Boolean) obj3).booleanValue());
+            }
         }
-        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
     }
 
     public p35() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.d = new a(this);
-        b bVar = new b(this);
-        this.e = bVar;
-        this.f = bVar;
-        this.g = new c(this);
+        this.b = null;
+        this.c = null;
+        this.d = false;
     }
 
-    public final String g(String str) {
+    @Override // com.repackage.l15
+    public n15 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            long fileSize = FileHelper.getFileSize(str);
-            int i = fileSize >= 31457280 ? 80 : fileSize >= DownloadManager.MIN_LEFT_SIZE ? 85 : fileSize >= 15728640 ? 90 : fileSize >= Config.FULL_TRACE_LOG_LIMIT ? 95 : 100;
-            try {
-                int readPictureDegree = BitmapHelper.readPictureDegree(str);
-                if (readPictureDegree == 0 && i == 100) {
-                    return str;
-                }
-                Bitmap i2 = i(str);
-                if (readPictureDegree != 0 && i2 != null) {
-                    return m(BitmapHelper.rotateBitmapBydegree(i2, readPictureDegree), Config.FULL_TRACE_LOG_LIMIT, i);
-                }
-                return m(i2, Config.FULL_TRACE_LOG_LIMIT, i);
-            } catch (Throwable unused) {
-                return str;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setIsFromPb(true);
+            editorTools.setBarMaxLauCount(5);
+            editorTools.setBarLauncherType(3);
+            editorTools.setBackgroundColorId(0);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+            editorTools.D(false);
+            editorTools.setMoreButtonAtEnd(true);
+            n35 n35Var = new n35(editorTools);
+            n35Var.l0(this.e);
+            return n35Var;
         }
-        return (String) invokeL.objValue;
+        return (n15) invokeL.objValue;
     }
 
-    public final String h(String str) {
-        InterceptResult invokeL;
-        String substring;
+    @Override // com.repackage.l15
+    public void c(n15 n15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return ".jpg";
-            }
-            try {
-                substring = str.substring(str.lastIndexOf("."));
-            } catch (Exception unused) {
-            }
-            return !TextUtils.isEmpty(substring) ? substring : ".jpg";
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n15Var) == null) && (n15Var instanceof n35)) {
+            EditorTools a2 = n15Var.a();
+            a aVar = new a(this, (n35) n15Var, a2);
+            a2.setActionListener(5, aVar);
+            a2.setActionListener(4, aVar);
+            a2.setActionListener(7, aVar);
+            a2.setActionListener(16, aVar);
+            a2.setActionListener(14, aVar);
+            a2.setActionListener(15, aVar);
+            a2.setActionListener(8, aVar);
+            a2.setActionListener(18, aVar);
+            a2.setActionListener(20, aVar);
+            a2.setActionListener(10, aVar);
+            a2.setActionListener(11, aVar);
+            a2.setActionListener(27, aVar);
+            a2.setActionListener(29, aVar);
+            a2.setActionListener(36, aVar);
+            a2.setActionListener(32, aVar);
+            a2.setActionListener(43, aVar);
+            a2.setActionListener(45, aVar);
+            a2.setActionListener(67, aVar);
         }
-        return (String) invokeL.objValue;
     }
 
-    public final Bitmap i(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.l15
+    public void d(n15 n15Var) {
+        CustomResponsedMessage runTask;
+        u15 u15Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            BitmapFactory.Options l = l(str);
-            int i = l.outWidth;
-            int i2 = l.outHeight;
-            if (i != 0 && i2 != 0) {
-                Bitmap loadBitmap = BitmapHelper.loadBitmap(str);
-                if (loadBitmap != null && !loadBitmap.isRecycled()) {
-                    return loadBitmap;
-                }
-                int i3 = 2;
-                for (int i4 = 0; i4 < 3; i4++) {
-                    l.inSampleSize = i3;
-                    Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, l);
-                    if (loadBitmap2 != null && !loadBitmap2.isRecycled()) {
-                        return loadBitmap2;
-                    }
-                    i3 *= 2;
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n15Var) == null) {
+            EditorTools a2 = n15Var.a();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            arrayList.add(6);
+            arrayList.add(9);
+            a2.d(new g25(a2.getContext(), 1));
+            if (ik8.a() && mh8.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), u15.class)) != null && (u15Var = (u15) runTask.getData()) != null) {
+                u15Var.l = 2;
+                a2.d(u15Var);
             }
-            return null;
+            w15 w15Var = new w15(a2.getContext(), 4);
+            w15Var.i = false;
+            a2.d(w15Var);
+            CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), u15.class);
+            if (runTask2 != null && runTask2.getData() != null) {
+                u15 u15Var2 = (u15) runTask2.getData();
+                u15Var2.l = 6;
+                a2.d(u15Var2);
+            }
+            a2.d(new o35(a2.getContext(), false, true, 12004));
+            CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, a2.getContext()), u15.class);
+            if (runTask3 != null && runTask3.getData() != null) {
+                u15 u15Var3 = (u15) runTask3.getData();
+                u15Var3.l = 7;
+                a2.d(u15Var3);
+            }
+            if (!"PbChosenActivity".equals(a2.getContext().getClass().getSimpleName())) {
+                a2.d(new c25(a2.getContext(), 5));
+            }
+            a2.h(arrayList);
+            u15 n = a2.n(5);
+            if (n != null) {
+                n.l = 3;
+            }
+            a2.f();
         }
-        return (Bitmap) invokeL.objValue;
     }
 
-    public String j(WriteData writeData, ImageFileInfo imageFileInfo, boolean z) {
-        InterceptResult invokeLLZ;
-        o35 o35Var;
-        String str;
+    public final boolean k(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, writeData, imageFileInfo, z)) == null) {
-            if (imageFileInfo == null) {
-                return null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null || currentAccount.length() <= 0) {
+                TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+                return false;
             }
-            this.c = imageFileInfo;
-            String filePath = imageFileInfo.getFilePath();
-            boolean checkIsLongImage = FileHelper.checkIsLongImage(filePath);
-            boolean checkIsHeifImage = FileHelper.checkIsHeifImage(filePath);
-            if (imageFileInfo.isGif() || !(!z || imageFileInfo.hasActionsWithoutResize() || checkIsHeifImage)) {
-                if (checkIsLongImage) {
-                    o35Var = this.f;
-                    str = "原始·长图";
-                } else {
-                    o35Var = this.e;
-                    str = "原始·图";
-                }
-            } else if (checkIsLongImage) {
-                o35Var = this.g;
-                str = "正常·长图";
-            } else {
-                o35Var = this.d;
-                str = "正常·图";
-            }
-            nj8.s(writeData, imageFileInfo, filePath, FileHelper.getImageFileWH(filePath), FileHelper.getFileSize(filePath), checkIsLongImage, checkIsHeifImage, imageFileInfo.hasActionsWithoutResize(), str);
-            String a2 = o35Var.a(imageFileInfo);
-            nj8.j(writeData, imageFileInfo, a2, FileHelper.getImageFileWH(a2), FileHelper.getFileSize(a2));
-            return a2;
+            return true;
         }
-        return (String) invokeLLZ.objValue;
+        return invokeLI.booleanValue;
     }
 
-    public final Bitmap k(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        kg i;
+    public ForumData l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imageFileInfo)) == null) {
-            if (imageFileInfo == null) {
-                return null;
-            }
-            if (this.a == null) {
-                this.a = new m35();
-            }
-            if (imageFileInfo.getImageType() == 0) {
-                return this.a.f(imageFileInfo, true);
-            }
-            if (imageFileInfo.getImageType() == 1 && (i = jg.h().i(20)) != null) {
-                try {
-                    Object fromLocal = i.getFromLocal(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), Boolean.FALSE, null);
-                    if (fromLocal instanceof ym) {
-                        return ((ym) fromLocal).p();
-                    }
-                } catch (OutOfMemoryError unused) {
-                    BdBaseApplication.getInst().onAppMemoryLow();
-                }
-            }
-            return null;
-        }
-        return (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (ForumData) invokeV.objValue;
     }
 
-    public final BitmapFactory.Options l(String str) {
-        InterceptResult invokeL;
+    public String m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            return options;
-        }
-        return (BitmapFactory.Options) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public final String m(Bitmap bitmap, long j, int i) {
-        InterceptResult invokeCommon;
+    public DataModel<?> n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bitmap, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            if (this.b) {
-                ImageFileInfo imageFileInfo = this.c;
-                if (imageFileInfo == null || TextUtils.isEmpty(imageFileInfo.getFilePath())) {
-                    return "";
-                }
-                return FileHelper.compressBitmapToFile(h, vi.c(this.c.toCachedKey(false)) + h(this.c.getFilePath()), bitmap, (float) j, i);
-            }
-            ImageFileInfo imageFileInfo2 = this.c;
-            return FileHelper.compressBitmapToFile((imageFileInfo2 == null || TextUtils.isEmpty(imageFileInfo2.getTempUploadFileName())) ? "img_upload_temp_file.temp" : this.c.getTempUploadFileName(), bitmap, (float) j, i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (DataModel) invokeV.objValue;
+    }
+
+    public void o(ForumData forumData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, forumData) == null) {
+            this.a = forumData;
         }
-        return (String) invokeCommon.objValue;
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void r(DataModel<?> dataModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, dataModel) == null) {
+            this.e = dataModel;
+        }
     }
 }

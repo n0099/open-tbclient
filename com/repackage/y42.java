@@ -1,86 +1,102 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.webkit.MimeTypeMap;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.oi2;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import com.repackage.c52;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
-public class y42 {
+public final class y42 implements c52.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public CopyOnWriteArrayList<v42> a;
+    public String b;
+    public Map<String, String> c;
+    public int d;
+    public boolean e;
+    public String f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755191846, "Lcom/repackage/y42;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755191846, "Lcom/repackage/y42;");
+    public y42(CopyOnWriteArrayList<v42> copyOnWriteArrayList, String str, Map<String, String> map, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {copyOnWriteArrayList, str, map, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = cg1.a;
+        this.a = copyOnWriteArrayList;
+        this.b = str;
+        this.c = map;
+        this.d = i;
+        this.e = z;
     }
 
-    public static x42 a(PMSAppInfo pMSAppInfo, String str) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.c52.a
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pMSAppInfo, str)) == null) {
-            if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || pMSAppInfo.appCategory != 0) {
-                return null;
-            }
-            File i = oi2.e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
-            if (!i.exists()) {
-                if (a) {
-                    Log.w("PrefetchUtils", "aiapp dir not exist ");
-                }
-                return null;
-            }
-            x42 x42Var = new x42();
-            if (new File(i, "app.json").exists()) {
-                if (a) {
-                    Log.d("PrefetchUtils", "find main pkg's app config file");
-                }
-                x42Var.a = i;
-                return x42Var;
-            } else if (TextUtils.isEmpty(str)) {
-                return null;
-            } else {
-                String g = kd3.g(str);
-                int lastIndexOf = g.lastIndexOf(File.separator);
-                if (lastIndexOf >= 0) {
-                    g = g.substring(0, lastIndexOf);
-                }
-                if (new File(i, g).exists()) {
-                    int lastIndexOf2 = g.lastIndexOf(File.separator);
-                    while (lastIndexOf2 >= 0) {
-                        g = g.substring(0, lastIndexOf2);
-                        if (new File(i, g + File.separator + "app.json").exists()) {
-                            if (a) {
-                                Log.d("PrefetchUtils", "isInDependentPkg=true, pagePath=" + g);
-                            }
-                            x42Var.b = true;
-                            x42Var.c = g;
-                            x42Var.a = new File(i, g);
-                            return x42Var;
-                        }
-                        lastIndexOf2 = g.lastIndexOf(File.separator);
-                    }
-                    return null;
-                }
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f = str;
         }
-        return (x42) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.c52.a
+    public WebResourceResponse b(String str, Map<String, String> map, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, z)) == null) {
+            if (this.d >= this.a.size()) {
+                return null;
+            }
+            return this.a.get(this.d).a(new y42(this.a, this.b, this.c, this.d + 1, z));
+        }
+        return (WebResourceResponse) invokeLLZ.objValue;
+    }
+
+    @Override // com.repackage.c52.a
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.c52.a
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.c52.a
+    public String getMimeType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (TextUtils.isEmpty(this.f)) {
+                this.f = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(this.b));
+            }
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.c52.a
+    public Map<String, String> getRequestHeaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (Map) invokeV.objValue;
     }
 }

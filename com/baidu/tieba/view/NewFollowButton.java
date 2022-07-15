@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c9;
-import com.repackage.dh8;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.xt4;
+import com.repackage.uu4;
+import com.repackage.yh8;
 /* loaded from: classes4.dex */
 public class NewFollowButton extends TBSpecificationBtn implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -32,10 +32,10 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public boolean A;
     public int B;
     public boolean C;
-    public xt4 D;
-    public xt4 E;
+    public uu4 D;
+    public uu4 E;
     public LikeModel F;
-    public dh8 G;
+    public yh8 G;
     public b H;
     public boolean I;
     public Animation J;
@@ -45,7 +45,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public TBSpecificationButtonConfig r;
     public TBSpecificationButtonConfig s;
     public c9 t;
-    public dh8.a u;
+    public yh8.a u;
     public boolean v;
     public int w;
     public int x;
@@ -102,7 +102,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     }
 
     /* loaded from: classes4.dex */
-    public class b extends c9 implements dh8.a {
+    public class b extends c9 implements yh8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFollowButton a;
@@ -125,7 +125,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             this.a = newFollowButton;
         }
 
-        @Override // com.repackage.dh8.a
+        @Override // com.repackage.yh8.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -136,7 +136,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             }
         }
 
-        @Override // com.repackage.dh8.a
+        @Override // com.repackage.yh8.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -154,7 +154,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 if (this.a.F.getErrorCode() == 22) {
-                    pi.O(this.a.q.getPageActivity(), this.a.q.getString(R.string.obfuscated_res_0x7f0f080e));
+                    pi.O(this.a.q.getPageActivity(), this.a.q.getString(R.string.obfuscated_res_0x7f0f0819));
                     this.a.I = false;
                 } else if (obj == null) {
                     this.a.I = false;
@@ -204,16 +204,16 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             return;
         }
         if (!pi.D()) {
-            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c37));
+            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c2b));
         } else if (StringUtils.isNull(this.o) || this.p <= 0 || !ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
         } else {
             if (this.H == null) {
                 this.H = new b(this, null);
             }
             if (this.G == null) {
-                dh8 dh8Var = new dh8();
-                this.G = dh8Var;
-                dh8Var.b(this.H);
+                yh8 yh8Var = new yh8();
+                this.G = yh8Var;
+                yh8Var.b(this.H);
             }
             this.I = true;
             this.G.c(this.o, this.p);
@@ -227,9 +227,9 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 TBSpecificationButtonConfig tBSpecificationButtonConfig = this.s;
                 if (tBSpecificationButtonConfig == null) {
                     if (this.E == null) {
-                        xt4 xt4Var = new xt4();
-                        this.E = xt4Var;
-                        xt4Var.t(R.color.CAM_X0109);
+                        uu4 uu4Var = new uu4();
+                        this.E = uu4Var;
+                        uu4Var.t(R.color.CAM_X0109);
                         this.E.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                     }
                     setConfig(this.E);
@@ -237,14 +237,14 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     setConfig(tBSpecificationButtonConfig);
                 }
                 setClickable(this.v);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e));
             } else {
                 TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.r;
                 if (tBSpecificationButtonConfig2 == null) {
                     if (this.D == null) {
-                        xt4 xt4Var2 = new xt4();
-                        this.D = xt4Var2;
-                        xt4Var2.r(R.color.CAM_X0302);
+                        uu4 uu4Var2 = new uu4();
+                        this.D = uu4Var2;
+                        uu4Var2.r(R.color.CAM_X0302);
                         if (this.y) {
                             this.D.g(this.x);
                             this.D.i(this.z, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -256,7 +256,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     setConfig(tBSpecificationButtonConfig2);
                 }
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7));
             }
             k();
             this.C = z;
@@ -298,7 +298,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             return;
         }
         if (!pi.D()) {
-            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c37));
+            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c2b));
         } else if (StringUtils.isNull(this.o) || this.p <= 0 || !ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
         } else {
             if (this.H == null) {
@@ -311,8 +311,8 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             }
             if (oi.isForumName(this.o)) {
                 this.I = true;
-                this.F.M();
-                this.F.Q(this.o, String.valueOf(this.p));
+                this.F.N();
+                this.F.R(this.o, String.valueOf(this.p));
             }
         }
     }

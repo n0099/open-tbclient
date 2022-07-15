@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oj8;
+import com.repackage.kk8;
 import java.util.Objects;
 /* loaded from: classes3.dex */
 public class PublishProgressData {
@@ -133,7 +133,7 @@ public class PublishProgressData {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921526, this));
                 if (this.isWork && this.progress == 93) {
                     WorkPostNotifyFlutterData notifyFlutterVideoUploadSucc = WorkPostNotifyFlutterData.notifyFlutterVideoUploadSucc();
-                    notifyFlutterVideoUploadSucc.setFlutterPageId(oj8.k().j());
+                    notifyFlutterVideoUploadSucc.setFlutterPageId(kk8.k().j());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, notifyFlutterVideoUploadSucc));
                 }
             }

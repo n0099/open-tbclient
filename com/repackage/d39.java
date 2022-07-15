@@ -1,52 +1,148 @@
 package com.repackage;
 
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.c39;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes5.dex */
-public final class d39 {
+public class d39 extends GZIPOutputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static c39.a b;
-    public static c39.a c;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public MessageDigest a;
+    public int b;
+    public int c;
+    public StringBuilder d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755818201, "Lcom/repackage/d39;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755818201, "Lcom/repackage/d39;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755818201, "Lcom/repackage/d39;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        e = d29.m();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d39(OutputStream outputStream) throws IOException {
+        super(outputStream);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {outputStream};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((OutputStream) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755818201, "Lcom/repackage/d39;");
+        this.a = null;
+        this.b = 0;
+        this.c = 0;
+    }
+
+    public byte[] c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            MessageDigest messageDigest = this.a;
+            if (messageDigest == null || this.b != 2) {
+                return null;
+            }
+            return messageDigest.digest();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = this.d;
+            return sb != null ? sb.toString() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.a == null) {
+                try {
+                    this.a = MessageDigest.getInstance("MD5");
+                } catch (NoSuchAlgorithmException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            MessageDigest messageDigest = this.a;
+            if (messageDigest != null) {
+                messageDigest.reset();
+            }
         }
     }
 
-    public static synchronized void a(Context context) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            synchronized (d39.class) {
-                if (!a) {
-                    p39.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
-                    b = new e39();
-                    c = new o39();
-                    c39.a().c();
-                    c39.a().d(c);
-                    c39.a().d(b);
-                    c39.a().e(context);
-                    a = true;
-                    return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = 1;
+            this.c = 0;
+            if (e) {
+                this.d = new StringBuilder();
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = 2;
+        }
+    }
+
+    @Override // java.util.zip.GZIPOutputStream, java.util.zip.DeflaterOutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
+            synchronized (this) {
+                super.write(bArr, i, i2);
+                this.c += i2;
+                if (this.b == 1) {
+                    if (bArr[i] == 58 && this.a == null) {
+                        i++;
+                        i2--;
+                    }
+                    if (this.a == null) {
+                        f();
+                    }
+                    if (this.a == null) {
+                        return;
+                    }
+                    this.a.update(bArr, i, i2);
+                    if (e) {
+                        this.d.append(new String(bArr, i, i2));
+                    }
                 }
-                p39.b(" ActivityLifeTask  is added  " + new Date().toLocaleString());
             }
         }
     }

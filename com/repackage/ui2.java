@@ -1,20 +1,23 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextWatcher;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ui2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final int b;
-    public static final ThreadPoolExecutor c;
+    public static volatile ui2 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextWatcher a;
+    public SwanEditText b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,19 +32,73 @@ public class ui2 {
                 return;
             }
         }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        a = availableProcessors;
-        b = (availableProcessors * 2) + 1;
-        int i = b;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 10000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        c = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
+        boolean z = rg1.a;
     }
 
-    public static void a(Runnable runnable) {
+    public ui2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            c.execute(runnable);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static ui2 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (ui2.class) {
+                    if (c == null) {
+                        c = new ui2();
+                    }
+                }
+            }
+            return c;
+        }
+        return (ui2) invokeV.objValue;
+    }
+
+    public SwanEditText a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            SwanEditText swanEditText = new SwanEditText(context);
+            this.b = swanEditText;
+            return swanEditText;
+        }
+        return (SwanEditText) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = null;
+        }
+    }
+
+    public SwanEditText c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (SwanEditText) invokeV.objValue;
+    }
+
+    public TextWatcher e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (TextWatcher) invokeV.objValue;
+    }
+
+    public void f(TextWatcher textWatcher) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
+            this.a = textWatcher;
         }
     }
 }

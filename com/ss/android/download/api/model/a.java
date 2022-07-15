@@ -9,29 +9,29 @@ public class a {
 
     /* renamed from: com.ss.android.download.api.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0586a {
+    public static class C0792a {
         public String a;
         public String b;
         public String c;
         public String d;
         public String e;
 
-        public C0586a a(String str) {
+        public C0792a a(String str) {
             this.a = str;
             return this;
         }
 
-        public C0586a b(String str) {
+        public C0792a b(String str) {
             this.b = str;
             return this;
         }
 
-        public C0586a c(String str) {
+        public C0792a c(String str) {
             this.d = str;
             return this;
         }
 
-        public C0586a d(String str) {
+        public C0792a d(String str) {
             this.e = str;
             return this;
         }
@@ -41,12 +41,12 @@ public class a {
         }
     }
 
-    public a(C0586a c0586a) {
+    public a(C0792a c0792a) {
         this.b = "";
-        this.a = c0586a.a;
-        this.b = c0586a.b;
-        this.c = c0586a.c;
-        this.d = c0586a.d;
-        this.e = c0586a.e;
+        this.a = c0792a.a;
+        this.b = c0792a.b;
+        this.c = c0792a.c;
+        this.d = c0792a.d;
+        this.e = c0792a.e;
     }
 }

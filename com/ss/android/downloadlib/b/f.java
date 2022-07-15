@@ -84,8 +84,8 @@ public class f {
             return;
         }
         final long currentTimeMillis = System.currentTimeMillis();
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0605a() { // from class: com.ss.android.downloadlib.b.f.1
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0605a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0811a() { // from class: com.ss.android.downloadlib.b.f.1
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0811a
             public void b() {
                 com.ss.android.socialbase.downloader.a.a.a().b(this);
                 com.ss.android.downloadlib.d.a().a(new Runnable() { // from class: com.ss.android.downloadlib.b.f.1.1
@@ -111,7 +111,7 @@ public class f {
                 });
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0605a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0811a
             public void c() {
             }
         });

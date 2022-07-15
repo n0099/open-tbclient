@@ -4,38 +4,54 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.WholeDisplayGridView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.pn8;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class qn8 extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int e = 16;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<sn8> a;
-    public TbPageContext<?> b;
+    public AvatarPendantActivity a;
+    public List<nn8> b;
+    public on8 c;
+    public pn8.a d;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public HeadImageView a;
-        public TextView b;
-        public View c;
-        public View d;
+    }
 
-        public a() {
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public WholeDisplayGridView b;
+        public View c;
+
+        public b(qn8 qn8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qn8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,46 +61,72 @@ public class qn8 extends BaseAdapter {
                 }
             }
         }
+
+        public /* synthetic */ b(qn8 qn8Var, a aVar) {
+            this(qn8Var);
+        }
     }
 
-    public qn8(TbPageContext<?> tbPageContext) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755374250, "Lcom/repackage/qn8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755374250, "Lcom/repackage/qn8;");
+        }
+    }
+
+    public qn8(AvatarPendantActivity avatarPendantActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {avatarPendantActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
+        this.a = avatarPendantActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public sn8 getItem(int i) {
+    public nn8 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<sn8> list = this.a;
-            if (list == null || list.size() <= 0 || i < 0 || i >= this.a.size()) {
+            List<nn8> list = this.b;
+            if (list == null || list.size() <= 0 || i < 0 || i >= getCount()) {
                 return null;
             }
-            return this.a.get(i);
+            return this.b.get(i);
         }
-        return (sn8) invokeI.objValue;
+        return (nn8) invokeI.objValue;
     }
 
-    public void b(List<sn8> list) {
+    public void b(pn8.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.d = aVar;
+        }
+    }
+
+    public void c(List<nn8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b = list;
         }
     }
 
@@ -92,8 +134,8 @@ public class qn8 extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<sn8> list = this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<nn8> list = this.b;
             if (list != null) {
                 return list.size();
             }
@@ -106,7 +148,7 @@ public class qn8 extends BaseAdapter {
     public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             return 0L;
         }
         return invokeI.longValue;
@@ -115,40 +157,40 @@ public class qn8 extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        a aVar;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            sn8 item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0237, viewGroup, false);
-                aVar = new a();
-                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09080b);
-                aVar.a = headImageView;
-                headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080b91);
-                aVar.a.setDefaultBgResource(R.color.CAM_X0204);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09080a);
-                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f092011);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907c3);
-                view2.setTag(aVar);
+                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0125, viewGroup, false);
+                bVar = new b(this, null);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090584);
+                bVar.b = (WholeDisplayGridView) view2.findViewById(R.id.obfuscated_res_0x7f0902ee);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0912bb);
+                view2.setTag(bVar);
             }
-            if (item != null) {
-                aVar.a.J(item.a(), 10, false);
-                aVar.b.setText(item.b());
-                ht4 k = ht4.k();
-                if (item.c() - k.m("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
-                    aVar.c.setVisibility(0);
-                } else {
-                    aVar.c.setVisibility(4);
-                }
-                if (i == getCount() - 1) {
-                    aVar.d.setVisibility(8);
-                } else {
-                    aVar.d.setVisibility(0);
-                }
+            nn8 item = getItem(i);
+            if (StringUtils.isNull(item.a())) {
+                bVar.a.setVisibility(8);
+            } else {
+                bVar.a.setVisibility(0);
+                bVar.a.setText(oi.cutString(item.a(), e));
             }
-            this.b.getLayoutMode().j(view2);
+            if (item != null && !ListUtils.isEmpty(item.b())) {
+                on8 on8Var = new on8(this.a);
+                this.c = on8Var;
+                on8Var.d(item.b());
+                bVar.b.setAdapter((ListAdapter) this.c);
+                this.c.c(this.d);
+            }
+            if (i == getCount() - 1) {
+                bVar.c.setVisibility(8);
+            } else {
+                bVar.c.setVisibility(0);
+            }
+            SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0109);
             return view2;
         }
         return (View) invokeILL.objValue;

@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lr5;
+import com.repackage.mr5;
 import com.repackage.nn;
-import com.repackage.oq5;
-import com.repackage.pq5;
-import com.repackage.qq5;
-import com.repackage.rq5;
+import com.repackage.nr5;
+import com.repackage.or5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -72,34 +72,34 @@ public class SpecialConcernTabModel extends BdBaseModel {
                     boolean z = alaSpecialConcernResponse.hasMore;
                     if (ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
                         if (this.a.a == 1) {
-                            this.a.c.add(new pq5());
+                            this.a.c.add(new mr5());
                         }
                     } else {
-                        for (oq5 oq5Var : alaSpecialConcernResponse.followList) {
-                            qq5 qq5Var = new qq5();
-                            qq5Var.a = oq5Var.a;
-                            qq5Var.b = oq5Var.b;
-                            qq5Var.c = false;
-                            this.a.c.add(qq5Var);
+                        for (lr5 lr5Var : alaSpecialConcernResponse.followList) {
+                            nr5 nr5Var = new nr5();
+                            nr5Var.a = lr5Var.a;
+                            nr5Var.b = lr5Var.b;
+                            nr5Var.c = false;
+                            this.a.c.add(nr5Var);
                         }
                     }
                     if (!ListUtils.isEmpty(alaSpecialConcernResponse.recommendList)) {
-                        rq5 rq5Var = new rq5();
+                        or5 or5Var = new or5();
                         if (!ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
-                            rq5Var.a = false;
+                            or5Var.a = false;
                         } else {
-                            rq5Var.a = true;
+                            or5Var.a = true;
                         }
-                        this.a.c.add(rq5Var);
-                        for (oq5 oq5Var2 : alaSpecialConcernResponse.recommendList) {
-                            qq5 qq5Var2 = new qq5();
-                            qq5Var2.a = oq5Var2.a;
-                            qq5Var2.b = oq5Var2.b;
-                            qq5Var2.c = true;
-                            this.a.c.add(qq5Var2);
+                        this.a.c.add(or5Var);
+                        for (lr5 lr5Var2 : alaSpecialConcernResponse.recommendList) {
+                            nr5 nr5Var2 = new nr5();
+                            nr5Var2.a = lr5Var2.a;
+                            nr5Var2.b = lr5Var2.b;
+                            nr5Var2.c = true;
+                            this.a.c.add(nr5Var2);
                         }
                     }
-                    SpecialConcernTabModel.A(this.a);
+                    SpecialConcernTabModel.B(this.a);
                     if (this.a.b != null) {
                         this.a.b.b(this.a.c, z, alaSpecialConcernResponse.totalFollowCount);
                     }
@@ -138,13 +138,13 @@ public class SpecialConcernTabModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.d);
     }
 
-    public static /* synthetic */ int A(SpecialConcernTabModel specialConcernTabModel) {
+    public static /* synthetic */ int B(SpecialConcernTabModel specialConcernTabModel) {
         int i = specialConcernTabModel.a;
         specialConcernTabModel.a = i + 1;
         return i;
     }
 
-    public final void D(int i) {
+    public final void E(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB);
@@ -153,22 +153,22 @@ public class SpecialConcernTabModel extends BdBaseModel {
         }
     }
 
-    public void E() {
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            D(this.a + 1);
+            E(this.a + 1);
         }
     }
 
-    public void F() {
+    public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = 1;
-            D(1);
+            E(1);
         }
     }
 
-    public void G(b bVar) {
+    public void H(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.b = bVar;

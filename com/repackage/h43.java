@@ -1,77 +1,35 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x43;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h43 extends p13 {
+public class h43 extends e23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements le3<v43<x43.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ h43 d;
-
-        public a(h43 h43Var, Context context, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h43Var, context, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = h43Var;
-            this.a = context;
-            this.b = callbackHandler;
-            this.c = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.le3
-        /* renamed from: b */
-        public void a(v43<x43.e> v43Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v43Var) == null) {
-                this.d.l(v43Var, this.a, this.b, this.c);
-            }
-        }
-    }
+    public qm1 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h43(p03 p03Var) {
-        super(p03Var, "/swanAPI/getCommonSysInfo");
+    public h43(e13 e13Var) {
+        super(e13Var, "/swanAPI/webviewPostMessage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
+            Object[] objArr = {e13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,73 +43,63 @@ public class h43 extends p13 {
         }
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (sz2Var == null) {
-                sw1.i("GetSysInfo", "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (e23.b) {
+                Log.d("WebViewPostMsgAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            hx1.i("webviewPostMsg", "start post webview msg");
+            qm1 qm1Var = this.c;
+            if (qm1Var == null) {
+                hx1.c("webviewPostMsg", "none webview widget");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none webview widget");
                 return false;
             }
-            String optString = sc3.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                sw1.i("GetSysInfo", "cb is empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            f43 params = qm1Var.getParams();
+            if (params == null) {
+                hx1.c("webviewPostMsg", "none WWWParams");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none WWWParams");
                 return false;
             }
-            sz2Var.e0().g((Activity) context, "mapp_i_get_common_sys_info", new a(this, context, callbackHandler, optString));
-            sw1.i("GetSysInfo", "callback success");
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+            JSONObject a = e23.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                hx1.c("webviewPostMsg", "none params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
+                return false;
+            } else if (!a.has("data")) {
+                hx1.c("webviewPostMsg", "none param data");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none param data");
+                return false;
+            } else {
+                String optString = a.optString("data");
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("data", optString);
+                    jSONObject.put("eventType", "message");
+                    jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, params.c);
+                    jSONObject.put("webviewId", params.b);
+                } catch (JSONException e) {
+                    if (e23.b) {
+                        e.printStackTrace();
+                    }
+                    hx1.c("webviewPostMsg", "meet json exception");
+                }
+                of3.c(params.c, params.b, AlbumActivityConfig.FROM_WEB_VIEW, "message", jSONObject);
+                hx1.i("webviewPostMsg", "post webview msg success");
+                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void k(Context context, String str, CallbackHandler callbackHandler) {
+    public void j(qm1 qm1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, callbackHandler) == null) {
-            String i = zi2.h0().i(AppRuntime.getAppContext());
-            String r = md3.r();
-            String a2 = zi2.G0().a(context);
-            String h = zi2.h0().h(context);
-            String cookie = zi2.q().a().getCookie(".baidu.com");
-            String l = kd3.l(cookie, "BAIDUID");
-            String l2 = kd3.l(cookie, "H_WISE_SIDS");
-            String a3 = cg4.b(AppRuntime.getAppContext()).a();
-            if (p13.b) {
-                Log.d("GetSysInfoAction", "cuid = " + i + ", imei = " + r + ", zid = " + a2 + ", uid = " + h + ", baiDuId = " + l + ", sid = " + l2);
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("cuid", i);
-                jSONObject.put("imei", r);
-                jSONObject.put("zid", a2);
-                jSONObject.put("uid", h);
-                jSONObject.put("baidu_id", l);
-                jSONObject.put("sid", l2);
-                jSONObject.put("uuid", a3);
-                sw1.i("GetSysInfo", "fetch commonSysInfo success");
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            } catch (JSONException e) {
-                if (p13.b) {
-                    e.printStackTrace();
-                }
-                sw1.c("GetSysInfo", "generate data occur exception");
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-            }
-        }
-    }
-
-    public final void l(v43<x43.e> v43Var, Context context, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, v43Var, context, callbackHandler, str) == null) {
-            if (!q43.h(v43Var)) {
-                q43.q(v43Var, callbackHandler, str);
-            } else {
-                k(context, str, callbackHandler);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qm1Var) == null) {
+            this.c = qm1Var;
         }
     }
 }

@@ -2,16 +2,16 @@ package com.kwad.sdk.core.webview.kwai;
 
 import androidx.annotation.Nullable;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b implements com.kwad.sdk.core.b {
+public final class b implements com.kwad.sdk.core.b {
     public String a;
     public String b;
     public String c;
 
     @Override // com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
+    public final void parseJson(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -21,11 +21,11 @@ public class b implements com.kwad.sdk.core.b {
     }
 
     @Override // com.kwad.sdk.core.b
-    public JSONObject toJson() {
+    public final JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "action", this.a);
-        t.a(jSONObject, "data", this.b);
-        t.a(jSONObject, WebChromeClient.KEY_ARG_CALLBACK, this.c);
+        r.a(jSONObject, "action", this.a);
+        r.a(jSONObject, "data", this.b);
+        r.a(jSONObject, WebChromeClient.KEY_ARG_CALLBACK, this.c);
         return jSONObject;
     }
 }

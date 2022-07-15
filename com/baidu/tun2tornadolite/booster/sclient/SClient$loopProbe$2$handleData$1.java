@@ -55,7 +55,7 @@ public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Fu
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
     public /* bridge */ /* synthetic */ Long invoke(UByte uByte) {
-        return m56invoke7apg3OU(uByte.m760unboximpl());
+        return m56invoke7apg3OU(uByte.m1703unboximpl());
     }
 
     /* renamed from: invoke-7apg3OU  reason: not valid java name */
@@ -78,13 +78,13 @@ public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Fu
                 Intrinsics.checkNotNull(datagramSocket2);
                 datagramSocket2.receive(datagramPacket2);
                 j = System.currentTimeMillis() - currentTimeMillis;
-                this.$cache[UByte.m711constructorimpl(this.$buf[0]) & 255] = 1;
+                this.$cache[UByte.m1654constructorimpl(this.$buf[0]) & 255] = 1;
                 LogTo logTo = LogTo.INSTANCE;
-                logTo.d("*****", "[Probe time] " + ((Object) UByte.m754toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet time:" + j);
+                logTo.d("*****", "[Probe time] " + ((Object) UByte.m1697toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet time:" + j);
             } catch (Exception unused) {
                 j = -1;
                 LogTo logTo2 = LogTo.INSTANCE;
-                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m754toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet timeout");
+                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m1697toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet timeout");
             }
             return Long.valueOf(j);
         }

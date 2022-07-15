@@ -19,16 +19,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ko4;
 import com.repackage.oi;
-import com.repackage.ru4;
-import com.repackage.vn4;
+import com.repackage.pv4;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class TbLinkSpanGroup extends ru4<TbLinkSpanGroup> {
+public class TbLinkSpanGroup extends pv4<TbLinkSpanGroup> {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public vn4 i;
+    public ko4 i;
     public LINK_TYPE j;
     public int k;
     public CharSequence l;
@@ -117,7 +117,7 @@ public class TbLinkSpanGroup extends ru4<TbLinkSpanGroup> {
                 return;
             }
         }
-        r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f159b);
+        r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f159d);
     }
 
     public TbLinkSpanGroup() {
@@ -183,7 +183,7 @@ public class TbLinkSpanGroup extends ru4<TbLinkSpanGroup> {
         if (f() < 0 || f() > this.c.length() || f() + 3 < 0 || f() + 3 > this.c.length() || c() < 0 || c() > this.c.length()) {
             return;
         }
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080977, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080980, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
         eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
         l(eMRichTextAnyIconSpan, f(), f() + 3, 33);
         l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
@@ -199,13 +199,13 @@ public class TbLinkSpanGroup extends ru4<TbLinkSpanGroup> {
         String str = "[p]" + this.p + ((Object) this.m);
         this.q = str.length();
         i(str);
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080977, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080980, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
         eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
         l(eMRichTextAnyIconSpan, f(), f() + 3, 33);
         l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
     }
 
-    @Override // com.repackage.ru4
+    @Override // com.repackage.pv4
     public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048581, this, editable, i, i2, i3) == null) {
@@ -220,13 +220,13 @@ public class TbLinkSpanGroup extends ru4<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.repackage.ru4
+    @Override // com.repackage.pv4
     public void p(Editable editable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editable) == null) {
-            vn4 vn4Var = this.i;
-            if (vn4Var != null && vn4Var.b == 2) {
-                if (vn4Var.h != null) {
+            ko4 ko4Var = this.i;
+            if (ko4Var != null && ko4Var.b == 2) {
+                if (ko4Var.h != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("#(commodity,commo_");
                     sb.append(this.i.h);
@@ -243,7 +243,7 @@ public class TbLinkSpanGroup extends ru4<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.repackage.ru4
+    @Override // com.repackage.pv4
     public void q(Editable editable, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, editable, i) == null) {
@@ -322,7 +322,7 @@ public class TbLinkSpanGroup extends ru4<TbLinkSpanGroup> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ru4
+    @Override // com.repackage.pv4
     /* renamed from: s */
     public void b(TbLinkSpanGroup tbLinkSpanGroup) {
         Interceptable interceptable = $ic;
@@ -339,10 +339,10 @@ public class TbLinkSpanGroup extends ru4<TbLinkSpanGroup> {
         }
     }
 
-    public vn4 t() {
+    public ko4 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.i : (vn4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.i : (ko4) invokeV.objValue;
     }
 
     public LINK_TYPE u() {
@@ -363,10 +363,10 @@ public class TbLinkSpanGroup extends ru4<TbLinkSpanGroup> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.q : invokeV.intValue;
     }
 
-    public void y(vn4 vn4Var) {
+    public void y(ko4 ko4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, vn4Var) == null) {
-            this.i = vn4Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, ko4Var) == null) {
+            this.i = ko4Var;
         }
     }
 

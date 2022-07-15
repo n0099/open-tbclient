@@ -1,315 +1,91 @@
 package com.repackage;
 
-import android.os.Debug;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.github.anrwatchdog.ANRError;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsFullScreenVideoAd;
 /* loaded from: classes6.dex */
-public class kh9 extends Thread {
+public class kh9 implements KsFullScreenVideoAd.FullScreenVideoAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final f o;
-    public static final e p;
-    public static final g q;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
-    public e b;
-    public g c;
-    public final Handler d;
-    public final int e;
-    public String f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public lh9 k;
-    public volatile long l;
-    public volatile boolean m;
-    public final Runnable n;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ KsFullScreenVideoAd c;
+    public final /* synthetic */ jh9 d;
 
-    /* loaded from: classes6.dex */
-    public static class a implements f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.kh9.f
-        public void onAppNotResponding(ANRError aNRError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
-                throw aNRError;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.kh9.e
-        public long a(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                return 0L;
-            }
-            return invokeJ.longValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.kh9.g
-        public void a(InterruptedException interruptedException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, interruptedException) == null) {
-                Log.w("ANRWatchdog", "Interrupted: " + interruptedException.getMessage());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kh9 a;
-
-        public d(kh9 kh9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kh9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kh9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.l = 0L;
-                this.a.m = false;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface e {
-        long a(long j);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface f {
-        void onAppNotResponding(ANRError aNRError);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface g {
-        void a(InterruptedException interruptedException);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755558731, "Lcom/repackage/kh9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755558731, "Lcom/repackage/kh9;");
-                return;
-            }
-        }
-        o = new a();
-        p = new b();
-        q = new c();
-    }
-
-    public kh9(int i) {
+    public kh9(jh9 jh9Var, KsFullScreenVideoAd ksFullScreenVideoAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {jh9Var, ksFullScreenVideoAd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = o;
-        this.b = p;
-        this.c = q;
-        this.d = new Handler(Looper.getMainLooper());
-        this.f = "";
-        this.g = false;
-        this.h = true;
-        this.i = false;
-        this.j = false;
-        this.k = null;
-        this.l = 0L;
-        this.m = false;
-        this.n = new d(this);
-        this.e = i;
+        this.d = jh9Var;
+        this.c = ksFullScreenVideoAd;
     }
 
-    public kh9 c(f fVar) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-            if (fVar == null) {
-                this.a = o;
-            } else {
-                this.a = fVar;
-            }
-            return this;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
         }
-        return (kh9) invokeL.objValue;
     }
 
-    public kh9 d(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onPageDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.i = z;
-            return this;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
         }
-        return (kh9) invokeZ.objValue;
     }
 
-    public kh9 e() {
-        InterceptResult invokeV;
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onSkippedVideo() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f = null;
-            return this;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
         }
-        return (kh9) invokeV.objValue;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoPlayEnd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setName("|ANR-WatchDog|");
-            long j = this.e;
-            long j2 = 0;
-            while (!isInterrupted()) {
-                boolean z = this.l == 0;
-                this.l += j;
-                if (z) {
-                    this.d.post(this.n);
-                }
-                try {
-                    Thread.sleep(j);
-                    if (this.i && this.j) {
-                        if (this.k == null) {
-                            this.k = new lh9();
-                        }
-                        if (this.l == 0 && !this.m) {
-                            this.j = false;
-                            ANRError NewMainAllStackTrace = ANRError.NewMainAllStackTrace(this.k.b(), j2);
-                            if (NewMainAllStackTrace != null) {
-                                this.a.onAppNotResponding(NewMainAllStackTrace);
-                            }
-                        } else {
-                            j2 = this.l;
-                            this.k.a();
-                        }
-                    }
-                    if (this.l != 0 && !this.m) {
-                        if (!this.h && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
-                            Log.w("ANRWatchdog", "An ANR was detected but ignored because the debugger is connected (you can prevent this with setIgnoreDebugger(true))");
-                            this.m = true;
-                        } else {
-                            j = this.b.a(this.l);
-                            if (j <= 0) {
-                                if (this.f != null) {
-                                    this.a.onAppNotResponding(ANRError.New(this.l, this.f, this.g));
-                                } else if (this.i) {
-                                    this.j = true;
-                                    lh9 lh9Var = new lh9();
-                                    this.k = lh9Var;
-                                    lh9Var.a();
-                                } else {
-                                    this.a.onAppNotResponding(ANRError.NewMainOnly(this.l));
-                                }
-                                j = this.e;
-                                this.m = true;
-                            }
-                        }
-                    }
-                } catch (InterruptedException e2) {
-                    this.c.a(e2);
-                    return;
-                }
-            }
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoPlayError(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
+            this.d.onAdError(this.c, i, String.valueOf(i2));
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
         }
     }
 }

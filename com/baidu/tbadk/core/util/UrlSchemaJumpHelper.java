@@ -26,11 +26,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.em4;
-import com.repackage.ht4;
 import com.repackage.ng;
 import com.repackage.qg;
-import com.repackage.tc5;
+import com.repackage.tm4;
+import com.repackage.wd5;
+import com.repackage.xt4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -82,7 +82,7 @@ public class UrlSchemaJumpHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, checkSchemeFlutterCallBack) == null) {
             MessageTask findTask = MessageManager.getInstance().findTask(2002015);
-            if (em4.c().contains("-Flutter") && findTask == null) {
+            if (tm4.c().contains("-Flutter") && findTask == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, null));
                 qg.a().postDelayed(new Runnable(checkSchemeFlutterCallBack) { // from class: com.baidu.tbadk.core.util.UrlSchemaJumpHelper.6
                     public static /* synthetic */ Interceptable $ic;
@@ -126,7 +126,7 @@ public class UrlSchemaJumpHelper {
     public static void ensureBlackList() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, null) == null) && ListUtils.isEmpty(SCHEMA_BLACK_LIST)) {
-            String q = ht4.k().q(KEY_APP_JUMP_BLACK_LIST, null);
+            String q = xt4.k().q(KEY_APP_JUMP_BLACK_LIST, null);
             if (TextUtils.isEmpty(q)) {
                 return;
             }
@@ -228,11 +228,11 @@ public class UrlSchemaJumpHelper {
                         Uri parse = Uri.parse(this.val$scheme);
                         String queryParameter = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_GAME_ID);
                         String queryParameter2 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_GOD_ID);
-                        String queryParameter3 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_GOD_PRAISE_RATE);
+                        String queryParameter3 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_OPEN_PAY);
                         HashMap hashMap = new HashMap();
                         hashMap.put("game_id", queryParameter);
                         hashMap.put("god_id", queryParameter2);
-                        hashMap.put("god_praise_rate", queryParameter3);
+                        hashMap.put("open_pay", queryParameter3);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.val$context, "GameGodsDetailPage", hashMap)));
                     }
                 }
@@ -384,6 +384,7 @@ public class UrlSchemaJumpHelper {
             String queryParameter4 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_USER_PORTRAIT);
             String queryParameter5 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_TEAM_ID);
             String queryParameter6 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_GAME_ID);
+            String queryParameter7 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_DEFAULT_DRAFT);
             if (z) {
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_PLAY_ATTENTION_ACCEPT, TbConfig.SERVER_GAME_PLAY_ADRESS + queryParameter2);
                 tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -394,7 +395,7 @@ public class UrlSchemaJumpHelper {
                 httpMessage.addParam(BdUniDispatchSchemeController.PARAM_GAME_ID, queryParameter6);
                 MessageManager.getInstance().sendMessage(httpMessage);
             }
-            tc5.a(context, ng.g(queryParameter, 0L), queryParameter3, queryParameter4);
+            wd5.a(context, ng.g(queryParameter, 0L), queryParameter3, queryParameter4, queryParameter7);
         }
     }
 
@@ -438,10 +439,10 @@ public class UrlSchemaJumpHelper {
                     SCHEMA_BLACK_LIST.clear();
                     SCHEMA_BLACK_LIST.addAll(arrayList);
                 }
-                ht4.k().y(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
+                xt4.k().y(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
                 return;
             }
-            ht4.k().D(KEY_APP_JUMP_BLACK_LIST);
+            xt4.k().D(KEY_APP_JUMP_BLACK_LIST);
             SCHEMA_BLACK_LIST.clear();
         }
     }

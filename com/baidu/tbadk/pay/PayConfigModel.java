@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a85;
-import com.repackage.c85;
+import com.repackage.c95;
 import com.repackage.d9;
+import com.repackage.e95;
 import com.repackage.za;
 import tbclient.GetClientConfig.CPayType;
 import tbclient.GetClientConfig.DataRes;
@@ -27,7 +27,7 @@ import tbclient.GetClientConfig.DataRes;
 public class PayConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a85 a;
+    public c95 a;
     public final za b;
 
     /* loaded from: classes3.dex */
@@ -61,20 +61,20 @@ public class PayConfigModel extends BdBaseModel {
         @Override // com.repackage.za
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.a.C(responsedMessage)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.a.D(responsedMessage)) {
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
-                        this.a.D(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+                        this.a.E(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                         return;
                     } else if (responsedMessage instanceof ClientConfigSocketResponse) {
-                        this.a.D(((ClientConfigSocketResponse) responsedMessage).getData());
+                        this.a.E(((ClientConfigSocketResponse) responsedMessage).getData());
                         return;
                     } else {
                         return;
                     }
                 }
                 String errorString = responsedMessage.getErrorString();
-                String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c37);
+                String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2b);
                 if (StringUtils.isNull(errorString)) {
                     errorString = string;
                 }
@@ -86,13 +86,13 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PayConfigModel(TbPageContext tbPageContext, a85 a85Var) {
+    public PayConfigModel(TbPageContext tbPageContext, c95 c95Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, a85Var};
+            Object[] objArr = {tbPageContext, c95Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -105,55 +105,55 @@ public class PayConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = a85Var;
+        this.a = c95Var;
         registerListener(aVar);
     }
 
-    public final boolean C(ResponsedMessage<?> responsedMessage) {
+    public final boolean D(ResponsedMessage<?> responsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, responsedMessage)) == null) ? (responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != getUniqueId()) ? false : true : invokeL.booleanValue;
     }
 
-    public final void D(DataRes dataRes) {
+    public final void E(DataRes dataRes) {
         CPayType cPayType;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
             if (dataRes != null && (cPayType = dataRes.payType) != null) {
                 if (cPayType.pay_type.intValue() == 1) {
-                    a85 a85Var = this.a;
-                    if (a85Var != null) {
-                        a85Var.b();
+                    c95 c95Var = this.a;
+                    if (c95Var != null) {
+                        c95Var.b();
                     }
                 } else if (dataRes.payType.pay_type.intValue() == 2) {
-                    a85 a85Var2 = this.a;
-                    if (a85Var2 != null) {
-                        a85Var2.a();
+                    c95 c95Var2 = this.a;
+                    if (c95Var2 != null) {
+                        c95Var2.a();
                     }
                 } else {
-                    a85 a85Var3 = this.a;
-                    if (a85Var3 != null) {
-                        a85Var3.onError("");
+                    c95 c95Var3 = this.a;
+                    if (c95Var3 != null) {
+                        c95Var3.onError("");
                     }
                 }
             } else if (this.a != null) {
-                this.a.onError(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0473));
+                this.a.onError(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f047b));
             }
         }
     }
 
-    public void E() {
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!c85.c().d()) {
-                a85 a85Var = this.a;
-                if (a85Var != null) {
-                    a85Var.a();
+            if (!e95.c().d()) {
+                c95 c95Var = this.a;
+                if (c95Var != null) {
+                    c95Var.a();
                 }
             } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                a85 a85Var2 = this.a;
-                if (a85Var2 != null) {
-                    a85Var2.b();
+                c95 c95Var2 = this.a;
+                if (c95Var2 != null) {
+                    c95Var2.b();
                 }
             } else {
                 ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();

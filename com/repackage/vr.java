@@ -88,7 +88,7 @@ public class vr {
                         } else {
                             mrVar.b(-1);
                         }
-                        if (ar.c.h().d()) {
+                        if (ar.c.h().c()) {
                             if (a3.b() != null) {
                                 DebugTrace debugTrace2 = DebugTrace.a;
                                 debugTrace2.a("BdtlsPostRequest response alert message=" + b);

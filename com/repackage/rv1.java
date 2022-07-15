@@ -1,72 +1,79 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.camera.view.CameraPreview;
+import android.graphics.Paint;
+import android.text.style.LineHeightSpan;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class rv1 extends hv1<CameraPreview, ms1> {
+public class rv1 implements LineHeightSpan {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rv1(@NonNull Context context, @NonNull ms1 ms1Var) {
-        super(context, ms1Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755336988, "Lcom/repackage/rv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755336988, "Lcom/repackage/rv1;");
+                return;
+            }
+        }
+        b = rg1.a;
+    }
+
+    public rv1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, ms1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (iv1) objArr2[1]);
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        g(2);
+        this.a = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hv1
-    @NonNull
-    /* renamed from: F */
-    public CameraPreview v(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // android.text.style.LineHeightSpan
+    public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
+        int i5;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new CameraPreview(context, n()) : (CameraPreview) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hv1
-    /* renamed from: G */
-    public void C(@NonNull CameraPreview cameraPreview, @NonNull ms1 ms1Var, @NonNull kw1 kw1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cameraPreview, ms1Var, kw1Var) == null) {
-            super.C(cameraPreview, ms1Var, kw1Var);
-            if (t()) {
-                cameraPreview.p(ms1Var);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in fm=" + fontMetricsInt);
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in height=" + this.a);
             }
-        }
-    }
-
-    @Override // com.repackage.hv1
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.z();
-            CameraPreview q = q();
-            if (q != null) {
-                q.h();
+            if (this.a < 0 || (i5 = fontMetricsInt.descent - fontMetricsInt.ascent) < 0) {
+                return;
+            }
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in originHeight=" + i5);
+            }
+            int i6 = (this.a - i5) / 2;
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in hafDiff=" + i6);
+            }
+            fontMetricsInt.descent += i6;
+            fontMetricsInt.ascent -= i6;
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: out fm=" + fontMetricsInt);
             }
         }
     }

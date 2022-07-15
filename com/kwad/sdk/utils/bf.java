@@ -1,29 +1,26 @@
 package com.kwad.sdk.utils;
 
-import android.os.Build;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import org.json.JSONObject;
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.Nullable;
+import com.kwad.sdk.api.core.ResContext;
+import com.kwad.sdk.api.loader.Wrapper;
 /* loaded from: classes5.dex */
-public class bf {
-    public static void a(final WebView webView, final String str, final ValueCallback<String> valueCallback) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            ax.a(new Runnable() { // from class: com.kwad.sdk.utils.bf.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    webView.evaluateJavascript(str, valueCallback);
-                }
-            });
-            return;
-        }
-        webView.loadUrl(str);
-        if (valueCallback != null) {
-            valueCallback.onReceiveValue(null);
-        }
+public final class bf {
+    public static Context a(Context context) {
+        Context applicationContext = Wrapper.unwrapContextIfNeed(context).getApplicationContext();
+        return applicationContext instanceof ResContext ? ((ResContext) applicationContext).getDelegatedContext().getApplicationContext() : applicationContext;
     }
 
-    public static void a(WebView webView, String str, String str2) {
-        a(webView, "javascript:" + str + "(" + JSONObject.quote(str2) + SmallTailInfo.EMOTION_SUFFIX, (ValueCallback<String>) null);
+    @Nullable
+    public static Activity b(@Nullable Context context) {
+        if (context instanceof ResContext) {
+            context = ((ResContext) context).getDelegatedContext();
+        }
+        if (context instanceof Activity) {
+            return (Activity) context;
+        }
+        com.kwad.sdk.core.lifecycle.a.c();
+        return com.kwad.sdk.core.lifecycle.a.e();
     }
 }

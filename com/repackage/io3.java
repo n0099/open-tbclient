@@ -1,19 +1,15 @@
 package com.repackage;
 
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
-import org.json.JSONObject;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes6.dex */
 public interface io3 {
-    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
+    void a(DownloadInfo downloadInfo);
 
-    void b(String str, JSONObject jSONObject, ResponseCallback<ao3> responseCallback);
+    void b();
 
-    void c(String str, ResponseCallback<jn3> responseCallback);
+    DownloadInfo c(String str);
 
-    void d(String str);
+    void close();
 
-    void e(String str);
-
-    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
+    void delete(DownloadInfo downloadInfo);
 }

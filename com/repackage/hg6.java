@@ -1,69 +1,215 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.content.res.Configuration;
+import android.text.TextUtils;
+import android.widget.BaseAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.entelechy.view.ReadProgressViewHolder;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ig6;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class hg6 extends fc6<pc6, ReadProgressViewHolder> {
+public class hg6 implements cg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public gg6 a;
+    public TbPageContext b;
+    public BdTypeListView c;
+    public List<nn> d;
+    public final List<an> e;
+    public boolean f;
+    public int g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hg6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public hg6(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdTypeListView, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = new ArrayList();
+        this.e = new ArrayList();
+        this.f = false;
+        this.g = -1;
+        this.b = tbPageContext;
+        this.c = bdTypeListView;
+        this.f = z;
+        d();
     }
 
-    @Override // com.repackage.fc6, com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        m0(i, view2, viewGroup, (pc6) obj, (ReadProgressViewHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: l0 */
-    public ReadProgressViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.repackage.cg6
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ReadProgressViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d033c, viewGroup, false), this.k.getPageActivity()) : (ReadProgressViewHolder) invokeL.objValue;
-    }
-
-    public View m0(int i, View view2, ViewGroup viewGroup, pc6 pc6Var, ReadProgressViewHolder readProgressViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pc6Var, readProgressViewHolder})) == null) {
-            if (pc6Var != null && readProgressViewHolder != null) {
-                readProgressViewHolder.d(pc6Var);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.g = i;
+            if (ListUtils.isEmpty(this.d) || this.c == null) {
+                return;
             }
-            return view2;
+            for (nn nnVar : this.d) {
+                if (nnVar instanceof ig6) {
+                    ((ig6) nnVar).s = false;
+                }
+            }
+            if (ni.H()) {
+                if (this.g < this.d.size() - 1) {
+                    List<nn> list = this.d;
+                    int i2 = this.g + 1;
+                    this.g = i2;
+                    if (list.get(i2) instanceof ig6) {
+                        ((ig6) this.d.get(this.g)).s = true;
+                        BdTypeListView bdTypeListView = this.c;
+                        bdTypeListView.smoothScrollToPositionFromTop(i + bdTypeListView.getHeaderViewsCount() + 1, 0);
+                        g();
+                    }
+                } else if (this.g == this.d.size() - 1 && (this.d.get(this.g) instanceof ig6)) {
+                    ((ig6) this.d.get(this.g)).s = false;
+                }
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ListUtils.isEmpty(this.d)) {
+            return;
+        }
+        Iterator<nn> it = this.d.iterator();
+        while (it.hasNext()) {
+            ((ig6) it.next()).s = false;
+        }
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.intValue;
+    }
+
+    @Override // com.repackage.cg6
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            l();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            gg6 gg6Var = new gg6(this.b, this, this.f);
+            this.a = gg6Var;
+            this.e.add(gg6Var);
+            this.c.a(this.e);
+        }
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.d0() : invokeV.booleanValue;
+    }
+
+    public void f(String str, boolean z) {
+        ig6 ig6Var;
+        ig6.b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        boolean z2 = false;
+        for (nn nnVar : this.d) {
+            if (nnVar != null && (nnVar instanceof ig6) && (bVar = (ig6Var = (ig6) nnVar).m) != null && str.equals(bVar.a)) {
+                ig6Var.m.e = z;
+                z2 = true;
+            }
+        }
+        if (z2) {
+            g();
+        }
+    }
+
+    public void g() {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bdTypeListView = this.c) == null || bdTypeListView.getAdapter2() == null || !(this.c.getAdapter2() instanceof BaseAdapter)) {
+            return;
+        }
+        this.c.getAdapter2().notifyDataSetChanged();
+    }
+
+    public void h(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, configuration) == null) {
+            this.a.e0(configuration);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a.onDestroy();
+        }
+    }
+
+    public boolean j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? this.a.h0(i) : invokeI.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a.i0();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            b();
+            this.g = 0;
+            k();
+        }
+    }
+
+    public void m(List<ig6> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048589, this, list, z) == null) || list == null) {
+            return;
+        }
+        if (z) {
+            this.d.clear();
+        }
+        this.d.addAll(list);
+        this.c.setData(this.d);
+        if (z && list.size() > 0 && this.f && ni.H()) {
+            l();
+            list.get(0).s = true;
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.a.j0();
+        }
     }
 }

@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import com.repackage.pu9;
-import com.repackage.su9;
+import com.repackage.mr9;
+import com.repackage.pr9;
 import java.nio.ByteBuffer;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -368,7 +368,7 @@ public class MediaCodecVideoDecoder {
         @javax.annotation.Nullable
         @Deprecated
         public /* synthetic */ VideoDecoder createDecoder(String str) {
-            return su9.$default$createDecoder(this, str);
+            return pr9.$default$createDecoder(this, str);
         }
 
         @Override // org.webrtc.VideoDecoderFactory
@@ -1254,7 +1254,7 @@ public class MediaCodecVideoDecoder {
                 Logging.w(TAG, "Egl context already set.");
                 eglBase.release();
             }
-            eglBase = pu9.b(context);
+            eglBase = mr9.b(context);
         }
     }
 

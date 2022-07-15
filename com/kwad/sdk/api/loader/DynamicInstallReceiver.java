@@ -22,7 +22,7 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
             return;
         }
         String str = context.getPackageName() + ".loader.install.DynamicApk";
-        Log.i(TAG, "registerToApp action:" + str);
+        Log.i(TAG, "registerToApp action:".concat(String.valueOf(str)));
         context.getApplicationContext().registerReceiver(new DynamicInstallReceiver(), new IntentFilter(str));
         HAS_REGISTER.set(true);
     }
@@ -40,15 +40,15 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
             Log.i(TAG, "downloadFile is exists, apkPath :" + stringExtra + " sdkVersion:" + stringExtra2);
             AsyncTask.execute(new Runnable() { // from class: com.kwad.sdk.api.loader.DynamicInstallReceiver.1
                 @Override // java.lang.Runnable
-                public void run() {
+                public final void run() {
                     try {
                         if (b.a(context, file.getPath(), stringExtra2)) {
                             Log.i(DynamicInstallReceiver.TAG, "onReceive ApkInstaller installApk success");
-                            f.a(context, f.a, stringExtra2);
-                            g.a(file);
+                            g.a(context, g.a, stringExtra2);
+                            h.a(file);
                         }
                     } catch (Exception e) {
-                        Log.i(DynamicInstallReceiver.TAG, "onReceive ApkInstaller installApk error:" + e);
+                        Log.i(DynamicInstallReceiver.TAG, "onReceive ApkInstaller installApk error:".concat(String.valueOf(e)));
                         e.printStackTrace();
                     }
                 }

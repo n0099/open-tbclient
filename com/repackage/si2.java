@@ -1,53 +1,107 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.view.Surface;
+import androidx.annotation.NonNull;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class si2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public byte[] c;
+public interface si2 extends ee2 {
 
     /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public String c;
+    public interface a {
+        void a(int i);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        void b(int i);
+
+        void c(String str);
+
+        void d(@NonNull String str);
+
+        void e(String str);
+
+        void f();
+
+        void onEnded();
+
+        void onError(int i);
+
+        void onPrepared();
+
+        void onRelease(String str);
     }
 
-    public si2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = new byte[48];
-    }
+    void B(boolean z);
+
+    void C();
+
+    void G(int i);
+
+    void H();
+
+    void L(int i, int i2, int i3, int i4);
+
+    void N(ZeusPluginFactory.Invoker invoker);
+
+    boolean O(String str, String str2, String str3, boolean z);
+
+    boolean P();
+
+    a Q();
+
+    void T(Map map);
+
+    void U();
+
+    void W();
+
+    int a();
+
+    void b0(String str);
+
+    String c();
+
+    void c0();
+
+    ZeusPluginFactory.Invoker f0();
+
+    void g0(int i);
+
+    Context getContext();
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    int getVideoHeight();
+
+    int getVideoSarDen();
+
+    int getVideoSarNum();
+
+    int getVideoWidth();
+
+    void h0(@NonNull a aVar);
+
+    boolean isPlaying();
+
+    boolean j0();
+
+    void l(boolean z);
+
+    void n0();
+
+    void pause();
+
+    boolean prepareAsync();
+
+    void release();
+
+    void seekTo(int i);
+
+    void setSpeed(float f);
+
+    void setSurface(Surface surface);
+
+    void start();
 }

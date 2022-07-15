@@ -3,6 +3,8 @@ package com.repackage;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ft2 implements et2 {
+public class ft2 implements af3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile ft2 d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile dt2 a;
-    public volatile du2 b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +34,7 @@ public class ft2 implements et2 {
                 return;
             }
         }
-        c = cg1.a;
+        a = rg1.a;
     }
 
     public ft2() {
@@ -45,104 +47,56 @@ public class ft2 implements et2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        k();
     }
 
-    public static ft2 j() {
-        InterceptResult invokeV;
+    public final JSONObject b(HybridUbcFlow hybridUbcFlow) throws JSONException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (ft2.class) {
-                    if (d == null) {
-                        d = new ft2();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty()) {
+                jSONObject.put("flowId", hybridUbcFlow.l());
+                JSONArray jSONArray = new JSONArray();
+                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f) {
+                    if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.a)) {
+                        if (a) {
+                            Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
+                        }
+                        jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.a).put("timestamp", ubcFlowEvent.g()));
+                    }
+                }
+                jSONObject.put("data", jSONArray);
+            }
+            if (a) {
+                Log.i("FlowJarToH5Reporter", "buildJoMsg: joMsg=" + jSONObject);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.af3
+    /* renamed from: c */
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+            if (a) {
+                Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
+            }
+            if (ul2.U().Y()) {
+                if (a || ul2.U().N()) {
+                    try {
+                        ot2.e().c(b(hybridUbcFlow));
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
-            return d;
-        }
-        return (ft2) invokeV.objValue;
-    }
-
-    @Override // com.repackage.et2
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && m()) {
-            if (c) {
-                Log.d("StartUpInfoMarker", "aiapp start at - " + j);
-            }
-            this.a.b(j);
-            this.b.b(j);
-        }
-    }
-
-    @Override // com.repackage.et2
-    public void c(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && m()) {
-            if (c) {
-                Log.d("StartUpInfoMarker", "aiapp start cost at - " + j);
-            }
-            this.a.c(j);
-            this.b.c(j);
-            o(j);
-        }
-    }
-
-    public dt2 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (dt2) invokeV.objValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.a == null) {
-                this.a = new bt2();
-            }
-            if (this.b == null) {
-                this.b = new fu2();
-            }
-        }
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (c) {
-                return true;
-            }
-            sz2 b0 = sz2.b0();
-            if (b0 == null) {
-                return false;
-            }
-            String appId = b0.getAppId();
-            return (TextUtils.isEmpty(appId) || ur1.b(appId) == 0) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? l() : invokeV.booleanValue;
-    }
-
-    public du2 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (du2) invokeV.objValue;
-    }
-
-    public final void o(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            ob3.i.update((nb3<Long>) Long.valueOf(j));
         }
     }
 }

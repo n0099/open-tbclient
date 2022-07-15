@@ -1,63 +1,38 @@
 package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import org.json.JSONException;
+import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class i extends b<a> {
-
-    /* loaded from: classes5.dex */
-    public static class a extends com.kwad.sdk.core.response.kwai.a {
-        public int a = TiebaStatic.MAX_COST_VALUE;
-        public int b = 90000;
-    }
-
-    public i(String str) {
-        super(str, new a());
+public final class i extends a<Integer> {
+    public i(String str, Integer num) {
+        super(str, num);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public void a(SharedPreferences.Editor editor) {
-        String b;
-        String str;
-        if (a() == null || a().toJson() == null) {
-            b = b();
-            str = "";
-        } else {
-            b = b();
-            str = a().toJson().toString();
-        }
-        editor.putString(b, str);
+    public final void a(@NonNull SharedPreferences.Editor editor) {
+        editor.putInt(a(), b().intValue());
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public void a(SharedPreferences sharedPreferences) {
-        a a2 = a();
-        if (a2 == null) {
-            a2 = new a();
-        }
-        JSONObject jSONObject = null;
-        try {
-            jSONObject = new JSONObject(sharedPreferences.getString(b(), ""));
-        } catch (JSONException e) {
-            com.kwad.sdk.core.d.a.b(e);
-        }
-        if (jSONObject != null) {
-            a2.parseJson(jSONObject);
-        }
-        a((i) a2);
+    public final void a(@NonNull SharedPreferences sharedPreferences) {
+        a((i) Integer.valueOf(sharedPreferences.getInt(a(), c().intValue())));
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(b())) == null) {
-            a((i) c());
-            return;
-        }
-        a aVar = new a();
-        aVar.parseJson(optJSONObject);
-        a((i) aVar);
+    public final void a(JSONObject jSONObject) {
+        a((i) (jSONObject != null ? Integer.valueOf(jSONObject.optInt(a(), c().intValue())) : c()));
+    }
+
+    public final boolean d() {
+        return b().intValue() == 1;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.config.item.b
+    @NonNull
+    /* renamed from: e */
+    public final Integer b() {
+        return (Integer) super.b();
     }
 }

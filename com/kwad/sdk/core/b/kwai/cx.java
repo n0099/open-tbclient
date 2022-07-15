@@ -1,39 +1,39 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.PhotoAd;
+import com.kwad.components.core.webview.jshandler.s;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cx implements com.kwad.sdk.core.d<PhotoAd> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(PhotoAd photoAd, JSONObject jSONObject) {
+public final class cx implements com.kwad.sdk.core.d<s.b> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(s.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        photoAd.requestPatchAd = jSONObject.optBoolean("requestPatchAd", new Boolean("false").booleanValue());
-        photoAd.requestPatchEc = jSONObject.optBoolean("requestPatchEc", new Boolean("false").booleanValue());
-        photoAd.widgetAdPosition = jSONObject.optInt("widgetAdPosition");
-        photoAd.requestWidgetAd = jSONObject.optBoolean("requestWidgetAd", new Boolean("false").booleanValue());
-        photoAd.requestBannerAd = jSONObject.optBoolean("requestBannerAd", new Boolean("false").booleanValue());
-        photoAd.requestAggregateAd = jSONObject.optBoolean("requestAggregateAd", new Boolean("false").booleanValue());
-        photoAd.requestDynamicRewardAd = jSONObject.optBoolean("requestDynamicRewardAd", new Boolean("true").booleanValue());
-        photoAd.requestInsertScreenAd = jSONObject.optBoolean("requestInsertScreenAd", new Boolean("false").booleanValue());
+        bVar.a = jSONObject.optDouble("progress");
+        bVar.b = jSONObject.optInt("status");
+        bVar.c = jSONObject.optLong("totalBytes");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(PhotoAd photoAd, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(s.b bVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "requestPatchAd", photoAd.requestPatchAd);
-        com.kwad.sdk.utils.t.a(jSONObject, "requestPatchEc", photoAd.requestPatchEc);
-        com.kwad.sdk.utils.t.a(jSONObject, "widgetAdPosition", photoAd.widgetAdPosition);
-        com.kwad.sdk.utils.t.a(jSONObject, "requestWidgetAd", photoAd.requestWidgetAd);
-        com.kwad.sdk.utils.t.a(jSONObject, "requestBannerAd", photoAd.requestBannerAd);
-        com.kwad.sdk.utils.t.a(jSONObject, "requestAggregateAd", photoAd.requestAggregateAd);
-        com.kwad.sdk.utils.t.a(jSONObject, "requestDynamicRewardAd", photoAd.requestDynamicRewardAd);
-        com.kwad.sdk.utils.t.a(jSONObject, "requestInsertScreenAd", photoAd.requestInsertScreenAd);
+        com.kwad.sdk.utils.r.a(jSONObject, "progress", bVar.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "status", bVar.b);
+        com.kwad.sdk.utils.r.a(jSONObject, "totalBytes", bVar.c);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(s.b bVar, JSONObject jSONObject) {
+        a2(bVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(s.b bVar, JSONObject jSONObject) {
+        return b2(bVar, jSONObject);
     }
 }

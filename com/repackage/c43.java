@@ -2,43 +2,38 @@ package com.repackage;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x43;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.m53;
 /* loaded from: classes5.dex */
-public class c43 extends p13 {
+public class c43 extends g43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements le3<v43<x43.e>> {
+    public class a implements af3<k53<m53.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ f43 b;
+        public final /* synthetic */ nm1 c;
         public final /* synthetic */ c43 d;
 
-        public a(c43 c43Var, CallbackHandler callbackHandler, String str, String str2) {
+        public a(c43 c43Var, CallbackHandler callbackHandler, f43 f43Var, nm1 nm1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c43Var, callbackHandler, str, str2};
+                Object[] objArr = {c43Var, callbackHandler, f43Var, nm1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,133 +45,104 @@ public class c43 extends p13 {
             }
             this.d = c43Var;
             this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
+            this.b = f43Var;
+            this.c = nm1Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.le3
+        @Override // com.repackage.af3
         /* renamed from: b */
-        public void a(v43<x43.e> v43Var) {
+        public void a(k53<m53.e> k53Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v43Var) == null) {
-                this.d.k(this.a, this.b, this.c, v43Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
+                if (!f53.h(k53Var)) {
+                    f53.q(k53Var, this.a, this.b.e);
+                    this.b.k = null;
+                } else {
+                    f43 f43Var = this.b;
+                    f43Var.m = false;
+                    this.d.m(this.a, (SwanAppSlaveManager) this.c, f43Var);
+                }
+                if (this.c.x(this.b)) {
+                    this.d.o();
+                    return;
+                }
+                hx1.c("insertWebView", "insert webview widget fail");
+                this.a.handleSchemeDispatchCallback(this.b.e, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755847217, "Lcom/repackage/c43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755847217, "Lcom/repackage/c43;");
-                return;
-            }
-        }
-        boolean z = cg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c43(p03 p03Var) {
-        super(p03Var, "/swanAPI/authorize");
+    public c43(e13 e13Var) {
+        super(e13Var, "/swanAPI/insertWebView");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((e13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (sz2Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                aj2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null").toString());
-                return false;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (e23.b) {
+                Log.d("InsertWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty joParams");
-                aj2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty joParams").toString());
+            f43 h = f43.h(unitedSchemeEntity);
+            if (!h.isValid()) {
+                hx1.c("insertWebView", "params is invalid");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            }
-            String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty cb");
-                aj2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty cb").toString());
+            } else if (!TextUtils.isEmpty(h.j) && l(h.j, h.n)) {
+                hx1.c("insertWebView", "params is invalid");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
+            } else {
+                nm1 nm1Var = (nm1) ul2.U().A(h.c);
+                if (nm1Var == null) {
+                    hx1.c("insertWebView", "viewManager is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                if (TextUtils.equals(h.l, "quickPass")) {
+                    h03Var.e0().g(context, "scope_webview_extra_operation", new a(this, callbackHandler, h, nm1Var));
+                } else if (!nm1Var.x(h)) {
+                    hx1.c("insertWebView", "insert webview widget fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else {
+                    o();
+                }
+                hx1.i("insertWebView", "insert webview widget success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
-            String c = s43.c(optParamsAsJo.optString("scope"));
-            if (TextUtils.isEmpty(c)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope");
-                aj2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope").toString());
-                return false;
-            }
-            sz2Var.e0().c(context, c, false, new a(this, callbackHandler, c, optString));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00a7, code lost:
-        r8 = 10001;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void k(CallbackHandler callbackHandler, String str, String str2, v43<x43.e> v43Var) {
+    public final void o() {
+        qz1 V;
+        pz1 o;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str, str2, v43Var) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("scope", s43.d(str));
-                if (v43Var != null && v43Var.a != null) {
-                    if (!v43Var.c()) {
-                        OAuthException a2 = v43Var.a();
-                        jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, a2 == null ? "" : a2.getMessage());
-                        callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(v43Var.b()).toString());
-                        aj2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, v43Var.b()).toString());
-                        return;
-                    }
-                    jSONObject.put("code", v43Var.a.a);
-                    jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, v43Var.a.b ? "authorize:ok" : "user deny");
-                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, v43Var.a.b ? 0 : 10003).toString());
-                    if (v43Var.a.b) {
-                        return;
-                    }
-                    aj2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, v43Var.b()).toString());
-                    return;
-                }
-                int b = v43Var.b();
-                q43.k("empty auth result", Boolean.TRUE);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, q43.f(b));
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, b).toString());
-                q43.t("AuthorizeAction", "null == result || null == result.mData");
-                aj2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, b).toString());
-            } catch (JSONException unused) {
-                q43.k("json exception", Boolean.TRUE);
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(10001, "internal error").toString());
-                aj2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 10001, "internal error").toString());
-            }
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (V = ul2.U().V()) == null || (o = V.o()) == null) {
+            return;
         }
+        hx1.i("insertWebView", "disable navigationStyle custom");
+        o.k3();
     }
 }

@@ -1,15 +1,10 @@
 package com.repackage;
 
-import android.view.View;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface du2 extends et2 {
-    void a(long j);
+public interface du2 {
+    public static final boolean a = rg1.a;
 
-    void e(long j);
-
-    void f(long j);
-
-    void g(long j);
-
-    void h(View view2);
+    List<pt2> a(JSONObject jSONObject);
 }

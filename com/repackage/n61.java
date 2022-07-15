@@ -1,9 +1,13 @@
 package com.repackage;
 
 import android.app.Activity;
-import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,124 +15,212 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.repackage.o61;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+@Autowired
 /* loaded from: classes6.dex */
 public class n61 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile n61 a;
+    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a implements o61 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.o61
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // com.repackage.o61
+        public String b(Activity activity, String str, o61.a aVar) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, aVar)) == null) {
+                return null;
+            }
+            return (String) invokeLLL.objValue;
+        }
+
+        @Override // com.repackage.o61
+        public void c(String str, String str2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ o61.a c;
+        public final /* synthetic */ String d;
+
+        public b(Activity activity, String str, o61.a aVar, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {activity, str, aVar, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
+            this.b = str;
+            this.c = aVar;
+            this.d = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                n61.f(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                n61.e(this.a);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755517656, "Lcom/repackage/n61;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755517656, "Lcom/repackage/n61;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755517656, "Lcom/repackage/n61;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755517656, "Lcom/repackage/n61;");
-        }
+        a = new HashMap();
     }
 
-    public n61() {
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                new Handler(Looper.getMainLooper()).post(new c(str));
+            } else {
+                e(str);
             }
         }
     }
 
-    public static synchronized n61 f() {
+    @Inject(force = false)
+    public static o61 d() {
         InterceptResult invokeV;
-        n61 n61Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (n61.class) {
-                if (a == null) {
-                    synchronized (n61.class) {
-                        if (a == null) {
-                            a = new n61();
-                        }
-                    }
-                }
-                n61Var = a;
-            }
-            return n61Var;
-        }
-        return (n61) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new a() : (o61) invokeV.objValue;
     }
 
-    public boolean a(Activity activity, String str, r61 r61Var) {
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            String remove = a.remove(str);
+            if (TextUtils.isEmpty(remove)) {
+                return;
+            }
+            d().a(remove);
+        }
+    }
+
+    public static void f(Activity activity, String str, o61.a aVar, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, activity, str, aVar, str2) == null) {
+            String b2 = d().b(activity, str, aVar);
+            if (TextUtils.isEmpty(b2)) {
+                return;
+            }
+            a.put(str2, b2);
+        }
+    }
+
+    public static String g(Activity activity, String str, o61.a aVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, r61Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, activity, str, aVar)) == null) {
+            String uuid = UUID.randomUUID().toString();
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                new Handler(Looper.getMainLooper()).post(new b(activity, str, aVar, uuid));
+            } else {
+                f(activity, str, aVar, uuid);
             }
-            m61.a().c(activity, str, r61Var);
-            return true;
+            return uuid;
         }
-        return invokeLLL.booleanValue;
+        return (String) invokeLLL.objValue;
     }
 
-    public boolean b(Activity activity, String str, r61 r61Var) {
-        InterceptResult invokeLLL;
+    public static void h(String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, r61Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeLLI(65544, null, str, str2, i) == null) {
+            String str3 = a.get(str);
+            if (TextUtils.isEmpty(str3)) {
+                return;
             }
-            m61.a().e(activity, str, r61Var);
-            return true;
+            d().c(str3, str2, i);
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public boolean c(Activity activity, JSONObject jSONObject, r61 r61Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, jSONObject, r61Var)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            m61.a().i(activity, jSONObject, r61Var);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public boolean d(Context context, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            m61.a().f(context, jSONObject);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean e(Context context, JSONObject jSONObject, r61 r61Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, jSONObject, r61Var)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            m61.a().d(context, jSONObject, r61Var);
-            return true;
-        }
-        return invokeLLL.booleanValue;
     }
 }

@@ -23,6 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusConstants;
+import com.bytedance.pangle.c.d;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.plugin.Plugin;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
@@ -289,11 +290,11 @@ public class ContentProviderManager {
                     return;
                 }
                 for (ProviderInfo providerInfo : providerInfoArr) {
-                    if (providerInfo != null && providerInfo.authority != null && providerInfo.authority.contains(ZeusConstants.b)) {
+                    if (providerInfo != null && providerInfo.authority != null && providerInfo.authority.contains(ZeusConstants.f)) {
                         try {
                             ZeusLogger.w(ZeusLogger.TAG_PROVIDER, "Need to init system provider info start [packageNam:=" + providerInfo.packageName + "],[processName=" + providerInfo.processName + "],[authority:" + providerInfo.authority + PreferencesUtil.RIGHT_MOUNT);
-                            if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.b)) {
-                                String a2 = com.bytedance.pangle.helper.c.a(providerInfo.processName);
+                            if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.f)) {
+                                String a2 = d.a(providerInfo.processName);
                                 this.mSystemProviderInfoMap.put(a2, new c(Zeus.getAppApplication().getPackageName(), a2, providerInfo));
                                 ZeusLogger.w(ZeusLogger.TAG_PROVIDER, "Init system provider info finish [packageNam:=" + providerInfo.packageName + "],[processName=" + providerInfo.processName + "],[authority:" + providerInfo.authority + PreferencesUtil.RIGHT_MOUNT);
                             }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ht4;
+import com.repackage.xt4;
 /* loaded from: classes3.dex */
 public class FixNpsAnrSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
@@ -55,7 +55,7 @@ public class FixNpsAnrSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                int l = ht4.k().l(KEY_SWITCH, 0);
+                int l = xt4.k().l(KEY_SWITCH, 0);
                 type = l;
                 if (l == 1) {
                     switchOn = !UbsABTestHelper.isANRTestA();

@@ -17,8 +17,10 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes7.dex */
 public class e implements com.ss.android.download.api.a {
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(@NonNull h hVar) {
-        j.a(hVar);
+    public com.ss.android.download.api.a a(@NonNull final com.ss.android.download.api.config.b bVar) {
+        j.a(bVar);
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.c() { // from class: com.ss.android.downloadlib.e.1
+        });
         return this;
     }
 
@@ -29,14 +31,14 @@ public class e implements com.ss.android.download.api.a {
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(@NonNull k kVar) {
-        j.a(kVar);
+    public com.ss.android.download.api.a a(@NonNull com.ss.android.download.api.config.g gVar) {
+        j.a(gVar);
         return this;
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(@NonNull com.ss.android.download.api.config.g gVar) {
-        j.a(gVar);
+    public com.ss.android.download.api.a a(@NonNull h hVar) {
+        j.a(hVar);
         return this;
     }
 
@@ -47,22 +49,20 @@ public class e implements com.ss.android.download.api.a {
     }
 
     @Override // com.ss.android.download.api.a
+    public com.ss.android.download.api.a a(@NonNull k kVar) {
+        j.a(kVar);
+        return this;
+    }
+
+    @Override // com.ss.android.download.api.a
+    public com.ss.android.download.api.a a(p pVar) {
+        j.a(pVar);
+        return this;
+    }
+
+    @Override // com.ss.android.download.api.a
     public com.ss.android.download.api.a a(@NonNull com.ss.android.download.api.model.a aVar) {
         j.a(aVar);
-        return this;
-    }
-
-    @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(String str) {
-        j.a(str);
-        return this;
-    }
-
-    @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(@NonNull final com.ss.android.download.api.config.b bVar) {
-        j.a(bVar);
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.c() { // from class: com.ss.android.downloadlib.e.1
-        });
         return this;
     }
 
@@ -131,8 +131,8 @@ public class e implements com.ss.android.download.api.a {
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(p pVar) {
-        j.a(pVar);
+    public com.ss.android.download.api.a a(String str) {
+        j.a(str);
         return this;
     }
 
@@ -155,7 +155,9 @@ public class e implements com.ss.android.download.api.a {
                 if (com.ss.android.socialbase.appdownloader.f.d.n()) {
                     com.ss.android.socialbase.downloader.downloader.c.a(true);
                 }
-                com.ss.android.socialbase.appdownloader.f.e.a(j.getContext());
+                if (com.ss.android.socialbase.downloader.g.a.c().a("disable_security_init", 1) == 1) {
+                    com.ss.android.socialbase.appdownloader.f.e.a(j.getContext());
+                }
             }
         });
     }

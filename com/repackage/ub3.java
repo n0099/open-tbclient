@@ -1,16 +1,9 @@
 package com.repackage;
-
-import android.content.Context;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface ub3 {
+    void a(String str, int i);
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void c(JSONObject jSONObject, String str);
-    }
+    void b(String str, int i);
 
-    boolean a(String str, mp2 mp2Var);
-
-    void b(Context context, String str, a aVar);
+    void c(String str);
 }

@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zd7;
+import com.repackage.re7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zd7 data;
+    public re7 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaShareInBarResponsedMessage() {
@@ -42,15 +42,15 @@ public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
             if (getStatusCode() != 200 || jSONObject == null) {
                 return;
             }
-            zd7 zd7Var = new zd7();
-            this.data = zd7Var;
-            zd7Var.a(jSONObject);
+            re7 re7Var = new re7();
+            this.data = re7Var;
+            re7Var.a(jSONObject);
         }
     }
 
-    public zd7 getShareInBarData() {
+    public re7 getShareInBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : (zd7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : (re7) invokeV.objValue;
     }
 }

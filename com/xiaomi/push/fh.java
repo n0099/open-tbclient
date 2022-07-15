@@ -24,19 +24,19 @@ public class fh {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f356a;
+    public long f1083a;
 
     /* renamed from: a  reason: collision with other field name */
-    public bl f357a;
+    public bl f1084a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fg f358a;
+    public fg f1085a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f359a;
+    public String f1086a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f360a;
+    public boolean f1087a;
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -74,26 +74,26 @@ public class fh {
                 return;
             }
         }
-        this.f360a = false;
-        this.f357a = bl.a();
+        this.f1087a = false;
+        this.f1084a = bl.a();
     }
 
     private fa a(bl.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, aVar)) == null) {
-            if (aVar.f135a == 0) {
-                Object obj = aVar.f136a;
+            if (aVar.f862a == 0) {
+                Object obj = aVar.f863a;
                 if (obj instanceof fa) {
                     return (fa) obj;
                 }
                 return null;
             }
-            fa m325a = m325a();
-            m325a.a(ez.k.a());
-            m325a.c(aVar.f135a);
-            m325a.c(aVar.f137a);
-            return m325a;
+            fa m1268a = m1268a();
+            m1268a.a(ez.k.a());
+            m1268a.c(aVar.f862a);
+            m1268a.c(aVar.f864a);
+            return m1268a;
         }
         return (fa) invokeL.objValue;
     }
@@ -103,9 +103,9 @@ public class fh {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
             ArrayList arrayList = new ArrayList();
-            fb fbVar = new fb(this.f359a, arrayList);
-            if (!bj.e(this.f358a.f353a)) {
-                fbVar.a(j.k(this.f358a.f353a));
+            fb fbVar = new fb(this.f1086a, arrayList);
+            if (!bj.e(this.f1085a.f1080a)) {
+                fbVar.a(j.k(this.f1085a.f1080a));
             }
             jn jnVar = new jn(i);
             jf a2 = new jl.a().a(jnVar);
@@ -113,10 +113,10 @@ public class fh {
                 fbVar.b(a2);
             } catch (iz unused) {
             }
-            LinkedList<bl.a> m196a = this.f357a.m196a();
-            while (m196a.size() > 0) {
+            LinkedList<bl.a> m1139a = this.f1084a.m1139a();
+            while (m1139a.size() > 0) {
                 try {
-                    fa a3 = a(m196a.getLast());
+                    fa a3 = a(m1139a.getLast());
                     if (a3 != null) {
                         a3.b(a2);
                     }
@@ -126,7 +126,7 @@ public class fh {
                     if (a3 != null) {
                         arrayList.add(a3);
                     }
-                    m196a.removeLast();
+                    m1139a.removeLast();
                 } catch (iz | NoSuchElementException unused2) {
                 }
             }
@@ -141,7 +141,7 @@ public class fh {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (a.a) {
-                fgVar = a.a.f358a;
+                fgVar = a.a.f1085a;
             }
             return fgVar;
         }
@@ -149,32 +149,32 @@ public class fh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static fh m323a() {
+    public static fh m1266a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.a : (fh) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m324a() {
+    private void m1267a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.f360a && System.currentTimeMillis() - this.f356a > this.a) {
-            this.f360a = false;
-            this.f356a = 0L;
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.f1087a && System.currentTimeMillis() - this.f1083a > this.a) {
+            this.f1087a = false;
+            this.f1083a = 0L;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fa m325a() {
+    public synchronized fa m1268a() {
         InterceptResult invokeV;
         fa faVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 faVar = new fa();
-                faVar.a(bj.m189a((Context) this.f358a.f353a));
-                faVar.f330a = (byte) 0;
-                faVar.f334b = 1;
+                faVar.a(bj.m1132a((Context) this.f1085a.f1080a));
+                faVar.f1057a = (byte) 0;
+                faVar.f1061b = 1;
                 faVar.d((int) (System.currentTimeMillis() / 1000));
             }
             return faVar;
@@ -183,7 +183,7 @@ public class fh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fb m326a() {
+    public synchronized fb m1269a() {
         InterceptResult invokeV;
         fb fbVar;
         Interceptable interceptable = $ic;
@@ -192,7 +192,7 @@ public class fh {
                 fbVar = null;
                 if (b()) {
                     int i = PassBiometricUtil.k;
-                    if (!bj.e(this.f358a.f353a)) {
+                    if (!bj.e(this.f1085a.f1080a)) {
                         i = 375;
                     }
                     fbVar = a(i);
@@ -204,7 +204,7 @@ public class fh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m327a(int i) {
+    public void m1270a(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i <= 0) {
             return;
@@ -213,20 +213,20 @@ public class fh {
         if (i2 > 604800000) {
             i2 = 604800000;
         }
-        if (this.a == i2 && this.f360a) {
+        if (this.a == i2 && this.f1087a) {
             return;
         }
-        this.f360a = true;
-        this.f356a = System.currentTimeMillis();
+        this.f1087a = true;
+        this.f1083a = System.currentTimeMillis();
         this.a = i2;
-        com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f356a);
+        com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f1083a);
     }
 
     public synchronized void a(fa faVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, faVar) == null) {
             synchronized (this) {
-                this.f357a.a(faVar);
+                this.f1084a.a(faVar);
             }
         }
     }
@@ -235,26 +235,26 @@ public class fh {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, xMPushService) == null) {
             synchronized (this) {
-                this.f358a = new fg(xMPushService);
-                this.f359a = "";
+                this.f1085a = new fg(xMPushService);
+                this.f1086a = "";
                 com.xiaomi.push.service.bv.a().a(new fi(this));
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m328a() {
+    public boolean m1271a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f360a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1087a : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            m324a();
-            return this.f360a && this.f357a.m195a() > 0;
+            m1267a();
+            return this.f1087a && this.f1084a.m1138a() > 0;
         }
         return invokeV.booleanValue;
     }

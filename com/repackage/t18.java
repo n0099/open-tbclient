@@ -1,21 +1,22 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.personExtra.PersonBarByUidLocalMessage;
-import com.baidu.tieba.personExtra.ResponsePersonBarByUidLocalMessage;
+import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class t18 implements CustomMessageTask.CustomRunnable<String> {
+public class t18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
+    public String c;
+    public String d;
+    public Drawable e;
+    public Drawable f;
+    public Drawable g;
+    public boolean h;
 
     public t18() {
         Interceptable interceptable = $ic;
@@ -27,30 +28,9 @@ public class t18 implements CustomMessageTask.CustomRunnable<String> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof PersonBarByUidLocalMessage)) {
-                return null;
-            }
-            mq4.f();
-            String str = mq4.g("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
-            ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
-            if (str != null) {
-                try {
-                    responsePersonBarByUidLocalMessage.decodeInBackGround(2001183, str);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            return responsePersonBarByUidLocalMessage;
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
+        this.a = false;
     }
 }

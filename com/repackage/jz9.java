@@ -1,57 +1,71 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import androidx.core.view.InputDeviceCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bv9;
-import com.repackage.xu9;
+import com.xiaomi.mipush.sdk.MiPushClient;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
+import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
 /* loaded from: classes6.dex */
-public abstract class jz9 {
+public class jz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jz9() {
+    public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
+            long nanoTime = System.nanoTime();
+            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_flow_ui_action");
+            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
+            RLog.info("PayMessageHelper", "notifyReleaseAllPayFlowView releaseNanoTime:" + nanoTime);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
         }
     }
 
-    @Deprecated
-    public <T> bv9.c<T> a(bv9.c<T> cVar) {
-        InterceptResult invokeL;
+    public static void b(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar : (bv9.c) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            long nanoTime = System.nanoTime();
+            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action");
+            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
+            RLog.info("PayMessageHelper", "notifyReleaseDialogPayFlowView releaseNanoTime:" + nanoTime);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+        }
     }
 
-    @Deprecated
-    public <T> Throwable b(Throwable th) {
-        InterceptResult invokeL;
+    public static void c(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) ? th : (Throwable) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            long nanoTime = System.nanoTime();
+            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action");
+            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
+            RLog.info("PayMessageHelper", "notifyReleaseWalletPayFlowView releaseNanoTime:" + nanoTime);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+        }
     }
 
-    @Deprecated
-    public <T> ev9 c(ev9 ev9Var) {
-        InterceptResult invokeL;
+    public static void d(Context context, AbsPayMessageReceiver absPayMessageReceiver) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ev9Var)) == null) ? ev9Var : (ev9) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, absPayMessageReceiver) == null) {
+            RLog.info("PayMessageHelper", MiPushClient.COMMAND_REGISTER);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_flow_ui_action");
+            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action");
+            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action");
+            LocalBroadcastManager.getInstance(context).registerReceiver(absPayMessageReceiver, intentFilter);
+        }
     }
 
-    @Deprecated
-    public <T> xu9.a<T> d(bv9<? extends T> bv9Var, xu9.a<T> aVar) {
-        InterceptResult invokeLL;
+    public static void e(Context context, AbsPayMessageReceiver absPayMessageReceiver) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bv9Var, aVar)) == null) ? aVar : (xu9.a) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, absPayMessageReceiver) == null) {
+            RLog.info("PayMessageHelper", MiPushClient.COMMAND_UNREGISTER);
+            LocalBroadcastManager.getInstance(context).unregisterReceiver(absPayMessageReceiver);
+        }
     }
 }

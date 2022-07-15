@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dv9;
-import com.repackage.xu9;
+import com.repackage.as9;
+import com.repackage.ur9;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class EmptyObservableHolder implements xu9.a<Object> {
+public final class EmptyObservableHolder implements ur9.a<Object> {
     public static final /* synthetic */ EmptyObservableHolder[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
-    public static final xu9<Object> EMPTY;
+    public static final ur9<Object> EMPTY;
     public static final EmptyObservableHolder INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public final class EmptyObservableHolder implements xu9.a<Object> {
         EmptyObservableHolder emptyObservableHolder = new EmptyObservableHolder("INSTANCE", 0);
         INSTANCE = emptyObservableHolder;
         $VALUES = new EmptyObservableHolder[]{emptyObservableHolder};
-        EMPTY = xu9.a(emptyObservableHolder);
+        EMPTY = ur9.a(emptyObservableHolder);
     }
 
     public EmptyObservableHolder(String str, int i) {
@@ -57,10 +57,10 @@ public final class EmptyObservableHolder implements xu9.a<Object> {
         }
     }
 
-    public static <T> xu9<T> instance() {
+    public static <T> ur9<T> instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (xu9<T>) EMPTY : (xu9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (ur9<T>) EMPTY : (ur9) invokeV.objValue;
     }
 
     public static EmptyObservableHolder valueOf(String str) {
@@ -76,11 +76,11 @@ public final class EmptyObservableHolder implements xu9.a<Object> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.xu9.a, com.repackage.lv9
-    public void call(dv9<? super Object> dv9Var) {
+    @Override // com.repackage.ur9.a, com.repackage.is9
+    public void call(as9<? super Object> as9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dv9Var) == null) {
-            dv9Var.onCompleted();
+        if (interceptable == null || interceptable.invokeL(1048576, this, as9Var) == null) {
+            as9Var.onCompleted();
         }
     }
 }

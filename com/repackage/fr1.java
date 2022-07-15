@@ -1,18 +1,18 @@
 package com.repackage;
 
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONException;
 /* loaded from: classes6.dex */
-public abstract class fr1 implements gr1 {
+public final class fr1 extends br1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<BasePendingOperation> a;
 
     public fr1() {
         Interceptable interceptable = $ic;
@@ -24,23 +24,47 @@ public abstract class fr1 implements gr1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public void b(BasePendingOperation basePendingOperation) {
+    @Override // com.repackage.br1
+    public hs1 c(@NonNull nz1 nz1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
-            this.a.add(basePendingOperation);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nz1Var)) == null) {
+            View q = pj2.i().q(nz1Var);
+            if (q == null) {
+                return new hs1(1001);
+            }
+            return e(q);
         }
+        return (hs1) invokeL.objValue;
     }
 
-    public void c() {
+    @Override // com.repackage.br1
+    public hs1 d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new hs1(1001) : (hs1) invokeI.objValue;
+    }
+
+    public final hs1 e(@NonNull View view2) {
+        InterceptResult invokeL;
+        hs1 hs1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+            try {
+                hs1Var = new hs1(0, b((int) (yd3.P(view2.getLeft()) + 0.5f), (int) (yd3.P(view2.getTop()) + 0.5f), (int) (yd3.P(view2.getRight()) + 0.5f), (int) (yd3.P(view2.getBottom()) + 0.5f)));
+            } catch (JSONException e) {
+                if (br1.a) {
+                    e.printStackTrace();
+                }
+                hs1Var = new hs1(1001, "result JSONException");
+            }
+            hx1.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param normally, result = " + hs1Var);
+            return hs1Var;
         }
+        return (hs1) invokeL.objValue;
     }
 }

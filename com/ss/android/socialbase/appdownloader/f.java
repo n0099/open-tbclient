@@ -185,8 +185,69 @@ public class f {
         return this.ac;
     }
 
+    public f a(long j) {
+        this.z = j;
+        return this;
+    }
+
+    public f a(EnqueueType enqueueType) {
+        this.J = enqueueType;
+        return this;
+    }
+
+    public f a(IDownloadFileUriProvider iDownloadFileUriProvider) {
+        this.Q = iDownloadFileUriProvider;
+        return this;
+    }
+
+    public f a(IDownloadListener iDownloadListener) {
+        this.m = iDownloadListener;
+        return this;
+    }
+
+    public f a(m mVar) {
+        synchronized (this.X) {
+            if (mVar != null) {
+                if (!this.X.contains(mVar)) {
+                    this.X.add(mVar);
+                    return this;
+                }
+            }
+            return this;
+        }
+    }
+
+    public f a(r rVar) {
+        this.R = rVar;
+        return this;
+    }
+
+    public f a(String str) {
+        this.e = str;
+        return this;
+    }
+
+    public f a(List<com.ss.android.socialbase.downloader.model.c> list) {
+        this.h = list;
+        return this;
+    }
+
+    public f a(JSONObject jSONObject) {
+        this.V = jSONObject;
+        return this;
+    }
+
+    public f a(boolean z) {
+        this.i = z;
+        return this;
+    }
+
     public String a() {
         return this.c;
+    }
+
+    public void a(int i) {
+        this.aa = i;
     }
 
     public String aa() {
@@ -205,24 +266,114 @@ public class f {
         return this.V;
     }
 
+    public f b(int i) {
+        this.B = i;
+        return this;
+    }
+
+    public f b(String str) {
+        this.f = str;
+        return this;
+    }
+
+    public f b(List<String> list) {
+        this.d = list;
+        return this;
+    }
+
+    public f b(boolean z) {
+        this.j = z;
+        return this;
+    }
+
     public String b() {
         return this.e;
+    }
+
+    public f c(int i) {
+        this.C = i;
+        return this;
+    }
+
+    public f c(@NonNull String str) {
+        this.g = str;
+        return this;
+    }
+
+    public f c(boolean z) {
+        this.l = z;
+        return this;
     }
 
     public String c() {
         return this.g;
     }
 
+    public f d(int i) {
+        this.K = i;
+        return this;
+    }
+
+    public f d(String str) {
+        this.o = str;
+        return this;
+    }
+
+    public f d(boolean z) {
+        this.q = z;
+        return this;
+    }
+
     public List<com.ss.android.socialbase.downloader.model.c> d() {
         return this.h;
+    }
+
+    public f e(int i) {
+        this.L = i;
+        return this;
+    }
+
+    public f e(String str) {
+        this.p = str;
+        return this;
+    }
+
+    public f e(boolean z) {
+        this.v = z;
+        return this;
     }
 
     public boolean e() {
         return this.i;
     }
 
+    public f f(int i) {
+        this.Y = i;
+        return this;
+    }
+
+    public f f(String str) {
+        this.x = str;
+        return this;
+    }
+
+    public f f(boolean z) {
+        this.w = z;
+        return this;
+    }
+
     public boolean f() {
         return this.j;
+    }
+
+    public f g(String str) {
+        this.y = str;
+        return this;
+    }
+
+    public f g(boolean z) {
+        this.D = z;
+        return this;
     }
 
     public boolean g() {
@@ -237,36 +388,96 @@ public class f {
         return this.b;
     }
 
+    public f h(String str) {
+        this.E = str;
+        return this;
+    }
+
+    public f h(boolean z) {
+        this.S = z;
+        return this;
+    }
+
     public boolean h() {
         return this.l;
+    }
+
+    public f i(String str) {
+        this.ae = str;
+        return this;
+    }
+
+    public f i(boolean z) {
+        this.F = z;
+        return this;
     }
 
     public IDownloadListener i() {
         return this.m;
     }
 
+    public f j(String str) {
+        this.W = str;
+        return this;
+    }
+
+    public f j(boolean z) {
+        this.G = z;
+        return this;
+    }
+
     public IDownloadListener j() {
         return this.n;
+    }
+
+    public f k(boolean z) {
+        this.H = z;
+        return this;
     }
 
     public String k() {
         return this.o;
     }
 
+    public f l(boolean z) {
+        this.I = z;
+        return this;
+    }
+
     public String l() {
         return this.p;
+    }
+
+    public f m(boolean z) {
+        this.M = z;
+        return this;
     }
 
     public boolean m() {
         return this.q;
     }
 
+    public f n(boolean z) {
+        this.A = z;
+        return this;
+    }
+
     public com.ss.android.socialbase.downloader.notification.a n() {
         return this.u;
     }
 
+    public f o(boolean z) {
+        this.ab = z;
+        return this;
+    }
+
     public com.ss.android.socialbase.downloader.downloader.h o() {
         return this.s;
+    }
+
+    public f p(boolean z) {
+        this.ac = z;
+        return this;
     }
 
     public com.ss.android.socialbase.downloader.downloader.g p() {
@@ -311,216 +522,5 @@ public class f {
 
     public String z() {
         return this.E;
-    }
-
-    public void a(int i) {
-        this.aa = i;
-    }
-
-    public f b(String str) {
-        this.f = str;
-        return this;
-    }
-
-    public f c(@NonNull String str) {
-        this.g = str;
-        return this;
-    }
-
-    public f d(String str) {
-        this.o = str;
-        return this;
-    }
-
-    public f e(String str) {
-        this.p = str;
-        return this;
-    }
-
-    public f f(boolean z) {
-        this.w = z;
-        return this;
-    }
-
-    public f g(String str) {
-        this.y = str;
-        return this;
-    }
-
-    public f h(String str) {
-        this.E = str;
-        return this;
-    }
-
-    public f i(boolean z) {
-        this.F = z;
-        return this;
-    }
-
-    public f j(boolean z) {
-        this.G = z;
-        return this;
-    }
-
-    public f k(boolean z) {
-        this.H = z;
-        return this;
-    }
-
-    public f l(boolean z) {
-        this.I = z;
-        return this;
-    }
-
-    public f m(boolean z) {
-        this.M = z;
-        return this;
-    }
-
-    public f n(boolean z) {
-        this.A = z;
-        return this;
-    }
-
-    public f o(boolean z) {
-        this.ab = z;
-        return this;
-    }
-
-    public f p(boolean z) {
-        this.ac = z;
-        return this;
-    }
-
-    public f a(String str) {
-        this.e = str;
-        return this;
-    }
-
-    public f b(boolean z) {
-        this.j = z;
-        return this;
-    }
-
-    public f c(boolean z) {
-        this.l = z;
-        return this;
-    }
-
-    public f d(boolean z) {
-        this.q = z;
-        return this;
-    }
-
-    public f e(boolean z) {
-        this.v = z;
-        return this;
-    }
-
-    public f f(String str) {
-        this.x = str;
-        return this;
-    }
-
-    public f g(boolean z) {
-        this.D = z;
-        return this;
-    }
-
-    public f h(boolean z) {
-        this.S = z;
-        return this;
-    }
-
-    public f i(String str) {
-        this.ae = str;
-        return this;
-    }
-
-    public f j(String str) {
-        this.W = str;
-        return this;
-    }
-
-    public f a(List<com.ss.android.socialbase.downloader.model.c> list) {
-        this.h = list;
-        return this;
-    }
-
-    public f b(int i) {
-        this.B = i;
-        return this;
-    }
-
-    public f c(int i) {
-        this.C = i;
-        return this;
-    }
-
-    public f d(int i) {
-        this.K = i;
-        return this;
-    }
-
-    public f e(int i) {
-        this.L = i;
-        return this;
-    }
-
-    public f f(int i) {
-        this.Y = i;
-        return this;
-    }
-
-    public f a(boolean z) {
-        this.i = z;
-        return this;
-    }
-
-    public f b(List<String> list) {
-        this.d = list;
-        return this;
-    }
-
-    public f a(IDownloadListener iDownloadListener) {
-        this.m = iDownloadListener;
-        return this;
-    }
-
-    public f a(long j) {
-        this.z = j;
-        return this;
-    }
-
-    public f a(EnqueueType enqueueType) {
-        this.J = enqueueType;
-        return this;
-    }
-
-    public f a(IDownloadFileUriProvider iDownloadFileUriProvider) {
-        this.Q = iDownloadFileUriProvider;
-        return this;
-    }
-
-    public f a(r rVar) {
-        this.R = rVar;
-        return this;
-    }
-
-    public f a(JSONObject jSONObject) {
-        this.V = jSONObject;
-        return this;
-    }
-
-    public f a(m mVar) {
-        synchronized (this.X) {
-            if (mVar != null) {
-                if (!this.X.contains(mVar)) {
-                    this.X.add(mVar);
-                    return this;
-                }
-            }
-            return this;
-        }
     }
 }

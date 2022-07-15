@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -197,7 +196,7 @@ public class CpuMonitor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             Intent registerReceiver = this.appContext.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-            int intExtra = registerReceiver.getIntExtra(AnimationProperty.SCALE, 100);
+            int intExtra = registerReceiver.getIntExtra("scale", 100);
             if (intExtra > 0) {
                 return (int) ((registerReceiver.getIntExtra("level", 0) * 100.0f) / intExtra);
             }

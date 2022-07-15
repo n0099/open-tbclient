@@ -1,57 +1,73 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.MotionEvent;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class y77 implements CustomMessageTask.CustomRunnable<Object> {
+public class y77 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    public y77() {
+    /* loaded from: classes7.dex */
+    public interface a {
+        void onClick();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y77(@NonNull Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        getWindow().setSoftInputMode(32);
+    }
+
+    public void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.a = aVar;
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    @Override // android.app.Dialog
+    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
         InterceptResult invokeL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof GroupsByUidLocalMessage)) {
-                return null;
-            }
-            String str = ResponseGroupsByUidMessage.CACHE_KEY_PREFIX + (TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "");
-            mq4.f();
-            byte[] bArr = mq4.d("tb.im_entergroup").get(str);
-            ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
-            if (bArr != null) {
-                try {
-                    responseGroupsByUidLocalMessage.decodeInBackGround(2001106, bArr);
-                } catch (Exception e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                Rect rect = new Rect();
+                getWindow().getDecorView().getGlobalVisibleRect(rect);
+                if (rect.contains((int) motionEvent.getX(), (int) motionEvent.getY()) || (aVar = this.a) == null) {
+                    return true;
                 }
+                aVar.onClick();
+                return true;
             }
-            return responseGroupsByUidLocalMessage;
+            return true;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,19 +1,84 @@
 package com.repackage;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public interface k49 {
-    int availableBytes();
+public final class k49 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void close();
+    /* loaded from: classes6.dex */
+    public static class a extends q49 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.a b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
 
-    void flush();
+        public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, aVar, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = map;
+            this.b = aVar;
+            this.c = str;
+            this.d = str2;
+        }
 
-    byte[] getOutPutBytes();
+        @Override // com.repackage.q49
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a != null) {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    stringBuffer.append("{");
+                    for (Map.Entry entry : this.a.entrySet()) {
+                        stringBuffer.append("\"");
+                        stringBuffer.append(entry.getKey());
+                        stringBuffer.append("\":\"");
+                        stringBuffer.append(entry.getValue().toString().replace("\"", "\\\""));
+                        stringBuffer.append("\",");
+                    }
+                    StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
+                    stringBuffer2.append("}");
+                    this.b.w(stringBuffer2.toString());
+                }
+                try {
+                    this.b.x(n49.e().I());
+                    this.b.u(String.valueOf(System.currentTimeMillis()));
+                    this.b.t(this.c);
+                    this.b.s(this.d == null ? "" : this.d);
+                    new o39().c(this.b);
+                } catch (Exception e) {
+                    if (e.getMessage() != null) {
+                        o49.b(e.getMessage());
+                    }
+                }
+            }
+        }
+    }
 
-    void init(int i, int i2);
-
-    boolean putBytes(byte[] bArr, int i);
-
-    int receiveBytes(byte[] bArr, int i);
-
-    void setSpeed(float f);
+    public static void a(String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, map) == null) {
+            com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
+            aVar.v(str);
+            p49.c(new a(map, aVar, str2, str3));
+        }
+    }
 }

@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cy4;
+import com.repackage.az4;
+import com.repackage.bl5;
 import com.repackage.d9;
-import com.repackage.yj5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yj5 a;
+    public bl5 a;
     public byte[] b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,14 +41,54 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
             }
         }
         this.b = new byte[0];
-        this.a = yj5.d();
+        this.a = bl5.d();
+    }
+
+    @SuppressLint({"DefaultLocale"})
+    public List<az4> A(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this.b) {
+                ArrayList arrayList = new ArrayList();
+                if (TextUtils.isEmpty(str)) {
+                    return arrayList;
+                }
+                List<az4> c = this.a.c();
+                if (c == null) {
+                    return arrayList;
+                }
+                for (az4 az4Var : c) {
+                    String e = az4Var.e();
+                    String c2 = az4Var.c();
+                    if (!TextUtils.isEmpty(e) && e.toLowerCase().startsWith(str.toLowerCase())) {
+                        arrayList.add(az4Var);
+                    } else if (!TextUtils.isEmpty(c2) && c2.toLowerCase().startsWith(str.toLowerCase())) {
+                        arrayList.add(az4Var);
+                    }
+                }
+                for (az4 az4Var2 : c) {
+                    String e2 = az4Var2.e();
+                    String c3 = az4Var2.c();
+                    if (!arrayList.contains(az4Var2)) {
+                        if (!TextUtils.isEmpty(e2) && e2.toLowerCase().contains(str.toLowerCase())) {
+                            arrayList.add(az4Var2);
+                        } else if (!TextUtils.isEmpty(c3) && c3.toLowerCase().contains(str.toLowerCase())) {
+                            arrayList.add(az4Var2);
+                        }
+                    }
+                }
+                return arrayList;
+            }
+        }
+        return (List) invokeL.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -58,49 +98,9 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    @SuppressLint({"DefaultLocale"})
-    public List<cy4> z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this.b) {
-                ArrayList arrayList = new ArrayList();
-                if (TextUtils.isEmpty(str)) {
-                    return arrayList;
-                }
-                List<cy4> c = this.a.c();
-                if (c == null) {
-                    return arrayList;
-                }
-                for (cy4 cy4Var : c) {
-                    String e = cy4Var.e();
-                    String c2 = cy4Var.c();
-                    if (!TextUtils.isEmpty(e) && e.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(cy4Var);
-                    } else if (!TextUtils.isEmpty(c2) && c2.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(cy4Var);
-                    }
-                }
-                for (cy4 cy4Var2 : c) {
-                    String e2 = cy4Var2.e();
-                    String c3 = cy4Var2.c();
-                    if (!arrayList.contains(cy4Var2)) {
-                        if (!TextUtils.isEmpty(e2) && e2.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(cy4Var2);
-                        } else if (!TextUtils.isEmpty(c3) && c3.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(cy4Var2);
-                        }
-                    }
-                }
-                return arrayList;
-            }
-        }
-        return (List) invokeL.objValue;
     }
 }

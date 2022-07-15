@@ -157,9 +157,9 @@ public class BdTopToast extends LinearLayout {
                 addView(this.a, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
             }
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d014b, this);
-            this.b = (BottomShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f090341);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090342);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090340);
+            this.b = (BottomShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f090343);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090344);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090342);
             e();
         }
     }

@@ -1,99 +1,76 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.VpnService;
-import androidx.fragment.app.Fragment;
+import android.opengl.Matrix;
+import android.os.Handler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
+import com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor;
 /* loaded from: classes6.dex */
-public class iv8 {
+public class iv8 extends BaseOutputSurface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Fragment a;
-    public Activity b;
-    public hv8 c;
+    public float[] a;
+    public MultiMediaData b;
 
-    public iv8() {
+    public iv8(int i, int i2, boolean z, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), handler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new float[16];
+        this.b = new MultiMediaData();
+        init(i, i2, z, handler);
+        this.mFullScreenEXT.setMirror(true);
+        Matrix.orthoM(this.a, 0, 0.0f, i, 0.0f, i2, -1.0f, 1.0f);
+    }
+
+    public void a(int i, int i2, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
+            MultiMediaData multiMediaData = this.b;
+            multiMediaData.type = 1;
+            multiMediaData.width = i;
+            multiMediaData.height = i2;
+            multiMediaData.rotation = f;
+            if (((f == 90.0f || f == 270.0f) ? (i2 * 1.0f) / i : (i * 1.0f) / i2) <= (this.mVideoWidth * 1.0f) / this.mVideoHeight) {
+                this.b.scaleType = "center_crop";
+            } else {
+                this.b.scaleType = "center_inside";
             }
         }
     }
 
-    public static iv8 c(Fragment fragment) {
-        InterceptResult invokeL;
+    @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
+    public void drawImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
-            iv8 iv8Var = new iv8();
-            iv8Var.a = fragment;
-            return iv8Var;
-        }
-        return (iv8) invokeL.objValue;
-    }
-
-    public void a(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) && i == 25069) {
-            if (i2 == -1) {
-                hv8 hv8Var = this.c;
-                if (hv8Var != null) {
-                    hv8Var.a();
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.drawImage(i);
+            if (this.mFullScreenEXT == null) {
                 return;
             }
-            hv8 hv8Var2 = this.c;
-            if (hv8Var2 != null) {
-                hv8Var2.b();
-            }
-        }
-    }
-
-    public void b(hv8 hv8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hv8Var) == null) {
-            this.c = hv8Var;
-            Fragment fragment = this.a;
-            if (fragment != null) {
-                Intent prepare = VpnService.prepare(fragment.getContext());
-                if (prepare != null) {
-                    this.a.startActivityForResult(prepare, 25069);
-                    return;
-                }
-                hv8 hv8Var2 = this.c;
-                if (hv8Var2 != null) {
-                    hv8Var2.a();
-                    return;
-                }
-                return;
-            }
-            Activity activity = this.b;
-            if (activity != null) {
-                Intent prepare2 = VpnService.prepare(activity);
-                if (prepare2 != null) {
-                    this.b.startActivityForResult(prepare2, 25069);
-                    return;
-                }
-                hv8 hv8Var3 = this.c;
-                if (hv8Var3 != null) {
-                    hv8Var3.a();
-                    return;
-                }
-                return;
-            }
-            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
+            float[] fArr = new float[16];
+            Matrix.setIdentityM(fArr, 0);
+            Matrix.multiplyMM(fArr, 0, this.a, 0, MultiMediaPreProcessor.calculateModelView(this.b, this.mVideoWidth, this.mVideoHeight, 0, 0), 0);
+            this.mFullScreenEXT.setVertexPoint(fArr);
+            this.mFullScreenEXT.setAngle(180.0f);
+            this.mFullScreenEXT.drawFrame(this.mTextureId, this.mSTMatrix);
+            Matrix.setIdentityM(fArr, 0);
+            this.mFullScreenEXT.setVertexPoint(fArr);
         }
     }
 }

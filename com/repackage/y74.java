@@ -1,9 +1,10 @@
 package com.repackage;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public interface y74<T> {
-    void a(SQLiteDatabase sQLiteDatabase);
-
-    void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
+public interface y74 {
+    @NonNull
+    Bundle m(@NonNull Bundle bundle, Set<String> set);
 }

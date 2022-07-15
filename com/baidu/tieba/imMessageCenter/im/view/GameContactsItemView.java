@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
+import com.repackage.k57;
 import com.repackage.pi;
-import com.repackage.u47;
+import com.repackage.ur4;
 /* loaded from: classes3.dex */
 public class GameContactsItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public u47 d;
+    public k57 d;
 
     static {
         InterceptResult invokeClinit;
@@ -107,7 +107,7 @@ public class GameContactsItemView extends RelativeLayout {
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(8);
-            fr4 d = fr4.d(this.c);
+            ur4 d = ur4.d(this.c);
             d.n(R.string.J_X12);
             d.f(R.color.CAM_X0302);
             addView(this.c);
@@ -148,10 +148,10 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public u47 getGameMatchUser() {
+    public k57 getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (u47) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (k57) invokeV.objValue;
     }
 
     public void h() {
@@ -170,12 +170,12 @@ public class GameContactsItemView extends RelativeLayout {
         this.a.getImgView().J(this.d.a(), 12, false);
     }
 
-    public void setGameMatchUser(@NonNull u47 u47Var) {
+    public void setGameMatchUser(@NonNull k57 k57Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, u47Var) == null) || u47Var.equals(this.d)) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, k57Var) == null) || k57Var.equals(this.d)) {
             return;
         }
-        this.d = u47Var;
+        this.d = k57Var;
         i();
     }
 

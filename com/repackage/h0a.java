@@ -1,105 +1,302 @@
 package com.repackage;
 
-import android.database.ContentObserver;
-import android.view.View;
-import androidx.annotation.ColorInt;
-import androidx.annotation.FloatRange;
+import android.os.Handler;
+import android.os.Looper;
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import tv.athena.revenue.payui.activity.immersion.BarHide;
+import com.google.gson.Gson;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.model.NativeOperationParams;
+import tv.athena.revenue.payui.webview.UrlPageParams;
 /* loaded from: classes6.dex */
-public class h0a implements Cloneable {
+public class h0a {
     public static /* synthetic */ Interceptable $ic;
+    public static Gson c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContentObserver A;
-    @ColorInt
-    public int a;
-    @ColorInt
-    public int b;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float c;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float d;
-    public boolean e;
-    public boolean f;
-    public BarHide g;
-    public boolean h;
-    public boolean i;
-    @ColorInt
-    public int j;
-    @ColorInt
-    public int k;
-    public Map<View, Map<Integer, Integer>> l;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float m;
-    public boolean n;
-    public View o;
-    public View p;
-    public View q;
-    @ColorInt
-    public int r;
-    public boolean s;
-    public boolean t;
-    public int u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public k0a y;
-    public m0a z;
+    public e a;
+    public Handler b;
 
-    public h0a() {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ UrlPageParams b;
+        public final /* synthetic */ h0a c;
+
+        public a(h0a h0aVar, int i, UrlPageParams urlPageParams) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h0aVar, Integer.valueOf(i), urlPageParams};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = h0aVar;
+            this.a = i;
+            this.b = urlPageParams;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c.a == null) {
+                return;
+            }
+            if (this.a == 1) {
+                this.c.a.c(this.b);
+            }
+            if (this.a == 3) {
+                this.c.a.b(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ h0a b;
+
+        public b(h0a h0aVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h0aVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = h0aVar;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a == null) {
+                return;
+            }
+            this.b.a.a(new NativeOperationParams(5, this.a));
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ h0a b;
+
+        public c(h0a h0aVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h0aVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = h0aVar;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a == null) {
+                return;
+            }
+            this.b.a.a(new NativeOperationParams(4, this.a));
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ h0a b;
+
+        public d(h0a h0aVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h0aVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = h0aVar;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a == null) {
+                return;
+            }
+            this.b.a.a(new NativeOperationParams(6, this.a));
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a(NativeOperationParams nativeOperationParams);
+
+        void b(UrlPageParams urlPageParams);
+
+        void c(UrlPageParams urlPageParams);
+
+        String getToken();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755700680, "Lcom/repackage/h0a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755700680, "Lcom/repackage/h0a;");
+                return;
+            }
+        }
+        c = new Gson();
+    }
+
+    public h0a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = -16777216;
-        this.c = 0.0f;
-        this.d = 0.0f;
-        this.e = false;
-        this.f = false;
-        this.g = BarHide.FLAG_SHOW_BAR;
-        this.h = false;
-        this.i = true;
-        this.j = -16777216;
-        this.k = -16777216;
-        this.l = new HashMap();
-        this.m = 0.0f;
-        this.n = false;
-        this.s = false;
-        this.t = false;
-        this.u = 18;
-        this.v = true;
-        this.w = true;
-        this.x = false;
+        this.b = new Handler(Looper.getMainLooper());
+        this.a = eVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public h0a clone() {
-        InterceptResult invokeV;
+    public final void b(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return (h0a) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                runnable.run();
+            } else {
+                this.b.post(runnable);
             }
         }
-        return (h0a) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x008f  */
+    /* JADX WARN: Removed duplicated region for block: B:52:? A[RETURN, SYNTHETIC] */
+    @JavascriptInterface
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void callAndroid(int i, String str) {
+        UrlPageParams urlPageParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            RLog.info("YYPaySdkJsInterface", "callAndroid: code=" + i);
+            if (i != 1 && i != 3) {
+                if (i == 4) {
+                    if (this.a != null) {
+                        b(new c(this, str));
+                        return;
+                    }
+                    return;
+                } else if (i != 5) {
+                    if (i == 6 && this.a != null) {
+                        b(new d(this, str));
+                        return;
+                    }
+                    return;
+                } else if (this.a != null) {
+                    b(new b(this, str));
+                    return;
+                } else {
+                    return;
+                }
+            }
+            String str2 = i == 1 ? "CODE_OPEN_URL_PAGE" : "CODE_UPFATE_TOP_INFO";
+            UrlPageParams urlPageParams2 = null;
+            try {
+                urlPageParams = (UrlPageParams) c.fromJson(str, (Class<Object>) UrlPageParams.class);
+                try {
+                    RLog.info("YYPaySdkJsInterface", "%s params: %s", str2, urlPageParams);
+                } catch (Throwable th) {
+                    th = th;
+                    urlPageParams2 = urlPageParams;
+                    RLog.error("YYPaySdkJsInterface", str2 + " error,", th);
+                    urlPageParams = urlPageParams2;
+                    if (this.a == null) {
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            if (this.a == null) {
+                b(new a(this, i, urlPageParams));
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public String getToken() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            e eVar = this.a;
+            if (eVar != null) {
+                return eVar.getToken();
+            }
+            RLog.error("YYPaySdkJsInterface", "getToken() mOnJsCallInterface null", new Object[0]);
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 }

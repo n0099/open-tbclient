@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hq6;
-import com.repackage.iq6;
-import com.repackage.r65;
+import com.repackage.t75;
+import com.repackage.tq6;
+import com.repackage.uq6;
 /* loaded from: classes3.dex */
-public class VoiceRoomListNetModel extends NetAutoModel<hq6, iq6, BaseFragment> {
+public class VoiceRoomListNetModel extends NetAutoModel<tq6, uq6, BaseFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,7 +31,7 @@ public class VoiceRoomListNetModel extends NetAutoModel<hq6, iq6, BaseFragment> 
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((TbPageContext) objArr[0], (r65) objArr[1]);
+                super((TbPageContext) objArr[0], (t75) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,28 +40,28 @@ public class VoiceRoomListNetModel extends NetAutoModel<hq6, iq6, BaseFragment> 
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int M() {
+    public int N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CmdConfigHttp.CMD_GET_VOICE_ROOM_LIST : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcProtobufHttpResponsedMessage> O() {
+    public Class<? extends MvcProtobufHttpResponsedMessage> P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? VoiceRoomListHttpResponseMessage.class : (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String P() {
+    public String Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c/f/forum/voiceRoom" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int Q() {
+    public int R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -71,23 +71,23 @@ public class VoiceRoomListNetModel extends NetAutoModel<hq6, iq6, BaseFragment> 
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<? extends MvcSocketResponsedMessage> R() {
+    public Class<? extends MvcSocketResponsedMessage> S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? VoiceRoomListSocketResponseMessage.class : (Class) invokeV.objValue;
     }
 
-    public void c0(hq6 hq6Var) {
+    public void d0(tq6 tq6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hq6Var) == null) {
-            this.c = hq6Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, tq6Var) == null) {
+            this.c = tq6Var;
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<iq6> getResponseDataClass() {
+    public Class<uq6> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? iq6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? uq6.class : (Class) invokeV.objValue;
     }
 }

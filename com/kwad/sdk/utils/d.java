@@ -1,43 +1,47 @@
 package com.kwad.sdk.utils;
 
-import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Build;
-import android.view.Window;
-import androidx.annotation.NonNull;
-import com.google.protobuf.CodedInputStream;
-import java.lang.reflect.Method;
+import android.text.TextUtils;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.google.android.material.internal.ManufacturerUtils;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.internal.api.SceneImpl;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class d {
-    public static void a(@NonNull Activity activity, int i, boolean z) {
-        a(activity, i, z, true);
+public final class d {
+    public static final Map<String, String> a;
+
+    static {
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put("HUAWEI", "com.huawei.appmarket");
+        a.put("OPPO", "com.oppo.market");
+        a.put("vivo", "com.bbk.appstore");
+        a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
+        a.put("OnePlus", "com.oppo.market");
+        a.put("Meizu", "com.meizu.mstore");
+        a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
+        a.put("SMARTISAN", "com.smartisanos.appstore");
+        a.put("Realme", "com.oppo.market");
+        a.put("HONOR", "com.huawei.appmarket");
     }
 
-    public static void a(@NonNull Activity activity, int i, boolean z, boolean z2) {
-        if (a()) {
-            b(activity, i, z);
-            if (z2) {
-                return;
-            }
-            activity.findViewById(16908290).setPadding(0, com.kwad.sdk.a.kwai.a.a((Context) activity), 0, 0);
+    public static boolean a(Context context, String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
-    }
-
-    public static boolean a() {
-        return Build.VERSION.SDK_INT >= 23;
-    }
-
-    public static boolean a(@NonNull Activity activity, boolean z) {
-        Class<?> cls = activity.getWindow().getClass();
+        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         try {
-            Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-            int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
-            Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
-            Window window = activity.getWindow();
-            Object[] objArr = new Object[2];
-            objArr[0] = Integer.valueOf(z ? i : 0);
-            objArr[1] = Integer.valueOf(i);
-            method.invoke(window, objArr);
+            context.startActivity(intent);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,29 +49,48 @@ public class d {
         }
     }
 
-    public static void b(@NonNull Activity activity, int i, boolean z) {
-        Window window = activity.getWindow();
-        int i2 = Build.VERSION.SDK_INT;
-        int i3 = 1280;
-        if (i2 < 21) {
-            if (i2 >= 19) {
-                window.getDecorView().setSystemUiVisibility(1280);
-                return;
-            }
-            return;
+    public static boolean a(Context context, String str, AdTemplate adTemplate) {
+        SceneImpl sceneImpl;
+        if (!am.b() || (sceneImpl = adTemplate.mAdScene) == null || sceneImpl.adStyle == 4 || com.kwad.sdk.core.download.kwai.b.a(context, str) != 1) {
+            return false;
         }
-        if (z && i2 >= 23) {
-            i3 = 9472;
-            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-            window.addFlags(Integer.MIN_VALUE);
-            if (an.b()) {
-                a(activity, true);
-            } else if (an.c()) {
-                ab.a(activity, true);
-            }
+        adTemplate.mXiaomiAppStoreDetailViewOpen = true;
+        return true;
+    }
+
+    public static boolean a(Context context, String str, String str2) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return false;
         }
-        window.getDecorView().setSystemUiVisibility(i3);
-        window.setStatusBarColor(i);
-        window.setNavigationBarColor(window.getNavigationBarColor());
+        if (ManufacturerUtils.SAMSUNG.equals(Build.BRAND)) {
+            str = "http://apps.samsung.com/appquery/appDetail.as?appId=" + str2;
+        }
+        try {
+            String str3 = a.get(Build.BRAND);
+            Intent parseUri = Intent.parseUri(str, 1);
+            parseUri.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(parseUri, 0)) {
+                if (!a(resolveInfo)) {
+                    String str4 = resolveInfo.activityInfo.packageName;
+                    if (str4.equals(str3) || a(str4)) {
+                        parseUri.setComponent(new ComponentName(str4, resolveInfo.activityInfo.name));
+                        context.startActivity(parseUri);
+                        return true;
+                    }
+                }
+            }
+            return a(context, str);
+        } catch (Exception unused) {
+            return a(context, str);
+        }
+    }
+
+    public static boolean a(ResolveInfo resolveInfo) {
+        ActivityInfo activityInfo;
+        return resolveInfo == null || (activityInfo = resolveInfo.activityInfo) == null || TextUtils.isEmpty(activityInfo.packageName);
+    }
+
+    public static boolean a(String str) {
+        return "OPPO".equals(Build.BRAND) && "com.heytap.market".equals(str);
     }
 }

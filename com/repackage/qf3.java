@@ -1,21 +1,21 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.menu.BaseMenuView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
-/* loaded from: classes6.dex */
-public class qf3 implements il3 {
+/* loaded from: classes7.dex */
+public class qf3 implements h64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrameLayout a;
 
     public qf3() {
         Interceptable interceptable = $ic;
@@ -27,43 +27,45 @@ public class qf3 implements il3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
     }
 
-    @Override // com.repackage.jl3
-    public void a(p03 p03Var) {
+    @Override // com.repackage.h64
+    public void a(BaseMenuView baseMenuView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, p03Var) == null) {
-            p03Var.b(new hh3(p03Var));
-            p03Var.b(new lh3(p03Var));
-            p03Var.b(new fi3(p03Var));
-            p03Var.b(new ei3(p03Var));
-            p03Var.b(new uh3(p03Var));
-            p03Var.b(new mh3(p03Var));
-            p03Var.b(new jh3(p03Var));
-            p03Var.b(new sh3(p03Var));
-            p03Var.b(new ih3(p03Var));
-            p03Var.b(new gh3(p03Var));
-            p03Var.b(new fh3(p03Var));
-            p03Var.b(new kh3(p03Var));
-            p03Var.b(new ji3(p03Var));
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, baseMenuView) == null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            return;
+        }
+        if (oj2.M().a()) {
+            b(baseMenuView);
+        } else {
+            c(baseMenuView);
         }
     }
 
-    @Override // com.repackage.jl3
-    @Nullable
-    public Map<String, Object> b(@NonNull tn1 tn1Var) {
-        InterceptResult invokeL;
+    public final void b(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tn1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(tn1Var) : (Map) invokeL.objValue;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && viewGroup != null && (viewGroup instanceof FrameLayout)) {
+            if (this.a == null) {
+                FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
+                this.a = frameLayout;
+                frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f0603cb);
+            }
+            viewGroup.removeView(this.a);
+            viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
+        }
     }
 
-    @Override // com.repackage.jl3
-    @Nullable
-    public Map<String, Object> c(@NonNull tn1 tn1Var) {
-        InterceptResult invokeL;
+    public final void c(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tn1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(tn1Var) : (Map) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
+            return;
+        }
+        viewGroup.removeView(frameLayout);
+        this.a = null;
     }
 }

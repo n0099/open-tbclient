@@ -1,170 +1,130 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.ScrollView;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class qv8 extends PopupWindow {
+public class qv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public a b;
-    public int c;
-    public LinearLayout d;
-    public Context e;
-    public int f;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void U0(int i);
+    public static long[] a(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            float[] fArr = new float[i];
+            if (i > 1) {
+                float f = 1.0f / i;
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        int i4 = i2 - 1;
+                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
+                    } else {
+                        fArr[i2] = i3 * f;
+                    }
+                    i2 = i3;
+                }
+            } else if (i == 1) {
+                fArr[0] = 0.5f;
+            }
+            long[] jArr = new long[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
+            }
+            return jArr;
+        }
+        return (long[]) invokeCommon.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public a b;
+    public static tv8 b(vv8 vv8Var, lv8 lv8Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, vv8Var, lv8Var)) == null) {
+            if (vv8Var == null || lv8Var == null || vv8Var.e == null) {
+                return null;
+            }
+            long[] a = a(vv8Var.b, vv8Var.a);
+            MultiMediaData multiMediaData = vv8Var.e;
+            tv8 tv8Var = new tv8();
+            tv8Var.e = new ArrayList();
+            tv8Var.a = multiMediaData.path;
+            tv8Var.c = vv8Var.c;
+            tv8Var.d = vv8Var.d;
+            tv8Var.b = multiMediaData.rotation;
+            for (int i = 0; i < vv8Var.b; i++) {
+                long j = multiMediaData.start + a[i];
+                nv8 nv8Var = new nv8();
+                nv8Var.a = gv8.b(multiMediaData.path, j, multiMediaData.type);
+                nv8Var.b = multiMediaData.path;
+                nv8Var.f = i;
+                nv8Var.g = multiMediaData.type;
+                nv8Var.h = vv8Var.c;
+                nv8Var.i = vv8Var.d;
+                nv8Var.j = lv8Var;
+                nv8Var.d = j;
+                nv8Var.c = multiMediaData.rotation;
+                tv8Var.e.add(nv8Var);
+            }
+            return tv8Var;
+        }
+        return (tv8) invokeLL.objValue;
+    }
 
-        public b(int i, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static List<tv8> c(uv8 uv8Var, lv8 lv8Var) {
+        InterceptResult invokeLL;
+        List<nv8> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, uv8Var, lv8Var)) == null) {
+            MultiMediaData multiMediaData = null;
+            if (uv8Var == null || lv8Var == null || uv8Var.b <= 0 || b99.e(uv8Var.e) || b99.e(uv8Var.f)) {
+                return null;
+            }
+            long[] a = a(uv8Var.b, uv8Var.a);
+            ArrayList arrayList = new ArrayList();
+            tv8 tv8Var = null;
+            for (int i = 0; i < uv8Var.b; i++) {
+                long j = ((float) a[i]) / 1000.0f;
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(uv8Var.e, j);
+                MultiMediaData multiMediaData2 = (MultiMediaData) b99.c(uv8Var.f, findInputIndexInSegments);
+                if (multiMediaData2 != null) {
+                    if (multiMediaData2 != multiMediaData) {
+                        tv8Var = new tv8();
+                        tv8Var.e = new ArrayList();
+                        tv8Var.a = multiMediaData2.path;
+                        tv8Var.c = uv8Var.c;
+                        tv8Var.d = uv8Var.d;
+                        tv8Var.b = multiMediaData2.rotation;
+                        arrayList.add(tv8Var);
+                    }
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) b99.c(uv8Var.e, findInputIndexInSegments), j) * 1000;
+                    nv8 nv8Var = new nv8();
+                    nv8Var.a = gv8.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    nv8Var.b = multiMediaData2.path;
+                    nv8Var.f = i;
+                    nv8Var.g = multiMediaData2.type;
+                    nv8Var.h = uv8Var.c;
+                    nv8Var.i = uv8Var.d;
+                    nv8Var.d = multiMediaDataSeekTime;
+                    nv8Var.j = lv8Var;
+                    nv8Var.c = multiMediaData2.rotation;
+                    if (tv8Var != null && (list = tv8Var.e) != null) {
+                        list.add(nv8Var);
+                    }
+                    multiMediaData = multiMediaData2;
                 }
             }
-            this.a = i;
-            this.b = aVar;
+            return arrayList;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.b) == null) {
-                return;
-            }
-            aVar.U0(this.a);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qv8(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = -1;
-        this.e = context;
-        b(context);
-    }
-
-    public void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            view2.setOnClickListener(new b(this.c, this.b));
-            this.d.addView(view2);
-            this.c++;
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            ScrollView scrollView = new ScrollView(context);
-            scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-            LinearLayout linearLayout = new LinearLayout(context);
-            this.d = linearLayout;
-            linearLayout.setOrientation(1);
-            this.d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            scrollView.addView(this.d);
-            scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            scrollView.setPadding(0, 0, pi.d(context, 1.0f), pi.d(context, 1.0f));
-            scrollView.setFadingEdgeLength(0);
-            scrollView.setScrollbarFadingEnabled(false);
-            try {
-                Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(scrollView, 2);
-            } catch (Exception unused) {
-            }
-            setContentView(scrollView);
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            int i2 = this.a;
-            if (i2 != -1) {
-                this.d.getChildAt(i2).setSelected(false);
-            }
-            this.a = i;
-            this.d.getChildAt(i).setSelected(true);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) {
-            getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
-            int measuredWidth = getContentView().getMeasuredWidth();
-            if (measuredWidth < view2.getWidth()) {
-                measuredWidth = view2.getWidth();
-            }
-            int measuredHeight = getContentView().getMeasuredHeight();
-            int i3 = this.f;
-            if (measuredHeight > i3) {
-                measuredHeight = i3;
-            }
-            setWidth(measuredWidth);
-            setHeight(measuredHeight);
-            super.showAsDropDown(view2, i, i2);
-        }
+        return (List) invokeLL.objValue;
     }
 }

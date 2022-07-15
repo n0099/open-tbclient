@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.my;
+import com.repackage.ny;
 /* loaded from: classes7.dex */
-public class yw extends qw<ym4> {
+public class yw extends qw<nn4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static int o;
@@ -35,12 +35,12 @@ public class yw extends qw<ym4> {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public ym4 h;
+    public nn4 h;
     public RoundCornerFrameLayout i;
     public FakeVideoContainer j;
     public int k;
     public boolean l;
-    public my.b m;
+    public ny.b m;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -80,7 +80,7 @@ public class yw extends qw<ym4> {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements my.b {
+    public class b implements ny.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yw a;
@@ -103,8 +103,8 @@ public class yw extends qw<ym4> {
             this.a = ywVar;
         }
 
-        @Override // com.repackage.my.b
-        public boolean a(my.a aVar) {
+        @Override // com.repackage.ny.b
+        public boolean a(ny.a aVar) {
             InterceptResult invokeL;
             RoundCornerFrameLayout roundCornerFrameLayout;
             Interceptable interceptable = $ic;
@@ -165,15 +165,15 @@ public class yw extends qw<ym4> {
     }
 
     @Override // com.repackage.qw
-    public View g() {
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.f == null) {
                 View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01be, (ViewGroup) null, true);
                 this.f = inflate;
-                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092335);
-                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090a7d);
+                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923dd);
+                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090a85);
                 FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.b);
                 this.j = fakeVideoContainer;
                 fakeVideoContainer.setBackgroundResource(R.color.transparent);
@@ -185,11 +185,23 @@ public class yw extends qw<ym4> {
     }
 
     @Override // com.repackage.qw
-    public void h() {
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            i(7, this.m);
+            j(7, this.m);
         }
+    }
+
+    @Override // com.repackage.hx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        nn4 nn4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) || (nn4Var = this.h) == null || nn4Var.getThreadData() == null) {
+            return;
+        }
+        ux5.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        this.i.c(i);
+        this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -205,15 +217,15 @@ public class yw extends qw<ym4> {
     /* JADX WARN: Code restructure failed: missing block: B:35:0x00bd, code lost:
         r0 = com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper.handleVerticalVideoSize(r11, r8, null, r0, r1);
      */
-    @Override // com.repackage.fx
-    /* renamed from: o */
+    @Override // com.repackage.gx
+    /* renamed from: p */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(ym4 ym4Var) {
+    public void a(nn4 nn4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ym4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, nn4Var) == null) {
             int k = pi.k(TbadkCoreApplication.getInst());
             if (k != this.k) {
                 int k2 = pi.k(TbadkCoreApplication.getInst());
@@ -224,11 +236,11 @@ public class yw extends qw<ym4> {
                 r = i / 3;
                 this.k = k;
             }
-            this.h = ym4Var;
-            if (ym4Var == null || ym4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
+            this.h = nn4Var;
+            if (nn4Var == null || nn4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
                 return;
             }
-            this.j.setData(ym4Var.getThreadData());
+            this.j.setData(nn4Var.getThreadData());
             ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
             int i2 = layoutParams.width;
             int i3 = layoutParams.height;
@@ -278,26 +290,14 @@ public class yw extends qw<ym4> {
         }
     }
 
-    @Override // com.repackage.gx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        ym4 ym4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) || (ym4Var = this.h) == null || ym4Var.getThreadData() == null) {
-            return;
-        }
-        xw5.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-        this.i.c(i);
-        this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
-    }
-
-    public void p(boolean z) {
+    public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.l = z;
         }
     }
 
-    public void q(BdUniqueId bdUniqueId) {
+    public void r(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
         }

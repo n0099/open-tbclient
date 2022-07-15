@@ -430,7 +430,7 @@ public class e3 extends a1 implements s2 {
     }
 
     @Override // com.repackage.s2
-    public void J0() {
+    public void K0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             g();
@@ -438,7 +438,7 @@ public class e3 extends a1 implements s2 {
     }
 
     @Override // com.repackage.s2
-    public void R0() {
+    public void S0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {

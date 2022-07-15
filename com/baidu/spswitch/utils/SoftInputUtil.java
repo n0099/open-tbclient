@@ -278,7 +278,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, resources)) == null) {
             if (sMaxPanelHeight == 0) {
-                sMaxPanelHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703dc);
+                sMaxPanelHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07042b);
             }
             return sMaxPanelHeight;
         }
@@ -290,7 +290,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             if (sMaxSoftInputHeight == 0) {
-                sMaxSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703dd);
+                sMaxSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07042c);
             }
             return sMaxSoftInputHeight;
         }
@@ -302,7 +302,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, resources)) == null) {
             if (sMinPanelHeight == 0) {
-                sMinPanelHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703de);
+                sMinPanelHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07042d);
             }
             return sMinPanelHeight;
         }
@@ -314,7 +314,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (sMinSoftInputHeight == 0) {
-                sMinSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703df);
+                sMinSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07042e);
             }
             return sMinSoftInputHeight;
         }

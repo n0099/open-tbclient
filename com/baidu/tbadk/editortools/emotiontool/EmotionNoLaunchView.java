@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h05;
-import com.repackage.u05;
+import com.repackage.j15;
+import com.repackage.v15;
 /* loaded from: classes3.dex */
-public class EmotionNoLaunchView extends AppCompatImageView implements u05 {
+public class EmotionNoLaunchView extends AppCompatImageView implements v15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -61,10 +61,10 @@ public class EmotionNoLaunchView extends AppCompatImageView implements u05 {
                 }
                 EmotionNoLaunchView emotionNoLaunchView = this.a;
                 emotionNoLaunchView.setSelected(emotionNoLaunchView.c);
-                this.a.L(new h05(1, 3, null));
-                this.a.L(new h05(1, 5, null));
+                this.a.L(new j15(1, 3, null));
+                this.a.L(new j15(1, 5, null));
                 EmotionNoLaunchView emotionNoLaunchView2 = this.a;
-                emotionNoLaunchView2.L(new h05(62, 0, Boolean.valueOf(emotionNoLaunchView2.c)));
+                emotionNoLaunchView2.L(new j15(62, 0, Boolean.valueOf(emotionNoLaunchView2.c)));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921706, Boolean.TRUE));
             }
         }
@@ -91,31 +91,31 @@ public class EmotionNoLaunchView extends AppCompatImageView implements u05 {
         }
     }
 
-    @Override // com.repackage.i05
-    public void C(h05 h05Var) {
+    @Override // com.repackage.k15
+    public void C(j15 j15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, h05Var) != null) || h05Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, j15Var) != null) || j15Var == null) {
         }
     }
 
-    @Override // com.repackage.u05
-    public void L(h05 h05Var) {
+    @Override // com.repackage.v15
+    public void L(j15 j15Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h05Var) == null) || (editorTools = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j15Var) == null) || (editorTools = this.b) == null) {
             return;
         }
-        editorTools.A(h05Var);
+        editorTools.A(j15Var);
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -123,7 +123,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements u05 {
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -131,15 +131,15 @@ public class EmotionNoLaunchView extends AppCompatImageView implements u05 {
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f080971, R.drawable.obfuscated_res_0x7f0807e8, R.color.CAM_X0105, R.color.CAM_X0105, i));
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f08097a, R.drawable.obfuscated_res_0x7f0807ef, R.color.CAM_X0105, R.color.CAM_X0105, i));
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -151,7 +151,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements u05 {
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
@@ -159,7 +159,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements u05 {
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {

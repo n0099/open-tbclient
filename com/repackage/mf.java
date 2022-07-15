@@ -10,4 +10,6 @@ public interface mf {
     boolean netABTest();
 
     boolean netBdABTest();
+
+    boolean qaHttpsTest();
 }

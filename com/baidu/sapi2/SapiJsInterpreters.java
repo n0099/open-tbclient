@@ -60,8 +60,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
-import com.tachikoma.core.component.input.InputType;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -3104,7 +3102,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (command != null && command.getActionParams() != null && !command.getActionParams().isEmpty()) {
                     String str = command.getActionParams().get(0);
-                    if (InputType.PASSWORD.equals(str)) {
+                    if ("password".equals(str)) {
                         SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.PWD;
                     } else if (LoginConstants.SMS_LOGIN.equals(str)) {
                         SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.SMS;
@@ -4654,7 +4652,7 @@ public class SapiJsInterpreters {
                     return null;
                 }
                 try {
-                    this.this$0.jsCallBacks.biometricsIdentificationLiveCallBack.getLiveImage((int) (Float.parseFloat(new JSONObject(command.getActionParams().get(0)).optString(AnimationProperty.SCALE)) * 100.0f), new PassFaceRecogCallback(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationLive.1
+                    this.this$0.jsCallBacks.biometricsIdentificationLiveCallBack.getLiveImage((int) (Float.parseFloat(new JSONObject(command.getActionParams().get(0)).optString("scale")) * 100.0f), new PassFaceRecogCallback(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationLive.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ SapiBiometricsIdentificationLive this$1;

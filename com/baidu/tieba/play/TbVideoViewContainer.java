@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j58;
+import com.repackage.e68;
 /* loaded from: classes3.dex */
 public class TbVideoViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j58 a;
+    public e68 a;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -49,9 +49,9 @@ public class TbVideoViewContainer extends FrameLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j58 j58Var = this.a;
-            if (j58Var != null) {
-                j58Var.j();
+            e68 e68Var = this.a;
+            if (e68Var != null) {
+                e68Var.j();
             }
             if (getParent() instanceof ViewGroup) {
                 ((ViewGroup) getParent()).removeView(this);
@@ -67,10 +67,10 @@ public class TbVideoViewContainer extends FrameLayout {
         }
     }
 
-    public j58 getControl() {
+    public e68 getControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (j58) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (e68) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

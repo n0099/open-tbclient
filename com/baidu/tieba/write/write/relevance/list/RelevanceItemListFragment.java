@@ -64,7 +64,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemSearchMessage)) {
-                this.a.r1(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
+                this.a.s1(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
             }
         }
     }
@@ -95,9 +95,9 @@ public class RelevanceItemListFragment extends BaseFragment {
                 }
             }
             this.b = new RelevanceItemListController(this, this.a, this.c, getUniqueId());
-            String obj = (((RelevanceItemSearchActivity) getActivity()).F0() == null || ((RelevanceItemSearchActivity) getActivity()).F0().h() == null) ? "" : ((RelevanceItemSearchActivity) getActivity()).F0().h().getText().toString();
+            String obj = (((RelevanceItemSearchActivity) getActivity()).E0() == null || ((RelevanceItemSearchActivity) getActivity()).E0().h() == null) ? "" : ((RelevanceItemSearchActivity) getActivity()).E0().h().getText().toString();
             if (!TextUtils.isEmpty(obj)) {
-                r1(obj);
+                s1(obj);
                 return;
             }
             showLoadingView(this.a);
@@ -119,10 +119,10 @@ public class RelevanceItemListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.a == null) {
-                this.a = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02db, (ViewGroup) null);
+                this.a = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02dd, (ViewGroup) null);
             }
             initData();
-            t1();
+            u1();
             return this.a;
         }
         return (View) invokeLLL.objValue;
@@ -147,7 +147,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         }
     }
 
-    public void r1(String str) {
+    public void s1(String str) {
         RelevanceItemListController relevanceItemListController;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (relevanceItemListController = this.b) == null) {
@@ -158,27 +158,27 @@ public class RelevanceItemListFragment extends BaseFragment {
         showLoadingView(this.a);
     }
 
-    public boolean s1(long j) {
+    public boolean t1(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) ? ListUtils.getPosition(this.d, Long.valueOf(j)) >= 0 : invokeJ.booleanValue;
     }
 
-    public final void t1() {
+    public final void u1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             registerListener(this.e);
         }
     }
 
-    public void u1() {
+    public void v1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && isLoadingViewAttached()) {
             hideLoadingView(this.a);
         }
     }
 
-    public void v1(String str) {
+    public void w1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             hideLoadingView(this.a);
@@ -186,7 +186,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         }
     }
 
-    public void w1() {
+    public void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             hideLoadingView(this.a);
@@ -194,7 +194,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         }
     }
 
-    public void x1(String str) {
+    public void y1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.c = str;

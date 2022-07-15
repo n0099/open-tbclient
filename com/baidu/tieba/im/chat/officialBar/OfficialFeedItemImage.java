@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e67;
+import com.repackage.l67;
 import com.repackage.pi;
-import com.repackage.u57;
+import com.repackage.w67;
 /* loaded from: classes3.dex */
 public class OfficialFeedItemImage extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -80,16 +80,16 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0625, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0913ca);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913d1);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0913d0);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0913d6);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09037e);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0641, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091472);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091479);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091478);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09147e);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090380);
             this.b.setConrers(15);
             this.b.setRadius(pi.f(this.a, R.dimen.tbds21));
-            this.g = findViewById(R.id.obfuscated_res_0x7f090e2b);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091424);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090e39);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0914cc);
             c();
         }
     }
@@ -97,7 +97,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0808e9, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0808f2, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
             if (this.i) {
                 gradientLinear.into(this.f);
@@ -113,7 +113,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i > 0) {
-                this.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e5f, StringHelper.numberUniformFormatExtraWithRound(i)));
+                this.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e56, StringHelper.numberUniformFormatExtraWithRound(i)));
                 this.d.setVisibility(0);
                 this.c.setVisibility(0);
                 return;
@@ -123,13 +123,13 @@ public class OfficialFeedItemImage extends RelativeLayout {
         }
     }
 
-    public void setData(e67.a aVar, int i, u57 u57Var) {
+    public void setData(w67.a aVar, int i, l67 l67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, u57Var) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, l67Var) == null) {
             this.b.J(aVar.c, 10, false);
             this.e.setText(aVar.a);
-            if (u57Var != null) {
-                i = u57Var.i();
+            if (l67Var != null) {
+                i = l67Var.i();
             }
             d(i);
         }

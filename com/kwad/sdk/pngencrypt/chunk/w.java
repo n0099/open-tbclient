@@ -1,44 +1,35 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
-import com.kwad.sdk.pngencrypt.PngjException;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class w extends aa {
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
+public final class w {
+    public final e a;
+    public final boolean b;
 
-    public w(com.kwad.sdk.pngencrypt.k kVar) {
-        super("sBIT", kVar);
+    public w(e eVar) {
+        this.a = eVar;
+        this.b = !(eVar instanceof f);
     }
 
-    private int c() {
-        int i = this.e.f ? 1 : 3;
-        return this.e.e ? i + 1 : i;
+    private List<? extends t> b(String str) {
+        ArrayList arrayList = new ArrayList();
+        arrayList.addAll(this.a.a("tEXt", str));
+        arrayList.addAll(this.a.a("zTXt", str));
+        arrayList.addAll(this.a.a("iTXt", str));
+        return arrayList;
     }
 
-    @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
-    public void a(d dVar) {
-        int a;
-        if (dVar.a != c()) {
-            throw new PngjException("bad chunk length " + dVar);
+    public final String a(String str) {
+        List<? extends t> b = b(str);
+        if (b.isEmpty()) {
+            return "";
         }
-        if (this.e.f) {
-            this.h = com.kwad.sdk.pngencrypt.n.a(dVar.d, 0);
-            if (!this.e.e) {
-                return;
-            }
-            a = com.kwad.sdk.pngencrypt.n.a(dVar.d, 1);
-        } else {
-            this.j = com.kwad.sdk.pngencrypt.n.a(dVar.d, 0);
-            this.k = com.kwad.sdk.pngencrypt.n.a(dVar.d, 1);
-            this.l = com.kwad.sdk.pngencrypt.n.a(dVar.d, 2);
-            if (!this.e.e) {
-                return;
-            }
-            a = com.kwad.sdk.pngencrypt.n.a(dVar.d, 3);
+        StringBuilder sb = new StringBuilder();
+        for (t tVar : b) {
+            sb.append(tVar.b());
+            sb.append("\n");
         }
-        this.i = a;
+        return sb.toString().trim();
     }
 }

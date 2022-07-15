@@ -15,6 +15,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +51,7 @@ public final class z {
             }
         }
         a = new String[]{"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
-        b = new String[]{"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.ACCESS_WIFI_STATE", "android.permission.WAKE_LOCK", "android.permission.GET_ACCOUNTS", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", "android.permission.GET_TASKS"};
+        b = new String[]{PermissionChecker.INTERNET, PermissionChecker.READ_PHONE_STATE, "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", PermissionChecker.ACCESS_WIFI_STATE, "android.permission.WAKE_LOCK", PermissionChecker.GET_ACCOUNT, "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", PermissionChecker.GET_TASKS};
         c = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
         d = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
         e = new String[0];
@@ -241,7 +242,7 @@ public final class z {
             boolean c2 = t.c(context, context.getPackageName());
             if (e2) {
                 a = new String[]{"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
-                b = new String[]{"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.ACCESS_WIFI_STATE", "android.permission.WAKE_LOCK", "android.permission.GET_ACCOUNTS", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", "android.permission.GET_TASKS"};
+                b = new String[]{PermissionChecker.INTERNET, PermissionChecker.READ_PHONE_STATE, "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", PermissionChecker.ACCESS_WIFI_STATE, "android.permission.WAKE_LOCK", PermissionChecker.GET_ACCOUNT, "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", PermissionChecker.GET_TASKS};
                 c = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
                 d = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
             } else if (!c2 && !d2) {
@@ -255,9 +256,9 @@ public final class z {
                 d = new String[0];
                 a = new String[0];
                 if (d2) {
-                    b = new String[]{"android.permission.INTERNET", "android.permission.WRITE_SETTINGS"};
+                    b = new String[]{PermissionChecker.INTERNET, "android.permission.WRITE_SETTINGS"};
                 } else {
-                    b = new String[]{"android.permission.INTERNET"};
+                    b = new String[]{PermissionChecker.INTERNET};
                 }
             }
             try {

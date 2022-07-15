@@ -1,86 +1,126 @@
 package com.repackage;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class d97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public int h;
+        public final /* synthetic */ ThreadData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
 
-        public a() {
+        public a(ThreadData threadData, long j, String str, String str2, String str3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = threadData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalThreadChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
             }
         }
     }
 
-    public static a a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            a aVar = new a();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() > 0) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                    optJSONObject.optString("title");
-                    aVar.b = optJSONObject.optString("content");
-                    aVar.c = optJSONObject.optString("quote_content");
-                    aVar.d = optJSONObject.optString("fname");
-                    aVar.e = optJSONObject.optString("thread_id");
-                    aVar.f = optJSONObject.optString("post_id");
-                    aVar.h = optJSONObject.optInt("type");
-                    aVar.g = optJSONObject.optString("title");
-                    optJSONObject.optInt("thread_type");
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
-                    if (optJSONObject2 != null) {
-                        optJSONObject2.optString("id");
-                        optJSONObject2.optString("portrait");
-                        optJSONObject2.optInt("gender");
-                    }
-                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
-                    if (optJSONObject3 != null) {
-                        optJSONObject3.optString("id");
-                        aVar.a = optJSONObject3.optInt("gender");
-                    }
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ForumData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
+
+        public b(ForumData forumData, long j, String str, String str2, String str3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {forumData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return aVar;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+            }
+            this.a = forumData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalForumChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
             }
         }
-        return (a) invokeL.objValue;
+    }
+
+    public static void a(@Nullable ForumData forumData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{forumData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalForumChatMessage(forumData, j, str2, str3, str4, z);
+                return;
+            }
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            qg.a().postDelayed(new b(forumData, j, str2, str3, str4, z), 500L);
+        }
+    }
+
+    public static void b(@Nullable ThreadData threadData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{threadData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalThreadChatMessage(threadData, j, str2, str3, str4, z);
+                return;
+            }
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            qg.a().postDelayed(new a(threadData, j, str2, str3, str4, z), 500L);
+        }
     }
 }

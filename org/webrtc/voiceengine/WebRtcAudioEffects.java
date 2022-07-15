@@ -15,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.button.StyleHelper;
 import java.util.UUID;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
@@ -268,11 +267,11 @@ public class WebRtcAudioEffects {
                     }
                     StringBuilder sb = new StringBuilder();
                     sb.append("AcousticEchoCanceler: was ");
-                    sb.append(enabled ? SapiOptions.KEY_CACHE_ENABLED : StyleHelper.KEY_ONDISABLE);
+                    sb.append(enabled ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
                     sb.append(", enable: ");
                     sb.append(z2);
                     sb.append(", is now: ");
-                    sb.append(this.aec.getEnabled() ? SapiOptions.KEY_CACHE_ENABLED : StyleHelper.KEY_ONDISABLE);
+                    sb.append(this.aec.getEnabled() ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
                     Logging.d(TAG, sb.toString());
                 } else {
                     Logging.e(TAG, "Failed to create the AcousticEchoCanceler instance");
@@ -289,12 +288,12 @@ public class WebRtcAudioEffects {
                     }
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("NoiseSuppressor: was ");
-                    sb2.append(enabled2 ? SapiOptions.KEY_CACHE_ENABLED : StyleHelper.KEY_ONDISABLE);
+                    sb2.append(enabled2 ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
                     sb2.append(", enable: ");
                     sb2.append(z);
                     sb2.append(", is now: ");
                     if (!this.ns.getEnabled()) {
-                        str = StyleHelper.KEY_ONDISABLE;
+                        str = "disabled";
                     }
                     sb2.append(str);
                     Logging.d(TAG, sb2.toString());

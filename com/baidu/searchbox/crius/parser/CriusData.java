@@ -6,14 +6,8 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
-import android.text.BoringLayout;
-import android.text.Layout;
-import android.text.SpannableString;
-import android.text.StaticLayout;
-import android.text.TextPaint;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -22,25 +16,21 @@ import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.crius.CriusAlign;
-import com.baidu.crius.CriusConstants;
 import com.baidu.crius.CriusDisplay;
 import com.baidu.crius.CriusEdge;
 import com.baidu.crius.CriusFlexDirection;
 import com.baidu.crius.CriusJustify;
-import com.baidu.crius.CriusMeasureFunction;
-import com.baidu.crius.CriusMeasureMode;
-import com.baidu.crius.CriusMeasureOutput;
 import com.baidu.crius.CriusNode;
 import com.baidu.crius.CriusPositionType;
 import com.baidu.searchbox.crius.CriusRuntime;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.crius.render.util.RenderUtils;
 import com.baidu.searchbox.crius.ui.CriusUI;
 import com.baidu.searchbox.crius.ui.CriusUIFactory;
 import com.baidu.searchbox.crius.ui.indicator.IndicatorAttrs;
 import com.baidu.searchbox.crius.ui.swiper.SwiperAttrs;
 import com.baidu.searchbox.crius.util.CriusUtil;
+import com.baidu.searchbox.ui.UnifyTextView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,6 +51,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CriusData {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String TAG = "CriusData";
     public static int fontLevel = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public int agreeNum;
@@ -145,8 +136,6 @@ public class CriusData {
     public double lineMulti;
     public double lineSpace;
     public CriusUI mCriusUI;
-    public final CriusMeasureFunction mIndicatorMeasureFunction;
-    public final CriusMeasureFunction mTextMeasureFunction;
     public double margin;
     public double marginBottom;
     public double marginLeft;
@@ -155,7 +144,7 @@ public class CriusData {
     public double maxHeight;
     public int maxLines;
     public double maxWidth;
-    public TextView measureTextView;
+    public UnifyTextView measureTextView;
     public double minHeight;
     public double minWidth;
     public String name;
@@ -180,6 +169,7 @@ public class CriusData {
     public int placeHolderScaleType;
     public String position;
     public String poster;
+    public PraiseAttrs praiseAttrs;
     public PrefixLabelAttrs preLabelAttrs;
     public String progressColor;
     public String progressNightColor;
@@ -253,180 +243,21 @@ public class CriusData {
         this.opacityNightVisited = -10000.0d;
         this.opacityVisitedActive = -10000.0d;
         this.opacityNightVisitedActive = -10000.0d;
-        this.mTextMeasureFunction = new CriusMeasureFunction(this) { // from class: com.baidu.searchbox.crius.parser.CriusData.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ CriusData this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // com.baidu.crius.CriusMeasureFunction
-            public long measure(CriusNode criusNode, float f, CriusMeasureMode criusMeasureMode, float f2, CriusMeasureMode criusMeasureMode2) {
-                InterceptResult invokeCommon;
-                Layout build;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{criusNode, Float.valueOf(f), criusMeasureMode, Float.valueOf(f2), criusMeasureMode2})) == null) {
-                    CriusData criusData = this.this$0;
-                    float labelTextWidth = criusData.getLabelTextWidth(criusData);
-                    SpannableString spannableString = new SpannableString(RenderUtils.PREFIX_HOLDER + this.this$0.text);
-                    spannableString.setSpan(new RenderUtils.PrefixLabelSpan(labelTextWidth), 0, 6, 17);
-                    CriusData criusData2 = this.this$0;
-                    criusData2.buildTextViewAttr(criusData2.measureTextView, criusData2);
-                    TextPaint paint = this.this$0.measureTextView.getPaint();
-                    BoringLayout.Metrics isBoring = BoringLayout.isBoring(spannableString, paint);
-                    float desiredWidth = isBoring == null ? Layout.getDesiredWidth(spannableString, paint) : Float.NaN;
-                    CriusData criusData3 = this.this$0;
-                    double d = criusData3.lineSpace;
-                    float convertFloatValue = d > 0.0d ? criusData3.convertFloatValue(d) : 0.0f;
-                    double d2 = this.this$0.lineMulti;
-                    float f3 = d2 > 0.0d ? (float) d2 : 1.0f;
-                    boolean z = criusMeasureMode == CriusMeasureMode.UNDEFINED || f < 0.0f;
-                    if (isBoring == null && (z || (!CriusConstants.isUndefined(desiredWidth) && desiredWidth <= f))) {
-                        int ceil = (int) Math.ceil(desiredWidth);
-                        if (Build.VERSION.SDK_INT < 23) {
-                            build = new StaticLayout(spannableString, paint, ceil, Layout.Alignment.ALIGN_NORMAL, f3, convertFloatValue, false);
-                        } else {
-                            StaticLayout.Builder hyphenationFrequency = StaticLayout.Builder.obtain(spannableString, 0, spannableString.length(), paint, ceil).setAlignment(Layout.Alignment.ALIGN_NORMAL).setLineSpacing(convertFloatValue, f3).setIncludePad(false).setBreakStrategy(1).setHyphenationFrequency(1);
-                            if (Build.VERSION.SDK_INT >= 28) {
-                                hyphenationFrequency.setUseLineSpacingFromFallbacks(true);
-                            }
-                            build = hyphenationFrequency.build();
-                        }
-                    } else if (isBoring != null && (z || isBoring.width <= f)) {
-                        build = BoringLayout.make(spannableString, paint, isBoring.width, Layout.Alignment.ALIGN_NORMAL, f3, convertFloatValue, isBoring, false);
-                    } else if (Build.VERSION.SDK_INT < 23) {
-                        build = new StaticLayout(spannableString, paint, (int) f, Layout.Alignment.ALIGN_NORMAL, f3, convertFloatValue, false);
-                    } else {
-                        StaticLayout.Builder hyphenationFrequency2 = StaticLayout.Builder.obtain(spannableString, 0, spannableString.length(), paint, (int) f).setAlignment(Layout.Alignment.ALIGN_NORMAL).setLineSpacing(convertFloatValue, f3).setIncludePad(false).setBreakStrategy(1).setHyphenationFrequency(1);
-                        if (Build.VERSION.SDK_INT >= 28) {
-                            hyphenationFrequency2.setUseLineSpacingFromFallbacks(true);
-                        }
-                        build = hyphenationFrequency2.build();
-                    }
-                    if (build != null) {
-                        if (this.this$0.maxLines < build.getLineCount()) {
-                            float dealTextWidthWithAndroidVersion = this.this$0.dealTextWidthWithAndroidVersion(build.getWidth());
-                            CriusData criusData4 = this.this$0;
-                            return CriusMeasureOutput.make(dealTextWidthWithAndroidVersion, criusData4.dealTextHeightWithAndroidVersion(build.getLineBottom(criusData4.maxLines - 1)));
-                        }
-                        return CriusMeasureOutput.make(this.this$0.dealTextWidthWithAndroidVersion(build.getWidth()), this.this$0.dealTextHeightWithAndroidVersion(build.getHeight()));
-                    }
-                    return CriusMeasureOutput.make(f, f2);
-                }
-                return invokeCommon.longValue;
-            }
-        };
-        this.mIndicatorMeasureFunction = new CriusMeasureFunction(this) { // from class: com.baidu.searchbox.crius.parser.CriusData.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ CriusData this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // com.baidu.crius.CriusMeasureFunction
-            public long measure(CriusNode criusNode, float f, CriusMeasureMode criusMeasureMode, float f2, CriusMeasureMode criusMeasureMode2) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{criusNode, Float.valueOf(f), criusMeasureMode, Float.valueOf(f2), criusMeasureMode2})) == null) {
-                    CriusData criusData = this.this$0;
-                    if (TextUtils.equals(criusData.type, NativeConstants.TYPE_INDICATOR)) {
-                        CriusData relatedSwiper = this.this$0.getRelatedSwiper(criusData);
-                        if (relatedSwiper == null) {
-                            return CriusMeasureOutput.make(f, f2);
-                        }
-                        int size = relatedSwiper.children.size() - 2;
-                        IndicatorAttrs indicatorAttrs = criusData.indicatorAttrs;
-                        float f3 = this.this$0.density;
-                        return CriusMeasureOutput.make((int) ((size * f2) + (((int) (indicatorAttrs.indicatorMargin * f3)) * (size - 1)) + (((int) (indicatorAttrs.indicatorContentLRMargin * f3)) * 2)), f2);
-                    }
-                    return CriusMeasureOutput.make(f, f2);
-                }
-                return invokeCommon.longValue;
-            }
-        };
         this.criusNode = new CriusNode();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void buildTextViewAttr(TextView textView, CriusData criusData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, this, textView, criusData) == null) || TextUtils.isEmpty(criusData.text)) {
-            return;
-        }
-        int i = criusData.maxLines;
-        if (i > 0) {
-            if (i == 1) {
-                textView.setSingleLine(true);
-            } else {
-                textView.setSingleLine(false);
-            }
-            textView.setMaxLines(criusData.maxLines);
-            textView.setEllipsize(TextUtils.TruncateAt.END);
-        }
-        if (Double.compare(criusData.fontSize(), 0.0d) >= 0) {
-            textView.setTextSize(0, (float) (criusData.fontSize() * textView.getContext().getResources().getDisplayMetrics().density));
-        }
-        textView.setIncludeFontPadding(false);
-        textView.setTypeface(criusData.fontStyle);
-        if (criusData.fontStrokeWidth > 0.0d && textView.getPaint() != null) {
-            textView.getPaint().setStyle(Paint.Style.FILL_AND_STROKE);
-            textView.getPaint().setStrokeWidth((float) criusData.fontStrokeWidth);
-        }
-        textView.setGravity(criusData.gravity);
-        double d = criusData.lineSpace;
-        float convertFloatValue = d > 0.0d ? convertFloatValue(d) : 0.0f;
-        double d2 = criusData.lineMulti;
-        float f = d2 > 0.0d ? (float) d2 : 1.0f;
-        if (convertFloatValue > 0.0f || f > 0.0f) {
-            textView.setLineSpacing(convertFloatValue, f);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"ObsoleteSdkInt"})
-    public float dealTextHeightWithAndroidVersion(float f) {
+    private float dealTextHeightWithAndroidVersion(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65546, this, f)) == null) ? (Build.VERSION.SDK_INT == 19 || isMIUIRom()) ? (f * 1.06f) + 0.5f : f : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65541, this, f)) == null) ? (Build.VERSION.SDK_INT == 19 || isMIUIRom()) ? (f * 1.06f) + 0.5f : f : invokeF.floatValue;
     }
 
     @Nullable
     private CriusData getLabelTextData(CriusData criusData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, criusData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, criusData)) == null) {
             CriusData criusData2 = null;
             if (criusData != null) {
                 if (TextUtils.equals("text", criusData.type)) {
@@ -444,59 +275,10 @@ public class CriusData {
         return (CriusData) invokeL.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public float getLabelTextWidth(CriusData criusData) {
-        InterceptResult invokeL;
-        CriusData labelTextData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, criusData)) == null) {
-            float f = 0.0f;
-            if (criusData != null) {
-                CriusData prefixLabel = criusData.getPrefixLabel();
-                if (prefixLabel != null && (labelTextData = getLabelTextData(prefixLabel)) != null && !TextUtils.isEmpty(labelTextData.text)) {
-                    Paint paint = new Paint();
-                    paint.setTextSize(DeviceUtils.ScreenInfo.dp2px(CriusRuntime.context(), (float) labelTextData.fontSize()));
-                    f = 0.0f + paint.measureText(labelTextData.text);
-                }
-                PrefixLabelAttrs prefixLabelAttrs = criusData.preLabelAttrs;
-                if (prefixLabelAttrs != null) {
-                    double d = prefixLabelAttrs.prefixWidthWithoutText;
-                    if (d > 0.0d) {
-                        f += criusData.convertFloatValue(d);
-                    }
-                    double d2 = criusData.preLabelAttrs.prefixTitleMargin;
-                    return d2 > 0.0d ? f + criusData.convertFloatValue(d2) : f;
-                }
-                return f;
-            }
-            return 0.0f;
-        }
-        return invokeL.floatValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public CriusData getRelatedSwiper(CriusData criusData) {
-        InterceptResult invokeL;
-        CriusData criusData2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, criusData)) == null) {
-            if (TextUtils.equals(criusData.type, NativeConstants.TYPE_INDICATOR) && (criusData2 = criusData.parent) != null && criusData2.children != null) {
-                for (int i = 0; i < criusData2.children.size(); i++) {
-                    CriusData criusData3 = criusData2.children.get(i);
-                    if (TextUtils.equals(NativeConstants.TYPE_SWIPER, criusData3.type) && TextUtils.equals(criusData.indicatorAttrs.swiperId, criusData3.swiperAttrs.id)) {
-                        return criusData3;
-                    }
-                }
-            }
-            return null;
-        }
-        return (CriusData) invokeL.objValue;
-    }
-
     private void initActiveNightStyleAttr(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65550, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("active")) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("active")) == null) {
             return;
         }
         this.backgroundImageNightActive = CriusUtil.getStringIfExist(optJSONObject, NativeConstants.BACKGROUND_IMAGE);
@@ -509,7 +291,7 @@ public class CriusData {
     private void initActiveStyleAttr(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("active")) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65544, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("active")) == null) {
             return;
         }
         this.backgroundImageActive = CriusUtil.getStringIfExist(optJSONObject, NativeConstants.BACKGROUND_IMAGE);
@@ -521,7 +303,7 @@ public class CriusData {
 
     private void initAlignContent() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65552, this) == null) || TextUtils.isEmpty(this.alignContent)) {
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || TextUtils.isEmpty(this.alignContent)) {
             return;
         }
         if (CriusAttrConstants.FLEX_START.equalsIgnoreCase(this.alignContent)) {
@@ -543,7 +325,7 @@ public class CriusData {
 
     private void initAlignItems() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65553, this) == null) || TextUtils.isEmpty(this.alignItems)) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || TextUtils.isEmpty(this.alignItems)) {
             return;
         }
         if (CriusAttrConstants.FLEX_START.equalsIgnoreCase(this.alignItems)) {
@@ -561,7 +343,7 @@ public class CriusData {
 
     private void initAlignSelf() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || TextUtils.isEmpty(this.alignSelf)) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || TextUtils.isEmpty(this.alignSelf)) {
             return;
         }
         if ("auto".equalsIgnoreCase(this.alignSelf)) {
@@ -581,7 +363,7 @@ public class CriusData {
 
     private void initAspectRatio() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             double d = this.aspectRatio;
             if (d > 0.0d) {
                 this.criusNode.setAspectRatio((float) d);
@@ -592,16 +374,10 @@ public class CriusData {
     private void initDataAttr(JSONObject jSONObject) {
         BusinessConverter businessConverter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(65549, this, jSONObject) == null) {
             this.id = CriusUtil.getStringIfExist(jSONObject, "id");
             this.name = CriusUtil.getStringIfExist(jSONObject, "name");
             this.type = CriusUtil.getStringIfExist(jSONObject, "type");
-            if (isText()) {
-                this.criusNode.setMeasureFunction(this.mTextMeasureFunction);
-            }
-            if (isIndicator()) {
-                this.criusNode.setMeasureFunction(this.mIndicatorMeasureFunction);
-            }
             this.component = CriusUtil.getStringIfExist(jSONObject, NativeConstants.COMPONENT);
             this.src = CriusUtil.getStringIfExist(jSONObject, "src");
             this.srcSet = CriusUtil.getMapIfExist(jSONObject, NativeConstants.SRCSET);
@@ -639,12 +415,16 @@ public class CriusData {
             this.preLabelAttrs = PrefixLabelAttrs.getLabelAttrs(jSONObject);
             this.focusPoint = ScaleFocusPoint.getFocusPoint(jSONObject.optJSONObject(NativeConstants.SCALE_FOCUS_CROP_POINT));
             this.ignoreTextPadding = jSONObject.optBoolean(NativeConstants.IGNORE_TEXT_PADDING, false);
+            JSONObject optJSONObject = jSONObject.optJSONObject("praise_info");
+            if (optJSONObject != null) {
+                this.praiseAttrs = PraiseAttrsKt.parsePraiseAttrs(optJSONObject);
+            }
         }
     }
 
     private void initDisplay() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65557, this) == null) || TextUtils.isEmpty(this.display)) {
+        if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || TextUtils.isEmpty(this.display)) {
             return;
         }
         if ("flex".equalsIgnoreCase(this.display)) {
@@ -658,7 +438,7 @@ public class CriusData {
 
     private void initFlex() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
             double d = this.flex;
             if (d < -1.0d) {
                 return;
@@ -669,7 +449,7 @@ public class CriusData {
 
     private void initFlexAttr(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(65552, this, jSONObject) == null) {
             this.display = CriusUtil.getStringIfExist(jSONObject, CriusAttrConstants.DISPLAY);
             initDisplay();
             this.flexDirection = CriusUtil.getStringIfExist(jSONObject, CriusAttrConstants.FLEX_DIRECTION);
@@ -690,14 +470,14 @@ public class CriusData {
             initFlexShrink();
             this.flexBasis = CriusUtil.getDoubleIfExist(jSONObject, CriusAttrConstants.FLEX_BASIS);
             initFlexBasis();
-            this.position = CriusUtil.getStringIfExist(jSONObject, "position");
+            this.position = CriusUtil.getStringIfExist(jSONObject, CriusAttrConstants.POSITION);
             initPositionType();
             this.left = CriusUtil.getDoubleIfExist(jSONObject, "left");
             this.top = CriusUtil.getDoubleIfExist(jSONObject, "top");
             this.right = CriusUtil.getDoubleIfExist(jSONObject, "right");
             this.bottom = CriusUtil.getDoubleIfExist(jSONObject, "bottom");
             initPosition();
-            this.margin = CriusUtil.getDoubleIfExist(jSONObject, "margin");
+            this.margin = CriusUtil.getDoubleIfExist(jSONObject, CriusAttrConstants.MARGIN);
             initMargin();
             this.marginLeft = CriusUtil.getDoubleIfExist(jSONObject, CriusAttrConstants.MARGIN_LEFT);
             initMarginLeft();
@@ -736,7 +516,7 @@ public class CriusData {
 
     private void initFlexBasis() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
             double d = this.flexBasis;
             if (d < -1.0d) {
                 return;
@@ -747,10 +527,10 @@ public class CriusData {
 
     private void initFlexDirection() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || TextUtils.isEmpty(this.flexDirection)) {
+        if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || TextUtils.isEmpty(this.flexDirection)) {
             return;
         }
-        if ("column".equalsIgnoreCase(this.flexDirection)) {
+        if (CriusAttrConstants.COLUMN.equalsIgnoreCase(this.flexDirection)) {
             this.criusNode.setFlexDirection(CriusFlexDirection.COLUMN);
         } else if (CriusAttrConstants.COLUMN_REVERSE.equalsIgnoreCase(this.flexDirection)) {
             this.criusNode.setFlexDirection(CriusFlexDirection.COLUMN_REVERSE);
@@ -765,7 +545,7 @@ public class CriusData {
 
     private void initFlexGrow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
             double d = this.flexGrow;
             if (d < -1.0d) {
                 return;
@@ -776,7 +556,7 @@ public class CriusData {
 
     private void initFlexShrink() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             double d = this.flexShrink;
             if (d < -1.0d) {
                 return;
@@ -787,7 +567,7 @@ public class CriusData {
 
     private void initHeight() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65564, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
             double d = this.height;
             if (d >= 0.0d) {
                 this.criusNode.setHeight(convertFloatValue(d));
@@ -799,7 +579,7 @@ public class CriusData {
 
     private void initJustifyContent() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || TextUtils.isEmpty(this.justifyContent)) {
+        if (!(interceptable == null || interceptable.invokeV(65558, this) == null) || TextUtils.isEmpty(this.justifyContent)) {
             return;
         }
         if (CriusAttrConstants.FLEX_START.equalsIgnoreCase(this.justifyContent)) {
@@ -819,7 +599,7 @@ public class CriusData {
 
     private void initMargin() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65566, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
             double d = this.margin;
             if (d < -1.0d) {
                 return;
@@ -830,7 +610,7 @@ public class CriusData {
 
     private void initMarginBottom() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65567, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
             double d = this.marginBottom;
             if (d < -1.0d) {
                 return;
@@ -841,7 +621,7 @@ public class CriusData {
 
     private void initMarginLeft() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65568, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
             double d = this.marginLeft;
             if (d < -1.0d) {
                 return;
@@ -852,7 +632,7 @@ public class CriusData {
 
     private void initMarginRight() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65569, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
             double d = this.marginRight;
             if (d < -1.0d) {
                 return;
@@ -863,7 +643,7 @@ public class CriusData {
 
     private void initMarginTop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65570, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
             double d = this.marginTop;
             if (d < -1.0d) {
                 return;
@@ -874,7 +654,7 @@ public class CriusData {
 
     private void initMaxHeight() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65571, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65564, this) == null) {
             double d = this.maxHeight;
             if (d >= 0.0d) {
                 this.criusNode.setMaxHeight(convertFloatValue(d));
@@ -886,7 +666,7 @@ public class CriusData {
 
     private void initMaxWidth() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65572, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65565, this) == null) {
             double d = this.maxWidth;
             if (d >= 0.0d) {
                 this.criusNode.setMaxWidth(convertFloatValue(d));
@@ -898,7 +678,7 @@ public class CriusData {
 
     private void initMinHeight() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65573, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65566, this) == null) {
             double d = this.minHeight;
             if (d >= 0.0d) {
                 this.criusNode.setMinHeight(convertFloatValue(d));
@@ -910,7 +690,7 @@ public class CriusData {
 
     private void initMinWidth() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65574, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65567, this) == null) {
             double d = this.minWidth;
             if (d >= 0.0d) {
                 this.criusNode.setMinWidth(convertFloatValue(d));
@@ -922,7 +702,7 @@ public class CriusData {
 
     private void initNightStyleAttr(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65575, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(65568, this, jSONObject) == null) {
             this.placeHolderImageNight = CriusUtil.getStringIfExist(jSONObject, NativeConstants.PLACEHOLDER_IMAGE);
             this.backgroundImageNight = CriusUtil.getStringIfExist(jSONObject, NativeConstants.BACKGROUND_IMAGE);
             this.backgroundColorNight = CriusUtil.getStringIfExist(jSONObject, "background-color");
@@ -936,7 +716,7 @@ public class CriusData {
 
     private void initPadding() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65569, this) == null) {
             double d = this.padding;
             if (d < -1.0d) {
                 return;
@@ -947,7 +727,7 @@ public class CriusData {
 
     private void initPaddingBottom() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65577, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65570, this) == null) {
             double d = this.paddingBottom;
             if (d < -1.0d) {
                 return;
@@ -958,7 +738,7 @@ public class CriusData {
 
     private void initPaddingLeft() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65578, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65571, this) == null) {
             double d = this.paddingLeft;
             if (d < -1.0d) {
                 return;
@@ -969,7 +749,7 @@ public class CriusData {
 
     private void initPaddingRight() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65572, this) == null) {
             double d = this.paddingRight;
             if (d < -1.0d) {
                 return;
@@ -980,7 +760,7 @@ public class CriusData {
 
     private void initPaddingTop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65573, this) == null) {
             double d = this.paddingTop;
             if (d < -1.0d) {
                 return;
@@ -991,7 +771,7 @@ public class CriusData {
 
     private void initPosition() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65574, this) == null) {
             if (!CriusUtil.equalsDouble(this.left, -10000.0d)) {
                 this.criusNode.setPosition(CriusEdge.LEFT, convertFloatValue(this.left));
             }
@@ -1010,7 +790,7 @@ public class CriusData {
 
     private void initPositionType() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65582, this) == null) || TextUtils.isEmpty(this.position)) {
+        if (!(interceptable == null || interceptable.invokeV(65575, this) == null) || TextUtils.isEmpty(this.position)) {
             return;
         }
         if (CriusAttrConstants.RELATIVE.equalsIgnoreCase(this.position)) {
@@ -1022,7 +802,7 @@ public class CriusData {
 
     private void initStyleAttr(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65583, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(65576, this, jSONObject) == null) {
             int intIfExist = CriusUtil.getIntIfExist(jSONObject, NativeConstants.IMAGE_SCALE_TYPE);
             this.imageScaleType = intIfExist;
             if (intIfExist < 0) {
@@ -1075,7 +855,7 @@ public class CriusData {
 
     private void initSyncAttr(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65584, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(65577, this, jSONObject) == null) {
             if (jSONObject == null) {
                 this.syncInfo = null;
             } else {
@@ -1087,7 +867,7 @@ public class CriusData {
     private void initVisitedActiveNightStyleAttr(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65585, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("active")) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65578, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("active")) == null) {
             return;
         }
         this.backgroundImageNightVisitedActive = CriusUtil.getStringIfExist(optJSONObject, NativeConstants.BACKGROUND_IMAGE);
@@ -1100,7 +880,7 @@ public class CriusData {
     private void initVisitedActiveStyleAttr(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65586, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("active")) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65579, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("active")) == null) {
             return;
         }
         this.backgroundImageVisitedActive = CriusUtil.getStringIfExist(optJSONObject, NativeConstants.BACKGROUND_IMAGE);
@@ -1113,7 +893,7 @@ public class CriusData {
     private void initVisitedNightStyleAttr(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65587, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject(NativeConstants.VISITED)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65580, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject(NativeConstants.VISITED)) == null) {
             return;
         }
         this.backgroundImageNightVisited = CriusUtil.getStringIfExist(optJSONObject, NativeConstants.BACKGROUND_IMAGE);
@@ -1127,7 +907,7 @@ public class CriusData {
     private void initVisitedStyleAttr(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65588, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject(NativeConstants.VISITED)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65581, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject(NativeConstants.VISITED)) == null) {
             return;
         }
         this.backgroundImageVisited = CriusUtil.getStringIfExist(optJSONObject, NativeConstants.BACKGROUND_IMAGE);
@@ -1140,7 +920,7 @@ public class CriusData {
 
     private void initWidth() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65582, this) == null) {
             double d = this.width;
             if (d >= 0.0d) {
                 this.criusNode.setWidth(convertFloatValue(d));
@@ -1153,20 +933,20 @@ public class CriusData {
     public static boolean isContainNonChinese(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, str)) == null) ? Pattern.compile("[^一-龥]").matcher(str).find() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65583, null, str)) == null) ? Pattern.compile("[^一-龥]").matcher(str).find() : invokeL.booleanValue;
     }
 
     private int parseFontStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65591, this)) == null) ? "italic".equalsIgnoreCase(this.fontStyleStr) ? (TextUtils.isEmpty(this.fontWeightStr) || "normal".equalsIgnoreCase(this.fontWeightStr) || !"bold".equalsIgnoreCase(this.fontWeightStr)) ? 2 : 3 : (TextUtils.isEmpty(this.fontWeightStr) || "normal".equalsIgnoreCase(this.fontWeightStr) || !"bold".equalsIgnoreCase(this.fontWeightStr)) ? 0 : 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65584, this)) == null) ? "italic".equalsIgnoreCase(this.fontStyleStr) ? (TextUtils.isEmpty(this.fontWeightStr) || "normal".equalsIgnoreCase(this.fontWeightStr) || !"bold".equalsIgnoreCase(this.fontWeightStr)) ? 2 : 3 : (TextUtils.isEmpty(this.fontWeightStr) || "normal".equalsIgnoreCase(this.fontWeightStr) || !"bold".equalsIgnoreCase(this.fontWeightStr)) ? 0 : 1 : invokeV.intValue;
     }
 
     private int parseGravity() {
         InterceptResult invokeV;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65585, this)) == null) {
             if ("left".equalsIgnoreCase(this.textAlignStr)) {
                 i = GravityCompat.START;
             } else if ("right".equalsIgnoreCase(this.textAlignStr)) {
@@ -1181,7 +961,7 @@ public class CriusData {
 
     private void putImageUrl(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65593, this, str) == null) || this.imageUrls == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65586, this, str) == null) || this.imageUrls == null || TextUtils.isEmpty(str)) {
             return;
         }
         this.imageUrls.add(str);
@@ -1190,7 +970,7 @@ public class CriusData {
     private void putImageUrls(Collection<String> collection) {
         Set<String> set;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65594, this, collection) == null) || (set = this.imageUrls) == null || collection == null) {
+        if (!(interceptable == null || interceptable.invokeL(65587, this, collection) == null) || (set = this.imageUrls) == null || collection == null) {
             return;
         }
         set.addAll(collection);
@@ -1431,13 +1211,42 @@ public class CriusData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.imageUrls : (Set) invokeV.objValue;
     }
 
+    public float getLabelTextWidth(CriusData criusData) {
+        InterceptResult invokeL;
+        CriusData labelTextData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, criusData)) == null) {
+            float f = 0.0f;
+            if (criusData != null) {
+                CriusData prefixLabel = criusData.getPrefixLabel();
+                if (prefixLabel != null && (labelTextData = getLabelTextData(prefixLabel)) != null && !TextUtils.isEmpty(labelTextData.text)) {
+                    Paint paint = new Paint();
+                    paint.setTextSize(DeviceUtils.ScreenInfo.dp2px(CriusRuntime.context(), (float) labelTextData.fontSize()));
+                    f = 0.0f + paint.measureText(labelTextData.text);
+                }
+                PrefixLabelAttrs prefixLabelAttrs = criusData.preLabelAttrs;
+                if (prefixLabelAttrs != null) {
+                    double d = prefixLabelAttrs.prefixWidthWithoutText;
+                    if (d > 0.0d) {
+                        f += criusData.convertFloatValue(d);
+                    }
+                    double d2 = criusData.preLabelAttrs.prefixTitleMargin;
+                    return d2 > 0.0d ? f + criusData.convertFloatValue(d2) : f;
+                }
+                return f;
+            }
+            return 0.0f;
+        }
+        return invokeL.floatValue;
+    }
+
     @Nullable
     public CriusData getPrefixLabel() {
         InterceptResult invokeV;
         PrefixLabelAttrs prefixLabelAttrs;
         CriusData criusData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             if (!TextUtils.equals("text", this.type) || (prefixLabelAttrs = this.preLabelAttrs) == null || !prefixLabelAttrs.hasPrefix || TextUtils.isEmpty(prefixLabelAttrs.bindingId) || (criusData = this.parent) == null) {
                 return null;
             }
@@ -1449,7 +1258,7 @@ public class CriusData {
     public CriusUI getUI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             if (hasUI()) {
                 return this.mCriusUI;
             }
@@ -1461,7 +1270,7 @@ public class CriusData {
     public boolean hasUI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mCriusUI != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mCriusUI != null : invokeV.booleanValue;
     }
 
     public boolean hideComponentFromRoot(String str) {
@@ -1469,7 +1278,7 @@ public class CriusData {
         CriusData dataByComponent;
         CriusNode criusNode;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
             if (this.rootNode == null || (dataByComponent = getDataByComponent(str)) == null || (criusNode = dataByComponent.criusNode) == null) {
                 return false;
             }
@@ -1484,7 +1293,7 @@ public class CriusData {
     public String imageSrc(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             Map<String, String> map = this.srcSet;
             if (map != null && !map.isEmpty()) {
                 String str = "src";
@@ -1511,7 +1320,7 @@ public class CriusData {
 
     public void insertChild(CriusData criusData, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048602, this, criusData, i) == null) && hasUI()) {
+        if ((interceptable == null || interceptable.invokeLI(1048603, this, criusData, i) == null) && hasUI()) {
             getUI().insertChild(criusData, i);
         }
     }
@@ -1519,7 +1328,7 @@ public class CriusData {
     public boolean isAlignItems(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -1528,22 +1337,28 @@ public class CriusData {
         return invokeL.booleanValue;
     }
 
+    public boolean isHScroll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? NativeConstants.TYPE_HSCROLL.equals(this.type) : invokeV.booleanValue;
+    }
+
     public boolean isImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? "image".equals(this.type) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? "image".equals(this.type) : invokeV.booleanValue;
     }
 
     public boolean isIndicator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? NativeConstants.TYPE_INDICATOR.equalsIgnoreCase(this.type) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? NativeConstants.TYPE_INDICATOR.equalsIgnoreCase(this.type) : invokeV.booleanValue;
     }
 
     public boolean isMIUIRom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             String str = Build.MANUFACTURER;
             if (TextUtils.isEmpty(str)) {
                 return false;
@@ -1556,31 +1371,31 @@ public class CriusData {
     public boolean isSwiper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? NativeConstants.TYPE_SWIPER.equalsIgnoreCase(this.type) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? NativeConstants.TYPE_SWIPER.equalsIgnoreCase(this.type) : invokeV.booleanValue;
     }
 
     public boolean isText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? "text".equals(this.type) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? "text".equals(this.type) : invokeV.booleanValue;
     }
 
     public boolean isVideo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? "video".equals(this.type) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? "video".equals(this.type) : invokeV.booleanValue;
     }
 
     public boolean isView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? NativeConstants.TYPE_VIEW.equals(this.type) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? NativeConstants.TYPE_VIEW.equals(this.type) : invokeV.booleanValue;
     }
 
     public CriusData removeChildAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) {
             List<CriusData> list = this.children;
             if (list == null) {
                 return null;
@@ -1597,7 +1412,7 @@ public class CriusData {
         CriusData dataById;
         CriusNode criusNode;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(1048612, this, str, f) == null) || this.rootNode == null || (dataById = getDataById(str)) == null || (criusNode = dataById.criusNode) == null) {
+        if (!(interceptable == null || interceptable.invokeLF(1048614, this, str, f) == null) || this.rootNode == null || (dataById = getDataById(str)) == null || (criusNode = dataById.criusNode) == null) {
             return;
         }
         dataById.fontSize = f;
@@ -1607,7 +1422,7 @@ public class CriusData {
 
     public void setUI(CriusUI criusUI) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, criusUI) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, criusUI) == null) {
             this.mCriusUI = criusUI;
         }
     }
@@ -1677,136 +1492,13 @@ public class CriusData {
         this.opacityNightVisited = -10000.0d;
         this.opacityVisitedActive = -10000.0d;
         this.opacityNightVisitedActive = -10000.0d;
-        this.mTextMeasureFunction = new CriusMeasureFunction(this) { // from class: com.baidu.searchbox.crius.parser.CriusData.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ CriusData this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // com.baidu.crius.CriusMeasureFunction
-            public long measure(CriusNode criusNode, float f, CriusMeasureMode criusMeasureMode, float f2, CriusMeasureMode criusMeasureMode2) {
-                InterceptResult invokeCommon;
-                Layout build;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{criusNode, Float.valueOf(f), criusMeasureMode, Float.valueOf(f2), criusMeasureMode2})) == null) {
-                    CriusData criusData = this.this$0;
-                    float labelTextWidth = criusData.getLabelTextWidth(criusData);
-                    SpannableString spannableString = new SpannableString(RenderUtils.PREFIX_HOLDER + this.this$0.text);
-                    spannableString.setSpan(new RenderUtils.PrefixLabelSpan(labelTextWidth), 0, 6, 17);
-                    CriusData criusData2 = this.this$0;
-                    criusData2.buildTextViewAttr(criusData2.measureTextView, criusData2);
-                    TextPaint paint = this.this$0.measureTextView.getPaint();
-                    BoringLayout.Metrics isBoring = BoringLayout.isBoring(spannableString, paint);
-                    float desiredWidth = isBoring == null ? Layout.getDesiredWidth(spannableString, paint) : Float.NaN;
-                    CriusData criusData3 = this.this$0;
-                    double d = criusData3.lineSpace;
-                    float convertFloatValue = d > 0.0d ? criusData3.convertFloatValue(d) : 0.0f;
-                    double d2 = this.this$0.lineMulti;
-                    float f3 = d2 > 0.0d ? (float) d2 : 1.0f;
-                    boolean z2 = criusMeasureMode == CriusMeasureMode.UNDEFINED || f < 0.0f;
-                    if (isBoring == null && (z2 || (!CriusConstants.isUndefined(desiredWidth) && desiredWidth <= f))) {
-                        int ceil = (int) Math.ceil(desiredWidth);
-                        if (Build.VERSION.SDK_INT < 23) {
-                            build = new StaticLayout(spannableString, paint, ceil, Layout.Alignment.ALIGN_NORMAL, f3, convertFloatValue, false);
-                        } else {
-                            StaticLayout.Builder hyphenationFrequency = StaticLayout.Builder.obtain(spannableString, 0, spannableString.length(), paint, ceil).setAlignment(Layout.Alignment.ALIGN_NORMAL).setLineSpacing(convertFloatValue, f3).setIncludePad(false).setBreakStrategy(1).setHyphenationFrequency(1);
-                            if (Build.VERSION.SDK_INT >= 28) {
-                                hyphenationFrequency.setUseLineSpacingFromFallbacks(true);
-                            }
-                            build = hyphenationFrequency.build();
-                        }
-                    } else if (isBoring != null && (z2 || isBoring.width <= f)) {
-                        build = BoringLayout.make(spannableString, paint, isBoring.width, Layout.Alignment.ALIGN_NORMAL, f3, convertFloatValue, isBoring, false);
-                    } else if (Build.VERSION.SDK_INT < 23) {
-                        build = new StaticLayout(spannableString, paint, (int) f, Layout.Alignment.ALIGN_NORMAL, f3, convertFloatValue, false);
-                    } else {
-                        StaticLayout.Builder hyphenationFrequency2 = StaticLayout.Builder.obtain(spannableString, 0, spannableString.length(), paint, (int) f).setAlignment(Layout.Alignment.ALIGN_NORMAL).setLineSpacing(convertFloatValue, f3).setIncludePad(false).setBreakStrategy(1).setHyphenationFrequency(1);
-                        if (Build.VERSION.SDK_INT >= 28) {
-                            hyphenationFrequency2.setUseLineSpacingFromFallbacks(true);
-                        }
-                        build = hyphenationFrequency2.build();
-                    }
-                    if (build != null) {
-                        if (this.this$0.maxLines < build.getLineCount()) {
-                            float dealTextWidthWithAndroidVersion = this.this$0.dealTextWidthWithAndroidVersion(build.getWidth());
-                            CriusData criusData4 = this.this$0;
-                            return CriusMeasureOutput.make(dealTextWidthWithAndroidVersion, criusData4.dealTextHeightWithAndroidVersion(build.getLineBottom(criusData4.maxLines - 1)));
-                        }
-                        return CriusMeasureOutput.make(this.this$0.dealTextWidthWithAndroidVersion(build.getWidth()), this.this$0.dealTextHeightWithAndroidVersion(build.getHeight()));
-                    }
-                    return CriusMeasureOutput.make(f, f2);
-                }
-                return invokeCommon.longValue;
-            }
-        };
-        this.mIndicatorMeasureFunction = new CriusMeasureFunction(this) { // from class: com.baidu.searchbox.crius.parser.CriusData.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ CriusData this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // com.baidu.crius.CriusMeasureFunction
-            public long measure(CriusNode criusNode, float f, CriusMeasureMode criusMeasureMode, float f2, CriusMeasureMode criusMeasureMode2) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{criusNode, Float.valueOf(f), criusMeasureMode, Float.valueOf(f2), criusMeasureMode2})) == null) {
-                    CriusData criusData = this.this$0;
-                    if (TextUtils.equals(criusData.type, NativeConstants.TYPE_INDICATOR)) {
-                        CriusData relatedSwiper = this.this$0.getRelatedSwiper(criusData);
-                        if (relatedSwiper == null) {
-                            return CriusMeasureOutput.make(f, f2);
-                        }
-                        int size = relatedSwiper.children.size() - 2;
-                        IndicatorAttrs indicatorAttrs = criusData.indicatorAttrs;
-                        float f3 = this.this$0.density;
-                        return CriusMeasureOutput.make((int) ((size * f2) + (((int) (indicatorAttrs.indicatorMargin * f3)) * (size - 1)) + (((int) (indicatorAttrs.indicatorContentLRMargin * f3)) * 2)), f2);
-                    }
-                    return CriusMeasureOutput.make(f, f2);
-                }
-                return invokeCommon.longValue;
-            }
-        };
         this.originData = jSONObject;
         this.criusNode = new CriusNode();
         this.businessConverter = businessConverter;
         this.density = DeviceUtil.ScreenInfo.getDensity(context);
         this.widthPixels = DeviceUtil.ScreenInfo.getDisplayWidth(context);
         this.heightPixels = DeviceUtil.ScreenInfo.getDisplayHeight(context);
-        this.measureTextView = new TextView(context);
+        this.measureTextView = new UnifyTextView(context);
         this.parentHref = str;
         if (z) {
             this.imageUrls = new HashSet();
@@ -1850,7 +1542,6 @@ public class CriusData {
             CriusNode criusNode = new CriusNode();
             this.rootNode = criusNode;
             criusNode.addChildAt(this.criusNode, 0);
-            this.rootNode.calculateLayout(Float.NaN, Float.NaN);
         }
     }
 }

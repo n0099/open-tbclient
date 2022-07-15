@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ht4;
-import com.repackage.l10;
-import com.repackage.v30;
+import com.repackage.n10;
+import com.repackage.x30;
+import com.repackage.xt4;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes2.dex */
 public class MainTabLoadFinishTask extends LaunchTask {
@@ -47,7 +47,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 return "";
             }
             String str2 = split[1];
-            if (StringUtils.isNull(str2) || (b = new v30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+            if (StringUtils.isNull(str2) || (b = new x30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
                 return "";
             }
             try {
@@ -68,16 +68,16 @@ public class MainTabLoadFinishTask extends LaunchTask {
             }
             Loki.startTrack();
             try {
-                ht4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                xt4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
-                String f = l10.e(TbadkCoreApplication.getInst().getContext()).f();
-                String q = ht4.k().q("key_last_cached_oid", "");
+                String f = n10.e(TbadkCoreApplication.getInst().getContext()).f();
+                String q = xt4.k().q("key_last_cached_oid", "");
                 if (StringUtils.isNull(q) || !q.equals(f)) {
-                    ht4.k().y("key_last_cached_oid", f);
-                    ht4.k().y("key_last_cached_real_oid", getRealOaid(f));
+                    xt4.k().y("key_last_cached_oid", f);
+                    xt4.k().y("key_last_cached_real_oid", getRealOaid(f));
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

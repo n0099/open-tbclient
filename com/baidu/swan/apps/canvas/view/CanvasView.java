@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dt1;
-import com.repackage.du1;
-import com.repackage.it1;
-import com.repackage.md3;
-import com.repackage.ys1;
-import com.repackage.zs1;
+import com.repackage.be3;
+import com.repackage.nt1;
+import com.repackage.ot1;
+import com.repackage.st1;
+import com.repackage.su1;
+import com.repackage.xt1;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -70,8 +70,8 @@ public class CanvasView extends AbsCanvasView {
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<ys1> a;
-        public zs1 b;
+        public List<nt1> a;
+        public ot1 b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    public void c(List<ys1> list, boolean z) {
+    public void c(List<nt1> list, boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) || list == null || this.b.contains(list)) {
             return;
@@ -132,15 +132,15 @@ public class CanvasView extends AbsCanvasView {
         if (z2) {
             b bVar2 = this.b.get(size - 1);
             bVar.b = bVar2.b;
-            List<ys1> list2 = bVar2.a;
+            List<nt1> list2 = bVar2.a;
             bVar.a = list2;
             list2.addAll(list);
         } else {
-            bVar.b = new zs1(this);
+            bVar.b = new ot1(this);
             bVar.a = list;
         }
         this.b.add(bVar);
-        md3.e0(new a(this));
+        be3.e0(new a(this));
     }
 
     public final void d() {
@@ -149,13 +149,13 @@ public class CanvasView extends AbsCanvasView {
             int i = this.d;
             if (this.b.size() > 0) {
                 for (b bVar : this.b) {
-                    Iterator<ys1> it = bVar.a.iterator();
+                    Iterator<nt1> it = bVar.a.iterator();
                     while (true) {
                         if (it.hasNext()) {
-                            ys1 next = it.next();
-                            if (next instanceof dt1) {
+                            nt1 next = it.next();
+                            if (next instanceof st1) {
                                 i = 2;
-                            } else if (next instanceof du1) {
+                            } else if (next instanceof su1) {
                                 i = 1;
                                 break;
                             }
@@ -190,7 +190,7 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    public zs1 getCanvasContext() {
+    public ot1 getCanvasContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -200,7 +200,7 @@ public class CanvasView extends AbsCanvasView {
             }
             return null;
         }
-        return (zs1) invokeV.objValue;
+        return (ot1) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -212,13 +212,13 @@ public class CanvasView extends AbsCanvasView {
                 int save = canvas.save();
                 canvas.setDrawFilter(this.c);
                 for (b bVar : this.b) {
-                    List<ys1> list = bVar.a;
-                    zs1 zs1Var = bVar.b;
-                    zs1Var.d();
-                    for (ys1 ys1Var : list) {
-                        ys1Var.a(zs1Var, canvas);
-                        if (ys1Var instanceof it1) {
-                            ((it1) ys1Var).e(this.e);
+                    List<nt1> list = bVar.a;
+                    ot1 ot1Var = bVar.b;
+                    ot1Var.d();
+                    for (nt1 nt1Var : list) {
+                        nt1Var.a(ot1Var, canvas);
+                        if (nt1Var instanceof xt1) {
+                            ((xt1) nt1Var).e(this.e);
                         }
                     }
                 }

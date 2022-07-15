@@ -1,65 +1,35 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.kwad.sdk.core.response.model.PhotoComment;
+import com.kwad.components.core.webview.jshandler.ad;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cy implements com.kwad.sdk.core.d<PhotoComment> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public void a(PhotoComment photoComment, JSONObject jSONObject) {
+public final class cy implements com.kwad.sdk.core.d<ad.a> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(ad.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        photoComment.subCommentCount = jSONObject.optLong("subCommentCount");
-        photoComment.hot = jSONObject.optBoolean("hot");
-        photoComment.likedCount = jSONObject.optLong("likedCount");
-        photoComment.time = jSONObject.optString("time");
-        if (jSONObject.opt("time") == JSONObject.NULL) {
-            photoComment.time = "";
-        }
-        photoComment.timestamp = jSONObject.optLong("timestamp");
-        photoComment.content = jSONObject.optString("content");
-        if (jSONObject.opt("content") == JSONObject.NULL) {
-            photoComment.content = "";
-        }
-        photoComment.photo_id = jSONObject.optLong("photo_id");
-        photoComment.author_id = jSONObject.optLong("author_id");
-        photoComment.user_id = jSONObject.optLong("user_id");
-        photoComment.user_sex = jSONObject.optString(IntentConfig.USER_SEX);
-        if (jSONObject.opt(IntentConfig.USER_SEX) == JSONObject.NULL) {
-            photoComment.user_sex = "";
-        }
-        photoComment.comment_id = jSONObject.optLong("comment_id");
-        photoComment.headurl = jSONObject.optString("headurl");
-        if (jSONObject.opt("headurl") == JSONObject.NULL) {
-            photoComment.headurl = "";
-        }
-        photoComment.author_name = jSONObject.optString("author_name");
-        if (jSONObject.opt("author_name") == JSONObject.NULL) {
-            photoComment.author_name = "";
-        }
+        aVar.a = jSONObject.optInt("itemClickType");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.d
-    public JSONObject b(PhotoComment photoComment, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(ad.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "subCommentCount", photoComment.subCommentCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "hot", photoComment.hot);
-        com.kwad.sdk.utils.t.a(jSONObject, "likedCount", photoComment.likedCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "time", photoComment.time);
-        com.kwad.sdk.utils.t.a(jSONObject, "timestamp", photoComment.timestamp);
-        com.kwad.sdk.utils.t.a(jSONObject, "content", photoComment.content);
-        com.kwad.sdk.utils.t.a(jSONObject, "photo_id", photoComment.photo_id);
-        com.kwad.sdk.utils.t.a(jSONObject, "author_id", photoComment.author_id);
-        com.kwad.sdk.utils.t.a(jSONObject, "user_id", photoComment.user_id);
-        com.kwad.sdk.utils.t.a(jSONObject, IntentConfig.USER_SEX, photoComment.user_sex);
-        com.kwad.sdk.utils.t.a(jSONObject, "comment_id", photoComment.comment_id);
-        com.kwad.sdk.utils.t.a(jSONObject, "headurl", photoComment.headurl);
-        com.kwad.sdk.utils.t.a(jSONObject, "author_name", photoComment.author_name);
+        com.kwad.sdk.utils.r.a(jSONObject, "itemClickType", aVar.a);
         return jSONObject;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ void a(ad.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
+    @Override // com.kwad.sdk.core.d
+    public final /* bridge */ /* synthetic */ JSONObject b(ad.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

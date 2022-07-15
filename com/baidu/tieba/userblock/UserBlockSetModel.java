@@ -18,16 +18,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
 import com.repackage.d9;
-import com.repackage.ol4;
+import com.repackage.dm4;
+import com.repackage.wh8;
 import com.repackage.za;
 /* loaded from: classes4.dex */
 public class UserBlockSetModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public ol4 b;
+    public dm4 b;
     public za c;
 
     /* loaded from: classes4.dex */
@@ -66,19 +66,19 @@ public class UserBlockSetModel extends BdBaseModel {
                 return;
             }
             if (!(responsedMessage instanceof UserBlockSetSocketResponseMessage) && !(responsedMessage instanceof UserBlockSetHttpResponseMessage)) {
-                this.a.b.onError(-1, this.a.D(R.string.obfuscated_res_0x7f0f0317));
+                this.a.b.onError(-1, this.a.E(R.string.obfuscated_res_0x7f0f031b));
                 return;
             }
             int error = responsedMessage.getError();
             String errorString = responsedMessage.getErrorString();
             if (error == 0 && !responsedMessage.hasError()) {
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.D(R.string.obfuscated_res_0x7f0f0319);
+                    errorString = this.a.E(R.string.obfuscated_res_0x7f0f031d);
                 }
                 this.a.b.onSuccess(errorString);
             } else {
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.D(R.string.obfuscated_res_0x7f0f0317);
+                    errorString = this.a.E(R.string.obfuscated_res_0x7f0f031b);
                 }
                 this.a.b.onError(error, errorString);
             }
@@ -106,27 +106,27 @@ public class UserBlockSetModel extends BdBaseModel {
         }
         this.c = new a(this, CmdConfigHttp.CMD_USER_BLOCK_SET, 309697);
         setUniqueId(bdUniqueId);
-        E();
+        F();
     }
 
-    public final String D(int i) {
+    public final String E(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TbadkCoreApplication.getInst().getString(i) : (String) invokeI.objValue;
     }
 
-    public void E() {
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bh8.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
-            bh8.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
+            wh8.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
+            wh8.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
             this.c.getHttpMessageListener().setSelfListener(true);
             this.c.getSocketMessageListener().setSelfListener(true);
             registerListener(this.c);
         }
     }
 
-    public void F(long j, int i, int i2, int i3) {
+    public void G(long j, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             this.a = j;
@@ -139,10 +139,10 @@ public class UserBlockSetModel extends BdBaseModel {
         }
     }
 
-    public void G(ol4 ol4Var) {
+    public void H(dm4 dm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ol4Var) == null) {
-            this.b = ol4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dm4Var) == null) {
+            this.b = dm4Var;
         }
     }
 

@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.download.DownloadTask;
+import com.ksad.download.c;
 import com.ksad.download.d;
-import com.kwad.sdk.h.c;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class a extends c {
+public class a extends com.kwad.sdk.h.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d a;
@@ -51,11 +51,11 @@ public class a extends c {
         }
 
         @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        public final void handleMessage(Message message) {
             a aVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (aVar = this.a.get()) != null && message.what == 1) {
-                if (aVar.a == null || !aVar.a.d()) {
+                if (aVar.a == null || !aVar.a.b()) {
                     sendEmptyMessageDelayed(1, 30000L);
                 } else {
                     aVar.c.stopSelf();
@@ -92,19 +92,20 @@ public class a extends c {
             DownloadTask.DownloadRequest downloadRequest = (DownloadTask.DownloadRequest) intent.getSerializableExtra("download_service_args_tag");
             Integer num = this.b.get(stringExtra);
             if (intExtra == 1) {
-                this.b.put(stringExtra, Integer.valueOf(this.a.a(downloadRequest, (com.ksad.download.c) null)));
+                this.b.put(stringExtra, Integer.valueOf(this.a.a(downloadRequest, (c) null)));
             } else if (intExtra == 2) {
-                this.a.d(num.intValue());
-            } else if (intExtra == 3) {
-                this.a.e(num.intValue());
-            } else if (intExtra == 4) {
                 this.a.c(num.intValue());
+            } else if (intExtra == 3) {
+                this.a.d(num.intValue());
+            } else if (intExtra != 4) {
+            } else {
+                this.a.b(num.intValue());
             }
         } catch (Exception unused) {
         }
     }
 
-    @Override // com.kwad.sdk.h.c, com.kwad.sdk.api.proxy.IServiceProxy
+    @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IServiceProxy
     public void onCreate(Service service) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, service) == null) || service == null) {
@@ -115,7 +116,7 @@ public class a extends c {
         this.d.sendEmptyMessageDelayed(1, 30000L);
     }
 
-    @Override // com.kwad.sdk.h.c, com.kwad.sdk.api.proxy.IServiceProxy
+    @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IServiceProxy
     public int onStartCommand(Service service, Intent intent, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;

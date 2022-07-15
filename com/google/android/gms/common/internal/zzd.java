@@ -1,0 +1,75 @@
+package com.google.android.gms.common.internal;
+
+import android.os.Bundle;
+import android.os.IBinder;
+import android.util.Log;
+import androidx.annotation.BinderThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bk9;
+import com.repackage.dk9;
+/* loaded from: classes4.dex */
+public final class zzd extends zzab {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public bk9 zza;
+    public final int zzb;
+
+    public zzd(@NonNull bk9 bk9Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bk9Var, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.zza = bk9Var;
+        this.zzb = i;
+    }
+
+    @Override // com.google.android.gms.common.internal.IGmsCallbacks
+    @BinderThread
+    public final void onPostInitComplete(int i, @NonNull IBinder iBinder, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, iBinder, bundle) == null) {
+            dk9.e(this.zza, "onPostInitComplete can be called only once per call to getRemoteService");
+            this.zza.a(i, iBinder, bundle, this.zzb);
+            this.zza = null;
+        }
+    }
+
+    @Override // com.google.android.gms.common.internal.IGmsCallbacks
+    @BinderThread
+    public final void zzb(int i, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bundle) == null) {
+            Log.wtf("GmsClient", "received deprecated onAccountValidationComplete callback, ignoring", new Exception());
+        }
+    }
+
+    @Override // com.google.android.gms.common.internal.IGmsCallbacks
+    @BinderThread
+    public final void zzc(int i, @NonNull IBinder iBinder, @NonNull zzj zzjVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, iBinder, zzjVar) == null) {
+            bk9 bk9Var = this.zza;
+            dk9.e(bk9Var, "onPostInitCompleteWithConnectionInfo can be called only once per call togetRemoteService");
+            dk9.d(zzjVar);
+            bk9.c(bk9Var, zzjVar);
+            onPostInitComplete(i, iBinder, zzjVar.zza);
+        }
+    }
+}

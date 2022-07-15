@@ -1,168 +1,71 @@
 package com.repackage;
 
-import android.os.Build;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.util.PageType;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nq4;
-/* loaded from: classes5.dex */
+import java.util.Date;
+/* loaded from: classes6.dex */
 public class ep6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    /* loaded from: classes5.dex */
-    public static class a implements nq4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.nq4.e
-        public void onClick(nq4 nq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nq4Var) == null) {
-                nq4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements PermissionJudgePolicy.OnPermissionsGrantedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ FrsViewData b;
-
-        public b(TbPageContext tbPageContext, FrsViewData frsViewData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, frsViewData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = frsViewData;
-        }
-
-        @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
-        public void onPermissionsGranted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
-                jf.n().j(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.a.getPageActivity(), this.b.getForum().getName(), this.b.getForum().getId(), this.b.getUserData().getUserId(), this.b.getForum().getSpecialForumType())));
-            }
-        }
-    }
-
-    public static void a(FrsFragment frsFragment, int i) {
+    public ep6(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, frsFragment, i) == null) || frsFragment == null) {
-            return;
-        }
-        FrsViewData P0 = frsFragment.P0();
-        FrsModelController K0 = frsFragment.K0();
-        if (P0 != null) {
-            if ((K0 != null || P0.getForum() == null) && !WriteActivityConfig.isAsyncWriting()) {
-                int i2 = -1;
-                if (K0 != null && yc6.a().b(1) != null) {
-                    i2 = K0.Y();
-                }
-                WriteActivityConfig.newInstance(frsFragment.getPageContext().getPageActivity()).setType(i).setForumData(P0.getForum()).setAntiData(P0.getAnti()).setCategoryId(i2).send();
-            }
-        }
-    }
-
-    public static void b(TbPageContext tbPageContext, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, tbPageContext, frsViewData) == null) || tbPageContext == null) {
-            return;
-        }
-        PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-        permissionJudgePolicy.clearRequestPermissionList();
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.CAMERA");
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.RECORD_AUDIO");
-        permissionJudgePolicy.setOnPermissionsGrantedListener(new b(tbPageContext, frsViewData));
-        permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
-    }
-
-    public static void c(FrsViewData frsViewData, TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, frsViewData, tbPageContext) == null) {
-            TiebaStatic.log(new StatisticItem("c11839").param("uid", TbadkCoreApplication.getCurrentAccount()));
-            if (tbPageContext == null || frsViewData == null || frsViewData.getForum() == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (Build.VERSION.SDK_INT < 21) {
-                nq4 nq4Var = new nq4(tbPageContext.getPageActivity());
-                nq4Var.setAutoNight(false);
-                nq4Var.setTitle(R.string.obfuscated_res_0x7f0f0f19);
-                nq4Var.setMessage(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f04e0));
-                nq4Var.setTitleShowCenter(true);
-                nq4Var.setMessageShowCenter(true);
-                nq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0993, new a());
-                nq4Var.create(tbPageContext).show();
-            } else if (!TbadkCoreApplication.isLogin()) {
-                if (frsViewData != null && frsViewData.getAnti() != null) {
-                    frsViewData.getAnti().setIfpost(1);
-                }
-                ViewHelper.skipToLoginActivity(tbPageContext.getPageActivity());
-            } else {
-                AntiData anti = frsViewData.getAnti();
-                if (anti != null && (AntiHelper.n(anti) || AntiHelper.g(anti) || AntiHelper.h(anti))) {
-                    anti.setBlock_forum_name(frsViewData.getForum().getName());
-                    anti.setBlock_forum_id(frsViewData.getForum().getId());
-                    anti.setUser_name(frsViewData.getUserData().getUserName());
-                    anti.setUser_id(frsViewData.getUserData().getUserId());
-                    if (AntiHelper.x(tbPageContext.getPageActivity(), anti, AntiHelper.OperationType.CREATE_THREAD, PageType.FRS)) {
-                        return;
-                    }
-                }
-                if (frsViewData.getUserData() != null) {
-                    b(tbPageContext, frsViewData);
-                }
-            }
         }
+        this.a = str;
+        this.b = str2;
+    }
+
+    public final boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true : invokeLL.booleanValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a + "_" + this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (a(this.a, this.b)) {
+                String b = b();
+                Date date = new Date(xt4.k().m(b, 0L));
+                long currentTimeMillis = System.currentTimeMillis();
+                if (TimeHelper.getDayDifference(new Date(currentTimeMillis), date) >= 2) {
+                    xt4.k().x(b, currentTimeMillis);
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

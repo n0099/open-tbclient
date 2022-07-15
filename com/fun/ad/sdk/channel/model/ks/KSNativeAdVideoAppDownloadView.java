@@ -23,7 +23,7 @@ import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
-import com.repackage.rg9;
+import com.repackage.bi9;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class KSNativeAdVideoAppDownloadView extends x {
@@ -133,7 +133,7 @@ public class KSNativeAdVideoAppDownloadView extends x {
             }
             this.g.setText(ksNativeAd.getAppName());
             this.h.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new rg9(ksNativeAd.getActionDescription(), this.h));
+            ksNativeAd.setDownloadListener(new bi9(ksNativeAd.getActionDescription(), this.h));
         }
     }
 
@@ -143,8 +143,8 @@ public class KSNativeAdVideoAppDownloadView extends x {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09009c);
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f3);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900cf);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f4);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d0);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090083);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090081);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090084);

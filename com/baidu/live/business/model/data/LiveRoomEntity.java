@@ -3,6 +3,7 @@ package com.baidu.live.business.model.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
@@ -21,6 +22,7 @@ public class LiveRoomEntity implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
     public int audienceCount;
     public int autoPlay;
+    public String beginTime;
     public String cmd;
     public String cover;
     public String feedId;
@@ -31,16 +33,18 @@ public class LiveRoomEntity implements Parcelable {
     public boolean needLogShow;
     public String nid;
     public String playUrl;
+    public int rank;
     public RightLableInfo rightLabel;
     public String roomId;
     public int showTpl;
     public LiveStatInfo statInfo;
     public int templateId;
+    public ThirdLabelInfo thirdLabel;
     public String title;
     public String videoScreen;
 
     /* loaded from: classes2.dex */
-    public class a implements Parcelable.Creator<LiveRoomEntity> {
+    public static class a implements Parcelable.Creator<LiveRoomEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -137,17 +141,24 @@ public class LiveRoomEntity implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "1".equals(this.videoScreen) : invokeV.booleanValue;
     }
 
+    public boolean isStatusLiving() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.liveStatus == 1 : invokeV.booleanValue;
+    }
+
     public boolean isYYShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "6".equals(String.valueOf(this.templateId)) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "6".equals(String.valueOf(this.templateId)) : invokeV.booleanValue;
     }
 
     public void parseSearchJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
+        this.rank = jSONObject.optInt("rank");
         this.nid = jSONObject.optString("nid");
         this.feedId = jSONObject.optString("feed_id");
         this.title = jSONObject.optString("title");
@@ -175,15 +186,21 @@ public class LiveRoomEntity implements Parcelable {
             this.rightLabel = rightLableInfo;
             rightLableInfo.parserJson(optJSONObject3);
         }
-        JSONObject optJSONObject4 = jSONObject.optJSONObject("stat");
+        JSONObject optJSONObject4 = jSONObject.optJSONObject("third_label");
         if (optJSONObject4 != null) {
+            ThirdLabelInfo thirdLabelInfo = new ThirdLabelInfo();
+            this.thirdLabel = thirdLabelInfo;
+            thirdLabelInfo.parserJson(optJSONObject4);
+        }
+        JSONObject optJSONObject5 = jSONObject.optJSONObject("stat");
+        if (optJSONObject5 != null) {
             LiveStatInfo liveStatInfo = new LiveStatInfo();
             this.statInfo = liveStatInfo;
-            liveStatInfo.parserJson(optJSONObject4);
+            liveStatInfo.parserJson(optJSONObject5);
         }
-        JSONObject optJSONObject5 = jSONObject.optJSONObject("gr_ext");
-        if (optJSONObject5 != null) {
-            this.grExt = optJSONObject5.toString();
+        JSONObject optJSONObject6 = jSONObject.optJSONObject("gr_ext");
+        if (optJSONObject6 != null) {
+            this.grExt = optJSONObject6.toString();
         } else {
             this.grExt = "";
         }
@@ -191,9 +208,10 @@ public class LiveRoomEntity implements Parcelable {
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
+        this.rank = jSONObject.optInt("rank");
         this.nid = jSONObject.optString("nid");
         this.feedId = jSONObject.optString("feed_id");
         this.roomId = jSONObject.optString("room_id");
@@ -225,15 +243,21 @@ public class LiveRoomEntity implements Parcelable {
             this.rightLabel = rightLableInfo;
             rightLableInfo.parserJson(optJSONObject3);
         }
-        JSONObject optJSONObject4 = jSONObject.optJSONObject("stat");
+        JSONObject optJSONObject4 = jSONObject.optJSONObject("third_label");
         if (optJSONObject4 != null) {
+            ThirdLabelInfo thirdLabelInfo = new ThirdLabelInfo();
+            this.thirdLabel = thirdLabelInfo;
+            thirdLabelInfo.parserJson(optJSONObject4);
+        }
+        JSONObject optJSONObject5 = jSONObject.optJSONObject("stat");
+        if (optJSONObject5 != null) {
             LiveStatInfo liveStatInfo = new LiveStatInfo();
             this.statInfo = liveStatInfo;
-            liveStatInfo.parserJson(optJSONObject4);
+            liveStatInfo.parserJson(optJSONObject5);
         }
-        JSONObject optJSONObject5 = jSONObject.optJSONObject("gr_ext");
-        if (optJSONObject5 != null) {
-            this.grExt = optJSONObject5.toString();
+        JSONObject optJSONObject6 = jSONObject.optJSONObject("gr_ext");
+        if (optJSONObject6 != null) {
+            this.grExt = optJSONObject6.toString();
         } else {
             this.grExt = "";
         }
@@ -242,7 +266,8 @@ public class LiveRoomEntity implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
+            parcel.writeInt(this.rank);
             parcel.writeString(this.nid);
             parcel.writeString(this.feedId);
             parcel.writeString(this.roomId);
@@ -262,6 +287,7 @@ public class LiveRoomEntity implements Parcelable {
             parcel.writeParcelable(this.statInfo, i);
             parcel.writeByte(this.needLogShow ? (byte) 1 : (byte) 0);
             parcel.writeString(this.grExt);
+            parcel.writeParcelable(this.thirdLabel, i);
         }
     }
 
@@ -281,6 +307,7 @@ public class LiveRoomEntity implements Parcelable {
             }
         }
         this.needLogShow = true;
+        this.rank = parcel.readInt();
         this.nid = parcel.readString();
         this.feedId = parcel.readString();
         this.roomId = parcel.readString();
@@ -300,5 +327,6 @@ public class LiveRoomEntity implements Parcelable {
         this.statInfo = (LiveStatInfo) parcel.readParcelable(LiveStatInfo.class.getClassLoader());
         this.needLogShow = parcel.readByte() == 1;
         this.grExt = parcel.readString();
+        this.thirdLabel = (ThirdLabelInfo) parcel.readParcelable(ThirdLabelInfo.class.getClassLoader());
     }
 }

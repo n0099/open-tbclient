@@ -13,8 +13,12 @@ public class ZeusConstants {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep
     public static String BASE_LIB_NAME = "pangle";
-    public static final String a;
-    public static final String b;
+    public static String a = "_i";
+    public static String b = "_d";
+    public static String c = "_p";
+    public static String d = "zeus_p";
+    public static final String e;
+    public static final String f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,8 +34,8 @@ public class ZeusConstants {
                 return;
             }
         }
-        a = "." + BASE_LIB_NAME + ".servermanager.";
-        b = "." + BASE_LIB_NAME + ".provider.proxy.";
+        e = "." + BASE_LIB_NAME + ".servermanager.";
+        f = "." + BASE_LIB_NAME + ".provider.proxy.";
     }
 
     public ZeusConstants() {

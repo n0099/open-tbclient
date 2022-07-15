@@ -1,125 +1,57 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class op2 {
+public class op2 extends jp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public op2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        return i != 3 ? 100 : 118;
-                    }
-                    return 112;
-                }
-                return 100;
-            }
-            return 82;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Bundle b = fw2.b(pp2.class, null);
-            if (b == null) {
-                return 1;
-            }
-            return b.getInt("font_size_level", 1);
-        }
-        return invokeV.intValue;
-    }
-
-    public static NgWebView c(yy1 yy1Var) {
-        InterceptResult invokeL;
-        HashMap<String, am1> V;
-        am1 am1Var;
-        zl1 u;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, yy1Var)) == null) {
-            if (yy1Var instanceof az1) {
-                yl1 o3 = ((az1) yy1Var).o3();
-                if (o3 == null || o3.m() == null) {
-                    if (o3 != null) {
-                        return (NgWebView) o3.u();
-                    }
-                    return null;
-                }
-                return (NgWebView) o3.m().u();
-            } else if (!(yy1Var instanceof fz1) || (V = m62.U().V()) == null || V.size() <= 0 || (am1Var = V.get(kf3.c().h())) == null || !(am1Var instanceof SwanWebModeWidget) || (u = am1Var.u()) == null || !(u instanceof NgWebView)) {
-                return null;
-            } else {
-                return (NgWebView) u;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (NgWebView) invokeL.objValue;
     }
 
-    public static int d() {
-        InterceptResult invokeV;
+    private void update(zo2 zo2Var, bp2 bp2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b() + 1 : invokeV.intValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? hd3.f("3.200.101") : invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            SwanAppConfigData s = fl2.U().s();
-            if (s == null) {
-                return false;
-            }
-            return TextUtils.equals("none", s.e.q);
+        if (interceptable == null || interceptable.invokeLLLL(65537, this, zo2Var, bp2Var, unitedSchemeEntity, callbackHandler) == null) {
+            zo2Var.A(bp2Var);
+            zo2Var.z(bp2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-        return invokeV.booleanValue;
     }
 
-    public static void g(int i, int i2) {
-        SwanAppActivity x;
-        bz1 X;
-        yy1 m;
-        NgWebView c;
+    @Override // com.repackage.jp2
+    public boolean a(zo2 zo2Var, bp2 bp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(65542, null, i, i2) == null) || (x = rz2.K().x()) == null || (X = x.X()) == null || (m = X.m()) == null || (c = c(m)) == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{zo2Var, bp2Var, context, unitedSchemeEntity, callbackHandler, h03Var})) == null) {
+            hx1.i("video", "update, video id:" + bp2Var.j + " slave id: " + bp2Var.c);
+            update(zo2Var, bp2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        if (!f()) {
-            c.getSettings().setTextZoom(a(i));
-            np2.a(Integer.valueOf(i + 1), String.valueOf(i2));
-        }
-        h(i);
-    }
-
-    public static void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
-            iw2.e().h(new kw2(22, bundle));
-        }
+        return invokeCommon.booleanValue;
     }
 }

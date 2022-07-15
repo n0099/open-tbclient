@@ -1,12 +1,13 @@
 package com.repackage;
 
-import android.text.Editable;
-import androidx.annotation.NonNull;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class wu4 extends ru4<wu4> {
+public class wu4 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String i;
+    public boolean u;
 
     public wu4() {
         Interceptable interceptable = $ic;
@@ -29,109 +30,111 @@ public class wu4 extends ru4<wu4> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static wu4 u(@NonNull wu4 wu4Var, @NonNull Editable editable) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, wu4Var, editable)) == null) {
-            wu4 wu4Var2 = new wu4();
-            wu4Var2.b(wu4Var);
-            wu4Var2.n(editable);
-            return wu4Var2;
-        }
-        return (wu4) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.ru4
-    public void a(Editable editable, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
-            super.a(editable, i, i2, i3);
-        }
-    }
-
-    @Override // com.repackage.ru4
-    public void p(Editable editable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#");
-            sb.append("[视频]");
-            sb.append(this.i);
-            sb.append("#");
-            i(sb);
-        }
-    }
-
-    @Override // com.repackage.ru4
-    public void q(Editable editable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, editable, i) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#");
-            sb.append("[视频]");
-            sb.append(this.i);
-            sb.append("#");
-            i(sb);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            o(true);
-            v();
-        }
-    }
-
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "#[视频]" + this.i + "#";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            i(s());
-            if (fc5.g(this.c, f())) {
-                return;
-            }
-            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809fb, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
-            eMRichTextAnyIconSpan.b(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
-            eMRichTextAnyIconSpan.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
-            l(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);
-            l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
-        }
-    }
-
-    public wu4(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.i = str;
+        this.i = true;
+        this.b = R.color.CAM_X0101;
+        this.d = R.color.CAM_X0302;
+        this.u = false;
+        this.n = this.o;
+        this.m = this.l;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? r(f) : (Drawable) invokeF.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    @Deprecated
+    public void i(int i, int i2, TBSpecificationButtonConfig.IconType iconType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, iconType) == null) {
+            u(i, iconType);
+        }
+    }
+
+    public void p(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+            this.d = R.color.CAM_X0904;
+            this.u = false;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public void q(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = R.color.CAM_X0101;
+            this.d = i;
+            this.u = false;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
+        }
+    }
+
+    public final Drawable r(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+            if (this.u) {
+                return s(f);
+            }
+            return t(f);
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public final Drawable s(float f) {
+        InterceptResult invokeF;
+        GradientDrawable gradientDrawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            int color = SkinManager.getColor(this.r, this.d);
+            int[] iArr = {sg8.c(color), color};
+            if (Build.VERSION.SDK_INT >= 16) {
+                gradientDrawable = new GradientDrawable();
+                gradientDrawable.setOrientation(this.s);
+                gradientDrawable.setColors(iArr);
+            } else {
+                gradientDrawable = new GradientDrawable(this.s, iArr);
+            }
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public final Drawable t(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void u(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, iconType) == null) {
+            this.e[0] = i;
+            this.f = iconType;
+        }
     }
 }

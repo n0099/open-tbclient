@@ -1,128 +1,25 @@
 package com.repackage;
 
-import android.os.Handler;
-import com.baidu.minivideo.plugin.capture.download.core.DownloadStatusDeliveryImpl;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
-import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public class x59 implements r59 {
+public class x59 implements e69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Executor a;
+    public k59 a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    /* loaded from: classes7.dex */
-    public class a implements Executor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Handler a;
-
-        public a(x59 x59Var, Handler handler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x59Var, handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = handler;
-        }
-
-        @Override // java.util.concurrent.Executor
-        public void execute(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                this.a.post(runnable);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final q59 a;
-        public final o59 b;
-
-        public b(q59 q59Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q59Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q59Var;
-            this.b = q59Var.a();
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                switch (this.a.h()) {
-                    case 102:
-                        d89.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
-                        this.b.c();
-                        return;
-                    case 103:
-                        d89.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.a.e() + " acceptRanges: " + this.a.i());
-                        this.b.b(this.a.e(), this.a.i());
-                        return;
-                    case 104:
-                        d89.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.a.d() + " length: " + this.a.e() + " percent: " + this.a.f());
-                        this.b.g(this.a.d(), this.a.e(), this.a.f());
-                        return;
-                    case 105:
-                        d89.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.a.g());
-                        if (this.a.b()) {
-                            return;
-                        }
-                        this.a.l(true);
-                        this.b.a(this.a.g());
-                        return;
-                    case 106:
-                        d89.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
-                        this.b.e();
-                        return;
-                    case 107:
-                        d89.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
-                        this.b.d();
-                        return;
-                    case 108:
-                        d89.c(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.a.c().getCause());
-                        this.b.f((DownloadException) this.a.c());
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-    }
-
-    public x59(Handler handler) {
+    public x59() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,14 +29,127 @@ public class x59 implements r59 {
                 return;
             }
         }
-        this.a = new a(this, handler);
+        this.d = true;
     }
 
-    @Override // com.repackage.r59
-    public void a(q59 q59Var) {
+    @Override // com.repackage.e69
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, q59Var) == null) {
-            this.a.execute(new b(q59Var));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            k59 k59Var = this.a;
+            if (k59Var == null || bArr == null) {
+                return 0;
+            }
+            this.b += bArr.length;
+            k59Var.putBytes(bArr, i);
+            return this.b;
         }
+        return invokeLI.intValue;
+    }
+
+    @Override // com.repackage.e69
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.e69
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (k59) m99.a("com.baidu.ugc.audioedit.AudioChangeOperator");
+            }
+            k59 k59Var = this.a;
+            if (k59Var != null) {
+                k59Var.initVoiceChanger(i, i2, i3, i4);
+            }
+            return this.a != null;
+        }
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.repackage.e69
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            k59 k59Var = this.a;
+            if (k59Var == null || k59Var.availableBytes() <= 0) {
+                return new byte[0];
+            }
+            byte[] bArr = new byte[4096];
+            int bytes = this.a.getBytes(bArr, 4096);
+            this.c += bytes;
+            if (bytes == 0) {
+                return null;
+            }
+            if (4096 == bytes) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[bytes];
+            System.arraycopy(bArr, 0, bArr2, 0, bytes);
+            return bArr2;
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(int[] iArr) {
+        k59 k59Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (k59Var = this.a) == null) {
+            return;
+        }
+        k59Var.setVoiceChangeType(iArr);
+    }
+
+    @Override // com.repackage.e69
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.e69
+    public void c() {
+        k59 k59Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (k59Var = this.a) == null) {
+            return;
+        }
+        k59Var.flush();
+    }
+
+    public void c(int[] iArr, int[] iArr2, double[] dArr) {
+        k59 k59Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (k59Var = this.a) == null) {
+            return;
+        }
+        k59Var.setVoiceChangeType(iArr, iArr2, dArr);
+    }
+
+    @Override // com.repackage.e69
+    public void d() {
+        k59 k59Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (k59Var = this.a) == null) {
+            return;
+        }
+        k59Var.close();
+        this.a = null;
+    }
+
+    @Override // com.repackage.e69
+    public void e() {
+        k59 k59Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (k59Var = this.a) == null) {
+            return;
+        }
+        k59Var.clearQueues();
     }
 }

@@ -1,46 +1,42 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a63;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Stack;
+import com.repackage.oq1;
+import com.repackage.t93;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class u93 {
+public class u93 extends e23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public class a implements t93.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ zq1 c;
+        public final /* synthetic */ u93 d;
 
-        public a(String str, String str2, String str3) {
+        public a(u93 u93Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zq1 zq1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
+                Object[] objArr = {u93Var, unitedSchemeEntity, callbackHandler, zq1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,174 +46,112 @@ public class u93 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
+            this.d = u93Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = zq1Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.t93.a
+        public void a(double[] dArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                File file = new File(this.a);
-                try {
-                    jSONObject.put("file_name", this.b);
-                    jSONObject.put("file_tree", u93.d(file));
-                    jSONObject.put("file_stack_info", this.c);
-                    jSONObject.put("file_free_space", file.getFreeSpace());
-                    jSONObject.put("file_total_space", file.getTotalSpace());
-                } catch (JSONException e) {
-                    if (u93.a) {
-                        e.printStackTrace();
-                    }
-                }
-                a63.b bVar = new a63.b(SessionCommand.COMMAND_CODE_PLAYER_SET_MEDIA_ITEM);
-                bVar.j(this.b);
-                bVar.h(rz2.K().getAppId());
-                bVar.i(jSONObject.toString());
-                bVar.m();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-
-        public b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
+                if (dArr != null && dArr.length == 3) {
+                    hx1.i("accelerometer", "handle accelerometer change, x : " + dArr[0] + " y: " + dArr[1] + " z: " + dArr[2]);
+                    this.d.k(this.a, this.b, this.c, dArr);
                     return;
                 }
-            }
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
-                    jSONObject.put("pagePath", this.b);
-                } catch (JSONException e) {
-                    if (u93.a) {
-                        e.printStackTrace();
-                    }
-                }
-                a63.b bVar = new a63.b(SessionCommand.COMMAND_CODE_PLAYER_SET_MEDIA_ITEM);
-                bVar.i(jSONObject.toString());
-                bVar.h(rz2.K().getAppId());
-                bVar.m();
+                hx1.c("accelerometer", "illegal accelerometers");
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755306174, "Lcom/repackage/u93;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755306174, "Lcom/repackage/u93;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u93(e13 e13Var) {
+        super(e13Var, "/swanAPI/startAccelerometer");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = cg1.a;
-        b = -1;
     }
 
-    public static void b(String str, String str2) {
+    @Override // com.repackage.e23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) || c() <= 0) {
-            return;
-        }
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String f = kd3.f(str2);
-            if (new File(str, f + ".swan.js").exists()) {
-                return;
-            }
-            f(str, f);
-            return;
-        }
-        e(str, str2);
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b < 0) {
-                zi2.g0().getSwitch("swan_app_file_analysis_switch", 0);
-                b = 0;
-            }
-            return b;
-        }
-        return invokeV.intValue;
-    }
-
-    public static String d(File file) {
-        InterceptResult invokeL;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            if (file != null && file.exists() && file.isDirectory()) {
-                ArrayList arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                Stack stack = new Stack();
-                stack.push(file);
-                while (!stack.isEmpty()) {
-                    File file2 = (File) stack.pop();
-                    if (file2 != null) {
-                        if (file2.isFile()) {
-                            arrayList.add(file2);
-                        } else if (file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length > 0) {
-                            Collections.addAll(stack, listFiles);
-                        }
-                    }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+            if (h03Var == null) {
+                hx1.c("accelerometer", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (e23.b) {
+                    Log.d("SwanAppAction", "startAccelerometer --- illegal swanApp");
                 }
-                if (arrayList.size() > 0) {
-                    for (int i = 0; i < arrayList.size(); i++) {
-                        File file3 = (File) arrayList.get(i);
-                        arrayList2.add(file3.getAbsolutePath() + "|" + new Date(file3.lastModified()));
-                    }
+                return false;
+            } else if (context == null) {
+                hx1.c("accelerometer", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (e23.b) {
+                    Log.d("SwanAppAction", "startAccelerometer --- illegal context");
                 }
-                return Arrays.toString(arrayList2.toArray());
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    if (e23.b) {
+                        Log.d("SwanAppAction", "startAccelerometer --- params is empty");
+                    }
+                    hx1.c("accelerometer", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    if (e23.b) {
+                        Log.d("SwanAppAction", "startAccelerometer --- cb is empty");
+                    }
+                    hx1.c("accelerometer", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                hx1.i("accelerometer", " init ");
+                zq1 zq1Var = new zq1("accelerometerChange", optParamsAsJo, optString);
+                t93 a2 = t93.a();
+                a2.b(context, oq1.b.a(optParamsAsJo.optString("interval")));
+                a2.e(new a(this, unitedSchemeEntity, callbackHandler, zq1Var));
+                a2.f();
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                zq1Var.a(unitedSchemeEntity, callbackHandler);
+                return true;
             }
-            return "";
         }
-        return (String) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static void e(String str, String str2) {
+    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zq1 zq1Var, double[] dArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            mc3.f().execute(new b(str, str2));
-        }
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
-            mc3.f().execute(new a(str, str2, Arrays.toString(new Exception().getStackTrace())));
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, zq1Var, dArr) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("x", dArr[0]);
+                jSONObject.put("y", dArr[1]);
+                jSONObject.put("z", dArr[2]);
+                zq1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
+            } catch (JSONException e) {
+                hx1.c("accelerometer", "handle compass,json error，" + e.toString());
+                zq1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+            }
         }
     }
 }

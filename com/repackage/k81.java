@@ -1,7 +1,8 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.graphics.Bitmap;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,61 +11,41 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class k81 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile k81 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
-    public int c;
-    public int d;
-    public Runnable e;
+    public LruCache<String, Bitmap> a;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a extends LruCache<String, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k81 a;
 
-        public a(k81 k81Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(k81 k81Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k81Var};
+                Object[] objArr = {k81Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = k81Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                u81.g("开始重试");
-                if (l81.n()) {
-                    u81.g("重试成功");
-                    this.a.c = 0;
-                    this.a.a.quitSafely();
-                    this.a.b.removeCallbacks(this);
-                    return;
-                }
-                k81.c(this.a);
-                if (this.a.c >= 3) {
-                    this.a.c = 0;
-                    u81.g("重试三次结束重试");
-                    this.a.a.quitSafely();
-                    this.a.b.removeCallbacks(this);
-                    return;
-                }
-                u81.g("重试失败继续重试");
-                this.a.b.postDelayed(this, this.a.d);
-            }
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bitmap)) == null) ? bitmap.getByteCount() / 1024 : invokeLL.intValue;
         }
     }
 
@@ -81,42 +62,28 @@ public class k81 {
                 return;
             }
         }
-        this.d = 10000;
-        this.e = new a(this);
+        this.a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
     }
 
-    public static /* synthetic */ int c(k81 k81Var) {
-        int i = k81Var.c;
-        k81Var.c = i + 1;
-        return i;
-    }
-
-    public static k81 g() {
-        InterceptResult invokeV;
+    public void a(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f == null) {
-                synchronized (k81.class) {
-                    if (f == null) {
-                        f = new k81();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+            String b = p81.b(str);
+            if (b(b) == null) {
+                this.a.put(b, bitmap);
             }
-            return f;
         }
-        return (k81) invokeV.objValue;
     }
 
-    public void h() {
+    public final Bitmap b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            u81.g("触发重试");
-            HandlerThread handlerThread = new HandlerThread("StatisticsReload");
-            this.a = handlerThread;
-            handlerThread.start();
-            Handler handler = new Handler(this.a.getLooper());
-            this.b = handler;
-            handler.postDelayed(this.e, this.d);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.a.get(str) : (Bitmap) invokeL.objValue;
+    }
+
+    public Bitmap c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(p81.b(str)) : (Bitmap) invokeL.objValue;
     }
 }

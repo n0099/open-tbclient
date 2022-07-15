@@ -39,10 +39,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bb;
 import com.repackage.d9;
+import com.repackage.m48;
+import com.repackage.n48;
 import com.repackage.nn;
 import com.repackage.pi;
-import com.repackage.r38;
-import com.repackage.s38;
 import com.squareup.wire.Wire;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -70,7 +70,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public r38 mCardNullPolymericData;
+    public m48 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -783,7 +783,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage)) {
                 UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
                 if (userPostPageSocketResponsedMessage.getOrginalMessage() == null || userPostPageSocketResponsedMessage.hasError()) {
-                    this.a.mOnResult.r0(null, this.a.mIsReset);
+                    this.a.mOnResult.s0(null, this.a.mIsReset);
                     return;
                 }
                 if (userPostPageSocketResponsedMessage.getPersonPostModel() != null) {
@@ -792,7 +792,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
-                    callback.j0(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    callback.k0(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
                 }
             }
         }
@@ -832,7 +832,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof UserPostPageHttpResponseMessage)) {
                 UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
                 if (userPostPageHttpResponseMessage.getOrginalMessage() == null || userPostPageHttpResponseMessage.hasError()) {
-                    this.a.mOnResult.r0(null, this.a.mIsReset);
+                    this.a.mOnResult.s0(null, this.a.mIsReset);
                     return;
                 }
                 if (userPostPageHttpResponseMessage.getPersonPostModel() != null) {
@@ -841,7 +841,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
-                    callback.j0(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    callback.k0(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
                 }
             }
         }
@@ -849,12 +849,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
     /* loaded from: classes3.dex */
     public interface c {
-        void j0(PersonPostModel personPostModel, boolean z);
+        void k0(PersonPostModel personPostModel, boolean z);
     }
 
     /* loaded from: classes3.dex */
     public interface d {
-        void r0(PersonPostModel personPostModel, boolean z);
+        void s0(PersonPostModel personPostModel, boolean z);
     }
 
     static {
@@ -972,15 +972,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new s38());
+            this.postList.add(new n48());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            r38 r38Var = new r38();
-            this.mCardNullPolymericData = r38Var;
-            this.postList.add(r38Var);
+            m48 m48Var = new m48();
+            this.mCardNullPolymericData = m48Var;
+            this.postList.add(m48Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {
@@ -988,7 +988,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             PostInfoList postInfoList2 = new PostInfoList();
             int random = getRandom(3, this.mLastChooseStyle);
             this.mLastChooseStyle = random;
-            cardPersonDynamicThreadData.h(user, metaData, postInfoList, random);
+            cardPersonDynamicThreadData.g(user, metaData, postInfoList, random);
             cardPersonDynamicThreadData.F = this.mIsHost;
             postInfoList2.parseProtobuf(postInfoList, random);
             int i2 = this.mFrom;

@@ -1,39 +1,95 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.util.Pools;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ApkDetail;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class w26 {
+public final class w26 {
     public static /* synthetic */ Interceptable $ic;
+    public static final w26 a;
+    public static final Pools.SimplePool<RectF> b;
+    public static final Pools.SimplePool<PointF> c;
+    public static final Pools.SimplePool<p06> d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(l26 l26Var) {
-        ItemData itemData;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755253226, "Lcom/repackage/w26;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755253226, "Lcom/repackage/w26;");
+                return;
+            }
+        }
+        a = new w26();
+        b = new Pools.SimplePool<>(200);
+        c = new Pools.SimplePool<>(200);
+        d = new Pools.SimplePool<>(1000);
+    }
+
+    public w26() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, l26Var) == null) || l26Var == null || (itemData = l26Var.a) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
-        httpMessage.addParam("item_id", itemData.itemId);
-        httpMessage.addParam("app_name", itemData.mTitle);
-        httpMessage.addParam("source_type", l26Var.b);
-        httpMessage.addParam("icon_url", itemData.mIconUrl);
-        httpMessage.addParam("score", Double.valueOf(itemData.mScore));
-        httpMessage.addParam("tags", itemData.mTags);
-        httpMessage.addParam("apk_name", itemData.pkgName);
-        ApkDetail apkDetail = itemData.apkDetail;
-        if (apkDetail != null) {
-            httpMessage.addParam("developer", apkDetail.developer);
-            httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
-            httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
-            httpMessage.addParam("version", itemData.apkDetail.version);
-            httpMessage.addParam("version_code", itemData.apkDetail.version_code);
+    }
+
+    public final p06 a(q06 data, DanmakuPlayer player) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(player, "player");
+            p06 acquire = d.acquire();
+            if (acquire == null) {
+                acquire = null;
+            } else {
+                acquire.l(data);
+                acquire.p(player.m().w());
+            }
+            return acquire == null ? new p06(data, player) : acquire;
         }
-        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
+        return (p06) invokeLL.objValue;
+    }
+
+    public final PointF b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PointF acquire = c.acquire();
+            return acquire == null ? new PointF() : acquire;
+        }
+        return (PointF) invokeV.objValue;
+    }
+
+    public final RectF c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RectF acquire = b.acquire();
+            return acquire == null ? new RectF() : acquire;
+        }
+        return (RectF) invokeV.objValue;
     }
 }

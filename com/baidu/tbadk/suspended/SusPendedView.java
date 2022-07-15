@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e95;
-import com.repackage.f95;
+import com.repackage.ha5;
+import com.repackage.ia5;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class SusPendedView extends LinearLayout {
@@ -30,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public f95 d;
+    public ia5 d;
     public float e;
     public float f;
     public boolean g;
@@ -108,11 +108,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            f95 f95Var = this.d;
-            if (f95Var == null) {
+            ia5 ia5Var = this.d;
+            if (ia5Var == null) {
                 return false;
             }
-            return f95Var.s();
+            return ia5Var.s();
         }
         return invokeV.booleanValue;
     }
@@ -281,9 +281,9 @@ public class SusPendedView extends LinearLayout {
                 if (f <= f2 || !this.g) {
                     return;
                 }
-                f95 f95Var = this.d;
-                if (f95Var instanceof e95) {
-                    ((e95) f95Var).D(f - f2);
+                ia5 ia5Var = this.d;
+                if (ia5Var instanceof ha5) {
+                    ((ha5) ia5Var).D(f - f2);
                 }
                 LinearLayout linearLayout = this.a;
                 float f3 = this.f;
@@ -312,10 +312,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(f95 f95Var) {
+    public void setContentViewTop(ia5 ia5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, f95Var) == null) {
-            this.d = f95Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, ia5Var) == null) {
+            this.d = ia5Var;
         }
     }
 

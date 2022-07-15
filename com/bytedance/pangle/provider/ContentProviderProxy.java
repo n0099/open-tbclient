@@ -205,7 +205,7 @@ public class ContentProviderProxy extends ContentProvider {
             }
             JSONObject jSONObject = new JSONObject(queryParameter);
             String optString = jSONObject.optString(ContentProviderManager.PLUGIN_PROCESS_NAME);
-            String optString2 = jSONObject.optString(ContentProviderManager.PLUGIN_PKG_NAME);
+            String optString2 = jSONObject.optString("plugin_pkg_name");
             String optString3 = jSONObject.optString("uri");
             Zeus.loadPlugin(optString2);
             if (!TextUtils.isEmpty(optString3)) {

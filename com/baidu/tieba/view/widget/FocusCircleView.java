@@ -19,7 +19,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes4.dex */
 public class FocusCircleView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -39,12 +38,12 @@ public class FocusCircleView extends View {
 
         /* renamed from: com.baidu.tieba.view.widget.FocusCircleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0243a implements Animator.AnimatorListener {
+        public class C0245a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0243a(a aVar) {
+            public C0245a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,9 +122,9 @@ public class FocusCircleView extends View {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 if (this.a.d == null) {
                     FocusCircleView focusCircleView = this.a;
-                    focusCircleView.d = ObjectAnimator.ofFloat(focusCircleView, AnimationProperty.OPACITY, 1.0f, 0.0f);
+                    focusCircleView.d = ObjectAnimator.ofFloat(focusCircleView, "alpha", 1.0f, 0.0f);
                     this.a.d.setDuration(960L);
-                    this.a.d.addListener(new C0243a(this));
+                    this.a.d.addListener(new C0245a(this));
                 }
                 this.a.d.start();
             }
@@ -174,8 +173,8 @@ public class FocusCircleView extends View {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             AnimatorSet animatorSet = this.c;
             if (animatorSet == null) {
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.SCALE_X, 3.0f, 2.0f, 1.0f);
-                ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this, AnimationProperty.SCALE_Y, 3.0f, 2.0f, 1.0f);
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "scaleX", 3.0f, 2.0f, 1.0f);
+                ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this, "scaleY", 3.0f, 2.0f, 1.0f);
                 AnimatorSet animatorSet2 = new AnimatorSet();
                 this.c = animatorSet2;
                 animatorSet2.play(ofFloat).with(ofFloat2);

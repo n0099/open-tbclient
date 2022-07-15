@@ -1,97 +1,229 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h73 extends p13 {
+public class h73 extends k73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String A;
+    public String B;
+    public long C;
+    public long D;
+    public int v;
+    public String w;
+    public String x;
+    public int y;
+    public String z;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h73(p03 p03Var) {
-        super(p03Var, "/swanAPI/file/getSavedFileList");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755695379, "Lcom/repackage/h73;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755695379, "Lcom/repackage/h73;");
+                return;
+            }
+        }
+        boolean z = rg1.a;
+    }
+
+    public h73(String str, int i, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            Object[] objArr = {str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
+            }
+        }
+        this.w = str;
+        this.y = i;
+        this.C = j;
+        this.D = j2;
+        this.B = "0";
+    }
+
+    @Override // com.repackage.k73, com.repackage.j73
+    public JSONObject f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
+                    this.h.put("errorno", this.v);
+                }
+                String b = z63.b(this.w);
+                this.w = b;
+                this.h.put("url", b);
+                this.h.put("netStatus", this.y);
+                if (!TextUtils.isEmpty(this.x)) {
+                    this.h.put("msg", this.x);
+                }
+                if (!TextUtils.isEmpty(this.z)) {
+                    this.h.put("pagetype", this.z);
+                }
+                if (!TextUtils.isEmpty(this.A)) {
+                    this.h.put("curpage", this.A);
+                }
+                if (!TextUtils.isEmpty(this.B)) {
+                    this.h.put("requesttype", this.B);
+                }
+                if (this.D - this.C > 0) {
+                    this.h.put(FetchLog.START_TIME, this.C);
+                    this.h.put(FetchLog.END_TIME, this.D);
+                }
+                ExtensionCore T = b72.U().T();
+                if (T != null) {
+                    this.h.put("extension_ver", T.extensionCoreVersionName);
+                }
+            } catch (JSONException e) {
+                hx1.e("SwanAppRequestEvent", "834", "#toJSONObject error", e, false);
+            }
+            return super.f();
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public long l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.C : invokeV.longValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.B : (String) invokeV.objValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.w : (String) invokeV.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = this.h;
+            return jSONObject != null && TextUtils.equals(jSONObject.optString("requesttype"), "0");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void p(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            try {
+                if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
+                    jSONObject.put("errorno", this.v);
+                }
+                jSONObject.put("url", z63.b(this.w));
+                jSONObject.put("netStatus", this.y);
+                if (!TextUtils.isEmpty(this.x)) {
+                    jSONObject.put("msg", this.x);
+                }
+                if (!TextUtils.isEmpty(this.B)) {
+                    jSONObject.put("requesttype", this.B);
+                }
+                if (this.D - this.C > 0) {
+                    jSONObject.put(FetchLog.START_TIME, this.C);
+                    jSONObject.put(FetchLog.END_TIME, this.D);
+                }
+            } catch (JSONException e) {
+                hx1.e("SwanAppRequestEvent", "834", "#mergeRequestInfo error", e, false);
             }
         }
     }
 
-    @Override // com.repackage.p13
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, sz2 sz2Var) {
-        InterceptResult invokeLLLL;
+    public void q(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, sz2Var)) == null) {
-            if (context != null && callbackHandler != null && sz2Var != null && sz2Var.f0() != null) {
-                ArrayList arrayList = (ArrayList) sz2Var.f0().i();
-                JSONArray jSONArray = new JSONArray();
-                if (arrayList != null && arrayList.size() != 0) {
-                    Iterator it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        z63 z63Var = (z63) it.next();
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("filePath", a73.J(z63Var.b(), sz2.g0()));
-                            jSONObject.put(FileMetaUtil.CREATE_TIME, z63Var.a());
-                            jSONObject.put("size", z63Var.c());
-                            if (p13.b) {
-                                Log.d("GetSavedFileListAction", "——> handle: fileInfo (" + jSONObject.get("filePath") + " , " + jSONObject.get(FileMetaUtil.CREATE_TIME) + " , " + jSONObject.get("size") + SmallTailInfo.EMOTION_SUFFIX);
-                            }
-                        } catch (JSONException e) {
-                            sw1.o("getSavedFileList", "file info to json fail");
-                            e.printStackTrace();
-                        }
-                        jSONArray.put(jSONObject);
-                    }
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("fileList", jSONArray);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
-                        return true;
-                    } catch (JSONException e2) {
-                        sw1.c("getSavedFileList", "file list to json fail");
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, m03.a(2003)));
-                        if (p13.b) {
-                            Log.d("GetSavedFileListAction", "——> handle: jsonException " + e2.getMessage());
-                        }
-                        return false;
-                    }
-                }
-                sw1.c("getSavedFileList", "file list is null");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams((JSONObject) null, 0));
-                return true;
-            }
-            sw1.c("getSavedFileList", "execute fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.A = str;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.z = str;
+        }
+    }
+
+    public h73(int i, String str, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.v = i;
+        this.w = str;
+        this.x = str2;
+        this.y = i2;
+        this.B = "1";
+    }
+
+    public h73(int i, String str, String str2, int i2, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.v = i;
+        this.w = str;
+        this.x = str2;
+        this.y = i2;
+        this.C = j;
+        this.D = j2;
+        if (i == 200 && j2 - j >= 5000) {
+            this.B = "2";
+        } else {
+            this.B = "1";
+        }
     }
 }

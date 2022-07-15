@@ -1,44 +1,77 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.DeleteTail.ResData;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipBasicList;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes5.dex */
 public class cj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public ArrayList<String> a;
+    public pi7 b;
+    public LinkedHashMap<String, si7> c;
 
-    public cj7() {
+    public cj7(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dataRes};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void b(ResData resData) {
-        Long l;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resData) == null) || resData == null || (l = resData.tailId) == null) {
+        if (dataRes == null) {
             return;
         }
-        this.a = l.intValue();
+        String str = dataRes.grade_intro_title;
+        String str2 = dataRes.grade_intro_link;
+        new bj7(dataRes);
+        new dj7(dataRes.special_list);
+        new ui7(dataRes.cooperate_list);
+        new yi7(dataRes.theme_list);
+        new qi7(dataRes.banner_list);
+        new gj7(dataRes.task_list);
+        new fj7(dataRes.rank, dataRes.user);
+        new wi7(dataRes.daily_list);
+        pi7 pi7Var = new pi7();
+        this.b = pi7Var;
+        pi7Var.a(dataRes);
+        List<VipBasicList> list = dataRes.basic_list;
+        if (list != null && list.size() > 0) {
+            this.c = new LinkedHashMap<>();
+            for (VipBasicList vipBasicList : dataRes.basic_list) {
+                List<VipSpecialItem> list2 = vipBasicList.item;
+                if (list2 != null && list2.size() > 0) {
+                    si7 si7Var = new si7(vipBasicList);
+                    if (si7Var.c != 3 || si7Var.a().size() >= 2) {
+                        this.c.put(si7Var.d, si7Var);
+                    }
+                }
+            }
+        }
+        List<String> list3 = dataRes.card_order;
+        if (list3 == null || list3.size() <= 0) {
+            return;
+        }
+        this.a = new ArrayList<>();
+        for (String str3 : dataRes.card_order) {
+            if (!StringUtils.isNull(str3)) {
+                this.a.add(str3);
+            }
+        }
     }
 }

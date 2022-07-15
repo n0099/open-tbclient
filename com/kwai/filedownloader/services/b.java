@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.e.c;
 /* loaded from: classes5.dex */
-public class b implements c.d {
+public final class b implements c.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,18 +27,18 @@ public class b implements c.d {
     }
 
     @Override // com.kwai.filedownloader.e.c.d
-    public int a(int i, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
+    public final int a(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, Boolean.valueOf(z)})) == null) ? a(str, str2, z) : invokeCommon.intValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, str, str2, z)) == null) ? b(str, str2, z) : invokeLLZ.intValue;
     }
 
     @Override // com.kwai.filedownloader.e.c.d
-    public int a(String str, String str2, boolean z) {
+    public final int b(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z)) == null) {
-            return com.kwai.filedownloader.e.f.e(z ? com.kwai.filedownloader.e.f.a("%sp%s@dir", str, str2) : com.kwai.filedownloader.e.f.a("%sp%s", str, str2)).hashCode();
+            return com.kwai.filedownloader.e.f.c(z ? com.kwai.filedownloader.e.f.a("%sp%s@dir", str, str2) : com.kwai.filedownloader.e.f.a("%sp%s", str, str2)).hashCode();
         }
         return invokeLLZ.intValue;
     }

@@ -10,6 +10,7 @@ import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bc;
-import com.repackage.nc5;
+import com.repackage.qd5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AppLaunchInfoFetcher {
@@ -93,7 +94,7 @@ public class AppLaunchInfoFetcher {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void onFinish(nc5 nc5Var);
+        void onFinish(qd5 qd5Var);
     }
 
     public static Intent a(Message message) {
@@ -113,7 +114,7 @@ public class AppLaunchInfoFetcher {
     }
 
     @TargetApi(23)
-    public static nc5 b(Context context) {
+    public static qd5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -121,17 +122,17 @@ public class AppLaunchInfoFetcher {
             if (appTasks != null) {
                 for (ActivityManager.AppTask appTask : appTasks) {
                     if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseIntent != null && appTask.getTaskInfo().baseIntent.getComponent() != null) {
-                        return new nc5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
+                        return new qd5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
                     }
                 }
                 return null;
             }
             return null;
         }
-        return (nc5) invokeL.objValue;
+        return (qd5) invokeL.objValue;
     }
 
-    public static nc5 c() {
+    public static qd5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -144,18 +145,18 @@ public class AppLaunchInfoFetcher {
                     Intent a2 = a(message);
                     Type d2 = d(message);
                     if (a2 != null && a2.getComponent() != null) {
-                        return new nc5(Type.ACTIVITY, a2);
+                        return new qd5(Type.ACTIVITY, a2);
                     }
                     if (d2 != Type.UNKNOWN) {
-                        return new nc5(d2, null);
+                        return new qd5(d2, null);
                     }
-                    Object d3 = bc.d(message, "next");
+                    Object d3 = bc.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
                     message = d3 instanceof Message ? (Message) d3 : null;
                 }
             }
             return null;
         }
-        return (nc5) invokeV.objValue;
+        return (qd5) invokeV.objValue;
     }
 
     public static Type d(Message message) {
@@ -185,12 +186,12 @@ public class AppLaunchInfoFetcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
             try {
-                nc5 b = Build.VERSION.SDK_INT >= 23 ? b(context) : null;
+                qd5 b = Build.VERSION.SDK_INT >= 23 ? b(context) : null;
                 if (b == null) {
                     b = c();
                 }
                 if (b == null) {
-                    b = new nc5(Type.UNKNOWN, null);
+                    b = new qd5(Type.UNKNOWN, null);
                 }
                 for (a aVar : list) {
                     aVar.onFinish(b);

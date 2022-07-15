@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 import java.io.IOException;
 import java.util.zip.CRC32;
 import java.util.zip.Deflater;
@@ -72,7 +71,7 @@ public final class GzipSink implements Sink {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             Buffer buffer = this.sink.buffer();
-            buffer.writeShort(w0.y5);
+            buffer.writeShort(8075);
             buffer.writeByte(8);
             buffer.writeByte(0);
             buffer.writeInt(0);

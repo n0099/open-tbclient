@@ -2,18 +2,18 @@ package com.kwad.sdk.core.videocache.kwai;
 
 import android.net.Uri;
 import android.text.TextUtils;
-import com.kwad.sdk.core.videocache.l;
+import com.kwad.sdk.utils.z;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.HashMap;
 import java.util.Set;
 /* loaded from: classes5.dex */
-public class f implements c {
-    private String b(String str) {
+public final class f implements c {
+    public static String b(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return (lastIndexOf == -1 || lastIndexOf <= str.lastIndexOf(47) || (lastIndexOf + 2) + 4 <= str.length()) ? "" : str.substring(lastIndexOf + 1, str.length());
     }
 
-    private String c(String str) {
+    public static String c(String str) {
         Uri parse = Uri.parse(str);
         if (parse.getHost() == null || !parse.getHost().contains("yximgs.com")) {
             return str;
@@ -36,13 +36,13 @@ public class f implements c {
     }
 
     @Override // com.kwad.sdk.core.videocache.kwai.c
-    public String a(String str) {
+    public final String a(String str) {
         String c = c(str);
         String b = b(c);
-        String d = l.d(c);
+        String a = z.a(c);
         if (TextUtils.isEmpty(b)) {
-            return d;
+            return a;
         }
-        return d + "." + b;
+        return a + "." + b;
     }
 }

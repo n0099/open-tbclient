@@ -218,8 +218,8 @@ public final class a {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            zr b2 = ar.c.h().b();
-            return "" + b2.b() + "/bdtls/ug_task/api/task/external/" + str + "/complete?behavior=" + i;
+            zr env = ar.c.h().getEnv();
+            return "" + env.b() + "/bdtls/ug_task/api/task/external/" + str + "/complete?behavior=" + i;
         }
         return (String) invokeLI.objValue;
     }

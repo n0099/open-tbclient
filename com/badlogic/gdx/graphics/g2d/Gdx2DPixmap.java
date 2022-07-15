@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
 import com.repackage.h7;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
@@ -88,7 +87,7 @@ public class Gdx2DPixmap implements h7 {
         if (interceptable == null || (invokeI = interceptable.invokeI(65549, null, i)) == null) {
             switch (i) {
                 case 1:
-                    return AnimationProperty.OPACITY;
+                    return "alpha";
                 case 2:
                     return "luminance alpha";
                 case 3:

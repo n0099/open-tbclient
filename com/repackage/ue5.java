@@ -1,95 +1,100 @@
 package com.repackage;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.media.ExifInterface;
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.SelectImageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ue5 implements fg<pe5> {
+public class ue5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public ue5(int i) {
+    public static Bitmap a(Context context, Uri uri, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, uri, i)) == null) {
+            try {
+                return BitmapHelper.subSampleBitmap(context, uri, i);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
         }
-        this.a = i;
+        return (Bitmap) invokeLLI.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.repackage.fg
-    public /* bridge */ /* synthetic */ pe5 a(pe5 pe5Var) {
-        pe5 pe5Var2 = pe5Var;
-        e(pe5Var2);
-        return pe5Var2;
+    public static Bitmap b(Context context, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i)) == null) {
+            try {
+                return BitmapHelper.loadResizedBitmap(str, i, i);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (Bitmap) invokeLLI.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.repackage.fg
-    public /* bridge */ /* synthetic */ pe5 c(pe5 pe5Var) {
-        pe5 pe5Var2 = pe5Var;
-        i(pe5Var2);
-        return pe5Var2;
+    public static Bitmap c(int i, Context context, Uri uri, String str, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), context, uri, str, Integer.valueOf(i2)})) == null) {
+            if (i == 12001) {
+                return d(i2);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                return b(context, str, i2);
+            }
+            return a(context, uri, i2);
+        }
+        return (Bitmap) invokeCommon.objValue;
     }
 
-    public pe5 e(pe5 pe5Var) {
+    public static Bitmap d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            try {
+                int e = e(FileHelper.getFileDireciory(SelectImageHelper.TMP_IMAGE_NAME));
+                Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(SelectImageHelper.TMP_IMAGE_NAME, i);
+                return (e == 0 || subSampleBitmap == null) ? subSampleBitmap : BitmapHelper.rotateBitmapBydegree(subSampleBitmap, e);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return null;
+            }
+        }
+        return (Bitmap) invokeI.objValue;
+    }
+
+    public static int e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, pe5Var)) == null) ? pe5Var : (pe5) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fg
-    /* renamed from: f */
-    public void b(pe5 pe5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, pe5Var) == null) || pe5Var == null || pe5Var.b() == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            try {
+                int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
+                if (attributeInt != 3) {
+                    if (attributeInt != 6) {
+                        return attributeInt != 8 ? 0 : 270;
+                    }
+                    return 90;
+                }
+                return 180;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return 0;
+            }
         }
-        pe5Var.b().recycle();
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fg
-    /* renamed from: h */
-    public pe5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new pe5(this.a) : (pe5) invokeV.objValue;
-    }
-
-    public pe5 i(pe5 pe5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pe5Var)) == null) ? pe5Var : (pe5) invokeL.objValue;
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.a = i;
-        }
+        return invokeL.intValue;
     }
 }

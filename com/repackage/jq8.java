@@ -1,192 +1,159 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
+import android.content.Context;
 import android.text.TextUtils;
-import android.view.Surface;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.muxer.VideoMuxer;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
 import com.repackage.kq8;
-import com.repackage.oq8;
-import java.io.FileOutputStream;
-import java.nio.ByteBuffer;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jq8 extends kq8 {
+public class jq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public rq8 b;
+    public kq8 c;
+    public kq8.c d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jq8(String str) {
-        super(str);
+    public jq8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = context;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00f9 A[Catch: all -> 0x020d, TryCatch #0 {all -> 0x020d, blocks: (B:24:0x00ac, B:26:0x00b2, B:28:0x00ba, B:31:0x00f3, B:33:0x00f9, B:35:0x00ff, B:36:0x0109, B:38:0x010d, B:40:0x0125, B:42:0x012b, B:44:0x0139, B:46:0x013f, B:50:0x014c, B:57:0x015c, B:59:0x0163, B:60:0x016d, B:61:0x0189, B:63:0x0192, B:66:0x019d, B:69:0x01ac, B:29:0x00d8, B:71:0x01cb, B:73:0x01d1, B:74:0x01d9), top: B:86:0x00ac }] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x019a  */
-    @TargetApi(16)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public kq8.b a(String str, boolean z, oq8.a aVar, oq8.a aVar2) throws Exception {
-        InterceptResult invokeCommon;
-        MediaFormat mediaFormat;
-        double d;
-        int dequeueOutputBuffer;
-        byte[] bArr;
-        byte[] bArr2;
+    public static void a(List<rq8> list, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), aVar, aVar2})) == null) {
-            if (TextUtils.isEmpty(str) || aVar == null || aVar2 == null) {
-                return null;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            String str2 = this.a;
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            mediaExtractor.setDataSource(str2);
-            boolean z2 = false;
-            int i = 0;
-            while (true) {
-                if (i >= mediaExtractor.getTrackCount()) {
-                    mediaFormat = null;
-                    break;
-                }
-                mediaFormat = mediaExtractor.getTrackFormat(i);
-                if (mediaFormat.getString("mime").startsWith("audio/")) {
-                    mediaExtractor.selectTrack(i);
-                    break;
-                }
-                i++;
-            }
-            if (mediaFormat == null) {
-                BdLog.e("not a valid file with audio track..");
-                mediaExtractor.release();
-                return null;
-            }
-            BdLog.e("mediaFormat " + mediaFormat);
-            kq8.b bVar = new kq8.b();
-            int i2 = aVar2.b;
-            int i3 = aVar2.a;
-            int i4 = aVar2.c;
-            bVar.a = str;
-            FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
-            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
-            createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
-            createDecoderByType.start();
-            ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
-            ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
-            double d2 = mediaFormat.getLong("durationUs");
-            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-            ByteBuffer[] byteBufferArr = outputBuffers;
-            boolean z3 = false;
-            boolean z4 = false;
-            while (!z3) {
-                long j = currentTimeMillis;
-                if (!z4) {
-                    try {
-                        int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
-                        if (dequeueInputBuffer >= 0) {
-                            int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], z2 ? 1 : 0);
-                            if (readSampleData < 0) {
-                                BdLog.i("saw input EOS.");
-                                d = d2;
-                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                z4 = true;
-                            } else {
-                                d = d2;
-                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
-                                mediaExtractor.advance();
-                            }
-                            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
-                            if (dequeueOutputBuffer < 0) {
-                                if ((bufferInfo.flags & 2) != 0) {
-                                    BdLog.i("audio encoder: codec config buffer");
-                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
-                                } else {
-                                    if (bufferInfo.size != 0) {
-                                        ByteBuffer byteBuffer = byteBufferArr[dequeueOutputBuffer];
-                                        byteBuffer.position(bufferInfo.offset);
-                                        byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
-                                        byte[] bArr3 = new byte[bufferInfo.size];
-                                        byteBuffer.get(bArr3);
-                                        if (z) {
-                                            bArr = null;
-                                            bArr2 = null;
-                                        } else {
-                                            bArr2 = aVar2.a() ? oq8.b(aVar2.c / 8, aVar.c / 8, bArr3) : null;
-                                            if (aVar2.b()) {
-                                                bArr = oq8.c(aVar2.b, aVar.b, aVar.c / 8, bArr2 == null ? bArr3 : bArr2);
-                                            } else {
-                                                bArr = null;
-                                            }
-                                        }
-                                        if (bArr == null) {
-                                            bArr = bArr2 == null ? bArr3 : bArr2;
-                                        }
-                                        fileOutputStream.write(bArr);
-                                        if (this.b != null) {
-                                            this.b.a(bArr3, bufferInfo.presentationTimeUs / d);
-                                        }
-                                        BdLog.i(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
-                                        z2 = false;
-                                    }
-                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
-                                    if ((bufferInfo.flags & 4) != 0) {
-                                        BdLog.i("saw output EOS.");
-                                        z3 = true;
-                                    }
-                                }
-                            } else if (dequeueOutputBuffer == -3) {
-                                ByteBuffer[] outputBuffers2 = createDecoderByType.getOutputBuffers();
-                                BdLog.i("output buffers have changed.");
-                                byteBufferArr = outputBuffers2;
-                            } else if (dequeueOutputBuffer == -2) {
-                                BdLog.e("output format has changed to " + createDecoderByType.getOutputFormat());
-                            }
-                            currentTimeMillis = j;
-                            d2 = d;
-                        }
-                    } finally {
-                        fileOutputStream.close();
-                        createDecoderByType.stop();
-                        createDecoderByType.release();
-                        mediaExtractor.release();
-                    }
-                }
-                d = d2;
-                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
-                if (dequeueOutputBuffer < 0) {
-                }
-                currentTimeMillis = j;
-                d2 = d;
-            }
-            long j2 = currentTimeMillis;
-            if (this.b != null) {
-                this.b.a(null, 1.0d);
-            }
-            BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - j2) + " milliseconds !");
-            return bVar;
+        if (!(interceptable == null || interceptable.invokeLILL(65537, null, list, i, str, str2) == null) || list == null) {
+            return;
         }
-        return (kq8.b) invokeCommon.objValue;
+        list.add(new rq8(str, i, str2));
+    }
+
+    public static List<rq8> c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (context == null) {
+                context = TbadkCoreApplication.getInst();
+            }
+            a(arrayList, R.drawable.obfuscated_res_0x7f080559, context.getString(R.string.obfuscated_res_0x7f0f061c), "origin");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055d, context.getString(R.string.obfuscated_res_0x7f0f0619), "hongkong");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080560, context.getString(R.string.obfuscated_res_0x7f0f061d), "refreshing");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055c, context.getString(R.string.obfuscated_res_0x7f0f0617), "girly");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080557, context.getString(R.string.obfuscated_res_0x7f0f0614), "concrete");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080564, context.getString(R.string.obfuscated_res_0x7f0f0621), "warm");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080556, context.getString(R.string.obfuscated_res_0x7f0f0613), "cold");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055e, context.getString(R.string.obfuscated_res_0x7f0f061a), "Japanese");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080558, context.getString(R.string.obfuscated_res_0x7f0f0618), "cruz");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080553, context.getString(R.string.obfuscated_res_0x7f0f0610), "abao");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055a, context.getString(R.string.obfuscated_res_0x7f0f0615), "dew");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080562, context.getString(R.string.obfuscated_res_0x7f0f061f), "slowlived");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080563, context.getString(R.string.obfuscated_res_0x7f0f0620), "sweet");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080555, context.getString(R.string.obfuscated_res_0x7f0f0612), "boardwalk");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055f, context.getString(R.string.obfuscated_res_0x7f0f061b), "keylime");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055b, context.getString(R.string.obfuscated_res_0x7f0f0616), "electric");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080561, context.getString(R.string.obfuscated_res_0x7f0f061e), "silver");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080554, context.getString(R.string.obfuscated_res_0x7f0f0611), "blackwhite");
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return yp8.f + VideoMuxer.FILTER_TEMP_DIR_PREFIX + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            rq8 rq8Var = this.b;
+            return (rq8Var == null || "normal".equalsIgnoreCase(rq8Var.c)) ? "" : this.b.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void e() {
+        kq8 kq8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (kq8Var = this.c) == null) {
+            return;
+        }
+        kq8Var.e();
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            kq8 kq8Var = this.c;
+            if (kq8Var != null) {
+                return kq8Var.f();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            kq8 kq8Var = this.c;
+            if ((kq8Var == null || !kq8Var.f()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+                kq8 kq8Var2 = new kq8(this.a, str, d(), str2);
+                this.c = kq8Var2;
+                kq8.c cVar = this.d;
+                if (cVar != null) {
+                    kq8Var2.h(cVar);
+                }
+                this.c.i();
+            }
+        }
+    }
+
+    public void h(rq8 rq8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, rq8Var) == null) {
+            this.b = rq8Var;
+        }
+    }
+
+    public void i(kq8.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.d = cVar;
+            kq8 kq8Var = this.c;
+            if (kq8Var != null) {
+                kq8Var.h(cVar);
+            }
+        }
     }
 }

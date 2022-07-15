@@ -19,9 +19,10 @@ public final class TTAdConfig implements AdConfig {
     public boolean l;
     public String[] m;
     public boolean n;
-    public Map<String, Object> o;
-    public TTCustomController p;
-    public int q;
+    public int o;
+    public Map<String, Object> p;
+    public TTCustomController q;
+    public int r;
 
     /* loaded from: classes4.dex */
     public static class Builder {
@@ -38,10 +39,11 @@ public final class TTAdConfig implements AdConfig {
         public boolean g = true;
         public boolean h = false;
         public boolean i = false;
-        public boolean k = false;
+        public boolean k = true;
         public boolean l = false;
         public boolean n = false;
         public int q = 2;
+        public int r = 0;
 
         public Builder allowShowNotify(boolean z) {
             this.g = z;
@@ -88,6 +90,7 @@ public final class TTAdConfig implements AdConfig {
             tTAdConfig.setCustomController(this.o);
             tTAdConfig.setThemeStatus(this.p);
             tTAdConfig.setExtra("plugin_update_conf", Integer.valueOf(this.q));
+            tTAdConfig.setExtra(TTAdConstant.KEY_AGE_GROUP, Integer.valueOf(this.r));
             return tTAdConfig;
         }
 
@@ -123,6 +126,11 @@ public final class TTAdConfig implements AdConfig {
 
         public Builder paid(boolean z) {
             this.c = z;
+            return this;
+        }
+
+        public Builder setAgeGroup(int i) {
+            this.r = i;
             return this;
         }
 
@@ -164,7 +172,7 @@ public final class TTAdConfig implements AdConfig {
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public TTCustomController getCustomController() {
-        return this.p;
+        return this.q;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -180,7 +188,7 @@ public final class TTAdConfig implements AdConfig {
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     @Deprecated
     public Object getExtra(String str) {
-        return this.o.get(str);
+        return this.p.get(str);
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -208,18 +216,18 @@ public final class TTAdConfig implements AdConfig {
 
             @Override // com.bytedance.sdk.openadsdk.AdConfig.SdkInfo
             public int sdkVersionCode() {
-                return 4022;
+                return 4526;
             }
 
             @Override // com.bytedance.sdk.openadsdk.AdConfig.SdkInfo
             public String sdkVersionName() {
-                return "4.0.2.2";
+                return "4.5.2.6";
             }
         };
     }
 
     public int getThemeStatus() {
-        return this.q;
+        return this.r;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -264,7 +272,12 @@ public final class TTAdConfig implements AdConfig {
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public Object removeExtra(String str) {
-        return this.o.remove(str);
+        return this.p.remove(str);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.AdConfig
+    public void setAgeGroup(int i) {
+        this.p.put(TTAdConstant.KEY_AGE_GROUP, Integer.valueOf(i));
     }
 
     public void setAllowShowNotify(boolean z) {
@@ -288,7 +301,7 @@ public final class TTAdConfig implements AdConfig {
     }
 
     public void setCustomController(TTCustomController tTCustomController) {
-        this.p = tTCustomController;
+        this.q = tTCustomController;
     }
 
     public void setData(String str) {
@@ -306,7 +319,7 @@ public final class TTAdConfig implements AdConfig {
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     @Deprecated
     public void setExtra(String str, Object obj) {
-        this.o.put(str, obj);
+        this.p.put(str, obj);
     }
 
     public void setKeywords(String str) {
@@ -326,7 +339,7 @@ public final class TTAdConfig implements AdConfig {
     }
 
     public void setThemeStatus(int i) {
-        this.q = i;
+        this.r = i;
     }
 
     public void setTitleBarTheme(int i) {
@@ -343,9 +356,10 @@ public final class TTAdConfig implements AdConfig {
         this.g = true;
         this.h = false;
         this.i = false;
-        this.k = false;
+        this.k = true;
         this.l = false;
         this.n = false;
-        this.o = new HashMap();
+        this.o = 0;
+        this.p = new HashMap();
     }
 }

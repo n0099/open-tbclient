@@ -26,23 +26,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h45;
-import com.repackage.hh5;
-import com.repackage.i45;
+import com.repackage.j55;
+import com.repackage.k55;
+import com.repackage.ki5;
 import com.repackage.ni;
-import com.repackage.qi5;
+import com.repackage.tj5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AttentionView extends FrameLayout implements hh5<String> {
+public class AttentionView extends FrameLayout implements ki5<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public RecyclerView b;
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
-    public h45 e;
-    public i45 f;
+    public j55 e;
+    public k55 f;
     public List<SelectForumData> g;
     public List<SelectForumData> h;
     public boolean i;
@@ -215,7 +215,7 @@ public class AttentionView extends FrameLayout implements hh5<String> {
         return i;
     }
 
-    @Override // com.repackage.hh5
+    @Override // com.repackage.ki5
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -223,25 +223,25 @@ public class AttentionView extends FrameLayout implements hh5<String> {
             return;
         }
         this.a = skinType;
-        h45 h45Var = this.e;
-        if (h45Var != null) {
-            h45Var.onChangeSkinType();
+        j55 j55Var = this.e;
+        if (j55Var != null) {
+            j55Var.onChangeSkinType();
         }
-        i45 i45Var = this.f;
-        if (i45Var != null) {
-            i45Var.onChangeSkinType();
+        k55 k55Var = this.f;
+        if (k55Var != null) {
+            k55Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
 
-    @Override // com.repackage.hh5
+    @Override // com.repackage.ki5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
         }
     }
 
-    @Override // com.repackage.hh5
+    @Override // com.repackage.ki5
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -249,21 +249,21 @@ public class AttentionView extends FrameLayout implements hh5<String> {
     }
 
     public void l() {
-        h45 h45Var;
+        j55 j55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (h45Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (j55Var = this.e) == null) {
             return;
         }
-        h45Var.dettachView(this);
+        j55Var.dettachView(this);
         this.e = null;
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            i45 i45Var = this.f;
-            if (i45Var != null) {
-                i45Var.dettachView(this);
+            k55 k55Var = this.f;
+            if (k55Var != null) {
+                k55Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
@@ -273,8 +273,8 @@ public class AttentionView extends FrameLayout implements hh5<String> {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0741, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c53);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d075f, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091cf8);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.k(2);
@@ -294,7 +294,7 @@ public class AttentionView extends FrameLayout implements hh5<String> {
         }
     }
 
-    @Override // com.repackage.hh5
+    @Override // com.repackage.ki5
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -329,9 +329,9 @@ public class AttentionView extends FrameLayout implements hh5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            h45 h45Var = this.e;
-            if (h45Var != null) {
-                return h45Var.isViewAttached();
+            j55 j55Var = this.e;
+            if (j55Var != null) {
+                return j55Var.isViewAttached();
             }
             return false;
         }
@@ -342,9 +342,9 @@ public class AttentionView extends FrameLayout implements hh5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            i45 i45Var = this.f;
-            if (i45Var != null) {
-                return i45Var.isViewAttached();
+            k55 k55Var = this.f;
+            if (k55Var != null) {
+                return k55Var.isViewAttached();
             }
             return false;
         }
@@ -368,7 +368,7 @@ public class AttentionView extends FrameLayout implements hh5<String> {
         return (List) invokeL.objValue;
     }
 
-    public void setForumSelectStateChangedListener(qi5.e eVar) {
+    public void setForumSelectStateChangedListener(tj5.e eVar) {
         SelectForumItemAdapter selectForumItemAdapter;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048589, this, eVar) == null) || (selectForumItemAdapter = this.c) == null) {
@@ -394,7 +394,7 @@ public class AttentionView extends FrameLayout implements hh5<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hh5
+    @Override // com.repackage.ki5
     /* renamed from: u */
     public void c(String str) {
         Interceptable interceptable = $ic;
@@ -423,9 +423,9 @@ public class AttentionView extends FrameLayout implements hh5<String> {
             return;
         }
         if (this.e == null) {
-            h45 h45Var = new h45(getContext());
-            this.e = h45Var;
-            h45Var.onChangeSkinType();
+            j55 j55Var = new j55(getContext());
+            this.e = j55Var;
+            j55Var.onChangeSkinType();
         }
         this.e.attachView(this, z);
     }
@@ -436,7 +436,7 @@ public class AttentionView extends FrameLayout implements hh5<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new i45(getContext(), new c(this));
+            this.f = new k55(getContext(), new c(this));
         }
         this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);

@@ -1,115 +1,202 @@
 package com.repackage;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.sportspage.notification.AlarmReceiver;
+import android.view.View;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Collections;
 /* loaded from: classes6.dex */
-public class on6 {
+public class on6 extends ln6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public CustomMessageListener b;
+    public TBSpecificationBtn d;
+    public TBSpecificationBtn e;
+    public ImageView f;
 
     /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ on6 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(on6 on6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {on6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-122518147, "Lcom/repackage/on6$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-122518147, "Lcom/repackage/on6$a;");
                     return;
                 }
             }
-            this.a = on6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                try {
-                    JSONObject jSONObject = new JSONObject((String) customResponsedMessage.getData());
-                    String optString = jSONObject.optString("gameId");
-                    String optString2 = jSONObject.optString("gameName");
-                    String optString3 = jSONObject.optString("gameTime");
-                    String optString4 = jSONObject.optString("gameType");
-                    String q = ht4.k().q("key_match_id_list_" + optString4, "");
-                    String str2 = "match_id_" + optString4 + "_" + optString;
-                    if (TextUtils.isEmpty(q)) {
-                        str = str2;
-                    } else {
-                        str = "," + str2;
-                    }
-                    if (TextUtils.isEmpty(q) || !q.contains(str2)) {
-                        ht4.k().y("key_match_id_list_" + optString4, q + str);
-                    }
-                    Intent intent = new Intent(this.a.a.getPageActivity(), AlarmReceiver.class);
-                    intent.putExtra("KEY_MATCH_NAME", optString2);
-                    intent.putExtra("KEY_MATCH_TYPE", optString4);
-                    intent.putExtra("KEY_MATCH_ID", optString);
-                    PendingIntent broadcast = PendingIntent.getBroadcast(this.a.a.getPageActivity(), 0, intent, 0);
-                    Calendar calendar = Calendar.getInstance();
-                    long currentTimeMillis = System.currentTimeMillis();
-                    calendar.setTimeInMillis(currentTimeMillis);
-                    long g = (ng.g(optString3, 0L) * 1000) - currentTimeMillis;
-                    if (g > 0) {
-                        calendar.add(14, (int) g);
-                    }
-                    ((AlarmManager) this.a.a.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+            int[] iArr = new int[LogicField.values().length];
+            a = iArr;
+            try {
+                iArr[LogicField.LIKE_BTN.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[LogicField.SIGN_BTN.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[LogicField.SPEED_ICON.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[LogicField.SERVICE_AREA.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[LogicField.TOP_AREA.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[LogicField.ROUND_CORNER_STYLE.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[LogicField.TOP_DIVIDER.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[LogicField.BANNER_AND_BOTTOM_VIEW.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
             }
         }
     }
 
-    public on6(TbPageContext tbPageContext) {
+    public on6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a aVar = new a(this, 2921404);
-        this.b = aVar;
-        this.a = tbPageContext;
-        tbPageContext.registerListener(aVar);
+    }
+
+    @Override // com.repackage.ln6, com.repackage.nn6
+    @Nullable
+    public <T> T a(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
+            int i = a.a[logicField.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return (T) super.a(logicField);
+                    }
+                    return (T) this.f;
+                }
+                return (T) Collections.singletonList(this.e);
+            }
+            return (T) Collections.singletonList(this.d);
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @Override // com.repackage.tn6
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                this.d.setVisibility(8);
+                this.e.setVisibility(0);
+                return;
+            }
+            this.d.setVisibility(0);
+            this.e.setVisibility(8);
+        }
+    }
+
+    @Override // com.repackage.tn6
+    public void h(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
+            this.e.setOnClickListener(onClickListener);
+        }
+    }
+
+    @Override // com.repackage.ln6, com.repackage.nn6
+    public int l(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, logicField)) == null) {
+            switch (a.a[logicField.ordinal()]) {
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    return 0;
+                case 8:
+                    return 8;
+                default:
+                    return super.l(logicField);
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.repackage.ln6
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            n();
+            o();
+            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091de3);
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c.findViewById(R.id.obfuscated_res_0x7f090b0c).setVisibility(8);
+            this.c.findViewById(R.id.obfuscated_res_0x7f0924ed).setVisibility(8);
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09224e);
+            this.d = tBSpecificationBtn;
+            tBSpecificationBtn.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02a7));
+            this.d.setTextSize(R.dimen.T_X08);
+            uu4 uu4Var = new uu4();
+            uu4Var.p(R.color.CAM_X0901, R.color.CAM_X0105);
+            this.d.setConfig(uu4Var);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09228b);
+            this.e = tBSpecificationBtn2;
+            tBSpecificationBtn2.setTextSize(R.dimen.T_X08);
+            uu4 uu4Var2 = new uu4();
+            uu4Var2.u(R.color.CAM_X0105);
+            uu4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds39));
+            uu4Var2.i(R.drawable.obfuscated_res_0x7f08091b, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.e.setConfig(uu4Var2);
+            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1191));
+        }
     }
 }

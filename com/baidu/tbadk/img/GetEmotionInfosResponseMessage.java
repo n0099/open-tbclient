@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n35;
+import com.repackage.p45;
 import com.tencent.open.SocialConstants;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<n35> mEmotionList;
+    public List<p45> mEmotionList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetEmotionInfosResponseMessage(int i) {
@@ -48,7 +48,7 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
         this.mEmotionList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
             try {
-                this.mEmotionList.add(n35.a(jSONArray.getJSONObject(i)));
+                this.mEmotionList.add(p45.a(jSONArray.getJSONObject(i)));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -67,7 +67,7 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List<n35> getEmotionList() {
+    public List<p45> getEmotionList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mEmotionList : (List) invokeV.objValue;

@@ -93,14 +93,15 @@ public class NetWorkUtils {
     @SuppressLint({"MissingPermission"})
     public static NetworkInfo a(Context context) {
         InterceptResult invokeL;
+        Context applicationContext;
         ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
+            if (context == null || (applicationContext = context.getApplicationContext()) == null) {
                 return null;
             }
             try {
-                connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                connectivityManager = (ConnectivityManager) applicationContext.getSystemService("connectivity");
             } catch (SecurityException e) {
                 e.printStackTrace();
                 connectivityManager = null;
@@ -108,7 +109,12 @@ public class NetWorkUtils {
             if (connectivityManager == null) {
                 return null;
             }
-            return connectivityManager.getActiveNetworkInfo();
+            try {
+                return connectivityManager.getActiveNetworkInfo();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
         }
         return (NetworkInfo) invokeL.objValue;
     }

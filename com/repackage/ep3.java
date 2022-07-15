@@ -1,142 +1,353 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hp3;
+import okhttp3.Response;
+/* loaded from: classes6.dex */
 public class ep3 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public so3 b;
+    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755729975, "Lcom/repackage/ep3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jp3 a;
+        public final /* synthetic */ xo3 b;
+        public final /* synthetic */ ep3 c;
+
+        /* renamed from: com.repackage.ep3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0622a extends ResponseCallback<AdResponseInfo> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public int a;
+            public final /* synthetic */ a b;
+
+            /* renamed from: com.repackage.ep3$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class RunnableC0623a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AdElementInfo a;
+                public final /* synthetic */ C0622a b;
+
+                public RunnableC0623a(C0622a c0622a, AdElementInfo adElementInfo) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0622a, adElementInfo};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = c0622a;
+                    this.a = adElementInfo;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.b.c.b == null) {
+                        return;
+                    }
+                    this.b.b.c.b.c(this.a);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755729975, "Lcom/repackage/ep3;");
+
+            public C0622a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = 0;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: a */
+            public void onSuccess(AdResponseInfo adResponseInfo, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLI(1048576, this, adResponseInfo, i) == null) {
+                    a aVar = this.b;
+                    aVar.c.j(aVar.a, "requestSuccess", aVar.b);
+                    if (adResponseInfo == null) {
+                        this.b.c.g("200000");
+                    } else if (adResponseInfo.getAdInstanceList().size() <= 0) {
+                        if (!this.b.c.c) {
+                            a aVar2 = this.b;
+                            aVar2.c.j(aVar2.a, "requestNoAd", aVar2.b);
+                        }
+                        if (this.a == 1 && this.b.a.i.c() == "video" && aq3.h()) {
+                            a aVar3 = this.b;
+                            aVar3.c.h(aVar3.b, aVar3.a, this);
+                            return;
+                        }
+                        this.a = 0;
+                        String errorCode = adResponseInfo.getErrorCode();
+                        if (errorCode.equals("0")) {
+                            errorCode = "201000";
+                        }
+                        this.b.c.g(errorCode);
+                    } else {
+                        vp3.c(new RunnableC0623a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: b */
+            public AdResponseInfo parseResponse(Response response, int i) {
+                InterceptResult invokeLI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                    if (response != null && response.body() != null) {
+                        this.a++;
+                        if (!response.isSuccessful()) {
+                            return null;
+                        }
+                        try {
+                            String string = response.body().string();
+                            if (!TextUtils.isEmpty(string)) {
+                                if (this.b.c.c) {
+                                    return new AdResponseInfo(string, this.b.c.c);
+                                }
+                                return new AdResponseInfo(string);
+                            }
+                        } catch (Exception | OutOfMemoryError unused) {
+                        }
+                    }
+                    return null;
+                }
+                return (AdResponseInfo) invokeLI.objValue;
+            }
+
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            public void onFail(Exception exc) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                    this.b.c.g("3010002");
+                    a aVar = this.b;
+                    aVar.c.j(aVar.a, "requestFail", aVar.b);
+                }
+            }
+        }
+
+        public a(ep3 ep3Var, jp3 jp3Var, xo3 xo3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ep3Var, jp3Var, xo3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ep3Var;
+            this.a = jp3Var;
+            this.b = xo3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            jp3 jp3Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (jp3Var = this.a) == null || jp3Var.i == null) {
+                return;
+            }
+            C0622a c0622a = new C0622a(this);
+            if (NetworkUtils.f(this.c.a)) {
+                if (this.c.c) {
+                    jp3 jp3Var2 = this.a;
+                    if (jp3Var2 instanceof kp3) {
+                        kp3 kp3Var = (kp3) jp3Var2;
+                        if (this.b == null || kp3Var.i() == null) {
+                            return;
+                        }
+                        this.b.a(kp3Var.g(), kp3Var.i(), c0622a);
+                        return;
+                    }
+                }
+                this.c.c = false;
+                String g = this.a.g();
+                xo3 xo3Var = this.b;
+                if (xo3Var != null) {
+                    xo3Var.f(g, c0622a);
+                }
+                this.c.j(this.a, "request", this.b);
+                return;
+            }
+            this.c.g("3010003");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ep3 b;
+
+        public b(ep3 ep3Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ep3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ep3Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.b == null) {
+                return;
+            }
+            this.b.b.a(this.a);
+        }
+    }
+
+    public ep3(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("100000", "请求格式错误");
-        a.put("101000", "请求ID信息缺失");
-        a.put("101001", "请求ID不符合约定格式");
-        a.put("101002", "请求的trftp信息缺失");
-        a.put("101003", "请求的sdk版本信息有误");
-        a.put("101004", "请求的referer信息有误");
-        a.put("101005", "请求的appid不合法");
-        a.put("103000", "应用信息缺失");
-        a.put("103010", "应用ID信息缺失");
-        a.put("103011", "应用ID信息错误，MSSP未收录");
-        a.put("103012", "应用ID无效，MSSP上未生效");
-        a.put("103020", "应用ID无效，渠道ID信息错误");
-        a.put("103030", "应用版本信息缺失");
-        a.put("103040", "应用主版本信息缺失");
-        a.put("103050", "应用操作系统信息缺失");
-        a.put("103060", "应用包名信息错误，请保证注册包名和实际请求包名一致");
-        a.put("104000", "设备信息缺失");
-        a.put("104010", "设备类型信息缺失");
-        a.put("104011", "设备类型信息错误");
-        a.put("104020", "操作系统信息缺失");
-        a.put("104021", "操作系统信息错误");
-        a.put("104030", "操作系统版本信息缺失");
-        a.put("104040", "操作系统主版本信息缺失");
-        a.put("104050", "厂商信息缺失");
-        a.put("104060", "设备型号信息缺失");
-        a.put("104070", "设备唯一标识符缺失");
-        a.put("104071", "设备唯一标识符错误");
-        a.put("104080", "android id 缺失");
-        a.put("104081", "android id 格式错误");
-        a.put("104090", "设备屏幕尺寸信息缺失");
-        a.put("104100", "设备屏幕尺寸宽度缺失");
-        a.put("104110", "设备屏幕尺寸高度缺失");
-        a.put("105000", "网络环境信息缺失");
-        a.put("105010", "网络地址信息缺失");
-        a.put("105011", "网络地址信息格式错误");
-        a.put("105020", "网络连接类型缺失");
-        a.put("105021", "网络连接类型错误");
-        a.put("105030", "网络运营商类型缺失");
-        a.put("105031", "网络运营商类型错误");
-        a.put("105040", "Wi-Fi热点地址信息缺失");
-        a.put("105041", "Wi-Fi热点地址信息格式错误");
-        a.put("105050", "Wi-Fi热点信号强度信息缺失");
-        a.put("105060", "Wi-Fi热点名称缺失");
-        a.put("105070", "Wi-Fi连接状态信息缺失");
-        a.put("106000", "坐标类型信息缺失");
-        a.put("106001", "坐标类型信息错误");
-        a.put("106010", "经度信息缺失");
-        a.put("106020", "纬度信息缺失");
-        a.put("106030", "定位时间戳信息缺失");
-        a.put("107000", "广告位ID缺失");
-        a.put("107001", "广告位ID未收录");
-        a.put("107002", "广告位ID未启用");
-        a.put("107003", "广告位ID与应用ID不匹配");
-        a.put("107010", "广告位尺寸信息缺失");
-        a.put("107020", "广告位尺寸宽度缺失");
-        a.put("107030", "广告位尺寸高度缺失");
-        a.put("107040", "广告位信息缺失");
-        a.put("107050", "视频广告的网络条件无法满足");
-        a.put("107051", "视频标题名称过长");
-        a.put("107052", "SDK传递的广告位比例与MSSP的广告位比例不一致");
-        a.put("200000", "无广告返回");
-        a.put("201000", "无广告数据");
-        a.put("201010", "广告无签名");
-        a.put("201020", "广告创意类型信息缺失");
-        a.put("201021", "广告创意类型信息无法识别");
-        a.put("201030", "广告动作类型信息缺失");
-        a.put("201031", "广告动作类型信息无法识别");
-        a.put("201040", "曝光汇报地址丢失");
-        a.put("201050", "点击响应地址丢失");
-        a.put("201060", "推广标题丢失");
-        a.put("201070", "推广描述丢失");
-        a.put("201080", "推广应用包名丢失");
-        a.put("201090", "推广应用包大小丢失");
-        a.put("201100", "推广图标丢失");
-        a.put("201110", "推广图片丢失");
-        a.put("3010000", "广告组件挂载失败");
-        a.put("3010001", "播放器内部错误");
-        a.put("3010002", "广告请求失败");
-        a.put("3010003", "网络连接错误");
-        a.put("3010004", "没有可以展示的广告");
-        a.put("3010005", "广告正在拉取中，不能重复请求");
-        a.put("3010006", "广告正在展示中，不能请求广告");
-        a.put("3010007", "gameId、appsid、adUnitid其中一个为空，不能请求广告");
-        a.put("4010000", "广告组件准备完成");
-        a.put("3010008", "播放地址为空");
-        a.put("3010009", "激励视频重复调用create错误");
-        a.put("3010010", "没有可以show的banner广告");
-        a.put("3010011", "广告关闭生效中，本次请求被拒绝");
-        a.put("3010012", "小游戏启动前%d秒不允许展示banner广告");
-        a.put("3010013", "banner广告展示频控限制，%d秒内不允许重复展示banner广告");
+        this.a = context;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public final void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = a.get(str);
-            if (str2 == null) {
-                str2 = "";
-            }
-            return b(str, str2);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            vp3.c(new b(this, str));
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
+    public void h(xo3 xo3Var, jp3 jp3Var, ResponseCallback<AdResponseInfo> responseCallback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? TextUtils.equals("3010012", str) ? String.format(str2, Long.valueOf(jo3.a().h() / 1000)) : TextUtils.equals("3010013", str) ? String.format(str2, Long.valueOf(jo3.a().f() / 1000)) : str2 : (String) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xo3Var, jp3Var, responseCallback) == null) {
+            if (NetworkUtils.f(this.a)) {
+                this.c = true;
+                if (jp3Var instanceof kp3) {
+                    kp3 kp3Var = (kp3) jp3Var;
+                    if (xo3Var == null || kp3Var.i() == null) {
+                        return;
+                    }
+                    xo3Var.a(kp3Var.g(), kp3Var.i(), responseCallback);
+                    return;
+                }
+                hp3.b bVar = new hp3.b();
+                bVar.m(aq3.c());
+                bVar.j(aq3.d());
+                bVar.o(jp3Var.i.g());
+                bVar.l(zp3.i(this.a));
+                bVar.i(zp3.h(this.a));
+                kp3 kp3Var2 = new kp3(this.a, bVar.h(), 5, 5);
+                if (xo3Var == null || kp3Var2.i() == null) {
+                    return;
+                }
+                xo3Var.a(kp3Var2.g(), kp3Var2.i(), responseCallback);
+                return;
+            }
+            g("3010003");
+        }
+    }
+
+    public void i(jp3 jp3Var, xo3 xo3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jp3Var, xo3Var) == null) {
+            up3.d(new a(this, jp3Var, xo3Var), "execAdRequest");
+        }
+    }
+
+    public final void j(jp3 jp3Var, String str, xo3 xo3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, jp3Var, str, xo3Var) == null) {
+            pp3.n(str, pp3.a(jp3Var.i.c(), jp3Var.i.f(), jp3Var.i.e(), jp3Var.i.b(), false), xo3Var);
+        }
+    }
+
+    public void k(so3 so3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, so3Var) == null) {
+            this.b = so3Var;
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ep3(Context context, boolean z) {
+        this(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = z;
     }
 }

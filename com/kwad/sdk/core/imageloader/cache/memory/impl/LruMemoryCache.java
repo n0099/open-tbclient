@@ -2,6 +2,7 @@ package com.kwad.sdk.core.imageloader.cache.memory.impl;
 
 import com.kwad.sdk.core.imageloader.cache.memory.MemoryCache;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
+import com.kwad.sdk.utils.aj;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -24,19 +25,22 @@ public class LruMemoryCache implements MemoryCache {
         return decodedResult.getByteSize();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x006d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x006e, code lost:
         throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void trimToSize(int i) {
-        Map.Entry<String, DecodedResult> next;
         while (true) {
             synchronized (this) {
                 if (this.size >= 0 && (!this.map.isEmpty() || this.size == 0)) {
-                    if (this.size <= i || this.map.isEmpty() || (next = this.map.entrySet().iterator().next()) == null) {
+                    if (this.size <= i || this.map.isEmpty()) {
                         break;
+                    }
+                    Map.Entry<String, DecodedResult> next = this.map.entrySet().iterator().next();
+                    if (next == null) {
+                        return;
                     }
                     String key = next.getKey();
                     this.map.remove(key);
@@ -56,13 +60,11 @@ public class LruMemoryCache implements MemoryCache {
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public final DecodedResult get(String str) {
         DecodedResult decodedResult;
-        if (str != null) {
-            synchronized (this) {
-                decodedResult = this.map.get(str);
-            }
-            return decodedResult;
+        aj.a(str, "key");
+        synchronized (this) {
+            decodedResult = this.map.get(str);
         }
-        throw new NullPointerException("key == null");
+        return decodedResult;
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
@@ -76,9 +78,8 @@ public class LruMemoryCache implements MemoryCache {
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public final boolean put(String str, DecodedResult decodedResult) {
-        if (str == null || decodedResult == null) {
-            throw new NullPointerException("key == null || value == null");
-        }
+        aj.a(str, "key");
+        aj.a(decodedResult, "value");
         synchronized (this) {
             this.size += sizeOf(str, decodedResult);
             DecodedResult put = this.map.put(str, decodedResult);
@@ -93,16 +94,14 @@ public class LruMemoryCache implements MemoryCache {
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public final DecodedResult remove(String str) {
         DecodedResult remove;
-        if (str != null) {
-            synchronized (this) {
-                remove = this.map.remove(str);
-                if (remove != null) {
-                    this.size -= sizeOf(str, remove);
-                }
+        aj.a(str, "key");
+        synchronized (this) {
+            remove = this.map.remove(str);
+            if (remove != null) {
+                this.size -= sizeOf(str, remove);
             }
-            return remove;
         }
-        throw new NullPointerException("key == null");
+        return remove;
     }
 
     public final synchronized String toString() {

@@ -1,85 +1,106 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconRequest;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uk8 {
+public class uk8 implements rt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final dk8 b;
-    public final Runnable c;
+    public tk8 a;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uk8 a;
-
-        public a(uk8 uk8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uk8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uk8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
-                if (this.a.b != null && this.a.b.z() != null && this.a.b.z().getCurrentTabType() == 22) {
-                    videoRedIconRequest.setCallFrom("video_tab");
-                }
-                this.a.a.sendMessage(videoRedIconRequest);
-                int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
-                if (videoRedIconInterval > 5) {
-                    qg.a().postDelayed(this.a.c, videoRedIconInterval * 1000);
-                }
-            }
-        }
-    }
-
-    public uk8(MainTabActivity mainTabActivity, dk8 dk8Var) {
+    public uk8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, dk8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new a(this);
-        this.a = mainTabActivity;
-        this.b = dk8Var;
     }
 
-    public void c() {
+    @Override // com.repackage.rt4
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qg.a().removeCallbacks(this.c);
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                b(context, 1);
+            } else {
+                b(context, 0);
+            }
         }
+    }
+
+    @Override // com.repackage.rt4
+    public void b(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i)));
+        }
+    }
+
+    @Override // com.repackage.rt4
+    public void c(Context context, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i, z)));
+        }
+    }
+
+    @Override // com.repackage.rt4
+    public Class<?> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? MainTabActivity.class : (Class) invokeV.objValue;
+    }
+
+    @Override // com.repackage.rt4
+    public void e(Context context, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
+        }
+    }
+
+    @Override // com.repackage.rt4
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? MainTabActivity.class.getName() : (String) invokeV.objValue;
+    }
+
+    public void g(tk8 tk8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, tk8Var) == null) {
+            this.a = tk8Var;
+        }
+    }
+
+    @Override // com.repackage.rt4
+    public int getCurrentTabType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            tk8 tk8Var = this.a;
+            if (tk8Var != null) {
+                return tk8Var.getCurrentTabType();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
     }
 }

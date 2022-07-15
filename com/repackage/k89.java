@@ -1,34 +1,32 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.renderscript.Allocation;
-import android.renderscript.Element;
-import android.renderscript.RenderScript;
-import android.renderscript.ScriptIntrinsicYuvToRGB;
-import android.renderscript.Type;
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.media.MediaMuxer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.faceunity.encoder.MediaMuxerWrapper;
+import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class k89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RenderScript a;
-    public ScriptIntrinsicYuvToRGB b;
-    public Type.Builder c;
-    public Type.Builder d;
-    public Allocation e;
-    public Allocation f;
+    public final MediaMuxer a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    public k89(Context context) {
+    public k89(String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,32 +36,91 @@ public class k89 {
                 return;
             }
         }
-        RenderScript create = RenderScript.create(context);
-        this.a = create;
-        this.b = ScriptIntrinsicYuvToRGB.create(create, Element.U8_4(create));
+        this.b = 2;
+        this.c = 0;
+        this.d = false;
+        this.a = new MediaMuxer(str, 0);
     }
 
-    public Bitmap a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public synchronized int a(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
+        int addTrack;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            if (this.c == null) {
-                RenderScript renderScript = this.a;
-                Type.Builder x = new Type.Builder(renderScript, Element.U8(renderScript)).setX(bArr.length);
-                this.c = x;
-                this.e = Allocation.createTyped(this.a, x.create(), 1);
-                RenderScript renderScript2 = this.a;
-                Type.Builder y = new Type.Builder(renderScript2, Element.RGBA_8888(renderScript2)).setX(i).setY(i2);
-                this.d = y;
-                this.f = Allocation.createTyped(this.a, y.create(), 1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
+            synchronized (this) {
+                if (this.d) {
+                    throw new IllegalStateException("muxer already started");
+                }
+                addTrack = this.a.addTrack(mediaFormat);
+                w89.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
             }
-            this.e.copyFrom(bArr);
-            this.b.setInput(this.e);
-            this.b.forEach(this.f);
-            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-            this.f.copyTo(createBitmap);
-            return createBitmap;
+            return addTrack;
         }
-        return (Bitmap) invokeLII.objValue;
+        return invokeL.intValue;
+    }
+
+    public synchronized void b(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, byteBuffer, bufferInfo) == null) {
+            synchronized (this) {
+                if (this.c > 0) {
+                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
+                }
+            }
+        }
+    }
+
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                w89.k(MediaMuxerWrapper.TAG, "start:");
+                int i = this.c + 1;
+                this.c = i;
+                if (this.b > 0 && i == this.b) {
+                    this.a.start();
+                    this.d = true;
+                    notifyAll();
+                    w89.k(MediaMuxerWrapper.TAG, "MediaMuxer started:");
+                }
+                z = this.d;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                w89.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.c);
+                int i = this.c + (-1);
+                this.c = i;
+                if (this.b > 0 && i <= 0) {
+                    if (this.d) {
+                        this.a.stop();
+                    }
+                    this.a.release();
+                    this.d = false;
+                    w89.k(MediaMuxerWrapper.TAG, "MediaMuxer stopped:");
+                }
+            }
+        }
+    }
+
+    public synchronized boolean e() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                z = this.d;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
     }
 }

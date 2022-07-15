@@ -8,16 +8,15 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
-import com.kwad.sdk.KsAdSDKImpl;
 import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class NetworkMonitor {
+public final class NetworkMonitor {
     public static volatile boolean a;
-    public List<WeakReference<a>> b;
+    public final List<WeakReference<a>> b;
     public boolean c;
     public final BroadcastReceiver d;
 
@@ -25,12 +24,12 @@ public class NetworkMonitor {
     public enum Holder {
         INSTANCE;
         
-        public NetworkMonitor mInstance = new NetworkMonitor();
+        public NetworkMonitor mInstance = new NetworkMonitor((byte) 0);
 
         Holder() {
         }
 
-        public NetworkMonitor getInstance() {
+        public final NetworkMonitor getInstance() {
             return this.mInstance;
         }
     }
@@ -52,7 +51,7 @@ public class NetworkMonitor {
         this.c = false;
         this.d = new BroadcastReceiver() { // from class: com.kwad.sdk.core.NetworkMonitor.1
             @Override // android.content.BroadcastReceiver
-            public void onReceive(@NonNull Context context, Intent intent) {
+            public final void onReceive(@NonNull Context context, Intent intent) {
                 ConnectivityManager connectivityManager;
                 NetworkMonitor networkMonitor;
                 NetworkState networkState;
@@ -60,9 +59,10 @@ public class NetworkMonitor {
                     if ((ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_NETWORK_STATE") == 0) && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
                         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-                            networkMonitor = NetworkMonitor.this;
-                            networkState = NetworkState.NETWORK_NONE;
-                        } else if (1 == activeNetworkInfo.getType()) {
+                            NetworkMonitor.this.a(NetworkState.NETWORK_NONE);
+                            return;
+                        }
+                        if (1 == activeNetworkInfo.getType()) {
                             networkMonitor = NetworkMonitor.this;
                             networkState = NetworkState.NETWORK_WIFI;
                         } else if (activeNetworkInfo.getType() == 0) {
@@ -81,29 +81,18 @@ public class NetworkMonitor {
         };
     }
 
+    public /* synthetic */ NetworkMonitor(byte b) {
+        this();
+    }
+
     public static NetworkMonitor a() {
         return Holder.INSTANCE.getInstance();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(NetworkState networkState) {
-        a aVar;
-        Iterator<WeakReference<a>> it = this.b.iterator();
-        while (it.hasNext()) {
-            WeakReference<a> next = it.next();
-            if (next == null || (aVar = next.get()) == null) {
-                it.remove();
-            } else {
-                aVar.a(networkState);
-            }
-        }
-    }
-
-    private synchronized void b() {
+    private synchronized void a(Context context) {
         if (a) {
             return;
         }
-        Context context = KsAdSDKImpl.get().getContext();
         if (context == null) {
             return;
         }
@@ -111,8 +100,43 @@ public class NetworkMonitor {
         a = true;
     }
 
-    public void a(@NonNull a aVar) {
-        b();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(NetworkState networkState) {
+        a aVar;
+        synchronized (this.b) {
+            Iterator<WeakReference<a>> it = this.b.iterator();
+            while (it.hasNext()) {
+                WeakReference<a> next = it.next();
+                if (next != null && (aVar = next.get()) != null) {
+                    aVar.a(networkState);
+                }
+                it.remove();
+            }
+        }
+    }
+
+    public final void a(Context context, @NonNull a aVar) {
+        a(context);
         this.b.add(new WeakReference<>(aVar));
+    }
+
+    public final void a(a aVar) {
+        a aVar2;
+        synchronized (this.b) {
+            Iterator<WeakReference<a>> it = this.b.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                WeakReference<a> next = it.next();
+                if (next != null && (aVar2 = next.get()) != null) {
+                    if (aVar == aVar2) {
+                        it.remove();
+                        break;
+                    }
+                }
+                it.remove();
+            }
+        }
     }
 }

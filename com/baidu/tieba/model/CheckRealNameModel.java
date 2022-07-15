@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bh8;
 import com.repackage.d9;
+import com.repackage.wh8;
 import com.repackage.za;
 /* loaded from: classes3.dex */
 public class CheckRealNameModel extends BdBaseModel {
@@ -94,11 +94,11 @@ public class CheckRealNameModel extends BdBaseModel {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456);
-        C();
+        D();
         registerListener(this.b);
     }
 
-    public void A(String str) {
+    public void B(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
@@ -107,7 +107,7 @@ public class CheckRealNameModel extends BdBaseModel {
         }
     }
 
-    public void B(String str, Object obj) {
+    public void C(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
             CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
@@ -117,15 +117,15 @@ public class CheckRealNameModel extends BdBaseModel {
         }
     }
 
-    public final void C() {
+    public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            bh8.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
-            bh8.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
+            wh8.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
+            wh8.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
         }
     }
 
-    public void D(b bVar) {
+    public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.a = bVar;

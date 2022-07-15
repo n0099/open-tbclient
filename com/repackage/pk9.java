@@ -1,83 +1,65 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBMediaView;
+import com.google.android.gms.common.Feature;
+import com.google.android.gms.common.internal.ConnectionTelemetryConfiguration;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
+import com.google.android.gms.common.internal.zzj;
 /* loaded from: classes6.dex */
-public class pk9 {
+public final class pk9 implements Parcelable.Creator<zzj> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vk9 a;
-    public tk9 b;
 
-    public pk9(Context context, String str) {
+    public pk9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        vk9 vk9Var = new vk9(context, str);
-        this.a = vk9Var;
-        vk9Var.f = new lk9(this);
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                if (this.a != null) {
-                    this.a.b();
-                    this.a = null;
-                }
-                if (this.b != null) {
-                    this.b = null;
-                }
-            } catch (Exception unused) {
             }
         }
     }
 
-    public void b(View view2, PBMediaView pBMediaView) {
-        vk9 vk9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, pBMediaView) == null) || (vk9Var = this.a) == null) {
-            return;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* bridge */ /* synthetic */ zzj createFromParcel(Parcel parcel) {
+        int q = SafeParcelReader.q(parcel);
+        Bundle bundle = null;
+        Feature[] featureArr = null;
+        ConnectionTelemetryConfiguration connectionTelemetryConfiguration = null;
+        int i = 0;
+        while (parcel.dataPosition() < q) {
+            int k = SafeParcelReader.k(parcel);
+            int h = SafeParcelReader.h(k);
+            if (h == 1) {
+                bundle = SafeParcelReader.a(parcel, k);
+            } else if (h == 2) {
+                featureArr = (Feature[]) SafeParcelReader.f(parcel, k, Feature.CREATOR);
+            } else if (h == 3) {
+                i = SafeParcelReader.m(parcel, k);
+            } else if (h != 4) {
+                SafeParcelReader.p(parcel, k);
+            } else {
+                connectionTelemetryConfiguration = (ConnectionTelemetryConfiguration) SafeParcelReader.c(parcel, k, ConnectionTelemetryConfiguration.CREATOR);
+            }
         }
-        vk9Var.c(view2, pBMediaView);
+        SafeParcelReader.g(parcel, q);
+        return new zzj(bundle, featureArr, i, connectionTelemetryConfiguration);
     }
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            vk9 vk9Var = this.a;
-            return (vk9Var == null || !vk9Var.f()) ? "" : vk9Var.c.getLoad_type();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            vk9 vk9Var = this.a;
-            return vk9Var != null && vk9Var.f();
-        }
-        return invokeV.booleanValue;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ zzj[] newArray(int i) {
+        return new zzj[i];
     }
 }

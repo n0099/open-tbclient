@@ -1,6 +1,6 @@
 package com.kwad.sdk.pngencrypt;
 /* loaded from: classes5.dex */
-public class p {
+public final class p {
     public final k a;
     public final e b;
     public final boolean c;
@@ -24,7 +24,7 @@ public class p {
         this.c = eVar != null;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.h = i;
         if (!this.c) {
             this.n = 1;
@@ -54,7 +54,7 @@ public class p {
         this.m = ((this.a.i * f) + 7) / 8;
     }
 
-    public void a(byte[] bArr, int i) {
+    public final void a(byte[] bArr, int i) {
         this.o = bArr;
         this.p = i;
     }

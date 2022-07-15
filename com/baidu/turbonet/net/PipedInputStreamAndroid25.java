@@ -59,31 +59,15 @@ public class PipedInputStreamAndroid25 extends InputStream {
         this.c = false;
         this.g = -1;
         this.h = 0;
-        e(i);
-        d(pipedOutputStreamAndroid25);
-    }
-
-    public final void a() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            while (this.g == this.h) {
-                c();
-                notifyAll();
-                try {
-                    wait(1000L);
-                } catch (InterruptedException unused) {
-                    Thread.currentThread().interrupt();
-                    throw new InterruptedIOException();
-                }
-            }
-        }
+        g(i);
+        f(pipedOutputStreamAndroid25);
     }
 
     @Override // java.io.InputStream
     public synchronized int available() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 if (this.g < 0) {
                     return 0;
@@ -102,7 +86,34 @@ public class PipedInputStreamAndroid25 extends InputStream {
 
     public final void c() throws IOException {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            while (this.g == this.h) {
+                e();
+                notifyAll();
+                try {
+                    wait(1000L);
+                } catch (InterruptedException unused) {
+                    Thread.currentThread().interrupt();
+                    throw new InterruptedIOException();
+                }
+            }
+        }
+    }
+
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
+            synchronized (this) {
+                this.g = -1;
+            }
+        }
+    }
+
+    public final void e() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.c) {
                 if (!this.a && !this.b) {
                     Thread thread = this.d;
@@ -117,25 +128,14 @@ public class PipedInputStreamAndroid25 extends InputStream {
         }
     }
 
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            synchronized (this) {
-                this.g = -1;
-            }
-        }
-    }
-
-    public void d(PipedOutputStreamAndroid25 pipedOutputStreamAndroid25) throws IOException {
+    public void f(PipedOutputStreamAndroid25 pipedOutputStreamAndroid25) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pipedOutputStreamAndroid25) == null) {
             pipedOutputStreamAndroid25.a(this);
         }
     }
 
-    public final void e(int i) {
+    public final void g(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             if (i > 0) {
@@ -146,14 +146,14 @@ public class PipedInputStreamAndroid25 extends InputStream {
         }
     }
 
-    public synchronized void f(int i) throws IOException {
+    public synchronized void h(int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             synchronized (this) {
-                c();
+                e();
                 this.e = Thread.currentThread();
                 if (this.g == this.h) {
-                    a();
+                    c();
                 }
                 if (this.g < 0) {
                     this.g = 0;
@@ -177,7 +177,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void g(byte[] bArr, int i, int i2) throws IOException {
+    public synchronized void i(byte[] bArr, int i, int i2) throws IOException {
         int i3;
         int i4;
         int i5;
@@ -185,11 +185,11 @@ public class PipedInputStreamAndroid25 extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i, i2) == null) {
             synchronized (this) {
-                c();
+                e();
                 this.e = Thread.currentThread();
                 while (i2 > 0) {
                     if (this.g == this.h) {
-                        a();
+                        c();
                     }
                     if (this.h < this.g) {
                         i4 = this.f.length;
@@ -309,7 +309,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
         this.c = false;
         this.g = -1;
         this.h = 0;
-        e(1024);
+        g(1024);
     }
 
     @Override // java.io.InputStream

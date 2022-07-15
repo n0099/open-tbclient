@@ -1,81 +1,121 @@
 package com.repackage;
 
-import android.content.Context;
-import android.database.ContentObserver;
-import android.os.Handler;
-import android.provider.Settings;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class p58 extends ContentObserver {
+public class p58 extends jx5<n48> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a b;
-
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(boolean z);
-    }
+    public View i;
+    public v38 j;
+    public View k;
+    public TextView l;
+    public TextView m;
+    public ImageView n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p58(Context context, Handler handler) {
-        super(handler);
+    public p58(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        r(h());
     }
 
-    public final void a() {
-        Context context;
+    @Override // com.repackage.jx5
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (context = this.a) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01ad : invokeV.intValue;
+    }
+
+    @Override // com.repackage.jx5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
+                SkinManager.setBackgroundResource(this.k, R.color.CAM_X0205);
+                SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1);
+                SkinManager.setImageResource(this.n, R.drawable.pic_pop_key);
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0304, 1);
+            }
+            this.a = i;
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        v38 v38Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null || (v38Var = this.j) == null || view2 != this.l) {
             return;
         }
-        try {
-            int i = Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation");
-            if (this.b != null) {
-                a aVar = this.b;
-                boolean z = true;
-                if (i != 1) {
-                    z = false;
-                }
-                aVar.a(z);
+        v38Var.a();
+    }
+
+    public final void r(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f09054f);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f09213d);
+            this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091397);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091663);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050e);
+            this.l.setOnClickListener(this);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.jx5
+    /* renamed from: s */
+    public void i(n48 n48Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, n48Var) == null) {
+            if (n48Var == null) {
+                this.i.setVisibility(8);
+                return;
             }
-        } catch (Settings.SettingNotFoundException e) {
-            e.printStackTrace();
+            if (this.i.getVisibility() != 0) {
+                this.i.setVisibility(0);
+            }
+            View view2 = this.k;
+            if (view2 != null) {
+                if (n48Var.a) {
+                    view2.setVisibility(8);
+                } else {
+                    view2.setVisibility(0);
+                }
+            }
         }
     }
 
-    public void b(a aVar) {
+    public void t(v38 v38Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.b = aVar;
-            a();
-        }
-    }
-
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            a();
+        if (interceptable == null || interceptable.invokeL(1048582, this, v38Var) == null) {
+            this.j = v38Var;
         }
     }
 }

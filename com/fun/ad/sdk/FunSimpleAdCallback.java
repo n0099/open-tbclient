@@ -74,9 +74,9 @@ public class FunSimpleAdCallback implements FunAdCallback {
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
-    public void onRewardedVideo(String str, String str2, String str3) {
+    public void onRewardedVideo(String str, String str2, String str3, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
         }
     }
 }

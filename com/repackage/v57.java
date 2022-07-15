@@ -1,682 +1,504 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteStatement;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.util.ForumBroadcastHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.im.forum.broadcast.adapter.FroumBroadMajorHistoryAdapter;
-import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
-import com.baidu.tieba.im.forum.broadcast.view.ForumBroadcastMajorQuestionDialogView;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.view.ScreenTopToast;
+import com.baidu.tieba.im.data.UpdatesItemData;
+import com.baidu.tieba.im.data.ValidateItemData;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.model.ModelHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.util.StringUtils;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class v57 {
     public static /* synthetic */ Interceptable $ic;
+    public static v57 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
-    public final s57 b;
-    public View c;
-    public NavigationBar d;
-    public BdRecyclerView e;
-    public PbListView f;
-    public boolean g;
-    public FroumBroadMajorHistoryAdapter h;
-    public List<u57> i;
-    public ImageView j;
-    public LinearLayout k;
-    public TextView l;
-    public TextView m;
-    public String n;
-    public String o;
-    public i45 p;
-    public RelativeLayout q;
-    public boolean r;
-    public ScreenTopToast s;
-    public BdListView.p t;
-    public ul4<u57> u;
-    public View.OnClickListener v;
-    public View.OnClickListener w;
-    public View.OnClickListener x;
-    public View.OnClickListener y;
 
-    /* loaded from: classes7.dex */
-    public class a implements BdListView.p {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v57 a;
-
-        public a(v57 v57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v57Var;
-        }
-
-        @Override // com.baidu.adp.widget.ListView.BdListView.p
-        public void onScrollToBottom() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.e != null) {
-                    this.a.e.stopScroll();
-                }
-                this.a.p();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ul4<u57> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v57 a;
-
-        public b(v57 v57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v57Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ul4
-        /* renamed from: a */
-        public void d(View view2, u57 u57Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, u57Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ul4
-        /* renamed from: b */
-        public void c(View view2, u57 u57Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, u57Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || u57Var == null) {
-                return;
-            }
-            TiebaStatic.log(new StatisticItem("c13875").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.n).param("tid", u57Var.j() != null ? u57Var.j().tid.longValue() : 0L));
-            String str = "";
-            if (view2.getId() == R.id.obfuscated_res_0x7f090a15) {
-                if (dc5.a()) {
-                    return;
-                }
-                if (this.a.r) {
-                    this.a.q();
-                    return;
-                }
-                ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(this.a.a.getPageActivity());
-                String str2 = u57Var.b() + "";
-                String str3 = this.a.o;
-                String str4 = this.a.n;
-                if (u57Var.j() != null) {
-                    str = u57Var.j().tid + "";
-                }
-                forumBroadcastHelper.jumpFlutterEditRelease(str2, str3, str4, str, u57Var.k(), u57Var.c(), u57Var.f(), ForumBroadcastHelper.VALUE_PARMARS_BCAST_FROM_EDIT, "2");
-                forumBroadcastHelper.start();
-            } else if (u57Var.j() != null && u57Var.j().is_deleted.intValue() != 1) {
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a.a.getPageActivity());
-                pbActivityConfig.createNormalCfg(u57Var.j().tid + "", null, null);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
-            } else {
-                BdTopToast bdTopToast = new BdTopToast(this.a.a.getPageActivity());
-                bdTopToast.i(false);
-                bdTopToast.h(this.a.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0650));
-                bdTopToast.j((ViewGroup) this.a.c.findViewById(R.id.obfuscated_res_0x7f090a32));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v57 a;
-
-        public c(v57 v57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v57Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("_forumId", this.a.n);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.a.getPageActivity(), "ForumGradePage", hashMap)));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v57 a;
-
-        public d(v57 v57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v57Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TiebaStatic.log(new StatisticItem("c13873").param("uid", TbadkCoreApplication.getCurrentAccountId()));
-                this.a.t();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v57 a;
-
-        public e(v57 v57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v57Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || dc5.a()) {
-                return;
-            }
-            ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(this.a.a.getPageActivity());
-            forumBroadcastHelper.jumpFlutterEditGenear(this.a.n, this.a.o, "2");
-            forumBroadcastHelper.start();
-            TiebaStatic.log(new StatisticItem("c13874").param("uid", TbadkCoreApplication.getCurrentAccountId()));
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class f implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v57 a;
-
-        public f(v57 v57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v57Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TiebaStatic.log(new StatisticItem("c13874").param("uid", TbadkCoreApplication.getCurrentAccountId()));
-                if (dc5.a()) {
-                    return;
-                }
-                this.a.q();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class g implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v57 a;
-
-        public g(v57 v57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v57Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.e != null) {
-                    this.a.e.stopScroll();
-                }
-                if (this.a.f == null || this.a.b == null || !ni.z()) {
-                    return;
-                }
-                this.a.f.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                this.a.f.B(null);
-                if (this.a.g) {
-                    this.a.f.N();
-                    this.a.b.b();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class h implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v57 a;
-
-        public h(v57 v57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v57Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ni.A() && this.a.b != null) {
-                this.a.k();
-                this.a.b.refresh();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class i implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nq4 a;
-
-        public i(v57 v57Var, nq4 nq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v57Var, nq4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nq4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            nq4 nq4Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (nq4Var = this.a) == null) {
-                return;
-            }
-            nq4Var.dismiss();
-        }
-    }
-
-    public v57(TbPageContext<?> tbPageContext, s57 s57Var, View view2, String str, String str2, String str3, Bundle bundle) {
+    public v57() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, s57Var, view2, str, str2, str3, bundle};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = new ArrayList();
-        this.t = new a(this);
-        this.u = new b(this);
-        this.v = new d(this);
-        this.w = new e(this);
-        this.x = new f(this);
-        this.y = new g(this);
-        this.a = tbPageContext;
-        this.b = s57Var;
-        this.n = str;
-        this.o = str2;
-        l(view2, str3);
-        TiebaStatic.log(new StatisticItem("c13872").param("uid", TbadkCoreApplication.getCurrentAccountId()));
     }
 
-    public void k() {
-        i45 i45Var;
+    public static v57 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i45Var = this.p) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = new v57();
+            }
+            return a;
         }
-        i45Var.dettachView(this.q);
-        this.p = null;
+        return (v57) invokeV.objValue;
     }
 
-    public final void l(View view2, String str) {
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        Boolean bool;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str) == null) {
-            this.c = view2;
-            this.d = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0914c9);
-            this.q = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a31);
-            this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.j = (ImageView) this.d.getCenterImgBox();
-            LinearLayout linearLayout = (LinearLayout) this.d.getCenterImgBoxLayout();
-            this.k = linearLayout;
-            linearLayout.setGravity(16);
-            int f2 = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds17);
-            int f3 = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-            SkinManager.setNavbarIconSrc(this.j, R.drawable.obfuscated_res_0x7f0805d0, R.drawable.obfuscated_res_0x7f0805d0);
-            this.d.showBottomLine();
-            this.m = this.d.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1232));
-            this.j.setPadding(f2, f2, f2, f2);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.m.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.leftMargin = f2;
-            layoutParams.rightMargin = 0;
-            this.m.setLayoutParams(layoutParams);
-            int i2 = f3 + f2 + f2;
-            layoutParams2.width = i2;
-            layoutParams2.height = i2;
-            this.j.setLayoutParams(layoutParams2);
-            this.j.setVisibility(0);
-            this.j.setOnClickListener(this.v);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0903e7);
-            this.e = bdRecyclerView;
-            bdRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
-            this.e.setOverScrollMode(2);
-            this.e.setOnSrollToBottomListener(this.t);
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-            FroumBroadMajorHistoryAdapter froumBroadMajorHistoryAdapter = new FroumBroadMajorHistoryAdapter(this.a.getPageActivity());
-            this.h = froumBroadMajorHistoryAdapter;
-            froumBroadMajorHistoryAdapter.h(this.u);
-            this.e.setAdapter(this.h);
-            PbListView pbListView = new PbListView(this.a.getPageActivity());
-            this.f = pbListView;
-            pbListView.b();
-            this.f.p(R.color.CAM_X0204);
-            this.f.t(pi.f(this.a.getPageActivity(), R.dimen.tbds182));
-            this.f.x();
-            this.f.G(R.dimen.tbfontsize33);
-            this.f.E(SkinManager.getColor(R.color.CAM_X0107));
-            this.f.A(R.color.CAM_X0110);
-            this.f.s();
-            this.f.B(this.y);
-            if (ForumBroadcastHelper.VALUE_INTENT_BCAST_FROM_EDIT_SUCCESS.equals(str)) {
-                s();
-                int h2 = z8.g().h();
-                Activity f4 = z8.g().f(h2 - 2);
-                Activity f5 = z8.g().f(h2 - 3);
-                if (f4 == null || f5 == null || !"FlutterPageActivity".equals(f4.getClass().getSimpleName()) || !"ForumBroadCastMajorHistoryActivity".equals(f5.getClass().getSimpleName())) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                z57.d().delete("tb_group_news", "notice_id = ?", new String[]{str});
+                bool = Boolean.TRUE;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.deleteByNoticeId", new Object[0]);
+                e.printStackTrace();
+                bool = Boolean.FALSE;
+            }
+            return bool.booleanValue();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean b(List<UpdatesItemData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            Boolean bool = Boolean.FALSE;
+            if (list == null || list.isEmpty()) {
+                return false;
+            }
+            try {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    UpdatesItemData updatesItemData = list.get(i);
+                    if (updatesItemData != null) {
+                        z57.d().delete("tb_group_news", "notice_id=?", new String[]{updatesItemData.getNotice_id()});
+                    }
                 }
-                f5.finish();
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.deleteByUpdatesData", new Object[0]);
+                e.printStackTrace();
+                bool = Boolean.FALSE;
             }
+            return bool.booleanValue();
         }
+        return invokeL.booleanValue;
     }
 
-    public void m(int i2) {
+    public LinkedList<GroupNewsPojo> c(long j, int i, int i2, String str) {
+        InterceptResult invokeCommon;
+        Cursor e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.d.onChangeSkinType(this.a, i2);
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-            this.f.d(i2);
-            this.h.notifyDataSetChanged();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.i = null;
-            this.s = null;
-        }
-    }
-
-    public void o(t57 t57Var) {
-        BdRecyclerView bdRecyclerView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, t57Var) == null) || t57Var == null || t57Var.b() == null) {
-            return;
-        }
-        if (!ListUtils.isEmpty(t57Var.b()) && StringUtils.isEmpty(this.n)) {
-            u57 u57Var = t57Var.b().get(0);
-            if (u57Var.e() != null) {
-                this.n = u57Var.e().forum_id + "";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
+            if (i2 < 0) {
+                i2 = 0;
             }
-        }
-        this.g = t57Var.a();
-        if (t57Var.c()) {
-            if (!ListUtils.isEmpty(t57Var.b())) {
-                this.i.clear();
-                this.i.addAll(t57Var.b());
+            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
+            if (i <= 0) {
+                i = 20;
             }
-        } else if (!ListUtils.isEmpty(t57Var.b())) {
-            this.i.addAll(t57Var.b());
-        }
-        this.h.i(this.i);
-        if (!t57Var.c() || (bdRecyclerView = this.e) == null || bdRecyclerView.getChildCount() <= 0) {
-            return;
-        }
-        this.e.scrollToPosition(0);
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f == null || this.b == null) {
-            return;
-        }
-        if (ni.z()) {
-            this.e.setNextPage(this.f);
-            this.f.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.f.B(null);
-            if (this.g) {
-                this.f.N();
-                this.b.b();
-                return;
-            }
-            this.f.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f8));
-            this.f.f();
-            return;
-        }
-        this.e.setNextPage(null);
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ScreenTopToast screenTopToast = this.s;
-            if (screenTopToast == null || !screenTopToast.g()) {
-                ScreenTopToast screenTopToast2 = new ScreenTopToast(this.a.getPageActivity());
-                screenTopToast2.m(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0653));
-                screenTopToast2.k(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0729));
-                screenTopToast2.j(new c(this));
-                this.s = screenTopToast2;
-                screenTopToast2.n((ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f090a32));
-            }
-        }
-    }
-
-    public void r(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) {
-            i45 i45Var = this.p;
-            if (i45Var == null || !i45Var.isViewAttached()) {
-                if (this.p == null) {
-                    this.p = new i45(this.a.getPageActivity(), new h(this));
+            Cursor cursor = null;
+            try {
+                try {
+                    if (j <= 0) {
+                        if (TextUtils.isEmpty(str)) {
+                            e = z57.d().e("select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, null);
+                        } else {
+                            e = z57.d().e(String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str), null);
+                        }
+                    } else if (TextUtils.isEmpty(str)) {
+                        e = z57.d().e("select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j)});
+                    } else {
+                        e = z57.d().e("select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j), str});
+                    }
+                    cursor = e;
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            GroupNewsPojo groupNewsPojo = new GroupNewsPojo();
+                            groupNewsPojo.setCmd(cursor.getString(cursor.getColumnIndex("cmd")));
+                            groupNewsPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                            groupNewsPojo.setContent_status(cursor.getInt(cursor.getColumnIndex("content_status")));
+                            groupNewsPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
+                            groupNewsPojo.setGid(cursor.getString(cursor.getColumnIndex("gid")));
+                            groupNewsPojo.setNotice_id(cursor.getString(cursor.getColumnIndex("notice_id")));
+                            groupNewsPojo.setTime(cursor.getLong(cursor.getColumnIndex("time")));
+                            linkedList.add(groupNewsPojo);
+                        }
+                    }
+                } catch (Exception e2) {
+                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getAllByCmd", new Object[0]);
+                    e2.printStackTrace();
                 }
-                this.p.m(null);
-                this.p.k(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070292));
-                this.p.attachView(this.q, false);
-                this.p.p();
+                qi.a(cursor);
+                return l(linkedList);
+            } catch (Throwable th) {
+                qi.a(cursor);
+                throw th;
             }
         }
+        return (LinkedList) invokeCommon.objValue;
     }
 
-    public void s() {
+    public GroupNewsPojo d(String str) {
+        InterceptResult invokeL;
+        GroupNewsPojo groupNewsPojo;
+        Exception e;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.c == null) {
-            return;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
+            return (GroupNewsPojo) invokeL.objValue;
         }
-        BdTopToast bdTopToast = new BdTopToast(this.a.getPageActivity());
-        bdTopToast.i(true);
-        bdTopToast.h(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06ca));
-        bdTopToast.j((ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f090a32));
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            nq4 nq4Var = new nq4(this.a.getPageActivity());
-            nq4Var.setContentViewSize(2);
-            nq4Var.setCanceledOnTouchOutside(false);
-            ForumBroadcastMajorQuestionDialogView forumBroadcastMajorQuestionDialogView = new ForumBroadcastMajorQuestionDialogView(this.a.getPageActivity());
-            forumBroadcastMajorQuestionDialogView.setConfirmButtonListener(new i(this, nq4Var));
-            nq4Var.setContentView(forumBroadcastMajorQuestionDialogView);
-            nq4Var.create(this.a).show();
+        Cursor cursor2 = null;
+        r1 = null;
+        GroupNewsPojo groupNewsPojo2 = null;
+        try {
+            cursor = z57.d().e("select * from tb_group_news WHERE notice_id = ?", new String[]{str});
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    try {
+                        try {
+                            groupNewsPojo = new GroupNewsPojo();
+                            try {
+                                groupNewsPojo.setCmd(cursor.getString(cursor.getColumnIndex("cmd")));
+                                groupNewsPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                                groupNewsPojo.setContent_status(cursor.getInt(cursor.getColumnIndex("content_status")));
+                                groupNewsPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
+                                groupNewsPojo.setGid(cursor.getString(cursor.getColumnIndex("gid")));
+                                groupNewsPojo.setNotice_id(cursor.getString(cursor.getColumnIndex("notice_id")));
+                                groupNewsPojo.setTime(cursor.getLong(cursor.getColumnIndex("time")));
+                                groupNewsPojo2 = groupNewsPojo;
+                            } catch (Exception e2) {
+                                e = e2;
+                                e.printStackTrace();
+                                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getByNoticeId", new Object[0]);
+                                qi.a(cursor);
+                                return groupNewsPojo;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor2 = cursor;
+                            qi.a(cursor2);
+                            throw th;
+                        }
+                    } catch (Exception e3) {
+                        groupNewsPojo = groupNewsPojo2;
+                        e = e3;
+                    }
+                }
+            }
+            qi.a(cursor);
+            return groupNewsPojo2;
+        } catch (Exception e4) {
+            groupNewsPojo = null;
+            e = e4;
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+            qi.a(cursor2);
+            throw th;
         }
     }
 
-    public void u(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
+    public int e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, forumBroadcastMajorResidueData) == null) && this.l == null) {
-            if (forumBroadcastMajorResidueData == null) {
-                TextView addTextButton = this.d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f050c), this.w);
-                this.l = addTextButton;
-                SkinManager.setViewTextColorSelector(addTextButton, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50, 0);
-            } else if (forumBroadcastMajorResidueData.A() >= forumBroadcastMajorResidueData.z()) {
-                this.r = true;
-                TextView addTextButton2 = this.d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f050c), this.x);
-                this.l = addTextButton2;
-                SkinManager.setViewTextColorSelector(addTextButton2, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50, 0);
-                this.l.setAlpha(0.33f);
-            } else {
-                TextView addTextButton3 = this.d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f050c), this.w);
-                this.l = addTextButton3;
-                SkinManager.setViewTextColorSelector(addTextButton3, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50, 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            Cursor cursor = null;
+            int i = 0;
+            try {
+                try {
+                    cursor = z57.d().e(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' )", str), null);
+                    i = cursor.moveToFirst() ? cursor.getInt(0) : -1;
+                } catch (SQLiteException e) {
+                    TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getCountByCmd", new Object[0]);
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getCountByCmd", new Object[0]);
+                    e2.printStackTrace();
+                }
+                return i;
+            } finally {
+                qi.a(cursor);
             }
         }
+        return invokeL.intValue;
+    }
+
+    public int g(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
+            Cursor cursor = null;
+            int i2 = 0;
+            try {
+                try {
+                    try {
+                        cursor = z57.d().e(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, "" + i), null);
+                        i2 = cursor.moveToFirst() ? cursor.getInt(0) : -1;
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getNewCountByCmd", new Object[0]);
+                        e.printStackTrace();
+                    }
+                } catch (SQLiteException e2) {
+                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getNewCountByCmd", new Object[0]);
+                    e2.printStackTrace();
+                }
+                return i2;
+            } finally {
+                qi.a(cursor);
+            }
+        }
+        return invokeLI.intValue;
+    }
+
+    public int h(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("content_status", (Integer) 3);
+                    return z57.d().update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
+                }
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.hideByNoticeIdSync", new Object[0]);
+                e.printStackTrace();
+            }
+            return 0;
+        }
+        return invokeLI.intValue;
+    }
+
+    public final long i(GroupNewsPojo groupNewsPojo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, groupNewsPojo)) == null) {
+            try {
+                try {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    stringBuffer.append("INSERT INTO ");
+                    stringBuffer.append("tb_group_news");
+                    stringBuffer.append("(");
+                    stringBuffer.append("cmd");
+                    stringBuffer.append(",");
+                    stringBuffer.append("content");
+                    stringBuffer.append(",");
+                    stringBuffer.append("content_status");
+                    stringBuffer.append(",");
+                    stringBuffer.append("ext");
+                    stringBuffer.append(",");
+                    stringBuffer.append("gid");
+                    stringBuffer.append(",");
+                    stringBuffer.append("notice_id");
+                    stringBuffer.append(",");
+                    stringBuffer.append("time");
+                    stringBuffer.append(") VALUES(?,?,?,?,?,?,?)");
+                    SQLiteStatement a2 = z57.d().a(stringBuffer.toString());
+                    if (a2 == null) {
+                        qi.c(a2);
+                        return -1L;
+                    }
+                    a2.clearBindings();
+                    x57.b(a2, 1, groupNewsPojo.getCmd());
+                    x57.b(a2, 2, groupNewsPojo.getContent());
+                    a2.bindLong(3, groupNewsPojo.getContent_status());
+                    x57.b(a2, 4, groupNewsPojo.getExt());
+                    x57.b(a2, 5, groupNewsPojo.getGid());
+                    x57.b(a2, 6, groupNewsPojo.getNotice_id());
+                    a2.bindLong(7, groupNewsPojo.getTime());
+                    long executeInsert = a2.executeInsert();
+                    qi.c(a2);
+                    return executeInsert;
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.insertByStatement", new Object[0]);
+                    qi.c(null);
+                    return -1L;
+                }
+            } catch (Throwable th) {
+                qi.c(null);
+                throw th;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    public boolean j(ValidateItemData validateItemData) {
+        InterceptResult invokeL;
+        List<ValidateItemData> convertToValidateItemDataList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, validateItemData)) == null) {
+            if (validateItemData == null || ModelHelper.getInstance().getValidateModel() == null || (convertToValidateItemDataList = ModelHelper.getInstance().getValidateModel().convertToValidateItemDataList(c(0L, Integer.MAX_VALUE, 0, "apply_join_group"))) == null || convertToValidateItemDataList.size() == 0) {
+                return false;
+            }
+            int size = convertToValidateItemDataList.size();
+            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
+            int i = 0;
+            for (int i2 = 0; i2 < size; i2++) {
+                ValidateItemData validateItemData2 = convertToValidateItemDataList.get(i2);
+                if (validateItemData2.getGroupId().equals(validateItemData.getGroupId()) && validateItemData2.getUserId().equals(validateItemData.getUserId()) && validateItemData.isPass()) {
+                    validateItemData2.setPass(true);
+                    if (validateItemData.isShown()) {
+                        validateItemData2.setShown(true);
+                    }
+                    linkedList.add(validateItemData2.toGroupNewsPojo());
+                    i++;
+                }
+            }
+            BdLog.i("affectCount:" + i);
+            return m(linkedList).booleanValue();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean k(String str, int i) {
+        InterceptResult invokeLI;
+        Cursor e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
+            Cursor cursor = null;
+            cursor = null;
+            if (i < 1000) {
+                i = 1000;
+            }
+            try {
+                try {
+                    z57 d = z57.d();
+                    e = d.e("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT " + i + ", 1", null);
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                String string = e.moveToNext() ? e.getString(e.getColumnIndex("notice_id")) : null;
+                qi.a(e);
+                if (string != null) {
+                    z57.d().delete("tb_group_news", "notice_id<?", new String[]{string});
+                }
+                qi.a(e);
+                return true;
+            } catch (Exception e3) {
+                e = e3;
+                cursor = e;
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
+                qi.a(cursor);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = e;
+                qi.a(cursor);
+                throw th;
+            }
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public final LinkedList<GroupNewsPojo> l(LinkedList<GroupNewsPojo> linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, linkedList)) == null) {
+            LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
+            ArrayList arrayList = new ArrayList();
+            int size = linkedList.size();
+            for (int i = 0; i < size; i++) {
+                GroupNewsPojo groupNewsPojo = linkedList.get(i);
+                boolean z = false;
+                for (int i2 = 0; i2 < linkedList2.size(); i2++) {
+                    if (linkedList2.get(i2).getContent().equals(groupNewsPojo.getContent())) {
+                        z = true;
+                    }
+                }
+                if (z) {
+                    arrayList.add(groupNewsPojo.getNotice_id());
+                } else {
+                    linkedList2.add(groupNewsPojo);
+                }
+                int size2 = arrayList.size();
+                for (int i3 = 0; i3 < size2; i3++) {
+                    h((String) arrayList.get(i3), 3);
+                }
+            }
+            return linkedList2;
+        }
+        return (LinkedList) invokeL.objValue;
+    }
+
+    public Boolean m(LinkedList<GroupNewsPojo> linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, linkedList)) == null) {
+            Boolean bool = Boolean.FALSE;
+            if (linkedList != null && linkedList.size() != 0) {
+                try {
+                    try {
+                        z57.d().f();
+                        Iterator<GroupNewsPojo> it = linkedList.iterator();
+                        LinkedList<GroupNewsPojo> linkedList2 = null;
+                        List<ValidateItemData> list = null;
+                        while (it.hasNext()) {
+                            GroupNewsPojo next = it.next();
+                            if (next.getCmd().equals("apply_join_group")) {
+                                if (linkedList2 == null) {
+                                    linkedList2 = c(0L, Integer.MAX_VALUE, 0, "apply_join_group");
+                                    if (ModelHelper.getInstance().getValidateModel() != null) {
+                                        list = ModelHelper.getInstance().getValidateModel().convertToValidateItemDataList(linkedList2);
+                                    }
+                                    if (list == null) {
+                                        list = new LinkedList<>();
+                                    }
+                                }
+                                if (list != null) {
+                                    ValidateItemData convertToValidateItemData = ModelHelper.getInstance().getValidateModel() != null ? ModelHelper.getInstance().getValidateModel().convertToValidateItemData(next) : null;
+                                    if (convertToValidateItemData != null) {
+                                        for (ValidateItemData validateItemData : list) {
+                                            if (convertToValidateItemData.getUserId() != null && convertToValidateItemData.getUserId().equals(validateItemData.getUserId()) && convertToValidateItemData.getGroupId() != null && convertToValidateItemData.getGroupId().equals(validateItemData.getGroupId())) {
+                                                a(validateItemData.getNotice_id());
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("cmd", next.getCmd());
+                            contentValues.put("content", next.getContent());
+                            contentValues.put("content_status", Integer.valueOf(next.getContent_status()));
+                            contentValues.put("ext", next.getExt());
+                            contentValues.put("gid", next.getGid());
+                            contentValues.put("notice_id", next.getNotice_id());
+                            contentValues.put("time", Long.valueOf(next.getTime()));
+                            if (z57.d().update("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
+                                i(next);
+                            }
+                            bool = Boolean.valueOf(bool.booleanValue() & true);
+                        }
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.updateData", new Object[0]);
+                        e.printStackTrace();
+                        bool = Boolean.FALSE;
+                    }
+                    return bool;
+                } finally {
+                    z57.d().b();
+                }
+            }
+            return Boolean.FALSE;
+        }
+        return (Boolean) invokeL.objValue;
     }
 }

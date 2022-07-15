@@ -15,20 +15,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h05;
-import com.repackage.jj7;
-import com.repackage.kj7;
-import com.repackage.lj7;
-import com.repackage.nj7;
-import com.repackage.u05;
+import com.repackage.bk7;
+import com.repackage.ck7;
+import com.repackage.dk7;
+import com.repackage.fk7;
+import com.repackage.j15;
+import com.repackage.v15;
 /* loaded from: classes3.dex */
-public class TailEditColorToolHost extends NoPressedLinearLayout implements u05 {
+public class TailEditColorToolHost extends NoPressedLinearLayout implements v15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public jj7 b;
-    public lj7 c;
-    public nj7 d;
+    public bk7 b;
+    public dk7 c;
+    public fk7 d;
     public EditorTools e;
     public View.OnClickListener f;
 
@@ -58,14 +58,14 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements u05 
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            kj7 kj7Var;
+            ck7 ck7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (kj7Var = (kj7) view2.getTag()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (ck7Var = (ck7) view2.getTag()) == null) {
                 return;
             }
-            this.a.c.c(kj7Var.b());
+            this.a.c.c(ck7Var.b());
             this.a.b.notifyDataSetChanged();
-            this.a.e.A(new h05(26, -1, kj7Var.b()));
+            this.a.e.A(new j15(26, -1, ck7Var.b()));
         }
     }
 
@@ -92,45 +92,45 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements u05 
         f(tbPageContext, str);
     }
 
-    @Override // com.repackage.i05
-    public void C(h05 h05Var) {
+    @Override // com.repackage.k15
+    public void C(j15 j15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, h05Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, j15Var) == null) {
         }
     }
 
-    @Override // com.repackage.u05
-    public void L(h05 h05Var) {
+    @Override // com.repackage.v15
+    public void L(j15 j15Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h05Var) == null) || (editorTools = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j15Var) == null) || (editorTools = this.e) == null) {
             return;
         }
-        editorTools.A(h05Var);
+        editorTools.A(j15Var);
     }
 
     public final void f(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, str) == null) {
-            LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07e9, (ViewGroup) this, true);
-            this.d = new nj7(this);
-            lj7 lj7Var = new lj7(tbPageContext);
-            this.c = lj7Var;
-            lj7Var.c(str);
-            jj7 jj7Var = new jj7(tbPageContext, this.c, this.f);
-            this.b = jj7Var;
-            this.d.a(jj7Var);
+            LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0807, (ViewGroup) this, true);
+            this.d = new fk7(this);
+            dk7 dk7Var = new dk7(tbPageContext);
+            this.c = dk7Var;
+            dk7Var.c(str);
+            bk7 bk7Var = new bk7(tbPageContext, this.c, this.f);
+            this.b = bk7Var;
+            this.d.a(bk7Var);
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -138,21 +138,21 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements u05 
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -160,7 +160,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements u05 
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
@@ -168,7 +168,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements u05 
         }
     }
 
-    @Override // com.repackage.u05
+    @Override // com.repackage.v15
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {

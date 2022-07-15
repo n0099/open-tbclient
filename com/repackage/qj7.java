@@ -4,118 +4,143 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qj7 {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class qj7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TailData b;
-    public TextView c;
-    public TextView d;
-    public Context e;
-    public String f;
+    public List<pj7> a;
+    public LayoutInflater b;
 
-    public qj7() {
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageView a;
+        public TextView b;
+
+        public a(qj7 qj7Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qj7Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09144e);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09144d);
+        }
+    }
+
+    public qj7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = LayoutInflater.from(context);
     }
 
-    public void a(TbPageContext<?> tbPageContext) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public pj7 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            tbPageContext.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            tbPageContext.getLayoutMode().j(this.a);
-            d(this.f);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<pj7> list = this.a;
+            if (list == null) {
+                return null;
+            }
+            return list.get(i);
+        }
+        return (pj7) invokeI.objValue;
+    }
+
+    public final void b(pj7 pj7Var, a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pj7Var, aVar) == null) || pj7Var == null) {
+            return;
+        }
+        aVar.b.setText(pj7Var.b);
+        SkinManager.setViewTextColor(aVar.b, (int) R.color.CAM_X0106);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(aVar.a, pj7Var.a, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+    }
+
+    public void c(List<pj7> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
     }
 
-    public View b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.e = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07ef, (ViewGroup) null);
-            this.a = inflate;
-            inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ec1);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ec0);
-            this.d = textView;
-            textView.setTag(this);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public TailData c() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (TailData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<pj7> list = this.a;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
     }
 
-    public final void d(String str) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f = str;
-            this.c.setTextColor(fk7.a(str));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (this.a == null) {
+                return 0L;
+            }
+            return i;
         }
+        return invokeI.longValue;
     }
 
-    public final void e(String str) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c.setText(TbFaceManager.i().t(this.e, gk7.a(str), null));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d0542, (ViewGroup) null);
+                view2.setTag(new a(this, view2));
+            }
+            b(getItem(i), (a) view2.getTag());
+            return view2;
         }
-    }
-
-    public void f(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.d.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void g(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bool) == null) {
-            this.d.setVisibility(bool.booleanValue() ? 0 : 8);
-        }
-    }
-
-    public void h(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.a.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void i(TailData tailData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tailData) == null) {
-            this.b = tailData;
-            e(tailData.getContent());
-            d(tailData.getFontColor());
-        }
+        return (View) invokeILL.objValue;
     }
 }

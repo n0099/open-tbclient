@@ -1,15 +1,18 @@
 package com.kwad.sdk.api;
 
 import android.content.Context;
+import androidx.annotation.ColorInt;
 import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
+import com.kwad.components.offline.api.BuildConfig;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.api.loader.c;
-import com.kwad.sdk.api.loader.q;
+import com.kwad.sdk.api.loader.r;
+import com.kwad.sdk.api.proxy.app.AdSdkFileProvider;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -71,6 +74,11 @@ public class KsAdSDK {
         return null;
     }
 
+    public static Context getApplicationContext(Context context) {
+        Context applicationContext;
+        return (context == null || (applicationContext = context.getApplicationContext()) == null) ? context : applicationContext;
+    }
+
     @Nullable
     @KsAdSdkApi
     @Keep
@@ -88,15 +96,16 @@ public class KsAdSDK {
         return null;
     }
 
-    @NonNull
+    @Nullable
     @KsAdSdkApi
     @Keep
-    public static KsLoadManager getLoadManager() {
-        IKsAdSDK iKsAdSDK = sSdk;
-        if (iKsAdSDK != null) {
-            return iKsAdSDK.getAdManager();
+    public static synchronized KsLoadManager getLoadManager() {
+        synchronized (KsAdSDK.class) {
+            if (sSdk != null) {
+                return sSdk.getAdManager();
+            }
+            return null;
         }
-        return null;
     }
 
     @KsAdSdkApi
@@ -108,13 +117,13 @@ public class KsAdSDK {
     @KsAdSdkApi
     @Keep
     public static String getSDKVersion() {
-        return "3.3.17.4";
+        return BuildConfig.VERSION_NAME;
     }
 
     @KsAdSdkApi
     @Keep
     public static String getSDKVersion(int i) {
-        return i != 1 ? "" : "3.3.17.4";
+        return i != 1 ? "" : BuildConfig.VERSION_NAME;
     }
 
     @KsAdSdkApi
@@ -123,20 +132,32 @@ public class KsAdSDK {
         boolean z;
         synchronized (KsAdSDK.class) {
             try {
-                mOriginalAppContext = context;
-                Context a = c.a(context);
-                Loader.get().init(a);
+                Context applicationContext = getApplicationContext(context);
+                mOriginalAppContext = applicationContext;
+                if (applicationContext == null) {
+                    applicationContext = null;
+                } else {
+                    Context applicationContext2 = applicationContext.getApplicationContext();
+                    if (applicationContext2 != null) {
+                        applicationContext = !applicationContext2.getClassLoader().equals(applicationContext.getClassLoader()) ? new c.a(applicationContext) : applicationContext.getApplicationContext();
+                    }
+                }
+                Loader.get().init(applicationContext);
                 IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
                 sSdk = ksAdSDKImpl;
                 if (ksAdSDKImpl != null) {
-                    ksAdSDKImpl.setApiVersion("3.3.17.4");
-                    sSdk.setApiVersionCode(3031704);
+                    if (Loader.get().isExternalLoaded()) {
+                        Loader.get().checkAutoRevert();
+                    }
+                    sSdk.setApiVersion(BuildConfig.VERSION_NAME);
+                    sSdk.setApiVersionCode(BuildConfig.VERSION_CODE);
                     sSdk.setAppTag(sAppTag);
-                    sSdk.init(Wrapper.wrapContextIfNeed(a), sdkConfig);
+                    sSdk.setLaunchTime(AdSdkFileProvider.sLaunchTime);
+                    sSdk.init(Wrapper.wrapContextIfNeed(applicationContext), sdkConfig);
                 }
                 sInited.set(sSdk != null);
                 if (sdkConfig != null) {
-                    q.a(a, "sdkconfig", sdkConfig.toJson());
+                    r.a(applicationContext, "sdkconfig", sdkConfig.toJson());
                 }
                 if (a.a.booleanValue()) {
                     Loader.get().checkUpdate(sSdk);
@@ -184,12 +205,35 @@ public class KsAdSDK {
 
     @KsAdSdkApi
     @Keep
+    public static void setAdxEnable(boolean z) {
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            iKsAdSDK.setAdxEnable(z);
+        }
+    }
+
+    @KsAdSdkApi
+    @Keep
     public static void setAppTag(String str) {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
             iKsAdSDK.setAppTag(str);
         } else {
             sAppTag = str;
+        }
+    }
+
+    public static void setLoadingLottieAnimation(boolean z, @RawRes int i) {
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            iKsAdSDK.setLoadingLottieAnimation(z, i);
+        }
+    }
+
+    public static void setLoadingLottieAnimationColor(boolean z, @ColorInt int i) {
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            iKsAdSDK.setLoadingLottieAnimationColor(z, i);
         }
     }
 

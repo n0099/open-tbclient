@@ -1,24 +1,55 @@
 package com.repackage;
 
-import com.baidu.nadcore.max.event.NestedEvent;
-import com.baidu.nadcore.max.event.WebEventTypeEnum;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class kl0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface kl0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "ipdx");
+    public static final kl0 b = new a();
 
-    static {
-        int[] iArr = new int[NestedEvent.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NestedEvent.UP_SHOW_WEB.ordinal()] = 1;
-        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 2;
-        int[] iArr2 = new int[WebEventTypeEnum.values().length];
-        $EnumSwitchMapping$1 = iArr2;
-        iArr2[WebEventTypeEnum.WEB_INIT_SUCCESS.ordinal()] = 1;
-        $EnumSwitchMapping$1[WebEventTypeEnum.WEB_DESTROY.ordinal()] = 2;
+    /* loaded from: classes6.dex */
+    public static class a implements kl0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.kl0
+        @NonNull
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.kl0
+        public void request() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
     }
+
+    @NonNull
+    String a();
+
+    void request();
 }

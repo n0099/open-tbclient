@@ -216,12 +216,12 @@ public class cv extends zu {
 
             /* renamed from: com.repackage.cv$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0409a implements Runnable {
+            public class RunnableC0610a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0409a(a aVar) {
+                public RunnableC0610a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -307,7 +307,7 @@ public class cv extends zu {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                     if (this.a.a.getParent() instanceof ViewGroup) {
-                        this.a.a.post(new RunnableC0409a(this));
+                        this.a.a.post(new RunnableC0610a(this));
                     }
                     View view2 = this.a.b;
                     if (view2 != null) {
@@ -411,7 +411,7 @@ public class cv extends zu {
         }
         activity.getResources();
         Context context = d2.getContext();
-        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0705f3);
+        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070653);
         if (wsVar != null) {
             dimension = wsVar.a();
         }

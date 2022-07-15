@@ -21,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -290,7 +289,7 @@ public final class a {
                             case 3006:
                                 this.da.c(message);
                                 break;
-                            case w0.d3 /* 3007 */:
+                            case 3007:
                                 this.da.e(message);
                                 break;
                             case 3008:
@@ -944,7 +943,7 @@ public final class a {
     public void a(b bVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bVar, str, str2, onCompletionListener, Integer.valueOf(i)}) == null) {
-            Message obtainMessage = this.mHandler.obtainMessage(w0.d3);
+            Message obtainMessage = this.mHandler.obtainMessage(3007);
             obtainMessage.obj = new Object[]{new c(this, bVar), str, str2, onCompletionListener, Integer.valueOf(i)};
             obtainMessage.sendToTarget();
         }
@@ -1438,7 +1437,7 @@ public final class a {
             j = 0;
             str = null;
         }
-        cT.put(str2, Integer.valueOf((int) w0.d3));
+        cT.put(str2, 3007);
         try {
             C0048a z = z(str2);
             if (z != null && !z.df.isPlaying() && z.dg.dZ != "unstarted") {

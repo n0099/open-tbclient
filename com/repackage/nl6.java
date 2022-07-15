@@ -1,551 +1,64 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import androidx.fragment.app.Fragment;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
-import com.baidu.tieba.frs.good.FrsGoodFragment;
-import com.baidu.tieba.frs.h5.FrsTabWebFragment;
-import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.frs.mc.FrsNewAreaFragment;
-import com.baidu.tieba.frs.vc.FrsTabViewController;
-import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
-import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
-import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tbadkCore.model.ForumManageModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.itemtab.card.CardItemGameCodeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.GetMyPost.DataRes;
-import tbclient.GetMyPost.GetMyPostResIdl;
-import tbclient.GetMyPost.User_Info;
-import tbclient.ThreadInfo;
-import tbclient.User;
 /* loaded from: classes6.dex */
-public class nl6 extends tl6 {
+public class nl6 extends qw<ul6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CustomMessageListener h;
-    public final CustomMessageListener i;
-    public final za j;
-
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nl6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(nl6 nl6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nl6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                String str = (String) customResponsedMessage.getData();
-                if (StringUtils.isNull(str) || this.a.b.P0() == null) {
-                    return;
-                }
-                FrsViewData P0 = this.a.b.P0();
-                P0.removeThread(str);
-                ml6 ml6Var = this.a.g;
-                if (ml6Var != null) {
-                    ml6Var.k(str);
-                }
-                this.a.a.D1(P0.getThreadList(), P0);
-                if (zf8.i() != null) {
-                    zf8.i().n(this.a.b.c(), false);
-                }
-                if (this.a.b != null) {
-                    if (ec6.g()) {
-                        BdTopToast bdTopToast = new BdTopToast(this.a.b.getContext());
-                        bdTopToast.i(true);
-                        bdTopToast.h(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f1196));
-                        bdTopToast.j((ViewGroup) this.a.b.z3());
-                        return;
-                    }
-                    BdTopToast bdTopToast2 = new BdTopToast(this.a.b.getContext());
-                    bdTopToast2.i(true);
-                    bdTopToast2.h(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f04a4));
-                    bdTopToast2.j((ViewGroup) this.a.b.z3());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nl6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(nl6 nl6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nl6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Type inference failed for: r2v3, types: [java.util.List] */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ForumManageModel.e eVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e)) {
-                nl6 nl6Var = this.a;
-                if (nl6Var.b == null || nl6Var.a == null || nl6Var.d == null || (eVar = (ForumManageModel.e) customResponsedMessage.getData()) == null || TextUtils.isEmpty(eVar.a) || this.a.b.P0() == null) {
-                    return;
-                }
-                String str = eVar.a;
-                String str2 = eVar.b;
-                String str3 = eVar.c;
-                if (eVar.d == 4) {
-                    FrsViewData P0 = this.a.b.P0();
-                    ThreadData threadDataById = P0.getThreadDataById(str);
-                    P0.removeThreadData(threadDataById);
-                    List<nn> topThreadList = P0.getTopThreadList();
-                    if (topThreadList == null) {
-                        topThreadList = new ArrayList<>();
-                    }
-                    topThreadList.add(0, threadDataById);
-                    this.a.a.D1(P0.getThreadList(), P0);
-                    this.a.d.V(P0);
-                }
-                if (TextUtils.equals(this.a.b.c(), str3)) {
-                    zf8.i().n(this.a.b.c(), false);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends za {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nl6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(nl6 nl6Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl6Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nl6Var;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:13:0x002d  */
-        /* JADX WARN: Removed duplicated region for block: B:26:0x0085  */
-        @Override // com.repackage.za
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            boolean z;
-            String errorString;
-            int i;
-            String errorString2;
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) {
-                return;
-            }
-            if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-                Object extra = responsedMessage.getOrginalMessage().getExtra();
-                if (extra instanceof RequestGetMyPostNetMessage) {
-                    z = ((RequestGetMyPostNetMessage) extra).showErrorToast();
-                    JSONObject jSONObject = new JSONObject();
-                    if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
-                        GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-                        if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                            errorString2 = this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c37);
-                        } else {
-                            errorString2 = getMyPostHttpResponseMessage.getErrorString();
-                        }
-                        if (responsedMessage.getOrginalMessage().getExtra() instanceof RequestGetMyPostNetMessage) {
-                            RequestGetMyPostNetMessage requestGetMyPostNetMessage = (RequestGetMyPostNetMessage) responsedMessage.getOrginalMessage().getExtra();
-                            int proZone = requestGetMyPostNetMessage.getProZone();
-                            this.a.e(jSONObject, requestGetMyPostNetMessage);
-                            i2 = proZone;
-                        } else {
-                            i2 = 0;
-                        }
-                        if (z || getMyPostHttpResponseMessage.getError() == 0) {
-                            this.a.g(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData(), i2, jSONObject);
-                            return;
-                        }
-                        return;
-                    } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
-                        GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-                        if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                            errorString = this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c37);
-                        } else {
-                            errorString = getMyPostSocketResponseMessage.getErrorString();
-                        }
-                        if (responsedMessage.getOrginalMessage().getExtra() instanceof RequestGetMyPostNetMessage) {
-                            RequestGetMyPostNetMessage requestGetMyPostNetMessage2 = (RequestGetMyPostNetMessage) responsedMessage.getOrginalMessage().getExtra();
-                            int proZone2 = requestGetMyPostNetMessage2.getProZone();
-                            this.a.e(jSONObject, requestGetMyPostNetMessage2);
-                            i = proZone2;
-                        } else {
-                            i = 0;
-                        }
-                        if (z || getMyPostSocketResponseMessage.getError() == 0) {
-                            this.a.g(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData(), i, jSONObject);
-                            return;
-                        }
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-            }
-            z = true;
-            JSONObject jSONObject2 = new JSONObject();
-            if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PostWriteCallBackData a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ nl6 e;
-
-        public d(nl6 nl6Var, PostWriteCallBackData postWriteCallBackData, long j, long j2, long j3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl6Var, postWriteCallBackData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = nl6Var;
-            this.a = postWriteCallBackData;
-            this.b = j;
-            this.c = j2;
-            this.d = j3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int k = pi.k(TbadkCoreApplication.getInst());
-                int i = pi.i(TbadkCoreApplication.getInst());
-                float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-                int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
-                RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                requestGetMyPostNetMessage.setProZone(this.a.getProZone());
-                requestGetMyPostNetMessage.setParams(this.b, this.c, this.d, k, i, f, i2);
-                this.e.b.sendMessage(requestGetMyPostNetMessage);
-            }
-        }
-    }
+    public final CardItemGameCodeLayout f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nl6(FrsFragment frsFragment) {
-        super(frsFragment);
+    public nl6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((FrsFragment) newInitContext.callArgs[0]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new a(this, 2921031);
-        this.i = new b(this, 2921316);
-        c cVar = new c(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
-        this.j = cVar;
-        cVar.getSocketMessageListener().setSelfListener(true);
-        this.j.getHttpMessageListener().setSelfListener(true);
-        this.h.setSelfListener(false);
-        this.b.registerListener(this.h);
-        this.b.registerListener(this.j);
-        this.b.registerListener(this.i);
+        this.f = new CardItemGameCodeLayout(context);
     }
 
-    public final void c(ThreadData threadData, FrsNewAreaFragment frsNewAreaFragment) {
+    @Override // com.repackage.qw
+    public View h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, threadData, frsNewAreaFragment) == null) {
-            frsNewAreaFragment.T1(threadData);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    public final void d(wo4 wo4Var) {
-        FrsViewData P0;
-        ArrayList<nn> threadList;
+    @Override // com.repackage.hx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wo4Var) == null) || (P0 = this.b.P0()) == null) {
-            return;
-        }
-        this.e.J(wo4Var);
-        if (this.e.w0()) {
-            ArrayList<nn> arrayList = new ArrayList<>();
-            arrayList.add(wo4Var);
-            threadList = this.g.c(false, true, arrayList, null, true, -1, null);
-        } else {
-            threadList = P0.getThreadList();
-        }
-        if (threadList != null) {
-            P0.setThreadList(threadList);
-            P0.checkLiveStageInThreadList();
-            this.a.D1(threadList, P0);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
     }
 
-    public final JSONObject e(JSONObject jSONObject, RequestGetMyPostNetMessage requestGetMyPostNetMessage) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.gx
+    /* renamed from: p */
+    public void a(ul6 ul6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, requestGetMyPostNetMessage)) == null) {
-            f(jSONObject, String.valueOf(requestGetMyPostNetMessage.getForumId()), String.valueOf(requestGetMyPostNetMessage.getThreadId()), String.valueOf(requestGetMyPostNetMessage.getPostId()), requestGetMyPostNetMessage.getQType(), requestGetMyPostNetMessage.getFrom(), String.valueOf(requestGetMyPostNetMessage.getCallFrom()));
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public final JSONObject f(JSONObject jSONObject, String str, String str2, String str3, int i, String str4, String str5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{jSONObject, str, str2, str3, Integer.valueOf(i), str4, str5})) == null) {
-            try {
-                jSONObject.put("forum_id", str);
-                jSONObject.put("thread_id", str2);
-                jSONObject.put("post_id", str3);
-                jSONObject.put("scr_w", pi.k(TbadkCoreApplication.getInst()));
-                jSONObject.put("scr_h", pi.i(TbadkCoreApplication.getInst()));
-                jSONObject.put("scr_dip", TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-                jSONObject.put("q_type", i);
-                jSONObject.put("bfrom", str4);
-                jSONObject.put(IntentConfig.CALL_FROM, str5);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeCommon.objValue;
-    }
-
-    public final void g(int i, String str, GetMyPostResIdl getMyPostResIdl, int i2, JSONObject jSONObject) {
-        DataRes dataRes;
-        User_Info user_Info;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, getMyPostResIdl, Integer.valueOf(i2), jSONObject}) == null) {
-            if (i != 0) {
-                this.b.showToast(str);
-                return;
-            }
-            FrsViewData P0 = this.b.P0();
-            if (P0 == null || P0.getForum() == null || getMyPostResIdl == null || this.a == null || this.e == null || (dataRes = getMyPostResIdl.data) == null || dataRes.thread_info == null) {
-                return;
-            }
-            wo4 wo4Var = new wo4();
-            ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
-            User.Builder builder2 = new User.Builder(builder.author);
-            h(builder2, getMyPostResIdl.data.user_info);
-            User user = builder.author;
-            if (user == null || TextUtils.isEmpty(user.name)) {
-                builder.author = builder2.build(true);
-            }
-            User user2 = builder.author;
-            if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
-                builder.author = builder2.build(true);
-            }
-            builder.cheak_repeat = 1;
-            builder.fname = P0.getForum().getName();
-            builder.fid = Long.valueOf(ng.g(P0.getForum().getId(), 0L));
-            wo4Var.parserProtobuf(builder.build(true));
-            i(wo4Var, i2, jSONObject);
-        }
-    }
-
-    public final void h(User.Builder builder, User_Info user_Info) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, builder, user_Info) == null) || user_Info == null) {
-            return;
-        }
-        Long l = user_Info.id;
-        builder.id = l;
-        builder.gender = user_Info.gender;
-        builder.type = user_Info.type;
-        builder.name = user_Info.name;
-        builder.name_show = user_Info.name_show;
-        if (l.longValue() == TbadkCoreApplication.getCurrentAccountId()) {
-            builder.portrait = TbadkCoreApplication.getCurrentPortrait();
-        } else {
-            builder.portrait = user_Info.portrait;
-        }
-        builder.god_data = user_Info.god_data;
-        builder.fans_num = user_Info.fans_num;
-        builder.fans_nickname = user_Info.fans_nickname;
-        builder.is_bawu = user_Info.is_bawu;
-        builder.bawu_type = user_Info.bawu_type;
-        builder.new_god_data = user_Info.new_god_data;
-        builder.business_account_info = user_Info.business_account_info;
-    }
-
-    public final void i(wo4 wo4Var, int i, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048582, this, wo4Var, i, jSONObject) == null) {
-            if (i == 1) {
-                FrsTabViewController.p C = this.b.A3().C();
-                if (C != null) {
-                    Fragment fragment = C.b;
-                    if (fragment instanceof FrsCommonTabFragment) {
-                        ((FrsCommonTabFragment) fragment).B1(wo4Var);
-                    }
-                }
-            } else if (i == 2) {
-                FrsTabViewController.p J = this.b.A3().J(301);
-                if (J == null || !(J.b instanceof FrsGoodFragment)) {
-                    return;
-                }
-                this.c.b(301);
-                ((FrsGoodFragment) J.b).S1(wo4Var);
-            } else if (wo4Var.getTabId() > 0) {
-                FrsTabViewController.p J2 = this.b.A3().J(wo4Var.getTabId());
-                if (J2 != null) {
-                    Fragment fragment2 = J2.b;
-                    if (fragment2 instanceof FrsCommonTabFragment) {
-                        ((FrsCommonTabFragment) fragment2).B1(wo4Var);
-                    } else if (fragment2 instanceof FrsTabWebFragment) {
-                        ((FrsTabWebFragment) fragment2).S1(wo4Var, jSONObject);
-                    }
-                }
-            } else {
-                if (!ListUtils.isEmpty(wo4Var.getItemStar())) {
-                    wo4Var.insertItemToTitleOrAbstractText();
-                }
-                FrsTabViewController.p J3 = this.b.A3().J(this.b.A3().F());
-                if (J3 != null) {
-                    Fragment fragment3 = J3.b;
-                    if (fragment3 instanceof FrsNewAreaFragment) {
-                        c(wo4Var, (FrsNewAreaFragment) fragment3);
-                    } else {
-                        d(wo4Var);
-                    }
-                }
-            }
-        }
-    }
-
-    public void j(PostWriteCallBackData postWriteCallBackData) {
-        FrsModelController frsModelController;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, postWriteCallBackData) == null) || (frsModelController = this.e) == null) {
-            return;
-        }
-        boolean z = frsModelController.g0() != null && this.e.g0().getIsBrandForum();
-        int U = this.e.U();
-        if (U == 2 || U == 3 || U == 7 || U == 8 || z) {
-            if ((yc6.a().b(1) != null ? this.e.Y() : 0) != 0 || postWriteCallBackData == null) {
-                return;
-            }
-            long g = ng.g(postWriteCallBackData.getPostId(), 0L);
-            long g2 = ng.g(postWriteCallBackData.getThreadId(), 0L);
-            long g3 = ng.g(this.b.d(), 0L);
-            if (g != 0 && g2 != 0 && g3 != 0) {
-                qg.a().postDelayed(new d(this, postWriteCallBackData, g2, g, g3), 1000L);
-                return;
-            }
-            WriteData writeData = postWriteCallBackData.writeDataForVideo;
-            if (writeData != null) {
-                wo4 wo4Var = new wo4();
-                wo4Var.parseFromWriteData(writeData);
-                JSONObject jSONObject = new JSONObject();
-                f(jSONObject, writeData.getForumId(), writeData.getThreadId(), writeData.getRepostId(), TbImageHelper.getInstance().isShowBigImage() ? 2 : 1, "", "0");
-                i(wo4Var, writeData.getProZone(), jSONObject);
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, ul6Var) == null) {
+            this.f.setData(ul6Var);
         }
     }
 }

@@ -130,7 +130,7 @@ public class ShareFromTopicMsgData extends ShareBaseMsgData {
                 jSONObject.put("shareSourceUrl", this.linkUrl);
                 jSONObject.put("type", "5");
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.title + " http://tieba.baidu.com/p/?share=9105");
+                jSONArray.put(this.title + " https://tieba.baidu.com/p/?share=9105");
                 jSONArray.put("1");
                 jSONArray.put(jSONObject);
                 return jSONArray.toString();

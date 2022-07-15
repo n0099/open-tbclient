@@ -1,154 +1,66 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class t83 {
+public class t83 extends r83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public r83 a;
-    public o83 b;
-    public volatile boolean c;
-    public HandlerThread d;
-    public Handler e;
 
-    /* loaded from: classes7.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t83 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(t83 t83Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t83Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t83Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
-                this.a.f();
-                if (!this.a.c) {
-                    this.a.e.removeMessages(101);
-                } else {
-                    this.a.a.c();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755336926, "Lcom/repackage/t83;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755336926, "Lcom/repackage/t83;");
-                return;
-            }
-        }
-        f = cg1.a;
-    }
-
-    public t83(o83 o83Var) {
+    public t83() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {o83Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new r83();
-        this.b = o83Var;
     }
 
-    public synchronized void c() {
+    @Override // com.repackage.r83
+    @SuppressLint({"BDThrowableCheck"})
+    public Bundle c(q83 q83Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q83Var)) == null) {
+            p83 b = v83.b(q83Var.a);
+            if (b == null) {
+                if (!r83.a) {
+                    return Bundle.EMPTY;
                 }
-                d();
-                this.e.sendMessage(this.e.obtainMessage(101));
+                throw new IllegalArgumentException("illegal sp.");
             }
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e == null) {
-            HandlerThread handlerThread = new HandlerThread("cookieSync");
-            this.d = handlerThread;
-            handlerThread.start();
-            this.e = new a(this, this.d.getLooper());
-        }
-    }
-
-    public synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.c = true;
-                if (this.d != null) {
-                    this.d.quitSafely();
+            int i = q83Var.b;
+            if (i == 1) {
+                b.putInt(q83Var.c, Integer.parseInt(q83Var.d));
+            } else if (i == 2) {
+                b.putLong(q83Var.c, Long.parseLong(q83Var.d));
+            } else if (i == 3) {
+                b.putBoolean(q83Var.c, Boolean.parseBoolean(q83Var.d));
+            } else if (i == 4) {
+                b.putString(q83Var.c, q83Var.d);
+            } else if (i != 5) {
+                if (r83.a) {
+                    throw new IllegalArgumentException("wrong info params.");
                 }
-                this.e = null;
-                this.d = null;
+            } else {
+                b.putFloat(q83Var.c, Float.parseFloat(q83Var.d));
             }
-        }
-    }
-
-    public abstract void f();
-
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                d();
-                this.e.sendMessageDelayed(this.e.obtainMessage(101), 5000L);
+            if (r83.a) {
+                Log.d("SwanAppSpDelegation", "Put: " + q83Var);
             }
+            return Bundle.EMPTY;
         }
+        return (Bundle) invokeL.objValue;
     }
 }

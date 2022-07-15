@@ -11,14 +11,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUILD_TYPE = "release";
+    public static final String CONFIG_DOMAIN = "https://cd.xdplt.com";
+    public static final String CPM_DOMAIN = "https://cd.xdplt.com";
     public static final boolean DEBUG = false;
-    public static final String DOMAIN = "https://cd.xdplt.com";
     public static final String FLAVOR = "baidu";
     public static final Boolean IS_ADM_REPORT;
+    public static final boolean IS_OVERSEA_PROD = false;
+    public static final boolean IS_VIDEO_PRODUCT_TEST = false;
     public static final String LIBRARY_PACKAGE_NAME = "com.fun.ad.sdk";
     public static final String PLUGIN_RC = null;
-    public static final int VERSION_CODE = 10095;
-    public static final String VERSION_NAME = "4.5.4";
+    public static final String REPORT_DOMAIN = "https://rpe.xdplt.com";
+    public static final int VERSION_CODE = 10213;
+    public static final String VERSION_NAME = "4.6.10.12";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

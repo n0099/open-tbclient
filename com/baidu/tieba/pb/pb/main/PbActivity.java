@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.is4;
+import com.repackage.ls4;
+import com.repackage.nv7;
 import com.repackage.qn;
-import com.repackage.tr4;
-import com.repackage.vu7;
-import com.repackage.wr4;
 /* loaded from: classes3.dex */
 public class PbActivity extends AbsPbActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -57,7 +57,7 @@ public class PbActivity extends AbsPbActivity {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.j1(this.a, this.b);
+                this.c.i1(this.a, this.b);
             }
         }
     }
@@ -94,7 +94,7 @@ public class PbActivity extends AbsPbActivity {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.j1(this.a, this.b);
+                this.c.i1(this.a, this.b);
             }
         }
     }
@@ -116,14 +116,14 @@ public class PbActivity extends AbsPbActivity {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int G0() {
+    public int F0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d066b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0687 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int M0() {
+    public int L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -133,7 +133,7 @@ public class PbActivity extends AbsPbActivity {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public int P0() {
+    public int O0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -142,33 +142,33 @@ public class PbActivity extends AbsPbActivity {
         return invokeV.intValue;
     }
 
-    public final void j1(int i, int i2) {
+    public final void i1(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY);
-                int i3 = wr4.a().c == 1 ? 8 : -1;
-                if (wr4.a().c == 2) {
+                int i3 = ls4.a().c == 1 ? 8 : -1;
+                if (ls4.a().c == 2) {
                     i3 = 9;
                 }
-                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, wr4.a().d);
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, ls4.a().d);
             }
-            long currentTimeMillis = System.currentTimeMillis() - K0();
+            long currentTimeMillis = System.currentTimeMillis() - G0();
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
-            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, tr4.e());
+            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, is4.e());
             TiebaStatic.log(statisticItem);
         }
     }
 
-    public void k1(int i, BdTypeRecyclerView bdTypeRecyclerView) {
+    public void j1(int i, BdTypeRecyclerView bdTypeRecyclerView) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, bdTypeRecyclerView) == null) || this.u || N0() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, bdTypeRecyclerView) == null) || this.u || M0() == null) {
             return;
         }
         this.u = true;
-        if (N0() == null || N0().P1() != 7) {
-            i2 = (N0() == null || !N0().v2()) ? 3 : 1;
+        if (M0() == null || M0().Q1() != 7) {
+            i2 = (M0() == null || !M0().w2()) ? 3 : 1;
         } else {
             i2 = 2;
         }
@@ -179,22 +179,22 @@ public class PbActivity extends AbsPbActivity {
         bdTypeRecyclerView.w = true;
     }
 
-    public void l1(int i, vu7 vu7Var) {
+    public void k1(int i, nv7 nv7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048581, this, i, vu7Var) == null) || this.u || N0() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048581, this, i, nv7Var) == null) || this.u || M0() == null) {
             return;
         }
         int i2 = 1;
         this.u = true;
-        if (N0() != null && N0().P1() == 7) {
+        if (M0() != null && M0().Q1() == 7) {
             i2 = 2;
-        } else if (N0() == null || !N0().v2()) {
+        } else if (M0() == null || !M0().w2()) {
             i2 = 3;
         }
         if (i2 != 3) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
         }
-        vu7Var.l2(new b(this, i, i2));
+        nv7Var.l2(new b(this, i, i2));
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity

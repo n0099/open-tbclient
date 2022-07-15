@@ -1,52 +1,51 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class gc6 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static ThreadData b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ec6 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755682793, "Lcom/repackage/gc6;")) == null) {
+    public gc6(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (bdTypeListView == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755682793, "Lcom/repackage/gc6;");
-        }
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new cc6(tbPageContext, lc6.d, tbPageContext.getUniqueId()));
+        ec6 ec6Var = new ec6(tbPageContext, mc6.h, tbPageContext.getUniqueId());
+        this.a = ec6Var;
+        arrayList.add(ec6Var);
+        arrayList.add(new dc6(tbPageContext, lc6.c, tbPageContext.getUniqueId()));
+        arrayList.add(new fc6(tbPageContext, lc6.e, tbPageContext.getUniqueId()));
+        bdTypeListView.a(arrayList);
     }
 
-    public static ThreadData a() {
-        InterceptResult invokeV;
+    public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : (ThreadData) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (String) invokeV.objValue;
-    }
-
-    public static synchronized void update(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, threadData) == null) {
-            synchronized (gc6.class) {
-                a = threadData.getTid();
-                b = threadData;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.a.b0(onClickListener);
         }
     }
 }

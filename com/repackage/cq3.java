@@ -1,136 +1,84 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class cq3 {
+public class cq3 extends bq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile HashMap<String, List<kq3>> a;
+    public boolean G;
 
-    public cq3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cq3(Context context, AdElementInfo adElementInfo, cp3 cp3Var) {
+        super(context, adElementInfo, cp3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adElementInfo, cp3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (cp3) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.G = false;
     }
 
-    public synchronized void a(String str, kq3 kq3Var) {
+    @Override // com.repackage.bq3
+    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, kq3Var) == null) {
-            synchronized (this) {
-                if (e(str, kq3Var)) {
-                    return;
-                }
-                List<kq3> c = c(str);
-                if (!c.contains(kq3Var)) {
-                    c.add(kq3Var);
-                }
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, c);
-                }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
+            int videoWidth = adElementInfo.getVideoWidth();
+            int videoHeight = adElementInfo.getVideoHeight();
+            this.n = yo3.b().k();
+            this.o = yo3.b().j();
+            if (videoWidth < videoHeight) {
+                this.G = true;
+                int i = this.n;
+                int i2 = (int) (((i - videoWidth) / 2) * 0.8d);
+                int i3 = (int) (((i - videoWidth) / 2) * 0.1d);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i2, i2);
+                layoutParams.leftMargin = (this.n - i2) - i3;
+                layoutParams.addRule(15);
+                layoutParams.removeRule(13);
+                layoutParams.removeRule(12);
+                layoutParams.bottomMargin = 0;
+                relativeLayout.setLayoutParams(layoutParams);
+                relativeLayout.setBackgroundColor(this.w.getColor(R.color.obfuscated_res_0x7f060879));
             }
         }
     }
 
-    public synchronized void b(String str, lq3 lq3Var) {
+    @Override // com.repackage.bq3
+    public String q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, lq3Var) == null) {
-            synchronized (this) {
-                for (kq3 kq3Var : new ArrayList(c(str))) {
-                    if (kq3Var != null) {
-                        kq3Var.a(lq3Var);
-                    }
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.G ? "reward_banner_land_html" : "reward_banner_html" : (String) invokeV.objValue;
     }
 
-    public final List<kq3> c(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.bq3
+    @SuppressLint({"InflateParams"})
+    public View u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new ArrayList();
-            }
-            List<kq3> list = this.a.get(str);
-            return list == null ? new ArrayList() : list;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public synchronized boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                List<kq3> list = this.a.get(str);
-                if (list != null) {
-                    if (!list.isEmpty()) {
-                        z = true;
-                    }
-                }
-                return z;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean e(String str, kq3 kq3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, kq3Var)) == null) ? TextUtils.isEmpty(str) || kq3Var == null : invokeLL.booleanValue;
-    }
-
-    public synchronized void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                g(str, null);
-            }
-        }
-    }
-
-    public synchronized void g(String str, kq3 kq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, kq3Var) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                if (kq3Var == null) {
-                    this.a.remove(str);
-                    return;
-                }
-                List<kq3> c = c(str);
-                if (c.contains(kq3Var)) {
-                    c.remove(kq3Var);
-                    if (c.isEmpty()) {
-                        this.a.remove(str);
-                    }
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d0618, (ViewGroup) null) : (View) invokeV.objValue;
     }
 }

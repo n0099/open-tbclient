@@ -1,77 +1,98 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.NestedEvent;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ll0 implements zg0 {
+public final class ll0 {
     public static /* synthetic */ Interceptable $ic;
+    public static ql0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NestedEvent a;
-    public final int b;
-    public final int c;
-    public final int d;
 
-    public ll0(NestedEvent type, float f, int i, int i2, int i3) {
+    @Nullable
+    public static ol0 a(ql0 ql0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ql0Var)) == null) {
+            if (ql0Var instanceof ol0) {
+                return (ol0) ql0Var;
+            }
+            return null;
+        }
+        return (ol0) invokeL.objValue;
+    }
+
+    public static rl0 b(ql0 ql0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ql0Var)) == null) {
+            if (ql0Var instanceof rl0) {
+                return (rl0) ql0Var;
+            }
+            return null;
+        }
+        return (rl0) invokeL.objValue;
+    }
+
+    public static void c(@NonNull ql0 ql0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, ql0Var) == null) {
+            synchronized (ql0.class) {
+                if (a != null) {
+                    return;
+                }
+                a = ql0Var;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-        this.b = i;
-        this.c = i2;
-        this.d = i3;
     }
 
-    @Override // com.repackage.zg0
-    public String a() {
+    @Nullable
+    public static Activity d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = ll0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "NestedMoveViewEvent::class.java.simpleName");
-            return simpleName;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ol0 a2 = a(a);
+            if (a2 == null) {
+                return null;
+            }
+            return a2.a();
         }
-        return (String) invokeV.objValue;
+        return (Activity) invokeV.objValue;
     }
 
-    public final int b() {
+    @Nullable
+    public static Activity e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ol0 a2 = a(a);
+            if (a2 == null) {
+                return null;
+            }
+            return a2.c();
+        }
+        return (Activity) invokeV.objValue;
     }
 
-    public final int c() {
-        InterceptResult invokeV;
+    public static void f(pl0 pl0Var) {
+        rl0 b;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, pl0Var) == null) || (b = b(a)) == null) {
+            return;
+        }
+        b.b(pl0Var);
     }
 
-    public final int d() {
-        InterceptResult invokeV;
+    public static void g(pl0 pl0Var) {
+        rl0 b;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final NestedEvent getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (NestedEvent) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, pl0Var) == null) || (b = b(a)) == null) {
+            return;
+        }
+        b.d(pl0Var);
     }
 }

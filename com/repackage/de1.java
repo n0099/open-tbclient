@@ -1,17 +1,17 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class de1 {
+public abstract class de1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public String d;
+    public long a;
+    public be1 b;
 
     public de1() {
         Interceptable interceptable = $ic;
@@ -26,7 +26,22 @@ public class de1 {
                 return;
             }
         }
-        this.c = -1;
-        this.d = "";
+        this.a = 2000L;
+    }
+
+    public abstract void a(int i, V8ExceptionInfo v8ExceptionInfo);
+
+    public void b(be1 be1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, be1Var) == null) {
+            this.b = be1Var;
+        }
+    }
+
+    public void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.a = j;
+        }
     }
 }

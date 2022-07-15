@@ -95,12 +95,12 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         }
         this.i = new a(this, 2921471);
         this.a = view2;
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916bf);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916bc);
-        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09154e);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091768);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091765);
+        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0915f7);
         this.h = pi.f(this.a.getContext(), R.dimen.tbds156);
-        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f090893);
-        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09191e);
+        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f09089a);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0919c7);
         this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);
@@ -115,7 +115,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
             if (str != null) {
                 this.c.setText(str);
             } else {
-                this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0dcd));
+                this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0dc1));
             }
         }
     }
@@ -169,7 +169,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0a3f));
+            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0a2c));
         }
     }
 }

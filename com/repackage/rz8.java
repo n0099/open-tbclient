@@ -1,44 +1,34 @@
 package com.repackage;
 
-import android.os.RemoteException;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.data.VideoCategoryClassData;
+import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassReqMessage;
+import com.baidu.tieba.write.write.work.selecttag.model.GetSelectTagReqMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.TurbonetEngine;
-import java.net.BindException;
-import java.net.ConnectException;
-import java.net.NoRouteToHostException;
-import java.net.PortUnreachableException;
-import java.net.ProtocolException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
-import javax.net.ssl.SSLHandshakeException;
-import javax.net.ssl.SSLKeyException;
-import javax.net.ssl.SSLPeerUnverifiedException;
-import javax.net.ssl.SSLProtocolException;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class rz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
-    public long e;
-    public long f;
-    public long g;
-    public long h;
-    public long i;
+    public List<String> a;
+    public List<List<String>> b;
+    public VideoCategoryClassData c;
+    public BdUniqueId d;
 
-    public rz8(String str) {
+    public rz8(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,70 +38,82 @@ public class rz8 {
                 return;
             }
         }
-        this.c = -14;
-        this.d = -1;
-        this.e = -1L;
-        this.f = -1L;
-        this.g = -1L;
-        this.h = -1L;
-        this.i = -1L;
-        this.a = str;
-        this.g = System.nanoTime() / 1000;
-        this.f = System.currentTimeMillis();
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = new VideoCategoryClassData();
+        this.d = bdUniqueId;
     }
 
-    public void a(Exception exc) {
+    public VideoCategoryClassData a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-            if (exc instanceof SocketTimeoutException) {
-                this.c = -1;
-            } else if (exc instanceof UnknownHostException) {
-                this.c = -2;
-            } else if (exc instanceof ConnectException) {
-                this.c = -5;
-            } else if (exc instanceof ProtocolException) {
-                this.c = -3;
-            } else if (exc instanceof BindException) {
-                this.c = -4;
-            } else if (exc instanceof SSLHandshakeException) {
-                this.c = -8;
-            } else if (exc instanceof SSLProtocolException) {
-                this.c = -9;
-            } else if (exc instanceof RemoteException) {
-                this.c = -13;
-            } else if (exc instanceof NoRouteToHostException) {
-                this.c = -6;
-            } else if (exc instanceof PortUnreachableException) {
-                this.c = -7;
-            } else if (exc instanceof SSLKeyException) {
-                this.c = -10;
-            } else if (exc instanceof SSLPeerUnverifiedException) {
-                this.c = -11;
-            } else {
-                this.c = -14;
-            }
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            this.c.setFirstClass(this.a.get(i));
+            this.c.setSecondClass(this.b.get(i).get(i2));
+            this.c.getTags().clear();
+            return this.c;
+        }
+        return (VideoCategoryClassData) invokeII.objValue;
+    }
+
+    public List<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public List<List<String>> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public ArrayList<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.getTags() : (ArrayList) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            GetSelectClassReqMessage getSelectClassReqMessage = new GetSelectClassReqMessage();
+            getSelectClassReqMessage.setTag(this.d);
+            MessageManager.getInstance().sendMessage(getSelectClassReqMessage);
         }
     }
 
-    public void b() {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.h = (System.nanoTime() / 1000) - this.g;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            GetSelectTagReqMessage getSelectTagReqMessage = new GetSelectTagReqMessage();
+            getSelectTagReqMessage.setTag(this.d);
+            getSelectTagReqMessage.setFirstClass(this.c.getFirstClass());
+            getSelectTagReqMessage.setSecondClass(this.c.getSecondClass());
+            MessageManager.getInstance().sendMessage(getSelectTagReqMessage);
         }
     }
 
-    public void c() {
+    public void g(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.i = (System.nanoTime() / 1000) - this.g;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.a.clear();
+            this.a.addAll(list);
         }
     }
 
-    public void d(TurbonetEngine turbonetEngine) {
+    public void h(List<List<String>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, turbonetEngine) == null) {
-            Log.v("HTTPMetrics", String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.a, this.b, Integer.valueOf(this.c), Integer.valueOf(this.d), Long.valueOf(this.e), Long.valueOf(this.f), Long.valueOf(this.h), Long.valueOf(this.i)));
-            turbonetEngine.g(this.a, this.b, this.c, this.d, this.e, this.f, this.h, this.i);
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.b.clear();
+            this.b.addAll(list);
+        }
+    }
+
+    public void i(VideoCategoryClassData videoCategoryClassData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoCategoryClassData) == null) {
+            this.c = videoCategoryClassData;
         }
     }
 }

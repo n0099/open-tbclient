@@ -19,8 +19,8 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.util.FieldUtils;
 import com.bytedance.pangle.util.MethodUtils;
-import com.bytedance.pangle.util.g;
 import com.bytedance.pangle.util.h;
+import com.bytedance.pangle.util.i;
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public final class a {
             }
         }
         a = new HashMap();
-        List<String> a2 = h.a();
+        List<String> a2 = i.a();
         if (a2 == null || a2.size() <= 0) {
             return;
         }
@@ -83,6 +83,10 @@ public final class a {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, assetManager, str, z)) == null) {
             String str2 = V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD;
             String str3 = z ? "addAssetPathAsSharedLibrary" : V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD;
+            int i = Build.VERSION.SDK_INT;
+            if ((i >= 30 || (i == 29 && Build.VERSION.PREVIEW_SDK_INT > 0)) && !z && str.startsWith("/product/overlay/")) {
+                str3 = "addOverlayPath";
+            }
             Method accessibleMethod = MethodUtils.getAccessibleMethod(AssetManager.class, str3, String.class);
             if (accessibleMethod == null && z) {
                 accessibleMethod = MethodUtils.getAccessibleMethod(AssetManager.class, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class);
@@ -91,10 +95,10 @@ public final class a {
                 str2 = str3;
             }
             if (accessibleMethod != null) {
-                int i = 3;
+                int i2 = 3;
                 while (true) {
-                    int i2 = i - 1;
-                    if (i < 0) {
+                    int i3 = i2 - 1;
+                    if (i2 < 0) {
                         break;
                     }
                     try {
@@ -107,10 +111,10 @@ public final class a {
                         break;
                     }
                     ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() failed, cookie = ".concat(String.valueOf(intValue)));
-                    i = i2;
+                    i2 = i3;
                 }
             } else {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor reflect AssetManager.addAssetPath() failed. addAssetPathMethod == null. asSharedLibrary = ".concat(String.valueOf(z)));
+                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor reflect AssetManager.addAssetPath() failed. addAssetPathMethod == null. asSharedLibrary = " + z + " methodName:" + str2);
             }
             return assetManager;
         }
@@ -133,7 +137,7 @@ public final class a {
                     synchronized (assetManager) {
                         int i4 = 0;
                         for (int i5 = 0; i5 < i; i5++) {
-                            if (g.b()) {
+                            if (h.b()) {
                                 i4 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str}, new Class[]{String.class})).intValue();
                             } else if (Build.VERSION.SDK_INT >= 24 && Build.VERSION.SDK_INT <= 25) {
                                 i4 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str, Boolean.valueOf(z)}, new Class[]{String.class, Boolean.TYPE})).intValue();
@@ -177,11 +181,11 @@ public final class a {
         AssetManager a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, assetManager, str, z)) == null) {
-            if (g.a()) {
+            if (h.a()) {
                 int i = Build.VERSION.SDK_INT;
                 if (i >= 21 && i <= 25) {
                     a2 = c(assetManager, str, z);
-                    if (!h.a(a2, str)) {
+                    if (!i.a(a2, str)) {
                         a2 = b(assetManager, str, z);
                     }
                 } else {
@@ -193,7 +197,7 @@ public final class a {
             synchronized (this.b) {
                 this.b.put(str, 0);
             }
-            ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + h.b(a2));
+            ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + i.b(a2));
             return a2;
         }
         return (AssetManager) invokeLLZ.objValue;
@@ -204,7 +208,7 @@ public final class a {
         AssetManager assetManager2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, assetManager, str)) == null) {
-            List<String> a2 = h.a(assetManager);
+            List<String> a2 = i.a(assetManager);
             ArrayList<String> arrayList = new ArrayList();
             StringBuilder sb = new StringBuilder();
             for (String str2 : a2) {

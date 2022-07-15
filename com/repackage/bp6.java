@@ -1,150 +1,61 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.xh8;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class bp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(qn6 qn6Var, String str) {
+    public static void a(ti5 ti5Var, ForumData forumData, List<nn> list, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, qn6Var, str) == null) || TextUtils.isEmpty(str) || qn6Var == null || TextUtils.isEmpty(qn6Var.c)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{ti5Var, forumData, list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        StatisticItem statisticItem = new StatisticItem("c11942");
-        statisticItem.param("fid", qn6Var.c);
-        statisticItem.param("obj_name", str);
-        TiebaStatic.log(statisticItem);
+        bj5 bj5Var = new bj5(ti5Var, 5);
+        bj5Var.E(list);
+        if (forumData != null) {
+            bj5Var.v(forumData.getId());
+            bj5Var.u(forumData.getFirst_class());
+            bj5Var.C(forumData.getSecond_class());
+        }
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null) {
+            bj5Var.z(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+        }
+        bj5Var.y(z);
+        bj5Var.A(i);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bj5Var));
     }
 
-    public static void b(lc6 lc6Var, FrsViewData frsViewData, String str, boolean z, ThreadData threadData) {
-        uv4 adAdSense;
+    public static void b(ti5 ti5Var, FrsViewData frsViewData, List<nn> list, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{lc6Var, frsViewData, str, Boolean.valueOf(z), threadData}) == null) || lc6Var == null || frsViewData == null || TextUtils.isEmpty(str) || (adAdSense = TbadkCoreApplication.getInst().getAdAdSense()) == null || !adAdSense.e()) {
+        if (!(interceptable == null || interceptable.invokeLLLI(65537, null, ti5Var, frsViewData, list, i) == null) || frsViewData == null) {
             return;
         }
-        dh6 W = lc6Var == null ? null : lc6Var.W();
-        List<nn> f = W != null ? W.f() : null;
-        List<nn> singletonList = threadData != null ? Collections.singletonList(threadData) : f;
-        if (singletonList == null || f == null) {
+        a(ti5Var, frsViewData.getForum(), list, false, i);
+    }
+
+    public static void c(fi8 fi8Var, List<nn> list, List<nn> list2) {
+        int[] iArr;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, fi8Var, list, list2) == null) || fi8Var == null || ListUtils.getCount(list) <= 0 || ListUtils.getCount(list2) <= 0) {
             return;
         }
-        ArrayList arrayList = new ArrayList();
-        if (z) {
-            for (nn nnVar : f) {
-                for (nn nnVar2 : singletonList) {
-                    if (nnVar == nnVar2 && (nnVar2 instanceof ThreadData)) {
-                        xh8.c cVar = new xh8.c();
-                        ((ThreadData) nnVar2).getTid();
-                        arrayList.add(cVar);
-                    }
-                }
-            }
-        } else {
-            for (nn nnVar3 : singletonList) {
-                if (nnVar3 instanceof ThreadData) {
-                    ThreadData threadData2 = (ThreadData) nnVar3;
-                    if (threadData2.showStatus == 1 && !TextUtils.isEmpty(threadData2.getTid())) {
-                        threadData2.showStatus = 2;
-                        xh8.c cVar2 = new xh8.c();
-                        threadData2.getTid();
-                        arrayList.add(cVar2);
-                    }
-                }
+        for (int i : fi8.f) {
+            nn nnVar = (nn) ListUtils.getItem(list, i);
+            if (nnVar != null && (indexOf = list2.indexOf(nnVar)) >= 0) {
+                fi8Var.a(i, indexOf);
             }
         }
-        if (arrayList.size() > 0) {
-            frsViewData.getForum().getFirst_class();
-            frsViewData.getForum().getSecond_class();
-        }
-    }
-
-    public static void c(zp4 zp4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, zp4Var) == null) || zp4Var == null) {
-            return;
-        }
-        String d = zp4Var.d();
-        if (StringUtils.isNull(d)) {
-            d = zp4Var.f();
-        }
-        String str = d;
-        String b = zp4Var.b();
-        String c = zp4Var.c();
-        String g = zp4Var.g();
-        xh8.c("frs", "CLICK", b, c, g, "tieba.baidu.com/p/" + zp4Var.g(), str);
-    }
-
-    public static void d(FrsFragment frsFragment, FrsViewData frsViewData, ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, frsFragment, frsViewData, threadData) == null) || threadData == null || frsViewData == null) {
-            return;
-        }
-        FrsModelController K0 = frsFragment.K0();
-        lc6 k1 = frsFragment.k1();
-        if (k1 == null || K0 == null) {
-            return;
-        }
-        if (threadData.getAuthor() != null && threadData.getAuthor().getGodInfo() != null) {
-            TiebaStatic.log(new StatisticItem("c10806").param("obj_locate", 3).param("tid", threadData.getId()));
-        }
-        if (frsViewData != null && frsViewData.getForum() != null) {
-            qn6 qn6Var = new qn6();
-            qn6Var.a = frsViewData.needLog == 1;
-            qn6Var.c = frsViewData.getForum().getId();
-            qn6Var.d = frsViewData.getForum().getName();
-            qn6Var.b = K0.U();
-            qn6 qn6Var2 = sn6.f0;
-            if (qn6Var2 != null) {
-                qn6Var.e = qn6Var2.e;
-                qn6Var.f = qn6Var2.f;
-            }
-            rn6.k().h(qn6Var, threadData, 1);
-            pn6.e(threadData, 1, frsFragment.getUniqueId(), qn6Var, frsFragment.getTbPageTag());
-        }
-        b(k1, frsViewData, frsFragment.d(), true, threadData);
-    }
-
-    public static void e(String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) {
-            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", i).param("obj_type", i2).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-            pi4.a(param, str);
-            TiebaStatic.log(param);
-        }
-    }
-
-    public static void f(FrsModelController frsModelController, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65541, null, frsModelController, j) == null) || frsModelController == null) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        TiebaStatic.page(TiebaStatic.OpKey.OP_FRS_ENTER, currentTimeMillis - j, frsModelController.i0() - j, frsModelController.k0(), frsModelController.j0(), currentTimeMillis - frsModelController.h0());
-    }
-
-    public static void g(@Nullable ThreadData threadData, @Nullable FrsViewData frsViewData, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65542, null, threadData, frsViewData, i) == null) || frsViewData == null || frsViewData.getForum() == null) {
-            return;
-        }
-        pn6.d(threadData, frsViewData.getForum().getId(), i);
     }
 }

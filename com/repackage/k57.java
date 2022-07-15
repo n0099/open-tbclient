@@ -1,271 +1,167 @@
 package com.repackage;
 
-import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
-import android.os.StatFs;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class k57 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static k57 c = null;
-    public static long d = -1;
-    public static int e;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public c b;
-
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k57 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(k57 k57Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k57Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k57Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
-                if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    this.a.a.sendMessageDelayed(this.a.a.obtainMessage(1), 30000L);
-                    return;
-                }
-                this.a.a.removeMessages(1);
-                this.a.j();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what != 1) {
-                    return;
-                }
-                k57.i().a.removeMessages(1);
-                k57.i().h();
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends BdAsyncTask<String, Object, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(k57 k57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                LinkedList<ImMessageCenterPojo> h = l57.f().h();
-                if (h != null && h.size() != 0) {
-                    if (k57.d < 0) {
-                        try {
-                            StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                            long unused = k57.d = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                            if (k57.d > 2147483648L) {
-                                int unused2 = k57.e = 5000;
-                            } else if (k57.d > 1073741824) {
-                                int unused3 = k57.e = 3000;
-                            } else {
-                                int unused4 = k57.e = 1000;
-                            }
-                        } catch (Exception e) {
-                            BdLog.e(e);
-                        }
-                    }
-                    if (k57.e < 1000) {
-                        int unused5 = k57.e = 1000;
-                    }
-                    try {
-                        try {
-                            j57.d().f();
-                            for (ImMessageCenterPojo imMessageCenterPojo : h) {
-                                if (isCancelled()) {
-                                    j57.d().b();
-                                    return Boolean.FALSE;
-                                } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                                    e57.h().n(imMessageCenterPojo.getGid(), k57.e);
-                                } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                                    o57.v().r(imMessageCenterPojo.getGid(), k57.e);
-                                } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                                    n57.v().r(imMessageCenterPojo.getGid(), k57.e);
-                                } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                                    f57.f().k(imMessageCenterPojo.getGid(), k57.e);
-                                }
-                            }
-                        } catch (Exception e2) {
-                            BdLog.e(e2.getMessage());
-                        }
-                        j57.d().b();
-                        return Boolean.TRUE;
-                    } finally {
-                        j57.d().b();
-                    }
-                }
-                return Boolean.FALSE;
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        public /* synthetic */ c(k57 k57Var, a aVar) {
-            this(k57Var);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755607804, "Lcom/repackage/k57;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755607804, "Lcom/repackage/k57;");
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int e;
 
     public k57() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new b(null);
-        this.b = null;
-        MessageManager.getInstance().registerListener(new a(this, 2001011));
     }
 
-    public static k57 i() {
-        InterceptResult invokeV;
+    public static k57 g(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (c == null) {
-                synchronized (k57.class) {
-                    if (c == null) {
-                        c = new k57();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
+            if (obj instanceof Map) {
+                Map map = (Map) obj;
+                k57 k57Var = new k57();
+                try {
+                    k57Var.a = (String) map.get("user_id");
+                    k57Var.b = (String) map.get("username");
+                    k57Var.c = (String) map.get("avatar");
+                    k57Var.d = ((Boolean) map.get("is_free")).booleanValue();
+                    k57Var.e = ((Integer) map.get("pos")).intValue();
+                } catch (Exception unused) {
+                    Log.d("GameMatchUser", "Flutter Data Parser Error!");
+                }
+                if (k57Var.f()) {
+                    return k57Var;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (k57) invokeL.objValue;
+    }
+
+    @NonNull
+    public static List<k57> h(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Object obj = hashMap.get("imUserList");
+            if (obj instanceof List) {
+                int i = 0;
+                while (true) {
+                    List list = (List) obj;
+                    if (i >= list.size()) {
+                        break;
                     }
+                    k57 g = g(list.get(i));
+                    if (g != null) {
+                        arrayList.add(g);
+                    }
+                    i++;
                 }
             }
-            return c;
+            return arrayList;
         }
-        return (k57) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public final void h() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c cVar = this.b;
-            if (cVar != null) {
-                cVar.cancel();
-                this.b = null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            c cVar2 = new c(this, null);
-            this.b = cVar2;
-            cVar2.setParallel(TiebaIMConfig.getParallel());
-            this.b.setPriority(4);
-            this.b.execute(new String[0]);
+            if (obj == null || k57.class != obj.getClass()) {
+                return false;
+            }
+            String str = this.a;
+            String str2 = ((k57) obj).a;
+            return str != null ? str.equals(str2) : str2 == null;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void j() {
-        c cVar;
+    public final boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.b) == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c)) ? false : true : invokeV.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = this.a;
+            if (str != null) {
+                return str.hashCode();
+            }
+            return 0;
         }
-        cVar.cancel();
-        this.b = null;
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "GameMatchUser{userId='" + this.a + "', showName='" + this.b + "', avatar='" + this.c + "', isFree='" + this.d + "', pos='" + this.e + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

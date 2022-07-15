@@ -1,59 +1,90 @@
 package com.kwad.sdk.utils;
 
+import android.content.Context;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.webkit.CookieManager;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import androidx.annotation.MainThread;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import com.baidu.sofire.utility.PermissionChecker;
+import com.kwad.sdk.api.SdkConfig;
+import com.kwad.sdk.service.ServiceProvider;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class be {
-    @MainThread
-    public static WebSettings a(WebView webView) {
-        if (webView == null) {
-            return null;
+public final class be {
+    public static boolean a = true;
+    public static boolean b;
+    public static final List<a> c = new ArrayList();
+
+    /* loaded from: classes5.dex */
+    public static class a implements com.kwad.sdk.core.b {
+        public int a;
+        public String b;
+        public String c;
+
+        @Override // com.kwad.sdk.core.b
+        public final void parseJson(@Nullable JSONObject jSONObject) {
         }
-        WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setSavePassword(false);
-        settings.setAllowFileAccessFromFileURLs(false);
-        settings.setAllowUniversalAccessFromFileURLs(false);
-        settings.setAllowFileAccess(false);
-        if (Build.VERSION.SDK_INT >= 21) {
-            settings.setMixedContentMode(0);
+
+        @Override // com.kwad.sdk.core.b
+        public final JSONObject toJson() {
+            JSONObject jSONObject = new JSONObject();
+            r.a(jSONObject, "level", this.a);
+            r.a(jSONObject, "ssid", this.b);
+            r.a(jSONObject, "bssid", this.c);
+            return jSONObject;
         }
-        if (Build.VERSION.SDK_INT < 19) {
-            webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            webView.removeJavascriptInterface("accessibility");
-            webView.removeJavascriptInterface("accessibilityTraversal");
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-            CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
-        }
-        webView.setSaveEnabled(false);
-        return settings;
     }
 
-    @MainThread
-    public static void b(WebView webView) {
-        if (webView == null) {
-            return;
+    public static List<a> a(Context context, int i) {
+        WifiManager wifiManager;
+        if (an.k()) {
+            return new ArrayList();
         }
-        WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setSavePassword(false);
-        settings.setAllowFileAccess(true);
-        settings.setAllowContentAccess(false);
-        settings.setAllowFileAccessFromFileURLs(false);
-        settings.setAllowUniversalAccessFromFileURLs(false);
-        settings.setCacheMode(1);
-        if (Build.VERSION.SDK_INT >= 21) {
-            settings.setMixedContentMode(0);
+        if (b || !a || !c.isEmpty() || context == null) {
+            return c;
         }
-        if (Build.VERSION.SDK_INT < 19) {
-            webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            webView.removeJavascriptInterface("accessibility");
-            webView.removeJavascriptInterface("accessibilityTraversal");
+        if (((com.kwad.sdk.service.kwai.f) ServiceProvider.a(com.kwad.sdk.service.kwai.f.class)).a(32L)) {
+            return c;
         }
-        webView.setSaveEnabled(false);
+        try {
+        } catch (Exception e) {
+            b = true;
+            com.kwad.sdk.core.d.b.b(e);
+        }
+        if (!a(context) && (wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi")) != null) {
+            WifiInfo connectionInfo = wifiManager.getConnectionInfo();
+            List<ScanResult> scanResults = wifiManager.getScanResults();
+            if (scanResults != null) {
+                for (ScanResult scanResult : scanResults) {
+                    a aVar = new a();
+                    aVar.b = scanResult.SSID;
+                    aVar.c = scanResult.BSSID;
+                    aVar.a = scanResult.level;
+                    if (connectionInfo.getBSSID() == null || scanResult.BSSID == null || !TextUtils.equals(connectionInfo.getBSSID().replace("\"", ""), scanResult.BSSID.replace("\"", "")) || connectionInfo.getSSID() == null || scanResult.SSID == null || !TextUtils.equals(connectionInfo.getSSID().replace("\"", ""), scanResult.SSID.replace("\"", ""))) {
+                        c.add(aVar);
+                    } else {
+                        c.add(0, aVar);
+                    }
+                    if (c.size() >= i) {
+                        return c;
+                    }
+                }
+            }
+            return c;
+        }
+        return c;
+    }
+
+    public static void a(SdkConfig sdkConfig) {
+        a = sdkConfig.canReadNearbyWifiList();
+    }
+
+    public static boolean a(Context context) {
+        return (context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29) ? Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(context, PermissionChecker.ACCESS_FINE_LOCATION) == -1 && ContextCompat.checkSelfPermission(context, PermissionChecker.ACCESS_COARSE_LOCATION) == -1 : ContextCompat.checkSelfPermission(context, PermissionChecker.ACCESS_FINE_LOCATION) == -1;
     }
 }

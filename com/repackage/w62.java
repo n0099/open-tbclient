@@ -1,40 +1,53 @@
 package com.repackage;
 
-import android.database.sqlite.SQLiteDatabase;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class w62 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL(c());
-            } catch (Exception e) {
-                e.getStackTrace();
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755249506, "Lcom/repackage/w62;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755249506, "Lcom/repackage/w62;");
         }
     }
 
-    public static void b(SQLiteDatabase sQLiteDatabase) {
+    public static int a(@NonNull el2 el2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("DROP TRIGGER IF EXISTS delete_old_swan_history");
-                sQLiteDatabase.execSQL("CREATE TRIGGER delete_old_swan_history AFTER INSERT ON ai_apps_history WHEN (select count(*) from ai_apps_history)>200 BEGIN  DELETE FROM ai_apps_history WHERE _id IN (SELECT _id FROM  ai_apps_history ORDER BY visit_time LIMIT (SELECT count(*) -200 FROM ai_apps_history)); END;");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, el2Var)) == null) {
+            int i = a;
+            return i != 0 ? i : el2Var.j("preAppReadyState", 0);
+        }
+        return invokeL.intValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = 0;
         }
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public static void c(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "CREATE TABLE IF NOT EXISTS ai_apps_history (_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT NOT NULL UNIQUE,app_from TEXT,visit_time INTEGER DEFAULT 0,app_name TEXT,app_icon TEXT,frame_type INTEGER,sync_state INTEGER,pay_protected INTEGER,app_type TEXT,app_key TEXT,version_code TEXT);" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            a = i;
+        }
     }
 }

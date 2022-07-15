@@ -1,270 +1,127 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.event.base.TKBaseEvent;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes7.dex */
-public class ye3 implements View.OnTouchListener {
+public abstract class ye3<OuT> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public int[] e;
-    public c f;
-    public long g;
-    public b h;
+    public final bf3<OuT> a;
+    public OuT b;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public static class a extends ye3<OuT> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ CountDownLatch c;
 
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public MotionEvent a;
-        public y92 b;
-        public final /* synthetic */ ye3 c;
-
-        public b(ye3 ye3Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(bf3 bf3Var, CountDownLatch countDownLatch) {
+            super(bf3Var, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ye3Var};
+                Object[] objArr = {bf3Var, countDownLatch};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((bf3) objArr2[0], (a) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = ye3Var;
+            this.c = countDownLatch;
         }
 
-        public final void b(MotionEvent motionEvent) {
+        @Override // com.repackage.ye3
+        public void c() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
-                this.a = motionEvent;
-                this.b = this.c.d(motionEvent, "longtap");
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.countDown();
             }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.c.g(this.b);
-            }
-        }
-
-        public /* synthetic */ b(ye3 ye3Var, a aVar) {
-            this(ye3Var);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public double a;
-        public double b;
+    public /* synthetic */ ye3(bf3 bf3Var, a aVar) {
+        this(bf3Var);
+    }
 
-        public c(ye3 ye3Var, double d, double d2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ye3Var, Double.valueOf(d), Double.valueOf(d2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static <OuT> OuT a(Looper looper, bf3<OuT> bf3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, bf3Var)) == null) {
+            if (bf3Var == null) {
+                return null;
             }
-            this.a = d;
-            this.b = d2;
+            if (looper != null && Thread.currentThread() != looper.getThread()) {
+                CountDownLatch countDownLatch = new CountDownLatch(1);
+                a aVar = new a(bf3Var, countDownLatch);
+                new Handler(looper).post(aVar);
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    hx1.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e);
+                    e.printStackTrace();
+                }
+                return aVar.b;
+            }
+            return bf3Var.create();
         }
+        return (OuT) invokeLL.objValue;
+    }
 
-        public double a(c cVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-                if (cVar == null) {
-                    return Double.MAX_VALUE;
+    public static <OuT> OuT b(bf3<OuT> bf3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bf3Var)) == null) ? (OuT) a(Looper.getMainLooper(), bf3Var) : (OuT) invokeL.objValue;
+    }
+
+    public abstract void c();
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                try {
+                    this.b = this.a.create();
+                } catch (Exception e) {
+                    hx1.o("Awaiting", "catch: " + e + "\n" + Log.getStackTraceString(e));
                 }
-                double pow = Math.pow(cVar.a - this.a, 2.0d) + Math.pow(cVar.b - this.b, 2.0d);
-                if (pow <= 0.0d) {
-                    return 0.0d;
-                }
-                return Math.sqrt(pow);
+            } finally {
+                c();
             }
-            return invokeL.doubleValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755144726, "Lcom/repackage/ye3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755144726, "Lcom/repackage/ye3;");
-                return;
-            }
-        }
-        i = cg1.a;
-    }
-
-    public ye3(String str, String str2, String str3) {
+    public ye3(bf3<OuT> bf3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {bf3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = false;
-        this.e = new int[2];
-        this.h = new b(this, null);
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        h();
-        i();
-    }
-
-    /* JADX WARN: Type inference failed for: r0v4, types: [org.json.JSONObject, T] */
-    public final y92 c(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            xe3 xe3Var = new xe3(motionEvent);
-            xe3Var.i(this.e);
-            y92 y92Var = new y92();
-            y92Var.c = ze3.b(this.a, this.b, this.c, xe3Var.e(), xe3Var.c());
-            return y92Var;
-        }
-        return (y92) invokeL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r6v2, types: [org.json.JSONObject, T] */
-    public final y92 d(MotionEvent motionEvent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, str)) == null) {
-            xe3 xe3Var = new xe3(motionEvent, str);
-            xe3Var.i(this.e);
-            y92 y92Var = new y92();
-            y92Var.c = ze3.b(this.a, this.b, this.c, xe3Var.e(), xe3Var.c());
-            return y92Var;
-        }
-        return (y92) invokeLL.objValue;
-    }
-
-    public final void e(View view2, MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent) == null) {
-            if (view2 != null && motionEvent != null && !TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
-                int actionMasked = motionEvent.getActionMasked();
-                if (actionMasked == 0 && motionEvent.getPointerCount() == 1) {
-                    this.f = new c(this, motionEvent.getX(), motionEvent.getY());
-                    this.g = motionEvent.getEventTime();
-                    this.h.b(motionEvent);
-                    view2.postDelayed(this.h, 350L);
-                    i();
-                } else if (actionMasked == 1 || actionMasked == 3 || !f(new c(this, motionEvent.getX(), motionEvent.getY()))) {
-                    view2.removeCallbacks(this.h);
-                }
-                g(c(motionEvent));
-                if (actionMasked == 1 && f(new c(this, motionEvent.getX(), motionEvent.getY())) && motionEvent.getEventTime() - this.g < 350) {
-                    g(d(motionEvent, TKBaseEvent.TK_CLICK_EVENT_NAME));
-                    return;
-                }
-                return;
-            }
-            sw1.c("SwanAppTouchListener", "params is null, slaveId = " + this.a + " ; viewId = " + this.b);
-        }
-    }
-
-    public final boolean f(c cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
-            c cVar2 = this.f;
-            return cVar2 != null && cVar2.a(cVar) <= ((double) jd3.g(10.0f));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g(y92 y92Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, y92Var) == null) {
-            if (i) {
-                Log.d("SwanAppTouchListener", "sendEventToWebView = " + y92Var.c);
-            }
-            if (!this.d) {
-                fl2.U().m(this.a, y92Var);
-            } else {
-                fl2.U().u(y92Var);
-            }
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = hd3.f("1.12.0") && TextUtils.equals("canvas", this.c);
-        }
-    }
-
-    public final void i() {
-        View m;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (m = md3.m(this.a)) == null) {
-            return;
-        }
-        m.getLocationOnScreen(this.e);
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, view2, motionEvent)) == null) {
-            e(view2, motionEvent);
-            return true;
-        }
-        return invokeLL.booleanValue;
+        this.b = null;
+        this.a = bf3Var;
     }
 }

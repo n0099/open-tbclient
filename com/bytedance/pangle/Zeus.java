@@ -3,10 +3,8 @@ package com.bytedance.pangle;
 import android.app.Application;
 import android.content.pm.ProviderInfo;
 import android.os.RemoteException;
-import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import com.android.server.SystemConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,22 +12,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.ZeusParam;
-import com.bytedance.pangle.download.PluginDownloadBean;
-import com.bytedance.pangle.download.ZeusPluginListener;
+import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.plugin.Plugin;
 import com.bytedance.pangle.plugin.PluginManager;
 import com.bytedance.pangle.util.MethodUtils;
-import com.bytedance.pangle.util.j;
+import com.yy.hiidostatis.inner.FlushManager;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 @Keep
 /* loaded from: classes4.dex */
 public class Zeus {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile boolean onPrivacyAgreed;
     public static Application sApplication;
     public static final HashMap<String, ProviderInfo> serverManagerHashMap;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,6 +43,7 @@ public class Zeus {
             }
         }
         serverManagerHashMap = new HashMap<>();
+        onPrivacyAgreed = false;
     }
 
     public Zeus() {
@@ -64,51 +60,69 @@ public class Zeus {
         }
     }
 
-    public static void clearOfflineFlag(String str) {
+    public static void addPluginEventCallback(ZeusPluginEventCallback zeusPluginEventCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            j.a().c(str);
+        if (interceptable == null || interceptable.invokeL(65538, null, zeusPluginEventCallback) == null) {
+            g a = g.a();
+            if (zeusPluginEventCallback != null) {
+                synchronized (a.c) {
+                    a.c.add(zeusPluginEventCallback);
+                }
+            }
         }
     }
 
-    public static void downloadAndInstall(String str, ZeusPluginListener zeusPluginListener) {
-        PluginDownloadBean pluginDownloadBean;
+    public static void fetchPlugin(final String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, zeusPluginListener) == null) {
-            com.bytedance.pangle.download.g a = com.bytedance.pangle.download.g.a();
-            synchronized (a) {
-                Iterator<PluginDownloadBean> it = a.c.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        pluginDownloadBean = null;
-                        break;
-                    }
-                    pluginDownloadBean = it.next();
-                    if (TextUtils.equals(pluginDownloadBean.mPackageName, str)) {
-                        break;
-                    }
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            com.bytedance.pangle.download.b a = com.bytedance.pangle.download.b.a();
+            if (com.bytedance.pangle.c.d.a(getAppApplication())) {
+                final com.bytedance.pangle.download.c a2 = com.bytedance.pangle.download.c.a();
+                Runnable runnable = a2.c.get(str);
+                if (runnable != null) {
+                    a2.b.removeCallbacks(runnable);
                 }
-                if (pluginDownloadBean == null) {
-                    Iterator<PluginDownloadBean> it2 = a.b.iterator();
-                    while (true) {
-                        if (!it2.hasNext()) {
-                            break;
+                Runnable runnable2 = new Runnable(a2, str) { // from class: com.bytedance.pangle.download.c.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ String a;
+                    public final /* synthetic */ c b;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {a2, str};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
                         }
-                        PluginDownloadBean next = it2.next();
-                        if (TextUtils.equals(next.mPackageName, str)) {
-                            pluginDownloadBean = next;
-                            break;
+                        this.b = a2;
+                        this.a = str;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && com.bytedance.pangle.util.b.a(Zeus.getAppApplication())) {
+                            this.b.b.postDelayed(this, FlushManager.ReportTimer.DEFAULT_INTERVAL);
                         }
                     }
+                };
+                a2.c.put(str, runnable2);
+                a2.b.postDelayed(runnable2, FlushManager.ReportTimer.DEFAULT_INTERVAL);
+                com.bytedance.pangle.download.c.a();
+                if (a.a.contains(str)) {
+                    return;
                 }
+                a.a.add(str);
             }
-            if (pluginDownloadBean != null) {
-                pluginDownloadBean.isWifiOnly = false;
-                com.bytedance.pangle.download.g.a(pluginDownloadBean, zeusPluginListener);
-                return;
-            }
-            zeusPluginListener.onEvent(13, "The plugin was not found in the cache.");
-            ZeusLogger.e(ZeusLogger.TAG_DOWNLOAD, "The plugin was not found in the cache.");
         }
     }
 
@@ -119,7 +133,7 @@ public class Zeus {
             if (sApplication == null) {
                 b.a();
                 try {
-                    sApplication = (Application) MethodUtils.invokeMethod(com.bytedance.pangle.helper.a.a(), "getApplication", new Object[0]);
+                    sApplication = (Application) MethodUtils.invokeMethod(com.bytedance.pangle.c.a.a(), "getApplication", new Object[0]);
                 } catch (Throwable unused) {
                 }
             }
@@ -131,13 +145,13 @@ public class Zeus {
     public static String getHostAbi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? com.bytedance.pangle.helper.b.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? com.bytedance.pangle.c.b.a() : (String) invokeV.objValue;
     }
 
     public static int getHostAbiBit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? com.bytedance.pangle.helper.b.b() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? com.bytedance.pangle.c.b.b() : invokeV.intValue;
     }
 
     public static int getInstalledPluginVersion(String str) {
@@ -155,47 +169,54 @@ public class Zeus {
         return invokeL.intValue;
     }
 
+    public static int getMaxInstallVer(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (com.bytedance.pangle.c.d.a(getAppApplication())) {
+                return getPlugin(str).getInstalledMaxVer();
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
     public static Plugin getPlugin(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? getPlugin(str, true) : (Plugin) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? getPlugin(str, true) : (Plugin) invokeL.objValue;
     }
 
     public static HashMap<String, ProviderInfo> getServerManagerHashMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? serverManagerHashMap : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? serverManagerHashMap : (HashMap) invokeV.objValue;
     }
 
     public static boolean hasInit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? g.a().a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? g.a().a : invokeV.booleanValue;
     }
 
-    public static boolean hasNewPlugin(String str) {
-        InterceptResult invokeL;
+    public static void init(Application application, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? com.bytedance.pangle.download.g.a().a(str) : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeLZ(65549, null, application, z) == null) {
+            g.a().a(application);
+        }
     }
 
-    public static boolean hasOfflineFlag(String str) {
-        InterceptResult invokeL;
+    public static void installFromDownloadDir() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) ? j.a().d(str) : invokeL.booleanValue;
-    }
-
-    public static void init(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, application) == null) {
-            init(application, new ZeusParam.Builder().build());
+        if ((interceptable == null || interceptable.invokeV(65550, null) == null) && com.bytedance.pangle.c.d.a(getAppApplication())) {
+            PluginManager.getInstance().installFromDownloadDir();
         }
     }
 
     public static boolean isPluginInstalled(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
             Plugin plugin = PluginManager.getInstance().getPlugin(str);
             return plugin != null && plugin.isInstalled();
         }
@@ -205,66 +226,46 @@ public class Zeus {
     public static boolean isPluginLoaded(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) ? PluginManager.getInstance().isLoaded(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? PluginManager.getInstance().isLoaded(str) : invokeL.booleanValue;
     }
 
     public static boolean loadPlugin(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) ? PluginManager.getInstance().loadPlugin(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) ? PluginManager.getInstance().loadPlugin(str) : invokeL.booleanValue;
     }
 
-    public static void markOfflineFlag(String str) {
+    public static synchronized void onPrivacyAgreed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            j.a().b(str);
-        }
-    }
-
-    public static void preInit() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65556, null) == null) && com.bytedance.pangle.util.g.e()) {
-            com.bytedance.pangle.helper.e.a.execute(new Runnable() { // from class: com.bytedance.pangle.Zeus.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        b.a();
-                        try {
-                            SystemConfig.getInstance();
-                        } catch (Throwable unused) {
-                        }
-                    }
-                }
-            });
+        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
+            synchronized (Zeus.class) {
+            }
         }
     }
 
     public static void registerPluginStateListener(ZeusPluginStateListener zeusPluginStateListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, null, zeusPluginStateListener) == null) {
+        if (interceptable == null || interceptable.invokeL(65555, null, zeusPluginStateListener) == null) {
+            g.a().b.add(zeusPluginStateListener);
+        }
+    }
+
+    public static void removePluginEventCallback(ZeusPluginEventCallback zeusPluginEventCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65556, null, zeusPluginEventCallback) == null) {
             g a = g.a();
-            if (a.c.isEmpty()) {
-                a.c = new CopyOnWriteArrayList();
+            if (zeusPluginEventCallback != null) {
+                synchronized (a.c) {
+                    a.c.remove(zeusPluginEventCallback);
+                }
             }
-            a.c.add(zeusPluginStateListener);
+        }
+    }
+
+    public static void setAllowDownloadPlugin(String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            PluginManager.getInstance().setAllowDownloadPlugin(str, i, z);
         }
     }
 
@@ -275,14 +276,14 @@ public class Zeus {
         }
     }
 
-    public static boolean syncInstallPlugin(String str) {
-        InterceptResult invokeL;
+    public static boolean syncInstallPlugin(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, str, str2)) == null) {
             c a = com.bytedance.pangle.servermanager.b.a();
             if (a != null) {
                 try {
-                    return a.c(str);
+                    return a.a(str, str2);
                 } catch (RemoteException e) {
                     ZeusLogger.e(ZeusLogger.TAG_INSTALL, "syncInstallPlugin error.", e);
                     return false;
@@ -290,39 +291,34 @@ public class Zeus {
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public static boolean unInstallPlugin(String str) {
-        InterceptResult invokeL;
+    public static void unInstallPlugin(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
-            ZeusLogger.d("unInstallPlugin");
-            return PluginManager.getInstance().deletePackage(str) == 0;
+        if (interceptable == null || interceptable.invokeL(65560, null, str) == null) {
+            PluginManager.getInstance().unInstallPackage(str);
         }
-        return invokeL.booleanValue;
     }
 
     public static void unregisterPluginStateListener(ZeusPluginStateListener zeusPluginStateListener) {
-        g a;
         List<ZeusPluginStateListener> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65561, null, zeusPluginStateListener) == null) && (list = (a = g.a()).c) != null && list.contains(zeusPluginStateListener)) {
-            a.c.remove(zeusPluginStateListener);
+        if (!(interceptable == null || interceptable.invokeL(65561, null, zeusPluginStateListener) == null) || (list = g.a().b) == null) {
+            return;
         }
+        list.remove(zeusPluginStateListener);
     }
 
     public static Plugin getPlugin(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65545, null, str, z)) == null) ? PluginManager.getInstance().getPlugin(str, z) : (Plugin) invokeLZ.objValue;
-    }
-
-    public static void init(Application application, ZeusParam zeusParam) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, application, zeusParam) == null) {
-            setAppContext(application);
-            g.a().a(application, zeusParam);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, str, z)) == null) {
+            if (!hasInit() && com.bytedance.pangle.util.b.a()) {
+                throw new RuntimeException("Please init Zeus first!");
+            }
+            return PluginManager.getInstance().getPlugin(str, z);
         }
+        return (Plugin) invokeLZ.objValue;
     }
 }

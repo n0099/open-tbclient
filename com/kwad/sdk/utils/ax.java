@@ -1,51 +1,25 @@
 package com.kwad.sdk.utils;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Context;
+import androidx.annotation.Nullable;
 /* loaded from: classes5.dex */
-public class ax {
-    public static final Handler a = new Handler(Looper.getMainLooper());
-
-    public static void a(Runnable runnable) {
-        if (Looper.getMainLooper() == Looper.myLooper()) {
-            runnable.run();
-        } else {
-            a.post(runnable);
-        }
-    }
-
-    public static void a(Runnable runnable, long j) {
-        a.postDelayed(runnable, j);
-    }
-
-    public static void a(Runnable runnable, Object obj, long j) {
-        Message obtain = Message.obtain(a, runnable);
-        obtain.obj = obj;
-        a.sendMessageDelayed(obtain, j);
-    }
-
-    public static boolean a(JSONObject jSONObject, JSONObject jSONObject2) {
-        boolean z = false;
-        if (jSONObject != null && jSONObject2 != null) {
-            Iterator<String> keys = jSONObject2.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                try {
-                    jSONObject.put(next, jSONObject2.opt(next));
-                } catch (JSONException e) {
-                    com.kwad.sdk.core.d.a.b(e);
-                }
-                z = true;
+public final class ax {
+    public static long a(@Nullable Context context) {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (context != null) {
+            long j = context.getSharedPreferences("ksadsdk_pref", 0).getLong("key_time_diff_s2c", 0L);
+            if (j != 0) {
+                return currentTimeMillis + j;
             }
         }
-        return z;
+        return Math.abs(currentTimeMillis);
     }
 
-    public static void b(Runnable runnable) {
-        a.removeCallbacks(runnable);
+    public static void a(long j, int i, @Nullable Context context) {
+        if (j == 0 || context == null) {
+            return;
+        }
+        long currentTimeMillis = j - System.currentTimeMillis();
+        (Math.abs(currentTimeMillis) / 3600000 > ((long) i) ? context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong("key_time_diff_s2c", currentTimeMillis) : context.getSharedPreferences("ksadsdk_pref", 0).edit().remove("key_time_diff_s2c")).apply();
     }
 }

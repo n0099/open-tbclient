@@ -1,102 +1,208 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.MediaType;
+import com.baidu.searchbox.network.outback.core.Headers;
+import com.baidu.searchbox.network.outback.core.HttpMethod;
 import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.RequestBody;
-import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.searchbox.network.support.cookie.Cookie;
-import com.baidu.searchbox.network.support.cookie.CookieHandler;
-import com.baidu.searchbox.network.support.cookie.CookieJar;
+import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e50;
 import java.io.IOException;
-import java.util.List;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.ProxySelector;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes6.dex */
-public final class p50 implements e50 {
+public class p50 implements m50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CookieJar a;
-    public i50 b;
+    public k50 a;
+    public n50 b;
+    public j50 c;
 
-    public p50(CookieJar cookieJar, i50 i50Var) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public j50 a;
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public p50 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new p50(this, null) : (p50) invokeV.objValue;
+        }
+
+        public b c(j50 j50Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j50Var)) == null) {
+                this.a = j50Var;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755459066, "Lcom/repackage/p50;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755459066, "Lcom/repackage/p50;");
+        }
+    }
+
+    public /* synthetic */ p50(b bVar, a aVar) {
+        this(bVar);
+    }
+
+    public static b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new b(null) : (b) invokeV.objValue;
+    }
+
+    @Override // com.repackage.m50
+    public k50 a(Request request) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) {
+            HttpURLConnection a2 = this.b.a(request.url().url());
+            boolean equals = "CronetHttpURLConnection".equals(a2.getClass().getSimpleName());
+            int i = !equals ? 4 : 5;
+            NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
+            if (networkStatRecord != null) {
+                networkStatRecord.netEngine = i;
+            }
+            if (request.getConnectionTimeout() > 0) {
+                a2.setConnectTimeout(request.getConnectionTimeout());
+            } else if (this.c.o() > 0) {
+                a2.setConnectTimeout(this.c.o());
+            }
+            if (request.getReadTimeout() > 0) {
+                a2.setReadTimeout(request.getReadTimeout());
+            } else if (this.c.w() > 0) {
+                a2.setReadTimeout(this.c.w());
+            }
+            a2.setInstanceFollowRedirects(request.isFollowRedirects());
+            if ("https".equalsIgnoreCase(request.url().scheme()) && !equals) {
+                SSLSocketFactory x = this.c.x();
+                if (x != null) {
+                    ((HttpsURLConnection) a2).setSSLSocketFactory(x);
+                }
+                HostnameVerifier q = this.c.q();
+                if (q != null) {
+                    ((HttpsURLConnection) a2).setHostnameVerifier(q);
+                }
+            }
+            String method = request.method();
+            a2.setRequestMethod(method);
+            a2.setDoInput(true);
+            boolean permitsRequestBody = HttpMethod.permitsRequestBody(method);
+            a2.setDoOutput(permitsRequestBody);
+            Headers headers = request.headers();
+            if (permitsRequestBody) {
+                long contentLength = request.body().contentLength();
+                int i2 = (contentLength > 0L ? 1 : (contentLength == 0L ? 0 : -1));
+                if (i2 < 0 && !"chunked".equals(headers.get("Transfer-Encoding"))) {
+                    throw new IOException("content length < 0 but transfer-encoding is not set to chunked");
+                }
+                if (i2 < 0 && "chunked".equals(headers.get("Transfer-Encoding"))) {
+                    a2.setChunkedStreamingMode(-1);
+                } else {
+                    a2.setFixedLengthStreamingMode((int) contentLength);
+                }
+            }
+            int size = headers.size();
+            for (int i3 = 0; i3 < size; i3++) {
+                a2.setRequestProperty(headers.name(i3), headers.value(i3));
+            }
+            if (permitsRequestBody) {
+                c(request, a2);
+            }
+            a2.connect();
+            o50 o50Var = new o50(a2);
+            this.a = o50Var;
+            o50Var.t(i);
+            return this.a;
+        }
+        return (k50) invokeL.objValue;
+    }
+
+    public final void c(Request request, HttpURLConnection httpURLConnection) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, httpURLConnection) == null) {
+            OutputStream outputStream = null;
+            try {
+                try {
+                    outputStream = httpURLConnection.getOutputStream();
+                    request.body().writeTo(outputStream);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    throw e;
+                }
+            } finally {
+                Util.closeQuietly(outputStream);
+            }
+        }
+    }
+
+    public p50(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cookieJar, i50Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = cookieJar;
-        this.b = i50Var;
-    }
-
-    @Override // com.repackage.e50
-    public Response a(e50.a aVar) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            Request request = aVar.request();
-            request.getNetworkStatRecord().startTs = System.currentTimeMillis();
-            Request.Builder newBuilder = request.newBuilder();
-            newBuilder.removeHeader("bdapp-support-brotli");
-            RequestBody body = request.body();
-            if (body != null) {
-                MediaType contentType = body.contentType();
-                if (contentType != null) {
-                    newBuilder.header("Content-Type", contentType.toString());
-                }
-                long contentLength = body.contentLength();
-                if (contentLength != -1) {
-                    newBuilder.header("Content-Length", Long.toString(contentLength));
-                    newBuilder.removeHeader("Transfer-Encoding");
-                } else {
-                    newBuilder.header("Transfer-Encoding", "chunked");
-                    newBuilder.removeHeader("Content-Length");
-                }
-            }
-            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
-            if (!loadForRequest.isEmpty()) {
-                newBuilder.header("Cookie", b(loadForRequest));
-            }
-            if (request.header("User-Agent") == null && this.b.y() != null) {
-                newBuilder.header("User-Agent", this.b.y());
-            }
-            Response a = aVar.a(newBuilder.build());
-            CookieHandler.receiveHeaders(this.a, request, a.headers());
-            return a.newBuilder().request(request).build();
-        }
-        return (Response) invokeL.objValue;
-    }
-
-    public final String b(List<Cookie> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (i > 0) {
-                    sb.append("; ");
-                }
-                Cookie cookie = list.get(i);
-                sb.append(cookie.name());
-                sb.append('=');
-                sb.append(cookie.value());
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
+        j50 j50Var = bVar.a;
+        this.c = j50Var;
+        ProxySelector.setDefault(j50Var.v());
+        this.b = this.c.r();
     }
 }

@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an4;
+import com.repackage.iy0;
 import com.repackage.pi;
-import com.repackage.vx0;
-import com.repackage.y88;
+import com.repackage.pn4;
+import com.repackage.t98;
 /* loaded from: classes3.dex */
 public class AdAppInfoView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView f;
     public TextView g;
     public RelativeLayout h;
-    public an4 i;
+    public pn4 i;
     public AdvertAppInfo j;
     public int k;
     public int l;
@@ -73,7 +73,7 @@ public class AdAppInfoView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403c3});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403cb});
         this.k = obtainStyledAttributes.getResourceId(0, this.k);
         obtainStyledAttributes.recycle();
     }
@@ -83,14 +83,14 @@ public class AdAppInfoView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             setLayoutByAttrs(attributeSet);
             LayoutInflater.from(getContext()).inflate(getLayoutId(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900d4);
-            this.b = (AdStarRatingBar) findViewById(R.id.obfuscated_res_0x7f0900da);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f2);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900d5);
+            this.b = (AdStarRatingBar) findViewById(R.id.obfuscated_res_0x7f0900db);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f3);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090088);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0900d9);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0900d6);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0900e7);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907e8);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0900da);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0900d7);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0900e8);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907ef);
             this.e.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
         }
@@ -158,8 +158,8 @@ public class AdAppInfoView extends FrameLayout {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(ClogBuilder.LogType.FREE_CLICK).t("VIDEO_FLOW_TAIL").o(String.valueOf(this.j.position + 1)).h(str).n(this.j.g);
-        vx0.c(clogBuilder);
+        clogBuilder.y(ClogBuilder.LogType.FREE_CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.j.position + 1)).j(str).p(this.j.g);
+        iy0.b(clogBuilder);
     }
 
     public RelativeLayout getDownloadButtonContainer() {
@@ -193,60 +193,60 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(an4 an4Var) {
+    public void setAppInfo(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, an4Var) == null) {
-            if (an4Var != null && an4.c(an4Var)) {
-                this.i = an4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, pn4Var) == null) {
+            if (pn4Var != null && pn4.c(pn4Var)) {
+                this.i = pn4Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(an4Var.c)) {
+                    if (!TextUtils.isEmpty(pn4Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(an4Var.c);
+                        this.a.setText(pn4Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = an4Var.e;
+                    float f = pn4Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(an4Var.e);
+                        this.b.setRating(pn4Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(an4Var.f)) {
+                    if (!TextUtils.isEmpty(pn4Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(an4Var.f);
+                        this.c.setText(pn4Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(an4Var.d)) {
+                    if (!TextUtils.isEmpty(pn4Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(an4Var.d);
+                        this.d.setText(pn4Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    an4.b bVar = an4Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(an4Var.g.a)) {
+                    pn4.b bVar = pn4Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(pn4Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(an4Var.g.a);
+                        this.e.setText(pn4Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    an4.a aVar = an4Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(an4Var.h.a)) {
+                    pn4.a aVar = pn4Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(pn4Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(an4Var.h.a);
+                        this.f.setText(pn4Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }
@@ -352,8 +352,8 @@ public class AdAppInfoView extends FrameLayout {
                 }
                 int id = view2.getId();
                 String str3 = "";
-                if (id == R.id.obfuscated_res_0x7f0900d9) {
-                    an4.b bVar = this.a.i.g;
+                if (id == R.id.obfuscated_res_0x7f0900da) {
+                    pn4.b bVar = this.a.i.g;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -362,8 +362,8 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 } else {
-                    if (id == R.id.obfuscated_res_0x7f0900d6) {
-                        an4.a aVar = this.a.i.h;
+                    if (id == R.id.obfuscated_res_0x7f0900d7) {
+                        pn4.a aVar = this.a.i.h;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
@@ -376,7 +376,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                y88.a(this.a.getContext(), str3, null, null, str);
+                t98.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };

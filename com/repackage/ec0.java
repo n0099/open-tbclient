@@ -1,11 +1,11 @@
 package com.repackage;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ec0 {
-    void a(boolean z);
+    void a(long j);
 
-    void b(boolean z);
+    void onRecorderComplete(boolean z, String str);
 
-    void c(boolean z);
+    void onRecorderError(int i);
 
-    void d(boolean z);
+    void onRecorderStart(boolean z);
 }

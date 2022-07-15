@@ -21,11 +21,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f78;
-import com.repackage.g78;
-import com.repackage.h78;
-import com.repackage.mx4;
-import com.repackage.nx4;
+import com.repackage.a88;
+import com.repackage.b88;
+import com.repackage.c88;
+import com.repackage.ky4;
+import com.repackage.ly4;
 import com.repackage.qg;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
@@ -40,18 +40,18 @@ public class PushMessageStatic {
 
         /* renamed from: com.baidu.tieba.push.PushMessageStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0237a implements mx4.h {
+        public class C0239a implements ky4.h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Ringtone a;
-            public final /* synthetic */ g78 b;
+            public final /* synthetic */ b88 b;
 
-            public C0237a(a aVar, Ringtone ringtone, g78 g78Var) {
+            public C0239a(a aVar, Ringtone ringtone, b88 b88Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, ringtone, g78Var};
+                    Object[] objArr = {aVar, ringtone, b88Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -62,10 +62,10 @@ public class PushMessageStatic {
                     }
                 }
                 this.a = ringtone;
-                this.b = g78Var;
+                this.b = b88Var;
             }
 
-            @Override // com.repackage.mx4.h
+            @Override // com.repackage.ky4.h
             public void dismiss() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -73,26 +73,26 @@ public class PushMessageStatic {
                     if (ringtone != null) {
                         ringtone.stop();
                     }
-                    g78 g78Var = this.b;
-                    if (g78Var != null) {
-                        g78Var.l();
+                    b88 b88Var = this.b;
+                    if (b88Var != null) {
+                        b88Var.l();
                     }
                 }
             }
         }
 
         /* loaded from: classes3.dex */
-        public class b implements g78.e {
+        public class b implements b88.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ mx4 a;
+            public final /* synthetic */ ky4 a;
 
-            public b(a aVar, mx4 mx4Var) {
+            public b(a aVar, ky4 ky4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, mx4Var};
+                    Object[] objArr = {aVar, ky4Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -102,17 +102,17 @@ public class PushMessageStatic {
                         return;
                     }
                 }
-                this.a = mx4Var;
+                this.a = ky4Var;
             }
 
-            @Override // com.repackage.g78.e
+            @Override // com.repackage.b88.e
             public void a(View view2) {
-                mx4 mx4Var;
+                ky4 ky4Var;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (mx4Var = this.a) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (ky4Var = this.a) == null) {
                     return;
                 }
-                mx4Var.t();
+                ky4Var.t();
             }
         }
 
@@ -147,7 +147,7 @@ public class PushMessageStatic {
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null) {
                     return;
                 }
-                new f78(currentActivity, this.a.getForegroundShowData().getExtData(), this.a.getForegroundShowData().getRemindInfo()).q();
+                new a88(currentActivity, this.a.getForegroundShowData().getExtData(), this.a.getForegroundShowData().getRemindInfo()).q();
             }
         }
 
@@ -184,14 +184,14 @@ public class PushMessageStatic {
             boolean isLiveData = pushGeneralData.getForegroundShowData().isLiveData();
             int type = extData.getType();
             TbPageContext currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(TbadkCoreApplication.getInst().getCurrentActivity());
-            if (type == 3) {
-                g78 g78Var = new g78(currentPageContext);
-                g78Var.o(pushGeneralData);
-                Ringtone f = h78.f();
-                mx4 b2 = nx4.b(g78Var.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
-                b2.x(new C0237a(this, f, g78Var));
-                g78Var.p(new b(this, b2));
-            } else if (type == 1 || type == 2 || type == 4) {
+            if (type == 3 || type == 6 || type == 7) {
+                b88 b88Var = new b88(currentPageContext);
+                b88Var.o(pushGeneralData);
+                Ringtone f = c88.f();
+                ky4 b2 = ly4.b(b88Var.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
+                b2.x(new C0239a(this, f, b88Var));
+                b88Var.p(new b(this, b2));
+            } else if (type == 1 || type == 2 || type == 4 || type == 5) {
                 qg.a().post(new c(this, pushGeneralData));
             }
             if (remindInfo == null || extData == null || !isLiveData) {
@@ -217,8 +217,8 @@ public class PushMessageStatic {
             hashMap.put("view_top_params_key_yyext", yyExtData);
             hashMap.put("view_top_params_key_type", 1);
             hashMap.put("view_top_params_room_id", extData.getLiveId());
-            nx4.b(null, currentPageContext, hashMap, 0L, remindInfo.getShowtime());
-            nx4.a();
+            ly4.b(null, currentPageContext, hashMap, 0L, remindInfo.getShowtime());
+            ly4.a();
             TbSingleton.getInstance().setIsNeedRemindLiveRoom(false);
         }
     }
@@ -250,19 +250,19 @@ public class PushMessageStatic {
                 if (strArr != null && tbPageContext != null && strArr.length > 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
-                        h78.e(tbPageContext.getContext(), str, true);
+                        c88.e(tbPageContext.getContext(), str, true);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ALBUM)) {
-                        h78.a(tbPageContext.getContext(), str);
+                        c88.a(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_SKILL_DETAIL)) {
-                        h78.d(tbPageContext.getContext(), str);
+                        c88.d(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
-                        h78.b(tbPageContext.getContext(), str);
+                        c88.b(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ORDER_PAGE)) {
-                        h78.c(tbPageContext.getContext(), str);
+                        c88.c(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_MAIN_PAGE)) {
                         UrlSchemaJumpHelper.jumpGamePlayPage(tbPageContext.getContext(), str);

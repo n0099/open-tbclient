@@ -1,49 +1,51 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wq3 extends xr3 {
+public class wq3 implements zq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public tq3 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wq3() {
-        super("getAvailableSpace");
+    public wq3(tq3 tq3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tq3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = tq3Var;
     }
 
-    @Override // com.repackage.xr3
-    public sr1 a(@NonNull JSONObject jSONObject, @NonNull wc2 wc2Var) {
-        InterceptResult invokeLL;
+    private void setResult(ar3 ar3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, wc2Var)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("data", gd3.c());
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(65537, this, ar3Var) == null) {
+            this.a.d.clear();
+            if (ar3Var != null) {
+                this.a.d.putString("functionType", ar3Var.a());
+                this.a.d.putString("resultData", ar3Var.b());
+                this.a.d.putInt("resultStatus", ar3Var.c());
             }
-            wc2Var.a(jSONObject2);
-            return null;
+            this.a.c();
         }
-        return (sr1) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.zq3
+    public void a(ar3 ar3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ar3Var) == null) {
+            setResult(ar3Var);
+        }
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.ExcPbPage.DataReq;
 import tbclient.ExcPbPage.ExcPbPageReqIdl;
 /* loaded from: classes3.dex */
@@ -57,7 +57,7 @@ public class ChosenPbNetMessage extends NetMessage {
             builder.scr_dip = Long.valueOf(this.scr_dip);
             builder.tag_code = Long.valueOf(this.tagCode);
             builder.thread_id = Long.valueOf(this.threadId);
-            qc5.a(builder, true);
+            td5.a(builder, true);
             ExcPbPageReqIdl.Builder builder2 = new ExcPbPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

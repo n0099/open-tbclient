@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
-import java.lang.reflect.Field;
+import com.kwad.sdk.utils.q;
 /* loaded from: classes5.dex */
 public class ImageViewAware extends ViewAware {
     public ImageViewAware(ImageView imageView) {
@@ -19,9 +19,7 @@ public class ImageViewAware extends ViewAware {
 
     public static int getImageViewFieldValue(Object obj, String str) {
         try {
-            Field declaredField = ImageView.class.getDeclaredField(str);
-            declaredField.setAccessible(true);
-            int intValue = ((Integer) declaredField.get(obj)).intValue();
+            int intValue = ((Integer) q.a(obj, str)).intValue();
             if (intValue <= 0 || intValue >= Integer.MAX_VALUE) {
                 return 0;
             }

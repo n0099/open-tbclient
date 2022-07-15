@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cz2;
-import com.repackage.dz2;
+import com.repackage.rz2;
+import com.repackage.sz2;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class SwanContextMenuView extends FrameLayout implements cz2.g {
+public class SwanContextMenuView extends FrameLayout implements rz2.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
@@ -73,7 +73,7 @@ public class SwanContextMenuView extends FrameLayout implements cz2.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;
-        public List<dz2> b;
+        public List<sz2> b;
         public final /* synthetic */ SwanContextMenuView c;
 
         /* loaded from: classes2.dex */
@@ -100,7 +100,7 @@ public class SwanContextMenuView extends FrameLayout implements cz2.g {
             }
         }
 
-        public b(SwanContextMenuView swanContextMenuView, Context context, List<dz2> list) {
+        public b(SwanContextMenuView swanContextMenuView, Context context, List<sz2> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,31 +121,31 @@ public class SwanContextMenuView extends FrameLayout implements cz2.g {
         }
 
         public void a(int i) {
-            dz2 dz2Var;
-            dz2.a d;
+            sz2 sz2Var;
+            sz2.a d;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (d = (dz2Var = this.b.get(i)).d()) == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (d = (sz2Var = this.b.get(i)).d()) == null) {
                 return;
             }
-            d.a(dz2Var);
+            d.a(sz2Var);
         }
 
         public final void b(View view2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
                 if (getCount() == 1) {
-                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081130));
+                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810b0));
                 } else if (i == 0) {
-                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081131));
+                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810b1));
                 } else if (i == getCount() - 1) {
-                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08112e));
+                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ae));
                 } else {
-                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08112f));
+                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810af));
                 }
             }
         }
 
-        public void c(List<dz2> list) {
+        public void c(List<sz2> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
                 this.b = list;
@@ -182,32 +182,32 @@ public class SwanContextMenuView extends FrameLayout implements cz2.g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07a7, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c5, (ViewGroup) null);
                     aVar = new a(this);
-                    aVar.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f36);
-                    aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f66);
+                    aVar.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f47);
+                    aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f77);
                     b(view2, i);
                     view2.setTag(aVar);
                 } else {
                     aVar = (a) view2.getTag();
                 }
-                dz2 dz2Var = this.b.get(i);
-                aVar.b.setText(dz2Var.e());
+                sz2 sz2Var = this.b.get(i);
+                aVar.b.setText(sz2Var.e());
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.b.getLayoutParams();
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
-                if (dz2Var.b() != null) {
+                if (sz2Var.b() != null) {
                     aVar.a.setVisibility(0);
-                    aVar.a.setImageDrawable(dz2Var.b());
-                    layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070616));
+                    aVar.a.setImageDrawable(sz2Var.b());
+                    layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070676));
                 } else {
                     aVar.a.setVisibility(8);
-                    layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070615));
+                    layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070675));
                 }
                 aVar.b.setLayoutParams(layoutParams);
                 if (this.c.e) {
                     ((LinearLayout) view2).setGravity(17);
                     layoutParams.width = -2;
-                    if (dz2Var.b() != null) {
+                    if (sz2Var.b() != null) {
                         layoutParams2.setMarginStart(0);
                         aVar.a.setLayoutParams(layoutParams2);
                     } else {
@@ -249,11 +249,11 @@ public class SwanContextMenuView extends FrameLayout implements cz2.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08112d));
+            setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ad));
             ListView listView = new ListView(this.a);
             this.c = listView;
             listView.setCacheColorHint(0);
-            this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060a5c));
+            this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060a53));
             this.c.setDividerHeight(1);
             this.c.setSelector(new ColorDrawable(0));
             addView(this.c, new FrameLayout.LayoutParams(-1, -1));
@@ -261,7 +261,7 @@ public class SwanContextMenuView extends FrameLayout implements cz2.g {
         }
     }
 
-    public void c(List<dz2> list) {
+    public void c(List<sz2> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.b) {
             return;

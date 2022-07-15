@@ -19,7 +19,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.vi3;
+import com.repackage.kj3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
@@ -143,7 +143,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (vi3) null);
+                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (kj3) null);
                 int i = (this.a & 1) != 1 ? 0 : 1;
                 bdtls$ApplicationData.sKR_ = this.b;
                 bdtls$ApplicationData.bitField0_ = i;
@@ -298,7 +298,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         bdtls$ApplicationData.initFields();
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, vi3 vi3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, kj3 kj3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -405,7 +405,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, vi3 vi3Var) {
+    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, kj3 kj3Var) {
         this(builder);
     }
 

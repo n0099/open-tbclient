@@ -571,7 +571,7 @@ public class SwipeBackLayout extends ViewGroup {
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040559, R.attr.obfuscated_res_0x7f04055a, R.attr.obfuscated_res_0x7f04055b, R.attr.obfuscated_res_0x7f04055d});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04055a, R.attr.obfuscated_res_0x7f04055b, R.attr.obfuscated_res_0x7f04055c, R.attr.obfuscated_res_0x7f04055e});
             setDirectionMode(obtainStyledAttributes.getInt(0, this.a));
             setSwipeBackFactor(obtainStyledAttributes.getFloat(3, this.h));
             setMaskAlpha(obtainStyledAttributes.getInteger(2, this.j));

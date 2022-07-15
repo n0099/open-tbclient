@@ -3,6 +3,7 @@ package com.repackage;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -21,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gf;
 /* loaded from: classes6.dex */
-public class ff implements View.OnKeyListener, View.OnClickListener {
+public class ff implements View.OnKeyListener, View.OnClickListener, View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Configuration a;
@@ -354,6 +355,9 @@ public class ff implements View.OnKeyListener, View.OnClickListener {
             } else {
                 maskView.setOnClickListener(this);
             }
+            if (this.a.mAutoDismiss) {
+                maskView.setOnTouchListener(this);
+            }
             for (ef efVar : this.c) {
                 maskView.addView(df.a(activity.getLayoutInflater(), efVar));
             }
@@ -474,16 +478,31 @@ public class ff implements View.OnKeyListener, View.OnClickListener {
         return invokeLIL.booleanValue;
     }
 
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, view2, motionEvent)) == null) {
+            Configuration configuration = this.a;
+            if (configuration == null || !configuration.mAutoDismiss) {
+                return false;
+            }
+            d();
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
     public void p(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, activity) == null) {
             o((ViewGroup) activity.getWindow().getDecorView(), activity, true);
         }
     }
 
     public void q(Activity activity, ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048591, this, activity, viewGroup, z) == null) || viewGroup == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048592, this, activity, viewGroup, z) == null) || viewGroup == null) {
             return;
         }
         if (!z) {

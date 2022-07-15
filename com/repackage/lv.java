@@ -2,6 +2,7 @@ package com.repackage;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.DownloadConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import java.util.ArrayList;
 import javax.crypto.Cipher;
@@ -39,7 +41,7 @@ public final class lv {
             }
         }
         c = new lv();
-        a = new int[]{219, 74, 195, 53, 166, com.kuaishou.weapon.un.w0.i0, 116, 193, MatroskaExtractor.ID_TRACK_ENTRY, 134, 57, MatroskaExtractor.ID_PIXEL_WIDTH, 41, 16, 150, 94, 233, 21, 62, 77, 117, 76, 201, com.kuaishou.weapon.un.w0.c1, 66, 209, 249, 34, 66, 113, 52, 203};
+        a = new int[]{219, 74, DownloadConstants.STATUS_WAITING_FOR_NETWORK, 53, TTAdConstant.IMAGE_MODE_LIVE, 242, 116, 193, MatroskaExtractor.ID_TRACK_ENTRY, 134, 57, MatroskaExtractor.ID_PIXEL_WIDTH, 41, 16, 150, 94, 233, 21, 62, 77, 117, 76, 201, 232, 66, 209, 249, 34, 66, 113, 52, 203};
     }
 
     public lv() {
@@ -101,7 +103,7 @@ public final class lv {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, bArr3)) == null) {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-            Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.un.i1.c);
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             cipher.init(2, secretKeySpec, new IvParameterSpec(bArr));
             return cipher.doFinal(bArr3);
         }

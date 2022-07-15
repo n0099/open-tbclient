@@ -1,103 +1,204 @@
 package com.repackage;
 
+import android.opengl.GLES20;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.Buffer;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class pb0 implements Cloneable {
-    public static /* synthetic */ Interceptable $ic;
+public class pb0 extends ob0 implements qb0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String k = "pb0";
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public int e;
+    public String b;
+    public String c;
+    public ub0 d;
+    public tb0 e;
     public int f;
-    public long g;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755415821, "Lcom/repackage/pb0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755415821, "Lcom/repackage/pb0;");
+        }
+    }
 
     public pb0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 3553;
-        this.b = -1;
-        this.c = false;
-        this.d = false;
-        this.g = 0L;
+        this.b = "uniform mat4 uMVPMatrix;  // MVP 的变换矩阵（整体变形）\nuniform mat4 uTexMatrix;  // Texture 的变换矩阵 （只对texture变形）\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
+        this.c = "#extension GL_OES_EGL_image_external : require\nprecision mediump float; // 指定默认精度\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES uTexture;\nvoid main() {\n    gl_FragColor = texture2D(uTexture, vTextureCoord);\n}\n";
+        new LinkedList();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public pb0 clone() {
-        InterceptResult invokeV;
+    @Override // com.repackage.qb0
+    public void a(rb0 rb0Var, wb0 wb0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return (pb0) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, rb0Var, wb0Var) == null) {
+            ub0 ub0Var = this.d;
+            if (ub0Var != null && ub0Var.e()) {
+                l();
+                d(this.d);
+                c(rb0Var, wb0Var);
+                g(rb0Var, wb0Var);
+                j();
+                k(this.d);
+                f();
+                return;
+            }
+            Log.e(k, "onDraw filter has not been setup!!!");
+        }
+    }
+
+    @Override // com.repackage.qb0
+    public void b(ub0 ub0Var, tb0 tb0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ub0Var, tb0Var) == null) {
+            this.d = ub0Var;
+            this.e = tb0Var;
+            e(this.b, this.c);
+            if (this.a != -1) {
+                h();
+                return;
+            }
+            throw new RuntimeException("Unable to create program");
+        }
+    }
+
+    public void c(rb0 rb0Var, wb0 wb0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, rb0Var, wb0Var) == null) {
+            GLES20.glUniformMatrix4fv(this.g, 1, false, wb0Var.b(), 0);
+            GLES20.glUniformMatrix4fv(this.h, 1, false, wb0Var.c(), 0);
+            GLES20.glEnableVertexAttribArray(this.f);
+            GLES20.glVertexAttribPointer(this.f, rb0Var.a(), 5126, false, rb0Var.f(), (Buffer) rb0Var.d());
+            GLES20.glEnableVertexAttribArray(this.i);
+            GLES20.glVertexAttribPointer(this.i, rb0Var.a(), 5126, false, rb0Var.c(), (Buffer) rb0Var.b());
+        }
+    }
+
+    public void d(ub0 ub0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ub0Var) == null) {
+            GLES20.glActiveTexture(33984);
+            GLES20.glBindTexture(ub0Var.getType(), ub0Var.c());
+            GLES20.glUniform1i(this.j, 0);
+        }
+    }
+
+    public void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            if (this.d.getType() != 36197) {
+                str2 = str2.replaceFirst("#extension GL_OES_EGL_image_external : require", "").replace("samplerExternalOES", "sampler2D");
+            }
+            this.a = yb0.c(str, str2);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            GLES20.glUseProgram(0);
+        }
+    }
+
+    public void g(rb0 rb0Var, wb0 wb0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, rb0Var, wb0Var) == null) {
+            if (wb0Var.e()) {
+                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+                GLES20.glClear(16384);
+            }
+            if (wb0Var.d()) {
+                GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
+                GLES20.glBlendFunc(770, 771);
+            }
+            GLES20.glDrawArrays(5, 0, rb0Var.e());
+            if (wb0Var.d()) {
+                GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
             }
         }
-        return (pb0) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b != -1 : invokeV.booleanValue;
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.j = GLES20.glGetUniformLocation(this.a, "uTexture");
+            this.f = GLES20.glGetAttribLocation(this.a, "aPosition");
+            this.g = GLES20.glGetUniformLocation(this.a, "uMVPMatrix");
+            this.h = GLES20.glGetUniformLocation(this.a, "uTexMatrix");
+            this.i = GLES20.glGetAttribLocation(this.a, "aTextureCoord");
         }
     }
 
-    public int getType() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            GLES20.glDeleteProgram(this.a);
+            this.a = -1;
+        }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "type = " + this.a + " && id = " + this.b + " && cameraFrame" + this.c + " && frontCamera = " + this.d + " && width * height = " + this.e + " * " + this.f + " && timestamp = " + this.g;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            GLES20.glDisableVertexAttribArray(this.f);
+            GLES20.glDisableVertexAttribArray(this.i);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void k(ub0 ub0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, ub0Var) == null) {
+            GLES20.glBindTexture(ub0Var.getType(), 0);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            GLES20.glUseProgram(this.a);
+        }
+    }
+
+    @Override // com.repackage.qb0
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            i();
+        }
     }
 }

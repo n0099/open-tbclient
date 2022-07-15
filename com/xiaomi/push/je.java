@@ -11,7 +11,7 @@ public final class je {
     public final byte a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f804a;
+    public final int f1531a;
     public final byte b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -50,6 +50,6 @@ public final class je {
         }
         this.a = b;
         this.b = b2;
-        this.f804a = i;
+        this.f1531a = i;
     }
 }

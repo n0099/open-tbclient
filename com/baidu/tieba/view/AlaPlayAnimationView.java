@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes4.dex */
 public class AlaPlayAnimationView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -44,7 +43,7 @@ public class AlaPlayAnimationView extends ImageView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 1.0f, 0.0f, 1.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
             this.a = ofFloat;
             ofFloat.setRepeatMode(1);
             this.a.setRepeatCount(-1);

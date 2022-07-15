@@ -1,35 +1,71 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.Base64;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.location.BDLocation;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.swan.apps.impl.nalib.encrypt.EncryptConstant;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.a63;
-import com.repackage.gi3;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lz2;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
 public class ii3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) || (bVar = this.a) == null) {
+                return;
+            }
+            bVar.onResult(i == -1);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onResult(boolean z);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -44,142 +80,91 @@ public class ii3 {
                 return;
             }
         }
-        a = cg1.a;
+        a = rg1.a;
+        b = new String[]{"BLA-AL00", "R7Plus"};
     }
 
-    @Nullable
-    public static String a(String str) {
+    public static DialogInterface.OnClickListener a(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), "AES"), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
-                return Base64.encodeToString(cipher.doFinal(str.getBytes(IMAudioTransRequest.CHARSET)), 2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                JSONObject jSONObject = new JSONObject();
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) ? new a(bVar) : (DialogInterface.OnClickListener) invokeL.objValue;
+    }
+
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return NotificationManagerCompat.from(context).areNotificationsEnabled();
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            String packageName = context.getPackageName();
+            Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
+            intent.setData(Uri.fromParts("package", packageName, null));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            context.startActivity(intent);
+        }
+    }
+
+    public static void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+            if (!Arrays.asList(b).contains(Build.MODEL)) {
+                Intent intent = new Intent();
+                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 26) {
+                    intent.putExtra("android.provider.extra.APP_PACKAGE", context.getPackageName());
+                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                } else if (i >= 21) {
+                    intent.putExtra("app_package", context.getPackageName());
+                    intent.putExtra("app_uid", context.getApplicationInfo().uid);
+                }
                 try {
-                    jSONObject.put("info", "encrypt request param fail with exception : " + e.getMessage());
-                } catch (JSONException e2) {
+                    context.startActivity(intent);
+                    return;
+                } catch (Exception e) {
                     if (a) {
-                        e2.printStackTrace();
+                        Log.e("GuideHelper", "openNotificationSettingPages() Exception:" + e);
                     }
+                    c(context);
+                    return;
                 }
-                f(jSONObject.toString());
-                return null;
             }
+            c(context);
         }
-        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static void b(gi3 gi3Var, hi3 hi3Var) {
-        char c;
+    public static void e(Context context, b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, gi3Var, hi3Var) == null) || gi3Var == null || hi3Var == null) {
-            return;
-        }
-        String str = TextUtils.isEmpty(hi3Var.a) ? "unknown" : hi3Var.a;
-        switch (str.hashCode()) {
-            case -1395470197:
-                if (str.equals("bd09ll")) {
-                    c = 3;
-                    break;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, bVar) == null) {
+            if (!(context instanceof Activity)) {
+                if (a) {
+                    throw new IllegalArgumentException("context must be activity.");
                 }
-                c = 65535;
-                break;
-            case 3017163:
-                if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
-                    c = 0;
-                    break;
-                }
-                c = 65535;
-                break;
-            case 98175376:
-                if (str.equals("gcj02")) {
-                    c = 1;
-                    break;
-                }
-                c = 65535;
-                break;
-            case 113079775:
-                if (str.equals(CoordinateType.WGS84)) {
-                    c = 2;
-                    break;
-                }
-                c = 65535;
-                break;
-            default:
-                c = 65535;
-                break;
+            } else if (bVar == null) {
+            } else {
+                DialogInterface.OnClickListener a2 = a(bVar);
+                lz2.a aVar = new lz2.a(context);
+                aVar.n(new pf3());
+                lz2 c = aVar.c();
+                aVar.U(R.string.obfuscated_res_0x7f0f124d);
+                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f124c));
+                aVar.y();
+                aVar.J(oj2.M().a());
+                aVar.O(R.string.obfuscated_res_0x7f0f124e, a2);
+                aVar.B(R.string.obfuscated_res_0x7f0f124b, a2);
+                aVar.a();
+                c.setCancelable(false);
+                c.show();
+            }
         }
-        int i = c != 0 ? c != 1 ? c != 2 ? c != 3 ? -1 : 3 : 2 : 1 : 0;
-        gi3.c cVar = gi3Var.c;
-        cVar.a = i;
-        cVar.b = hi3Var.b;
-        cVar.c = hi3Var.c;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String e = SwanAppNetworkUtils.e();
-            if ("wifi".equals(e)) {
-                return 1;
-            }
-            if ("2g".equals(e)) {
-                return 2;
-            }
-            if ("3g".equals(e)) {
-                return 3;
-            }
-            if ("4g".equals(e)) {
-                return 4;
-            }
-            return "5g".equals(e) ? 5 : 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        TelephonyManager telephonyManager;
-        String simOperator;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
-                return 0;
-            }
-            if ("46000".equals(simOperator) || "46002".equals(simOperator) || "46007".equals(simOperator)) {
-                return 1;
-            }
-            if ("46001".equals(simOperator)) {
-                return 3;
-            }
-            return "46003".equals(simOperator) ? 2 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean e(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? (context.getResources().getConfiguration().screenLayout & 15) >= 3 : invokeL.booleanValue;
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (a) {
-            Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
-        }
-        a63.b bVar = new a63.b(10003);
-        bVar.i(str);
-        bVar.h(sz2.g0());
-        bVar.m();
     }
 }

@@ -1,112 +1,136 @@
 package com.repackage;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.os.Build;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
+import android.text.TextUtils;
+import android.util.Pair;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.cmic.sso.sdk.auth.AuthnHelper;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ag1 {
+public class ag1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanKV.b a;
-    public boolean b;
-    public boolean c;
-    public final Context d;
 
-    public ag1(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = context;
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public final SwanKV.b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (SwanKV.b) invokeV.objValue;
-    }
-
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public final void e(SwanKV.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.a = bVar;
-        }
-    }
-
-    public boolean equals(Object obj) {
+    public static int a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                return (obj instanceof ag1) && Intrinsics.areEqual(this.d, ((ag1) obj).d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                if (he1.f(context).d()) {
+                    if (Build.VERSION.SDK_INT < 24) {
+                        return -1001;
+                    }
+                    if (sf1.n(context)) {
+                        return SubscriptionManager.getDefaultDataSubscriptionId();
+                    }
+                    return -1002;
+                }
+                return -1000;
+            } catch (Throwable th) {
+                sf1.d(th);
+                return -1001;
             }
-            return true;
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public final Context getContext() {
-        InterceptResult invokeV;
+    public static String b(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) ? z ? str : "" : (String) invokeLZ.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static Pair<Integer, Integer> c(Context context) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Context context = this.d;
-            if (context != null) {
-                return context.hashCode();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int i2 = -1;
+            Pair<Integer, Integer> pair = new Pair<>(-1, -1);
+            try {
+                JSONObject networkType = AuthnHelper.getInstance(context).getNetworkType(context);
+                if (networkType == null) {
+                    return pair;
+                }
+                if (networkType.has("networktype")) {
+                    i2 = Integer.parseInt(networkType.optString("networktype", "-1"));
+                    i = Integer.parseInt(networkType.optString("operatortype", "-1"));
+                } else if (networkType.has("networkType")) {
+                    i2 = Integer.parseInt(networkType.optString("networkType", "-1"));
+                    i = Integer.parseInt(networkType.optString("operatorType", "-1"));
+                } else {
+                    i = -1;
+                }
+                return Pair.create(Integer.valueOf(i2), Integer.valueOf(i));
+            } catch (Throwable th) {
+                sf1.d(th);
+                return pair;
             }
-            return 0;
         }
-        return invokeV.intValue;
+        return (Pair) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static Pair<Integer, String[]> d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "SwanKVConfig(context=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                if (!he1.f(context).d()) {
+                    return new Pair<>(-1, new String[]{String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000)});
+                }
+                if (Build.VERSION.SDK_INT < 22) {
+                    return new Pair<>(-2, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
+                }
+                if (!xf1.a(context, PermissionChecker.READ_PHONE_STATE)) {
+                    return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
+                }
+                if (!sf1.n(context)) {
+                    return new Pair<>(-1, new String[]{String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002)});
+                }
+                List<SubscriptionInfo> activeSubscriptionInfoList = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoList();
+                if (activeSubscriptionInfoList == null) {
+                    return new Pair<>(0, new String[]{String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003)});
+                }
+                String[] strArr = new String[4];
+                int i = 0;
+                for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
+                    int i2 = i * 2;
+                    int simSlotIndex = subscriptionInfo.getSimSlotIndex();
+                    int subscriptionId = subscriptionInfo.getSubscriptionId();
+                    String iccId = subscriptionInfo.getIccId();
+                    if (TextUtils.isEmpty(iccId)) {
+                        iccId = String.valueOf(-1003);
+                    }
+                    strArr[i2] = simSlotIndex + "_" + subscriptionId + "_" + iccId;
+                    CharSequence carrierName = subscriptionInfo.getCarrierName();
+                    if (carrierName != null) {
+                        strArr[i2 + 1] = carrierName.toString();
+                    } else {
+                        strArr[i2 + 1] = String.valueOf(-1003);
+                    }
+                    i++;
+                    if (i >= 2) {
+                        break;
+                    }
+                }
+                for (int i3 = 0; i3 < 4; i3++) {
+                    if (TextUtils.isEmpty(strArr[i3])) {
+                        strArr[i3] = String.valueOf(-1003);
+                    }
+                }
+                return new Pair<>(Integer.valueOf(i), strArr);
+            } catch (Throwable th) {
+                sf1.d(th);
+                return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
+            }
         }
-        return (String) invokeV.objValue;
+        return (Pair) invokeL.objValue;
     }
 }

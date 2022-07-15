@@ -22,13 +22,13 @@ public class bl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public int f135a;
+        public int f862a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f136a;
+        public Object f863a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f137a;
+        public String f864a;
 
         static {
             InterceptResult invokeClinit;
@@ -61,8 +61,8 @@ public class bl {
                     return;
                 }
             }
-            this.f135a = i;
-            this.f136a = obj;
+            this.f862a = i;
+            this.f863a = obj;
         }
     }
 
@@ -89,7 +89,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m194a() {
+    private void m1137a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.a.size() <= 100) {
             return;
@@ -98,7 +98,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m195a() {
+    public synchronized int m1138a() {
         InterceptResult invokeV;
         int size;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m196a() {
+    public synchronized LinkedList<a> m1139a() {
         InterceptResult invokeV;
         LinkedList<a> linkedList;
         Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class bl {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             synchronized (this) {
                 this.a.add(new a(0, obj));
-                m194a();
+                m1137a();
             }
         }
     }

@@ -1,34 +1,32 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes6.dex */
-public class mo9 extends AsyncTask {
+public final class mo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.win.opensdk.k0 a;
-    public final /* synthetic */ String b;
-    public final /* synthetic */ boolean c;
-    public final /* synthetic */ bp9 d;
+    public final byte[] a;
+    public final int[] b;
+    public final to9 c;
+    public InputStream d;
+    public boolean e;
+    public long f;
+    public int g;
+    public int h;
+    public int i;
 
-    public mo9(bp9 bp9Var, String str, boolean z) {
+    public mo9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bp9Var, str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,195 +36,214 @@ public class mo9 extends AsyncTask {
                 return;
             }
         }
-        this.d = bp9Var;
-        this.b = str;
-        this.c = z;
+        this.a = new byte[4160];
+        this.b = new int[1040];
+        this.c = new to9();
+        this.i = 0;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IF] complete} */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00aa A[Catch: all -> 0x00d0, TRY_LEAVE, TryCatch #0 {all -> 0x00d0, blocks: (B:43:0x00a4, B:45:0x00aa), top: B:75:0x00a4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00bf A[Catch: Exception -> 0x00bb, TryCatch #2 {Exception -> 0x00bb, blocks: (B:47:0x00b7, B:51:0x00bf, B:53:0x00c7), top: B:79:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00c7 A[Catch: Exception -> 0x00bb, TRY_LEAVE, TryCatch #2 {Exception -> 0x00bb, blocks: (B:47:0x00b7, B:51:0x00bf, B:53:0x00c7), top: B:79:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // android.os.AsyncTask
+    public static void a(mo9 mo9Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65537, null, mo9Var, z) == null) && mo9Var.e) {
+            int i = ((mo9Var.h << 2) + ((mo9Var.g + 7) >> 3)) - 8;
+            int i2 = mo9Var.i;
+            if (i > i2) {
+                throw new BrotliRuntimeException("Read after end");
+            }
+            if (z && i != i2) {
+                throw new BrotliRuntimeException("Unused bytes after end");
+            }
+        }
+    }
+
+    public static void b(mo9 mo9Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, mo9Var) == null) {
+            InputStream inputStream = mo9Var.d;
+            mo9Var.d = null;
+            if (inputStream != null) {
+                inputStream.close();
+            }
+        }
+    }
+
+    public static void c(mo9 mo9Var, byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65539, null, mo9Var, bArr, i, i2) == null) {
+            if ((mo9Var.g & 7) != 0) {
+                throw new BrotliRuntimeException("Unaligned copyBytes");
+            }
+            while (true) {
+                int i3 = mo9Var.g;
+                if (i3 == 64 || i2 == 0) {
+                    break;
+                }
+                bArr[i] = (byte) (mo9Var.f >>> i3);
+                mo9Var.g = i3 + 8;
+                i2--;
+                i++;
+            }
+            if (i2 == 0) {
+                return;
+            }
+            int min = Math.min(f(mo9Var), i2 >> 2);
+            if (min > 0) {
+                int i4 = min << 2;
+                System.arraycopy(mo9Var.a, mo9Var.h << 2, bArr, i, i4);
+                i += i4;
+                i2 -= i4;
+                mo9Var.h += min;
+            }
+            if (i2 == 0) {
+                return;
+            }
+            if (f(mo9Var) <= 0) {
+                while (i2 > 0) {
+                    try {
+                        int read = mo9Var.d.read(bArr, i, i2);
+                        if (read == -1) {
+                            throw new BrotliRuntimeException("Unexpected end of input");
+                        }
+                        i += read;
+                        i2 -= read;
+                    } catch (IOException e) {
+                        throw new BrotliRuntimeException("Failed to read input", e);
+                    }
+                }
+                return;
+            }
+            d(mo9Var);
+            while (i2 != 0) {
+                long j = mo9Var.f;
+                int i5 = mo9Var.g;
+                bArr[i] = (byte) (j >>> i5);
+                mo9Var.g = i5 + 8;
+                i2--;
+                i++;
+            }
+            a(mo9Var, false);
+        }
+    }
+
+    public static void d(mo9 mo9Var) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mo9Var) == null) || (i = mo9Var.g) < 32) {
+            return;
+        }
+        int[] iArr = mo9Var.b;
+        int i2 = mo9Var.h;
+        mo9Var.h = i2 + 1;
+        mo9Var.f = (iArr[i2] << 32) | (mo9Var.f >>> 32);
+        mo9Var.g = i - 32;
+    }
+
+    public static void e(mo9 mo9Var, InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, mo9Var, inputStream) == null) {
+            if (mo9Var.d == null) {
+                to9.b(mo9Var.c, mo9Var.a, mo9Var.b);
+                mo9Var.d = inputStream;
+                mo9Var.f = 0L;
+                mo9Var.g = 64;
+                mo9Var.h = 1024;
+                mo9Var.e = false;
+                h(mo9Var);
+                return;
+            }
+            throw new IllegalStateException("Bit reader already has associated input stream");
+        }
+    }
+
+    public static int f(mo9 mo9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, mo9Var)) == null) {
+            return (mo9Var.e ? (mo9Var.i + 3) >> 2 : 1024) - mo9Var.h;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void g(mo9 mo9Var) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, mo9Var) == null) && (i = (64 - mo9Var.g) & 7) != 0 && i(mo9Var, i) != 0) {
+            throw new BrotliRuntimeException("Corrupted padding bits");
+        }
+    }
+
+    public static void h(mo9 mo9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, mo9Var) == null) {
+            j(mo9Var);
+            a(mo9Var, false);
+            d(mo9Var);
+            d(mo9Var);
+        }
+    }
+
+    public static int i(mo9 mo9Var, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, mo9Var, i)) == null) {
+            d(mo9Var);
+            long j = mo9Var.f;
+            int i2 = mo9Var.g;
+            int i3 = ((int) (j >>> i2)) & ((1 << i) - 1);
+            mo9Var.g = i2 + i;
+            return i3;
+        }
+        return invokeLI.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003b, code lost:
+        r4.e = true;
+        r4.i = r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0040, code lost:
+        r1 = r1 + 3;
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Object doInBackground(Object[] objArr) {
-        InterceptResult invokeL;
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream;
-        ByteArrayOutputStream byteArrayOutputStream;
-        Bitmap decodeStream;
-        ByteArrayOutputStream byteArrayOutputStream2;
+    public static void j(mo9 mo9Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-            Void[] voidArr = (Void[]) objArr;
-            int i = 1;
-            try {
-                httpURLConnection = (HttpURLConnection) new URL(this.b).openConnection();
-            } catch (Throwable th) {
-                th = th;
-                httpURLConnection = null;
+        if (!(interceptable == null || interceptable.invokeL(65546, null, mo9Var) == null) || (i = mo9Var.h) <= 1015) {
+            return;
+        }
+        if (mo9Var.e) {
+            if (f(mo9Var) < -2) {
+                throw new BrotliRuntimeException("No more input");
+            }
+            return;
+        }
+        int i2 = i << 2;
+        int i3 = 4096 - i2;
+        byte[] bArr = mo9Var.a;
+        System.arraycopy(bArr, i2, bArr, 0, i3);
+        mo9Var.h = 0;
+        while (true) {
+            if (i3 >= 4096) {
+                break;
             }
             try {
-                try {
-                    if (this.c) {
-                        httpURLConnection.connect();
-                        int contentLength = httpURLConnection.getContentLength();
-                        if (contentLength <= 0) {
-                            this.a = new com.win.opensdk.k0("Invalid content length. The URL is probably not pointing to a file");
-                            cancel(true);
-                        }
-                        inputStream = new BufferedInputStream(httpURLConnection.getInputStream(), 8192);
-                        byteArrayOutputStream = new ByteArrayOutputStream();
-                        try {
-                            byte[] bArr = new byte[8192];
-                            long j = 0;
-                            while (true) {
-                                int read = inputStream.read(bArr);
-                                if (read == -1) {
-                                    break;
-                                }
-                                j += read;
-                                byteArrayOutputStream.write(bArr, 0, read);
-                                Integer[] numArr = new Integer[i];
-                                numArr[0] = Integer.valueOf((int) ((100 * j) / contentLength));
-                                publishProgress(numArr);
-                                i = 1;
-                            }
-                            decodeStream = BitmapFactory.decodeByteArray(byteArrayOutputStream.toByteArray(), 0, byteArrayOutputStream.size());
-                            byteArrayOutputStream2 = byteArrayOutputStream;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            try {
-                                if (!isCancelled()) {
-                                    this.a = new com.win.opensdk.k0(th);
-                                    cancel(true);
-                                }
-                                if (httpURLConnection != null) {
-                                    try {
-                                        httpURLConnection.disconnect();
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                        return null;
-                                    }
-                                }
-                                if (byteArrayOutputStream != null) {
-                                    byteArrayOutputStream.flush();
-                                    byteArrayOutputStream.close();
-                                }
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                }
-                                return null;
-                            } catch (Throwable th3) {
-                                if (httpURLConnection != null) {
-                                    try {
-                                        httpURLConnection.disconnect();
-                                    } catch (Exception e2) {
-                                        e2.printStackTrace();
-                                        throw th3;
-                                    }
-                                }
-                                if (byteArrayOutputStream != null) {
-                                    byteArrayOutputStream.flush();
-                                    byteArrayOutputStream.close();
-                                }
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                }
-                                throw th3;
-                            }
-                        }
-                    } else {
-                        inputStream = httpURLConnection.getInputStream();
-                        decodeStream = BitmapFactory.decodeStream(inputStream);
-                        byteArrayOutputStream2 = null;
-                    }
-                    if (httpURLConnection != null) {
-                        try {
-                            httpURLConnection.disconnect();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    if (byteArrayOutputStream2 != null) {
-                        byteArrayOutputStream2.flush();
-                        byteArrayOutputStream2.close();
-                    }
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    return decodeStream;
-                } catch (Throwable th4) {
-                    th = th4;
-                    byteArrayOutputStream = null;
-                    if (!isCancelled()) {
-                    }
-                    if (httpURLConnection != null) {
-                    }
-                    if (byteArrayOutputStream != null) {
-                    }
-                    if (inputStream != null) {
-                    }
-                    return null;
+                int read = mo9Var.d.read(mo9Var.a, i3, 4096 - i3);
+                if (read <= 0) {
+                    break;
                 }
-            } catch (Throwable th5) {
-                th = th5;
-                inputStream = null;
-                byteArrayOutputStream = null;
-                if (!isCancelled()) {
-                }
-                if (httpURLConnection != null) {
-                }
-                if (byteArrayOutputStream != null) {
-                }
-                if (inputStream != null) {
-                }
-                return null;
+                i3 += read;
+            } catch (IOException e) {
+                throw new BrotliRuntimeException("Failed to read input", e);
             }
         }
-        return invokeL.objValue;
+        to9.a(mo9Var.c, i3 >> 2);
     }
 
-    @Override // android.os.AsyncTask
-    public void onCancelled() {
+    public static void k(mo9 mo9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d.b.remove(this.b);
-            this.d.a.a(this.a);
-        }
-    }
-
-    @Override // android.os.AsyncTask
-    public void onPostExecute(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            Bitmap bitmap = (Bitmap) obj;
-            if (bitmap == null) {
-                this.d.a.a(new com.win.opensdk.k0("downloaded file could not be decoded as bitmap"));
-            } else {
-                this.d.a.a(bitmap);
-            }
-            this.d.b.remove(this.b);
-            System.gc();
-        }
-    }
-
-    @Override // android.os.AsyncTask
-    public void onPreExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d.b.add(this.b);
-        }
-    }
-
-    @Override // android.os.AsyncTask
-    public void onProgressUpdate(Object[] objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, objArr) == null) {
-            this.d.a.a(((Integer[]) objArr)[0].intValue());
+        if ((interceptable == null || interceptable.invokeL(65547, null, mo9Var) == null) && mo9Var.g == 64) {
+            h(mo9Var);
         }
     }
 }

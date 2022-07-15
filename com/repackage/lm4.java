@@ -1,105 +1,59 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class lm4 {
+public class lm4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile lm4 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(String str, int i, String str2);
-
-        void b(String str);
-
-        void c(AccountData accountData);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = null;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755524290, "Lcom/repackage/lm4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755524290, "Lcom/repackage/lm4;");
-        }
-    }
+    public int a;
+    public int b;
+    public int c;
 
     public lm4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 1500;
+        this.b = 3000;
+        this.c = 6000;
     }
 
-    public static lm4 b() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (lm4.class) {
-                    if (a == null && (runTask = MessageManager.getInstance().runTask(2001293, lm4.class)) != null && runTask.getData() != null) {
-                        a = (lm4) runTask.getData();
-                    }
-                }
-            }
-            return a;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (lm4) invokeV.objValue;
+        try {
+            jSONObject.optInt("wifiSlow", -1);
+            jSONObject.optInt("threeGSlow", -1);
+            jSONObject.optInt("twoGSlow", -1);
+            int optInt = jSONObject.optInt("wifiLog", -1);
+            if (optInt > 0) {
+                this.a = optInt;
+            }
+            int optInt2 = jSONObject.optInt("threeGLog", -1);
+            if (optInt2 > 0) {
+                this.b = optInt2;
+            }
+            int optInt3 = jSONObject.optInt("twoGLog", -1);
+            if (optInt3 > 0) {
+                this.c = optInt3;
+            }
+            jSONObject.optInt("mobile_cdn_switch", 1);
+        } catch (Exception unused) {
+        }
     }
-
-    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a aVar);
-
-    public abstract b c(String str);
-
-    public abstract void d();
 }

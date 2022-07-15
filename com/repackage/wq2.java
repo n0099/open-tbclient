@@ -1,81 +1,44 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
 /* loaded from: classes7.dex */
-public class wq2 extends RequestBody {
+public class wq2 extends yq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final File a;
-    public final mr2 b;
-    public final String c;
+    public ez2 e;
 
-    public wq2(File file, String str, mr2 mr2Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wq2(ez2 ez2Var) {
+        super(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, str, mr2Var};
+            Object[] objArr = {ez2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = file;
-        this.c = str;
-        this.b = mr2Var;
+        this.e = ez2Var;
     }
 
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.length() : invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaType.parse(this.c) : (MediaType) invokeV.objValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) != null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ez2 ez2Var = this.e;
+            return ez2Var != null && "show".equals(ez2Var.a());
         }
-        Source source = null;
-        try {
-            source = Okio.source(this.a);
-            long j = 0;
-            while (true) {
-                long read = source.read(bufferedSink.buffer(), 2048L);
-                if (read == -1) {
-                    return;
-                }
-                j += read;
-                bufferedSink.flush();
-                this.b.a(j);
-            }
-        } finally {
-            uf4.d(source);
-        }
+        return invokeV.booleanValue;
     }
 }

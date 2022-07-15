@@ -1,11 +1,8 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.os.Message;
-import android.os.RemoteException;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iw2;
-import java.util.ArrayDeque;
-import java.util.Deque;
 /* loaded from: classes6.dex */
-public class ow2 implements iw2.c {
+public abstract class ow2 implements mw2<kw2> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Deque<Message> a;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +30,7 @@ public class ow2 implements iw2.c {
                 return;
             }
         }
-        boolean z = cg1.a;
+        b = rg1.a;
     }
 
     public ow2() {
@@ -48,80 +43,29 @@ public class ow2 implements iw2.c {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayDeque();
-    }
-
-    @Override // com.repackage.iw2.c
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nw2 Q = nw2.Q();
-            while (Q.O() && !this.a.isEmpty()) {
-                Message peek = this.a.peek();
-                if (peek == null || e(peek)) {
-                    this.a.poll();
-                }
             }
         }
     }
 
-    @Override // com.repackage.iw2.c
-    public void b(@NonNull kw2 kw2Var) {
+    @Override // com.repackage.mw2
+    @SuppressLint({"BDThrowableCheck"})
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kw2Var) == null) {
-            Message h = kw2Var.h();
-            h.arg1 = SwanAppProcessInfo.current().index;
-            if (rz2.K().E()) {
-                Object obj = h.obj;
-                if (obj instanceof Bundle) {
-                    Bundle bundle = (Bundle) obj;
-                    if (!bundle.containsKey("ai_apps_id")) {
-                        bundle.putString("ai_apps_id", rz2.K().getAppId());
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                return this.a;
             }
-            if (e(h) || !kw2Var.n()) {
-                return;
+            String str = System.currentTimeMillis() + "" + hashCode();
+            this.a = str;
+            if (b && pw2.a(str)) {
+                throw new RuntimeException("illegal observer id");
             }
-            this.a.offer(h);
-            nw2.Q().c0();
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.iw2.c
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.repackage.iw2.c
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public final boolean e(Message message) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, message)) == null) {
-            nw2 Q = nw2.Q();
-            if (message == null || !Q.O()) {
-                return false;
-            }
-            try {
-                Q.S().send(message);
-                return true;
-            } catch (RemoteException e) {
-                Q.U();
-                sw1.l("SwanMsgSenderOfClient", " sendMsgToService msg = " + message.toString(), e);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
+    @Override // com.repackage.mw2
+    public abstract /* synthetic */ void onEvent(@NonNull T t);
 }

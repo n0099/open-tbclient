@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qm3;
-import com.repackage.sm3;
+import com.repackage.fn3;
+import com.repackage.hn3;
 @Autowired
 /* loaded from: classes2.dex */
 public class SchemeRuntime {
@@ -35,13 +35,13 @@ public class SchemeRuntime {
     public static ISchemeHeadIoc getSchemeHeadIoc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? qm3.a() : (ISchemeHeadIoc) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? fn3.a() : (ISchemeHeadIoc) invokeV.objValue;
     }
 
     @Inject
     public static ISchemeIoc getSchemeIoc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sm3.a() : (ISchemeIoc) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? hn3.a() : (ISchemeIoc) invokeV.objValue;
     }
 }

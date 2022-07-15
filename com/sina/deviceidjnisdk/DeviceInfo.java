@@ -7,6 +7,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +40,7 @@ public class DeviceInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             String str = null;
-            if (isPermissionGranted(context, "android.permission.READ_PHONE_STATE")) {
+            if (isPermissionGranted(context, PermissionChecker.READ_PHONE_STATE)) {
                 try {
                     telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 } catch (Exception unused) {
@@ -74,7 +75,7 @@ public class DeviceInfo {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (isPermissionGranted(context, "android.permission.READ_PHONE_STATE")) {
+            if (isPermissionGranted(context, PermissionChecker.READ_PHONE_STATE)) {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
                     return null;
@@ -94,7 +95,7 @@ public class DeviceInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             String str = null;
-            if (isPermissionGranted(context, "android.permission.ACCESS_WIFI_STATE")) {
+            if (isPermissionGranted(context, PermissionChecker.ACCESS_WIFI_STATE)) {
                 try {
                     WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
                     if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {

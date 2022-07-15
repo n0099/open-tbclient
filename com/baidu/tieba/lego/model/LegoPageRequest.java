@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.qc5;
+import com.repackage.td5;
 import tbclient.Lego.DataReq;
 import tbclient.Lego.LegoReqIdl;
 /* loaded from: classes3.dex */
@@ -56,7 +56,7 @@ public class LegoPageRequest extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qc5.a(builder, true);
+                td5.a(builder, true);
             }
             builder.page_type = Integer.valueOf(this.pageType);
             builder.pn = Integer.valueOf(this.pn);

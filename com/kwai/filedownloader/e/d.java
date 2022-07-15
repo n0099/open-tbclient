@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class d {
+public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,8 +32,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("FileDownloader.");
+            StringBuilder sb = new StringBuilder("FileDownloader.");
             sb.append((obj instanceof Class ? (Class) obj : obj.getClass()).getSimpleName());
             return sb.toString();
         }

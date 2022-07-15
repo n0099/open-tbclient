@@ -1,111 +1,82 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.content.Context;
+import android.location.Address;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class rk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public boolean b;
-    public Runnable c;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rk8 a;
-
-        public a(rk8 rk8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rk8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void a(NetWork netWork, WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
+            netWork.addPostData("is_location", "2");
+            Address j = jf.n().j(false);
+            if (j != null) {
+                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
+                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
             }
-            this.a = rk8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    this.a.b = true;
-                } else {
-                    this.a.a();
-                }
+            LocationData b = nj8.a().b();
+            if (b != null) {
+                netWork.addPostData("name", b.getFormatted_address());
+                netWork.addPostData("sn", b.getSn());
             }
         }
     }
 
-    public rk8(MainTabActivity mainTabActivity, dk8 dk8Var) {
+    public static void b(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, dk8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0701, (ViewGroup) null);
+            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(pi.f(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090918);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e61);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091972);
+            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090646);
+            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091e60);
+            if (imageView != null) {
+                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0101, null));
             }
-        }
-        this.b = false;
-        this.c = new a(this);
-        this.a = mainTabActivity;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TbSingleton.getInstance().getNewUserRedPackageData() == null) {
-            return;
-        }
-        TbSingleton.getInstance().setNewUserRedPackageShowed(true);
-        this.a.sendMessage(new CustomMessage(2002001, new NewUserRedPackageActivityConfig(this.a, TbSingleton.getInstance().getNewUserRedPackageData())));
-        TbSingleton.getInstance().setNewUserRedPackageData(null);
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
-            this.b = false;
-            qg.a().removeCallbacks(this.c);
-            qg.a().postDelayed(this.c, 200L);
+            if (StringUtils.isNull(str)) {
+                str = context.getString(R.string.obfuscated_res_0x7f0f1119);
+            }
+            textView.setText(str);
+            if (str2 != null || str3 != null) {
+                findViewById.setVisibility(0);
+                textView2.setText(str2);
+                textView3.setText(str3);
+            }
+            c(context, inflate);
         }
     }
 
-    public void c() {
+    public static void c(Context context, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            qg.a().removeCallbacks(this.c);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            qg.a().removeCallbacks(this.c);
-            qg.a().postDelayed(this.c, 200L);
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
+            Toast toast = new Toast(context);
+            toast.setView(view2);
+            toast.setGravity(17, 0, 0);
+            toast.setDuration(3000);
+            toast.show();
         }
     }
 }

@@ -1,126 +1,30 @@
 package com.repackage;
 
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
 /* loaded from: classes6.dex */
 public class ni6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public te<byte[]> a;
-    public c b;
+    public final List<an> a;
+    public BdTypeRecyclerView b;
+    public qi6 c;
+    public pi6 d;
+    public oi6 e;
 
-    /* loaded from: classes6.dex */
-    public class a extends ad5<GameForumGuideTabResIdl> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ni6 b;
-
-        public a(ni6 ni6Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ni6Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ni6Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ad5
-        /* renamed from: a */
-        public GameForumGuideTabResIdl doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Wire wire = new Wire(new Class[0]);
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                te teVar = this.b.a;
-                byte[] bArr = (byte[]) teVar.get(currentAccount + this.a);
-                if (bArr == null || bArr.length == 0) {
-                    return null;
-                }
-                try {
-                    return (GameForumGuideTabResIdl) wire.parseFrom(bArr, GameForumGuideTabResIdl.class);
-                } catch (IOException e) {
-                    BdLog.e(e);
-                    return null;
-                }
-            }
-            return (GameForumGuideTabResIdl) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements gc5<GameForumGuideTabResIdl> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ni6 a;
-
-        public b(ni6 ni6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ni6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ni6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.gc5
-        /* renamed from: a */
-        public void onReturnDataInUI(GameForumGuideTabResIdl gameForumGuideTabResIdl) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, gameForumGuideTabResIdl) == null) || gameForumGuideTabResIdl == null) {
-                return;
-            }
-            List<ti6> a = mi6.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            List<nn> b = mi6.b(gameForumGuideTabResIdl.data.thread_list);
-            boolean z = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
-            if (this.a.b != null) {
-                this.a.b.a(a, b, z);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(List<ti6> list, List<nn> list2, boolean z);
-    }
-
-    public ni6() {
+    public ni6(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forumRulesShowActivity, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -130,38 +34,55 @@ public class ni6 {
                 return;
             }
         }
-        this.a = null;
-        this.a = BdCacheService.k().a("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.a = new ArrayList();
+        a(forumRulesShowActivity, bdTypeRecyclerView);
     }
 
-    public void c(String str) {
+    public final void a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a == null || str == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, forumRulesShowActivity, bdTypeRecyclerView) == null) {
+            this.b = bdTypeRecyclerView;
+            this.c = new qi6(forumRulesShowActivity, ui6.m);
+            this.d = new pi6(forumRulesShowActivity, vi6.d);
+            this.e = new oi6(forumRulesShowActivity, ti6.f);
+            this.a.add(this.c);
+            this.a.add(this.d);
+            this.a.add(this.e);
+            bdTypeRecyclerView.a(this.a);
         }
-        ed5.b(new a(this, str), new b(this));
     }
 
-    public void d(String str, byte[] bArr, boolean z) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, z) == null) || str == null || str.length() <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
-        if (z) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            te<byte[]> teVar = this.a;
-            teVar.e(currentAccount + str, bArr, 604800000L);
-            return;
-        }
-        String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-        te<byte[]> teVar2 = this.a;
-        teVar2.i(currentAccount2 + str, bArr, 604800000L);
     }
 
-    public void e(c cVar) {
+    public void c(List<nn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.b = cVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            BdTypeRecyclerView bdTypeRecyclerView = this.b;
+            if (bdTypeRecyclerView != null) {
+                bdTypeRecyclerView.setData(list);
+            }
+            pi6 pi6Var = this.d;
+            if (pi6Var != null) {
+                pi6Var.d0(list);
+            }
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            qi6 qi6Var = this.c;
+            if (qi6Var != null) {
+                qi6Var.setFrom(str);
+            }
+            oi6 oi6Var = this.e;
+            if (oi6Var != null) {
+                oi6Var.setFrom(str);
+            }
         }
     }
 }

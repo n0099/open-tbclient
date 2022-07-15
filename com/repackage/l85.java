@@ -1,144 +1,119 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.common.param.CommonUrlParamManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.tbadk.novel.ReadRecordsData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l85 extends m85 {
+public class l85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long b;
-    public long c;
-    public long d;
-    public int e;
-    public long f;
-    public int g;
-    public b h;
-    public final Handler i;
 
-    /* loaded from: classes6.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l85 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(l85 l85Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l85Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l85Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.a.h = new b(this.a);
-                this.a.h.setSelfExecute(true);
-                this.a.h.execute(new String[0]);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<String, Integer, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l85 a;
-
-        public b(l85 l85Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l85Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l85Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                this.a.g = PerformanceLoggerHelper.getInstance().getCpuUsageStatistic();
-                this.a.e();
-                return Boolean.TRUE;
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
-            }
-        }
-    }
-
-    public l85() {
+    public static String a(String str, String str2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, str, str2, i)) == null) {
+            JSONObject params = SchemeActionHelper.getParams(Uri.parse(str), "data");
+            String str3 = null;
+            try {
+                params.put(str2, i);
+                int indexOf = str.indexOf("data");
+                if (indexOf > 0) {
+                    str3 = str.substring(0, indexOf) + "data=" + params;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return TextUtils.isEmpty(str3) ? str : str3;
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? TbadkCoreApplication.getCurrentAccount() : (String) invokeV.objValue;
+    }
+
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        te<String> i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if ((TbadkCoreApplication.isLogin() || !StringUtils.isNull(str)) && TextUtils.equals(b(), str2) && (i = br4.i("tb.novel_thread_read_record", b(), str)) != null && !StringUtils.isNull(i.get(str))) {
+                return i.get(str);
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921697, Boolean.TRUE));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
+        }
+    }
+
+    public static void e(String str, ReadRecordsData readRecordsData) {
+        te<String> i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, readRecordsData) == null) {
+            if ((!TbadkCoreApplication.isLogin() && StringUtils.isNull(str)) || (i = br4.i("tb.novel_thread_read_record", b(), str)) == null || readRecordsData == null) {
                 return;
             }
+            i.g(str, OrmObject.jsonStrWithObject(readRecordsData));
         }
-        this.h = null;
-        this.i = new a(this, Looper.getMainLooper());
     }
 
-    public final void e() {
-        o85 o85Var;
+    public static String f(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (o85Var = (o85) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, str, str2, str3, str4)) == null) {
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return str;
+            }
+            String queryParameter = parse.getQueryParameter(str2);
+            if (oi.isEmpty(queryParameter)) {
+                return str;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(queryParameter);
+                jSONObject.put(str3, str4);
+                int indexOf = str.indexOf("&data");
+                if (indexOf > 0) {
+                    String substring = str.substring(0, indexOf);
+                    return substring + "&data=" + jSONObject.toString();
+                }
+                return null;
+            } catch (Exception e) {
+                w89.g(e);
+                return str;
+            }
         }
-        o85Var.c(this);
+        return (String) invokeLLLL.objValue;
     }
 
-    public void f() {
+    public static String g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.i.sendEmptyMessage(0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return CommonUrlParamManager.getInstance().processUrl(str) + "&ctv=2&cen=ua_ut_uid";
         }
+        return (String) invokeL.objValue;
     }
 }

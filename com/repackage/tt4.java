@@ -1,69 +1,163 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tt4 extends rt4 {
+public class tt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tt4(Drawable drawable, int i, int i2, int i3) {
-        super(drawable, i);
+    public tt4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(AgreeData agreeData, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, agreeData, str) == null) {
+            AgreeEvent agreeEvent = new AgreeEvent();
+            agreeEvent.agreeData = agreeData;
+            agreeEvent.agreeExtra = str;
+            r65.i(agreeEvent);
+        }
+    }
+
+    public void b(Context context, tn4 tn4Var, AgreeData agreeData, ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, tn4Var, agreeData, threadData) == null) || tn4Var == null || agreeData == null) {
+            return;
+        }
+        BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+        StatisticItem param = new StatisticItem("c13271").param("obj_type", tn4Var.g).param("obj_locate", tn4Var.h).param("obj_id", tn4Var.i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
+        if (threadData != null) {
+            param.param("tid", threadData.getId()).param("nid", threadData.getNid()).param("fid", threadData.getFid()).param("ab_tag", threadData.mRecomAbTag).param("recom_source", threadData.mRecomSource).param("weight", threadData.mRecomWeight).param("extra", threadData.mRecomExtra);
+            if (threadData.getBaijiahaoData() != null) {
+                param.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
+                if (threadData.isBJHVideoThreadType() || threadData.isBJHVideoDynamicThreadType()) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                }
+            }
+            if (threadData.isBjhDynamicThread()) {
+                param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+            } else if (!threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
+                int i = threadData.threadType;
+                if (i == 0 || i == 40) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+                }
+            } else {
+                param.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+            }
+        } else {
+            param.param("tid", agreeData.threadId);
+            param.param("nid", agreeData.nid);
+            param.param("fid", agreeData.forumId);
+            param.param("card_type", agreeData.cardType);
+            param.param("ab_tag", agreeData.recomAbTag);
+            param.param("recom_source", agreeData.recomSource);
+            param.param("weight", agreeData.recomWeight);
+            param.param("extra", agreeData.recomExtra);
+            BaijiahaoData baijiahaoData2 = agreeData.baijiahaoData;
+            if (baijiahaoData2 != null) {
+                param.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData2.oriUgcVid);
+            }
+        }
+        if (context != null) {
+            u85.b(context, param);
+        }
+        TiebaStatic.log(param);
+    }
+
+    public void c(AgreeData agreeData, int i, BdUniqueId bdUniqueId, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{agreeData, Integer.valueOf(i), bdUniqueId, Boolean.valueOf(z)}) == null) {
+            if (agreeData == null) {
+                ns4.a(3, -1);
                 return;
             }
-        }
-        this.a = 0;
-        this.b = 0;
-        this.c = 0;
-        this.a = i2;
-        this.b = i3;
-    }
-
-    @Override // com.repackage.rt4, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            canvas.save();
-            canvas.translate(0.0f, this.c);
-            super.draw(canvas, charSequence, i, i2, f + this.a, i3, i4, i5, paint);
-            canvas.restore();
-        }
-    }
-
-    @Override // com.repackage.rt4, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            if (this.a == 0 && this.b == 0) {
-                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+            httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+            httpMessage.addParam("thread_id", agreeData.threadId);
+            httpMessage.addParam("op_type", i);
+            if (agreeData.objType == 0) {
+                agreeData.objType = 3;
             }
-            return getDrawable().getBounds().width() + this.a + this.b;
+            httpMessage.addParam("obj_type", agreeData.objType);
+            httpMessage.addParam("agree_type", agreeData.agreeType);
+            httpMessage.addParam("forum_id", agreeData.forumId);
+            if (!StringUtil.isEmpty(agreeData.objSource)) {
+                httpMessage.addParam("obj_source", agreeData.objSource);
+            }
+            if (!TextUtils.isEmpty(agreeData.postId)) {
+                httpMessage.addParam("post_id", agreeData.postId);
+            }
+            BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+            if (baijiahaoData != null) {
+                httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
+                httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
+                httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
+                httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
+            }
+            httpMessage.setTag(bdUniqueId);
+            httpMessage.setExtra(Integer.valueOf(i));
+            httpMessage.addHeader("needSig", "1");
+            if (z) {
+                if (!TextUtils.isEmpty(p65.b())) {
+                    httpMessage.addParam(HttpRequest.BDUSS, p65.b());
+                }
+                if (!TextUtils.isEmpty(p65.f())) {
+                    httpMessage.addParam(HttpRequest.TBS, p65.f());
+                }
+                if (!TextUtils.isEmpty(p65.e())) {
+                    httpMessage.addParam("stoken", p65.e());
+                }
+            }
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return invokeCommon.intValue;
+    }
+
+    public void d(AgreeData agreeData, ei8 ei8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, ei8Var) == null) {
+            ei8Var.b = agreeData;
+            if (agreeData.isInThread) {
+                BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+                if (baijiahaoData != null) {
+                    agreeData.nid = baijiahaoData.oriUgcNid;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, ei8Var));
+                a(agreeData, AgreeEvent.IS_THREAD);
+            } else if (agreeData.isInPost) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, ei8Var));
+                a(agreeData, AgreeEvent.IS_POST);
+            }
+        }
     }
 }

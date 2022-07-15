@@ -1,66 +1,73 @@
 package com.repackage;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
+import java.util.List;
+import tbclient.BannerImage;
 /* loaded from: classes5.dex */
-public class bo4 {
+public class bo4 extends BaseCardInfo implements nn {
     public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public xn4 c;
+    public List<ao4> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755820278, "Lcom/repackage/bo4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755820278, "Lcom/repackage/bo4;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
 
     public bo4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
+        this.a = new ArrayList();
     }
 
-    public String a() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 
-    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+    public void parserProtobuf(List<BannerImage> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) == null) || forumHeadlineImgInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
             return;
         }
-        forumHeadlineImgInfo.thread_id.longValue();
-        forumHeadlineImgInfo.thread_user_id.longValue();
-        String str = forumHeadlineImgInfo.thread_user_name;
-        forumHeadlineImgInfo.img_user_id.longValue();
-        String str2 = forumHeadlineImgInfo.img_user_name;
-        this.a = forumHeadlineImgInfo.img_url;
-        this.b = forumHeadlineImgInfo.headline_url;
-        this.c = new xn4();
-        ArrayList<ao4> arrayList = new ArrayList<>();
-        String str3 = this.a;
-        if (str3 == null) {
-            str3 = "";
+        for (BannerImage bannerImage : list) {
+            ao4 ao4Var = new ao4();
+            ao4Var.f(bannerImage);
+            this.a.add(ao4Var);
         }
-        String str4 = this.b;
-        ao4 ao4Var = new ao4(str3, str4 != null ? str4 : "", null);
-        ao4Var.t(true);
-        arrayList.add(ao4Var);
-        this.c.g(arrayList);
     }
 }

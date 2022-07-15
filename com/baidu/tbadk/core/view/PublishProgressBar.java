@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.w0;
 /* loaded from: classes3.dex */
 public class PublishProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -60,9 +59,9 @@ public class PublishProgressBar extends View {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int color = SkinManager.getColor(R.color.CAM_X0302);
             setBackgroundColor(color);
-            getBackground().setAlpha(w0.d0);
+            getBackground().setAlpha(168);
             this.b.setColor(color);
-            this.b.setAlpha(w0.d0);
+            this.b.setAlpha(168);
             postInvalidate();
         }
     }

@@ -1,12 +1,5 @@
 package com.repackage;
 
-import android.net.NetworkInfo;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,413 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.http.ContentType;
-import com.fun.ad.sdk.internal.api.http.PostRequest;
-import com.fun.ad.sdk.internal.api.http.RequestParams;
-import com.fun.ad.sdk.internal.api.http.Response;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.i0;
-import java.io.IOException;
-import java.util.LinkedList;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bc9 implements Reporter {
-    public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ boolean f;
+public class bc9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long b = 922337203685477580L;
+    public static final float[] c;
+    public static final float[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final boolean b;
-    public final Handler c;
-    public final LinkedList<d> d;
-    public boolean e;
-
-    /* loaded from: classes5.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bc9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(bc9 bc9Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bc9Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bc9Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            return;
-                        }
-                        int i2 = message.arg1;
-                        int h = tb9.h();
-                        int a = tb9.a();
-                        int i3 = (i2 - h) - a;
-                        LogPrinter.d("ReportCount: req:%d suc:%d fai:%d mis:%d", Integer.valueOf(i2), Integer.valueOf(h), Integer.valueOf(a), Integer.valueOf(i3));
-                        if (i3 > 0) {
-                            tb9.e("key_rpt_mis_c", i3);
-                            return;
-                        }
-                        return;
-                    }
-                    LogPrinter.v("turn on report switch", new Object[0]);
-                    this.a.e = true;
-                }
-                bc9.a(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements i0.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bc9 a;
-
-        public b(bc9 bc9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bc9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bc9Var;
-        }
-
-        @Override // com.fun.i0.b
-        public void onActiveNetworkInfo(@Nullable NetworkInfo networkInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkInfo) == null) {
-                if (networkInfo != null && networkInfo.isConnected()) {
-                    this.a.c.removeMessages(1);
-                    this.a.c.sendEmptyMessage(1);
-                    return;
-                }
-                this.a.c.removeMessages(1);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final JSONArray b;
-        public final /* synthetic */ bc9 c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(bc9 bc9Var, e eVar) {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bc9Var, eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = bc9Var;
-            this.b = new JSONArray();
-            a(eVar);
-        }
-
-        @Override // com.repackage.bc9.d
-        public d a(d dVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
-                if (a()) {
-                    return this;
-                }
-                if (dVar instanceof e) {
-                    e eVar = (e) dVar;
-                    this.b.put(eVar.d);
-                    eVar.d = null;
-                    return this;
-                } else if (!(dVar instanceof c)) {
-                    throw new IllegalArgumentException("Unknown Event type:" + dVar);
-                } else {
-                    c cVar = (c) dVar;
-                    while (!a() && cVar.b.length() > 0) {
-                        this.b.put(cVar.b.remove(0));
-                    }
-                    return this;
-                }
-            }
-            return (d) invokeL.objValue;
-        }
-
-        @Override // com.repackage.bc9.d
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.length() >= 10 : invokeV.booleanValue;
-        }
-
-        @Override // com.repackage.bc9.d
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.v("ArrayEvent reported succeed with len:%d", Integer.valueOf(this.b.length()));
-                if (this.c.b) {
-                    tb9.e("key_rpt_suc_c", tb9.h() + this.b.length());
-                }
-            }
-        }
-
-        @Override // com.repackage.bc9.d
-        public JSONArray d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (JSONArray) invokeV.objValue;
-        }
-
-        @Override // com.repackage.bc9.f
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                int i = 0;
-                while (this.b.length() > 0 && i < 1) {
-                    this.b.remove(0);
-                    i++;
-                }
-                if (this.c.b) {
-                    tb9.e("key_rpt_fai_c", tb9.a() + i);
-                }
-                LogPrinter.v("cut %d datas from ArrayEvent", Integer.valueOf(i));
-            }
-        }
-
-        @Override // com.repackage.bc9.d
-        public boolean isEmpty() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.length() <= 0 : invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        d a(d dVar);
-
-        boolean a();
-
-        void b();
-
-        long c();
-
-        JSONArray d();
-
-        boolean isEmpty();
-    }
-
-    /* loaded from: classes5.dex */
-    public class e extends f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String b;
-        public final JSONObject c;
-        public JSONObject d;
-        public final /* synthetic */ bc9 e;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(bc9 bc9Var, String str, JSONObject jSONObject) {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bc9Var, str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = bc9Var;
-            this.b = str;
-            this.c = jSONObject;
-            this.d = HostAppInfo.buildReportJson(str, jSONObject, System.currentTimeMillis());
-            if (FunAdSdk.isLogEnabled()) {
-                LogPrinter.v("report Event:" + this, new Object[0]);
-            }
-        }
-
-        @Override // com.repackage.bc9.d
-        public d a(d dVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
-                if (dVar instanceof e) {
-                    c cVar = new c(this.e, this);
-                    cVar.a(dVar);
-                    return cVar;
-                } else if (dVar instanceof c) {
-                    c cVar2 = (c) dVar;
-                    cVar2.a(this);
-                    return cVar2;
-                } else {
-                    throw new IllegalArgumentException("Unknown Event type:" + dVar);
-                }
-            }
-            return (d) invokeL.objValue;
-        }
-
-        @Override // com.repackage.bc9.d
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.repackage.bc9.d
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.v("JSONEvent reported succeed", new Object[0]);
-                if (this.d == null || !this.e.b) {
-                    return;
-                }
-                tb9.e("key_rpt_suc_c", tb9.h() + 1);
-            }
-        }
-
-        @Override // com.repackage.bc9.d
-        public JSONArray d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.d == null) {
-                    return null;
-                }
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.d);
-                return jSONArray;
-            }
-            return (JSONArray) invokeV.objValue;
-        }
-
-        @Override // com.repackage.bc9.f
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.v("give up report JSONEvent", new Object[0]);
-                this.d = null;
-                if (this.e.b) {
-                    tb9.e("key_rpt_fai_c", tb9.a() + 1);
-                }
-            }
-        }
-
-        @Override // com.repackage.bc9.d
-        public boolean isEmpty() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d == null : invokeV.booleanValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return "{key='" + this.b + "', content=" + this.c + '}';
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static abstract class f implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ f(a aVar) {
-            this();
-        }
-
-        @Override // com.repackage.bc9.d
-        public long c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                LogPrinter.v("RetryEvent reported failed with retryCount:%d", Integer.valueOf(this.a));
-                int i = this.a;
-                int i2 = i + 1;
-                this.a = i2;
-                if (i >= 2) {
-                    e();
-                    this.a = 0;
-                    return 0L;
-                }
-                return i2 * 1000;
-            }
-            return invokeV.longValue;
-        }
-
-        public abstract void e();
-    }
+    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -436,163 +30,233 @@ public class bc9 implements Reporter {
                 return;
             }
         }
-        f = !bc9.class.desiredAssertionStatus();
+        c = new float[]{1.0f, 10.0f, 100.0f, 1000.0f, 10000.0f, 100000.0f, 1000000.0f, 1.0E7f, 1.0E8f, 1.0E9f, 1.0E10f, 1.0E11f, 1.0E12f, 1.0E13f, 1.0E14f, 1.0E15f, 1.0E16f, 1.0E17f, 1.0E18f, 1.0E19f, 1.0E20f, 1.0E21f, 1.0E22f, 1.0E23f, 1.0E24f, 1.0E25f, 1.0E26f, 1.0E27f, 1.0E28f, 1.0E29f, 1.0E30f, 1.0E31f, 1.0E32f, 1.0E33f, 1.0E34f, 1.0E35f, 1.0E36f, 1.0E37f, 1.0E38f};
+        d = new float[]{1.0f, 0.1f, 0.01f, 0.001f, 1.0E-4f, 1.0E-5f, 1.0E-6f, 1.0E-7f, 1.0E-8f, 1.0E-9f, 1.0E-10f, 1.0E-11f, 1.0E-12f, 1.0E-13f, 1.0E-14f, 1.0E-15f, 1.0E-16f, 1.0E-17f, 1.0E-18f, 1.0E-19f, 1.0E-20f, 1.0E-21f, 1.0E-22f, 1.0E-23f, 1.0E-24f, 1.0E-25f, 1.0E-26f, 1.0E-27f, 1.0E-28f, 1.0E-29f, 1.0E-30f, 1.0E-31f, 1.0E-32f, 1.0E-33f, 1.0E-34f, 1.0E-35f, 1.0E-36f, 1.0E-37f, 1.0E-38f};
     }
 
-    public bc9(String str, boolean z) {
+    public bc9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.d = new LinkedList<>();
-        this.e = true;
-        this.a = str;
-        this.b = z;
-        HandlerThread handlerThread = new HandlerThread("reporter2");
-        handlerThread.start();
-        a aVar = new a(this, handlerThread.getLooper());
-        this.c = aVar;
-        if (z) {
-            aVar.obtainMessage(3, tb9.g(), 0).sendToTarget();
-        }
-        com.fun.i0.b(new b(this));
     }
 
-    public static void a(bc9 bc9Var) {
-        d pollFirst;
-        JSONArray jSONArray;
-        d peekFirst;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, bc9Var) == null) {
-            while (bc9Var.e) {
-                synchronized (bc9Var.d) {
-                    pollFirst = bc9Var.d.pollFirst();
-                    if (pollFirst == null) {
-                        return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:119:0x008d A[EDGE_INSN: B:119:0x008d->B:44:0x008d ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x003e  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0098  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x009e  */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x00b9 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x00ba  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x00de  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public float b(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        boolean z;
+        int i3;
+        int i4;
+        boolean z2;
+        int i5;
+        int i6;
+        int i7;
+        float f;
+        char charAt;
+        int i8;
+        boolean z3;
+        boolean z4;
+        char charAt2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, i2)) == null) {
+            this.a = i;
+            if (i >= i2) {
+                return Float.NaN;
+            }
+            char charAt3 = str.charAt(i);
+            if (charAt3 == '+') {
+                z = false;
+            } else if (charAt3 != '-') {
+                z = false;
+                int i9 = this.a;
+                long j = 0;
+                i3 = 0;
+                i4 = 0;
+                int i10 = 0;
+                z2 = false;
+                int i11 = 0;
+                while (true) {
+                    i5 = this.a;
+                    if (i5 >= i2) {
+                        break;
                     }
-                    while (!pollFirst.a() && !bc9Var.d.isEmpty() && (peekFirst = bc9Var.d.peekFirst()) != null) {
-                        pollFirst = pollFirst.a(peekFirst);
-                        if (peekFirst.isEmpty()) {
-                            bc9Var.d.removeFirst();
-                        } else if (!f && !pollFirst.a()) {
-                            throw new AssertionError();
+                    char charAt4 = str.charAt(i5);
+                    if (charAt4 == '0') {
+                        if (i3 == 0) {
+                            i10++;
+                        } else {
+                            i4++;
                         }
+                    } else if (charAt4 >= '1' && charAt4 <= '9') {
+                        int i12 = i3 + i4;
+                        while (i4 > 0) {
+                            if (j > b) {
+                                return Float.NaN;
+                            }
+                            j *= 10;
+                            i4--;
+                        }
+                        if (j > b) {
+                            return Float.NaN;
+                        }
+                        j = (j * 10) + (charAt4 - '0');
+                        i3 = i12 + 1;
+                        if (j < 0) {
+                            return Float.NaN;
+                        }
+                    } else if (charAt4 != '.' || z2) {
+                        break;
+                    } else {
+                        i11 = this.a - i9;
+                        z2 = true;
                     }
+                    this.a++;
                 }
-                if (bc9Var.c(pollFirst.d())) {
-                    pollFirst.b();
-                    if (bc9Var.b) {
-                        int a2 = tb9.a();
-                        int f2 = tb9.f();
-                        if (a2 > 0 || f2 > 0) {
-                            int h = tb9.h();
-                            JSONObject jSONObject = new JSONObject();
-                            try {
-                                jSONObject.put("fai", a2);
-                                jSONObject.put("suc", h);
-                                jSONObject.put("mis", f2);
-                            } catch (JSONException unused) {
+                if (z2 || this.a != i11 + 1) {
+                    if (i3 == 0) {
+                        if (i10 == 0) {
+                            return Float.NaN;
+                        }
+                        i3 = 1;
+                    }
+                    if (z2) {
+                        i4 = (i11 - i10) - i3;
+                    }
+                    i6 = this.a;
+                    if (i6 < i2 && ((charAt = str.charAt(i6)) == 'E' || charAt == 'e')) {
+                        i8 = this.a + 1;
+                        this.a = i8;
+                        if (i8 != i2) {
+                            return Float.NaN;
+                        }
+                        char charAt5 = str.charAt(i8);
+                        if (charAt5 == '+') {
+                            z3 = false;
+                        } else if (charAt5 != '-') {
+                            switch (charAt5) {
+                                case '0':
+                                case '1':
+                                case '2':
+                                case '3':
+                                case '4':
+                                case '5':
+                                case '6':
+                                case '7':
+                                case '8':
+                                case '9':
+                                    z3 = false;
+                                    z4 = false;
+                                    break;
+                                default:
+                                    this.a--;
+                                    z3 = false;
+                                    z4 = true;
+                                    break;
                             }
-                            e eVar = new e(bc9Var, "k_rpt", jSONObject);
-                            if (eVar.d == null) {
-                                jSONArray = null;
-                            } else {
-                                jSONArray = new JSONArray();
-                                jSONArray.put(eVar.d);
+                            if (!z4) {
+                                int i13 = this.a;
+                                int i14 = 0;
+                                while (true) {
+                                    int i15 = this.a;
+                                    if (i15 < i2 && (charAt2 = str.charAt(i15)) >= '0' && charAt2 <= '9') {
+                                        if (i14 > b) {
+                                            return Float.NaN;
+                                        }
+                                        i14 = (i14 * 10) + (charAt2 - '0');
+                                        this.a++;
+                                    }
+                                }
+                                if (this.a == i13) {
+                                    return Float.NaN;
+                                }
+                                i4 = z3 ? i4 - i14 : i4 + i14;
                             }
-                            if (bc9Var.c(jSONArray)) {
-                                tb9.d(a2, h, f2);
-                            }
+                        } else {
+                            z3 = true;
+                        }
+                        this.a++;
+                        z4 = false;
+                        if (!z4) {
                         }
                     }
-                } else {
-                    long c2 = pollFirst.c();
-                    if (!pollFirst.isEmpty()) {
-                        synchronized (bc9Var.d) {
-                            bc9Var.d.addFirst(pollFirst);
-                        }
+                    i7 = i3 + i4;
+                    if (i7 <= 39 || i7 < -44) {
+                        return Float.NaN;
                     }
-                    if (c2 > 0) {
-                        LogPrinter.v("turn off report switch, reScheduleReport delay:%dms", Long.valueOf(c2));
-                        bc9Var.e = false;
-                        if (!bc9Var.c.hasMessages(2)) {
-                            bc9Var.c.sendEmptyMessageDelayed(2, c2);
+                    long j2 = j;
+                    float f2 = (float) j2;
+                    if (j2 != 0) {
+                        if (i4 > 0) {
+                            f = c[i4];
+                        } else if (i4 < 0) {
+                            if (i4 < -38) {
+                                f2 = (float) (f2 * 1.0E-20d);
+                                i4 += 20;
+                            }
+                            f = d[-i4];
                         }
+                        f2 *= f;
                     }
+                    return z ? -f2 : f2;
                 }
-            }
-        }
-    }
-
-    public final boolean c(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Response response;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
-            try {
-                response = new PostRequest(this.a, new RequestParams(jSONArray.toString(), ContentType.JSON), true).perform();
-            } catch (IOException e2) {
-                LogPrinter.e(e2);
-                response = null;
-            }
-            return response != null && response.getResponseCode() == 200;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
-    public void logEvent(String str, String str2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, obj) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(str2, obj);
-            } catch (JSONException unused) {
-            }
-            logEvent(str, jSONObject);
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
-    public void logEvent(String str, Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, map) == null) {
-            logEvent(str, new JSONObject(map));
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
-    public void logEvent(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, jSONObject) == null) {
-            e eVar = new e(this, str, jSONObject);
-            if (this.b) {
-                tb9.j();
-            }
-            synchronized (this.d) {
-                this.d.add(eVar);
-            }
-            NetworkInfo networkInfo = com.fun.i0.a;
-            boolean z = false;
-            if (!(networkInfo != null && networkInfo.isConnected()) || this.c.hasMessages(1)) {
-                return;
-            }
-            Handler handler = this.c;
-            long j = tb9.b.getLong("key_flt", 0L);
-            if (j > 0 && System.currentTimeMillis() - j >= 86400000) {
+                return Float.NaN;
+            } else {
                 z = true;
             }
-            handler.sendEmptyMessageDelayed(1, z ? 5000L : 0L);
+            this.a++;
+            int i92 = this.a;
+            long j3 = 0;
+            i3 = 0;
+            i4 = 0;
+            int i102 = 0;
+            z2 = false;
+            int i112 = 0;
+            while (true) {
+                i5 = this.a;
+                if (i5 >= i2) {
+                }
+                this.a++;
+            }
+            if (z2) {
+            }
+            if (i3 == 0) {
+            }
+            if (z2) {
+            }
+            i6 = this.a;
+            if (i6 < i2) {
+                i8 = this.a + 1;
+                this.a = i8;
+                if (i8 != i2) {
+                }
+            }
+            i7 = i3 + i4;
+            if (i7 <= 39) {
+            }
+            return Float.NaN;
         }
+        return invokeLII.floatValue;
     }
 }
